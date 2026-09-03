@@ -262,9 +262,25 @@ ServerEvents.recipes(event => {
 
   // Q26 -> Q30: lake sand washes into silica. Handed as a bench recipe so the
   // Create fan setup is a choice, not a requirement.
-  event.shapeless('valley:washed_silica', [
-    'valley:lake_sand', 'valley:lake_sand', 'minecraft:water_bucket'
+  //
+  // Batched 8 -> 4 on purpose. The ratio is still two sand per silica (128 sand
+  // is exactly the 64 Q30 asks for), but a water bucket leaves an EMPTY BUCKET
+  // in the grid, so a 2 -> 1 recipe meant 64 separate crafts and 64 refills.
+  // Eight sand plus the bucket fills the 3x3 exactly: 16 crafts, 16 refills.
+  event.shapeless('4x valley:washed_silica', [
+    'valley:lake_sand', 'valley:lake_sand', 'valley:lake_sand', 'valley:lake_sand',
+    'valley:lake_sand', 'valley:lake_sand', 'valley:lake_sand', 'valley:lake_sand',
+    'minecraft:water_bucket'
   ]).id('valley:craft/washed_silica')
+
+  // The fan path Q30's text promises. Written as raw json because this pack
+  // has no kubejs-create addon, so event.recipes.create.splashing does not
+  // exist here. One for one, and no buckets: the payoff for building the fan.
+  event.custom({
+    type: 'create:splashing',
+    ingredients: [{ item: 'valley:lake_sand' }],
+    results: [{ item: 'valley:washed_silica' }]
+  }).id('valley:craft/splashing_silica')
 
   // Firewood, blankets and lanterns are chores, not puzzles.
   event.shapeless('valley:firewood_bundle', [
@@ -284,6 +300,28 @@ ServerEvents.recipes(event => {
     'PPP'
   ], { P: 'minecraft:paper', T: 'minecraft:torch' })
     .id('valley:craft/paper_lantern')
+
+  // Q62: Halden's Winter Tonic. Eight bottles, eight neighbours; there was no
+  // recipe at all and Q62 was a hard stop. Q23 pays 4 Flasks and 16 Green Tea
+  // Leaves, and sugar is the reeds under Wisp's stilt house, so the flask
+  // recipe alone covers the eight. The glass-bottle version exists so a lost
+  // flask can never end the quest.
+  event.shapeless('2x valley:winter_tonic', [
+    'herbalbrews:flask', 'herbalbrews:green_tea_leaf', 'minecraft:sugar'
+  ]).id('valley:craft/winter_tonic')
+
+  event.shapeless('valley:winter_tonic', [
+    'minecraft:glass_bottle', 'herbalbrews:green_tea_leaf', 'minecraft:sugar'
+  ]).id('valley:craft/winter_tonic_bottle')
+
+  // Q89: "cast a bell from the quarry's own copper". Vanilla ships no bell
+  // recipe at all, so there is nothing to remove — this is the only one.
+  event.shaped('minecraft:bell', [
+    ' C ',
+    'CBC',
+    ' C '
+  ], { C: 'minecraft:copper_ingot', B: 'minecraft:copper_block' })
+    .id('valley:craft/bell')
 
   event.shapeless('4x valley:chicken_feed', [
     'minecraft:wheat_seeds', 'minecraft:wheat', 'minecraft:bone_meal'

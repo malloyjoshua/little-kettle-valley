@@ -58,14 +58,14 @@
 			title: "Fill Three Bottles at the Spring"
 			subtitle: "Above the hedge garden, with Halden."
 			icon: "valley:spring_water"
-			description: ["Halden: \"There's a spring above the hedge garden, and Josie used it for the quartz, not the tea. I'll walk up with you.\"", "", "Follow Halden to the spring above the hedge garden and fill 3 bottles of Spring Water there.", "", "Spring Water is what grows certus quartz, which is the tech lane's next gate — and Josie's jar of sixteen crystals has been on Halden's shelf for four years."]
+			description: ["Halden: \"There's a spring above the hedge garden, and Josie used it for the quartz, not the tea. I'll walk up with you.\"", "", "Follow Halden to the spring above the hedge garden and pour out the 3 bottles Q23 left you, then fill them there. He tops you up to six.", "", "Spring Water is what grows certus quartz, which is the tech lane's next gate — and Josie's jar of sixteen crystals has been on Halden's shelf for four years."]
 			x: 4.0d
 			y: -1.5d
 			dependencies: ["5C9E4AA1B6ADCEA6"]
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
-			tasks: [{ id: "2585ACFEDA617BE6", type: "item", item: "valley:spring_water", count: 3L }]
-			rewards: [{ id: "C0F7A251FBFD4F0F", type: "item", item: "valley:spring_water", count: 3 }, { id: "70D786EA782D6C0C", type: "item", item: "ae2:certus_quartz_crystal", count: 16 }, { id: "2ADA794E479DA8BF", type: "item", item: "herbalbrews:tea_kettle" }, { id: "6316D0CEC7217DE6", type: "item", item: "herbalbrews:copper_tea_kettle" }, { id: "FFE1FAB13191BC99", type: "stage", stage: "springwater" }, { id: "D239DAA62F015BBE", type: "command", command: "/tellraw @p [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"She left the jar with me. I never asked what for. I think I knew.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "1407319A00B5E65F", type: "toast", title: "Spring Water bottled", description: "Next: Marnie's crate by the counter — 4 pies, 4 jams and 4 jars of pickles." }]
+			tasks: [{ id: "7C48DCF34C39D9C6", type: "item", item: "valley:spring_water", count: 3L, consume_items: true }, { id: "C8AA6AB10DC54AF3", type: "checkmark", title: "You are standing at the spring above the hedge garden" }]
+			rewards: [{ id: "C272092AC864785B", type: "item", item: "valley:spring_water", count: 6 }, { id: "70D786EA782D6C0C", type: "item", item: "ae2:certus_quartz_crystal", count: 16 }, { id: "2ADA794E479DA8BF", type: "item", item: "herbalbrews:tea_kettle" }, { id: "6316D0CEC7217DE6", type: "item", item: "herbalbrews:copper_tea_kettle" }, { id: "FFE1FAB13191BC99", type: "stage", stage: "springwater" }, { id: "D239DAA62F015BBE", type: "command", command: "/tellraw @p [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"She left the jar with me. I never asked what for. I think I knew.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "1407319A00B5E65F", type: "toast", title: "Spring Water bottled", description: "Next: Marnie's crate by the counter — 4 pies, 4 jams and 4 jars of pickles." }]
 		}
 		{
 			id: "A340A46B5E7C8359"
@@ -139,16 +139,16 @@
 		}
 		{
 			id: "5B08E1A0810FCBFF"
-			title: "Bring Wisp Twelve Marsh Rice"
+			title: "Cut Wisp Twelve Rice Panicles"
 			subtitle: "The marked plants downstream."
-			icon: "farmersdelight:rice"
-			description: ["Wisp: \"Downstream is many rice and they are ready all on the same day, which is rude of them, but good for us!\"", "", "Harvest 12 Rice from the marked plants downstream and hand them to Wisp at the reed village.", "", "Wisp pays in rare marsh seed and the whole frog-village decor set — and the Ribbits start coming up to town."]
+			icon: "farmersdelight:rice_panicle"
+			description: ["Wisp: \"Downstream is many rice and they are ready all on the same day, which is rude of them, but good for us!\"", "", "Cut 12 Rice Panicles from the marked plants downstream — the whole heads, not the milled rice off Oda's shelf — and hand them to Wisp at the reed village.", "", "Wisp pays in rare marsh seed and the whole frog-village decor set — and the Ribbits start coming up to town."]
 			x: 14.0d
 			y: -0.8d
 			dependencies: ["EB74496143CDDB11"]
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
-			tasks: [{ id: "9F1F32C10636BB4B", type: "item", item: "farmersdelight:rice", count: 12L, consume_items: true }]
+			tasks: [{ id: "9EAF1DAC43AC1F9C", type: "item", item: "farmersdelight:rice_panicle", count: 12L, consume_items: true }]
 			rewards: [{ id: "070184D3E1947DAF", type: "item", item: "farmersdelight:rice_panicle", count: 16 }, { id: "2814B9C0E25BD17E", type: "item", item: "ribbits:swamp_lantern", count: 8 }, { id: "49CCE70DED496D27", type: "item", item: "ribbits:giant_lilypad", count: 4 }, { id: "A17E6FA3FF9E40A8", type: "item", item: "ribbits:toadstool", count: 8 }, { id: "57CB7CEC76F87645", type: "item", item: "perfectplushies:frog_plushie" }, { id: "811513D8087A2AB5", type: "item", item: "valley:scrip", count: 15 }, { id: "74249132DD30F7FB", type: "toast", title: "Marsh harvest in", description: "Next: Nella is on the pier. Eight fillets salted into the granary before the lake turns." }]
 		}
 		{
@@ -156,21 +156,21 @@
 			title: "Salt Eight Fillets into the Granary"
 			subtitle: "Eight Cooked Fish Fillets into the granary drawers."
 			icon: "aquaculture:fish_fillet_cooked"
-			description: ["Nella: \"Eight fillets, salted, straight into the granary drawers. Ice fishing works too, but this is the easy way round.\"", "", "Catch fish off the pier, cure 8 Cooked Fish Fillets from them, and put all eight in the granary drawers.", "", "That's fish in the granary and a salt barrel on the pier — one of the four things the Harvest Supper is waiting on."]
+			description: ["Nella: \"Eight fillets, salted, straight into the granary drawers. Ice fishing works too, but this is the easy way round.\"", "", "Catch fish off the pier, cure 8 Cooked Fish Fillets from them, and put all eight in the granary drawers.", "", "That's fish in the granary and a salt barrel on the pier — and Marnie's crate of twelve bowls, twelve bricks, twelve iron and twelve copper, which is the twelve place settings the long table wants."]
 			x: 16.0d
 			y: 0.0d
 			dependencies: ["5B08E1A0810FCBFF"]
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "D9484E6AC63373AB", type: "item", item: "aquaculture:fish_fillet_cooked", count: 8L, consume_items: true }]
-			rewards: [{ id: "11437763F7807ECF", type: "item", item: "minecraft:barrel" }, { id: "BCF13659AE3D8261", type: "item", item: "aquaculture:oak_fish_mount", count: 2 }, { id: "23909F2647A0998F", type: "item", item: "aquaculture:iron_fishing_rod" }, { id: "7766FF2D21A8BC9D", type: "item", item: "valley:scrip", count: 15 }, { id: "B1FC09C65F9BFB1F", type: "command", command: "/tellraw @p [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"Eight. Fine. That's the lake settled.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "3247D3F7E66DDA1C", type: "toast", title: "Fish in the granary", description: "Next: the long table. Twelve place settings and the centrepiece, once the cellar is open." }]
+			rewards: [{ id: "11437763F7807ECF", type: "item", item: "minecraft:barrel" }, { id: "BCF13659AE3D8261", type: "item", item: "aquaculture:oak_fish_mount", count: 2 }, { id: "23909F2647A0998F", type: "item", item: "aquaculture:iron_fishing_rod" }, { id: "C0F5585D089A6AE7", type: "item", item: "minecraft:bowl", count: 12 }, { id: "FEF936AD2D142A95", type: "item", item: "minecraft:brick", count: 12 }, { id: "BCB2A06F2D953E53", type: "item", item: "minecraft:iron_ingot", count: 12 }, { id: "9390954985D35C7B", type: "item", item: "minecraft:copper_ingot", count: 12 }, { id: "7766FF2D21A8BC9D", type: "item", item: "valley:scrip", count: 15 }, { id: "B1FC09C65F9BFB1F", type: "command", command: "/tellraw @p [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"Eight. Fine. That's the lake settled.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "B1C3A527F9BAE531", type: "toast", title: "Fish in the granary", description: "Next: the long table. Twelve Place Settings from the crate in this payout, and the centrepiece, once the cellar is open." }]
 		}
 		{
 			id: "B4538B89B64CC7D7"
 			title: "Dig Out Tobin's Adit"
 			subtitle: "About 90 marked blocks in the hillside."
 			icon: "geolosys:prospectors_pick"
-			description: ["Tobin: \"Three cores, all copper-rich, all the same seam — so it isn't a pocket, it's a run. I've marked about ninety blocks, give or take.\"", "", "Take Tobin's 3 core samples to the marked hillside, dig out the adit — roughly 90 marked blocks — and open the Lootr chest at the back.", "", "The chest holds Josie's Kettle Plate. Hold on to it: Halden is the one who can read it, and that quest opens once the bakery line is done."]
+			description: ["Tobin: \"Three cores, all copper-rich, all the same seam — so it isn't a pocket, it's a run. I've marked about ninety blocks, give or take.\"", "", "Take Tobin's 3 core samples to the marked hillside, dig out the adit — roughly 90 marked blocks — and open the Lootr chest at the back.", "", "The chest holds Josie's Kettle Plate, and the seam pays out raw: 48 copper, 16 tin, 16 gold, 16 silver. Hold on to the plate — Halden is the one who can read it, and that quest opens once the bakery line is done."]
 			x: 0.0d
 			y: 0.8d
 			dependencies: ["844F10540A7996F8"]
@@ -179,35 +179,35 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "E3F247500B90873C", type: "checkmark", title: "Adit cleared and the Lootr chest opened" }]
-			rewards: [{ id: "805C9ABD818304CC", type: "item", item: "valley:kettle_plate_a" }, { id: "E2CD04FF347948EF", type: "item", item: "geolosys:prospectors_pick" }, { id: "98C3CF3392A50754", type: "item", item: "thermal:bronze_ingot", count: 64 }, { id: "6D777280E3C85258", type: "item", item: "thermal:electrum_ingot", count: 64 }, { id: "0FC7D9A142C8CABA", type: "loot", table_id: 10797532679477389079L }, { id: "B38CEEBF87782D7F", type: "command", command: "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Copper, iron, gold AND silver, all in one run, and I'm going to talk about it for a week.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "57F075B13E80EC9B", type: "toast", title: "The adit is open", description: "Next: build a Thermal Induction Smelter at the mill and alloy 8 bronze and 8 electrum." }]
+			rewards: [{ id: "805C9ABD818304CC", type: "item", item: "valley:kettle_plate_a" }, { id: "E2CD04FF347948EF", type: "item", item: "geolosys:prospectors_pick" }, { id: "CE752BE90727A847", type: "item", item: "minecraft:raw_copper", count: 48 }, { id: "58519312D108782B", type: "item", item: "thermal:raw_tin", count: 16 }, { id: "8F2F85A5F1EC0162", type: "item", item: "minecraft:raw_gold", count: 16 }, { id: "7A8C46BD66592EF6", type: "item", item: "thermal:raw_silver", count: 16 }, { id: "0FC7D9A142C8CABA", type: "loot", table_id: 10797532679477389079L }, { id: "B38CEEBF87782D7F", type: "command", command: "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Copper, iron, gold AND silver, all in one run, and I'm going to talk about it for a week.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "96FB0FF1A7BC3774", type: "toast", title: "The adit is open", description: "Next: build a Thermal Induction Smelter at the mill and run Tobin's raw ore through it — 16 bronze and 16 electrum." }]
 		}
 		{
 			id: "F6EEF65327004696"
-			title: "Alloy Eight Bronze, Eight Electrum"
+			title: "Alloy Sixteen Bronze, Sixteen Electrum"
 			subtitle: "Build the Induction Smelter first."
 			icon: "thermal:machine_smelter"
-			description: ["Bram: \"Smelter takes two inputs and gives you back more than you put in. Three copper and one tin makes four bronze; one gold and one silver makes two electrum. That's the whole machine.\"", "", "Build a Thermal Induction Smelter in the mill workshop, then hold 8 Bronze Ingots and 8 Electrum Ingots.", "", "It pays out the Centrifugal Separator, 64 Energy Duct and 2 spare Machine Frames — the entire bill for the energy cell and the rail line."]
+			description: ["Bram: \"Smelter takes two inputs and gives you back more than you put in. Three copper and one tin makes four bronze; one gold and one silver makes two electrum. That's the whole machine.\"", "", "Build a Thermal Induction Smelter in the mill workshop and run Tobin's raw ore through it until you have 16 Bronze Ingots and 16 Electrum Ingots. The smelter takes them; 12 copper and 4 tin is the bronze, 8 gold and 8 silver is the electrum.", "", "It pays out the Centrifugal Separator, 64 Energy Duct and 2 spare Machine Frames — the entire bill for the energy cell and the rail line."]
 			x: 2.0d
 			y: 1.5d
 			dependencies: ["B4538B89B64CC7D7"]
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
-			tasks: [{ id: "ED8509580A679DD2", type: "item", item: "thermal:machine_smelter", count: 1L }, { id: "A88EF185DB802491", type: "item", item: "thermal:bronze_ingot", count: 8L }, { id: "02E8B0C8E598A123", type: "item", item: "thermal:electrum_ingot", count: 8L }]
-			rewards: [{ id: "8202229A2AAC648D", type: "item", item: "thermal:machine_centrifuge" }, { id: "BFBE1DEE53C661F3", type: "item", item: "thermal:energy_duct", count: 64 }, { id: "5D49F58668AF8362", type: "item", item: "thermal:machine_frame", count: 2 }, { id: "49D397878552E8CD", type: "loot", table_id: 10224540141677657293L }, { id: "6122FF3FB2AE4C85", type: "toast", title: "Alloys running", description: "Next: charge a Thermal Energy Cell off the dynamos and run Energy Duct to the inn." }]
+			tasks: [{ id: "ED8509580A679DD2", type: "item", item: "thermal:machine_smelter", count: 1L }, { id: "B7E5F6753CD0E2B4", type: "item", item: "thermal:bronze_ingot", count: 16L, consume_items: true }, { id: "D1B2141441900791", type: "item", item: "thermal:electrum_ingot", count: 16L, consume_items: true }]
+			rewards: [{ id: "8202229A2AAC648D", type: "item", item: "thermal:machine_centrifuge" }, { id: "BFBE1DEE53C661F3", type: "item", item: "thermal:energy_duct", count: 64 }, { id: "5D49F58668AF8362", type: "item", item: "thermal:machine_frame", count: 2 }, { id: "49D397878552E8CD", type: "loot", table_id: 10224540141677657293L }, { id: "CAADEB8CD77DB51E", type: "toast", title: "Alloys running", description: "Next: charge a Thermal Energy Cell off the dynamos and run Energy Duct to the inn. While Marnie's preserving line finishes, Oda sells Machine Frames at 25 Scrip and the granary drawers still are not bussed." }]
 		}
 		{
 			id: "92CF0601171AFE5B"
 			title: "Run Energy Duct to the Inn"
 			subtitle: "Cell on the wall, duct to Marnie's kitchen."
 			icon: "thermal:energy_cell"
-			description: ["Bram: \"Cell on the wall, duct to the inn, and Marnie gets her fridge. That's the whole job — don't overthink it.\"", "", "Charge a Thermal Energy Cell off your dynamos, then run Energy Duct from the mill until the line ends within 12 blocks of the inn. Bram has the coils; the Cell Frame is twelve Scrip on Oda's board and she will not be talked down — frame, four RF Coils and a bucket of redstone is the cell.", "", "That's the Works Power Tap: the Fridge, the Sink and the Milk Jar become craftable, and one is in this payout already."]
+			description: ["Bram: \"Cell on the wall, duct to the inn, and Marnie gets her fridge. That's the whole job — don't overthink it.\"", "", "Charge a Thermal Energy Cell off your dynamos, then run Energy Duct from the mill until the line ends within 12 blocks of the inn. Bram has the coils; the Cell Frame is twelve Scrip on Oda's board and she will not be talked down — frame, four RF Coils and a bucket of redstone is the cell.", "", "That is what the Works Power Tap is for: four of them come off the line in this payout, and one goes into every Fridge, Sink and Milk Jar you ever build. One of each is already made."]
 			x: 6.0d
 			y: 0.0d
 			dependencies: ["F6EEF65327004696", "A340A46B5E7C8359"]
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
-			tasks: [{ id: "C486DF1A3D0A04D4", type: "item", item: "thermal:energy_cell", count: 1L }, { id: "164EDA1F83FFA30D", type: "checkmark", title: "Fluxduct reaches within 12 blocks of the inn." }]
-			rewards: [{ id: "05A46210A46B085B", type: "item", item: "thermal:energy_cell" }, { id: "8192B8759C02BC8F", type: "item", item: "cookingforblockheads:fridge" }, { id: "B45E8504BD99FBB9", type: "item", item: "cookingforblockheads:sink" }, { id: "5BBBE57E1F439EB7", type: "item", item: "cookingforblockheads:milk_jar" }, { id: "FC264B7924FFDA19", type: "item", item: "thermal:energy_duct", count: 64 }, { id: "ABD493D682869541", type: "command", command: "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Fridge works. Told her I was working on it.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "53724A5E2497EDB7", type: "toast", title: "The inn has power", description: "Next: a Create train station at the mill and 64 track laid to the square." }]
+			tasks: [{ id: "C486DF1A3D0A04D4", type: "item", item: "thermal:energy_cell", count: 1L }, { id: "A375DFB9E9245AE7", type: "checkmark", title: "Energy Duct reaches within 12 blocks of the inn." }]
+			rewards: [{ id: "05A46210A46B085B", type: "item", item: "thermal:energy_cell" }, { id: "8192B8759C02BC8F", type: "item", item: "cookingforblockheads:fridge" }, { id: "B45E8504BD99FBB9", type: "item", item: "cookingforblockheads:sink" }, { id: "5BBBE57E1F439EB7", type: "item", item: "cookingforblockheads:milk_jar" }, { id: "4A3DB747998B4382", type: "item", item: "valley:works_power_tap", count: 4 }, { id: "FC264B7924FFDA19", type: "item", item: "thermal:energy_duct", count: 64 }, { id: "ABD493D682869541", type: "command", command: "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Fridge works. Told her I was working on it.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "53724A5E2497EDB7", type: "toast", title: "The inn has power", description: "Next: a Create train station at the mill and 64 track laid to the square." }]
 		}
 		{
 			id: "969850DC09D3D38C"
@@ -314,7 +314,7 @@
 			title: "Read the Cellar Wall"
 			subtitle: "Down the stairs under the farmhouse."
 			icon: "minecraft:iron_door"
-			description: ["Josie, in chalk, in her own hand: \"A machine that one person can run is not infrastructure — it's a hostage. So I shut it off and I waited for two of you.\"", "", "Go back down the stairs under the farmhouse. It finished turning some time in the night and it is standing open — stand in front of the cellar wall until you have read the whole thing.", "", "The cellar waystone is yours for the walk back, her chalk copies itself into the journal, and her original reactor blueprint is rolled in the tube by the stairs."]
+			description: ["Josie, in chalk, in her own hand: \"A machine that one person can run is not infrastructure — it's a hostage. So I shut it off and I waited for two of you.\"", "", "Go back down the stairs under the farmhouse. It finished turning some time in the night and it is standing open — stand in front of the cellar wall until you have read the whole thing.", "", "The cellar waystone is yours for the walk back, her chalk copies itself into the journal, and her original reactor blueprint is rolled in the tube by the stairs — with the Works Pick, Efficiency V, for the forty blocks of fallen adit Tobin is stood in front of."]
 			x: 10.0d
 			y: 1.5d
 			dependencies: ["C63503CEDF72AFBE"]
@@ -323,14 +323,14 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "BEF6120442290A6E", type: "checkmark", title: "You are standing in the cellar, in front of the wall." }]
-			rewards: [{ id: "73BA21E60E087C8A", type: "item", item: "waystones:waystone" }, { id: "6FD7A83C87BE2A1D", type: "item", item: "create:orange_toolbox" }, { id: "058AA334012F4326", type: "item", item: "create:crafting_blueprint" }, { id: "42363C52BFC025A4", type: "loot", table_id: 10797532679477389079L }, { id: "B604C10435D45D91", type: "command", command: "/tellraw @a [{\"text\":\"Josie, on the wall: \",\"color\":\"gold\"},{\"text\":\"If there's more than one set of footprints on my cellar stairs, then I was right to wait. Go and turn it on.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "005A6CC308CB8681", type: "command", command: "advancement grant @a only valley:journal/cellar_wall", elevate_perms: true, silent: true }, { id: "808766ABB417868B", type: "toast", title: "The Works was a power plant", description: "Next: the long table in the square — twelve place settings and the centrepiece. That's the Harvest Supper. And Tobin is stood at the collapsed adit with a shovel and a theory: the Works opens from there." }]
+			rewards: [{ id: "73BA21E60E087C8A", type: "item", item: "waystones:waystone" }, { id: "6FD7A83C87BE2A1D", type: "item", item: "create:orange_toolbox" }, { id: "058AA334012F4326", type: "item", item: "create:crafting_blueprint" }, { id: "2BF29139D4C04FCF", type: "command", command: "give @p minecraft:diamond_pickaxe{Enchantments:[{id:\"minecraft:efficiency\",lvl:5},{id:\"minecraft:unbreaking\",lvl:3}],display:{Name:'{\"text\":\"The Works Pick\",\"italic\":false,\"color\":\"gold\"}'}} 1", elevate_perms: true, silent: true }, { id: "62C4018380D0873B", type: "item", item: "minecraft:tnt", count: 16 }, { id: "42363C52BFC025A4", type: "loot", table_id: 10797532679477389079L }, { id: "B604C10435D45D91", type: "command", command: "/tellraw @a [{\"text\":\"Josie, on the wall: \",\"color\":\"gold\"},{\"text\":\"If there's more than one set of footprints on my cellar stairs, then I was right to wait. Go and turn it on.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "005A6CC308CB8681", type: "command", command: "advancement grant @a only valley:journal/cellar_wall", elevate_perms: true, silent: true }, { id: "808766ABB417868B", type: "toast", title: "The Works was a power plant", description: "Next: the long table in the square — twelve place settings and the centrepiece. That's the Harvest Supper. And Tobin is stood at the collapsed adit with a shovel and a theory: the Works opens from there." }]
 		}
 		{
 			id: "C47F0160D253CCD3"
 			title: "Set the Long Table for Twelve"
 			subtitle: "Act III finale — twelve settings and one centrepiece."
-			icon: "handcrafted:white_crockery_combo"
-			description: ["Marnie: \"Twelve places: nobody stands, nobody eats in the kitchen, and nobody eats alone. That's the rule tonight.\"", "", "Place the Long Table in the square, put one White Crockery setting on each of the twelve marked spots, and set the Candle Holder in the middle. Any order is right.", "", "Forty lamps. Fifteen people. One winter that nobody leaves.", "", "Sit down. The granary's full, the lamps are lit down the road, and there are three empty chairs at this table because Marnie set it for the year we are going to have."]
+			icon: "valley:place_setting"
+			description: ["Marnie: \"Twelve places: nobody stands, nobody eats in the kitchen, and nobody eats alone. That's the rule tonight.\"", "", "Place the Long Table in the square, put one Place Setting on each of the twelve marked spots, and set the Candle Holder in the middle — a bowl, an iron ingot, a brick and a copper ingot is one setting. Any order is right.", "", "Forty lamps. Fifteen people. One winter that nobody leaves.", "", "Sit down. The granary's full, the lamps are lit down the road, and there are three empty chairs at this table because Marnie set it for the year we are going to have."]
 			x: 18.0d
 			y: 0.0d
 			dependencies: ["177A495F36B16021", "B53BBFB416B61074", "2A58745479C32D0A", "CB7C03A613A457FE"]
@@ -338,7 +338,7 @@
 			size: 2.0d
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
-			tasks: [{ id: "9C54B59BF1A79EB6", type: "item", item: "handcrafted:oak_table", count: 1L, consume_items: true }, { id: "2CC94D35F1759314", type: "item", item: "handcrafted:white_crockery_combo", count: 12L, consume_items: true }, { id: "C6E2DD67AC00BF36", type: "item", item: "supplementaries:candle_holder", count: 1L, consume_items: true }, { id: "A768D1CED736050A", type: "checkmark", title: "Twelve settings down and the centrepiece in the middle." }]
+			tasks: [{ id: "9C54B59BF1A79EB6", type: "item", item: "handcrafted:oak_table", count: 1L, consume_items: true }, { id: "83E5BE2D4BED14FD", type: "item", item: "valley:place_setting", count: 12L, consume_items: true }, { id: "C6E2DD67AC00BF36", type: "item", item: "supplementaries:candle_holder", count: 1L, consume_items: true }, { id: "A768D1CED736050A", type: "checkmark", title: "Twelve settings down and the centrepiece in the middle." }]
 			rewards: [{ id: "C5CE1850173898AD", type: "command", command: "/valley finale act3", elevate_perms: true, silent: true }, { id: "EC3889522CCEAFB1", type: "stage", stage: "act4" }, { id: "295DD626823FAF55", type: "toast", title: "The Harvest Supper", description: "Next: sleep one night, then follow Pip down to the inn. Winter starts in the morning." }]
 		}
 	]

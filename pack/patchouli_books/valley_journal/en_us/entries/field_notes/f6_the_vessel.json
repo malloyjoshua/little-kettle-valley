@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Josie's hand, pencil, in the margins of a seed catalogue.$(br2)$(bold)Q69: 64 uranium ore in, 128 yellorium ingots out.$() The pocket is a guaranteed cluster at a fixed offset from the Works waystone -- Tobin's deep survey points straight at it, and it is genuinely there.$(br2)Your own network auto-crafts $(bold)64 Reactor Casings$() while you walk back.",
+      "text": "Josie's hand, pencil, in the margins of a seed catalogue.$(br2)$(bold)Q69: 64 uranium ore in, 64 yellorium ingots out.$() Every block drops a Uranium Cluster and a cluster smelts one for one. The pocket is a guaranteed cluster at a fixed offset from the Works waystone -- Tobin's deep survey points straight at it, and it is genuinely there.$(br2)Your own network auto-crafts $(bold)64 Reactor Casings$() while you walk back.",
       "title": "Fuel"
     },
     {

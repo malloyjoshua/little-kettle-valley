@@ -20,44 +20,48 @@
       "description": [
         "Oda: \"Store's open. Shelves are thin and my ledger is thinner, but they're open. Cash is Scrip. I don't barter and I don't round up.\"",
         "",
-        "Scrip comes from bounties, deliveries, festival baskets and closing a neighbour's story. Nothing else pays it and nothing else spends it.",
+        "Scrip comes from deliveries, festival baskets, closing a neighbour's story — and my standing order, which is twenty-four wheat for eight Scrip and always will be. Nothing else pays it and nothing else spends it.",
         "",
         "Every line below restocks. Buy a line as many times as you can pay for it."
       ],
-      "deps": [
-        "q19"
-      ],
+      "deps": ["q19"],
       "shape": "hexagon",
       "size": 1.5,
       "tasks": [
-        {
-          "type": "checkmark",
-          "title": "Read the board and the prices under it"
-        }
+        { "type": "checkmark", "title": "Read the board and the prices under it" }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "valley:catalogue",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 10
-        },
-        {
-          "type": "command",
-          "command": "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"yellow\"},{\"text\":\"Ten Scrip, on the house. That is the only time those three words happen in this store.\",\"color\":\"white\",\"italic\":true}]"
-        },
-        {
-          "type": "toast",
-          "title": "Oda's Counter is open",
-          "description": "Scrip only. Every line restocks. Cheap tech first, decor when the rail comes in."
-        }
+        { "type": "item", "item": "valley:catalogue", "count": 1 },
+        { "type": "item", "item": "valley:scrip", "count": 10 },
+        { "type": "command", "command": "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"yellow\"},{\"text\":\"Ten Scrip, on the house. That is the only time those three words happen in this store.\",\"color\":\"white\",\"italic\":true}]" },
+        { "type": "toast", "title": "Oda's Counter is open", "description": "Scrip only. Every line restocks. Cheap tech first, decor when the rail comes in." }
       ],
       "x": 0.0,
       "y": 0.0
+    },
+    {
+      "key": "oda_standing_order",
+      "title": "Fill a Standing Order — 24 Wheat for 8 Scrip",
+      "subtitle": "8 Scrip. Restocks.",
+      "icon": "minecraft:wheat",
+      "description": [
+        "Oda: \"A standing order is not a bounty. It is the same twenty-four sheaves, the same eight Scrip, every week, forever, and I never have to think about it.\"",
+        "",
+        "Twenty-four wheat across the counter, eight Scrip back. It is the floor under every other price on this board."
+      ],
+      "deps": ["oda_open"],
+      "shape": "square",
+      "size": 1.0,
+      "can_repeat": true,
+      "hide_details_until_startable": false,
+      "tasks": [
+        { "type": "item", "item": "minecraft:wheat", "count": 24, "consume": true }
+      ],
+      "rewards": [
+        { "type": "item", "item": "valley:scrip", "count": 8 }
+      ],
+      "x": 0.0,
+      "y": 3.0
     },
     {
       "key": "oda_casings",
@@ -69,27 +73,16 @@
         "",
         "Ten Scrip. That is under a bounty's pay, and it is four minutes of your life you get back."
       ],
-      "deps": [
-        "oda_open"
-      ],
+      "deps": ["oda_open"],
       "shape": "square",
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 10,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 10, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "create:andesite_casing",
-          "count": 16
-        }
+        { "type": "item", "item": "create:andesite_casing", "count": 16 }
       ],
       "x": 3.0,
       "y": -4.38
@@ -104,27 +97,16 @@
         "",
         "Eight Scrip. Deliberately cheap — nobody's evening should be a press."
       ],
-      "deps": [
-        "oda_open"
-      ],
+      "deps": ["oda_open"],
       "shape": "square",
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 8,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 8, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "create:andesite_alloy",
-          "count": 32
-        }
+        { "type": "item", "item": "create:andesite_alloy", "count": 32 }
       ],
       "x": 3.0,
       "y": -2.62
@@ -139,42 +121,19 @@
         "",
         "Six Scrip. The crate exists so a kinetic line is a design problem, not a woodcutting problem."
       ],
-      "deps": [
-        "oda_open"
-      ],
+      "deps": ["oda_open"],
       "shape": "square",
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 6,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 6, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "create:cogwheel",
-          "count": 16
-        },
-        {
-          "type": "item",
-          "item": "create:large_cogwheel",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "create:shaft",
-          "count": 16
-        },
-        {
-          "type": "item",
-          "item": "create:belt_connector",
-          "count": 8
-        }
+        { "type": "item", "item": "create:cogwheel", "count": 16 },
+        { "type": "item", "item": "create:large_cogwheel", "count": 8 },
+        { "type": "item", "item": "create:shaft", "count": 16 },
+        { "type": "item", "item": "create:belt_connector", "count": 8 }
       ],
       "x": 3.0,
       "y": -0.88
@@ -189,47 +148,20 @@
         "",
         "Four Scrip. Plant what the season allows and leave the rest in the box."
       ],
-      "deps": [
-        "oda_open"
-      ],
+      "deps": ["oda_open"],
       "shape": "square",
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 4,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 4, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "farmersdelight:cabbage_seeds",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "thermal:tomato_seeds",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "thermal:corn_seeds",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "minecraft:beetroot_seeds",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "minecraft:pumpkin_seeds",
-          "count": 8
-        }
+        { "type": "item", "item": "farmersdelight:cabbage_seeds", "count": 8 },
+        { "type": "item", "item": "thermal:tomato_seeds", "count": 8 },
+        { "type": "item", "item": "thermal:corn_seeds", "count": 8 },
+        { "type": "item", "item": "minecraft:beetroot_seeds", "count": 8 },
+        { "type": "item", "item": "minecraft:pumpkin_seeds", "count": 8 }
       ],
       "x": 3.0,
       "y": 0.88
@@ -244,37 +176,18 @@
         "",
         "Four Scrip. It is the cheapest line on the board on purpose."
       ],
-      "deps": [
-        "oda_open"
-      ],
+      "deps": ["oda_open"],
       "shape": "square",
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 4,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 4, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "minecraft:bread",
-          "count": 16
-        },
-        {
-          "type": "item",
-          "item": "farmersdelight:rice",
-          "count": 16
-        },
-        {
-          "type": "item",
-          "item": "minecraft:cooked_beef",
-          "count": 8
-        }
+        { "type": "item", "item": "minecraft:bread", "count": 16 },
+        { "type": "item", "item": "farmersdelight:rice", "count": 16 },
+        { "type": "item", "item": "minecraft:cooked_beef", "count": 8 }
       ],
       "x": 3.0,
       "y": 2.62
@@ -289,37 +202,18 @@
         "",
         "Six Scrip. Light is not decoration in this valley, it is the thing that keeps the dark out of the lane."
       ],
-      "deps": [
-        "oda_open"
-      ],
+      "deps": ["oda_open"],
       "shape": "square",
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 6,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 6, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "minecraft:lantern",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "supplementaries:candle_holder",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "candlelight:lamp",
-          "count": 4
-        }
+        { "type": "item", "item": "minecraft:lantern", "count": 8 },
+        { "type": "item", "item": "supplementaries:candle_holder", "count": 8 },
+        { "type": "item", "item": "candlelight:lamp", "count": 4 }
       ],
       "x": 3.0,
       "y": 4.38
@@ -334,28 +228,16 @@
         "",
         "Fifteen Scrip. Every Thermal machine on your bench wants two of these and none of them are interesting."
       ],
-      "deps": [
-        "oda_open",
-        "q37"
-      ],
+      "deps": ["oda_open", "q37"],
       "shape": "square",
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 15,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 15, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "thermal:redstone_servo",
-          "count": 16
-        }
+        { "type": "item", "item": "thermal:redstone_servo", "count": 16 }
       ],
       "x": 6.0,
       "y": -2.62
@@ -370,28 +252,16 @@
         "",
         "Twenty-five Scrip — the most expensive line on this shelf, because it is the one that saves the most time."
       ],
-      "deps": [
-        "oda_open",
-        "q37"
-      ],
+      "deps": ["oda_open", "q30"],
       "shape": "square",
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 25,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 25, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "thermal:machine_frame",
-          "count": 2
-        }
+        { "type": "item", "item": "thermal:machine_frame", "count": 2 }
       ],
       "x": 6.0,
       "y": -0.88
@@ -406,28 +276,16 @@
         "",
         "Eighteen Scrip."
       ],
-      "deps": [
-        "oda_open",
-        "q37"
-      ],
+      "deps": ["oda_open"],
       "shape": "square",
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 18,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 18, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "thermal:rf_coil",
-          "count": 8
-        }
+        { "type": "item", "item": "thermal:rf_coil", "count": 8 }
       ],
       "x": 6.0,
       "y": 0.88
@@ -442,33 +300,17 @@
         "",
         "Twelve Scrip. Run the lane, don't craft the lane."
       ],
-      "deps": [
-        "oda_open",
-        "q37"
-      ],
+      "deps": ["oda_open", "q37"],
       "shape": "square",
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 12,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 12, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "thermal:energy_duct",
-          "count": 64
-        },
-        {
-          "type": "item",
-          "item": "thermal:energy_cell_frame",
-          "count": 1
-        }
+        { "type": "item", "item": "thermal:energy_duct", "count": 64 },
+        { "type": "item", "item": "thermal:energy_cell_frame", "count": 1 }
       ],
       "x": 6.0,
       "y": 2.62
@@ -483,53 +325,21 @@
         "",
         "Twelve Scrip a page. Order it as many times as you have rooms."
       ],
-      "deps": [
-        "oda_open",
-        "q49"
-      ],
+      "deps": ["oda_open", "q49"],
       "shape": "square",
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 12,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 12, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "handcrafted:oak_table",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "handcrafted:oak_chair",
-          "count": 4
-        },
-        {
-          "type": "item",
-          "item": "handcrafted:oak_couch",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "handcrafted:oak_cupboard",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "handcrafted:oak_shelf",
-          "count": 2
-        },
-        {
-          "type": "item",
-          "item": "handcrafted:oak_nightstand",
-          "count": 1
-        }
+        { "type": "item", "item": "handcrafted:oak_table", "count": 1 },
+        { "type": "item", "item": "handcrafted:oak_chair", "count": 4 },
+        { "type": "item", "item": "handcrafted:oak_couch", "count": 1 },
+        { "type": "item", "item": "handcrafted:oak_cupboard", "count": 1 },
+        { "type": "item", "item": "handcrafted:oak_shelf", "count": 2 },
+        { "type": "item", "item": "handcrafted:oak_nightstand", "count": 1 }
       ],
       "x": 9.0,
       "y": -1.75
@@ -544,43 +354,19 @@
         "",
         "Twelve Scrip. This is how a shell stops being a shell."
       ],
-      "deps": [
-        "oda_open",
-        "q49"
-      ],
+      "deps": ["oda_open", "q49"],
       "shape": "square",
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 12,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 12, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "mcwwindows:oak_four_window",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "mcwwindows:oak_curtain_rod",
-          "count": 4
-        },
-        {
-          "type": "item",
-          "item": "mcwroofs:oak_planks_roof",
-          "count": 16
-        },
-        {
-          "type": "item",
-          "item": "mcwdoors:oak_cottage_door",
-          "count": 1
-        }
+        { "type": "item", "item": "mcwwindows:oak_four_window", "count": 8 },
+        { "type": "item", "item": "mcwwindows:oak_curtain_rod", "count": 4 },
+        { "type": "item", "item": "mcwroofs:oak_planks_roof", "count": 16 },
+        { "type": "item", "item": "mcwdoors:oak_cottage_door", "count": 1 }
       ],
       "x": 9.0,
       "y": 0.0
@@ -595,43 +381,19 @@
         "",
         "Ten Scrip."
       ],
-      "deps": [
-        "oda_open",
-        "q49"
-      ],
+      "deps": ["oda_open", "q49"],
       "shape": "square",
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 10,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 10, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "supplementaries:flower_box",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "supplementaries:planter",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "mcwfences:oak_hedge",
-          "count": 16
-        },
-        {
-          "type": "item",
-          "item": "minecraft:oak_sapling",
-          "count": 4
-        }
+        { "type": "item", "item": "supplementaries:flower_box", "count": 8 },
+        { "type": "item", "item": "supplementaries:planter", "count": 8 },
+        { "type": "item", "item": "mcwfences:oak_hedge", "count": 16 },
+        { "type": "item", "item": "minecraft:oak_sapling", "count": 4 }
       ],
       "x": 9.0,
       "y": 1.75
@@ -646,48 +408,20 @@
         "",
         "Fourteen Scrip. Forty posts on the road and none of them light the inside of a house."
       ],
-      "deps": [
-        "oda_open",
-        "q56"
-      ],
+      "deps": ["oda_open", "q56"],
       "shape": "square",
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 14,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 14, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "supplementaries:sconce",
-          "count": 12
-        },
-        {
-          "type": "item",
-          "item": "minecraft:lantern",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "minecraft:soul_lantern",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "supplementaries:rope",
-          "count": 16
-        },
-        {
-          "type": "item",
-          "item": "supplementaries:item_shelf",
-          "count": 4
-        }
+        { "type": "item", "item": "supplementaries:sconce", "count": 12 },
+        { "type": "item", "item": "minecraft:lantern", "count": 8 },
+        { "type": "item", "item": "minecraft:soul_lantern", "count": 8 },
+        { "type": "item", "item": "supplementaries:rope", "count": 16 },
+        { "type": "item", "item": "supplementaries:item_shelf", "count": 4 }
       ],
       "x": 12.0,
       "y": -1.75
@@ -702,43 +436,19 @@
         "",
         "Twenty Scrip. Right-click a crate inside the pen, not outside it."
       ],
-      "deps": [
-        "oda_open",
-        "q56"
-      ],
+      "deps": ["oda_open", "q56"],
       "shape": "square",
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 20,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 20, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "valley:cow_crate",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "valley:sheep_crate",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "valley:hen_crate",
-          "count": 2
-        },
-        {
-          "type": "item",
-          "item": "valley:chicken_feed",
-          "count": 8
-        }
+        { "type": "item", "item": "valley:cow_crate", "count": 1 },
+        { "type": "item", "item": "valley:sheep_crate", "count": 1 },
+        { "type": "item", "item": "valley:hen_crate", "count": 2 },
+        { "type": "item", "item": "valley:chicken_feed", "count": 8 }
       ],
       "x": 12.0,
       "y": 0.0
@@ -753,48 +463,20 @@
         "",
         "Sixteen Scrip. Wisp brought three of the five up out of the marsh."
       ],
-      "deps": [
-        "oda_open",
-        "q56"
-      ],
+      "deps": ["oda_open", "q56"],
       "shape": "square",
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 16,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 16, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "minecraft:torchflower_seeds",
-          "count": 2
-        },
-        {
-          "type": "item",
-          "item": "minecraft:pitcher_pod",
-          "count": 2
-        },
-        {
-          "type": "item",
-          "item": "minecraft:glow_berries",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "minecraft:sweet_berries",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "thermal:coffee_seeds",
-          "count": 4
-        }
+        { "type": "item", "item": "minecraft:torchflower_seeds", "count": 2 },
+        { "type": "item", "item": "minecraft:pitcher_pod", "count": 2 },
+        { "type": "item", "item": "minecraft:glow_berries", "count": 8 },
+        { "type": "item", "item": "minecraft:sweet_berries", "count": 8 },
+        { "type": "item", "item": "thermal:coffee_seeds", "count": 4 }
       ],
       "x": 12.0,
       "y": 1.75
@@ -805,37 +487,21 @@
       "subtitle": "40 Scrip. Restocks.",
       "icon": "biggerreactors:reactor_casing",
       "description": [
-        "Oda: \"Sixteen reactor casing, eight turbine casing. Josie's notes are what make them craftable and my wagon is what makes them arrive; do not confuse the two.\"",
+        "Oda: \"Sixteen reactor casing, eight turbine casing. Josie's notes are what make them craftable and my wagon is what makes them arrive; do not confuse the two. The notes came home from the tower, so the line is open.\"",
         "",
         "Forty Scrip — the dearest line I keep. A vessel is a lot of identical grey blocks and none of them are the interesting part."
       ],
-      "deps": [
-        "oda_open",
-        "q75"
-      ],
+      "deps": ["oda_open", "q67"],
       "shape": "rsquare",
       "size": 1.25,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 40,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 40, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "biggerreactors:reactor_casing",
-          "count": 16
-        },
-        {
-          "type": "item",
-          "item": "biggerreactors:turbine_casing",
-          "count": 8
-        }
+        { "type": "item", "item": "biggerreactors:reactor_casing", "count": 16 },
+        { "type": "item", "item": "biggerreactors:turbine_casing", "count": 8 }
       ],
       "x": 15.0,
       "y": -2.62
@@ -850,53 +516,21 @@
         "",
         "Thirty-five Scrip."
       ],
-      "deps": [
-        "oda_open",
-        "q75"
-      ],
+      "deps": ["oda_open", "q69"],
       "shape": "rsquare",
       "size": 1.25,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 35,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 35, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "biggerreactors:reactor_fuel_rod",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "biggerreactors:reactor_control_rod",
-          "count": 2
-        },
-        {
-          "type": "item",
-          "item": "biggerreactors:reactor_glass",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "biggerreactors:turbine_rotor_bearing",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "biggerreactors:turbine_rotor_blade",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "biggerreactors:turbine_rotor_shaft",
-          "count": 4
-        }
+        { "type": "item", "item": "biggerreactors:reactor_fuel_rod", "count": 8 },
+        { "type": "item", "item": "biggerreactors:reactor_control_rod", "count": 2 },
+        { "type": "item", "item": "biggerreactors:reactor_glass", "count": 8 },
+        { "type": "item", "item": "biggerreactors:turbine_rotor_bearing", "count": 1 },
+        { "type": "item", "item": "biggerreactors:turbine_rotor_blade", "count": 8 },
+        { "type": "item", "item": "biggerreactors:turbine_rotor_shaft", "count": 4 }
       ],
       "x": 15.0,
       "y": -0.88
@@ -911,43 +545,19 @@
         "",
         "Thirty Scrip. Buy the boring half; build the half that thinks."
       ],
-      "deps": [
-        "oda_open",
-        "q75"
-      ],
+      "deps": ["oda_open", "q51"],
       "shape": "rsquare",
       "size": 1.25,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 30,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 30, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "ae2:item_storage_cell_4k",
-          "count": 4
-        },
-        {
-          "type": "item",
-          "item": "ae2:cell_component_4k",
-          "count": 4
-        },
-        {
-          "type": "item",
-          "item": "ae2:calculation_processor",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "ae2:fluix_glass_cable",
-          "count": 32
-        }
+        { "type": "item", "item": "ae2:item_storage_cell_4k", "count": 4 },
+        { "type": "item", "item": "ae2:cell_component_4k", "count": 4 },
+        { "type": "item", "item": "ae2:calculation_processor", "count": 8 },
+        { "type": "item", "item": "ae2:fluix_glass_cable", "count": 32 }
       ],
       "x": 15.0,
       "y": 0.88
@@ -962,28 +572,16 @@
         "",
         "Ten Scrip. Spend the token on Josie's Shelf."
       ],
-      "deps": [
-        "oda_open",
-        "q75"
-      ],
+      "deps": ["oda_open", "q75"],
       "shape": "square",
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 10,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 10, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "valley:plushie_token",
-          "count": 1
-        }
+        { "type": "item", "item": "valley:plushie_token", "count": 1 }
       ],
       "x": 15.0,
       "y": 2.62
@@ -1000,48 +598,20 @@
         "",
         "One hundred and fifty is not a price, it is a filing fee with an opinion. Restocks, so a second pair of hands can hold their own copy."
       ],
-      "deps": [
-        "oda_open",
-        "q75"
-      ],
+      "deps": ["oda_open", "q75"],
       "shape": "diamond",
       "size": 1.5,
       "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
-        {
-          "type": "stage",
-          "stage": "works_deed",
-          "title": "The Works Deed is signed (Q86)"
-        },
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 150,
-          "consume": true
-        }
+        { "type": "stage", "stage": "works_deed", "title": "The Works Deed is signed (Q86)" },
+        { "type": "item", "item": "valley:scrip", "count": 150, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "valley:deed_works",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "quarryplus:marker",
-          "count": 4
-        },
-        {
-          "type": "item",
-          "item": "valley:catalogue",
-          "count": 1
-        },
-        {
-          "type": "toast",
-          "title": "Filed, in duplicate",
-          "description": "Oda: 'Two copies. That is how a thing survives one of us leaving.'"
-        }
+        { "type": "item", "item": "valley:deed_works", "count": 1 },
+        { "type": "item", "item": "quarryplus:marker", "count": 4 },
+        { "type": "item", "item": "valley:catalogue", "count": 1 },
+        { "type": "toast", "title": "Filed, in duplicate", "description": "Oda: 'Two copies. That is how a thing survives one of us leaving.'" }
       ],
       "x": 18.0,
       "y": 0.0

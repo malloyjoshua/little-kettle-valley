@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Bram: $(italic)This one's a problem, not a recipe. Read the numbers, then build to them.$()$(br2)$(bold)Q71: hold 1,800 RPM under load, and do not go over.$()$(br2)The crate holds a fixed budget of rotor blades, coils and casing. Spending all of it is not the answer, and nothing is lost by taking a piece back out.",
+      "text": "Bram: $(italic)This one's a problem, not a recipe. Read the numbers, then build to them.$()$(br2)$(bold)Q71: hold 1,800 RPM under load, and do not go over.$()$(br2)The vessel payout is the crate: $(bold)64$() Turbine Casing, $(bold)16$() Turbine Glass, a Rotor Bearing, $(bold)4$() Shafts, $(bold)16$() Blades, $(bold)2$() Fluid Ports, $(bold)16$() copper blocks for the coil ring, and the Turbine Terminal to read it on. Spending all of it is not the answer, and nothing is lost by taking a piece back out.",
       "title": "Eighteen hundred"
     },
     {

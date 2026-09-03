@@ -24,81 +24,27 @@
         "",
         "Opens year two: Nella's cold frame, Oda's counter, and the thirty tiles of the square. The dressing packet for those tiles is in this quest's rewards."
       ],
-      "deps": [
-        "q75"
-      ],
+      "deps": ["q75"],
       "shape": "hexagon",
       "size": 1.5,
       "tasks": [
-        {
-          "type": "checkmark",
-          "title": "Slept one night after the Longest Night, then walked the square with Marnie"
-        }
+        { "type": "checkmark", "title": "Slept one night after the Longest Night, then walked the square with Marnie" }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "thermal:tomato_seeds",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "thermal:strawberry_seeds",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "thermal:bell_pepper_seeds",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "thermal:corn_seeds",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "farmersdelight:cabbage_seeds",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "supplementaries:flower_box",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "supplementaries:candle_holder",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "minecraft:lantern",
-          "count": 6
-        },
-        {
-          "type": "item",
-          "item": "handcrafted:oak_bench",
-          "count": 4
-        },
-        {
-          "type": "item",
-          "item": "supplementaries:planter",
-          "count": 4
-        },
-        {
-          "type": "stage",
-          "stage": "year_two"
-        },
-        {
-          "type": "command",
-          "command": "/tellraw @a [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"The noticeboard's rewritten. Year two, and it's a longer list than last spring.\",\"color\":\"white\",\"italic\":true}]"
-        },
-        {
-          "type": "toast",
-          "title": "Year two",
-          "description": "Next: glaze Nella's cold frame with 16 Tinted Glass — and the square's thirty marked copper tiles, from the packet in this payout."
-        }
+        { "type": "item", "item": "thermal:tomato_seeds", "count": 8 },
+        { "type": "item", "item": "thermal:strawberry_seeds", "count": 8 },
+        { "type": "item", "item": "thermal:bell_pepper_seeds", "count": 8 },
+        { "type": "item", "item": "thermal:corn_seeds", "count": 8 },
+        { "type": "item", "item": "farmersdelight:cabbage_seeds", "count": 8 },
+        { "type": "item", "item": "supplementaries:flower_box", "count": 8 },
+        { "type": "item", "item": "supplementaries:candle_holder", "count": 8 },
+        { "type": "item", "item": "minecraft:lantern", "count": 6 },
+        { "type": "item", "item": "handcrafted:oak_bench", "count": 4 },
+        { "type": "item", "item": "supplementaries:planter", "count": 4 },
+        { "type": "stage", "stage": "year_two" },
+        { "type": "command", "command": "/valley scene q76", "elevate": true, "silent": true },
+        { "type": "command", "command": "/tellraw @a [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"The noticeboard's rewritten. Year two, and it's a longer list than last spring.\",\"color\":\"white\",\"italic\":true}]" },
+        { "type": "toast", "title": "Year two", "description": "Next: glaze Nella's cold frame with 16 Tinted Glass — and the square's thirty marked copper tiles, from the packet in this payout." }
       ]
     },
     {
@@ -113,88 +59,27 @@
         "",
         "Nella takes the gardener's job and her chain closes. Marnie eats the first tomato standing in the doorway and says nothing about it."
       ],
-      "deps": [
-        "q76",
-        "q72"
-      ],
+      "deps": ["q76", "q72"],
       "shape": "circle",
       "size": 1.25,
       "tasks": [
-        {
-          "type": "checkmark",
-          "title": "Cold frame glazed with 16 Greenhouse Glass"
-        },
-        {
-          "type": "item",
-          "item": "thermal:tomato",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "thermal:strawberry",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "thermal:bell_pepper",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "thermal:corn",
-          "count": 1
-        }
+        { "type": "checkmark", "title": "Cold frame glazed with 16 Tinted Glass" },
+        { "type": "item", "item": "thermal:tomato", "count": 1 },
+        { "type": "item", "item": "thermal:strawberry", "count": 1 },
+        { "type": "item", "item": "thermal:bell_pepper", "count": 1 },
+        { "type": "item", "item": "thermal:corn", "count": 1 }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "valley:winter_tomato",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "aquaculture:neptunium_fishing_rod",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "aquaculture:worm",
-          "count": 32
-        },
-        {
-          "type": "item",
-          "item": "minecraft:glow_berries",
-          "count": 16
-        },
-        {
-          "type": "item",
-          "item": "supplementaries:planter",
-          "count": 6
-        },
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 25
-        },
-        {
-          "type": "loot",
-          "table": "cozy_crate"
-        },
-        {
-          "type": "command",
-          "command": "/tellraw @a [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"I'll take the gardener's job. Don't tell Pip, he'll shout.\",\"color\":\"white\",\"italic\":true}]"
-        },
-        {
-          "type": "toast",
-          "title": "Nella's chain closes",
-          "description": "Next: the derby — six fish for the inn wall."
-        },
-        {
-          "type": "command",
-          "command": "/valley standing q77 {long_team_id}",
-          "elevate": true,
-          "silent": true
-        }
+        { "type": "item", "item": "valley:winter_tomato", "count": 1 },
+        { "type": "item", "item": "aquaculture:neptunium_fishing_rod", "count": 1 },
+        { "type": "item", "item": "aquaculture:worm", "count": 32 },
+        { "type": "item", "item": "minecraft:glow_berries", "count": 16 },
+        { "type": "item", "item": "supplementaries:planter", "count": 6 },
+        { "type": "item", "item": "valley:scrip", "count": 25 },
+        { "type": "loot", "table": "cozy_crate" },
+        { "type": "command", "command": "/tellraw @a [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"I'll take the gardener's job. Don't tell Pip, he'll shout.\",\"color\":\"white\",\"italic\":true}]" },
+        { "type": "toast", "title": "Nella's chain closes", "description": "Next: the derby — six fish for the inn wall." },
+        { "type": "command", "command": "/valley standing q77 {team}", "elevate": true, "silent": true }
       ]
     },
     {
@@ -209,124 +94,44 @@
         "",
         "Oda's full catalogue goes free at her counter, and the square is finished."
       ],
-      "deps": [
-        "q76"
-      ],
+      "deps": ["q76"],
       "tasks": [
-        {
-          "type": "checkmark",
-          "title": "All 30 marked copper tiles in the square have something on them"
-        }
+        { "type": "checkmark", "title": "All 30 marked copper tiles in the square have something on them" }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "valley:framed_town_map",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "supplementaries:candle_holder",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "handcrafted:blue_plate",
-          "count": 4
-        },
-        {
-          "type": "stage",
-          "stage": "square_finished"
-        },
-        {
-          "type": "command",
-          "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Catalogue's free to you from today. I'll still have opinions.\",\"color\":\"white\",\"italic\":true}]"
-        },
-        {
-          "type": "toast",
-          "title": "The square is finished",
-          "description": "Next: the bell post is the only bare thing left. Cook eight dinners first."
-        }
+        { "type": "item", "item": "valley:framed_town_map", "count": 1 },
+        { "type": "item", "item": "supplementaries:candle_holder", "count": 8 },
+        { "type": "item", "item": "handcrafted:blue_plate", "count": 4 },
+        { "type": "stage", "stage": "square_finished" },
+        { "type": "command", "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Catalogue's free to you from today. I'll still have opinions.\",\"color\":\"white\",\"italic\":true}]" },
+        { "type": "toast", "title": "The square is finished", "description": "Next: the bell post is the only bare thing left. Cook eight dinners first." }
       ]
     },
     {
       "key": "q80",
-      "title": "Catch Six Named Fish and Hang Three Mounts on the Inn Wall",
+      "title": "Catch Three Named Fish and Hang Three Mounts on the Inn Wall",
       "subtitle": "The Fishing Derby.",
       "icon": "aquaculture:oak_fish_mount",
       "description": [
-        "Nella: \"Bluegill and perch off the pier any time. Trout and pike in the cold water past the reeds; catfish and carp are night fish and they want a worm.\"",
+        "Nella: \"Bluegill and perch off the pier any time. Catfish is a night fish and he wants a worm on the hook.\"",
         "",
-        "Catch one Bluegill, one Perch, one Brown Trout, one Muskellunge (that's the pike), one Catfish and one Carp — the worm box in your bag holds thirty-two. If a species will not come, move one bank up the river; the water changes temperature there. Then hang three of your Oak Fish Mounts on the inn wall.",
+        "Catch one Bluegill, one Perch and one Catfish off the pier — bluegill and perch in daylight, catfish after dark on a worm, and the box in your bag holds thirty-two. Then hang three of your Oak Fish Mounts on the inn wall; Nella shipped two at the salting and two more at the ice.",
         "",
         "Pays 50 Valley Scrip toward the town's winter debt."
       ],
-      "deps": [
-        "q77"
-      ],
+      "deps": ["q77"],
       "tasks": [
-        {
-          "type": "item",
-          "item": "aquaculture:bluegill",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "aquaculture:perch",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "aquaculture:brown_trout",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "aquaculture:muskellunge",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "aquaculture:catfish",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "aquaculture:carp",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "aquaculture:oak_fish_mount",
-          "count": 3
-        }
+        { "type": "item", "item": "aquaculture:bluegill", "count": 1 },
+        { "type": "item", "item": "aquaculture:perch", "count": 1 },
+        { "type": "item", "item": "aquaculture:catfish", "count": 1 },
+        { "type": "checkmark", "title": "Three Oak Fish Mounts hung on the inn wall" }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "aquaculture:oak_fish_mount",
-          "count": 3
-        },
-        {
-          "type": "item",
-          "item": "perfectplushies:seal_plushie",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "aquaculture:worm",
-          "count": 32
-        },
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 50
-        },
-        {
-          "type": "toast",
-          "title": "Six on the wall",
-          "description": "Next: cook the eight dinners, then 120 Scrip at Oda's counter clears the winter debt."
-        }
+        { "type": "item", "item": "aquaculture:oak_fish_mount", "count": 3 },
+        { "type": "item", "item": "perfectplushies:seal_plushie", "count": 1 },
+        { "type": "item", "item": "aquaculture:worm", "count": 32 },
+        { "type": "item", "item": "valley:scrip", "count": 50 },
+        { "type": "toast", "title": "Three on the wall", "description": "Next: cook the eight dinners, then 120 Scrip at Oda's counter clears the winter debt." }
       ]
     },
     {
@@ -341,49 +146,18 @@
         "",
         "Stage big_power. The quarry runs off this and nothing else does."
       ],
-      "deps": [
-        "q75"
-      ],
+      "deps": ["q75"],
       "tasks": [
-        {
-          "type": "checkmark",
-          "title": "25,000 FE/t sustained across both turbines at 60 mB/t fuel burn or under (/valley check power)"
-        }
+        { "type": "checkmark", "title": "25,000 FE/t sustained across both turbines at 60 mB/t fuel burn or under (/valley check power)" }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "thermal:machine_efficiency_augment",
-          "count": 2
-        },
-        {
-          "type": "item",
-          "item": "thermal:rf_coil_xfer_augment",
-          "count": 4
-        },
-        {
-          "type": "item",
-          "item": "thermal:upgrade_augment_2",
-          "count": 2
-        },
-        {
-          "type": "item",
-          "item": "thermal:energy_cell",
-          "count": 1
-        },
-        {
-          "type": "stage",
-          "stage": "big_power"
-        },
-        {
-          "type": "command",
-          "command": "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Twenty-five thousand, and the fuel line never moved. That's the town through next winter twice over.\",\"color\":\"white\",\"italic\":true}]"
-        },
-        {
-          "type": "toast",
-          "title": "Stage: big_power",
-          "description": "Next: two Crafting CPUs and wireless across the whole town."
-        }
+        { "type": "item", "item": "thermal:machine_efficiency_augment", "count": 2 },
+        { "type": "item", "item": "thermal:rf_coil_xfer_augment", "count": 4 },
+        { "type": "item", "item": "thermal:upgrade_augment_2", "count": 2 },
+        { "type": "item", "item": "thermal:energy_cell", "count": 1 },
+        { "type": "stage", "stage": "big_power" },
+        { "type": "command", "command": "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Twenty-five thousand, and the fuel line never moved. That's the town through next winter twice over.\",\"color\":\"white\",\"italic\":true}]" },
+        { "type": "toast", "title": "Stage: big_power", "description": "Next: two Crafting CPUs and wireless across the whole town." }
       ]
     },
     {
@@ -398,57 +172,73 @@
         "",
         "Every player gets a wireless terminal, an export subnet keeps Marnie's pantry stocked, and the Delivery Crate fills itself for the eight dinners."
       ],
-      "deps": [
-        "q83",
-        "q68"
-      ],
+      "deps": ["q83", "q68"],
       "tasks": [
-        {
-          "type": "item",
-          "item": "ae2:16k_crafting_storage",
-          "count": 2
-        },
-        {
-          "type": "item",
-          "item": "ae2:wireless_access_point",
-          "count": 2
-        },
-        {
-          "type": "item",
-          "item": "ae2:wireless_booster",
-          "count": 4
-        }
+        { "type": "item", "item": "ae2:16k_crafting_storage", "count": 2 },
+        { "type": "item", "item": "ae2:wireless_access_point", "count": 2 },
+        { "type": "item", "item": "ae2:wireless_booster", "count": 4 }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "ae2:wireless_terminal",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "ae2:wireless_booster",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "ae2:crafting_accelerator",
-          "count": 4
-        },
-        {
-          "type": "item",
-          "item": "valley:delivery_crate",
-          "count": 1
-        },
-        {
-          "type": "loot",
-          "table": "tech_crate"
-        },
-        {
-          "type": "toast",
-          "title": "The town is on the network",
-          "description": "Next: eight dinners, ingredients already in the Delivery Crate."
-        }
+        { "type": "item", "item": "ae2:wireless_terminal", "count": 1 },
+        { "type": "item", "item": "ae2:wireless_booster", "count": 8 },
+        { "type": "item", "item": "ae2:crafting_accelerator", "count": 4 },
+        { "type": "item", "item": "valley:delivery_crate", "count": 1 },
+        { "type": "loot", "table": "tech_crate" },
+        { "type": "toast", "title": "The town is on the network", "description": "Next: pattern the subnet that keeps Marnie's pantry full, then the eight dinners the crate will stock." }
+      ]
+    },
+    {
+      "key": "q84a",
+      "title": "Encode 8 Patterns and Put a Level Emitter on Marnie's Pantry",
+      "subtitle": "The subnet that restocks the inn.",
+      "icon": "ae2:pattern_provider",
+      "description": [
+        "Bram: \"A box that knows what's in every other box is a list. A box that refills them is a works.\"",
+        "",
+        "Encode 8 Crafting Patterns at the Pattern Encoding Terminal, then hold 2 Pattern Providers and 2 Level Emitters and wire them to the pantry chest in the inn — emitter low, provider pushes, pantry never empties.",
+        "",
+        "Marnie stops counting bread, and the Delivery Crate starts filling itself for the eight dinners."
+      ],
+      "deps": ["q84"],
+      "shape": "square",
+      "tasks": [
+        { "type": "item", "item": "ae2:pattern_provider", "count": 2 },
+        { "type": "item", "item": "ae2:level_emitter", "count": 2 },
+        { "type": "checkmark", "title": "8 patterns encoded and the pantry subnet running" }
+      ],
+      "rewards": [
+        { "type": "item", "item": "ae2:pattern_provider", "count": 4 },
+        { "type": "item", "item": "ae2:blank_pattern", "count": 16 },
+        { "type": "item", "item": "ae2:pattern_access_terminal", "count": 1 },
+        { "type": "item", "item": "valley:scrip", "count": 15 },
+        { "type": "toast", "title": "The Pantry Fills Itself", "description": "Next: nothing else on this lane until Tobin's site is cut — and that opens the moment you come back up the echo cave." }
+      ]
+    },
+    {
+      "key": "q86a",
+      "title": "Cut the Rig Pad and Run the Power Lane to Tobin's Site",
+      "subtitle": "Legal to build. Not yet legal to run.",
+      "icon": "quarryplus:flex_marker",
+      "description": [
+        "Tobin: \"The site's surveyed, so the pad is mine to cut. The rig isn't mine to switch on until the town says so. Those are different problems.\"",
+        "",
+        "Level the 9x9 pad on the site the deep survey picked and run Energy Duct from the reactor grid out to it, then set the Flexible Marker on the corner stake and type the box — a side of 64 is well inside this pack's 256 cap.",
+        "",
+        "The pad, the marker and the power lane are the whole rig except the Deed. The Flexible Marker and the spare Markers are in this payout."
+      ],
+      "deps": ["q82"],
+      "shape": "square",
+      "tasks": [
+        { "type": "checkmark", "title": "Pad levelled on the surveyed site" },
+        { "type": "checkmark", "title": "Energy Duct run from the reactor grid to the pad" }
+      ],
+      "rewards": [
+        { "type": "item", "item": "quarryplus:flex_marker", "count": 1 },
+        { "type": "item", "item": "quarryplus:marker", "count": 4 },
+        { "type": "item", "item": "quarryplus:y_setter", "count": 1 },
+        { "type": "item", "item": "thermal:energy_duct", "count": 64 },
+        { "type": "item", "item": "valley:scrip", "count": 15 },
+        { "type": "toast", "title": "The Pad Is Cut", "description": "Next: the Works Deed at Oda's counter — 80 Scrip and Standing: Trusted — and then the rig goes on the marker." }
       ]
     },
     {
@@ -463,91 +253,26 @@
         "",
         "You keep the Feast Crate: one of each, set aside for Founder's Day."
       ],
-      "deps": [
-        "q78",
-        "q84"
-      ],
+      "deps": ["q78", "q84"],
       "shape": "circle",
       "size": 1.25,
       "tasks": [
-        {
-          "type": "item",
-          "item": "farmersdelight:roast_chicken",
-          "count": 1,
-          "consume": true
-        },
-        {
-          "type": "item",
-          "item": "farmersdelight:beef_stew",
-          "count": 1,
-          "consume": true
-        },
-        {
-          "type": "item",
-          "item": "farmersdelight:cabbage_rolls",
-          "count": 1,
-          "consume": true
-        },
-        {
-          "type": "item",
-          "item": "farmersdelight:fish_stew",
-          "count": 1,
-          "consume": true
-        },
-        {
-          "type": "item",
-          "item": "farmersdelight:mushroom_rice",
-          "count": 1,
-          "consume": true
-        },
-        {
-          "type": "item",
-          "item": "farmersdelight:bacon_and_eggs",
-          "count": 1,
-          "consume": true
-        },
-        {
-          "type": "item",
-          "item": "farmersdelight:fruit_salad",
-          "count": 1,
-          "consume": true
-        },
-        {
-          "type": "item",
-          "item": "farmersdelight:sweet_berry_cheesecake",
-          "count": 1,
-          "consume": true
-        }
+        { "type": "item", "item": "farmersdelight:roast_chicken", "count": 1, "consume": true },
+        { "type": "item", "item": "farmersdelight:beef_stew", "count": 1, "consume": true },
+        { "type": "item", "item": "farmersdelight:cabbage_rolls", "count": 1, "consume": true },
+        { "type": "item", "item": "farmersdelight:fish_stew", "count": 1, "consume": true },
+        { "type": "item", "item": "farmersdelight:mushroom_rice", "count": 1, "consume": true },
+        { "type": "item", "item": "farmersdelight:bacon_and_eggs", "count": 1, "consume": true },
+        { "type": "item", "item": "farmersdelight:fruit_salad", "count": 1, "consume": true },
+        { "type": "item", "item": "farmersdelight:sweet_berry_cheesecake", "count": 1, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "valley:feast_crate",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "handcrafted:blue_plate",
-          "count": 8
-        },
-        {
-          "type": "item",
-          "item": "mcwfurnitures:oak_table",
-          "count": 4
-        },
-        {
-          "type": "command",
-          "command": "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"You cooked for eight people who all showed up. Josie managed that twice.\",\"color\":\"white\",\"italic\":true}]"
-        },
-        {
-          "type": "item",
-          "item": "explorerscompass:explorerscompass"
-        },
-        {
-          "type": "toast",
-          "title": "Feast Crate stored",
-          "description": "Next: the boat. The compass in this payout is already set to the Cairn Chapel and the Drowned Lighthouse."
-        }
+        { "type": "item", "item": "valley:feast_crate", "count": 1 },
+        { "type": "item", "item": "handcrafted:blue_plate", "count": 8 },
+        { "type": "item", "item": "mcwfurnitures:oak_table", "count": 4 },
+        { "type": "command", "command": "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"You cooked for eight people who all showed up. Josie managed that twice.\",\"color\":\"white\",\"italic\":true}]" },
+        { "type": "item", "item": "explorerscompass:explorerscompass" },
+        { "type": "toast", "title": "Feast Crate stored", "description": "Next: the boat. The compass in this payout is already set to the Cairn Chapel and the Drowned Lighthouse." }
       ]
     },
     {
@@ -562,46 +287,17 @@
         "",
         "You keep the Warding Lamp — you'll want it in the cave under the Works."
       ],
-      "deps": [
-        "q79"
-      ],
+      "deps": ["q79"],
       "tasks": [
-        {
-          "type": "item",
-          "item": "artifacts:cross_necklace",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "artifacts:snorkel",
-          "count": 1
-        }
+        { "type": "item", "item": "artifacts:cross_necklace", "count": 1 },
+        { "type": "item", "item": "artifacts:snorkel", "count": 1 }
       ],
       "rewards": [
-        {
-          "type": "loot",
-          "table": "story_crate"
-        },
-        {
-          "type": "item",
-          "item": "torchmaster:feral_flare_lantern",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "artifacts:lucky_scarf",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "waystones:warp_stone",
-          "count": 1
-        },
-        {
-          "type": "toast",
-          "title": "Two names on the map",
-          "description": "Next: Tobin's lanterns, down under the Works."
-        }
+        { "type": "loot", "table": "story_crate" },
+        { "type": "item", "item": "torchmaster:feral_flare_lantern", "count": 1 },
+        { "type": "item", "item": "artifacts:lucky_scarf", "count": 1 },
+        { "type": "item", "item": "waystones:warp_stone", "count": 1 },
+        { "type": "toast", "title": "Two names on the map", "description": "Next: Tobin's lanterns, down under the Works." }
       ]
     },
     {
@@ -616,42 +312,16 @@
         "",
         "The deep survey data is what sites the quarry."
       ],
-      "deps": [
-        "q81"
-      ],
+      "deps": ["q81"],
       "tasks": [
-        {
-          "type": "item",
-          "item": "minecraft:echo_shard",
-          "count": 1,
-          "consume": true
-        },
-        {
-          "type": "checkmark",
-          "title": "Reached the echo cave under the Works"
-        }
+        { "type": "item", "item": "minecraft:echo_shard", "count": 1, "consume": true },
+        { "type": "checkmark", "title": "Reached the echo cave under the Works" }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "valley:deep_survey",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "minecraft:totem_of_undying",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "geolosys:prospectors_pick",
-          "count": 1
-        },
-        {
-          "type": "toast",
-          "title": "The quarry has a site",
-          "description": "Next: 120 Scrip at Oda's counter."
-        }
+        { "type": "item", "item": "valley:deep_survey", "count": 1 },
+        { "type": "item", "item": "minecraft:totem_of_undying", "count": 1 },
+        { "type": "item", "item": "geolosys:prospectors_pick", "count": 1 },
+        { "type": "toast", "title": "The quarry has a site", "description": "Next: cut the rig pad on the site this survey picked — and 120 Scrip at Oda's counter." }
       ]
     },
     {
@@ -666,47 +336,18 @@
         "",
         "The books balance for the first time since Josie. Oda's chain closes and 25 Scrip comes straight back to you."
       ],
-      "deps": [
-        "q79",
-        "q80"
-      ],
+      "deps": ["q79", "q80"],
       "shape": "circle",
       "size": 1.25,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 120,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 120, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "valley:odas_ledger",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "sophisticatedstorage:netherite_chest",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 25
-        },
-        {
-          "type": "toast",
-          "title": "The books balance",
-          "description": "Next: 80 Scrip and Standing: Trusted buys the Works Deed."
-        },
-        {
-          "type": "command",
-          "command": "/valley standing q85 {long_team_id}",
-          "elevate": true,
-          "silent": true
-        }
+        { "type": "item", "item": "valley:odas_ledger", "count": 1 },
+        { "type": "item", "item": "sophisticatedstorage:netherite_chest", "count": 1 },
+        { "type": "item", "item": "valley:scrip", "count": 25 },
+        { "type": "toast", "title": "The books balance", "description": "Next: 80 Scrip and Standing: Trusted buys the Works Deed." },
+        { "type": "command", "command": "/valley standing q85 {team}", "elevate": true, "silent": true }
       ]
     },
     {
@@ -721,9 +362,7 @@
         "",
         "This card is never drawn in the book. A KubeJS listener ticks it the moment the sixth chain closes. Run /valley check standing to see the count."
       ],
-      "deps": [
-        "q76"
-      ],
+      "deps": ["q76"],
       "shape": "diamond",
       "size": 1.0,
       "invisible": true,
@@ -731,17 +370,10 @@
       "hide_dependent_lines": true,
       "hide_until_deps_complete": false,
       "tasks": [
-        {
-          "type": "checkmark",
-          "title": "Six of eight neighbours' stories closed"
-        }
+        { "type": "checkmark", "title": "Six of eight neighbours' stories closed" }
       ],
       "rewards": [
-        {
-          "type": "toast",
-          "title": "Standing: Trusted",
-          "description": "Six of eight neighbours' stories are closed. Oda will sell you the Works Deed."
-        }
+        { "type": "toast", "title": "Standing: Trusted", "description": "Six of eight neighbours' stories are closed. Oda will sell you the Works Deed." }
       ]
     },
     {
@@ -758,104 +390,44 @@
         "",
         "The Deed is yours: QuarryPlus becomes craftable, the residents vote, and Bram signs as witness."
       ],
-      "deps": [
-        "q85",
-        "q82",
-        "q86_standing"
-      ],
+      "deps": ["q85", "q82", "q86_standing"],
       "shape": "diamond",
       "size": 1.25,
       "tasks": [
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 80,
-          "consume": true
-        }
+        { "type": "item", "item": "valley:scrip", "count": 80, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "valley:deed",
-          "count": 1
-        },
-        {
-          "type": "stage",
-          "stage": "works_deed"
-        },
-        {
-          "type": "command",
-          "command": "/tellraw @a {\"text\":\"The residents vote. Bram signs as witness: 'Kettle Works. Town-held. Good.'\",\"color\":\"gold\"}"
-        },
-        {
-          "type": "command",
-          "command": "/playsound minecraft:block.note_block.bell master @a ~ ~ ~ 1 1"
-        },
-        {
-          "type": "toast",
-          "title": "The Works Deed",
-          "description": "Next: place the quarry on Tobin's site and power it."
-        }
+        { "type": "item", "item": "valley:deed", "count": 1 },
+        { "type": "stage", "stage": "works_deed" },
+        { "type": "command", "command": "/tellraw @a {\"text\":\"The residents vote. Bram signs as witness: 'Kettle Works. Town-held. Good.'\",\"color\":\"gold\"}" },
+        { "type": "command", "command": "/playsound minecraft:block.note_block.bell master @a ~ ~ ~ 1 1" },
+        { "type": "toast", "title": "The Works Deed", "description": "Next: place the quarry on Tobin's site and power it." }
       ],
       "hide_until_deps_complete": false
     },
     {
       "key": "q87",
-      "title": "Place the Quarry and 4 Markers on Tobin's Site and Power It",
+      "title": "Set the Quarry on the Marker and Switch It On",
       "subtitle": "Tobin's arc closes.",
       "icon": "quarryplus:quarry",
       "description": [
-        "Tobin: \"Rig on my X, markers on the corners — or one Flexible Marker and type the box, which is quicker. Power off the reactor. I am extremely calm about this.\"",
+        "Tobin: \"Pad's cut, marker's typed, lane's live. Rig flat against the marker, facing in, and switch it on. I am extremely calm about this.\"",
         "",
-        "Hold the QuarryPlus Quarry and 4 Markers, set them on the site the deep survey picked, and run power to the rig from the reactor.",
+        "Hold the QuarryPlus Quarry, set it flat against the Flexible Marker you already typed and facing in, and switch it on off the lane you already ran. It builds its own frame.",
         "",
         "The shaft sinks and the quarry runs. It is the biggest thing Tobin has ever been responsible for, and his arc closes here."
       ],
-      "deps": [
-        "q86",
-        "q83"
-      ],
+      "deps": ["q86", "q83", "q86a"],
       "tasks": [
-        {
-          "type": "item",
-          "item": "quarryplus:quarry",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "quarryplus:marker",
-          "count": 4
-        },
-        {
-          "type": "checkmark",
-          "title": "Quarry placed on the surveyed site and powered from the reactor"
-        }
+        { "type": "item", "item": "quarryplus:quarry", "count": 1 },
+        { "type": "checkmark", "title": "Quarry set against the marker and running off the reactor lane" }
       ],
       "rewards": [
-        {
-          "type": "item",
-          "item": "quarryplus:pump_module",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "quarryplus:filler_module",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "quarryplus:exp_module",
-          "count": 1
-        },
-        {
-          "type": "command",
-          "command": "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Right. That's a town works, and I'm going to go and sit down.\",\"color\":\"white\",\"italic\":true}]"
-        },
-        {
-          "type": "toast",
-          "title": "Tobin's arc closes",
-          "description": "Next: 1,024 cobblestone from network stock to the granary."
-        }
+        { "type": "item", "item": "quarryplus:pump_module", "count": 1 },
+        { "type": "item", "item": "quarryplus:filler_module", "count": 1 },
+        { "type": "item", "item": "quarryplus:exp_module", "count": 1 },
+        { "type": "command", "command": "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Right. That's a town works, and I'm going to go and sit down.\",\"color\":\"white\",\"italic\":true}]" },
+        { "type": "toast", "title": "Tobin's arc closes", "description": "Next: 1,024 cobblestone from network stock to the granary." }
       ]
     },
     {
@@ -870,37 +442,15 @@
         "",
         "Stage town_provides: Oda's shelves restock themselves from your network from now on, permanently."
       ],
-      "deps": [
-        "q87",
-        "q84"
-      ],
+      "deps": ["q87", "q84"],
       "tasks": [
-        {
-          "type": "item",
-          "item": "minecraft:cobblestone",
-          "count": 1024,
-          "consume": true
-        }
+        { "type": "item", "item": "minecraft:cobblestone", "count": 1024, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "stage",
-          "stage": "town_provides"
-        },
-        {
-          "type": "command",
-          "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"My shelves filled themselves overnight. I have written it in the ledger and I am watching it.\",\"color\":\"white\",\"italic\":true}]"
-        },
-        {
-          "type": "item",
-          "item": "valley:scrip",
-          "count": 15
-        },
-        {
-          "type": "toast",
-          "title": "Stage: town_provides",
-          "description": "Next: cast a bell from the quarry's own copper."
-        }
+        { "type": "stage", "stage": "town_provides" },
+        { "type": "command", "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"My shelves filled themselves overnight. I have written it in the ledger and I am watching it.\",\"color\":\"white\",\"italic\":true}]" },
+        { "type": "item", "item": "valley:scrip", "count": 15 },
+        { "type": "toast", "title": "Stage: town_provides", "description": "Next: cast a bell from the quarry's own copper." }
       ]
     },
     {
@@ -911,50 +461,21 @@
       "description": [
         "Pip: \"I get to ring it, and I already named it! It's called Big Copper!\"",
         "",
-        "Hang the Bell on the marked post in the finished square — Marnie's, off the firewood stacks, recast in the quarry's own copper.",
+        "Cast one Bell from the quarry's own copper — a copper block ringed by four copper ingots at any bench — and hang it on the marked post in the finished square.",
         "",
         "Every resident comes out for it. Pip has been the courier since December; from today he is also the bell-ringer, and nobody is getting that rope off him."
       ],
-      "deps": [
-        "q78",
-        "q88"
-      ],
+      "deps": ["q78", "q88"],
       "tasks": [
-        {
-          "type": "item",
-          "item": "minecraft:bell",
-          "count": 1,
-          "consume": true
-        },
-        {
-          "type": "checkmark",
-          "title": "Bell hung on the marked post in the square"
-        }
+        { "type": "item", "item": "minecraft:bell", "count": 1, "consume": true },
+        { "type": "checkmark", "title": "Bell hung on the marked post in the square" }
       ],
       "rewards": [
-        {
-          "type": "command",
-          "command": "/playsound minecraft:block.bell.use master @a ~ ~ ~ 2 1"
-        },
-        {
-          "type": "command",
-          "command": "/tellraw @a {\"text\":\"Pip rings it eleven times. Nobody stops him.\",\"color\":\"gold\",\"italic\":true}"
-        },
-        {
-          "type": "item",
-          "item": "perfectplushies:duck_plushie",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "minecraft:copper_block",
-          "count": 8
-        },
-        {
-          "type": "toast",
-          "title": "The bell is up",
-          "description": "Next: the fortieth lamp, on the bare post at Josie's porch."
-        }
+        { "type": "command", "command": "/playsound minecraft:block.bell.use master @a ~ ~ ~ 2 1" },
+        { "type": "command", "command": "/tellraw @a {\"text\":\"Pip rings it eleven times. Nobody stops him.\",\"color\":\"gold\",\"italic\":true}" },
+        { "type": "item", "item": "perfectplushies:duck_plushie", "count": 1 },
+        { "type": "item", "item": "minecraft:copper_block", "count": 8 },
+        { "type": "toast", "title": "The bell is up", "description": "Next: the fortieth lamp, on the bare post at Josie's porch." }
       ]
     },
     {
@@ -969,46 +490,19 @@
         "",
         "Forty lamps. Fifteen people. One winter that nobody leaves."
       ],
-      "deps": [
-        "q89",
-        "q74"
-      ],
+      "deps": ["q89", "q74"],
       "shape": "circle",
       "size": 1.25,
       "tasks": [
-        {
-          "type": "checkmark",
-          "title": "Fortieth lamp placed on the bare post at Josie's porch"
-        }
+        { "type": "checkmark", "title": "Fortieth lamp placed on the bare post at Josie's porch" }
       ],
       "rewards": [
-        {
-          "type": "command",
-          "command": "/bossbar set valley:lamps value 40"
-        },
-        {
-          "type": "command",
-          "command": "/tellraw @a {\"text\":\"Forty lamps. Fifteen people. One winter that nobody leaves.\",\"color\":\"gold\",\"italic\":true}"
-        },
-        {
-          "type": "command",
-          "command": "/tellraw @p {\"text\":\"Journal Entry 5 has been added to Josie's Journal — the last thing she wrote.\",\"color\":\"gray\"}"
-        },
-        {
-          "type": "item",
-          "item": "valley:josies_lantern",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "handcrafted:oak_bench",
-          "count": 1
-        },
-        {
-          "type": "toast",
-          "title": "Lamps 40/40",
-          "description": "Next: set the eight dishes on the long table and bank the Hearth for the night."
-        }
+        { "type": "command", "command": "/bossbar set valley:lamps value 40" },
+        { "type": "command", "command": "/tellraw @a {\"text\":\"Forty lamps. Fifteen people. One winter that nobody leaves.\",\"color\":\"gold\",\"italic\":true}" },
+        { "type": "command", "command": "/tellraw @p {\"text\":\"Journal Entry 5 has been added to Josie's Journal — the last thing she wrote.\",\"color\":\"gray\"}" },
+        { "type": "item", "item": "valley:josies_lantern", "count": 1 },
+        { "type": "item", "item": "handcrafted:oak_bench", "count": 1 },
+        { "type": "toast", "title": "Lamps 40/40", "description": "Next: set the eight dishes on the long table and bank the Hearth for the night." }
       ]
     },
     {
@@ -1025,90 +519,26 @@
         "",
         "Founder's Day. Sit down — you live here."
       ],
-      "deps": [
-        "q79",
-        "q90"
-      ],
+      "deps": ["q79", "q90"],
       "shape": "hexagon",
       "size": 2.0,
       "tasks": [
-        {
-          "type": "item",
-          "item": "farmersdelight:roast_chicken",
-          "count": 1,
-          "consume": true
-        },
-        {
-          "type": "item",
-          "item": "farmersdelight:beef_stew",
-          "count": 1,
-          "consume": true
-        },
-        {
-          "type": "item",
-          "item": "farmersdelight:cabbage_rolls",
-          "count": 1,
-          "consume": true
-        },
-        {
-          "type": "item",
-          "item": "farmersdelight:fish_stew",
-          "count": 1,
-          "consume": true
-        },
-        {
-          "type": "item",
-          "item": "farmersdelight:mushroom_rice",
-          "count": 1,
-          "consume": true
-        },
-        {
-          "type": "item",
-          "item": "farmersdelight:bacon_and_eggs",
-          "count": 1,
-          "consume": true
-        },
-        {
-          "type": "item",
-          "item": "farmersdelight:fruit_salad",
-          "count": 1,
-          "consume": true
-        },
-        {
-          "type": "item",
-          "item": "farmersdelight:sweet_berry_cheesecake",
-          "count": 1,
-          "consume": true
-        }
+        { "type": "item", "item": "farmersdelight:roast_chicken", "count": 1, "consume": true },
+        { "type": "item", "item": "farmersdelight:beef_stew", "count": 1, "consume": true },
+        { "type": "item", "item": "farmersdelight:cabbage_rolls", "count": 1, "consume": true },
+        { "type": "item", "item": "farmersdelight:fish_stew", "count": 1, "consume": true },
+        { "type": "item", "item": "farmersdelight:mushroom_rice", "count": 1, "consume": true },
+        { "type": "item", "item": "farmersdelight:bacon_and_eggs", "count": 1, "consume": true },
+        { "type": "item", "item": "farmersdelight:fruit_salad", "count": 1, "consume": true },
+        { "type": "item", "item": "farmersdelight:sweet_berry_cheesecake", "count": 1, "consume": true }
       ],
       "rewards": [
-        {
-          "type": "command",
-          "command": "/valley finale act5"
-        },
-        {
-          "type": "stage",
-          "stage": "actcomplete"
-        },
-        {
-          "type": "item",
-          "item": "sophisticatedbackpacks:netherite_backpack",
-          "count": 1
-        },
-        {
-          "type": "item",
-          "item": "perfectplushies:frog_plushie",
-          "count": 1
-        },
-        {
-          "type": "loot",
-          "table": "story_crate"
-        },
-        {
-          "type": "toast",
-          "title": "Founder's Day",
-          "description": "Next: Endless Seasons — festivals, bounties and new arrivals. The story ends. The world doesn't."
-        }
+        { "type": "command", "command": "/valley finale act5" },
+        { "type": "stage", "stage": "actcomplete" },
+        { "type": "item", "item": "sophisticatedbackpacks:netherite_backpack", "count": 1 },
+        { "type": "item", "item": "perfectplushies:frog_plushie", "count": 1 },
+        { "type": "loot", "table": "story_crate" },
+        { "type": "toast", "title": "Founder's Day", "description": "Next: Endless Seasons — festivals, bounties and new arrivals. The story ends. The world doesn't." }
       ]
     }
   ]

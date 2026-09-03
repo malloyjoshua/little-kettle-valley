@@ -32,13 +32,15 @@ tools/venv/bin/python tools/scripts/quest_order.py | while IFS=$'\t' read -r key
   echo "$key $id $title" >> "$OUT/completed.txt"; say "ftbquests change_progress $P complete $id" 1.0
   case "$key" in q19|q37|q56|q75|q91) sleep 12;; esac
 done
+echo "client RSS MB after quests: $(ps -o rss= -p $(pgrep -f cpw.mods.bootstraplauncher | head -1) 2>/dev/null | awk '{print int($1/1024)}')"
 sleep 10; echo "quests completed: $(wc -l < "$OUT/completed.txt" | tr -d ' ')"
 echo "== command audit ($(grep -c '^[^#]' "$ROOT/scratch/audit_cmds.txt") commands)"; AMARK=$(wc -l < "$LOG" | tr -d ' ')
 grep -v '^#' "$ROOT/scratch/audit_cmds.txt" | grep -v '^\s*$' | while IFS= read -r cmd; do say "$cmd" 0.35; done
 sleep 5
 echo "== finales + scenes"; for a in 1 2 3 4 5; do say "valley finale act$a" 8; done
 for s in q58 q59 q60 q62 q64 q65 q66 q70a q71 q72 q73 q74; do say "valley scene $s" 2; done
-say "valley lamps" 1; say "valley standing" 1; say "easy_npc list" 2; sleep 5
+echo "client RSS MB after finales: $(ps -o rss= -p $(pgrep -f cpw.mods.bootstraplauncher | head -1) 2>/dev/null | awk '{print int($1/1024)}')"
+say "valley lamps" 1; say "easy_npc list" 2; sleep 5
 tail -n +"$MARK" "$LOG" > "$OUT/playthrough.log"; tail -n +"$AMARK" "$LOG" > "$OUT/audit.log"
 echo "=== SUMMARY"
 echo "NPCs alive: $(grep -c 'Type: easy_npc' "$OUT/playthrough.log")"

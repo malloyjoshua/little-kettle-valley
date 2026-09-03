@@ -164,7 +164,7 @@ BlockEvents.placed(event => {
   }
 
   // ---------------------------------------------------------------------
-  // Q47 — "The Cell on the Wall." Fluxduct within 12 blocks of the inn.
+  // Q47 — "The Cell on the Wall." Energy Duct within 12 blocks of the inn.
   // (§12.1 C11: this proximity is a QUEST check, never a recipe condition.)
   // ---------------------------------------------------------------------
   if (id === 'thermal:energy_duct' && !v.isDone('q47')) {
@@ -351,7 +351,7 @@ function checkSleep(server, player) {
 //
 // The count is per TEAM and comes from the ledger in valley_core.js, which is
 // written by a silent command reward on each of the eight closing quests:
-//     /valley standing <key> {long_team_id}
+//     /valley standing <key> {team}   (the FTB Teams short team name)
 // That is deterministic and needs no quest API. Before counting we also ask the
 // FTB XMod Compat KubeJS binding which of the eight FTB Quests itself considers
 // complete, and fold any extras into the ledger — so a chain closed before this

@@ -200,6 +200,11 @@ function finaleAct3(server, v) {
     'setblock ~6 ~1 ~6 minecraft:carved_pumpkin[facing=south]',
     'place template valley:granary_facade ~-14 ~1 ~-4',
     'place template valley:noticeboard ~0 ~1 ~-5',
+    // The board template carries an oak_sign at its local [1,3,0]; writing it
+    // here is the only place in the pack the destination line is actually
+    // ON the noticeboard rule 3 says it is on.
+    'setblock ~1 ~4 ~-5 minecraft:oak_sign[rotation=8]{front_text:{messages:[\'{"text":"Forty lamps."}\',\'{"text":"Fifteen people."}\',\'{"text":"One winter that"}\',\'{"text":"nobody leaves."}\']}}',
+    'tellraw @a {"text":"On the noticeboard, in Oda\\u0027s hand: Forty lamps. Fifteen people. One winter that nobody leaves.","color":"gold"}',
     'bossbar set valley:lamps value 22',
     'bossbar set valley:folk value 11',
     'title @a times 20 90 30',
@@ -288,13 +293,33 @@ function finaleAct4(server, v) {
     let bath = v.mark('bathhouse')
     if (bath) s.runCommandSilent('particle minecraft:cloud ' + bath[0] + ' ' + (bath[1] + 2) + ' ' + bath[2] + ' 2 1 2 0.02 120 force @a')
 
-    s.runCommandSilent('give @a valley:hearthkeepers_lantern 1')
-    s.runCommandSilent('give @a valley:plushie_token 1')
+    // Q75 pays the Hearthkeeper's Lantern, the Plushie Token and 75 Scrip on
+    // its own card, so the biggest build in the pack shows its payout before
+    // the player claims it. This adds the town's own 25 on top.
+    runSeg(s, works, [
+      'summon firework_rocket ~0 ~6 ~0 {LifeTime:26,FireworksItem:{id:"minecraft:firework_rocket",Count:1b,tag:{Fireworks:{Flight:2b,Explosions:[{Type:1b,Colors:[I;16766720,3847130],FadeColors:[I;16777215]}]}}}}',
+      'summon firework_rocket ~-5 ~5 ~4 {LifeTime:32,FireworksItem:{id:"minecraft:firework_rocket",Count:1b,tag:{Fireworks:{Flight:2b,Explosions:[{Type:4b,Colors:[I;16766720]}]}}}}',
+      'summon firework_rocket ~5 ~5 ~-4 {LifeTime:38,FireworksItem:{id:"minecraft:firework_rocket",Count:1b,tag:{Fireworks:{Flight:2b,Explosions:[{Type:1b,Colors:[I;3847130],FadeColors:[I;16766720]}]}}}}',
+      'playsound minecraft:entity.firework_rocket.launch master @a ~0 ~2 ~0 3 1'
+    ])
     s.runCommandSilent('give @a valley:scrip 25')
     s.runCommandSilent('advancement grant @a only valley:journal/entry_5')
     v.sayAll('Bram', 'Well.')
     v.addWorldStage('greenhouse_warm')
     v.addWorldStage('act5')
+  })
+
+  // The turn, six seconds after the lever, the way Act III turns after the
+  // Supper. Without this nothing sets spring until Q91 and the whole of Act V
+  // — Nella's tomato, Marnie's walk round the square — plays in mid-winter.
+  v.delay(200, s => {
+    runSeg(s, v.mark('works'), [
+      'season set early_spring',
+      'weather clear',
+      'particle minecraft:falling_water ~0 ~5 ~0 8 3 8 0.01 160 force @a',
+      'playsound minecraft:block.amethyst_block.chime master @a ~0 ~1 ~0 2 1.2'
+    ])
+    v.sayAll('Marnie', "Snow's off the ridge by morning. It always turns the night after the longest one.")
   })
 }
 
@@ -424,7 +449,9 @@ const SCENES = {
       'easy_npc preset import data valley:easy_npc/preset/ribbit_puddle.npc.snbt ~-12 ~1 ~6',
       'setblock ~-11 ~1 ~5 minecraft:campfire[lit=true]',
       'setblock ~-13 ~1 ~5 candlelight:lamp',
-      'bossbar set valley:folk value 15',
+      // Eight named + four Ribbits = twelve. The last three are the Act V
+      // arrivals, and the bar does not count the player.
+      'bossbar set valley:folk value 12',
       'playsound minecraft:entity.frog.long_jump master @a ~0 ~1 ~0 1 1'
     ]
   },
@@ -510,7 +537,7 @@ const SCENES = {
   // in the stable (the quest's reward line, made literally true).
   q65: {
     origin: 'works',
-    who: ['Tobin', 'Ninety blocks of fallen adit, I counted twice, and behind it is the entire works, and I have not slept.'],
+    who: ['Tobin', 'Forty blocks of fallen adit, I paced it twice, and behind forty blocks is the entire works, and I have not slept.'],
     cmds: [
       'fill ~-5 ~0 ~-5 ~5 ~4 ~5 minecraft:air replace minecraft:cobblestone',
       'setblock ~-4 ~3 ~-4 minecraft:lantern[hanging=true]',
@@ -541,11 +568,11 @@ const SCENES = {
     ]
   },
 
-  // Q70a — the wool line. Four blankets, four beds, four empty houses that
-  // will not be empty in spring.
+  // Q70a — the wool line. Three blankets, three beds, three empty houses
+  // that will not be empty in spring: Tess, Mab and Corin arrive in Act V.
   q70a: {
     origin: 'inn',
-    who: ['Marnie', 'Four empty houses, four beds, four blankets. People arrive in spring, and beds should be made before they get here.'],
+    who: ['Marnie', 'Three empty houses, three beds, three blankets. People arrive in spring, and beds should be made before they get here.'],
     cmds: [
       'setblock ~4 ~0 ~2 minecraft:white_bed[facing=south,part=foot]',
       'setblock ~4 ~0 ~3 minecraft:white_bed[facing=south,part=head]',
@@ -553,13 +580,22 @@ const SCENES = {
       'setblock ~6 ~0 ~3 minecraft:white_bed[facing=south,part=head]',
       'setblock ~8 ~0 ~2 minecraft:white_bed[facing=south,part=foot]',
       'setblock ~8 ~0 ~3 minecraft:white_bed[facing=south,part=head]',
-      'setblock ~10 ~0 ~2 minecraft:white_bed[facing=south,part=foot]',
-      'setblock ~10 ~0 ~3 minecraft:white_bed[facing=south,part=head]',
       'setblock ~5 ~0 ~2 minecraft:white_carpet',
       'setblock ~7 ~0 ~2 minecraft:light_gray_carpet',
       'setblock ~9 ~0 ~2 minecraft:brown_carpet',
-      'setblock ~11 ~0 ~2 minecraft:orange_carpet',
       'playsound minecraft:block.wool.place master @a ~0 ~1 ~0 2 1'
+    ]
+  },
+
+  // Q76 — year two. Oda rewrites the noticeboard, and the destination line
+  // stays word for word, because rule 3 says it is never paraphrased.
+  q76: {
+    origin: 'anchor',
+    who: ['Oda', "Year two on the board, and it is a longer list than last spring. I have written the bottom four lines out exactly as they were."],
+    cmds: [
+      'setblock ~1 ~4 ~-5 minecraft:oak_sign[rotation=8]{front_text:{messages:[\'{"text":"Forty lamps."}\',\'{"text":"Fifteen people."}\',\'{"text":"One winter that"}\',\'{"text":"nobody leaves."}\']}}',
+      'tellraw @a {"text":"On the noticeboard, in Oda\\u0027s hand: Forty lamps. Fifteen people. One winter that nobody leaves.","color":"gold"}',
+      'playsound minecraft:block.wood.place master @a ~0 ~1 ~-5 1 1.2'
     ]
   },
 
@@ -767,10 +803,14 @@ ServerEvents.commandRegistry(event => {
       // --- /valley standing <key> [team] (§5 Standing: Trusted) -----------
       // Called by a silent, elevated command reward on each of the eight
       // chain-closing quests:
-      //     /valley standing q59 {long_team_id}
-      // CommandReward#claim substitutes {long_team_id} with the CLAIMING
-      // player's FTB team UUID, so the ledger this writes is per team. The
-      // team argument is optional: run by hand, it resolves from the caller.
+      //     /valley standing q59 {team}
+      // CommandReward#claim substitutes only @p, {x} {y} {z}, {team}, {quest}
+      // and {chapter} — {long_team_id} is NOT one of them and used to arrive
+      // at this command as the literal eleven characters. {team} is the FTB
+      // Teams short team name, a plain string, and that string is the ledger
+      // key. The argument stays optional: run by hand it resolves from the
+      // caller, and standingCmd records both spellings so the two halves of
+      // the ledger can never drift apart.
       .then(Commands.literal('standing').requires(src => src.hasPermission(2))
         .then(Commands.argument('key', Arguments.WORD.create(event))
           .executes(ctx => standingCmd(ctx, event, null))
@@ -913,7 +953,6 @@ function standingCmd(ctx, event, teamArgName) {
   if (!v) return 0
   let key = event.arguments.WORD.getResult(ctx, 'key')
   let player = srcPlayer(ctx.source)
-  let team = teamArgName ? event.arguments.WORD.getResult(ctx, teamArgName) : v.teamId(player)
 
   if (v.standingChains().indexOf(key) === -1) {
     msg(ctx.source, Text.red('Not a chain-closing quest: ' + key +
@@ -921,13 +960,30 @@ function standingCmd(ctx, event, teamArgName) {
     return 0
   }
 
-  let fresh = v.recordStanding(team, key)
-  let closed = v.standingClosed(team)
+  // `self` is what every READER of the ledger uses (valley_checks.js and
+  // /valley check standing both call teamId), so it is always recorded. The
+  // argument is the {team} string FTB Quests substituted; it is recorded too,
+  // so a team whose short name the API spells differently cannot strand a
+  // closed chain in a slot nothing ever reads.
+  let self = v.teamId(player)
+  let keys = [self]
+  if (teamArgName) {
+    let arg = event.arguments.WORD.getResult(ctx, teamArgName)
+    if (arg) {
+      arg = String(arg)
+      if (keys.indexOf(arg) === -1) keys.push(arg)
+    }
+  }
+
+  let fresh = false
+  keys.forEach(t => { if (v.recordStanding(t, key)) fresh = true })
+
+  let closed = v.standingClosed(self)
   if (fresh && player) {
     v.say(player, 'Oda', (STANDING_WHO[key] || 'That') + "'s story is closed. That's " +
       closed.length + ' of eight in my book.')
   }
-  console.info('[valley] /valley standing ' + key + ' ' + team +
+  console.info('[valley] /valley standing ' + key + ' [' + keys.join(', ') + ']' +
                ' -> ' + closed.length + '/8' + (fresh ? '' : ' (already recorded)'))
   return 1
 }

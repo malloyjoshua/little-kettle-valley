@@ -95,10 +95,10 @@ const UNCOMMON = [
 
 StartupEvents.registry('item', event => {
   VALLEY_ITEMS.forEach(entry => {
-    const id = entry[0]
-    const name = entry[1]
-    const stack = entry[2]
-    const b = event.create('valley:' + id).displayName(name).maxStackSize(stack)
+    let id = entry[0]
+    let name = entry[1]
+    let stack = entry[2]
+    let b = event.create('valley:' + id).displayName(name).maxStackSize(stack)
     if (UNCOMMON.indexOf(id) !== -1) b.rarity('uncommon')
   })
   console.info('[valley] registered ' + VALLEY_ITEMS.length + ' custom items')

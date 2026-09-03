@@ -68,9 +68,9 @@
 		{
 			id: "2C88CB03F85D2528"
 			title: "Dig Out the Cellar Stairs"
-			subtitle: "About 75 marked blocks of gravel."
+			subtitle: "About 40 marked blocks of gravel."
 			icon: "minecraft:iron_door"
-			description: ["Josie: \"There's a door down there I'm not going to explain yet. Dig anyway; I know you.\"", "", "There is a trapdoor under the ash in the old kitchen and it is glowing. Dig the gravel out of the stairs beneath it — about 75 marked blocks. The iron shovel is in your bag.", "", "At the bottom: a sealed iron door with no handle and four words chalked on it in her hand — Not yet. — J.K. Beside it, a Cellar Waystone and her tool chest."]
+			description: ["Josie: \"There's a door down there I'm not going to explain yet. Dig anyway; I know you.\"", "", "There is a trapdoor under the ash in the old kitchen and it is glowing. Dig the gravel out of the stairs beneath it — about 40 marked blocks. The iron shovel is in your bag.", "", "At the bottom: a sealed iron door with no handle and four words chalked on it in her hand — Not yet. — J.K. Beside it, a Cellar Waystone and her tool chest."]
 			x: 4.0d
 			y: 0.8d
 			dependencies: ["87A167074EA22047"]
@@ -119,7 +119,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "752A40EDF7EFA0F7", type: "checkmark", title: "Slept one night in the cottage bed" }]
-			rewards: [{ id: "3591BC634AFBC362", type: "command", team_reward: true, command: "execute positioned {x} {y} {z} run function valley:act1/marnie_arrives", elevate_perms: true, silent: true }, { id: "914B9C675564A833", type: "command", team_reward: true, command: "bossbar set valley:folk value 2", elevate_perms: true, silent: true }, { id: "423B87F3CF732616", type: "item", item: "minecraft:bread", count: 8 }, { id: "DC468CB60B925A73", type: "item", item: "waystones:waystone" }, { id: "EDFF5744CA98B391", type: "item", item: "valley:green_oak_plank", count: 32 }, { id: "BA47B8B0DCC7D201", type: "item", item: "minecraft:flint_and_steel" }, { id: "E065774855CAB93B", type: "item", item: "minecraft:wheat_seeds", count: 9 }, { id: "1191BFDA5CA26BE3", type: "item", item: "minecraft:carrot", count: 9 }, { id: "2DC0531E45C02FEC", type: "item", item: "minecraft:potato", count: 9 }, { id: "A220A4707207BC9D", type: "toast", title: "Residents 2/15", description: "Next: till the 3x9 patch behind the house. Or dry her green planks in any furnace — Bram needs those." }]
+			rewards: [{ id: "3591BC634AFBC362", type: "command", team_reward: true, command: "execute positioned {x} {y} {z} run function valley:act1/marnie_arrives", elevate_perms: true, silent: true }, { id: "B6B510772891E423", type: "command", team_reward: true, command: "bossbar set valley:folk value 1", elevate_perms: true, silent: true }, { id: "423B87F3CF732616", type: "item", item: "minecraft:bread", count: 8 }, { id: "DC468CB60B925A73", type: "item", item: "waystones:waystone" }, { id: "EDFF5744CA98B391", type: "item", item: "valley:green_oak_plank", count: 32 }, { id: "BA47B8B0DCC7D201", type: "item", item: "minecraft:flint_and_steel" }, { id: "E065774855CAB93B", type: "item", item: "minecraft:wheat_seeds", count: 9 }, { id: "1191BFDA5CA26BE3", type: "item", item: "minecraft:carrot", count: 9 }, { id: "2DC0531E45C02FEC", type: "item", item: "minecraft:potato", count: 9 }, { id: "F283479FA2658373", type: "toast", title: "Residents 1/15", description: "Next: till the 3x9 patch behind the house. Or dry her green planks in any furnace — Bram needs those." }]
 		}
 		{
 			id: "A2DF54626799495A"
@@ -161,7 +161,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "3D05A5371C9099E8", type: "item", item: "minecraft:egg", count: 3L, consume_items: true }]
-			rewards: [{ id: "583B6AC3DED3E7E8", type: "command", team_reward: true, command: "execute positioned {x} {y} {z} run function valley:act1/pip_arrives", elevate_perms: true, silent: true }, { id: "CD263C4DC4697B1A", type: "command", team_reward: true, command: "bossbar set valley:folk value 3", elevate_perms: true, silent: true }, { id: "26BE9F42D9B478DC", type: "item", item: "duckling:duck_spawn_egg" }, { id: "6A8BC661F36AA4F5", type: "item", item: "minecraft:white_wool", count: 16 }, { id: "403E9DBBBB72E2D4", type: "item", item: "domesticationinnovation:pet_bed_yellow" }, { id: "91C4C31F2B3035A8", type: "loot", table_id: 6428311738069300697L }, { id: "68A7FCB598CD03E3", type: "toast", title: "Residents 3/15", description: "Next: Marnie's kitchen needs an oven, and the oven needs dry boards. Or go and meet the man at the mill." }]
+			rewards: [{ id: "583B6AC3DED3E7E8", type: "command", team_reward: true, command: "execute positioned {x} {y} {z} run function valley:act1/pip_arrives", elevate_perms: true, silent: true }, { id: "4D5BCA3FC4FC5199", type: "command", team_reward: true, command: "bossbar set valley:folk value 2", elevate_perms: true, silent: true }, { id: "26BE9F42D9B478DC", type: "item", item: "duckling:duck_spawn_egg" }, { id: "6A8BC661F36AA4F5", type: "item", item: "minecraft:white_wool", count: 16 }, { id: "403E9DBBBB72E2D4", type: "item", item: "domesticationinnovation:pet_bed_yellow" }, { id: "91C4C31F2B3035A8", type: "loot", table_id: 6428311738069300697L }, { id: "A916239AFD48FE46", type: "toast", title: "Residents 2/15", description: "Next: Marnie's kitchen needs an oven, and the oven needs dry boards. Or go and meet the man at the mill." }]
 		}
 		{
 			id: "967FBD502857379B"
@@ -175,7 +175,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "B7840C18479A70A7", type: "item", item: "valley:token_bram", count: 1L, consume_items: true }]
-			rewards: [{ id: "226F6892A3A1EF80", type: "item", item: "create:wrench" }, { id: "2C366D84BFCB8766", type: "item", item: "create:goggles" }, { id: "E376C4ABA54D8A50", type: "item", item: "minecraft:iron_ingot", count: 12 }, { id: "B6CE00BCF4AF352F", type: "item", item: "minecraft:andesite", count: 24 }, { id: "1ABBBD460B1C492F", type: "command", command: "advancement grant @a only valley:journal/found_2", elevate_perms: true, silent: true }, { id: "5732816B76FCB305", type: "toast", title: "Bram is at the mill", description: "Next: craft 8 Andesite Alloy out of what Bram gave you. Eight. Not nine." }]
+			rewards: [{ id: "226F6892A3A1EF80", type: "item", item: "create:wrench" }, { id: "2C366D84BFCB8766", type: "item", item: "create:goggles" }, { id: "E376C4ABA54D8A50", type: "item", item: "minecraft:iron_ingot", count: 12 }, { id: "B6CE00BCF4AF352F", type: "item", item: "minecraft:andesite", count: 24 }, { id: "3254B4365C633356", type: "command", team_reward: true, command: "bossbar set valley:folk value 3", elevate_perms: true, silent: true }, { id: "1ABBBD460B1C492F", type: "command", command: "advancement grant @a only valley:journal/found_2", elevate_perms: true, silent: true }, { id: "0917903CE6316C18", type: "toast", title: "Residents 3/15", description: "Bram is at the mill. Next: craft 8 Andesite Alloy out of what Bram gave you. Eight. Not nine." }]
 		}
 		{
 			id: "F0AF7E0ABE69FA26"

@@ -289,10 +289,11 @@ global.valley = {
   // closed". The authoritative record is a ledger of flags in
   // server.persistentData, written by a silent command reward on each of the
   // eight closing quests:
-  //     /valley standing <key> {long_team_id}
-  // CommandReward#claim substitutes {long_team_id} with the claiming player's
-  // FTB team UUID (verified in ftb-quests-forge-2001.4.22.jar), so the ledger
-  // is per team, survives a /reload, and needs no quest API at all.
+  //     /valley standing <key> {team}
+  // CommandReward#claim substitutes only @p, {x} {y} {z}, {team}, {quest} and
+  // {chapter}. There is NO {long_team_id}; {team} is the FTB Teams SHORT TEAM
+  // NAME, a plain string. The ledger is therefore keyed on that string, and
+  // teamId() below resolves the same short name for a caller with no argument.
   //
   // standingApiClosed() below is a top-up, not the source of truth: it reads
   // the FTB XMod Compat KubeJS binding when that binding exists, so a chain
@@ -306,11 +307,18 @@ global.valley = {
   // The eight chain keys, in story order.
   standingChains: function () { return VALLEY.STANDING_CHAINS.slice(0) },
 
-  // The FTB team UUID for this player, or their login name when FTB Teams is
-  // not answering. Matches the {long_team_id} the command reward passes in.
+  // The FTB team SHORT NAME for this player, or their login name when FTB
+  // Teams is not answering. This is what {team} expands to in a command
+  // reward, so both halves of the ledger agree on one key.
   teamId: function (player) {
     try {
-      if (player && player.team && player.team.id) return String(player.team.id)
+      let t = player ? player.team : null
+      if (t) {
+        let n = t.shortName
+        if (!n) { try { n = t.getShortName() } catch (e2) { n = null } }
+        if (!n) n = t.name
+        if (n) return String(n)
+      }
     } catch (err) { /* no FTB Teams integration; fall through */ }
     return player ? global.valley.pname(player) : 'server'
   },
@@ -528,7 +536,7 @@ function valleyFirstJoin(server, player, name) {
   // The world border and the two counters start where §12.5 says they do.
   if (global.valley.once('world_opened')) {
     server.runCommandSilent('worldborder set 1500')
-    server.runCommandSilent('bossbar set valley:folk value 1')
+    server.runCommandSilent('bossbar set valley:folk value 0')
     server.runCommandSilent('bossbar set valley:lamps value 0')
   }
   console.info('[valley] first join handled for ' + name)
@@ -576,5 +584,68 @@ ItemEvents.rightClicked('valley:chicken_feed', event => {
   if (laid > 0 && !player.isCreative()) event.item.count = event.item.count - 1
   if (laid === 0) global.valley.say(player, 'Marnie', 'No hen close enough. Stand in the pen.')
 })
+
+// Q26: the Dredge Net. Q22 pays the net and Q26's text promises "each pull
+// brings up 16 Lake Sand" over eight pulls — but the item had no handler, so
+// valley:lake_sand had NO source anywhere in the pack and Q26 (and the whole
+// silica -> Thermal Machine Frame line behind it) was unwinnable. This is that
+// handler: use it in Nella's boat, or anywhere with open water within reach.
+const dredgeLast = {}
+
+function dredgePull(player) {
+  if (!player || player.level.isClientSide()) return
+
+  // Open water anywhere in a small box around the player: covers sitting in the
+  // boat (water below), standing on the pier lip, and wading from the shallows.
+  let px = Math.floor(player.x)
+  let py = Math.floor(player.y)
+  let pz = Math.floor(player.z)
+  let wet = false
+  for (let dy = 1; dy >= -4 && !wet; dy--) {
+    for (let dx = -2; dx <= 2 && !wet; dx++) {
+      for (let dz = -2; dz <= 2 && !wet; dz++) {
+        let b = player.level.getBlock(px + dx, py + dy, pz + dz)
+        if (String(b.id) === 'minecraft:water') wet = true
+      }
+    }
+  }
+  if (!wet) {
+    global.valley.say(player, 'Nella', 'Not on dry land. Get in the boat, out over the shallows.')
+    return
+  }
+
+  // One pull a second: it also swallows the off-hand double-fire, so eight
+  // pulls is eight pulls and not eight clicks.
+  let now = Date.now()
+  let name = global.valley.pname(player)
+  if (now - (dredgeLast[name] || 0) < 1000) return
+  dredgeLast[name] = now
+
+  player.give(Item.of('valley:lake_sand', 16))
+
+  let pulls = parseInt(global.valley.get('valley_dredge_pulls', '0'), 10) + 1
+  global.valley.set('valley_dredge_pulls', pulls)
+  if (pulls === 1) {
+    global.valley.say(player, 'Nella', 'Sixteen. Hold the rope, don\'t help.')
+  } else if (pulls === 8) {
+    global.valley.say(player, 'Nella', "That's the eight - a hundred and twenty-eight. Bram's waiting.")
+  }
+}
+
+// Right-clicking at open water fires RightClickItem...
+ItemEvents.rightClicked('valley:dredge_net', event => { dredgePull(event.player) })
+
+// ...but a player standing in the shallows is usually looking AT the lake bed,
+// and a block under the cursor sends the interaction to RightClickBlock instead,
+// where the item event never fires. Both paths pull the same net. Guarded so an
+// API surprise here can never take the rest of the spine down with it.
+try {
+  BlockEvents.rightClicked(event => {
+    if (String(event.item.id) !== 'valley:dredge_net') return
+    dredgePull(event.player)
+  })
+} catch (err) {
+  console.warn('[valley] dredge net: block-click path unavailable (' + err + ')')
+}
 
 console.info('[valley] valley_core.js ok')

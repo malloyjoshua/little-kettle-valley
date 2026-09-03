@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Bram: $(italic)Thermal won't take river grit. It wants glass sand, washed.$()$(br2)Nella dredges it: Q26 is $(bold)96 Lake Sand$() off the shallows.$(br2)You wash it: Q30 is $(bold)64 Washed Silica$(). Two Lake Sand and a bucket of water make one on the bench, so 64 silica is $(bold)128 sand$() -- keep Nella's net out for the last two pulls. An $(item)Encased Fan$() blowing down through flowing water does the same job if you would rather watch it. Q30 pays another $(bold)64$() silica when you're done.",
+      "text": "Bram: $(italic)Thermal won't take river grit. It wants glass sand, washed.$()$(br2)Nella dredges it: Q26 is eight pulls, $(bold)128 Lake Sand$() off the shallows.$(br2)You wash it: Q30 is $(bold)64 Washed Silica$(). Eight Lake Sand and a bucket of water make four on the bench -- two sand per silica -- so 64 silica is $(bold)128 sand$(), exactly what she put on the pier. An $(item)Encased Fan$() over flowing water washes it one for one and needs no buckets, if you would rather build than craft. Q30 pays another $(bold)64$() silica when you're done.",
       "title": "Sand, twice"
     },
     {

@@ -2,10 +2,7 @@
   "chapter": {
     "key": "act2",
     "title": "Act II: The Long Days",
-    "subtitle": [
-      "Summer, Year One",
-      "Forty lamps. Fifteen people. One winter that nobody leaves."
-    ],
+    "subtitle": ["Summer, Year One", "Forty lamps. Fifteen people. One winter that nobody leaves."],
     "icon": "minecraft:sunflower",
     "group": "Story",
     "order": 1
@@ -102,7 +99,7 @@
         { "type": "item", "item": "artifacts:anglers_hat", "count": 1 },
         { "type": "item", "item": "create:copper_diving_helmet", "count": 1 },
         { "type": "item", "item": "valley:dredge_net", "count": 1 },
-        { "type": "toast", "title": "Nella's hat fits you", "description": "Next: pull the dredge net six times from her boat." }
+        { "type": "toast", "title": "Nella's hat fits you", "description": "Next: pull the dredge net eight times from her boat." }
       ]
     },
     {
@@ -115,7 +112,7 @@
         "",
         "Plant Wisp's poppy, dandelion and cornflower in the three flower boxes on your window ledge, then bone-meal the grass on the flat by the Town Anchor — that ground is plains, and plains grows all three — until you have 8 of each. Bring all 24 to Halden on the south slope.",
         "",
-        "Halden moves into the hedge garden, the spring above it starts running, and the trellis and grape starts for the slope come with him."
+        "Halden opens the hedge garden to the town, the spring above it starts running, and the trellis and grape starts for the slope come with him."
       ],
       "deps": ["q19", "q20"],
       "shape": "hexagon",
@@ -134,7 +131,6 @@
         { "type": "item", "item": "thermal:watering_can", "count": 1 },
         { "type": "item", "item": "valley:spring_water", "count": 3 },
         { "type": "command", "command": "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"Josie planted the first hedge here. I only ever kept it trimmed. That can change now.\",\"italic\":true}]", "elevate": true, "silent": true },
-        { "type": "command", "command": "/bossbar set valley:folk value 7", "elevate": true, "silent": true },
         { "type": "toast", "title": "Halden opens the hedge garden", "description": "Next: put the trellis up on the south terrace and plant the 4 grape starts." }
       ]
     },
@@ -198,13 +194,13 @@
     },
     {
       "key": "q26",
-      "title": "Pull the Dredge Net Six Times From Nella's Boat",
-      "subtitle": "Six pulls off Nella's boat — 96 Lake Sand.",
+      "title": "Pull the Dredge Net Eight Times From Nella's Boat",
+      "subtitle": "Eight pulls off Nella's boat — 128 Lake Sand.",
       "icon": "valley:lake_sand",
       "description": [
         "Nella: \"Sit down, hold the rope, don't help. You never get in the water on my boat.\"",
         "",
-        "Sit in Nella's boat over the marked shallows and use the Dredge Net six times. Each pull brings up 16 Lake Sand; hand in 96 — the book counts it, then gives it straight back for Bram.",
+        "Sit in Nella's boat over the shallows — or wade in from the shore — and use the Dredge Net eight times. Each pull brings up 16 Lake Sand; hand in 128 — the book counts it, then gives it straight back for Bram.",
         "",
         "Lake Sand is the only source of Washed Silica, and Washed Silica is the only way to a Thermal Machine Frame — Bram cannot start the workshop without it."
       ],
@@ -212,14 +208,14 @@
       "shape": "circle",
       "size": 1.0,
       "tasks": [
-        { "type": "item", "item": "valley:lake_sand", "count": 96, "consume": true }
+        { "type": "item", "item": "valley:lake_sand", "count": 128, "consume": true }
       ],
       "rewards": [
-        { "type": "item", "item": "valley:lake_sand", "count": 96 },
+        { "type": "item", "item": "valley:lake_sand", "count": 128 },
         { "type": "item", "item": "minecraft:oak_boat", "count": 1 },
         { "type": "stage", "stage": "dredged" },
-        { "type": "command", "command": "/tellraw @a [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"Ninety-six. Take it to Bram before he asks me twice.\",\"italic\":true}]", "elevate": true, "silent": true },
-        { "type": "toast", "title": "96 Lake Sand on the pier", "description": "Next: 64 Washed Silica on the bench — two Lake Sand and a bucket of water each, so keep the net out; it takes 128 sand." }
+        { "type": "command", "command": "/tellraw @a [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"A hundred and twenty-eight. Take it to Bram before he asks me twice.\",\"italic\":true}]", "elevate": true, "silent": true },
+        { "type": "toast", "title": "128 Lake Sand on the pier", "description": "Next: 64 Washed Silica on the bench — eight Lake Sand and a bucket of water make four, and 128 sand is exactly the 64." }
       ]
     },
     {
@@ -244,7 +240,7 @@
         { "type": "item", "item": "geolosys:prospectors_pick", "count": 1 },
         { "type": "item", "item": "minecraft:filled_map", "count": 3 },
         { "type": "command", "command": "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Six spots. I marked them. I marked them twice actually, sorry, the second set is in pink.\",\"italic\":true}]", "elevate": true, "silent": true },
-        { "type": "command", "command": "/bossbar set valley:folk value 8", "elevate": true, "silent": true },
+        { "type": "command", "command": "/bossbar set valley:folk value 7", "elevate": true, "silent": true },
         { "type": "toast", "title": "Tobin has a camp and an audience", "description": "Next: strike all 6 of Tobin's marked spots with the prospector's pick." }
       ]
     },
@@ -258,7 +254,7 @@
         "",
         "Take the prospector's pick to the 6 spots on Tobin's survey maps and right-click each one. The sixth reading is the copper cluster.",
         "",
-        "The copper and tin deposits get pinned to your maps. Tin is what the first Machine Frame is short of."
+        "The copper and tin deposits get pinned to your maps, and the Adit Pick — Efficiency IV, out of Josie's tool chest — comes with sixteen sticks of powder. Tin is what the first Machine Frame is short of."
       ],
       "deps": ["q27"],
       "shape": "circle",
@@ -271,6 +267,8 @@
         { "type": "item", "item": "minecraft:raw_iron", "count": 32 },
         { "type": "item", "item": "minecraft:filled_map", "count": 2 },
         { "type": "item", "item": "minecraft:enchanted_book", "count": 1 },
+        { "type": "command", "command": "give @p minecraft:diamond_pickaxe{Enchantments:[{id:\"minecraft:efficiency\",lvl:4}],display:{Name:'{\"text\":\"The Adit Pick\",\"italic\":false,\"color\":\"gold\"}'}} 1", "elevate": true, "silent": true },
+        { "type": "item", "item": "minecraft:tnt", "count": 16 },
         { "type": "command", "command": "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Copper here, tin two ridges over. I said that in April. Anyway. Anyway!\",\"italic\":true}]", "elevate": true, "silent": true },
         { "type": "toast", "title": "Copper and tin are on your maps", "description": "Next: Bram wants a Windmill Bearing and 8 sails on the mill roof." }
       ]
@@ -301,7 +299,7 @@
         { "type": "item", "item": "create:mechanical_crafter", "count": 3 },
         { "type": "item", "item": "create:encased_fan", "count": 1 },
         { "type": "command", "command": "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Turns in a breeze. Good. Now it's a workshop, not a mill.\",\"italic\":true}]", "elevate": true, "silent": true },
-        { "type": "toast", "title": "The mill runs on wind now", "description": "Next: wash 64 Lake Sand into Washed Silica under the fan." }
+        { "type": "toast", "title": "The mill runs on wind now", "description": "Next: wash Nella's 128 Lake Sand into 64 Washed Silica under the fan." }
       ]
     },
     {
@@ -312,7 +310,7 @@
       "description": [
         "Bram: \"Fan over running water, sand on the belt underneath. Wash it twice if it still looks like a beach.\"",
         "",
-        "Two Lake Sand and a bucket of water make one Washed Silica on the bench, so 64 silica is 128 sand — Nella's net is still yours for the last two pulls. (An Encased Fan blowing down through water does the same job, if you would rather watch it happen.)",
+        "Eight Lake Sand and a bucket of water make four Washed Silica on the bench — two sand per silica — so 64 silica is 128 sand, which is exactly the 128 Nella put on the pier. (An Encased Fan blowing down through water washes it one for one and asks for no buckets at all, if you would rather build than craft.)",
         "",
         "Washed Silica is the gate item on the Thermal Machine Frame — press U on the frame in JEI and the silica is sitting in the grid where the tin used to be."
       ],
@@ -341,7 +339,7 @@
         "",
         "Take Bram's crate of Josie's papers and craft one Thermal Machine Frame — Washed Silica plus tin from the deposit Tobin pinned on your map. Hold it to hand it in.",
         "",
-        "Every Thermal machine is that frame with an RF Coil under it — silver and redstone, wound. Tobin's second map has the silver seam two ridges over, and Oda sells eight coils for 18 Scrip once her board is open. The Stirling Dynamo in this payout is the workshop's first real power."
+        "Every Thermal machine is that frame with an RF Coil under it — silver and redstone, wound. Bram has been winding them since March and the eight in this payout are his; when they run out, Oda's board sells eight more for 18 Scrip. The Stirling Dynamo here is the workshop's first real power."
       ],
       "deps": ["q30"],
       "shape": "hexagon",
@@ -352,6 +350,7 @@
       "rewards": [
         { "type": "item", "item": "thermal:machine_frame", "count": 2 },
         { "type": "item", "item": "thermal:machine_furnace", "count": 1 },
+        { "type": "item", "item": "thermal:rf_coil", "count": 8 },
         { "type": "item", "item": "thermal:energy_duct", "count": 32 },
         { "type": "item", "item": "thermal:dynamo_stirling", "count": 1 },
         { "type": "loot", "table": "tech_crate" },
@@ -449,7 +448,7 @@
         "",
         "The platform is already out over the shallows and every spot is marked. From the crate on the decking: put a mossy oak post on each of the 6 marks, the bed on the wool mat, the door in the doorway, a window in each of the 2 holes, and the 3 swamp lanterns on the hooks. Any order is right.",
         "",
-        "Wisp moves into town, marsh trade opens, and Oda's stockroom sends over the paper and torches for the lanterns."
+        "Wisp moves into town, marsh trade opens, and Oda's stockroom sends over all 48 sheets of paper and the torches for the lanterns."
       ],
       "deps": ["q20", "q25"],
       "shape": "hexagon",
@@ -458,12 +457,12 @@
         { "type": "checkmark", "title": "6 posts, the bed, the door, 2 windows and 3 lanterns are on their marks" }
       ],
       "rewards": [
-        { "type": "item", "item": "minecraft:paper", "count": 24 },
+        { "type": "item", "item": "minecraft:paper", "count": 48 },
         { "type": "item", "item": "minecraft:torch", "count": 24 },
         { "type": "item", "item": "perfectplushies:frog_plushie", "count": 1 },
         { "type": "item", "item": "ribbits:swamp_lantern", "count": 4 },
         { "type": "command", "command": "/tellraw @a [{\"text\":\"Wisp: \",\"color\":\"dark_green\"},{\"text\":\"Now the marsh and the town is one place. I always said it was one place.\",\"italic\":true}]", "elevate": true, "silent": true },
-        { "type": "command", "command": "/bossbar set valley:folk value 9", "elevate": true, "silent": true },
+        { "type": "command", "command": "/bossbar set valley:folk value 8", "elevate": true, "silent": true },
         { "type": "toast", "title": "Wisp lives here now", "description": "Next: craft 24 paper lanterns with Marnie and Pip." }
       ]
     },
@@ -475,7 +474,7 @@
       "description": [
         "Marnie: \"Nella says nobody will come, and Nella has made forty of these. Draw your own conclusions, love.\"",
         "",
-        "Eight paper around one torch makes four Paper Lanterns — six batches for twenty-four, so 48 paper and 6 torches. Oda's crate holds 24 paper and 24 torches; the rest is sugar cane off the reeds under Wisp's stilt house, three to a sheet. Any crafting table will do.",
+        "Eight paper around one torch makes four Paper Lanterns — six batches for twenty-four, so 48 paper and 6 torches. Wisp's payout put all 48 sheets and 24 torches in your bag; you need nothing else. Any crafting table will do.",
         "",
         "These are the lanterns that go on the water at the Float. The festival clothes and 20 Valley Scrip come with them."
       ],

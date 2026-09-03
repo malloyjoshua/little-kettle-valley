@@ -2,10 +2,7 @@
   "chapter": {
     "key": "act1",
     "title": "Act I: The Thaw",
-    "subtitle": [
-      "Spring, Year One",
-      "Forty lamps. Fifteen people. One winter that nobody leaves."
-    ],
+    "subtitle": ["Spring, Year One", "Forty lamps. Fifteen people. One winter that nobody leaves."],
     "icon": "minecraft:oak_sapling",
     "group": "Story",
     "order": 0
@@ -186,12 +183,12 @@
     {
       "key": "q05",
       "title": "Dig Out the Cellar Stairs",
-      "subtitle": "About 75 marked blocks of gravel.",
+      "subtitle": "About 40 marked blocks of gravel.",
       "icon": "minecraft:iron_door",
       "description": [
         "Josie: \"There's a door down there I'm not going to explain yet. Dig anyway; I know you.\"",
         "",
-        "There is a trapdoor under the ash in the old kitchen and it is glowing. Dig the gravel out of the stairs beneath it — about 75 marked blocks. The iron shovel is in your bag.",
+        "There is a trapdoor under the ash in the old kitchen and it is glowing. Dig the gravel out of the stairs beneath it — about 40 marked blocks. The iron shovel is in your bag.",
         "",
         "At the bottom: a sealed iron door with no handle and four words chalked on it in her hand — Not yet. — J.K. Beside it, a Cellar Waystone and her tool chest."
       ],
@@ -277,7 +274,7 @@
       ],
       "rewards": [
         { "type": "command", "command": "execute positioned {x} {y} {z} run function valley:act1/marnie_arrives", "team": true },
-        { "type": "command", "command": "bossbar set valley:folk value 2", "team": true },
+        { "type": "command", "command": "bossbar set valley:folk value 1", "team": true },
         { "type": "item", "item": "minecraft:bread", "count": 8 },
         { "type": "item", "item": "waystones:waystone" },
         { "type": "item", "item": "valley:green_oak_plank", "count": 32 },
@@ -285,7 +282,7 @@
         { "type": "item", "item": "minecraft:wheat_seeds", "count": 9 },
         { "type": "item", "item": "minecraft:carrot", "count": 9 },
         { "type": "item", "item": "minecraft:potato", "count": 9 },
-        { "type": "toast", "title": "Residents 2/15", "description": "Next: till the 3x9 patch behind the house. Or dry her green planks in any furnace — Bram needs those." }
+        { "type": "toast", "title": "Residents 1/15", "description": "Next: till the 3x9 patch behind the house. Or dry her green planks in any furnace — Bram needs those." }
       ]
     },
     {
@@ -360,12 +357,12 @@
       ],
       "rewards": [
         { "type": "command", "command": "execute positioned {x} {y} {z} run function valley:act1/pip_arrives", "team": true },
-        { "type": "command", "command": "bossbar set valley:folk value 3", "team": true },
+        { "type": "command", "command": "bossbar set valley:folk value 2", "team": true },
         { "type": "item", "item": "duckling:duck_spawn_egg" },
         { "type": "item", "item": "minecraft:white_wool", "count": 16 },
         { "type": "item", "item": "domesticationinnovation:pet_bed_yellow" },
         { "type": "loot", "table": "cozy_crate" },
-        { "type": "toast", "title": "Residents 3/15", "description": "Next: Marnie's kitchen needs an oven, and the oven needs dry boards. Or go and meet the man at the mill." }
+        { "type": "toast", "title": "Residents 2/15", "description": "Next: Marnie's kitchen needs an oven, and the oven needs dry boards. Or go and meet the man at the mill." }
       ]
     },
     {
@@ -389,8 +386,9 @@
         { "type": "item", "item": "create:goggles" },
         { "type": "item", "item": "minecraft:iron_ingot", "count": 12 },
         { "type": "item", "item": "minecraft:andesite", "count": 24 },
+        { "type": "command", "command": "bossbar set valley:folk value 3", "team": true },
         { "type": "command", "command": "advancement grant @a only valley:journal/found_2", "elevate": true, "silent": true },
-        { "type": "toast", "title": "Bram is at the mill", "description": "Next: craft 8 Andesite Alloy out of what Bram gave you. Eight. Not nine." }
+        { "type": "toast", "title": "Residents 3/15", "description": "Bram is at the mill. Next: craft 8 Andesite Alloy out of what Bram gave you. Eight. Not nine." }
       ]
     },
     {

@@ -107,16 +107,17 @@
       "description": [
         "Halden: \"There's a spring above the hedge garden, and Josie used it for the quartz, not the tea. I'll walk up with you.\"",
         "",
-        "Follow Halden to the spring above the hedge garden and fill 3 bottles of Spring Water there.",
+        "Follow Halden to the spring above the hedge garden and pour out the 3 bottles Q23 left you, then fill them there. He tops you up to six.",
         "",
         "Spring Water is what grows certus quartz, which is the tech lane's next gate — and Josie's jar of sixteen crystals has been on Halden's shelf for four years."
       ],
       "deps": ["q40"],
       "tasks": [
-        { "type": "item", "item": "valley:spring_water", "count": 3 }
+        { "type": "item", "item": "valley:spring_water", "count": 3, "consume": true },
+        { "type": "checkmark", "title": "You are standing at the spring above the hedge garden" }
       ],
       "rewards": [
-        { "type": "item", "item": "valley:spring_water", "count": 3 },
+        { "type": "item", "item": "valley:spring_water", "count": 6 },
         { "type": "item", "item": "ae2:certus_quartz_crystal", "count": 16 },
         { "type": "item", "item": "herbalbrews:tea_kettle", "count": 1 },
         { "type": "item", "item": "herbalbrews:copper_tea_kettle", "count": 1 },
@@ -257,19 +258,19 @@
     },
     {
       "key": "q51a",
-      "title": "Bring Wisp Twelve Marsh Rice",
+      "title": "Cut Wisp Twelve Rice Panicles",
       "subtitle": "The marked plants downstream.",
-      "icon": "farmersdelight:rice",
+      "icon": "farmersdelight:rice_panicle",
       "description": [
         "Wisp: \"Downstream is many rice and they are ready all on the same day, which is rude of them, but good for us!\"",
         "",
-        "Harvest 12 Rice from the marked plants downstream and hand them to Wisp at the reed village.",
+        "Cut 12 Rice Panicles from the marked plants downstream — the whole heads, not the milled rice off Oda's shelf — and hand them to Wisp at the reed village.",
         "",
         "Wisp pays in rare marsh seed and the whole frog-village decor set — and the Ribbits start coming up to town."
       ],
       "deps": ["q48a"],
       "tasks": [
-        { "type": "item", "item": "farmersdelight:rice", "count": 12, "consume": true }
+        { "type": "item", "item": "farmersdelight:rice_panicle", "count": 12, "consume": true }
       ],
       "rewards": [
         { "type": "item", "item": "farmersdelight:rice_panicle", "count": 16 },
@@ -291,7 +292,7 @@
         "",
         "Catch fish off the pier, cure 8 Cooked Fish Fillets from them, and put all eight in the granary drawers.",
         "",
-        "That's fish in the granary and a salt barrel on the pier — one of the four things the Harvest Supper is waiting on."
+        "That's fish in the granary and a salt barrel on the pier — and Marnie's crate of twelve bowls, twelve bricks, twelve iron and twelve copper, which is the twelve place settings the long table wants."
       ],
       "deps": ["q51a"],
       "tasks": [
@@ -301,9 +302,13 @@
         { "type": "item", "item": "minecraft:barrel", "count": 1 },
         { "type": "item", "item": "aquaculture:oak_fish_mount", "count": 2 },
         { "type": "item", "item": "aquaculture:iron_fishing_rod", "count": 1 },
+        { "type": "item", "item": "minecraft:bowl", "count": 12 },
+        { "type": "item", "item": "minecraft:brick", "count": 12 },
+        { "type": "item", "item": "minecraft:iron_ingot", "count": 12 },
+        { "type": "item", "item": "minecraft:copper_ingot", "count": 12 },
         { "type": "item", "item": "valley:scrip", "count": 15 },
         { "type": "command", "command": "/tellraw @p [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"Eight. Fine. That's the lake settled.\",\"italic\":true}]", "elevate": true, "silent": true },
-        { "type": "toast", "title": "Fish in the granary", "description": "Next: the long table. Twelve place settings and the centrepiece, once the cellar is open." }
+        { "type": "toast", "title": "Fish in the granary", "description": "Next: the long table. Twelve Place Settings from the crate in this payout, and the centrepiece, once the cellar is open." }
       ]
     },
     {
@@ -318,7 +323,7 @@
         "",
         "Take Tobin's 3 core samples to the marked hillside, dig out the adit — roughly 90 marked blocks — and open the Lootr chest at the back.",
         "",
-        "The chest holds Josie's Kettle Plate. Hold on to it: Halden is the one who can read it, and that quest opens once the bakery line is done."
+        "The chest holds Josie's Kettle Plate, and the seam pays out raw: 48 copper, 16 tin, 16 gold, 16 silver. Hold on to the plate — Halden is the one who can read it, and that quest opens once the bakery line is done."
       ],
       "deps": ["q28"],
       "tasks": [
@@ -327,37 +332,39 @@
       "rewards": [
         { "type": "item", "item": "valley:kettle_plate_a", "count": 1 },
         { "type": "item", "item": "geolosys:prospectors_pick", "count": 1 },
-        { "type": "item", "item": "thermal:bronze_ingot", "count": 64 },
-        { "type": "item", "item": "thermal:electrum_ingot", "count": 64 },
+        { "type": "item", "item": "minecraft:raw_copper", "count": 48 },
+        { "type": "item", "item": "thermal:raw_tin", "count": 16 },
+        { "type": "item", "item": "minecraft:raw_gold", "count": 16 },
+        { "type": "item", "item": "thermal:raw_silver", "count": 16 },
         { "type": "loot", "table": "story_crate" },
         { "type": "command", "command": "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Copper, iron, gold AND silver, all in one run, and I'm going to talk about it for a week.\",\"italic\":true}]", "elevate": true, "silent": true },
-        { "type": "toast", "title": "The adit is open", "description": "Next: build a Thermal Induction Smelter at the mill and alloy 8 bronze and 8 electrum." }
+        { "type": "toast", "title": "The adit is open", "description": "Next: build a Thermal Induction Smelter at the mill and run Tobin's raw ore through it — 16 bronze and 16 electrum." }
       ]
     },
     {
       "key": "q46",
-      "title": "Alloy Eight Bronze, Eight Electrum",
+      "title": "Alloy Sixteen Bronze, Sixteen Electrum",
       "subtitle": "Build the Induction Smelter first.",
       "icon": "thermal:machine_smelter",
       "description": [
         "Bram: \"Smelter takes two inputs and gives you back more than you put in. Three copper and one tin makes four bronze; one gold and one silver makes two electrum. That's the whole machine.\"",
         "",
-        "Build a Thermal Induction Smelter in the mill workshop, then hold 8 Bronze Ingots and 8 Electrum Ingots.",
+        "Build a Thermal Induction Smelter in the mill workshop and run Tobin's raw ore through it until you have 16 Bronze Ingots and 16 Electrum Ingots. The smelter takes them; 12 copper and 4 tin is the bronze, 8 gold and 8 silver is the electrum.",
         "",
         "It pays out the Centrifugal Separator, 64 Energy Duct and 2 spare Machine Frames — the entire bill for the energy cell and the rail line."
       ],
       "deps": ["q45"],
       "tasks": [
         { "type": "item", "item": "thermal:machine_smelter", "count": 1 },
-        { "type": "item", "item": "thermal:bronze_ingot", "count": 8 },
-        { "type": "item", "item": "thermal:electrum_ingot", "count": 8 }
+        { "type": "item", "item": "thermal:bronze_ingot", "count": 16, "consume": true },
+        { "type": "item", "item": "thermal:electrum_ingot", "count": 16, "consume": true }
       ],
       "rewards": [
         { "type": "item", "item": "thermal:machine_centrifuge", "count": 1 },
         { "type": "item", "item": "thermal:energy_duct", "count": 64 },
         { "type": "item", "item": "thermal:machine_frame", "count": 2 },
         { "type": "loot", "table": "tech_crate" },
-        { "type": "toast", "title": "Alloys running", "description": "Next: charge a Thermal Energy Cell off the dynamos and run Energy Duct to the inn." }
+        { "type": "toast", "title": "Alloys running", "description": "Next: charge a Thermal Energy Cell off the dynamos and run Energy Duct to the inn. While Marnie's preserving line finishes, Oda sells Machine Frames at 25 Scrip and the granary drawers still are not bussed." }
       ]
     },
     {
@@ -370,18 +377,19 @@
         "",
         "Charge a Thermal Energy Cell off your dynamos, then run Energy Duct from the mill until the line ends within 12 blocks of the inn. Bram has the coils; the Cell Frame is twelve Scrip on Oda's board and she will not be talked down — frame, four RF Coils and a bucket of redstone is the cell.",
         "",
-        "That's the Works Power Tap: the Fridge, the Sink and the Milk Jar become craftable, and one is in this payout already."
+        "That is what the Works Power Tap is for: four of them come off the line in this payout, and one goes into every Fridge, Sink and Milk Jar you ever build. One of each is already made."
       ],
       "deps": ["q46", "q42"],
       "tasks": [
         { "type": "item", "item": "thermal:energy_cell", "count": 1 },
-        { "type": "checkmark", "title": "Fluxduct reaches within 12 blocks of the inn." }
+        { "type": "checkmark", "title": "Energy Duct reaches within 12 blocks of the inn." }
       ],
       "rewards": [
         { "type": "item", "item": "thermal:energy_cell", "count": 1 },
         { "type": "item", "item": "cookingforblockheads:fridge", "count": 1 },
         { "type": "item", "item": "cookingforblockheads:sink", "count": 1 },
         { "type": "item", "item": "cookingforblockheads:milk_jar", "count": 1 },
+        { "type": "item", "item": "valley:works_power_tap", "count": 4 },
         { "type": "item", "item": "thermal:energy_duct", "count": 64 },
         { "type": "command", "command": "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Fridge works. Told her I was working on it.\",\"italic\":true}]", "elevate": true, "silent": true },
         { "type": "toast", "title": "The inn has power", "description": "Next: a Create train station at the mill and 64 track laid to the square." }
@@ -575,7 +583,7 @@
         "",
         "Go back down the stairs under the farmhouse. It finished turning some time in the night and it is standing open — stand in front of the cellar wall until you have read the whole thing.",
         "",
-        "The cellar waystone is yours for the walk back, her chalk copies itself into the journal, and her original reactor blueprint is rolled in the tube by the stairs."
+        "The cellar waystone is yours for the walk back, her chalk copies itself into the journal, and her original reactor blueprint is rolled in the tube by the stairs — with the Works Pick, Efficiency V, for the forty blocks of fallen adit Tobin is stood in front of."
       ],
       "deps": ["q54"],
       "tasks": [
@@ -585,6 +593,8 @@
         { "type": "item", "item": "waystones:waystone", "count": 1 },
         { "type": "item", "item": "create:orange_toolbox", "count": 1 },
         { "type": "item", "item": "create:crafting_blueprint", "count": 1 },
+        { "type": "command", "command": "give @p minecraft:diamond_pickaxe{Enchantments:[{id:\"minecraft:efficiency\",lvl:5},{id:\"minecraft:unbreaking\",lvl:3}],display:{Name:'{\"text\":\"The Works Pick\",\"italic\":false,\"color\":\"gold\"}'}} 1", "elevate": true, "silent": true },
+        { "type": "item", "item": "minecraft:tnt", "count": 16 },
         { "type": "loot", "table": "story_crate" },
         { "type": "command", "command": "/tellraw @a [{\"text\":\"Josie, on the wall: \",\"color\":\"gold\"},{\"text\":\"If there's more than one set of footprints on my cellar stairs, then I was right to wait. Go and turn it on.\",\"italic\":true}]", "elevate": true, "silent": true },
         { "type": "command", "command": "advancement grant @a only valley:journal/cellar_wall", "elevate": true, "silent": true },
@@ -595,13 +605,13 @@
       "key": "q56",
       "title": "Set the Long Table for Twelve",
       "subtitle": "Act III finale — twelve settings and one centrepiece.",
-      "icon": "handcrafted:white_crockery_combo",
+      "icon": "valley:place_setting",
       "shape": "gear",
       "size": 2.0,
       "description": [
         "Marnie: \"Twelve places: nobody stands, nobody eats in the kitchen, and nobody eats alone. That's the rule tonight.\"",
         "",
-        "Place the Long Table in the square, put one White Crockery setting on each of the twelve marked spots, and set the Candle Holder in the middle. Any order is right.",
+        "Place the Long Table in the square, put one Place Setting on each of the twelve marked spots, and set the Candle Holder in the middle — a bowl, an iron ingot, a brick and a copper ingot is one setting. Any order is right.",
         "",
         "Forty lamps. Fifteen people. One winter that nobody leaves.",
         "",
@@ -610,7 +620,7 @@
       "deps": ["q43", "q44", "q54a", "q55"],
       "tasks": [
         { "type": "item", "item": "handcrafted:oak_table", "count": 1, "consume": true },
-        { "type": "item", "item": "handcrafted:white_crockery_combo", "count": 12, "consume": true },
+        { "type": "item", "item": "valley:place_setting", "count": 12, "consume": true },
         { "type": "item", "item": "supplementaries:candle_holder", "count": 1, "consume": true },
         { "type": "checkmark", "title": "Twelve settings down and the centrepiece in the middle." }
       ],
