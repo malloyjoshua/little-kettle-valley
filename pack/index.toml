@@ -18,27 +18,27 @@ hash = "87954188750d81c4ea67c7fb947d0e66868a85c6a6c81fe577c3b09f76dd9b3b"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act1.snbt"
-hash = "b88960581b353df36bef34ef9e0186c4abbf3d9b763fbf2ed7eb74d7bae6805e"
+hash = "4c212cf0320ce3fbbdc232dbd834fb8d774acd073c66dbaa55fd5673435091e4"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act2.snbt"
-hash = "404f79104b50d80798c51435bce61084584d914259d396c30db7bc933f4693df"
+hash = "a3590a69f42be563cc7f0d74aa0b683a07380dde7004ceb423e084220eef3287"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act3.snbt"
-hash = "68fc80269a2914c299afc7e4f45dde0ea2fcdf9a53c54bf94fd0f46161a0f5ba"
+hash = "449a9792421ce20f5649399d8e30f331fe12ca18dd6ada398d70677bd4ddc87f"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act4.snbt"
-hash = "113207e93be9d52115db5930b259e8f13530eb18f0c942196e25ad676805cc07"
+hash = "cbe04656317855012871300d50215c9e982e73bd2b8b00d395f00f2a84f5a4f0"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act5.snbt"
-hash = "e0b5e3467aec94e9fef7e808f7b17aa5a801ba7aeedaf70f58047ed7c0171a8d"
+hash = "f92170dba969333c5de3b989d09ed9bbe2baa55baebf18bfd2feb23107295a24"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/oda.snbt"
-hash = "60f31dc9c3d97338876a3bebb818a7e45f76bc1f4856e01898d077c8f7b4b1a9"
+hash = "bafd78f88d2c35291c47bca634ff488ce63e6679a2e43e1897e8e97e51ee6b1b"
 
 [[files]]
 file = "config/ftbquests/quests/data.snbt"
@@ -322,7 +322,7 @@ hash = "7ffc0c8605c8f41f566c91c9582fc9cdd892be882e24c4fc74d64978adb5d3b1"
 
 [[files]]
 file = "kubejs/client_scripts/hide.js"
-hash = "2205a1961b2eb5189cb4a0a3806f2fa4ba31860f2a8c477cf1e7152f7efa3d42"
+hash = "67393fdf8071fcd7171e9aa282bbc2fe63194ffb5ae7407f3a9f52bb231c158e"
 
 [[files]]
 file = "kubejs/data/bountiful/bounty_decrees/valley/cozy.json"
@@ -566,7 +566,7 @@ hash = "9be03199b307107456ffe85bba4024ffcaae558c4b03baecd4a171b0b0abe343"
 
 [[files]]
 file = "kubejs/server_scripts/_quest_ids.js"
-hash = "62ec59dc434093c25e3ccf65b0bc001b15cf116b11af186175872d4d3ec7a0db"
+hash = "9ed8e46e42c3b5a7726a78ffd92fa335d505be6914c5613e19a4e568c708f0ba"
 
 [[files]]
 file = "kubejs/server_scripts/seasons_tags.js"
@@ -574,27 +574,27 @@ hash = "642b7d6e811f78a2c9e4efe363e1bce5a152218d8958c8b9064a6ff60e160906"
 
 [[files]]
 file = "kubejs/server_scripts/unify.js"
-hash = "b691052beff4e091bd77422460051fb66b48b68e8a14e1b2f2ce3bf2791707a9"
+hash = "211dd94c7fd8236c2fd0747aa334a475d124a261cc9e019f27e3a0efee2ca2ee"
 
 [[files]]
 file = "kubejs/server_scripts/valley_checks.js"
-hash = "b6ee9f68ae828ffd99a471b4c7cc97190854e9c6ab7641b6d31887cb7ca6b1b5"
+hash = "dd6586185fef3ad5e05bde46304eecec6588673f914caeb133a8bacdc9110913"
 
 [[files]]
 file = "kubejs/server_scripts/valley_core.js"
-hash = "9b0d6dd9832f12282916f35e53ba033227ec8e42f7df03072090b5abfdbd51cb"
+hash = "15ed88420a5ec1ba81911e47d69d96375d6413abf45a7fa991b5118f783429bf"
 
 [[files]]
 file = "kubejs/server_scripts/valley_finales.js"
-hash = "b2b56d3411948f82e2f6be0f70d07e9ee28130aed3e87403363c1bb32937101f"
+hash = "1f89e85a474160ec7d1c8e0843581cb650ac95a3b3cfbd06e862140a7ea1f8ba"
 
 [[files]]
 file = "kubejs/server_scripts/valley_gates.js"
-hash = "52082feb242e8568b53d07118c3ebb223955d2c846be365bc2f3dea8a0b8e60f"
+hash = "8f2633ce9bea779d9d8e9207562e8da189933b6dd091ee48b53cd61eb7c105f9"
 
 [[files]]
 file = "kubejs/startup_scripts/valley_items.js"
-hash = "ac85aefdd8316d47fb14a91583e9d59fbc5f9134810a84c9db720186d2bbbac2"
+hash = "a8d3ac420712047abe2dd529ebea838dd760174abe8baed09cdac67eb60de959"
 
 [[files]]
 file = "mods/additional-enchanted-miner.pw.toml"
@@ -1256,23 +1256,23 @@ hash = "1ee68fb5373242b430ec4246ef50325188b1c654896f8fa0e53baea91053e5f7"
 
 [[files]]
 file = "patchouli_books/valley_journal/en_us/entries/field_notes/f3_silica_and_frame.json"
-hash = "37bbf496c22846af01feb64d36bf73e9b92f61233ac312aa202a8ae5d40c8554"
+hash = "3ab05cc66fcccbf45027b1fa4551cf741f06ee1322305f2e3ef91c5a18bc7b77"
 
 [[files]]
 file = "patchouli_books/valley_journal/en_us/entries/field_notes/f4_cells_and_ducts.json"
-hash = "61a1edb659bbed7517cdbac03c88af848ffc13e2d19e0c6ba29bb70fe5677db0"
+hash = "b919ab58c1a4bca6cc0e2c1d619961d46f7dca382e4f7c844955178d3b218f34"
 
 [[files]]
 file = "patchouli_books/valley_journal/en_us/entries/field_notes/f5_the_network.json"
-hash = "df4e6a4daf46ca133f01cda7ff0db44fded0770da03c7ba8e33649ba8792dd1c"
+hash = "8ffb0aac1bb65915019224bb00f73c4c43c4b60cf608d4b84dbd5521450c9fed"
 
 [[files]]
 file = "patchouli_books/valley_journal/en_us/entries/field_notes/f6_the_vessel.json"
-hash = "d0ecbd2e35db24d6f4daa886cafd71f946fc6083ed5ca190238fcecfb735d57b"
+hash = "6b8db13adb8d21a911673f30eb97473c33f967dbea0ce535ec1deab5b7a83307"
 
 [[files]]
 file = "patchouli_books/valley_journal/en_us/entries/field_notes/f7_the_turbine.json"
-hash = "48bab85717dbfd1237c5cccd4928c217094fb331ce14f78278bafb3a388036e0"
+hash = "e5e58a32853ccdf7dec3c36427b5ffcb97c5570ed34d69883c2181761784f72a"
 
 [[files]]
 file = "patchouli_books/valley_journal/en_us/entries/field_notes/f8_quarry_and_markers.json"
@@ -1292,11 +1292,11 @@ hash = "49b04a9040152f64eec55de5a3fb6c5bdb15222ee0d23d4430f1586ed788ba85"
 
 [[files]]
 file = "patchouli_books/valley_journal/en_us/entries/found_books/b4_stock_ledger.json"
-hash = "abaabf4499662473d335aea03eac9a6a8862503680d98a74fd9affd1e1dc0c21"
+hash = "b05b3f262ddab7bf7cfe92e5dce8840260f7c71be7fbbf55d90dfacf2f3a4efa"
 
 [[files]]
 file = "patchouli_books/valley_journal/en_us/entries/found_books/b5_turbine_notebook.json"
-hash = "108461eb2240c5c0e4a52c596626018e8413fcee70fa3ebbb9ded84edc82be93"
+hash = "84edcc185f817766c67941203a1c7c730a776e8cb1cd7dba965376e751f7fb92"
 
 [[files]]
 file = "patchouli_books/valley_journal/en_us/entries/journal/cellar_wall.json"
