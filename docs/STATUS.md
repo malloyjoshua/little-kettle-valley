@@ -1,12 +1,11 @@
-# Status: 2026-09-03 morning
+# Status: 2026-09-03, midday
 
 ## Where it stands
 Little Kettle Valley is built, boots, and has been played through end to end by an automated harness. Everything below was verified by running the real thing, not by reading code.
 
-## What you do this morning
-1. Open Prism Launcher. It will show a first-run wizard (language, Java). Click through with defaults.
-2. Top right, **Accounts** > **Add Microsoft**. Sign in once.
-3. Select **CozyTech** and click **Launch**. The pre-launch step syncs the pack (a few seconds), then the game starts. First launch ~40 seconds.
+## Launching
+1. Open Prism Launcher. The instance is **Little Kettle Valley** (kettle icon). You already signed in.
+2. Click **Launch**. The pre-launch step pulls the latest pack from GitHub (a few seconds), then the game starts. About 40 seconds to the title screen.
 4. Singleplayer > Create New World (any name). Josie's letter, the deed, and the quest book arrive on first join. Press J for the quest book.
 5. When your wife's Air is free: install Prism there, sign in, and import the instance (see `docs/INSTALL.md`). Set memory to 3072 MB.
 
@@ -37,17 +36,18 @@ The whitelist is on and empty. Start the server, then add yourself:
 Then in the game: Multiplayer > Direct Connect > `localhost`.
 
 ## Still open (needs you)
-- **Prism sign-in and first launch.** Not something I can do.
 - **The Air test.** Not on the network tonight. Expect it to work at 3072 MB with render distance 6; if it stutters, the cut list is in `docs/integration-plan.md` and starts with Regions Unexplored.
 - **GitHub: done.** Public repo https://github.com/malloyjoshua/little-kettle-valley, pack served at https://raw.githubusercontent.com/malloyjoshua/little-kettle-valley/main/pack/pack.toml, your Prism instance and the friend zip (`dist/CozyTech.zip`) both update from it on every launch.
 - **playit.gg tunnel** for friends without port forwarding. Steps in `docs/RUNBOOK.md`; needs your browser sign-in to claim the agent.
 - **Your wife's cute picks.** Placeholder cozy set is in (Farmer's Delight, Let's Do, Handcrafted, Macaw's, plushies, Ribbits, ducks, pets). Swap in her three things when she names them.
 
+## Branding (done)
+Chunky cream-and-copper title logo with the kettle, the "put the kettle on" tagline, an illustrated dusk panorama of the valley behind the title screen, a kettle launcher icon and server-list icon, and hand-drawn 16 px textures for all 49 valley items. Sources and build scripts in `media/`; in-game capture at `media/title_screen_in_game.png`. The Supplementaries "Amendments" popup is suppressed for every client.
+
 ## Known rough edges
 - The 26 per-player stage flags granted by quests are milestone markers with no consumer. Harmless. Documented in `docs/integration-plan.md`.
 - Forge's update checker logs a JSON warning for Canary's remote version file at startup. Cosmetic.
 - Torchmaster logs a missing model for its invisible light block at client start. Known upstream, cosmetic.
-- Killing the test client with a signal during testing made macOS show a "quit unexpectedly" dialog on your desktop. Dismiss it; nothing is wrong.
 
 ## If something breaks
 `docs/RUNBOOK.md` covers start, stop, backup, restore, add a friend, update, roll back. The automated playthrough is `tools/scripts/playthrough.sh` and takes about 10 minutes.
