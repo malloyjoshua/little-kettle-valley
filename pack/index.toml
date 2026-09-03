@@ -18,19 +18,19 @@ hash = "87954188750d81c4ea67c7fb947d0e66868a85c6a6c81fe577c3b09f76dd9b3b"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act1.snbt"
-hash = "6636b5ab6ebee8a3ffa0295b91e57d56743fd98a0d6fd26533278cf09caf7dac"
+hash = "b88960581b353df36bef34ef9e0186c4abbf3d9b763fbf2ed7eb74d7bae6805e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act2.snbt"
-hash = "45c08e0620e955a58ba2bcdd13cc4b25c3a5ab95c9b21f2274f023aabde47314"
+hash = "404f79104b50d80798c51435bce61084584d914259d396c30db7bc933f4693df"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act3.snbt"
-hash = "fa48b982cfdbcf40a881ec1ad83f39d7425ccd6b515bc91d12079f2c2fdbd4fd"
+hash = "68fc80269a2914c299afc7e4f45dde0ea2fcdf9a53c54bf94fd0f46161a0f5ba"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act4.snbt"
-hash = "a89931d59fb8822d70b4ff28a5dc740f8abf0528d912647639c9f0fa23d2f4b3"
+hash = "113207e93be9d52115db5930b259e8f13530eb18f0c942196e25ad676805cc07"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act5.snbt"
@@ -402,7 +402,7 @@ hash = "a3b1d4c9ad75fbfa2c60937cad2bfbd0fafcf7cf1f28c5927be94dfa2a5f736c"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/bram.npc.snbt"
-hash = "e1600a607799de6bcf851acecb0e7ce4eeb8d2805912d241efea7f4ff40737f4"
+hash = "3d2c4926e820e6fa0c9c5daceb00c3ee8fd96143d6e2628239b74b4739187de0"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/halden.npc.snbt"
@@ -414,7 +414,7 @@ hash = "50704b7c080a73d9126c8f5a06f96d0455586b4d394906e88c3a72587f11a377"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/nella.npc.snbt"
-hash = "93306b7b44100225752037d456b9d6feb5abec9465bd7c6d15232fb5872920c2"
+hash = "7cca396ec208c04dbb6794d0c437cf6ffe5ccc0e02df415c81b94000b4bbac6e"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/newcomer_corin.npc.snbt"
@@ -430,7 +430,7 @@ hash = "63fdbb6d8974beafbcb3c53a8acdfaf2e63e6cf02d8a16961497417d12bbb6bd"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/oda.npc.snbt"
-hash = "c062bf4db4ace5bcfbead020836b322506b5de44f5ecae401e1ac8f8a1003f93"
+hash = "1095f2d325ffaf037450914cb289fdabe1ecc1c216db7bac9b3fcd44be253de0"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/pip.npc.snbt"
@@ -454,7 +454,7 @@ hash = "1615bcbc52a96456fa9801de44c3fe10264fd25d0d435d4581b3d2e42ca3959b"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/tobin.npc.snbt"
-hash = "f2acd75ec98c7a74b80db1e0c9ca2ffb1dce00cd7529b783fa785c9c2b0c9139"
+hash = "6d253780ab4e4a42727c174f6ffcd4c1431ac980bbde478253f6ed152cdbfbf3"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/wisp.npc.snbt"
@@ -510,7 +510,7 @@ hash = "c8276f80c3cbe363b812a428ddd22f1d5135a5919448ba02b906adff0ac964dd"
 
 [[files]]
 file = "kubejs/data/valley/functions/act5/read5.mcfunction"
-hash = "5d464d0a9da08cdf0788dd75843d056e1b34b33151ff4b677b1c39e64ca84752"
+hash = "0d0a13c8de6ab500d97c326043d44633defdfbc6416eeaf1f12bce100371ed0c"
 
 [[files]]
 file = "kubejs/data/valley/loot_tables/rewards/fair_basket.json"
@@ -526,43 +526,43 @@ hash = "7565c411b83ae1d94a2162255eddf269fd265ad80c8c82950fc0ce273c61189c"
 
 [[files]]
 file = "kubejs/data/valley/structures/granary_facade.nbt"
-hash = "6c97455a93d07f6626dde4b810125a246df3c99fc63efc6e64ee704129815038"
+hash = "e27cd5e71a11f538b3508f9f763383fc30d8919a04e54bbeae87cf1c13c5b1ce"
 
 [[files]]
 file = "kubejs/data/valley/structures/granary_shell.nbt"
-hash = "88f43c5cebac4fb1155e6f555c9efcce4ffd1c44215bb2479ae2de4df0767572"
+hash = "536ec51af6f0809ec6a1af463754e035bc6e181b616ca25dfbc5b120e0736119"
 
 [[files]]
 file = "kubejs/data/valley/structures/long_table.nbt"
-hash = "8ca82c4439ee2055d06dd5505790e597c8d62d058dee51447e941ed256f67f07"
+hash = "7e54c680b1dc9613b24ab1b3525ed806dcf6e6f8d3d34d79c813d853057def82"
 
 [[files]]
 file = "kubejs/data/valley/structures/market_stall.nbt"
-hash = "573cedab50f33d097648d2082b6d4f682f11e4e31d9ddbfee57d1e13cd17974f"
+hash = "1578917f66172c3302a093d3f707b3ad0a150dff6004e1791954b8d10bfe56c9"
 
 [[files]]
 file = "kubejs/data/valley/structures/mill_race.nbt"
-hash = "1b24753b1ef5314213011d76b21c24a2b1a905e1047249ccdb7a3ce81732093f"
+hash = "6a7e8a58f5b10c474e0429906bbd75eed9fa003d4ba3749a274251ad61ab7f0d"
 
 [[files]]
 file = "kubejs/data/valley/structures/mill_roof.nbt"
-hash = "696bfabdce9a73562bac155baa3366de2013488a6eb427279c887fcfd7b4411c"
+hash = "92efbab253a439e6588818bce133e6e752a0536e85dca1919468d6f6fd975604"
 
 [[files]]
 file = "kubejs/data/valley/structures/noticeboard.nbt"
-hash = "ad967c16f70b3bab6ab170b8c5a8fcf45f484db5b80fe77ca187652c68840e97"
+hash = "b3c2699693f5f4fd8c69576539f9fb3a7e20c754347b5375a77d6fd765ec2967"
 
 [[files]]
 file = "kubejs/data/valley/structures/pier.nbt"
-hash = "a126aadba68cadab7c17d52d573f42c004cb21cb833f13fa9d72b204051fe38f"
+hash = "7dd673598aa27229e3325c937b1c581428774584696561216b7ea2f3b31e3609"
 
 [[files]]
 file = "kubejs/data/valley/structures/stone_bridge.nbt"
-hash = "96055fc4cf15f2dbcf74b5e1c11b823e5c1fa0f44fcdbd070afb592562c56f4a"
+hash = "c87c4e4913fb21cec6f633872afd2f4a2a8f2993981782a33d074d6a2013de87"
 
 [[files]]
 file = "kubejs/data/valley/structures/town_hall.nbt"
-hash = "397f6d7e86288ad4b3bc1a58781d85d7e345723910b3007a84dc1a151167b38a"
+hash = "9be03199b307107456ffe85bba4024ffcaae558c4b03baecd4a171b0b0abe343"
 
 [[files]]
 file = "kubejs/server_scripts/_quest_ids.js"

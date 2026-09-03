@@ -359,8 +359,8 @@ function finaleAct5(server, v) {
   })
 
   v.delay(100 + page.length * 100, s => {
-    s.runCommandSilent('worldborder set 60000000')
-    s.runCommandSilent('execute in minecraft:the_nether run worldborder set 60000000')
+    s.runCommandSilent('worldborder set 59999968')
+    s.runCommandSilent('execute in minecraft:the_nether run worldborder set 59999968')
     s.runCommandSilent('tellraw @a ' + JSON.stringify({
       text: "The valley's fine now. Go see what's past the ridge — and come home for supper.",
       color: 'gold', italic: true
