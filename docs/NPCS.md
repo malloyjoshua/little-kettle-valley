@@ -35,9 +35,12 @@ preset only when its resource path starts with `easy_npc/preset/` or `easy_npc/a
 * ❌ `valley:preset/marnie.npc.snbt` — rejected.
 * ✅ `valley:easy_npc/preset/marnie.npc.snbt` — works.
 
-The generator also drops an identical **inert compat copy** at
-`pack/kubejs/data/valley/preset/<key>.npc.snbt` because the build brief named that path. Nothing
-should reference it; Easy NPC will not load a data preset from there.
+There used to be an identical **inert compat copy** at
+`pack/kubejs/data/valley/preset/<key>.npc.snbt`, written only because the build brief named that
+path. It was **deleted on 2026-09-02** along with its fifteen `pack/index.toml` entries: Easy NPC
+could never load a preset from there, and having two copies of every resident meant a dialogue edit
+could land in the wrong one. `easy_npc/preset/` is the only tree; `make_npc_presets.py` no longer
+writes the other.
 
 ### 2. `access:"INTERNAL"` cannot be imported by command
 

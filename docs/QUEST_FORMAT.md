@@ -44,7 +44,9 @@ One file per chapter in `story/quests/<act>.json`. Keys are stable slugs; IDs an
 ## Quest fields
 `key` (unique across all files), `title`, `subtitle`, `icon`, `description` (list of strings), `deps` (list of keys, may cross chapters),
 `optional`, `shape` ("default","circle","square","hexagon","octagon","rsquare","pentagon","gear","diamond","heart"), `size`,
-`hide_until_deps_complete` (default true), `hide_details_until_startable` (default true), `can_repeat`, `min_required_deps`, `dependency_requirement` ("all_completed","one_completed","all_started","one_started"), `guide_page`
+`hide_until_deps_complete` (default true), `hide_details_until_startable` (default true), `can_repeat`, `min_required_deps`, `dependency_requirement` ("all_completed","one_completed","all_started","one_started"), `guide_page`,
+`invisible` (the quest is never drawn — used for the Standing: Trusted gate, completed only by KubeJS), `hide_dependency_lines`, `hide_dependent_lines`,
+`x` / `y` (explicit board position; overrides the automatic dependency-depth layout)
 
 ## Rules
 - Every `item` and `icon` must exist in `scratch/ids.json`. The compiler fails on unknown ids in strict mode.

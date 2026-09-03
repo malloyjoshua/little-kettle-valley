@@ -72,6 +72,7 @@ const VALLEY_ITEMS = [
   ['oda_broom',             "Oda's Broom",              1],
   ['odas_ledger',           "Oda's Ledger",             1],
   ['framed_town_map',       'Framed Town Map',         16],
+  ['catalogue',             "Oda's Catalogue",          1],  // Oda's Counter chapter
 
   // --- P1 NPC token handshake: one token per resident -----------------------
   ['token_marnie',          "Marnie's Word",           16],
@@ -89,7 +90,7 @@ const VALLEY_ITEMS = [
 const UNCOMMON = [
   'letter', 'deed', 'deed_works', 'kettle_deed', 'turbine_notes',
   'kettle_plate_a', 'kettle_plate_b', 'deep_survey', 'josies_lantern',
-  'hearthkeepers_lantern', 'copper_kettle_trophy', 'odas_ledger'
+  'hearthkeepers_lantern', 'copper_kettle_trophy', 'odas_ledger', 'catalogue'
 ]
 
 StartupEvents.registry('item', event => {

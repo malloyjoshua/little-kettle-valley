@@ -63,6 +63,7 @@
         { "type": "item", "item": "storagedrawers:drawer_key", "count": 1 },
         { "type": "stage", "stage": "granary" },
         { "type": "command", "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"The key's brass. My initials are scratched off it and yours are scratched on. Don't lose it.\",\"italic\":true}]", "elevate": true, "silent": true },
+        { "type": "command", "command": "advancement grant @a only valley:journal/found_4", "elevate": true, "silent": true },
         { "type": "toast", "title": "Granary stocked", "description": "Next: Marnie has the autumn seed pack — pumpkin, beetroot, oats and barley into the marked beds." }
       ]
     },
@@ -321,9 +322,10 @@
       ],
       "deps": ["q28"],
       "tasks": [
-        { "type": "item", "item": "valley:kettle_plate_a", "count": 1 }
+        { "type": "checkmark", "title": "Adit cleared and the Lootr chest opened" }
       ],
       "rewards": [
+        { "type": "item", "item": "valley:kettle_plate_a", "count": 1 },
         { "type": "item", "item": "geolosys:prospectors_pick", "count": 1 },
         { "type": "item", "item": "thermal:bronze_ingot", "count": 64 },
         { "type": "item", "item": "thermal:electrum_ingot", "count": 64 },
@@ -585,6 +587,7 @@
         { "type": "item", "item": "create:crafting_blueprint", "count": 1 },
         { "type": "loot", "table": "story_crate" },
         { "type": "command", "command": "/tellraw @a [{\"text\":\"Josie, on the wall: \",\"color\":\"gold\"},{\"text\":\"If there's more than one set of footprints on my cellar stairs, then I was right to wait. Go and turn it on.\",\"italic\":true}]", "elevate": true, "silent": true },
+        { "type": "command", "command": "advancement grant @a only valley:journal/cellar_wall", "elevate": true, "silent": true },
         { "type": "toast", "title": "The Works was a power plant", "description": "Next: the long table in the square — twelve place settings and the centrepiece. That's the Harvest Supper." }
       ]
     },

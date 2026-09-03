@@ -1,0 +1,43 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "name": "eight_gifts",
+      "rolls": 4,
+      "entries": [
+        { "type": "minecraft:item", "name": "farmersdelight:apple_pie", "weight": 3 },
+        { "type": "minecraft:item", "name": "thermal:wrench", "weight": 2 },
+        { "type": "minecraft:item", "name": "supplementaries:antique_ink", "weight": 2 },
+        { "type": "minecraft:item", "name": "aquaculture:fish_fillet_cooked", "weight": 3,
+          "functions": [ { "function": "minecraft:set_count", "count": 6 } ] },
+        { "type": "minecraft:item", "name": "valley:winter_tonic", "weight": 3,
+          "functions": [ { "function": "minecraft:set_count", "count": 2 } ] },
+        { "type": "minecraft:item", "name": "thermal:copper_nugget", "weight": 3,
+          "functions": [ { "function": "minecraft:set_count", "count": 9 } ] },
+        { "type": "minecraft:item", "name": "minecraft:sweet_berries", "weight": 3,
+          "functions": [ { "function": "minecraft:set_count", "count": 8 } ] },
+        { "type": "minecraft:item", "name": "minecraft:written_book", "weight": 1 },
+        { "type": "minecraft:item", "name": "handcrafted:wood_crockery_combo", "weight": 2 },
+        { "type": "minecraft:item", "name": "valley:place_setting", "weight": 2,
+          "functions": [ { "function": "minecraft:set_count", "count": 4 } ] }
+      ]
+    },
+    {
+      "name": "supper_fixed",
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "valley:firewood_bundle",
+          "functions": [ { "function": "minecraft:set_count", "count": 16 } ] }
+      ]
+    },
+    {
+      "name": "supper_plushie",
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "perfectplushies:hedgehog_plushie", "weight": 2 },
+        { "type": "minecraft:item", "name": "perfectplushies:reindeer_plushie", "weight": 2 },
+        { "type": "minecraft:item", "name": "perfectplushies:goose_plushie", "weight": 2 }
+      ]
+    }
+  ]
+}

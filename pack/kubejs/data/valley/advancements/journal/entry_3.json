@@ -1,0 +1,14 @@
+{
+  "parent": "valley:journal/entry_2",
+  "display": {
+    "icon": { "item": "minecraft:writable_book" },
+    "title": { "text": "Journal: The Lantern Float", "color": "gold" },
+    "description": { "text": "Summer gives you more than you can hold.", "color": "gray" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": { "impossible": { "trigger": "minecraft:impossible" } },
+  "requirements": [["impossible"]]
+}

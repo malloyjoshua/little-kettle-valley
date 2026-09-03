@@ -1,5 +1,6 @@
 valley:blanket
 valley:bounty_receipt
+valley:catalogue
 valley:chicken_feed
 valley:copper_kettle_trophy
 valley:courier_parcel

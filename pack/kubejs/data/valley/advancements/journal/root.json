@@ -1,0 +1,14 @@
+{
+  "display": {
+    "icon": { "item": "minecraft:writable_book" },
+    "title": { "text": "Josie's Journal", "color": "gold" },
+    "description": { "text": "The book on the mantle.", "color": "gray" },
+    "frame": "task",
+    "background": "minecraft:textures/block/oak_planks.png",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": { "impossible": { "trigger": "minecraft:impossible" } },
+  "requirements": [["impossible"]]
+}

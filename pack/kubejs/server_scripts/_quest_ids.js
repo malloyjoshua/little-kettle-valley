@@ -93,17 +93,41 @@ global.valleyQuestIds = {
  "q81": "87661584296B8B70",
  "q82": "86824CC3F51032B9",
  "q85": "9AD7611960B0EDA4",
+ "q86_standing": "64ABC3E0D32A9056",
  "q86": "2FE67859CD152D29",
  "q87": "ABE39B0CA5A019ED",
  "q88": "77BA3AD249428FE7",
  "q89": "319E782B0F6AF007",
  "q90": "5D03CFED4CF92BB7",
- "q91": "6D1BE2E552F5E4B7"
+ "q91": "6D1BE2E552F5E4B7",
+ "oda_open": "E61864478A97F41E",
+ "oda_casings": "92489253BB7C0744",
+ "oda_alloy": "1BF4F8B224C18BE4",
+ "oda_gearing": "2CBED0C4BB8AD0AC",
+ "oda_seedbox": "24DDE7B320244522",
+ "oda_pantry": "4BFDD97D3744144F",
+ "oda_lampoil": "81E7588B56F0CD27",
+ "oda_servos": "65425A40C3B60A06",
+ "oda_frames": "81C0237EC201A046",
+ "oda_coils": "868B8865ECBFF4A4",
+ "oda_fluxduct": "0FA1DF8B014F923B",
+ "oda_cat_furniture": "FFA9971832975397",
+ "oda_cat_windows": "2A2F899324D89749",
+ "oda_cat_garden": "58290F8657B4D408",
+ "oda_cat_lights": "EC294E8331893620",
+ "oda_livestock": "5B830910435FC44E",
+ "oda_rare_seeds": "82BDF5E10E02976A",
+ "oda_reactor_casings": "3CE051F603E1AC08",
+ "oda_reactor_internals": "E8FECEDA8D6943A7",
+ "oda_ae_bundle": "2FEE2E5D69ACBDE0",
+ "oda_plushie": "50B50215551140F6",
+ "oda_works_deed": "1447A4EDBD9143CC"
 }
 global.valleyChapterIds = {
  "act1": "325711CC25A0D7B5",
  "act2": "B6773EF9B6669230",
  "act3": "06DE5A59EF33292E",
  "act4": "CAD0C986959FDFD0",
- "act5": "F1786D0D5EC3360B"
+ "act5": "F1786D0D5EC3360B",
+ "oda": "029B71308ACB6B43"
 }

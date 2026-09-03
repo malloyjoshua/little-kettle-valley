@@ -1,0 +1,14 @@
+{
+  "parent": "valley:journal/root",
+  "display": {
+    "icon": { "item": "minecraft:writable_book" },
+    "title": { "text": "Field Note: The Crate Label", "color": "gold" },
+    "description": { "text": "Bram labels everything. Twice.", "color": "gray" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": { "impossible": { "trigger": "minecraft:impossible" } },
+  "requirements": [["impossible"]]
+}

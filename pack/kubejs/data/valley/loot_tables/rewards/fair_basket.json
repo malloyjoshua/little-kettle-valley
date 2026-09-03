@@ -1,0 +1,43 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "name": "fair_food",
+      "rolls": 3,
+      "entries": [
+        { "type": "minecraft:item", "name": "farmersdelight:apple_pie", "weight": 3 },
+        { "type": "minecraft:item", "name": "bakery:braided_bread", "weight": 3,
+          "functions": [ { "function": "minecraft:set_count", "count": 2 } ] },
+        { "type": "minecraft:item", "name": "farmersdelight:fruit_salad", "weight": 3,
+          "functions": [ { "function": "minecraft:set_count", "count": 2 } ] },
+        { "type": "minecraft:item", "name": "minecraft:honey_bottle", "weight": 2,
+          "functions": [ { "function": "minecraft:set_count", "count": 2 } ] },
+        { "type": "minecraft:item", "name": "minecraft:cake", "weight": 2 },
+        { "type": "minecraft:item", "name": "farmersdelight:cabbage_seeds", "weight": 2,
+          "functions": [ { "function": "minecraft:set_count", "count": 6 } ] },
+        { "type": "minecraft:item", "name": "farmersdelight:tomato_seeds", "weight": 2,
+          "functions": [ { "function": "minecraft:set_count", "count": 6 } ] },
+        { "type": "minecraft:item", "name": "supplementaries:flower_box", "weight": 2,
+          "functions": [ { "function": "minecraft:set_count", "count": 2 } ] },
+        { "type": "minecraft:item", "name": "supplementaries:candle_holder", "weight": 2,
+          "functions": [ { "function": "minecraft:set_count", "count": 4 } ] },
+        { "type": "minecraft:item", "name": "perfectplushies:duck_plushie", "weight": 1 }
+      ]
+    },
+    {
+      "name": "fair_fixed",
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "valley:plushie_token" }
+      ]
+    },
+    {
+      "name": "fair_sconces",
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "supplementaries:sconce",
+          "functions": [ { "function": "minecraft:set_count", "count": 4 } ] }
+      ]
+    }
+  ]
+}

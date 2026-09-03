@@ -83,6 +83,12 @@ BlockEvents.placed(event => {
       const p = v.offset(off)
       if (p) v.addLamp(p[0], p[1], p[2])
     })
+    // ...and the two that valley:act1/square_path is about to setblock as
+    // this quest's own reward. A setblock never fires this listener.
+    v.C.LAMPS_Q07.forEach(off => {
+      const p = v.offset(off)
+      if (p) v.addLamp(p[0], p[1], p[2])
+    })
     fire(player, 'q07')
     return
   }
@@ -335,6 +341,53 @@ function checkSleep(server, player) {
   }
 }
 
+// =============================================================================
+// Standing: Trusted — q86_standing (§5, §12.3).
+//
+// "Six of eight neighbours' stories closed" is not expressible as an FTB Quests
+// dependency (dependency_requirement is only ALL / ONE), so q86_standing is an
+// INVISIBLE checkmark quest and this is the listener that ticks it. q86 then
+// depends on it normally.
+//
+// The count is per TEAM and comes from the ledger in valley_core.js, which is
+// written by a silent command reward on each of the eight closing quests:
+//     /valley standing <key> {long_team_id}
+// That is deterministic and needs no quest API. Before counting we also ask the
+// FTB XMod Compat KubeJS binding which of the eight FTB Quests itself considers
+// complete, and fold any extras into the ledger — so a chain closed before this
+// shipped still counts. When the binding is absent that call returns null and
+// nothing changes.
+//
+// Runs every STANDING_INTERVAL ticks, per online player, and costs one
+// persistentData read per chain once a team is already Trusted.
+// =============================================================================
+const STANDING_INTERVAL = 200          // ticks; ~10 seconds
+
+function checkStanding(server, player) {
+  const v = V()
+  const team = v.teamId(player)
+  if (v.standingGranted(team)) return
+
+  // Top-up pass: whatever FTB Quests already knows goes into the ledger.
+  const api = v.standingApiClosed(player)
+  if (api) api.forEach(k => v.recordStanding(team, k))
+
+  const closed = v.standingClosed(team)
+  if (closed.length < v.STANDING_REQUIRED) return
+
+  v.markStandingGranted(team)
+  console.info('[valley] Standing: Trusted for team ' + team +
+               ' (' + closed.length + '/8: ' + closed.join(' ') + ')')
+
+  // Per team, not per world: complete for every online member of THIS team,
+  // so a second party in the same world still has to earn its own Standing.
+  server.players.forEach(p => {
+    if (v.teamId(p) !== team) return
+    v.complete(p, 'q86_standing')
+  })
+  v.say(player, 'Oda', 'Six of eight. I have written it down, which is the only vote that has ever mattered in this valley.')
+}
+
 // -----------------------------------------------------------------------------
 // The tick handler. One modulo, one length check, then at most POLLS.length
 // cheap predicates per online player. POLLS shrinks as the pack is played.
@@ -347,8 +400,14 @@ ServerEvents.tick(event => {
   const players = event.server.players
   if (players.length === 0) return
 
+  const slow = (global.valleyTick % STANDING_INTERVAL === 0)
+
   players.forEach(player => {
     checkSleep(event.server, player)
+    if (slow) {
+      try { checkStanding(event.server, player) }
+      catch (err) { console.error('[valley] standing check failed: ' + err) }
+    }
     for (let i = POLLS.length - 1; i >= 0; i--) {
       const c = POLLS[i]
       let ok = false

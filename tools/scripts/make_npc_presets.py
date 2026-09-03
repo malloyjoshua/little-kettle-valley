@@ -5,8 +5,13 @@ Usage: make_npc_presets.py <npcs.json> <pack_dir> [--check]
   <pack_dir>  the pack root, e.g. .../Minecraft/pack
   --check     parse-validate only, write nothing
 
-Writes  <pack>/kubejs/data/valley/easy_npc/preset/<key>.npc.snbt   (the path Easy NPC actually accepts)
-   and  <pack>/kubejs/data/valley/preset/<key>.npc.snbt            (inert compat copy, see below)
+Writes  <pack>/kubejs/data/valley/easy_npc/preset/<key>.npc.snbt   (the ONLY path Easy NPC accepts)
+
+The second, "compat" tree at <pack>/kubejs/data/valley/preset/ was deleted on
+2026-09-02. PresetSecurity#isAllowedDataPresetPath rejects any resource path
+that does not start with "easy_npc/preset/", so those files could never load;
+all they did was double the packwiz index and give a future editor two places
+to change a line of dialogue and one of them wrong.
 
 Structure is the jar's own base preset:
   unzip -p server/mods/easy_npc-*.jar data/easy_npc/api/preset/base/humanoid.npc.snbt
@@ -180,7 +185,6 @@ def main():
     npcs = doc['npcs']
 
     real = pack / 'kubejs' / 'data' / 'valley' / 'easy_npc' / 'preset'
-    compat = pack / 'kubejs' / 'data' / 'valley' / 'preset'
 
     seen, written = set(), []
     for n in npcs:
@@ -206,16 +210,13 @@ def main():
         print(f'{len(written)} presets parse clean (nothing written)')
         return
 
-    for d in (real, compat):
-        d.mkdir(parents=True, exist_ok=True)
+    real.mkdir(parents=True, exist_ok=True)
     for key, text in written:
         (real / f'{key}.npc.snbt').write_text(text)
-        (compat / f'{key}.npc.snbt').write_text(text)
         print(f'  {key}.npc.snbt')
 
     objectives = doc['meta']['arc_gating']['setup_commands']
     print(f'\n{len(written)} presets -> {real}')
-    print(f'{len(written)} compat copies -> {compat}  (inert: Easy NPC will not load a data preset from here)')
     print('\nvalley_core.js must create these on server load or both greeting lines stay hidden:')
     for c in objectives:
         print('  /' + c)

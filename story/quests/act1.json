@@ -206,6 +206,7 @@
         { "type": "item", "item": "minecraft:iron_hoe" },
         { "type": "item", "item": "minecraft:shears" },
         { "type": "item", "item": "minecraft:torch", "count": 32 },
+        { "type": "command", "command": "advancement grant @a only valley:journal/found_1", "elevate": true, "silent": true },
         { "type": "toast", "title": "The Door Under the House", "description": "The door stays shut until autumn. Next: hang the Copper Kettle and cook one Vegetable Soup." }
       ]
     },
@@ -388,6 +389,7 @@
         { "type": "item", "item": "create:goggles" },
         { "type": "item", "item": "minecraft:iron_ingot", "count": 12 },
         { "type": "item", "item": "minecraft:andesite", "count": 24 },
+        { "type": "command", "command": "advancement grant @a only valley:journal/found_2", "elevate": true, "silent": true },
         { "type": "toast", "title": "Residents 4/15", "description": "Next: craft 8 Andesite Alloy out of what Bram gave you. Eight. Not nine." }
       ]
     },
@@ -578,6 +580,7 @@
       ],
       "rewards": [
         { "type": "command", "command": "/valley finale act1" },
+        { "type": "command", "command": "advancement grant @a only valley:journal/found_3", "elevate": true, "silent": true },
         { "type": "stage", "stage": "act2" },
         { "type": "loot", "table": "story_crate" },
         { "type": "item", "item": "explorerscompass:explorerscompass" },

@@ -1,0 +1,14 @@
+{
+  "parent": "valley:journal/root",
+  "display": {
+    "icon": { "item": "minecraft:writable_book" },
+    "title": { "text": "Field Note: The Ledger Page", "color": "gold" },
+    "description": { "text": "Found at the bottom of the cellar stairs.", "color": "gray" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": { "impossible": { "trigger": "minecraft:impossible" } },
+  "requirements": [["impossible"]]
+}

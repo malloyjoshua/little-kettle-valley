@@ -57,6 +57,11 @@ const VALLEY = {
   LAMP_BLOCK: 'candlelight:lamp',
   LAMP_TOLERANCE: 2,
   LAMPS_FINALE: [[-12,1,0],[12,1,0],[0,1,-12],[0,1,12]],
+  // The two posts the datapack function valley:act1/square_path sets down
+  // as Q7's reward. A setblock does not fire BlockEvents.placed, so they
+  // are registered by the anchor listener alongside LAMPS_FINALE — without
+  // that the Act IV lever would skip the first two posts on the road.
+  LAMPS_Q07: [[-2,1,8],[2,1,16]],
   LAMPS_Q34: [[-16,1,2],[-20,1,3],[-24,1,4],[-8,1,1]],
   LAMPS_Q74: [
     [4,1,6],[8,1,10],[12,1,14],[16,1,18],[20,1,22],[24,1,26],
@@ -276,6 +281,103 @@ global.valley = {
   // ---- Finale idempotency (§P7). ----------------------------------------
   finaleDone: function (act) { return pdFlag('valley_finale_' + act) },
   markFinale: function (act) { pdSetFlag('valley_finale_' + act) },
+
+  // ==========================================================================
+  // Standing: Trusted (§5, §12.3) — Q86's second condition.
+  //
+  // Standing is "how many of the eight named resident chains this TEAM has
+  // closed". The authoritative record is a ledger of flags in
+  // server.persistentData, written by a silent command reward on each of the
+  // eight closing quests:
+  //     /valley standing <key> {long_team_id}
+  // CommandReward#claim substitutes {long_team_id} with the claiming player's
+  // FTB team UUID (verified in ftb-quests-forge-2001.4.22.jar), so the ledger
+  // is per team, survives a /reload, and needs no quest API at all.
+  //
+  // standingApiClosed() below is a top-up, not the source of truth: it reads
+  // the FTB XMod Compat KubeJS binding when that binding exists, so a chain
+  // closed before this ledger shipped (or claimed while the reward failed)
+  // still counts. It returns null the moment anything about the binding is
+  // not what we expect, and the ledger carries on alone.
+  // ==========================================================================
+
+  STANDING_REQUIRED: 6,
+
+  // The eight chain keys, in story order.
+  standingChains: function () { return VALLEY.STANDING_CHAINS.slice(0) },
+
+  // The FTB team UUID for this player, or their login name when FTB Teams is
+  // not answering. Matches the {long_team_id} the command reward passes in.
+  teamId: function (player) {
+    try {
+      if (player && player.team && player.team.id) return String(player.team.id)
+    } catch (err) { /* no FTB Teams integration; fall through */ }
+    return player ? global.valley.pname(player) : 'server'
+  },
+
+  // persistentData is flat primitives only (see the header note), so the team
+  // and the quest key are folded into the key name.
+  standingSlot: function (teamId, questKey) {
+    return 'valley_standing_' + String(teamId).replace(/[^A-Za-z0-9]/g, '') + '_' + questKey
+  },
+
+  // Returns true the first time this chain is recorded for this team.
+  recordStanding: function (teamId, questKey) {
+    if (VALLEY.STANDING_CHAINS.indexOf(questKey) === -1) return false
+    const slot = global.valley.standingSlot(teamId, questKey)
+    if (pdFlag(slot)) return false
+    pdSetFlag(slot)
+    console.info('[valley] standing: ' + questKey + ' recorded for team ' + teamId)
+    return true
+  },
+
+  standingClosed: function (teamId) {
+    return VALLEY.STANDING_CHAINS.filter(k => pdFlag(global.valley.standingSlot(teamId, k)))
+  },
+
+  standingCount: function (teamId) { return global.valley.standingClosed(teamId).length },
+
+  standingGranted: function (teamId) {
+    return pdFlag('valley_standing_done_' + String(teamId).replace(/[^A-Za-z0-9]/g, ''))
+  },
+
+  markStandingGranted: function (teamId) {
+    pdSetFlag('valley_standing_done_' + String(teamId).replace(/[^A-Za-z0-9]/g, ''))
+  },
+
+  // Which of the eight FTB Quests itself says are complete for this player's
+  // team, or null when the binding is absent or shaped differently.
+  //
+  // Binding verified in ftb-xmod-compat-forge-2.1.3.jar:
+  //   KubeJSIntegration#registerBindings  -> add("FTBQuests", FTBQuestsKubeJSWrapper.INSTANCE)
+  //   FTBQuestsKubeJSWrapper#getServerDataFromPlayer(Player)
+  //                                       -> FTBQuestsKubeJSPlayerData
+  //   FTBQuestsKubeJSTeamData#isCompleted(Object) -> boolean
+  //     (resolves the argument through BaseQuestFile#getID, which parses the
+  //      16-char hex ids _quest_ids.js already stores)
+  standingApiClosed: function (player) {
+    if (typeof FTBQuests === 'undefined' || !player) return null
+    const ids = global.valleyQuestIds || {}
+    const out = []
+    try {
+      const data = FTBQuests.getServerDataFromPlayer(player)
+      if (!data) return null
+      for (let i = 0; i < VALLEY.STANDING_CHAINS.length; i++) {
+        const k = VALLEY.STANDING_CHAINS[i]
+        const id = ids[k]
+        if (!id) continue
+        if (data.isCompleted(id)) out.push(k)
+      }
+    } catch (err) {
+      if (!global.valleyStandingApiWarned) {
+        global.valleyStandingApiWarned = true
+        console.warn('[valley] FTBQuests binding unusable for Standing (' + err + '); ' +
+                     'the command-reward ledger is authoritative and unaffected.')
+      }
+      return null
+    }
+    return out
+  },
 
   // ---- Generic once-per-world latch, used by the checks. -----------------
   once: function (key) {

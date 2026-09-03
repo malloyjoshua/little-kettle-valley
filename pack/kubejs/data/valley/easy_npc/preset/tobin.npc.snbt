@@ -48,6 +48,12 @@
             Type:"COMMAND"
           },
           {
+            Cmd:"/give @initiator valley:token_tobin",
+            ExecAsUser:0b,
+            PermLevel:2,
+            Type:"COMMAND"
+          },
+          {
             Cmd:"/ftbquests open_book",
             ExecAsUser:1b,
             PermLevel:0,

@@ -84,6 +84,12 @@ def layout(quests):
         n = len(items)
         for i, qq in enumerate(items):
             qq['_x'] = col * 2.0; qq['_y'] = (i - (n - 1) / 2.0) * 1.5
+    # Explicit x/y win over the automatic layout. Used by side boards like
+    # Oda's Counter, where every quest sits at the same dependency depth and
+    # the tiers are only legible if they are laid out as columns by hand.
+    for qq in quests:
+        if 'x' in qq: qq['_x'] = float(qq['x'])
+        if 'y' in qq: qq['_y'] = float(qq['y'])
     return depth
 (out / 'chapters').mkdir(parents=True, exist_ok=True); (out / 'reward_tables').mkdir(parents=True, exist_ok=True)
 files = sorted(src.glob('*.json'))
@@ -123,6 +129,9 @@ for f, data in chapters:
         if qq.get('hide_until_deps_complete', True) and deps: parts.append('hide_until_deps_complete: true')
         if qq.get('hide_details_until_startable', True): parts.append('hide_details_until_startable: true')
         if qq.get('can_repeat'): parts.append('can_repeat: true')
+        if qq.get('invisible'): parts.append('invisible: true')
+        if qq.get('hide_dependency_lines'): parts.append('hide_dependency_lines: true')
+        if qq.get('hide_dependent_lines'): parts.append('hide_dependent_lines: true')
         if qq.get('min_required_deps'): parts.append(f'min_required_dependencies: {int(qq["min_required_deps"])}')
         if qq.get('dependency_requirement'): parts.append(f'dependency_requirement: {q(qq["dependency_requirement"])}')
         if qq.get('guide_page'): parts.append(f'guide_page: {q(qq["guide_page"])}')

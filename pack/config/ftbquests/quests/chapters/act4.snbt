@@ -53,7 +53,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "D3973BE6EAA3D8F9", type: "checkmark", title: "Reach the reed village and walk the Ribbits back to the inn" }]
-			rewards: [{ id: "F070AF91B98D4841", type: "command", command: "/valley scene q59", elevate_perms: true, silent: true }, { id: "F6833018C021829A", type: "item", item: "valley:ice_auger" }, { id: "E5F3B28357FEA8F5", type: "item", item: "valley:scrip", count: 25 }, { id: "E38C07B429D3DAC0", type: "item", item: "ribbits:mossy_oak_planks", count: 64 }, { id: "F06C1868B851DF6A", type: "item", item: "ribbits:giant_lilypad", count: 8 }, { id: "C846C0973727A94B", type: "item", item: "perfectplushies:frog_plushie" }, { id: "0ED5F4C1656A8B27", type: "loot", table_id: 6428311738069300697L }, { id: "0EE903E4302B316A", type: "toast", title: "The Reed Village Comes In", description: "Next: cook 12 bowls of Vegetable Soup for the long table at the inn." }]
+			rewards: [{ id: "F070AF91B98D4841", type: "command", command: "/valley scene q59", elevate_perms: true, silent: true }, { id: "F6833018C021829A", type: "item", item: "valley:ice_auger" }, { id: "E5F3B28357FEA8F5", type: "item", item: "valley:scrip", count: 25 }, { id: "E38C07B429D3DAC0", type: "item", item: "ribbits:mossy_oak_planks", count: 64 }, { id: "F06C1868B851DF6A", type: "item", item: "ribbits:giant_lilypad", count: 8 }, { id: "C846C0973727A94B", type: "item", item: "perfectplushies:frog_plushie" }, { id: "0ED5F4C1656A8B27", type: "loot", table_id: 6428311738069300697L }, { id: "0EE903E4302B316A", type: "toast", title: "The Reed Village Comes In", description: "Next: cook 12 bowls of Vegetable Soup for the long table at the inn." }, { id: "45CEC175475774D4", type: "command", command: "/valley standing q59 {long_team_id}", elevate_perms: true, silent: true }]
 		}
 		{
 			id: "A11E8D8781573A13"
@@ -68,7 +68,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "A9A22B1ED47A2AF8", type: "item", item: "farmersdelight:vegetable_soup", count: 12L, consume_items: true }]
-			rewards: [{ id: "B7F545DA4F438864", type: "command", command: "/valley scene q60", elevate_perms: true, silent: true }, { id: "9A1EF7137AE82B12", type: "item", item: "cookingforblockheads:recipe_book" }, { id: "098BCDFAEBBB52D2", type: "item", item: "cookingforblockheads:spice_rack" }, { id: "693892AD18BAC4A2", type: "item", item: "valley:scrip", count: 25 }, { id: "8DFA3AB63C42626F", type: "item", item: "farmersdelight:apple_pie", count: 2 }, { id: "C8F6E7D0771E500C", type: "loot", table_id: 6428311738069300697L }, { id: "D7D14FC4F4B3CCAA", type: "toast", title: "The Hearth Is Lit Again", description: "Next: glaze the greenhouse shell on the square — six windows, one door, eight planters." }]
+			rewards: [{ id: "B7F545DA4F438864", type: "command", command: "/valley scene q60", elevate_perms: true, silent: true }, { id: "9A1EF7137AE82B12", type: "item", item: "cookingforblockheads:recipe_book" }, { id: "098BCDFAEBBB52D2", type: "item", item: "cookingforblockheads:spice_rack" }, { id: "693892AD18BAC4A2", type: "item", item: "valley:scrip", count: 25 }, { id: "8DFA3AB63C42626F", type: "item", item: "farmersdelight:apple_pie", count: 2 }, { id: "C8F6E7D0771E500C", type: "loot", table_id: 6428311738069300697L }, { id: "D7D14FC4F4B3CCAA", type: "toast", title: "The Hearth Is Lit Again", description: "Next: glaze the greenhouse shell on the square — six windows, one door, eight planters." }, { id: "836B9AF44F5AE144", type: "command", command: "/valley standing q60 {long_team_id}", elevate_perms: true, silent: true }]
 		}
 		{
 			id: "6663F36FE51BA219"
@@ -98,7 +98,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "9CCF27CD3134E7DC", type: "item", item: "valley:winter_tonic", count: 8L, consume_items: true }]
-			rewards: [{ id: "44B2ED2EF1E95535", type: "item", item: "cookingforblockheads:crafting_book" }, { id: "4691B3159DA842D4", type: "item", item: "mcwfurnitures:oak_kitchen_cabinet", count: 2 }, { id: "F1B12CB229A219FC", type: "item", item: "valley:scrip", count: 25 }, { id: "2A7D98410A4F9046", type: "stage", stage: "healthy" }, { id: "7BD51F04AB4DCF50", type: "command", command: "/valley scene q62", elevate_perms: true, silent: true }, { id: "67C529BA00E6CD2F", type: "toast", title: "Nobody Gets Sick This Winter", description: "Next: run 5 of Pip's courier parcels out of the Delivery Crate." }]
+			rewards: [{ id: "44B2ED2EF1E95535", type: "item", item: "cookingforblockheads:crafting_book" }, { id: "4691B3159DA842D4", type: "item", item: "mcwfurnitures:oak_kitchen_cabinet", count: 2 }, { id: "F1B12CB229A219FC", type: "item", item: "valley:scrip", count: 25 }, { id: "2A7D98410A4F9046", type: "stage", stage: "healthy" }, { id: "7BD51F04AB4DCF50", type: "command", command: "/valley scene q62", elevate_perms: true, silent: true }, { id: "67C529BA00E6CD2F", type: "toast", title: "Nobody Gets Sick This Winter", description: "Next: run 5 of Pip's courier parcels out of the Delivery Crate." }, { id: "3C59501335C82DC3", type: "command", command: "/valley standing q62 {long_team_id}", elevate_perms: true, silent: true }]
 		}
 		{
 			id: "7DB0798726DEDFE3"
@@ -113,7 +113,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "2A2838A018BFAD7B", type: "item", item: "valley:courier_parcel", count: 5L, consume_items: true }]
-			rewards: [{ id: "5F73053F4DD35004", type: "item", item: "perfectplushies:duck_plushie" }, { id: "CF97CE49915264B2", type: "item", item: "duckling:duck_egg", count: 8 }, { id: "A26D80863639B2B3", type: "item", item: "duckling:holiday_fruit_cake" }, { id: "6950F2CACC2D5F13", type: "item", item: "valley:scrip", count: 25 }, { id: "FA8EC70BFA451B23", type: "loot", table_id: 6428311738069300697L }, { id: "EE6F85C04BEA0FD8", type: "toast", title: "Pip Is the Courier", description: "Next: glaze the greenhouse shell — six windows, one door, eight planters on the marked bench." }]
+			rewards: [{ id: "5F73053F4DD35004", type: "item", item: "perfectplushies:duck_plushie" }, { id: "CF97CE49915264B2", type: "item", item: "duckling:duck_egg", count: 8 }, { id: "A26D80863639B2B3", type: "item", item: "duckling:holiday_fruit_cake" }, { id: "6950F2CACC2D5F13", type: "item", item: "valley:scrip", count: 25 }, { id: "FA8EC70BFA451B23", type: "loot", table_id: 6428311738069300697L }, { id: "EE6F85C04BEA0FD8", type: "toast", title: "Pip Is the Courier", description: "Next: glaze the greenhouse shell — six windows, one door, eight planters on the marked bench." }, { id: "C6DFB34C094BC162", type: "command", command: "/valley standing q63 {long_team_id}", elevate_perms: true, silent: true }]
 		}
 		{
 			id: "C2110AE47CE14E3A"
@@ -203,7 +203,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "7BB08735B76EF533", type: "checkmark", title: "Adit cleared and the Works Waystone placed inside" }]
-			rewards: [{ id: "E004E584F0E9ABA1", type: "command", command: "/valley scene q65", elevate_perms: true, silent: true }, { id: "E3B745DC59403A93", type: "item", item: "waystones:waystone" }, { id: "E3C8C922720B4400", type: "item", item: "torchmaster:megatorch", count: 2 }, { id: "272A60F9351ABD3A", type: "item", item: "minecraft:iron_pickaxe" }, { id: "C2979D6283BCEC8A", type: "stage", stage: "drilling" }, { id: "5B600862EE86BA63", type: "loot", table_id: 10797532679477389079L }, { id: "35EEA69BE5334222", type: "item", item: "explorerscompass:explorerscompass" }, { id: "A86CE11A7D1EDE18", type: "toast", title: "The Works Is Open", description: "Next: run Energy Duct from the mill to the Works and fit 2 Energy Cells. The compass in this payout is already set to the Wandering Merchant's Tower." }]
+			rewards: [{ id: "E004E584F0E9ABA1", type: "command", command: "/valley scene q65", elevate_perms: true, silent: true }, { id: "E3B745DC59403A93", type: "item", item: "waystones:waystone" }, { id: "E3C8C922720B4400", type: "item", item: "torchmaster:megatorch", count: 2 }, { id: "272A60F9351ABD3A", type: "item", item: "minecraft:iron_pickaxe" }, { id: "C2979D6283BCEC8A", type: "stage", stage: "drilling" }, { id: "5B600862EE86BA63", type: "loot", table_id: 10797532679477389079L }, { id: "35EEA69BE5334222", type: "item", item: "explorerscompass:explorerscompass" }, { id: "4E43A42BB65139B1", type: "command", command: "advancement grant @a only valley:journal/found_5", elevate_perms: true, silent: true }, { id: "A86CE11A7D1EDE18", type: "toast", title: "The Works Is Open", description: "Next: run Energy Duct from the mill to the Works and fit 2 Energy Cells. The compass in this payout is already set to the Wandering Merchant's Tower." }]
 		}
 		{
 			id: "C581DADA91C14EBE"
@@ -232,8 +232,8 @@
 			shape: "diamond"
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
-			tasks: [{ id: "823DDFD3BD5AF93A", type: "item", item: "valley:kettle_plate_b", count: 1L }]
-			rewards: [{ id: "C68EE348B2884A35", type: "item", item: "valley:turbine_notes", count: 16 }, { id: "98EE9E8C6620BEE2", type: "item", item: "waystones:warp_stone" }, { id: "B31E4D129DC9D550", type: "loot", table_id: 10224540141677657293L }, { id: "17A553C374908727", type: "loot", table_id: 10797532679477389079L }, { id: "88D8478D4C1CB6CF", type: "toast", title: "Turbine Notes in Hand", description: "Next: build a Molecular Assembler and a 4k Crafting Storage into the Works network." }]
+			tasks: [{ id: "A1608ACBDB1BE86C", type: "checkmark", title: "Reached the Wandering Merchant's Tower and opened the vault chest" }]
+			rewards: [{ id: "395CAA1EE0CAF4FD", type: "item", item: "valley:kettle_plate_b" }, { id: "C68EE348B2884A35", type: "item", item: "valley:turbine_notes", count: 16 }, { id: "98EE9E8C6620BEE2", type: "item", item: "waystones:warp_stone" }, { id: "B31E4D129DC9D550", type: "loot", table_id: 10224540141677657293L }, { id: "17A553C374908727", type: "loot", table_id: 10797532679477389079L }, { id: "88D8478D4C1CB6CF", type: "toast", title: "Turbine Notes in Hand", description: "Next: build a Molecular Assembler and a 4k Crafting Storage into the Works network." }]
 		}
 		{
 			id: "455B94193261721E"
@@ -323,7 +323,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "296F4725EF06CC5D", type: "item", item: "valley:token_bram", count: 1L }, { id: "05C328FB64F7458F", type: "item", item: "farmersdelight:hot_cocoa", count: 1L, consume_items: true }]
-			rewards: [{ id: "F30EF31DCD2CE32D", type: "item", item: "create:wrench" }, { id: "1C7A882F91572514", type: "item", item: "valley:scrip", count: 25 }, { id: "222603B8146723C8", type: "item", item: "create:brass_casing", count: 16 }, { id: "1111CFFE068F94BB", type: "command", command: "/valley scene q73", elevate_perms: true, silent: true }, { id: "1D6D667B11BA5086", type: "loot", table_id: 10224540141677657293L }, { id: "3F6BC081603F5B7F", type: "toast", title: "Bram Sits Down", description: "Next: place the last 17 lamp posts, mill to square to lake." }]
+			rewards: [{ id: "F30EF31DCD2CE32D", type: "item", item: "create:wrench" }, { id: "1C7A882F91572514", type: "item", item: "valley:scrip", count: 25 }, { id: "222603B8146723C8", type: "item", item: "create:brass_casing", count: 16 }, { id: "1111CFFE068F94BB", type: "command", command: "/valley scene q73", elevate_perms: true, silent: true }, { id: "1D6D667B11BA5086", type: "loot", table_id: 10224540141677657293L }, { id: "3F6BC081603F5B7F", type: "toast", title: "Bram Sits Down", description: "Next: place the last 17 lamp posts, mill to square to lake." }, { id: "1C8F93931559744B", type: "command", command: "/valley standing q73 {long_team_id}", elevate_perms: true, silent: true }]
 		}
 		{
 			id: "61D152A866E44CBB"
@@ -354,7 +354,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "B36F61202B00E9B2", type: "checkmark", title: "Fuel, coolant flow and control rods verified on the Reactor Terminal" }]
-			rewards: [{ id: "5B2CC9DF70D1AF83", type: "command", command: "/valley finale act4", elevate_perms: true, silent: true }, { id: "15299E43075F16AD", type: "stage", stage: "act5" }, { id: "36299AAEC82E56FA", type: "stage", stage: "reactor_lit" }, { id: "28625FF6D830A22A", type: "item", item: "valley:scrip", count: 25 }, { id: "4631C2247DFD04CC", type: "xp_levels", xp_levels: 10 }, { id: "F6A869A5E8EE6A4F", type: "loot", table_id: 10797532679477389079L }, { id: "3BD1CFFE12848568", type: "toast", title: "The Longest Night", description: "Next: sleep one night, then walk the square with Marnie. It is spring again." }]
+			rewards: [{ id: "5B2CC9DF70D1AF83", type: "command", command: "/valley finale act4", elevate_perms: true, silent: true }, { id: "15299E43075F16AD", type: "stage", stage: "act5" }, { id: "36299AAEC82E56FA", type: "stage", stage: "reactor_lit" }, { id: "28625FF6D830A22A", type: "item", item: "valley:scrip", count: 25 }, { id: "4631C2247DFD04CC", type: "xp_levels", xp_levels: 10 }, { id: "F6A869A5E8EE6A4F", type: "loot", table_id: 10797532679477389079L }, { id: "3BD1CFFE12848568", type: "toast", title: "The Longest Night", description: "Next: sleep one night, then walk the square with Marnie. It is spring again." }, { id: "C755BE4BBE235624", type: "command", command: "/valley standing q75 {long_team_id}", elevate_perms: true, silent: true }]
 		}
 	]
 	title: "Act IV: The Longest Night"

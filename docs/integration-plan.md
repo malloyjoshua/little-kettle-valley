@@ -752,7 +752,7 @@ internally into `/title @initiator ...`, so no selector is needed).
 
 The quest-book button is the exception — `open_book` takes **no arguments**
 (`FTBQuestsCommands.class` has no argument child for it), so match the pack's own working
-pattern in `pack/kubejs/data/valley/preset/tobin.npc.snbt`:
+pattern in `pack/kubejs/data/valley/easy_npc/preset/tobin.npc.snbt`:
 
 ```
 { Type: "COMMAND", Cmd: "/ftbquests open_book", ExecAsUser: 1b, PermLevel: 0 }

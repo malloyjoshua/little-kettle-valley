@@ -25,17 +25,44 @@
         "",
         "Opens the winter book and hands you 64 Firewood Bundles, a winter cloak and Marnie's cocoa."
       ],
-      "deps": ["q56"],
+      "deps": [
+        "q56"
+      ],
       "tasks": [
-        { "type": "checkmark", "title": "Sleep one night, then walk into the inn" }
+        {
+          "type": "checkmark",
+          "title": "Sleep one night, then walk into the inn"
+        }
       ],
       "rewards": [
-        { "type": "item", "item": "valley:firewood_bundle", "count": 64 },
-        { "type": "item", "item": "valley:winter_cloak" },
-        { "type": "item", "item": "farmersdelight:hot_cocoa", "count": 8 },
-        { "type": "item", "item": "minecraft:campfire", "count": 4 },
-        { "type": "xp_levels", "levels": 3 },
-        { "type": "toast", "title": "The Winter Book Opens", "description": "Next: 16 Firewood Bundles each to Marnie, Halden, Nella and Oda." }
+        {
+          "type": "item",
+          "item": "valley:firewood_bundle",
+          "count": 64
+        },
+        {
+          "type": "item",
+          "item": "valley:winter_cloak"
+        },
+        {
+          "type": "item",
+          "item": "farmersdelight:hot_cocoa",
+          "count": 8
+        },
+        {
+          "type": "item",
+          "item": "minecraft:campfire",
+          "count": 4
+        },
+        {
+          "type": "xp_levels",
+          "levels": 3
+        },
+        {
+          "type": "toast",
+          "title": "The Winter Book Opens",
+          "description": "Next: 16 Firewood Bundles each to Marnie, Halden, Nella and Oda."
+        }
       ]
     },
     {
@@ -51,21 +78,75 @@
         "",
         "Each of them gives something back, and Wisp lights a lantern path down the frozen river."
       ],
-      "deps": ["q57"],
+      "deps": [
+        "q57"
+      ],
       "tasks": [
-        { "type": "item", "item": "valley:firewood_bundle", "count": 16, "consume": true, "title": "Marnie's stack — 16 Firewood Bundles" },
-        { "type": "item", "item": "valley:firewood_bundle", "count": 16, "consume": true, "title": "Halden's stack — 16 Firewood Bundles" },
-        { "type": "item", "item": "valley:firewood_bundle", "count": 16, "consume": true, "title": "Nella's stack — 16 Firewood Bundles" },
-        { "type": "item", "item": "valley:firewood_bundle", "count": 16, "consume": true, "title": "Oda's stack — 16 Firewood Bundles" }
+        {
+          "type": "item",
+          "item": "valley:firewood_bundle",
+          "count": 16,
+          "consume": true,
+          "title": "Marnie's stack — 16 Firewood Bundles"
+        },
+        {
+          "type": "item",
+          "item": "valley:firewood_bundle",
+          "count": 16,
+          "consume": true,
+          "title": "Halden's stack — 16 Firewood Bundles"
+        },
+        {
+          "type": "item",
+          "item": "valley:firewood_bundle",
+          "count": 16,
+          "consume": true,
+          "title": "Nella's stack — 16 Firewood Bundles"
+        },
+        {
+          "type": "item",
+          "item": "valley:firewood_bundle",
+          "count": 16,
+          "consume": true,
+          "title": "Oda's stack — 16 Firewood Bundles"
+        }
       ],
       "rewards": [
-        { "type": "item", "item": "valley:blanket", "count": 2 },
-        { "type": "item", "item": "valley:winter_tonic", "count": 2 },
-        { "type": "item", "item": "aquaculture:fish_fillet_cooked", "count": 12 },
-        { "type": "item", "item": "minecraft:lantern", "count": 8 },
-        { "type": "item", "item": "minecraft:bell" },
-        { "type": "command", "command": "/valley scene q58", "elevate": true, "silent": true },
-        { "type": "toast", "title": "Four Stacks Filled", "description": "Next: walk the frozen river to the reed village and bring the Ribbits home." }
+        {
+          "type": "item",
+          "item": "valley:blanket",
+          "count": 2
+        },
+        {
+          "type": "item",
+          "item": "valley:winter_tonic",
+          "count": 2
+        },
+        {
+          "type": "item",
+          "item": "aquaculture:fish_fillet_cooked",
+          "count": 12
+        },
+        {
+          "type": "item",
+          "item": "minecraft:lantern",
+          "count": 8
+        },
+        {
+          "type": "item",
+          "item": "minecraft:bell"
+        },
+        {
+          "type": "command",
+          "command": "/valley scene q58",
+          "elevate": true,
+          "silent": true
+        },
+        {
+          "type": "toast",
+          "title": "Four Stacks Filled",
+          "description": "Next: walk the frozen river to the reed village and bring the Ribbits home."
+        }
       ]
     },
     {
@@ -81,19 +162,60 @@
         "",
         "Four Ribbits move into town for good, Wisp's arc closes, and Nella hands you her Ice Auger."
       ],
-      "deps": ["q58"],
+      "deps": [
+        "q58"
+      ],
       "tasks": [
-        { "type": "checkmark", "title": "Reach the reed village and walk the Ribbits back to the inn" }
+        {
+          "type": "checkmark",
+          "title": "Reach the reed village and walk the Ribbits back to the inn"
+        }
       ],
       "rewards": [
-        { "type": "command", "command": "/valley scene q59", "elevate": true, "silent": true },
-        { "type": "item", "item": "valley:ice_auger" },
-        { "type": "item", "item": "valley:scrip", "count": 25 },
-        { "type": "item", "item": "ribbits:mossy_oak_planks", "count": 64 },
-        { "type": "item", "item": "ribbits:giant_lilypad", "count": 8 },
-        { "type": "item", "item": "perfectplushies:frog_plushie" },
-        { "type": "loot", "table": "cozy_crate" },
-        { "type": "toast", "title": "The Reed Village Comes In", "description": "Next: cook 12 bowls of Vegetable Soup for the long table at the inn." }
+        {
+          "type": "command",
+          "command": "/valley scene q59",
+          "elevate": true,
+          "silent": true
+        },
+        {
+          "type": "item",
+          "item": "valley:ice_auger"
+        },
+        {
+          "type": "item",
+          "item": "valley:scrip",
+          "count": 25
+        },
+        {
+          "type": "item",
+          "item": "ribbits:mossy_oak_planks",
+          "count": 64
+        },
+        {
+          "type": "item",
+          "item": "ribbits:giant_lilypad",
+          "count": 8
+        },
+        {
+          "type": "item",
+          "item": "perfectplushies:frog_plushie"
+        },
+        {
+          "type": "loot",
+          "table": "cozy_crate"
+        },
+        {
+          "type": "toast",
+          "title": "The Reed Village Comes In",
+          "description": "Next: cook 12 bowls of Vegetable Soup for the long table at the inn."
+        },
+        {
+          "type": "command",
+          "command": "/valley standing q59 {long_team_id}",
+          "elevate": true,
+          "silent": true
+        }
       ]
     },
     {
@@ -109,18 +231,57 @@
         "",
         "The Hearth relights, Marnie's arc closes, and the greenhouse shell goes up on the square."
       ],
-      "deps": ["q59"],
+      "deps": [
+        "q59"
+      ],
       "tasks": [
-        { "type": "item", "item": "farmersdelight:vegetable_soup", "count": 12, "consume": true }
+        {
+          "type": "item",
+          "item": "farmersdelight:vegetable_soup",
+          "count": 12,
+          "consume": true
+        }
       ],
       "rewards": [
-        { "type": "command", "command": "/valley scene q60", "elevate": true, "silent": true },
-        { "type": "item", "item": "cookingforblockheads:recipe_book" },
-        { "type": "item", "item": "cookingforblockheads:spice_rack" },
-        { "type": "item", "item": "valley:scrip", "count": 25 },
-        { "type": "item", "item": "farmersdelight:apple_pie", "count": 2 },
-        { "type": "loot", "table": "cozy_crate" },
-        { "type": "toast", "title": "The Hearth Is Lit Again", "description": "Next: glaze the greenhouse shell on the square — six windows, one door, eight planters." }
+        {
+          "type": "command",
+          "command": "/valley scene q60",
+          "elevate": true,
+          "silent": true
+        },
+        {
+          "type": "item",
+          "item": "cookingforblockheads:recipe_book"
+        },
+        {
+          "type": "item",
+          "item": "cookingforblockheads:spice_rack"
+        },
+        {
+          "type": "item",
+          "item": "valley:scrip",
+          "count": 25
+        },
+        {
+          "type": "item",
+          "item": "farmersdelight:apple_pie",
+          "count": 2
+        },
+        {
+          "type": "loot",
+          "table": "cozy_crate"
+        },
+        {
+          "type": "toast",
+          "title": "The Hearth Is Lit Again",
+          "description": "Next: glaze the greenhouse shell on the square — six windows, one door, eight planters."
+        },
+        {
+          "type": "command",
+          "command": "/valley standing q60 {long_team_id}",
+          "elevate": true,
+          "silent": true
+        }
       ]
     },
     {
@@ -136,17 +297,45 @@
         "",
         "Winter tackle and two trophy mounts for the inn wall — and Nella has something to do until spring."
       ],
-      "deps": ["q59"],
+      "deps": [
+        "q59"
+      ],
       "tasks": [
-        { "type": "item", "item": "aquaculture:muskellunge", "count": 4 },
-        { "type": "item", "item": "aquaculture:rainbow_trout", "count": 4 }
+        {
+          "type": "item",
+          "item": "aquaculture:muskellunge",
+          "count": 4
+        },
+        {
+          "type": "item",
+          "item": "aquaculture:rainbow_trout",
+          "count": 4
+        }
       ],
       "rewards": [
-        { "type": "item", "item": "aquaculture:tackle_box" },
-        { "type": "item", "item": "aquaculture:neptunium_fishing_rod" },
-        { "type": "item", "item": "aquaculture:oak_fish_mount", "count": 2 },
-        { "type": "item", "item": "aquaculture:worm", "count": 32 },
-        { "type": "toast", "title": "Two Trophies on the Inn Wall", "description": "Next: Halden's rounds — brew 8 Winter Tonics, one for each resident." }
+        {
+          "type": "item",
+          "item": "aquaculture:tackle_box"
+        },
+        {
+          "type": "item",
+          "item": "aquaculture:neptunium_fishing_rod"
+        },
+        {
+          "type": "item",
+          "item": "aquaculture:oak_fish_mount",
+          "count": 2
+        },
+        {
+          "type": "item",
+          "item": "aquaculture:worm",
+          "count": 32
+        },
+        {
+          "type": "toast",
+          "title": "Two Trophies on the Inn Wall",
+          "description": "Next: Halden's rounds — brew 8 Winter Tonics, one for each resident."
+        }
       ]
     },
     {
@@ -162,17 +351,53 @@
         "",
         "Halden's arc closes, and nobody in the valley gets sick this winter."
       ],
-      "deps": ["q58"],
+      "deps": [
+        "q58"
+      ],
       "tasks": [
-        { "type": "item", "item": "valley:winter_tonic", "count": 8, "consume": true }
+        {
+          "type": "item",
+          "item": "valley:winter_tonic",
+          "count": 8,
+          "consume": true
+        }
       ],
       "rewards": [
-        { "type": "item", "item": "cookingforblockheads:crafting_book" },
-        { "type": "item", "item": "mcwfurnitures:oak_kitchen_cabinet", "count": 2 },
-        { "type": "item", "item": "valley:scrip", "count": 25 },
-        { "type": "stage", "stage": "healthy" },
-        { "type": "command", "command": "/valley scene q62", "elevate": true, "silent": true },
-        { "type": "toast", "title": "Nobody Gets Sick This Winter", "description": "Next: run 5 of Pip's courier parcels out of the Delivery Crate." }
+        {
+          "type": "item",
+          "item": "cookingforblockheads:crafting_book"
+        },
+        {
+          "type": "item",
+          "item": "mcwfurnitures:oak_kitchen_cabinet",
+          "count": 2
+        },
+        {
+          "type": "item",
+          "item": "valley:scrip",
+          "count": 25
+        },
+        {
+          "type": "stage",
+          "stage": "healthy"
+        },
+        {
+          "type": "command",
+          "command": "/valley scene q62",
+          "elevate": true,
+          "silent": true
+        },
+        {
+          "type": "toast",
+          "title": "Nobody Gets Sick This Winter",
+          "description": "Next: run 5 of Pip's courier parcels out of the Delivery Crate."
+        },
+        {
+          "type": "command",
+          "command": "/valley standing q62 {long_team_id}",
+          "elevate": true,
+          "silent": true
+        }
       ]
     },
     {
@@ -188,17 +413,52 @@
         "",
         "Pip's arc closes, the duckling finishes growing up, and the Duck Plushie is yours to keep."
       ],
-      "deps": ["q58", "q53"],
+      "deps": [
+        "q58",
+        "q53"
+      ],
       "tasks": [
-        { "type": "item", "item": "valley:courier_parcel", "count": 5, "consume": true }
+        {
+          "type": "item",
+          "item": "valley:courier_parcel",
+          "count": 5,
+          "consume": true
+        }
       ],
       "rewards": [
-        { "type": "item", "item": "perfectplushies:duck_plushie" },
-        { "type": "item", "item": "duckling:duck_egg", "count": 8 },
-        { "type": "item", "item": "duckling:holiday_fruit_cake" },
-        { "type": "item", "item": "valley:scrip", "count": 25 },
-        { "type": "loot", "table": "cozy_crate" },
-        { "type": "toast", "title": "Pip Is the Courier", "description": "Next: glaze the greenhouse shell — six windows, one door, eight planters on the marked bench." }
+        {
+          "type": "item",
+          "item": "perfectplushies:duck_plushie"
+        },
+        {
+          "type": "item",
+          "item": "duckling:duck_egg",
+          "count": 8
+        },
+        {
+          "type": "item",
+          "item": "duckling:holiday_fruit_cake"
+        },
+        {
+          "type": "item",
+          "item": "valley:scrip",
+          "count": 25
+        },
+        {
+          "type": "loot",
+          "table": "cozy_crate"
+        },
+        {
+          "type": "toast",
+          "title": "Pip Is the Courier",
+          "description": "Next: glaze the greenhouse shell — six windows, one door, eight planters on the marked bench."
+        },
+        {
+          "type": "command",
+          "command": "/valley standing q63 {long_team_id}",
+          "elevate": true,
+          "silent": true
+        }
       ]
     },
     {
@@ -214,18 +474,52 @@
         "",
         "A potting bench and seed trays go in — and the shell becomes a room the reactor's coolant loop can heat."
       ],
-      "deps": ["q60"],
+      "deps": [
+        "q60"
+      ],
       "tasks": [
-        { "type": "checkmark", "title": "Six windows in, door hung, eight planters on the bench" }
+        {
+          "type": "checkmark",
+          "title": "Six windows in, door hung, eight planters on the bench"
+        }
       ],
       "rewards": [
-        { "type": "item", "item": "supplementaries:planter", "count": 8 },
-        { "type": "item", "item": "mcwwindows:oak_window", "count": 8 },
-        { "type": "item", "item": "mcwdoors:oak_cottage_door", "count": 2 },
-        { "type": "item", "item": "handcrafted:oak_table", "count": 2 },
-        { "type": "item", "item": "supplementaries:flower_box", "count": 8 },
-        { "type": "command", "command": "/valley scene q64", "elevate": true, "silent": true },
-        { "type": "toast", "title": "The Greenhouse Is Glazed", "description": "Next: dress the inn for the solstice — twelve marked copper tiles." }
+        {
+          "type": "item",
+          "item": "supplementaries:planter",
+          "count": 8
+        },
+        {
+          "type": "item",
+          "item": "mcwwindows:oak_window",
+          "count": 8
+        },
+        {
+          "type": "item",
+          "item": "mcwdoors:oak_cottage_door",
+          "count": 2
+        },
+        {
+          "type": "item",
+          "item": "handcrafted:oak_table",
+          "count": 2
+        },
+        {
+          "type": "item",
+          "item": "supplementaries:flower_box",
+          "count": 8
+        },
+        {
+          "type": "command",
+          "command": "/valley scene q64",
+          "elevate": true,
+          "silent": true
+        },
+        {
+          "type": "toast",
+          "title": "The Greenhouse Is Glazed",
+          "description": "Next: dress the inn for the solstice — twelve marked copper tiles."
+        }
       ]
     },
     {
@@ -241,17 +535,46 @@
         "",
         "Solstice decor for the whole inn, and Marnie's mulled cider."
       ],
-      "deps": ["q64"],
+      "deps": [
+        "q64"
+      ],
       "tasks": [
-        { "type": "checkmark", "title": "All twelve marked copper tiles dressed" }
+        {
+          "type": "checkmark",
+          "title": "All twelve marked copper tiles dressed"
+        }
       ],
       "rewards": [
-        { "type": "item", "item": "supplementaries:candle_holder", "count": 16 },
-        { "type": "item", "item": "supplementaries:sconce", "count": 16 },
-        { "type": "item", "item": "supplementaries:flower_box", "count": 16 },
-        { "type": "item", "item": "farmersdelight:hot_cocoa", "count": 8 },
-        { "type": "item", "item": "valley:scrip", "count": 15 },
-        { "type": "toast", "title": "The Inn Is Dressed", "description": "Next: bake 4 Bread with Pip on the stool." }
+        {
+          "type": "item",
+          "item": "supplementaries:candle_holder",
+          "count": 16
+        },
+        {
+          "type": "item",
+          "item": "supplementaries:sconce",
+          "count": 16
+        },
+        {
+          "type": "item",
+          "item": "supplementaries:flower_box",
+          "count": 16
+        },
+        {
+          "type": "item",
+          "item": "farmersdelight:hot_cocoa",
+          "count": 8
+        },
+        {
+          "type": "item",
+          "item": "valley:scrip",
+          "count": 15
+        },
+        {
+          "type": "toast",
+          "title": "The Inn Is Dressed",
+          "description": "Next: bake 4 Bread with Pip on the stool."
+        }
       ]
     },
     {
@@ -267,16 +590,40 @@
         "",
         "Pip gets his own apron, and you keep the one loaf he made himself. It is not good. It is his."
       ],
-      "deps": ["q66a"],
+      "deps": [
+        "q66a"
+      ],
       "tasks": [
-        { "type": "item", "item": "minecraft:bread", "count": 4 }
+        {
+          "type": "item",
+          "item": "minecraft:bread",
+          "count": 4
+        }
       ],
       "rewards": [
-        { "type": "item", "item": "vinery:winemaker_apron" },
-        { "type": "item", "item": "minecraft:bread", "count": 16 },
-        { "type": "item", "item": "cookingforblockheads:toaster" },
-        { "type": "item", "item": "valley:scrip", "count": 15 },
-        { "type": "toast", "title": "Pip's Own Loaf", "description": "Next: shear the flock and make 4 Blankets — one per empty house." }
+        {
+          "type": "item",
+          "item": "vinery:winemaker_apron"
+        },
+        {
+          "type": "item",
+          "item": "minecraft:bread",
+          "count": 16
+        },
+        {
+          "type": "item",
+          "item": "cookingforblockheads:toaster"
+        },
+        {
+          "type": "item",
+          "item": "valley:scrip",
+          "count": 15
+        },
+        {
+          "type": "toast",
+          "title": "Pip's Own Loaf",
+          "description": "Next: shear the flock and make 4 Blankets — one per empty house."
+        }
       ]
     },
     {
@@ -292,18 +639,53 @@
         "",
         "The four blankets go onto the four beds, and the loom set stays yours."
       ],
-      "deps": ["q68a"],
+      "deps": [
+        "q68a"
+      ],
       "tasks": [
-        { "type": "item", "item": "valley:blanket", "count": 4, "consume": true }
+        {
+          "type": "item",
+          "item": "valley:blanket",
+          "count": 4,
+          "consume": true
+        }
       ],
       "rewards": [
-        { "type": "item", "item": "minecraft:loom", "count": 2 },
-        { "type": "item", "item": "minecraft:shears" },
-        { "type": "item", "item": "minecraft:white_wool", "count": 32 },
-        { "type": "item", "item": "farmersdelight:canvas_rug", "count": 4 },
-        { "type": "item", "item": "valley:scrip", "count": 15 },
-        { "type": "command", "command": "/valley scene q70a", "elevate": true, "silent": true },
-        { "type": "toast", "title": "Four Beds Made", "description": "Next: nothing on this lane needs you yet — Oda's Counter is open while the reactor comes up." }
+        {
+          "type": "item",
+          "item": "minecraft:loom",
+          "count": 2
+        },
+        {
+          "type": "item",
+          "item": "minecraft:shears"
+        },
+        {
+          "type": "item",
+          "item": "minecraft:white_wool",
+          "count": 32
+        },
+        {
+          "type": "item",
+          "item": "farmersdelight:canvas_rug",
+          "count": 4
+        },
+        {
+          "type": "item",
+          "item": "valley:scrip",
+          "count": 15
+        },
+        {
+          "type": "command",
+          "command": "/valley scene q70a",
+          "elevate": true,
+          "silent": true
+        },
+        {
+          "type": "toast",
+          "title": "Four Beds Made",
+          "description": "Next: nothing on this lane needs you yet — Oda's Counter is open while the reactor comes up."
+        }
       ]
     },
     {
@@ -319,17 +701,45 @@
         "",
         "The bathhouse opens — the reactor's waste heat becomes a warm room people sit in."
       ],
-      "deps": ["q72"],
+      "deps": [
+        "q72"
+      ],
       "tasks": [
-        { "type": "checkmark", "title": "Every marked spot in the bathhouse furnished" }
+        {
+          "type": "checkmark",
+          "title": "Every marked spot in the bathhouse furnished"
+        }
       ],
       "rewards": [
-        { "type": "item", "item": "handcrafted:oak_bench", "count": 12 },
-        { "type": "item", "item": "handcrafted:oak_shelf", "count": 12 },
-        { "type": "item", "item": "minecraft:lantern", "count": 12 },
-        { "type": "item", "item": "perfectplushies:capybara_plushie" },
-        { "type": "item", "item": "valley:scrip", "count": 15 },
-        { "type": "toast", "title": "The Bathhouse Opens", "description": "Next: Tobin's safety check at the Reactor Terminal closes the act." }
+        {
+          "type": "item",
+          "item": "handcrafted:oak_bench",
+          "count": 12
+        },
+        {
+          "type": "item",
+          "item": "handcrafted:oak_shelf",
+          "count": 12
+        },
+        {
+          "type": "item",
+          "item": "minecraft:lantern",
+          "count": 12
+        },
+        {
+          "type": "item",
+          "item": "perfectplushies:capybara_plushie"
+        },
+        {
+          "type": "item",
+          "item": "valley:scrip",
+          "count": 15
+        },
+        {
+          "type": "toast",
+          "title": "The Bathhouse Opens",
+          "description": "Next: Tobin's safety check at the Reactor Terminal closes the act."
+        }
       ]
     },
     {
@@ -345,19 +755,58 @@
         "",
         "The Works lights up, Josie's steel tools are on the bench, and there is a saddled horse in the stable."
       ],
-      "deps": ["q55"],
+      "deps": [
+        "q55"
+      ],
       "tasks": [
-        { "type": "checkmark", "title": "Adit cleared and the Works Waystone placed inside" }
+        {
+          "type": "checkmark",
+          "title": "Adit cleared and the Works Waystone placed inside"
+        }
       ],
       "rewards": [
-        { "type": "command", "command": "/valley scene q65", "elevate": true, "silent": true },
-        { "type": "item", "item": "waystones:waystone" },
-        { "type": "item", "item": "torchmaster:megatorch", "count": 2 },
-        { "type": "item", "item": "minecraft:iron_pickaxe" },
-        { "type": "stage", "stage": "drilling" },
-        { "type": "loot", "table": "story_crate" },
-        { "type": "item", "item": "explorerscompass:explorerscompass" },
-        { "type": "toast", "title": "The Works Is Open", "description": "Next: run Energy Duct from the mill to the Works and fit 2 Energy Cells. The compass in this payout is already set to the Wandering Merchant's Tower." }
+        {
+          "type": "command",
+          "command": "/valley scene q65",
+          "elevate": true,
+          "silent": true
+        },
+        {
+          "type": "item",
+          "item": "waystones:waystone"
+        },
+        {
+          "type": "item",
+          "item": "torchmaster:megatorch",
+          "count": 2
+        },
+        {
+          "type": "item",
+          "item": "minecraft:iron_pickaxe"
+        },
+        {
+          "type": "stage",
+          "stage": "drilling"
+        },
+        {
+          "type": "loot",
+          "table": "story_crate"
+        },
+        {
+          "type": "item",
+          "item": "explorerscompass:explorerscompass"
+        },
+        {
+          "type": "command",
+          "command": "advancement grant @a only valley:journal/found_5",
+          "elevate": true,
+          "silent": true
+        },
+        {
+          "type": "toast",
+          "title": "The Works Is Open",
+          "description": "Next: run Energy Duct from the mill to the Works and fit 2 Energy Cells. The compass in this payout is already set to the Wandering Merchant's Tower."
+        }
       ]
     },
     {
@@ -373,19 +822,56 @@
         "",
         "The Works has power — which is what everything from here to the reactor runs on."
       ],
-      "deps": ["q65"],
+      "deps": [
+        "q65"
+      ],
       "tasks": [
-        { "type": "item", "item": "thermal:energy_cell", "count": 2 },
-        { "type": "checkmark", "title": "Energy Duct run from the mill to the Works" }
+        {
+          "type": "item",
+          "item": "thermal:energy_cell",
+          "count": 2
+        },
+        {
+          "type": "checkmark",
+          "title": "Energy Duct run from the mill to the Works"
+        }
       ],
       "rewards": [
-        { "type": "item", "item": "thermal:energy_cell", "count": 2 },
-        { "type": "item", "item": "thermal:energy_duct", "count": 64 },
-        { "type": "item", "item": "thermal:redstone_servo", "count": 16 },
-        { "type": "item", "item": "thermal:filter_attachment", "count": 8 },
-        { "type": "stage", "stage": "grid" },
-        { "type": "command", "command": "/valley scene q66", "elevate": true, "silent": true },
-        { "type": "toast", "title": "The Works Has Power", "description": "Next: take that compass to the Wandering Merchant's Tower and fetch the second Kettle Plate." }
+        {
+          "type": "item",
+          "item": "thermal:energy_cell",
+          "count": 2
+        },
+        {
+          "type": "item",
+          "item": "thermal:energy_duct",
+          "count": 64
+        },
+        {
+          "type": "item",
+          "item": "thermal:redstone_servo",
+          "count": 16
+        },
+        {
+          "type": "item",
+          "item": "thermal:filter_attachment",
+          "count": 8
+        },
+        {
+          "type": "stage",
+          "stage": "grid"
+        },
+        {
+          "type": "command",
+          "command": "/valley scene q66",
+          "elevate": true,
+          "silent": true
+        },
+        {
+          "type": "toast",
+          "title": "The Works Has Power",
+          "description": "Next: take that compass to the Wandering Merchant's Tower and fetch the second Kettle Plate."
+        }
       ]
     },
     {
@@ -401,16 +887,43 @@
         "",
         "Josie's Turbine Notes come back with it: Bigger Reactors casings become craftable."
       ],
-      "deps": ["q65"],
+      "deps": [
+        "q65"
+      ],
       "tasks": [
-        { "type": "item", "item": "valley:kettle_plate_b" }
+        {
+          "type": "checkmark",
+          "title": "Reached the Wandering Merchant's Tower and opened the vault chest"
+        }
       ],
       "rewards": [
-        { "type": "item", "item": "valley:turbine_notes", "count": 16 },
-        { "type": "item", "item": "waystones:warp_stone" },
-        { "type": "loot", "table": "tech_crate" },
-        { "type": "loot", "table": "story_crate" },
-        { "type": "toast", "title": "Turbine Notes in Hand", "description": "Next: build a Molecular Assembler and a 4k Crafting Storage into the Works network." }
+        {
+          "type": "item",
+          "item": "valley:kettle_plate_b",
+          "count": 1
+        },
+        {
+          "type": "item",
+          "item": "valley:turbine_notes",
+          "count": 16
+        },
+        {
+          "type": "item",
+          "item": "waystones:warp_stone"
+        },
+        {
+          "type": "loot",
+          "table": "tech_crate"
+        },
+        {
+          "type": "loot",
+          "table": "story_crate"
+        },
+        {
+          "type": "toast",
+          "title": "Turbine Notes in Hand",
+          "description": "Next: build a Molecular Assembler and a 4k Crafting Storage into the Works network."
+        }
       ]
     },
     {
@@ -426,19 +939,53 @@
         "",
         "CPU housing, four co-processors, four ME Interfaces — and Josie's yellorite map, which the next quest walks."
       ],
-      "deps": ["q66", "q51"],
+      "deps": [
+        "q66",
+        "q51"
+      ],
       "tasks": [
-        { "type": "item", "item": "ae2:molecular_assembler" },
-        { "type": "item", "item": "ae2:4k_crafting_storage" }
+        {
+          "type": "item",
+          "item": "ae2:molecular_assembler"
+        },
+        {
+          "type": "item",
+          "item": "ae2:4k_crafting_storage"
+        }
       ],
       "rewards": [
-        { "type": "item", "item": "ae2:crafting_unit", "count": 8 },
-        { "type": "item", "item": "ae2:crafting_accelerator", "count": 4 },
-        { "type": "item", "item": "ae2:crafting_monitor" },
-        { "type": "item", "item": "ae2:interface", "count": 4 },
-        { "type": "item", "item": "ae2:pattern_encoding_terminal" },
-        { "type": "item", "item": "minecraft:filled_map" },
-        { "type": "toast", "title": "The Network Crafts For You", "description": "Next: follow Josie's yellorite map — it is in this payout — from the Works Waystone to the pocket." }
+        {
+          "type": "item",
+          "item": "ae2:crafting_unit",
+          "count": 8
+        },
+        {
+          "type": "item",
+          "item": "ae2:crafting_accelerator",
+          "count": 4
+        },
+        {
+          "type": "item",
+          "item": "ae2:crafting_monitor"
+        },
+        {
+          "type": "item",
+          "item": "ae2:interface",
+          "count": 4
+        },
+        {
+          "type": "item",
+          "item": "ae2:pattern_encoding_terminal"
+        },
+        {
+          "type": "item",
+          "item": "minecraft:filled_map"
+        },
+        {
+          "type": "toast",
+          "title": "The Network Crafts For You",
+          "description": "Next: follow Josie's yellorite map — it is in this payout — from the Works Waystone to the pocket."
+        }
       ]
     },
     {
@@ -454,15 +1001,37 @@
         "",
         "Your own network auto-crafts 64 Reactor Casings while you walk back."
       ],
-      "deps": ["q68", "q67"],
+      "deps": [
+        "q68",
+        "q67"
+      ],
       "tasks": [
-        { "type": "item", "item": "biggerreactors:uranium_ingot", "count": 128 }
+        {
+          "type": "item",
+          "item": "biggerreactors:uranium_ingot",
+          "count": 128
+        }
       ],
       "rewards": [
-        { "type": "item", "item": "biggerreactors:reactor_casing", "count": 64 },
-        { "type": "item", "item": "biggerreactors:graphite_ingot", "count": 32 },
-        { "type": "item", "item": "biggerreactors:wrench" },
-        { "type": "toast", "title": "64 Casings, Auto-Crafted", "description": "Next: assemble the vessel — 64 casings, terminal, 4 fuel rods, 4 control rods, access port." }
+        {
+          "type": "item",
+          "item": "biggerreactors:reactor_casing",
+          "count": 64
+        },
+        {
+          "type": "item",
+          "item": "biggerreactors:graphite_ingot",
+          "count": 32
+        },
+        {
+          "type": "item",
+          "item": "biggerreactors:wrench"
+        },
+        {
+          "type": "toast",
+          "title": "64 Casings, Auto-Crafted",
+          "description": "Next: assemble the vessel — 64 casings, terminal, 4 fuel rods, 4 control rods, access port."
+        }
       ]
     },
     {
@@ -478,22 +1047,66 @@
         "",
         "Computer port, redstone port, Josie's blueprint framed above it — and her turbine tuning page, which the next quest needs."
       ],
-      "deps": ["q69"],
+      "deps": [
+        "q69"
+      ],
       "tasks": [
-        { "type": "item", "item": "biggerreactors:reactor_casing", "count": 64 },
-        { "type": "item", "item": "biggerreactors:reactor_terminal" },
-        { "type": "item", "item": "biggerreactors:reactor_fuel_rod", "count": 4 },
-        { "type": "item", "item": "biggerreactors:reactor_control_rod", "count": 4 },
-        { "type": "item", "item": "biggerreactors:reactor_access_port" },
-        { "type": "checkmark", "title": "Vessel assembled and reading valid on the terminal" }
+        {
+          "type": "item",
+          "item": "biggerreactors:reactor_casing",
+          "count": 64
+        },
+        {
+          "type": "item",
+          "item": "biggerreactors:reactor_terminal"
+        },
+        {
+          "type": "item",
+          "item": "biggerreactors:reactor_fuel_rod",
+          "count": 4
+        },
+        {
+          "type": "item",
+          "item": "biggerreactors:reactor_control_rod",
+          "count": 4
+        },
+        {
+          "type": "item",
+          "item": "biggerreactors:reactor_access_port"
+        },
+        {
+          "type": "checkmark",
+          "title": "Vessel assembled and reading valid on the terminal"
+        }
       ],
       "rewards": [
-        { "type": "item", "item": "biggerreactors:reactor_computer_port" },
-        { "type": "item", "item": "biggerreactors:reactor_redstone_port" },
-        { "type": "item", "item": "biggerreactors:reactor_power_tap", "count": 2 },
-        { "type": "item", "item": "valley:turbine_notes", "count": 4 },
-        { "type": "item", "item": "handcrafted:stackable_book" },
-        { "type": "toast", "title": "The Vessel Is Square", "description": "Next: build the turbine from Bram's crate to hold 1,800 RPM under load." }
+        {
+          "type": "item",
+          "item": "biggerreactors:reactor_computer_port"
+        },
+        {
+          "type": "item",
+          "item": "biggerreactors:reactor_redstone_port"
+        },
+        {
+          "type": "item",
+          "item": "biggerreactors:reactor_power_tap",
+          "count": 2
+        },
+        {
+          "type": "item",
+          "item": "valley:turbine_notes",
+          "count": 4
+        },
+        {
+          "type": "item",
+          "item": "handcrafted:stackable_book"
+        },
+        {
+          "type": "toast",
+          "title": "The Vessel Is Square",
+          "description": "Next: build the turbine from Bram's crate to hold 1,800 RPM under load."
+        }
       ]
     },
     {
@@ -509,17 +1122,45 @@
         "",
         "The lever goes live, and her own figures get pencilled into your journal margin."
       ],
-      "deps": ["q70"],
+      "deps": [
+        "q70"
+      ],
       "tasks": [
-        { "type": "checkmark", "title": "Turbine holds 1,800 RPM under load — confirm with /valley check turbine" }
+        {
+          "type": "checkmark",
+          "title": "Turbine holds 1,800 RPM under load — confirm with /valley check turbine"
+        }
       ],
       "rewards": [
-        { "type": "stage", "stage": "reactor_ready" },
-        { "type": "item", "item": "biggerreactors:turbine_terminal" },
-        { "type": "item", "item": "biggerreactors:turbine_power_tap", "count": 2 },
-        { "type": "item", "item": "biggerreactors:turbine_rotor_blade", "count": 16 },
-        { "type": "command", "command": "/valley scene q71", "elevate": true, "silent": true },
-        { "type": "toast", "title": "1,800 RPM, Held", "description": "Next: run the coolant loop to the 6 greenhouse heaters and the bathhouse tank." }
+        {
+          "type": "stage",
+          "stage": "reactor_ready"
+        },
+        {
+          "type": "item",
+          "item": "biggerreactors:turbine_terminal"
+        },
+        {
+          "type": "item",
+          "item": "biggerreactors:turbine_power_tap",
+          "count": 2
+        },
+        {
+          "type": "item",
+          "item": "biggerreactors:turbine_rotor_blade",
+          "count": 16
+        },
+        {
+          "type": "command",
+          "command": "/valley scene q71",
+          "elevate": true,
+          "silent": true
+        },
+        {
+          "type": "toast",
+          "title": "1,800 RPM, Held",
+          "description": "Next: run the coolant loop to the 6 greenhouse heaters and the bathhouse tank."
+        }
       ]
     },
     {
@@ -535,18 +1176,51 @@
         "",
         "Greenhouse Glass becomes craftable world-wide — the valley can grow food in January."
       ],
-      "deps": ["q71", "q64"],
+      "deps": [
+        "q71",
+        "q64"
+      ],
       "tasks": [
-        { "type": "checkmark", "title": "All 6 greenhouse heaters connected and running" },
-        { "type": "checkmark", "title": "Bathhouse tank connected and steaming" }
+        {
+          "type": "checkmark",
+          "title": "All 6 greenhouse heaters connected and running"
+        },
+        {
+          "type": "checkmark",
+          "title": "Bathhouse tank connected and steaming"
+        }
       ],
       "rewards": [
-        { "type": "item", "item": "thermal:fluid_duct", "count": 64 },
-        { "type": "item", "item": "thermal:energy_duct", "count": 64 },
-        { "type": "item", "item": "thermal:machine_speed_augment", "count": 4 },
-        { "type": "stage", "stage": "greenhouse" },
-        { "type": "command", "command": "/valley scene q72", "elevate": true, "silent": true },
-        { "type": "toast", "title": "Greenhouse Glass Unlocked", "description": "Next: fetch Bram from the mill, and take the cocoa with you." }
+        {
+          "type": "item",
+          "item": "thermal:fluid_duct",
+          "count": 64
+        },
+        {
+          "type": "item",
+          "item": "thermal:energy_duct",
+          "count": 64
+        },
+        {
+          "type": "item",
+          "item": "thermal:machine_speed_augment",
+          "count": 4
+        },
+        {
+          "type": "stage",
+          "stage": "greenhouse"
+        },
+        {
+          "type": "command",
+          "command": "/valley scene q72",
+          "elevate": true,
+          "silent": true
+        },
+        {
+          "type": "toast",
+          "title": "Greenhouse Glass Unlocked",
+          "description": "Next: fetch Bram from the mill, and take the cocoa with you."
+        }
       ]
     },
     {
@@ -562,18 +1236,58 @@
         "",
         "Bram's arc closes, his father's wrench is yours, and the lever quest opens."
       ],
-      "deps": ["q60", "q71"],
+      "deps": [
+        "q60",
+        "q71"
+      ],
       "tasks": [
-        { "type": "item", "item": "valley:token_bram" },
-        { "type": "item", "item": "farmersdelight:hot_cocoa", "count": 1, "consume": true }
+        {
+          "type": "item",
+          "item": "valley:token_bram"
+        },
+        {
+          "type": "item",
+          "item": "farmersdelight:hot_cocoa",
+          "count": 1,
+          "consume": true
+        }
       ],
       "rewards": [
-        { "type": "item", "item": "create:wrench" },
-        { "type": "item", "item": "valley:scrip", "count": 25 },
-        { "type": "item", "item": "create:brass_casing", "count": 16 },
-        { "type": "command", "command": "/valley scene q73", "elevate": true, "silent": true },
-        { "type": "loot", "table": "tech_crate" },
-        { "type": "toast", "title": "Bram Sits Down", "description": "Next: place the last 17 lamp posts, mill to square to lake." }
+        {
+          "type": "item",
+          "item": "create:wrench"
+        },
+        {
+          "type": "item",
+          "item": "valley:scrip",
+          "count": 25
+        },
+        {
+          "type": "item",
+          "item": "create:brass_casing",
+          "count": 16
+        },
+        {
+          "type": "command",
+          "command": "/valley scene q73",
+          "elevate": true,
+          "silent": true
+        },
+        {
+          "type": "loot",
+          "table": "tech_crate"
+        },
+        {
+          "type": "toast",
+          "title": "Bram Sits Down",
+          "description": "Next: place the last 17 lamp posts, mill to square to lake."
+        },
+        {
+          "type": "command",
+          "command": "/valley standing q73 {long_team_id}",
+          "elevate": true,
+          "silent": true
+        }
       ]
     },
     {
@@ -589,16 +1303,43 @@
         "",
         "Lamps 39 of 40. One post stays bare on purpose: Josie's porch."
       ],
-      "deps": ["q66", "q34"],
+      "deps": [
+        "q66",
+        "q34"
+      ],
       "tasks": [
-        { "type": "checkmark", "title": "All 17 marked lamp posts placed, mill to square to lake" }
+        {
+          "type": "checkmark",
+          "title": "All 17 marked lamp posts placed, mill to square to lake"
+        }
       ],
       "rewards": [
-        { "type": "command", "command": "/valley scene q74", "elevate": true, "silent": true },
-        { "type": "item", "item": "minecraft:lantern", "count": 24 },
-        { "type": "item", "item": "thermal:energy_duct", "count": 64 },
-        { "type": "item", "item": "torchmaster:megatorch", "count": 2 },
-        { "type": "toast", "title": "Lamps 39 / 40", "description": "Next: Tobin's safety check at the Reactor Terminal. Then Bram pulls the lever." }
+        {
+          "type": "command",
+          "command": "/valley scene q74",
+          "elevate": true,
+          "silent": true
+        },
+        {
+          "type": "item",
+          "item": "minecraft:lantern",
+          "count": 24
+        },
+        {
+          "type": "item",
+          "item": "thermal:energy_duct",
+          "count": 64
+        },
+        {
+          "type": "item",
+          "item": "torchmaster:megatorch",
+          "count": 2
+        },
+        {
+          "type": "toast",
+          "title": "Lamps 39 / 40",
+          "description": "Next: Tobin's safety check at the Reactor Terminal. Then Bram pulls the lever."
+        }
       ]
     },
     {
@@ -617,18 +1358,56 @@
         "",
         "Tonight, for the first time in eleven years, the valley keeps its own lights on."
       ],
-      "deps": ["q73", "q72", "q74"],
+      "deps": [
+        "q73",
+        "q72",
+        "q74"
+      ],
       "tasks": [
-        { "type": "checkmark", "title": "Fuel, coolant flow and control rods verified on the Reactor Terminal" }
+        {
+          "type": "checkmark",
+          "title": "Fuel, coolant flow and control rods verified on the Reactor Terminal"
+        }
       ],
       "rewards": [
-        { "type": "command", "command": "/valley finale act4", "elevate": true, "silent": true },
-        { "type": "stage", "stage": "act5" },
-        { "type": "stage", "stage": "reactor_lit" },
-        { "type": "item", "item": "valley:scrip", "count": 25 },
-        { "type": "xp_levels", "levels": 10 },
-        { "type": "loot", "table": "story_crate" },
-        { "type": "toast", "title": "The Longest Night", "description": "Next: sleep one night, then walk the square with Marnie. It is spring again." }
+        {
+          "type": "command",
+          "command": "/valley finale act4",
+          "elevate": true,
+          "silent": true
+        },
+        {
+          "type": "stage",
+          "stage": "act5"
+        },
+        {
+          "type": "stage",
+          "stage": "reactor_lit"
+        },
+        {
+          "type": "item",
+          "item": "valley:scrip",
+          "count": 25
+        },
+        {
+          "type": "xp_levels",
+          "levels": 10
+        },
+        {
+          "type": "loot",
+          "table": "story_crate"
+        },
+        {
+          "type": "toast",
+          "title": "The Longest Night",
+          "description": "Next: sleep one night, then walk the square with Marnie. It is spring again."
+        },
+        {
+          "type": "command",
+          "command": "/valley standing q75 {long_team_id}",
+          "elevate": true,
+          "silent": true
+        }
       ]
     }
   ]

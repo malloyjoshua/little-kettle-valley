@@ -30,5 +30,6 @@ elif sys.argv[1] == 'command':
         'gameDirectory': gamedir, 'launcherName': 'packtester', 'launcherVersion': '1',
     }
     if world: opts['quickPlaySingleplayer'] = world
+    if '--server' in sys.argv: opts['quickPlayMultiplayer'] = sys.argv[sys.argv.index('--server') + 1]
     cmd = mll.command.get_minecraft_command(version, str(MCDIR), opts)
     print(json.dumps(cmd))

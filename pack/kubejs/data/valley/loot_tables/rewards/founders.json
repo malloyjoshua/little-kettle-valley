@@ -1,0 +1,58 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "name": "founders_town",
+      "rolls": 4,
+      "entries": [
+        { "type": "minecraft:item", "name": "valley:framed_town_map", "weight": 3 },
+        { "type": "minecraft:item", "name": "bakery:bundt_cake", "weight": 3 },
+        { "type": "minecraft:item", "name": "supplementaries:globe_sepia", "weight": 2 },
+        { "type": "minecraft:item", "name": "supplementaries:hourglass", "weight": 2 },
+        { "type": "minecraft:item", "name": "handcrafted:oak_bench", "weight": 3,
+          "functions": [ { "function": "minecraft:set_count", "count": 4 } ] },
+        { "type": "minecraft:item", "name": "minecraft:sunflower", "weight": 2,
+          "functions": [ { "function": "minecraft:set_count", "count": 8 } ] },
+        { "type": "minecraft:item", "name": "perfectplushies:seal_plushie", "weight": 1 },
+        { "type": "minecraft:item", "name": "perfectplushies:frog_plushie", "weight": 1 },
+        { "type": "minecraft:item", "name": "minecraft:emerald", "weight": 2,
+          "functions": [ { "function": "minecraft:set_count", "count": 6 } ] }
+      ]
+    },
+    {
+      "name": "founders_tech",
+      "rolls": 3,
+      "entries": [
+        { "type": "minecraft:item", "name": "thermal:rf_coil", "weight": 3,
+          "functions": [ { "function": "minecraft:set_count", "count": 4 } ] },
+        { "type": "minecraft:item", "name": "thermal:machine_frame", "weight": 2,
+          "functions": [ { "function": "minecraft:set_count", "count": 2 } ] },
+        { "type": "minecraft:item", "name": "thermal:energy_cell_frame", "weight": 2 },
+        { "type": "minecraft:item", "name": "create:precision_mechanism", "weight": 2,
+          "functions": [ { "function": "minecraft:set_count", "count": 4 } ] },
+        { "type": "minecraft:item", "name": "create:brass_ingot", "weight": 3,
+          "functions": [ { "function": "minecraft:set_count", "count": 12 } ] },
+        { "type": "minecraft:item", "name": "ae2:fluix_crystal", "weight": 2,
+          "functions": [ { "function": "minecraft:set_count", "count": 8 } ] },
+        { "type": "minecraft:item", "name": "minecraft:copper_block", "weight": 3,
+          "functions": [ { "function": "minecraft:set_count", "count": 4 } ] }
+      ]
+    },
+    {
+      "name": "founders_fixed",
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "valley:plushie_token",
+          "functions": [ { "function": "minecraft:set_count", "count": 3 } ] }
+      ]
+    },
+    {
+      "name": "founders_scrip",
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "valley:scrip",
+          "functions": [ { "function": "minecraft:set_count", "count": 50 } ] }
+      ]
+    }
+  ]
+}
