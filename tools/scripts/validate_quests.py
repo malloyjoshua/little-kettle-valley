@@ -4,6 +4,17 @@ Usage: validate_quests.py <quests_dir> <ids.json>
 """
 import sys, json, pathlib, re
 import nbtlib
+def ftb_to_snbt(text):
+    # FTB writes one field per line without commas; nbtlib wants commas. Add a comma to any line that is followed by a sibling.
+    out = []
+    lines = text.split('\n')
+    for i, ln in enumerate(lines):
+        nxt = lines[i+1].strip() if i+1 < len(lines) else ''
+        st = ln.rstrip()
+        if st and not st.endswith(('{','[',',')) and nxt and not nxt.startswith(('}',']')):
+            st += ','
+        out.append(st)
+    return '\n'.join(out)
 qdir, ids_path = pathlib.Path(sys.argv[1]), pathlib.Path(sys.argv[2])
 ids = set(json.loads(ids_path.read_text())["items"]) if ids_path.exists() else set()
 errors, warnings = [], []
@@ -11,7 +22,7 @@ quest_ids = set(); chapter_files = list((qdir / 'chapters').glob('*.snbt'))
 parsed = {}
 for f in chapter_files + list((qdir / 'reward_tables').glob('*.snbt')) + [p for p in [qdir/'data.snbt', qdir/'chapter_groups.snbt'] if p.exists()]:
     try:
-        parsed[f] = nbtlib.parse_nbt(f.read_text())
+        parsed[f] = nbtlib.parse_nbt(ftb_to_snbt(f.read_text()))
     except Exception as e:
         errors.append(f"{f.name}: PARSE ERROR {e}")
 for f in chapter_files:

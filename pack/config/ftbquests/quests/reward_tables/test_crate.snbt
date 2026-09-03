@@ -1,12 +1,13 @@
 {
 	empty_weight: 0.0f
-	id: "1C00000000000001"
+	id: "3ECF387AB1C1610D"
 	loot_size: 1
 	order_index: 0
-	title: "Smoke Crate"
+	title: "Test Crate"
 	use_title: true
 	rewards: [
 		{ item: "minecraft:bread", count: 4, weight: 3.0f }
 		{ item: "farmersdelight:cooking_pot", weight: 1.0f }
 	]
+	loot_crate: { string_id: "test_crate", item_name: "Test Crate", color: 16755200, glow: false, drops: { passive: 0, monster: 0, boss: 0 } }
 }

@@ -6,19 +6,19 @@ hash = "922a0a06c316eb1f0aba285f5bc59f4421b51b6f861661f3cdab38bbd44e4927"
 
 [[files]]
 file = "config/ftbquests/quests/chapter_groups.snbt"
-hash = "9d1e5ecd4ee90954f09a22d40c3837ba97376a1c15b4df4e77a22b052be00003"
+hash = "87954188750d81c4ea67c7fb947d0e66868a85c6a6c81fe577c3b09f76dd9b3b"
 
 [[files]]
-file = "config/ftbquests/quests/chapters/smoke.snbt"
-hash = "2a21045c558bf984b7788e45cfd62132867bf13a5ee03fdbb6976a8061841a7b"
+file = "config/ftbquests/quests/chapters/ztest.snbt"
+hash = "ea18763b87cff4304fc84ba9800f5049c8ac7f11733cc1b1f2806cbc43c9c004"
 
 [[files]]
 file = "config/ftbquests/quests/data.snbt"
 hash = "328747453f0d2d7c354404bdf515b755db0a246f5663f34ac105f3091f5a325b"
 
 [[files]]
-file = "config/ftbquests/quests/reward_tables/smoke_crate.snbt"
-hash = "e6f609dbf950526b25bb66af6861a0e015e14cc437a0fd36fa19ff88cb57c7f8"
+file = "config/ftbquests/quests/reward_tables/test_crate.snbt"
+hash = "228d132373bcf8ec5b65570c4f01937d275f1105b7339afe62753b1a1d243785"
 
 [[files]]
 file = "config/geolosys-common.toml"

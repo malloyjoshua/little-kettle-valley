@@ -1,0 +1,49 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "ztest"
+	group: "B00129D2A12C0DC3"
+	icon: "minecraft:oak_sapling"
+	id: "7E1F7D28D9A33845"
+	order_index: 99
+	quest_links: [ ]
+	subtitle: ["delete me"]
+	quests: [
+		{
+			id: "CBFF3FA693AF9A62"
+			title: "Chop wood"
+			icon: "minecraft:oak_log"
+			description: ["First."]
+			x: 0.0d
+			y: 0.0d
+			hide_details_until_startable: true
+			tasks: [{ id: "D64697F309B40852", type: "item", item: "minecraft:oak_log", count: 8L }]
+			rewards: [{ id: "D3DCA04BCBC188DD", type: "item", item: "minecraft:bread", count: 4 }, { id: "9F54189119460F38", type: "xp_levels", xp_levels: 2 }]
+		}
+		{
+			id: "CC282A59ADD915BF"
+			title: "Every type"
+			description: ["Second."]
+			x: 2.0d
+			y: -0.8d
+			dependencies: ["CBFF3FA693AF9A62"]
+			hide_until_deps_complete: true
+			hide_details_until_startable: true
+			tasks: [{ id: "9A87AA3C35A12CF3", type: "checkmark" }, { id: "940DDE63FFBC028D", type: "biome", biome: "minecraft:plains" }, { id: "B94C2E239E2794F0", type: "advancement", advancement: "minecraft:story/mine_stone", criterion: "" }, { id: "2A8039694F08893F", type: "kill", entity: "minecraft:zombie", value: 3L }, { id: "DFA5126751DE403B", type: "observation", to_observe: "minecraft:crafting_table", observe_type: 0, timer: 0L }, { id: "397E18D087A24BA3", type: "structure", structure: "minecraft:village" }, { id: "BC5FE3E4A95B4B52", type: "stage", stage: "t_stage" }, { id: "735CB295A2145FAA", type: "location", dimension: "minecraft:overworld", ignore_dimension: false, position: [I; 0, 64, 0], size: [I; 16, 16, 16] }]
+			rewards: [{ id: "7F0D92FD2208D776", type: "command", command: "/say compiled reward", player_command: false, elevate_perms: true, silent: true }, { id: "3DAE4446FB021BA3", type: "loot", table_id: 4525898250150043917L }, { id: "E0B2D3126B3F4259", type: "stage", stage: "t_granted" }, { id: "CAEC86F0ED5C64D2", type: "toast", title: "Nice", description: "toast works" }]
+		}
+		{
+			id: "D75E0493A925501A"
+			title: "Branch A"
+			description: []
+			x: 2.0d
+			y: 0.8d
+			dependencies: ["CBFF3FA693AF9A62"]
+			hide_until_deps_complete: true
+			hide_details_until_startable: true
+			tasks: [{ id: "B818B4C986C67973", type: "item", item: "thermal:machine_furnace", count: 1L }]
+			rewards: [{ id: "DBC81B358DB5DC0F", type: "item", item: "create:andesite_alloy", count: 8 }]
+		}
+	]
+	title: "Compiler Test"
+}
