@@ -39,7 +39,7 @@ Then in the game: Multiplayer > Direct Connect > `localhost`.
 ## Still open (needs you)
 - **Prism sign-in and first launch.** Not something I can do.
 - **The Air test.** Not on the network tonight. Expect it to work at 3072 MB with render distance 6; if it stutters, the cut list is in `docs/integration-plan.md` and starts with Regions Unexplored.
-- **GitHub: done.** Public repo https://github.com/malloyjoshua/copper-kettle-valley, pack served at https://malloyjoshua.github.io/copper-kettle-valley/pack/pack.toml, your Prism instance and the friend zip (`dist/CozyTech.zip`) both update from it on every launch.
+- **GitHub: done.** Public repo https://github.com/malloyjoshua/copper-kettle-valley, pack served at https://raw.githubusercontent.com/malloyjoshua/copper-kettle-valley/main/pack/pack.toml, your Prism instance and the friend zip (`dist/CozyTech.zip`) both update from it on every launch.
 - **playit.gg tunnel** for friends without port forwarding. Steps in `docs/RUNBOOK.md`; needs your browser sign-in to claim the agent.
 - **Your wife's cute picks.** Placeholder cozy set is in (Farmer's Delight, Let's Do, Handcrafted, Macaw's, plushies, Ribbits, ducks, pets). Swap in her three things when she names them.
 
