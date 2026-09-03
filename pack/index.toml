@@ -406,13 +406,18 @@ hash = "d8c416118cb12fe1401e9d26a22bdd1a6ab0be4437f4fd62979569a4dda6ce25"
 metafile = true
 
 [[files]]
-file = "mods/phos.pw.toml"
-hash = "282d88f0ea32b285ff5b64879fdb2c750c1d443b3ffaee4fd2d566fb06289c2d"
+file = "mods/phosphophyllite.pw.toml"
+hash = "bb8b27c977410a8c66eb0f1ea205798d010e4a875e25d9b288e4cb56e8cb0b3d"
 metafile = true
 
 [[files]]
 file = "mods/puzzles-lib.pw.toml"
 hash = "4dd7038889da90e145f9d074bec64a61aaae12dc57c875aa7ad99b8b2e07979b"
+metafile = true
+
+[[files]]
+file = "mods/quartz.pw.toml"
+hash = "a947d3f9d6f75fbe1e85d3bd7c3c5b7b2df9182fb4983604ef6168eef0034db2"
 metafile = true
 
 [[files]]

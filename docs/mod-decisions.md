@@ -12,3 +12,6 @@ Log of every swap, cut, or pin, with the reason. Newest at the bottom.
 | 2026-09-02 | Fancy Beds | Dropped | Not a real mod on either platform; only a resource pack by that name. Beds come from Macaw's and Handcrafted anyway. |
 | 2026-09-02 | Bigger Reactors, FTB Quests, FTB Teams, FTB Library, FTB XMod Compat | Sourced from CurseForge | Not on Modrinth. packwiz pulls them with its built-in CurseForge key. |
 | 2026-09-02 | Oculus / any shader mod | Not included | Visuals don't matter and the 8 GB Air needs the headroom. |
+| 2026-09-02 | Phosphophyllite | Sourced from CurseForge, not the Modrinth "phos" project | Modrinth's "Phosphophyllite" is a different mod by a different author. Bigger Reactors needs BiggerSeries' library, which is CurseForge-only. |
+| 2026-09-02 | Quartz | Added from CurseForge | Second required library for Bigger Reactors 0.6.0-beta.10. |
+| 2026-09-02 | Duckling, ImmediatelyFast | Pinned to 3.0.0 and 1.2.4+1.20.1 | packwiz's non-interactive picker grabbed NeoForge 1.20.4 and 1.20.2 builds. Both mislabel game versions on Modrinth. |
