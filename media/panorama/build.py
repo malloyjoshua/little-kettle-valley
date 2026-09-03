@@ -1,264 +1,192 @@
 #!/usr/bin/env python3
-"""Little Kettle Valley - title screen panorama builder.
-
-Builds the six cube faces the vanilla title screen slowly rotates through.
-The four side faces (0 front, 1 right, 2 back, 3 left) are sliced from one
-continuous 4096x1024 painted strip - a dusk valley skyline: night-to-dusk
-sky, three parallax hill silhouettes, a handful of lit cottages + lamp
-posts along the ridge, a winding snowy road in the foreground, scattered
-stars and falling snow. Because the strip is generated from periodic
-functions of x (period divides 4096 exactly), the four slices join up into
-a believable 360-degree loop. Face 4 (up) is a soft night zenith with
-stars; face 5 (down) is a snowy ground texture.
-
-All colors come from media/palette.json; nothing here reuses vanilla
-Minecraft artwork.
-
-Run: tools/venv/bin/python media/panorama/build.py
+"""Little Kettle Valley title-screen panorama, painted by code.
+One 4096x1024 strip wraps the horizon and is sliced into faces 0-3, so the seam is
+automatic. The cube's equator (true horizon) is row 512. Faces 4 (up) and 5 (down)
+match the strip's top and bottom rows.
 """
-import json
-import math
-import pathlib
-import random
-
-import numpy as np
-from PIL import Image, ImageDraw
-
+import json, math, pathlib, random
+from PIL import Image, ImageDraw, ImageFilter
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-OUT = pathlib.Path(__file__).resolve().parent
-PAL = json.loads((ROOT / "media" / "palette.json").read_text())
-
-rng = random.Random(20260903)
-
-
-def rgb(name):
-    h = PAL["colors"][name].lstrip("#")
-    return (int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16))
-
-
-def rgba(name, a=255):
-    return rgb(name) + (a,)
-
-
-STRIP_W, H = 4096, 1024
-FACE = 1024
-
-SKY_NIGHT = np.array(rgb("night"), dtype=np.float32)
-SKY_MID = np.array(rgb("sky"), dtype=np.float32)
-SKY_DUSK = np.array(rgb("dusk"), dtype=np.float32)
-SNOW = np.array(rgb("wool"), dtype=np.float32)
-SNOW_SHADE = np.array(rgb("silver"), dtype=np.float32)
-
-
-def lerp(a, b, t):
-    t = np.clip(t, 0.0, 1.0)
-    return a * (1 - t)[..., None] + b * t[..., None]
-
-
-def build_sky(x_cols):
-    """Vertical night->dusk gradient, same for every column."""
-    y = np.arange(H, dtype=np.float32)
-    t1 = np.clip((y - 0) / 520.0, 0, 1)          # night -> mid
-    t2 = np.clip((y - 380) / 260.0, 0, 1)        # mid -> dusk near horizon
-    col = lerp(SKY_NIGHT, SKY_MID, t1)
-    col = lerp(col, SKY_DUSK, t2)
-    return np.repeat(col[:, None, :], x_cols, axis=1)  # (H, W, 3)
-
-
-def hill_curve(x, base, amps_periods, phase=0.0):
-    y = np.full_like(x, base, dtype=np.float32)
-    for amp, per in amps_periods:
-        y = y + amp * np.sin(2 * math.pi * x / per + phase)
-    return y
-
-
-def paint_strip():
-    xs = np.arange(STRIP_W, dtype=np.float32)
-    img = build_sky(STRIP_W)  # (H, W, 3) float32
-
-    yy = np.arange(H, dtype=np.float32)[:, None]  # (H,1)
-
-    # --- three parallax hill silhouettes, far -> near ---------------------
-    far = hill_curve(xs, 560, [(18, 2048), (7, 512)])[None, :]
-    far_col = (0.45 * SKY_DUSK + 0.30 * np.array(rgb("sage_dark"), np.float32)
-               + 0.25 * SKY_MID)
-    mask = yy >= far
-    img = np.where(mask[..., None], far_col, img)
-
-    mid = hill_curve(xs, 660, [(26, 1024), (10, 256)], phase=1.3)[None, :]
-    mid_col = np.array(rgb("sage_dark"), np.float32) * 0.9
-    mask = yy >= mid
-    img = np.where(mask[..., None], mid_col, img)
-
-    near = hill_curve(xs, 760, [(22, 682), (9, 170)], phase=2.6)[None, :]
-    near_col = np.array(rgb("night"), np.float32) * 0.55 + np.array(rgb("sage_dark"), np.float32) * 0.25
-    mask = yy >= near
-    img = np.where(mask[..., None], near_col, img)
-
-    # --- foreground snow, gradient + gentle winding road -------------------
-    ground_top = 800.0
-    gt = np.clip((yy - ground_top) / (H - ground_top), 0, 1)
-    ground_col = lerp(SNOW_SHADE, SNOW, gt[:, 0])
-    ground_mask = yy >= ground_top
-    img = np.where(ground_mask[..., None], ground_col[:, None, :].repeat(STRIP_W, axis=1), img)
-
-    road_col = np.array(rgb("copper_light"), np.float32) * 0.55 + np.array(rgb("dusk"), np.float32) * 0.35
-    for y in range(int(ground_top), H, 2):
-        t = (y - ground_top) / (H - ground_top)
-        half_w = 5 + 46 * t
-        cx = (1780 + 220 * math.sin(y * 0.006)) % STRIP_W  # one gentle path near face 1/2
-        lo = int(cx - half_w)
-        span = int(half_w * 2)
-        idx = (np.arange(lo, lo + span) % STRIP_W)
-        img[y:y + 2, idx] = road_col
-
-    return np.clip(img, 0, 255).astype(np.uint8)
-
-
-def draw_cottage(draw, cx, base_y, seed):
-    r = random.Random(seed)
-    w = r.randint(30, 42)
-    h = r.randint(22, 30)
-    wall = rgba("paper")
-    wall_shade = rgba("wood_dark")
-    roof = rgba("copper_dark")
-    door = rgba("kettle_dark")
-    lit = rgba("lamp", 245)
-    glow = rgba("lamp_glow", 90)
-    x0, y0 = cx - w // 2, base_y - h
-    draw.rectangle([x0, y0, x0 + w, base_y], fill=wall)
-    draw.rectangle([x0 + w - 4, y0, x0 + w, base_y], fill=wall_shade)  # side shade
-    draw.polygon([(x0 - 6, y0), (x0 + w // 2, y0 - 16), (x0 + w + 6, y0)], fill=roof)
-    dw = 6
-    draw.rectangle([cx - dw // 2, base_y - 14, cx + dw // 2, base_y], fill=door)
-    wx, wy = x0 + w - 13, y0 + h // 2 - 4
-    for rad, al in ((10, 45), (5, 110)):
-        draw.ellipse([wx + 4 - rad, wy + 4 - rad, wx + 4 + rad, wy + 4 + rad], fill=(*rgb("lamp_glow"), al))
-    draw.rectangle([wx, wy, wx + 8, wy + 8], fill=lit)
-
-
-def draw_lamp(draw, x, ground_y):
-    pole = rgba("copper_dark")
-    head = rgba("lamp")
-    glow = rgba("lamp_glow", 55)
-    top = ground_y - 46
-    draw.line([(x, ground_y), (x, top)], fill=pole, width=3)
-    for rad in (22, 13):
-        draw.ellipse([x - rad, top - rad, x + rad, top + rad], fill=glow)
-    draw.ellipse([x - 4, top - 5, x + 4, top + 3], fill=head)
-
-
-def scatter_stars(draw, seed, count, y_max, x_span, cream_w=None):
-    r = random.Random(seed)
-    for _ in range(count):
-        x = r.uniform(0, x_span)
-        y = r.uniform(20, y_max)
-        size = r.choice([1, 1, 1, 2])
-        a = r.randint(90, 220)
-        draw.ellipse([x - size, y - size, x + size, y + size], fill=rgba("cream", a))
-
-
-def scatter_snow(draw, seed, count, x_span, y_span):
-    r = random.Random(seed)
-    for _ in range(count):
-        x = r.uniform(0, x_span)
-        y = r.uniform(0, y_span)
-        size = r.choice([1, 1, 2])
-        a = r.randint(60, 170)
-        draw.ellipse([x - size, y - size, x + size, y + size], fill=rgba("wool", a))
-
-
-def build_faces_0_3():
-    base = Image.fromarray(paint_strip(), "RGB").convert("RGBA")
-    overlay = Image.new("RGBA", (STRIP_W, H), (0, 0, 0, 0))
-    d = ImageDraw.Draw(overlay, "RGBA")
-
-    # moon, one soft glow, fixed spot
-    mx, my = 2900, 190
-    for rad, a in ((110, 22), (70, 40), (40, 70), (22, 140)):
-        d.ellipse([mx - rad, my - rad, mx + rad, my + rad], fill=rgba("cream", a))
-
-    scatter_stars(d, seed=1, count=420, y_max=430, x_span=STRIP_W)
-    scatter_snow(d, seed=2, count=1400, x_span=STRIP_W, y_span=H)
-
-    # cottages + lamp posts strung along the near ridge, period 512 so the
-    # four 1024-wide face slices each get exactly two clusters
-    for i, cx in enumerate(range(160, STRIP_W, 512)):
-        base_y = int(hill_curve(np.array([float(cx)]), 760, [(22, 682), (9, 170)], phase=2.6)[0]) + 2
-        draw_cottage(d, cx, base_y, seed=100 + i)
-        draw_lamp(d, cx + 34, base_y + 4)
-        if i % 2 == 0:
-            draw_lamp(d, cx - 60, base_y + 30)
-
-    full = Image.alpha_composite(base, overlay).convert("RGB")
-    names = ["panorama_0.png", "panorama_1.png", "panorama_2.png", "panorama_3.png"]
-    for i, name in enumerate(names):
-        tile = full.crop((i * FACE, 0, i * FACE + FACE, H))
-        tile.save(OUT / name)
-        print(f"{name} <- strip x[{i*FACE}:{i*FACE+FACE}]")
-
-
-def build_face_up():
-    yy, xx = np.mgrid[0:FACE, 0:FACE].astype(np.float32)
-    cx, cy = FACE / 2, FACE / 2
-    dist = np.sqrt((xx - cx) ** 2 + (yy - cy) ** 2) / (FACE * 0.72)
-    t = np.clip(dist, 0, 1)
-    zenith = np.array(rgb("night"), np.float32) * 0.7 + np.array(rgb("sky"), np.float32) * 0.3
-    edge = np.array(rgb("night"), np.float32)
-    col = lerp(zenith, edge, t)
-    img = Image.fromarray(np.clip(col, 0, 255).astype(np.uint8), "RGB").convert("RGBA")
-    overlay = Image.new("RGBA", (FACE, FACE), (0, 0, 0, 0))
-    d = ImageDraw.Draw(overlay, "RGBA")
-    scatter_stars(d, seed=7, count=260, y_max=FACE, x_span=FACE)
-    out = Image.alpha_composite(img, overlay).convert("RGB")
-    out.save(OUT / "panorama_4.png")
-    print("panorama_4.png <- zenith")
-
-
-def build_face_down():
-    yy, xx = np.mgrid[0:FACE, 0:FACE].astype(np.float32)
-    rs = np.random.RandomState(99)
-    noise = rs.uniform(-10, 10, size=(FACE, FACE)).astype(np.float32)
-    base = SNOW[None, None, :] + noise[..., None]
-    cx, cy = FACE / 2, FACE / 2
-    dist = np.sqrt((xx - cx) ** 2 + (yy - cy) ** 2) / (FACE * 0.75)
-    vign = 1.0 - 0.18 * np.clip(dist, 0, 1)
-    base = base * vign[..., None]
-    img = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8), "RGB").convert("RGBA")
-    overlay = Image.new("RGBA", (FACE, FACE), (0, 0, 0, 0))
-    d = ImageDraw.Draw(overlay, "RGBA")
-    r = random.Random(42)
-    for _ in range(10):
-        x = r.uniform(80, FACE - 80)
-        y = r.uniform(80, FACE - 80)
-        for dx, dy in ((0, 0), (28, 6)):
-            d.ellipse([x + dx - 9, y + dy - 6, x + dx + 9, y + dy + 6], fill=rgba("silver", 70))
-    for _ in range(40):
-        x = r.uniform(0, FACE)
-        y = r.uniform(0, FACE)
-        d.ellipse([x - 2, y - 2, x + 2, y + 2], fill=rgba("sage_dark", 90))
-    out = Image.alpha_composite(img, overlay).convert("RGB")
-    out.save(OUT / "panorama_5.png")
-    print("panorama_5.png <- ground")
-
-
-def main():
-    build_faces_0_3()
-    build_face_up()
-    build_face_down()
-
-    for i in range(6):
-        with Image.open(OUT / f"panorama_{i}.png") as im:
-            assert im.size == (1024, 1024) and im.mode == "RGB", f"panorama_{i}.png bad {im.size} {im.mode}"
-
-    # contact-sheet preview: 6 faces in a strip, small
-    prev = Image.new("RGB", (256 * 6, 256), rgb("night"))
-    for i in range(6):
-        with Image.open(OUT / f"panorama_{i}.png") as im:
-            prev.paste(im.resize((256, 256), Image.LANCZOS), (i * 256, 0))
-    prev.save(OUT / "_preview_strip.png")
-    print("built panorama_0..5.png ->", OUT)
-
-
-if __name__ == "__main__":
-    main()
+OUT = ROOT / 'media' / 'panorama'
+PAL = json.loads((ROOT / 'media' / 'palette.json').read_text())['colors']
+def C(n):
+    h = PAL[n].lstrip('#'); return (int(h[0:2],16), int(h[2:4],16), int(h[4:6],16))
+def mix(a, b, t):
+    return tuple(int(round(a[i] + (b[i]-a[i])*t)) for i in range(3))
+W, H, HZ = 4096, 1024, 512
+random.seed(7)
+NIGHT, SKY, DUSK, CREAM, WOOL = C('night'), C('sky'), C('dusk'), C('cream'), C('wool')
+SAGE, SAGED, INK, LAMP, GLOW = C('sage'), C('sage_dark'), C('ink'), C('lamp'), C('lamp_glow')
+COP, COPD, WOOD, WOODD = C('copper'), C('copper_dark'), C('wood'), C('wood_dark')
+WATER, BLUSH = C('water'), C('blush')
+# ---------------------------------------------------------------- sky
+img = Image.new('RGB', (W, H)); d = ImageDraw.Draw(img)
+for y in range(H):
+    if y <= HZ:
+        t = y / HZ                               # 0 top .. 1 horizon
+        if t < 0.45: col = mix(NIGHT, SKY, t / 0.45)
+        elif t < 0.82: col = mix(SKY, mix(DUSK, SKY, 0.35), (t - 0.45) / 0.37)
+        else: col = mix(mix(DUSK, SKY, 0.35), DUSK, (t - 0.82) / 0.18)
+    else:
+        col = mix(DUSK, mix(WOOL, WATER, 0.25), min(1.0, (y - HZ) / 420))
+    d.line([(0, y), (W, y)], fill=col)
+# stars: strictly in the upper sky, never near the hills
+for _ in range(1100):
+    x = random.randrange(W); y = random.randrange(0, 340)
+    b = random.random()
+    if b < 0.72: d.point((x, y), fill=mix(CREAM, SKY, 0.45))
+    elif b < 0.95: d.point((x, y), fill=CREAM)
+    else:
+        d.point((x, y), fill=CREAM)
+        for dx, dy in ((1,0),(-1,0),(0,1),(0,-1)): d.point((x+dx, y+dy), fill=mix(CREAM, SKY, 0.6))
+# moon with a soft halo
+MX, MY, MR = 2680, 150, 34
+halo = Image.new('RGB', (W, H), (0,0,0)); hd = ImageDraw.Draw(halo)
+hd.ellipse([MX-MR*4, MY-MR*4, MX+MR*4, MY+MR*4], fill=(70, 78, 86))
+img = Image.blend(img, Image.blend(img, halo, 0.0), 0.0)
+gl = Image.new('RGBA', (W, H), (0,0,0,0)); gd = ImageDraw.Draw(gl)
+for r, a in ((MR*4, 26), (MR*2.6, 34), (MR*1.7, 44)):
+    gd.ellipse([MX-r, MY-r, MX+r, MY+r], fill=CREAM + (a,))
+gl = gl.filter(ImageFilter.GaussianBlur(26))
+img = Image.alpha_composite(img.convert('RGBA'), gl).convert('RGB'); d = ImageDraw.Draw(img)
+d.ellipse([MX-MR, MY-MR, MX+MR, MY+MR], fill=CREAM)
+d.ellipse([MX-MR+9, MY-MR+7, MX-MR+19, MY-MR+17], fill=mix(CREAM, SKY, 0.18))
+d.ellipse([MX-MR+22, MY-MR+30, MX-MR+34, MY-MR+42], fill=mix(CREAM, SKY, 0.14))
+# ---------------------------------------------------------------- hills (wrap exactly)
+def ridge(base, terms):
+    ys = []
+    for x in range(W + 1):
+        v = base
+        for f, a, p in terms: v += a * math.sin(2*math.pi*f*x/W + p)
+        ys.append(v)
+    return ys
+LAYERS = [
+    (ridge(452, [(3, 26, 0.4), (7, 13, 1.9), (13, 7, 3.1), (21, 4, 0.7)]), mix(SAGE, DUSK, 0.52)),
+    (ridge(482, [(2, 34, 2.2), (5, 18, 0.3), (11, 9, 2.6), (17, 5, 1.2)]), mix(SAGE, DUSK, 0.30)),
+    (ridge(516, [(4, 30, 1.1), (6, 16, 2.9), (9, 11, 0.6), (19, 6, 2.0)]), SAGE),
+    (ridge(556, [(3, 34, 3.0), (5, 20, 1.4), (8, 12, 2.2), (15, 7, 0.9)]), mix(SAGED, INK, 0.22)),
+]
+for ys, col in LAYERS:
+    pts = [(x, ys[x]) for x in range(W + 1)] + [(W, H), (0, H)]
+    d.polygon(pts, fill=col)
+NEAR = LAYERS[3][0]
+# pines along the near ridge
+def pine(x, base, h, col, trunk=True):
+    w = max(6, int(h * 0.42))
+    for i in range(3):
+        yt = base - h + i * h * 0.27; yb = base - h * 0.34 + i * h * 0.27
+        ww = w * (0.55 + 0.22 * i)
+        d.polygon([(x, yt), (x - ww, yb), (x + ww, yb)], fill=col)
+    if trunk: d.rectangle([x - 2, base - h * 0.12, x + 2, base + 3], fill=mix(WOODD, INK, 0.4))
+for x in range(40, W, 63):
+    xx = x + random.randint(-16, 16)
+    pine(xx, NEAR[xx % W] + 6, random.randint(34, 62), mix(SAGED, INK, 0.42))
+# ---------------------------------------------------------------- frozen lake
+LX0, LX1 = 3180, 3980
+lake = Image.new('RGBA', (W, H), (0,0,0,0)); ld = ImageDraw.Draw(lake)
+ld.ellipse([LX0, 546, LX1, 690], fill=mix(WATER, CREAM, 0.42) + (255,))
+ld.ellipse([LX0+40, 556, LX1-40, 664], fill=mix(WATER, DUSK, 0.34) + (255,))
+for i in range(9):
+    x0 = random.randint(LX0+70, LX1-160); y0 = random.randint(572, 650)
+    ld.line([(x0, y0), (x0 + random.randint(40, 130), y0 + random.randint(-8, 8))], fill=mix(CREAM, WATER, 0.5) + (200,), width=2)
+img = Image.alpha_composite(img.convert('RGBA'), lake).convert('RGB'); d = ImageDraw.Draw(img)
+d.ellipse([MX-16, 596, MX+16, 616], fill=mix(CREAM, WATER, 0.55)) if LX0 < MX < LX1 else None
+# ---------------------------------------------------------------- the town
+def window(x, y, w=7, h=9):
+    d.rectangle([x, y, x+w, y+h], fill=LAMP)
+    d.rectangle([x+1, y+1, x+w-1, y+h-1], fill=GLOW)
+def house(x, base, w, h, roof=None, lit=2):
+    roof = roof or mix(WOODD, INK, 0.3)
+    d.rectangle([x, base-h, x+w, base], fill=mix(CREAM, WOOD, 0.42))
+    d.rectangle([x, base-h, x+w, base], outline=mix(WOODD, INK, 0.45), width=2)
+    d.polygon([(x-9, base-h), (x+w+9, base-h), (x+w/2, base-h-h*0.62)], fill=roof)
+    for i in range(lit):
+        window(x + 9 + i * (w - 14) / max(1, lit), base - h + 12)
+    cx = x + w * 0.74
+    d.rectangle([cx, base-h-h*0.42, cx+9, base-h-h*0.16], fill=mix(WOODD, INK, 0.2))
+    for k in range(5):
+        r = 4 + k * 2.6; yy = base-h-h*0.42 - 8 - k*13; xx = cx + 4 + math.sin(k*0.9)*7
+        d.ellipse([xx-r, yy-r, xx+r, yy+r], fill=mix(WOOL, SKY, 0.25 + k*0.12))
+TOWN = 1180
+plots = [(0, 92, 74, 2), (104, 70, 58, 2), (186, 110, 86, 3), (300, 78, 62, 2), (378, 96, 78, 2), (476, 66, 54, 1)]
+for off, w, h, lit in plots:
+    x = TOWN + off; house(x, NEAR[int(x + w/2) % W] + 8, w, h, lit=lit)
+# bell tower with a copper roof
+tx = TOWN + 232; tb = NEAR[tx % W] + 8
+d.rectangle([tx, tb-186, tx+52, tb], fill=mix(CREAM, WOOD, 0.3))
+d.rectangle([tx, tb-186, tx+52, tb], outline=mix(WOODD, INK, 0.45), width=2)
+d.polygon([(tx-14, tb-186), (tx+66, tb-186), (tx+26, tb-252)], fill=COP)
+d.polygon([(tx+26, tb-252), (tx+66, tb-186), (tx+26, tb-186)], fill=COPD)
+window(tx+18, tb-168, 16, 22)
+d.ellipse([tx+20, tb-96, tx+32, tb-84], fill=LAMP)
+# ---------------------------------------------------------------- the road + lamp posts
+road = Image.new('RGBA', (W, H), (0,0,0,0)); rd = ImageDraw.Draw(road)
+RX = TOWN + 250
+pts = []
+for i in range(101):
+    t = i / 100
+    y = NEAR[int(RX) % W] + 10 + t * (H - NEAR[int(RX) % W] - 10)
+    x = RX + math.sin(t * 1.9) * 300 * t + t * t * 120
+    wdt = 7 + t * t * 150
+    pts.append((x, y, wdt))
+for (x, y, wdt) in pts:
+    rd.ellipse([x-wdt, y-wdt*0.22, x+wdt, y+wdt*0.22], fill=mix(WOOL, WOOD, 0.30) + (255,))
+for (x, y, wdt) in pts[::7]:
+    rd.ellipse([x-wdt*0.86, y-wdt*0.17, x+wdt*0.86, y+wdt*0.17], fill=mix(WOOL, DUSK, 0.16) + (255,))
+img = Image.alpha_composite(img.convert('RGBA'), road).convert('RGB'); d = ImageDraw.Draw(img)
+glowl = Image.new('RGBA', (W, H), (0,0,0,0)); gd = ImageDraw.Draw(glowl)
+posts = []
+for i in range(6, 101, 15):
+    x, y, wdt = pts[i]; side = -1 if (i // 15) % 2 == 0 else 1
+    px = x + side * (wdt + 16); ph = 44 + (i / 100) * 150
+    posts.append((px, y, ph))
+    gd.ellipse([px-ph*0.9, y-ph*1.5, px+ph*0.9, y+ph*0.25], fill=GLOW + (40,))
+glowl = glowl.filter(ImageFilter.GaussianBlur(28))
+img = Image.alpha_composite(img.convert('RGBA'), glowl).convert('RGB'); d = ImageDraw.Draw(img)
+for (px, y, ph) in posts:
+    d.rectangle([px-3, y-ph, px+3, y], fill=mix(INK, WOODD, 0.3))
+    d.rectangle([px-11, y-ph-16, px+11, y-ph], fill=mix(INK, COPD, 0.35))
+    d.rectangle([px-8, y-ph-13, px+8, y-ph-3], fill=LAMP)
+    d.rectangle([px-6, y-ph-11, px+6, y-ph-5], fill=GLOW)
+    d.polygon([(px-14, y-ph-16), (px+14, y-ph-16), (px, y-ph-30)], fill=COP)
+# ---------------------------------------------------------------- foreground
+# a fence that wraps the whole strip, sitting low so it frames without blocking
+for x in range(0, W, 34):
+    fy = H - 96 + int(math.sin(x / 260) * 12)
+    d.rectangle([x, fy, x+7, fy+70], fill=mix(WOODD, INK, 0.25))
+for x in range(0, W, 4):
+    fy = H - 96 + int(math.sin(x / 260) * 12)
+    d.rectangle([x, fy+16, x+4, fy+24], fill=mix(WOOD, INK, 0.3))
+    d.rectangle([x, fy+40, x+4, fy+48], fill=mix(WOOD, INK, 0.34))
+# two close pines framing one face, and a mailbox by the road
+for (fx, fh) in ((520, 300), (600, 226), (2210, 268)):
+    pine(fx, H - 40, fh, mix(SAGED, INK, 0.62))
+mb = pts[-22]
+d.rectangle([mb[0]-70, mb[1]-96, mb[0]-62, mb[1]-10], fill=mix(WOODD, INK, 0.3))
+d.rounded_rectangle([mb[0]-94, mb[1]-126, mb[0]-42, mb[1]-94], 9, fill=COP, outline=COPD, width=2)
+# snow speckle on the near ground
+for _ in range(2600):
+    x = random.randrange(W); y = random.randrange(HZ + 60, H)
+    d.point((x, y), fill=mix(WOOL, CREAM, random.random()))
+# ---------------------------------------------------------------- slice + caps
+img.save(OUT / '_strip.png')
+for i in range(4):
+    img.crop((i*1024, 0, (i+1)*1024, 1024)).save(OUT / f'panorama_{i}.png')
+top_col = img.getpixel((0, 0)); bot_col = img.getpixel((0, H-1))
+up = Image.new('RGB', (1024, 1024), top_col); ud = ImageDraw.Draw(up)
+for _ in range(700):
+    x, y = random.randrange(1024), random.randrange(1024)
+    dist = math.hypot(x-512, y-512) / 724
+    if random.random() > dist * 0.7: ud.point((x, y), fill=mix(top_col, CREAM, random.uniform(0.35, 1.0)))
+up.save(OUT / 'panorama_4.png')
+dn = Image.new('RGB', (1024, 1024), bot_col); dd = ImageDraw.Draw(dn)
+for _ in range(2200):
+    x, y = random.randrange(1024), random.randrange(1024)
+    dd.point((x, y), fill=mix(bot_col, CREAM, random.uniform(0.2, 0.9)))
+dn.save(OUT / 'panorama_5.png')
+# previews
+img.resize((1400, 350), Image.LANCZOS).save(OUT / '_preview_strip.png')
+f3 = Image.open(OUT / 'panorama_3.png'); f0 = Image.open(OUT / 'panorama_0.png')
+seam = Image.new('RGB', (160, 1024)); seam.paste(f3.crop((944, 0, 1024, 1024)), (0, 0)); seam.paste(f0.crop((0, 0, 80, 1024)), (80, 0))
+seam.resize((480, 1024)).save(OUT / 'seam_check.png')
+print('panorama built. horizon row', HZ)

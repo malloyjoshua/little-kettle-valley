@@ -1,0 +1,191 @@
+[
+ {
+  "name": "winter_cloak",
+  "rows": [
+   "................",
+   ".......ii.......",
+   "......iiii......",
+   "......issi......",
+   "....iSSSSSSi....",
+   "....issCCssi....",
+   "...SSSSSSSSSS...",
+   "...isSsSssSsi...",
+   "...iSssSsssSi...",
+   "..isSssSsssSsi..",
+   "..iSsssSssssSi..",
+   "..iSsssSssssSi..",
+   ".isSsssSssssSsi.",
+   ".isSsssSssssSsi.",
+   ".iiiiiiiiiiiiii.",
+   "................"
+  ]
+ },
+ {
+  "name": "place_setting",
+  "rows": [
+   "................",
+   "................",
+   "................",
+   ".ooooooDooooooo.",
+   ".opppDWWWDppppo.",
+   ".oVtVWWWWWDpVpo.",
+   ".oVVVWwWwWWDVVo.",
+   ".opVWwWWWwWDVVo.",
+   ".opVWwWWWwWDVVo.",
+   ".opVWWwWwWWDVVo.",
+   ".opVDWWWWWDpTpo.",
+   ".opVpDWWWDppTpo.",
+   ".opVpppDppppTpo.",
+   ".oooooooooooooo.",
+   "................",
+   "................"
+  ]
+ },
+ {
+  "name": "lake_sand",
+  "rows": [
+   "................",
+   "................",
+   "................",
+   "................",
+   "................",
+   "................",
+   "................",
+   "................",
+   "................",
+   ".....cococc.....",
+   "...ppopppopo....",
+   ".pppoppoppopop..",
+   "oooooooooooooooo",
+   "..OOOOOOOOOOOO..",
+   "................",
+   "................"
+  ]
+ },
+ {
+  "name": "washed_silica",
+  "rows": [
+   "................",
+   "................",
+   "................",
+   "................",
+   "................",
+   "................",
+   "................",
+   "....T..waA......",
+   "...wV.AawA..VT..",
+   "..TVTTAaaATwVT..",
+   "..TVV.Aaa.TVVT..",
+   "..TVV.AaAawVVV..",
+   "..tttVttAaaAtt..",
+   "..TTTTTTTTTTTT..",
+   "................",
+   "................"
+  ]
+ },
+ {
+  "name": "dredge_net",
+  "rows": [
+   "................",
+   "......TTTT......",
+   "....Tt....tT....",
+   "...T........T...",
+   "...T........T...",
+   "....Tt....tTOo..",
+   "......TTTT...Oo.",
+   "....tTt.tTtTt.O.",
+   "....TtTtTtTtT..O",
+   "....tTtTtTtTt...",
+   "....TtTtTtTt....",
+   ".....TtTtTt.....",
+   "......TtTt......",
+   ".......T........",
+   "................",
+   "................"
+  ]
+ },
+ {
+  "name": "scrip",
+  "rows": [
+   "................",
+   "......DDD.......",
+   "....DCCCCCDD....",
+   "...DCLLLLLCD....",
+   "..DCLLLLLLLCDD..",
+   "..CLLLLLLLLLC...",
+   ".DCLLLLDDLLLCD..",
+   ".DCLLLDDDDLLCD..",
+   ".DCLLDDDDDDDCD..",
+   "..CLLDDDDDDLC...",
+   "..DCLLDDDDLCD...",
+   "..DDCLLDDLCD.D..",
+   "....DCCCCCD.....",
+   "....D.DDD..D....",
+   ".......DD.......",
+   "................"
+  ]
+ },
+ {
+  "name": "paper_lantern",
+  "rows": [
+   ".......ii.......",
+   "......OOOO......",
+   ".....oooooo.....",
+   ".....OOOOO......",
+   "....OpoppoO.....",
+   "...OopoypopO....",
+   "..OpoyyyyypoO...",
+   "..OpoyYYYypoO...",
+   "..OpyyYYYyyoO...",
+   "..OpoyYYYypoO...",
+   "..OpoyyyyypoO...",
+   "...OopoypopO....",
+   "....OpoppoO.....",
+   ".....OOOOO......",
+   "......oooo......",
+   "................"
+  ]
+ },
+ {
+  "name": "chicken_feed",
+  "rows": [
+   "................",
+   ".......y........",
+   "......yG.y......",
+   ".....Gy.GyG.....",
+   ".....OOOOD.y....",
+   ".....OoooOD.....",
+   ".....OooooO.....",
+   "....OooooooO....",
+   "...OOooooooOO...",
+   "...OoDooDoDoO...",
+   "...ODoDoooooO...",
+   "...ODooooDooO...",
+   "...OoDoDooooO...",
+   "....OooooDoO....",
+   ".....OOOOOO.....",
+   "................"
+  ]
+ },
+ {
+  "name": "copper_kettle_trophy",
+  "rows": [
+   "................",
+   "......DDDD......",
+   ".....D.CC.D.....",
+   ".....D....D..G..",
+   "..G...DDDD......",
+   ".....DLLLLD...L.",
+   "....DCCCCCCD.DL.",
+   "...DCCCCCLLCDD..",
+   "...DCCccCLCCD...",
+   "...DDCcCCCCCD...",
+   "..GDDCCCCCCCD...",
+   "....DDCCCCCD....",
+   "....DCCCCCCD....",
+   ".....DDDDDD.....",
+   "................",
+   "................"
+  ]
+ }
+]
