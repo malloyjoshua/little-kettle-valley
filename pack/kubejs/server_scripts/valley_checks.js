@@ -106,6 +106,26 @@ BlockEvents.placed(event => {
   // persistentData.lamps[]; the Act IV finale iterates that list.
   // ---------------------------------------------------------------------
   if (id === v.C.LAMP_BLOCK) {
+    // -------------------------------------------------------------------
+    // Q90 — "The Last Lamp." One known coordinate: the bare post on
+    // Josie's porch, HOME_PORCH blocks from the Homestead waystone.
+    // Checked FIRST, and only for the lamp block: it is Home-relative, not
+    // anchor-relative, so it has to run before the anchor bail-out below.
+    // -------------------------------------------------------------------
+    if (!v.isDone('q90')) {
+      const home = v.home()
+      if (home) {
+        const porch = [home[0] + v.C.HOME_PORCH[0], home[1] + v.C.HOME_PORCH[1], home[2] + v.C.HOME_PORCH[2]]
+        if (Math.abs(b.x - porch[0]) <= 2 && Math.abs(b.y - porch[1]) <= 2 && Math.abs(b.z - porch[2]) <= 2) {
+          v.addLamp(b.x, b.y, b.z)
+          global.valleyServer.runCommandSilent('bossbar set valley:lamps value 40')
+          v.sayAll('Josie', 'Forty lamps. Fifteen people. One winter that nobody leaves.')
+          fire(player, 'q90')
+          return
+        }
+      }
+    }
+
     const anchor = v.anchor()
     if (!anchor) return
     const tol = v.C.LAMP_TOLERANCE
@@ -135,24 +155,6 @@ BlockEvents.placed(event => {
       fire(player, 'q74')
     }
     return
-  }
-
-  // ---------------------------------------------------------------------
-  // Q90 — "The Last Lamp." One known coordinate: the bare post on Josie's
-  // porch, HOME_PORCH blocks from the Homestead waystone.
-  // ---------------------------------------------------------------------
-  if (!v.isDone('q90')) {
-    const home = v.home()
-    if (home) {
-      const p = [home[0] + v.C.HOME_PORCH[0], home[1] + v.C.HOME_PORCH[1], home[2] + v.C.HOME_PORCH[2]]
-      if (Math.abs(b.x - p[0]) <= 2 && Math.abs(b.y - p[1]) <= 2 && Math.abs(b.z - p[2]) <= 2) {
-        v.addLamp(b.x, b.y, b.z)
-        global.valleyServer.runCommandSilent('bossbar set valley:lamps value 40')
-        v.sayAll('Josie', 'Forty lamps. Fifteen people. One winter that nobody leaves.')
-        fire(player, 'q90')
-        return
-      }
-    }
   }
 
   // ---------------------------------------------------------------------

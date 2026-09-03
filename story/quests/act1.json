@@ -93,7 +93,7 @@
         { "type": "item", "item": "valley:letter", "count": 1 }
       ],
       "rewards": [
-        { "type": "command", "command": "give @p patchouli:guide_book{'patchouli:book':'valley:josies_journal'}" },
+        { "type": "command", "command": "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}" },
         { "type": "command", "command": "advancement grant @p only valley:journal/entry_1" },
         { "type": "item", "item": "herbalbrews:copper_tea_kettle" },
         { "type": "item", "item": "explorerscompass:explorerscompass" },

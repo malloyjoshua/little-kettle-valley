@@ -367,7 +367,7 @@ ServerEvents.tick(event => {
 // =============================================================================
 PlayerEvents.loggedIn(event => {
   const player = event.entity
-  const server = global.valleyServer || player.level.server
+  const server = global.valleyServer || player.server
   if (!server) return
   const name = global.valley.pname(player)
 
@@ -405,7 +405,10 @@ function valleyFirstJoin(server, player, name) {
     JSON.stringify({ text: 'Spring, Year One.', color: 'gray', italic: true }))
   server.runCommandSilent('title ' + name + ' title ' +
     JSON.stringify({ text: 'COPPER KETTLE VALLEY', color: 'gold', bold: true }))
-  server.runCommandSilent('playsound minecraft:block.note_block.chime master ' + name + ' ~ ~ ~ 1 0.8')
+  // `~ ~ ~` resolves against the COMMAND SOURCE, and runCommandSilent runs as
+  // the server (0 0 0, overworld) — so the sound has to be run `execute at`
+  // the player or nobody hears it.
+  server.runCommandSilent('execute at ' + name + ' run playsound minecraft:block.note_block.chime master ' + name + ' ~ ~ ~ 1 0.8')
 
   // The premise, then the destination line, verbatim (writer-brief rule 3).
   const lines = [
