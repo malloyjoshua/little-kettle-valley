@@ -42,7 +42,7 @@ const VALLEY = {
     lake:        [0, 1, 34],     // the Pier waystone
     works:       [34, -6, -20],
     greenhouse:  [-20, 1, 14],
-    bathhouse:   [-18, 1, 10],
+    bathhouse:   [4, 1, 22],     // behind the inn, clear of the mill (x -24..-16, z 2..10) and the Marnie/Pip pads (x -13..-3, z 18..20)
     echo_cave:   [34, -30, -20]
   },
 

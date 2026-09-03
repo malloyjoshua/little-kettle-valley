@@ -244,16 +244,57 @@ function forceRelease(server, act) {
 // unfiltered re-fill at finale time would delete the lanterns, smithing table,
 // barrel, hay and horse q65 put there. First caller digs; the other is a no-op.
 // -----------------------------------------------------------------------------
+// THE BOX HAD NO WALLS. The dig was a floor at ~-1, a ceiling at ~4 and an
+// air fill between them — open on all four sides. Six blocks down, on an
+// anchor anywhere near the lake, a river, an aquifer or a flooded cave, the
+// surrounding stone is holding water back; the moment the air fill ran, that
+// water flowed in and filled the room. Water washes a lever off its wall, so
+// the Act IV finale set the lever, the water took it, and The Longest Night
+// ended with the town standing in a flooded adit and nothing to pull.
+//
+// So the shell goes up FIRST — floor, ceiling and four one-block walls at the
+// edge of the box — and only then is the interior inside that shell dug out.
+// Nothing can flow in while the room is being cleared, because by then the
+// room is already sealed.
+//
+// The box is unchanged from the outside (works + [-6..8] on x and z, ~-1
+// floor, ~4 ceiling); the walls take the outer ring, so the ROOM is
+// works + [-5..7, 0..3, -5..7]. Everything that lives in here still fits:
+// q65's lanterns at [±4, 3, ±4], its stable pad at [5..7, 0, 5..7] and its
+// horse at [6, 1, 6]; q66's cells and duct at [±2, 0, -4]; q71 and the Act IV
+// finale's lever at [0, 2, 0]; and the eleven residents Act IV tp's to
+// [0..±4, 1, 2..6].
+const WORKS_SHELL = [
+  // 1. Seal the box before a single block of stone is taken out of it.
+  'fill ~-6 ~-1 ~-6 ~8 ~-1 ~8 minecraft:stone_bricks',
+  'fill ~-6 ~4 ~-6 ~8 ~4 ~8 minecraft:stone_bricks',
+  'fill ~-6 ~0 ~-6 ~-6 ~3 ~8 minecraft:stone_bricks',
+  'fill ~8 ~0 ~-6 ~8 ~3 ~8 minecraft:stone_bricks',
+  'fill ~-6 ~0 ~-6 ~8 ~3 ~-6 minecraft:stone_bricks',
+  'fill ~-6 ~0 ~8 ~8 ~3 ~8 minecraft:stone_bricks',
+  // 2. Now the room. Water first — a `replace minecraft:water` pass takes out
+  //    source blocks and flowing blocks by state, before the general air fill
+  //    gives anything left a fresh set of neighbours to spread into.
+  'fill ~-5 ~0 ~-5 ~7 ~3 ~7 minecraft:air replace minecraft:water',
+  'fill ~-5 ~0 ~-5 ~7 ~3 ~7 minecraft:air'
+]
+
+// The same water sweep on its own. Run AFTER a scene or a finale has put
+// fixtures in the room: a lantern, a duct or a lever placed into a cell that
+// still held water leaves that water behind it, and one more pass is cheaper
+// than a drowned lever.
+function dryWorks(server, v) {
+  let works = v.mark('works')
+  if (!works) return
+  runSeg(server, works, ['fill ~-5 ~0 ~-5 ~7 ~3 ~7 minecraft:air replace minecraft:water'])
+}
+
 function excavateWorks(server, v) {
   if (!v.once('works_excavated')) return
   let works = v.mark('works')
   if (!works) { console.warn('[valley] excavateWorks: no "works" mark'); return }
-  runSeg(server, works, [
-    'fill ~-6 ~0 ~-6 ~8 ~3 ~8 minecraft:air',
-    'fill ~-6 ~-1 ~-6 ~8 ~-1 ~8 minecraft:stone_bricks',
-    'fill ~-6 ~4 ~-6 ~8 ~4 ~8 minecraft:stone_bricks'
-  ])
-  console.info('[valley] Works chamber excavated at ' + works.join(' '))
+  runSeg(server, works, WORKS_SHELL)
+  console.info('[valley] Works chamber excavated and sealed at ' + works.join(' '))
 }
 
 // =============================================================================
@@ -281,16 +322,42 @@ function finaleAct1(server, v) {
     // four rectangles: everything north of the inn, everything south of it,
     // and the two strips either side. The dirt and stone courses are BELOW
     // the inn's floor (which sits at ~0) and can stay whole.
-    'fill ~-18 ~1 ~-18 ~18 ~14 ~6 minecraft:air',
+    // THE PAD HAS A SECOND HOLE, and it is the mill.
+    //
+    // The four rectangles above the inn hole used to be z -18..6 full width,
+    // z 18 full width, and x -18..-14 / x -2..18 across z 7..17. The mill
+    // valley:act1/bram_arrives builds at Q8 stands at anchor x -24..-16,
+    // z 2..10 — so its whole EAST WALL (x -16) sat inside the first rectangle
+    // for z <= 6 and inside the third for z 7..10, and both of Bram's east
+    // corner posts with it. Eleven quests after the player was sent down to
+    // the mill, this finale air-filled the east third of it and paved the
+    // floor. Verified on a fresh world before the fix: anchor + [-16, 1, 10],
+    // the south-east corner post, came back `minecraft:air`.
+    //
+    // So the pad is now seven rectangles, cut around BOTH buildings:
+    //   z -18..1   full width                       (nothing to miss)
+    //   z 2..6     x -15..18                        (mill hole: x -18..-16)
+    //   z 7..10    x -15..-14 and x -2..18          (mill AND inn holes)
+    //   z 11..17   x -18..-14 and x -2..18          (inn hole: x -13..-3)
+    //   z 18       full width
+    // The dirt and stone courses below stay whole: they are under both
+    // buildings' floors and neither one can see them.
+    'fill ~-18 ~1 ~-18 ~18 ~14 ~1 minecraft:air',
+    'fill ~-15 ~1 ~2 ~18 ~14 ~6 minecraft:air',
+    'fill ~-15 ~1 ~7 ~-14 ~14 ~10 minecraft:air',
+    'fill ~-2 ~1 ~7 ~18 ~14 ~10 minecraft:air',
+    'fill ~-18 ~1 ~11 ~-14 ~14 ~17 minecraft:air',
+    'fill ~-2 ~1 ~11 ~18 ~14 ~17 minecraft:air',
     'fill ~-18 ~1 ~18 ~18 ~14 ~18 minecraft:air',
-    'fill ~-18 ~1 ~7 ~-14 ~14 ~17 minecraft:air',
-    'fill ~-2 ~1 ~7 ~18 ~14 ~17 minecraft:air',
     'fill ~-18 ~-3 ~-18 ~18 ~-2 ~18 minecraft:dirt',
     'fill ~-18 ~-1 ~-18 ~18 ~-1 ~18 minecraft:stone',
-    'fill ~-18 ~0 ~-18 ~18 ~0 ~6 minecraft:cobblestone',
+    'fill ~-18 ~0 ~-18 ~18 ~0 ~1 minecraft:cobblestone',
+    'fill ~-15 ~0 ~2 ~18 ~0 ~6 minecraft:cobblestone',
+    'fill ~-15 ~0 ~7 ~-14 ~0 ~10 minecraft:cobblestone',
+    'fill ~-2 ~0 ~7 ~18 ~0 ~10 minecraft:cobblestone',
+    'fill ~-18 ~0 ~11 ~-14 ~0 ~17 minecraft:cobblestone',
+    'fill ~-2 ~0 ~11 ~18 ~0 ~17 minecraft:cobblestone',
     'fill ~-18 ~0 ~18 ~18 ~0 ~18 minecraft:cobblestone',
-    'fill ~-18 ~0 ~7 ~-14 ~0 ~17 minecraft:cobblestone',
-    'fill ~-2 ~0 ~7 ~18 ~0 ~17 minecraft:cobblestone',
     'fill ~-7 ~0 ~-7 ~7 ~0 ~7 minecraft:stone_bricks',
     'place template valley:market_stall ~-10 ~1 ~-10',
     'place template valley:market_stall ~8 ~1 ~-10',
@@ -325,6 +392,20 @@ function finaleAct1(server, v) {
     'setblock ~0 ~2 ~-12 ' + LAMP_LIT,
     'setblock ~0 ~1 ~12 ' + POST,
     'setblock ~0 ~2 ~12 ' + LAMP_LIT,
+    // ...and the OTHER two of the six: LAMPS_Q07, the pair
+    // valley:act1/square_path put down at Q7. The pad clear above deletes
+    // them. Both offsets, [-2,1,8] and [2,1,16], sit inside the fourth
+    // rectangle (`fill ~-2 ~1 ~7 ~18 ~14 ~17 air`), so this finale has always
+    // erased Q7's two posts on its way past, twelve quests after the player
+    // watched them go up — while valley_checks.js still had both of them in
+    // persistentData.lamps[], so the Act IV lever "lit" two lamps that were
+    // not there and the bossbar counted them. Put them back, LIT, after the
+    // clear. They are the same two coordinates as VALLEY.LAMPS_Q07 and they
+    // must stay in step with it.
+    'setblock ~-2 ~1 ~8 ' + POST,
+    'setblock ~-2 ~2 ~8 ' + LAMP_LIT,
+    'setblock ~2 ~1 ~16 ' + POST,
+    'setblock ~2 ~2 ~16 ' + LAMP_LIT,
     'bossbar set valley:lamps value 6',
     'bossbar set valley:folk value 5',
     npc('marnie', '~-4', '~1', '~-2'),
@@ -583,7 +664,17 @@ function finaleAct3(server, v) {
     // The board template carries an oak_sign at its local [1,3,0]; writing it
     // here is the only place in the pack the destination line is actually
     // ON the noticeboard rule 3 says it is on.
-    'setblock ~1 ~4 ~-5 minecraft:oak_sign[rotation=8]{front_text:{messages:[\'{"text":"Forty lamps."}\',\'{"text":"Fifteen people."}\',\'{"text":"One winter that"}\',\'{"text":"nobody leaves."}\']}}',
+    //
+    // DATA MERGE, NOT SETBLOCK. valley:noticeboard has already placed
+    // minecraft:oak_sign[rotation=8] at this exact position, and a /setblock
+    // whose target block AND blockstate are identical to what is already there
+    // is a no-op: 1.20.1's SetBlockCommand compares the new BlockState to the
+    // old one, returns "Could not set the block" and NEVER applies the NBT tag
+    // that came with it. The four lines were dropped on the floor every time,
+    // and `data get block <pos> front_text` on a finished world came back with
+    // four empty messages. `data merge block` writes the block entity that is
+    // already standing there, so the destination line lands.
+    'data merge block ~1 ~4 ~-5 {front_text:{messages:[\'{"text":"Forty lamps."}\',\'{"text":"Fifteen people."}\',\'{"text":"One winter that"}\',\'{"text":"nobody leaves."}\'],has_glowing_text:0b,color:"black"}}',
     'tellraw @a {"text":"On the noticeboard, in Oda\\u0027s hand: Forty lamps. Fifteen people. One winter that nobody leaves.","color":"gold"}',
     'bossbar set valley:lamps value 22',
     'bossbar set valley:folk value 11',
@@ -661,6 +752,13 @@ function finaleAct4(server, v) {
   v.delay(80, s => {
     if (!beat(v, 'act4', 1)) return
     let works = v.mark('works')
+    // The chamber is sealed (see WORKS_SHELL), but the lever is the one block
+    // in the pack that a single flowing water block deletes, and it is the
+    // whole of this beat. Drain the room, place the panel and the lever, then
+    // drain it again: a fixture set into a cell that still held water can
+    // leave water behind it, and a lever with water in its cell is a lever
+    // on the floor as an item.
+    dryWorks(s, v)
     runSeg(s, works, [
       // A wall lever needs a wall. The chamber is open air now, so the panel
       // the lever hangs on is placed first or the lever pops off the next
@@ -671,6 +769,7 @@ function finaleAct4(server, v) {
       'playsound minecraft:block.beacon.activate master @a ~0 ~1 ~0 3 0.7',
       'playsound minecraft:block.conduit.activate master @a ~0 ~1 ~0 2 1'
     ])
+    dryWorks(s, v)
 
     // The world changes: every stored lamp post lights, nearest the Works
     // first, one post per tick, so from the doorway it reads as a wave going
@@ -756,7 +855,17 @@ function finaleAct5(server, v) {
     'place template valley:town_hall ~-21 ~1 ~-17',
     'place template valley:stone_bridge ~14 ~0 ~-16',
     'place template valley:mill_roof ~-24 ~4 ~2',
-    'setblock ~0 ~1 ~-3 minecraft:oak_sign{front_text:{messages:[\'{"text":"COPPER KETTLE"}\',\'{"text":"VALLEY"}\',\'{"text":"pop. 15"}\',\'{"text":"est. again"}\']}}',
+    // The Founder's Day signpost. Two fixes:
+    //   * the valley is LITTLE KETTLE VALLEY. "COPPER KETTLE" was the working
+    //     title and survived here alone; the ITEM valley:copper_kettle_trophy
+    //     ("The Copper Kettle") and the Kettle family name are correct and stay.
+    //   * air first, then the sign with its NBT. Nothing is meant to be
+    //     standing at anchor + [0,1,-3], but if anything ever is — a re-run,
+    //     a player's block, a stray fill — /setblock onto an identical
+    //     blockstate silently drops the tag, exactly like the noticeboard did.
+    //     Clearing the cell first makes the second setblock a real change.
+    'setblock ~0 ~1 ~-3 minecraft:air',
+    'setblock ~0 ~1 ~-3 minecraft:oak_sign{front_text:{messages:[\'{"text":"LITTLE KETTLE"}\',\'{"text":"VALLEY"}\',\'{"text":"pop. 15"}\',\'{"text":"est. again"}\']}}',
     'bossbar set valley:lamps value 40',
     'bossbar set valley:folk value 15',
     // three new arrivals, 24 blocks out on a pre-filled path — a short
@@ -889,6 +998,138 @@ const SCENES = {
     cmds: ['execute positioned ~4 ~-1 ~-9 run function valley:act1/nesting_box']
   },
 
+  // ---------------------------------------------------------------------
+  // Q5, Q7, Q8 and Q11 — the four Act I builds that used to run AT THE
+  // CLAIMING PLAYER'S FEET.
+  //
+  // Every one of them was an FTB Quests command reward reading
+  //   execute positioned {x} {y} {z} run function valley:act1/<name>
+  // and CommandReward#claim substitutes {x} {y} {z} with the position of the
+  // PLAYER WHO CLICKED THE CARD. A card can be claimed from the ridge, from
+  // the Nether, from a mineshaft, from the inn — so:
+  //
+  //   * square_path.mcfunction, whose own header says "this function is
+  //     invoked positioned at the anchor", laid the pad, the twenty-four
+  //     block road and the first two lamp posts wherever the claim happened.
+  //     valley_checks.js had already recorded those two lamps at
+  //     anchor + LAMPS_Q07 the moment the stake went down, so the Act IV
+  //     lever lit two posts that did not exist and left the two that did.
+  //   * cellar_door.mcfunction built Josie's sealed iron door, her chalk and
+  //     her tool chest in a 7x4x7 stone-brick box in mid-air, or inside a
+  //     hill, or in the sea.
+  //   * marnie_arrives and pip_arrives dropped two residents, a courier
+  //     board, a barrel and two lamp posts in the same arbitrary spot.
+  //
+  // They are scenes now, each measured from a mark, and each latched
+  // once:true — which is `v.once('scene_<key>')` with NO team argument, i.e.
+  // world-level. That is deliberate and it is the rule for every shared town
+  // structure in this file: the square, the cellar, the inn's neighbours and
+  // the road are built once per WORLD. A per-team latch would build a second
+  // road through the first one the moment a second team claimed the card.
+  // ---------------------------------------------------------------------
+
+  // Q7's reward. AT THE ANCHOR, which is the only position this function has
+  // ever been correct at: it is the stake, the pad around it, the road south
+  // and LAMPS_Q07's two posts.
+  square_path: {
+    origin: 'anchor',
+    once: true,
+    cmds: ['execute positioned ~0 ~0 ~0 run function valley:act1/square_path']
+  },
+
+  // Q5's reward — the cellar under the Kettle hearthstone.
+  //
+  // Two things make this one different from every other scene here.
+  //
+  // 1. NO ANCHOR YET. Q5 is two quests before Q7, so the Surveyor's Stake has
+  //    not been driven and v.anchor() is null. runScene refuses a scene with
+  //    no anchor because a scene has nothing to measure from — but this one
+  //    measures from the HOUSE, not the town, so it carries noAnchor.
+  // 2. DEPTH. The function builds a 7x4x7 room whose shell runs from its
+  //    origin's y-1 to y+3, with the walkable floor at y-1 and the air at
+  //    y..y+2. Home is the Homestead Waystone block (valley_checks.js sets it
+  //    where the player places it, on the ruin hearthstone), the cottage's
+  //    plank floor is home.y-1 and its cobblestone subfloor is home.y-2. So
+  //    the origin is home + [0,-6,0]: the room's stone-brick ceiling lands at
+  //    home.y-3, directly under that subfloor, and a player standing on the
+  //    cellar floor has their feet at home.y-6 — which satisfies BOTH gates
+  //    valley_checks.js puts on this room, Q5's `y <= home.y + HOME_CELLAR_Y`
+  //    (-3) and Q55's `y <= home.y + HOME_DEEP_Y` (-6).
+  cellar: {
+    origin: 'home',
+    once: true,
+    noAnchor: true,
+    // Home is set by Q2. If a world somehow reaches Q5 without it, fall back
+    // to the ruin hearthstone placeRuin() dropped at first join, and only
+    // then to the claiming player — the old behaviour, but said out loud in
+    // the log instead of happening silently every single time.
+    fallback: function (v, source) {
+      let r = v.ruin()
+      if (r) {
+        console.warn('[valley] scene cellar: no Home set; building under the Kettle ruin hearthstone at ' + r.join(' '))
+        return r
+      }
+      let p = srcPlayer(source)
+      if (p) {
+        let q = [Math.floor(p.x), Math.floor(p.y), Math.floor(p.z)]
+        console.warn('[valley] scene cellar: no Home and no ruin hearthstone. ' +
+                     'Building at the claiming player, ' + q.join(' ') + ' — the cellar will be wherever this card was clicked.')
+        return q
+      }
+      return null
+    },
+    cmds: ['execute positioned ~0 ~-6 ~0 run function valley:act1/cellar_door']
+  },
+
+  // Q8's third reward — Marnie arrives. AT THE INN, which is the building
+  // Q8's own payoff line says she moves into.
+  //
+  // The inn mark is the Hearth: the floor is inn.y-1 and everything stands at
+  // inn.y, so the function (which expects to be positioned at ground level,
+  // the way a player's feet are) is run at inn + [0,-1,0]. Its own footprint
+  // is then anchor + [-10..-6, 0..2, 18..20] — three blocks clear of the inn's
+  // south eave (z 17) and, more importantly, OUTSIDE every rectangle the Act I
+  // finale bulldozes eleven quests later. That finale air-fills y 1..14 over
+  // z <= 6, over z = 18, and over z 7..17 either side of the inn; the only
+  // ground near the inn that survives it is z >= 19, which is exactly where
+  // Marnie's post, her barrel and her table stand. The pad row at z = 18 is
+  // at y 0 and is simply repaved in the same cobblestone.
+  //
+  // The three fills are §7 rule 2 — subgrade, clear, then build — because
+  // this is the first thing ever built south of the inn and nothing else has
+  // levelled that strip.
+  marnie: {
+    origin: 'inn',
+    once: true,
+    cmds: [
+      'fill ~-2 ~-3 ~6 ~2 ~-2 ~8 minecraft:dirt',
+      'fill ~-2 ~0 ~6 ~2 ~5 ~8 minecraft:air',
+      'execute positioned ~0 ~-1 ~0 run function valley:act1/marnie_arrives'
+    ]
+  },
+
+  // Q11's reward — Pip moves in, with the duck. Same strip, five blocks west
+  // of Marnie so the two never share a block: his footprint is
+  // anchor + [-15..-11, 0..2, 18..20]. Clear of Marnie (x -10..-6), of the
+  // greenhouse q60 builds at x -24..-16 z 11..17, of the bathhouse and its
+  // Q72 posts (x -20..-16, z 8..12), of the Act V approach path (x -2..2) and
+  // of q58's lantern path (x -2 and 2). Nearest Lantern Road mark is
+  // LAMPS_Q74's [-12,1,16], three blocks off — outside LAMP_TOLERANCE.
+  //
+  // NOT inside the inn, which is where inn-local [0,0,0] would have put the
+  // whole thing: pip_arrives lays a 5x3 dirt_path pad at its own y, and at
+  // the inn mark that pad lands on the common-room floor straight across
+  // Q18's three chalked polished_andesite spots.
+  pip: {
+    origin: 'inn',
+    once: true,
+    cmds: [
+      'fill ~-7 ~-3 ~6 ~-3 ~-2 ~8 minecraft:dirt',
+      'fill ~-7 ~0 ~6 ~-3 ~5 ~8 minecraft:air',
+      'execute positioned ~-5 ~-1 ~4 run function valley:act1/pip_arrives'
+    ]
+  },
+
   // Q58 — the four firewood stacks. Wisp lights a lantern path down the
   // frozen river, which is the first thing that happens after the Hearth
   // goes out and the only light between the town and the reed village.
@@ -979,11 +1220,41 @@ const SCENES = {
   q62: {
     origin: 'anchor',
     who: ['Halden', 'Eight people, eight bottles. I would go round myself, but they talk to you more than they talk to me.'],
+    // THE STILL WAS INSIDE BRAM'S MILL. These four blocks used to stand at
+    // anchor + [-17..-15, 1, 10]. valley:act1/bram_arrives builds the mill at
+    // the `mill` mark (anchor + [-26, 0, 4]) and its shell is
+    // `fill ~2 ~1 ~-2 ~10 ~3 ~6 oak_planks hollow` — anchor x -24..-16,
+    // y 1..3, z 2..10 — so anchor + [-16, 1, 10] is the mill's SOUTH-EAST
+    // CORNER POST (an oak_log) and anchor + [-17, 1, 10] is the wall beside
+    // it. Halden's brewing stand replaced Bram's corner post and his cupboard
+    // punched a hole in the south wall, from Q8 onward, in every world.
+    //
+    // Moved three blocks east and four north, to the strip of square between
+    // the mill's east wall and the inn's west eave — the ground Halden has
+    // stood on since the Act I finale imported him at anchor + [-14, 1, 8].
+    // Checked clear of everything the pack places:
+    //   mill house        x -24..-16, z 2..10   (this is x -15..-13)
+    //   inn shell + eave  x -13..-3,  z 7..17   (this is z 5..6)
+    //   granary shell     x -14..-6,  z -4..4   (this is z 5..6)
+    //   greenhouse (q60)  x -24..-16, z 11..17
+    //   bathhouse (q72)   x -20..-16, z 8..12
+    //   Act V town hall   x -21..-11, z -17..-7
+    //   Act V approach    x -2..2,    z 10..28
+    //   q59's camp        blocks at [-13,1,5] and [-11,1,5] only
+    //   LAMPS_Q34/Q74     nearest marks [-16,1,2] and [-12,1,16]
+    // Act I's finale paves cobblestone at ~0 over all of z <= 6, so the still
+    // stands on the square's own paving, and its air fill (y 1..14, z <= 6)
+    // runs at Q19 — twelve chapters before this Act IV scene — so it cannot
+    // come back and clear the bench away.
     cmds: [
-      'setblock ~-16 ~1 ~10 minecraft:brewing_stand',
-      'setblock ~-17 ~1 ~10 handcrafted:oak_cupboard',
-      'setblock ~-15 ~1 ~10 minecraft:water_cauldron[level=3]',
-      'setblock ~-16 ~2 ~10 minecraft:lantern[hanging=false]',
+      'setblock ~-15 ~1 ~6 handcrafted:oak_cupboard',
+      'setblock ~-14 ~1 ~6 minecraft:brewing_stand',
+      'setblock ~-13 ~1 ~6 minecraft:water_cauldron[level=3]',
+      // The lantern used to sit directly on top of the brewing stand, which
+      // has no sturdy top face to hang a lantern from. It stands on its own
+      // fence post instead, the same post-and-light the rest of the pack uses.
+      'setblock ~-14 ~1 ~5 minecraft:oak_fence',
+      'setblock ~-14 ~2 ~5 minecraft:lantern[hanging=false]',
       'effect give @a minecraft:regeneration 20 0 true',
       'particle minecraft:happy_villager ~0 ~2 ~0 6 2 6 0.01 120 force @a',
       'playsound minecraft:block.brewing_stand.brew master @a ~0 ~1 ~0 2 1'
@@ -1034,7 +1305,9 @@ const SCENES = {
       'fill ~5 ~0 ~5 ~7 ~0 ~7 minecraft:hay_block',
       'summon minecraft:horse ~6 ~1 ~6 {Tame:1b,PersistenceRequired:1b,SaddleItem:{id:"minecraft:saddle",Count:1b}}',
       'playsound minecraft:block.beacon.power_select master @a ~0 ~1 ~0 2 0.8'
-    ]
+    ],
+    // One more water sweep, after the fixtures. runScene calls `run` last.
+    run: dryWorks
   },
 
   // Q66 — the grid. Duct from the mill to the Works, two cells at this end.
@@ -1051,7 +1324,8 @@ const SCENES = {
       'setblock ~0 ~1 ~-4 minecraft:redstone_lamp[lit=true]',
       'particle minecraft:electric_spark ~0 ~1 ~-4 0.6 0.6 0.6 0.02 60 force @a',
       'playsound minecraft:block.beacon.activate master @a ~0 ~1 ~0 1 1.4'
-    ]
+    ],
+    run: dryWorks
   },
 
   // Q70a — the wool line. Three blankets, three beds, three empty houses
@@ -1085,7 +1359,10 @@ const SCENES = {
     origin: 'anchor',
     who: ['Oda', "Year two on the board, and it is a longer list than last spring. I have written the bottom four lines out exactly as they were."],
     cmds: [
-      'setblock ~1 ~4 ~-5 minecraft:oak_sign[rotation=8]{front_text:{messages:[\'{"text":"Forty lamps."}\',\'{"text":"Fifteen people."}\',\'{"text":"One winter that"}\',\'{"text":"nobody leaves."}\']}}',
+      // Same trap as finaleAct3, same fix: the sign is already standing on
+      // the noticeboard in this exact blockstate, so /setblock refuses and
+      // throws the NBT away. Write the block entity instead.
+      'data merge block ~1 ~4 ~-5 {front_text:{messages:[\'{"text":"Forty lamps."}\',\'{"text":"Fifteen people."}\',\'{"text":"One winter that"}\',\'{"text":"nobody leaves."}\'],has_glowing_text:0b,color:"black"}}',
       'tellraw @a {"text":"On the noticeboard, in Oda\\u0027s hand: Forty lamps. Fifteen people. One winter that nobody leaves.","color":"gold"}',
       'playsound minecraft:block.wood.place master @a ~0 ~1 ~-5 1 1.2'
     ]
@@ -1095,15 +1372,23 @@ const SCENES = {
   // UNPOWERED here, because pulling it is the Act IV finale.
   q71: {
     origin: 'works',
+    // Same room, same lever cell as the Act IV finale — so the same two
+    // guards. `pre` digs and seals the chamber if q65 has not (latched, so
+    // it is a no-op when it has), and the andesite panel at ~0 ~2 ~-1 is the
+    // wall a `face=wall` lever hangs on: without it the lever has no support
+    // and pops off as an item the first time a neighbour updates.
+    pre: excavateWorks,
     who: ['Bram', "Crate's got what it's got - blades, coils, casing. Eighteen hundred RPM under load, and hold it there."],
     cmds: [
       'setblock ~0 ~1 ~0 minecraft:polished_andesite',
+      'setblock ~0 ~2 ~-1 minecraft:polished_andesite',
       'setblock ~0 ~2 ~0 minecraft:lever[face=wall,facing=south,powered=false]',
       'setblock ~-1 ~2 ~0 minecraft:copper_block',
       'setblock ~1 ~2 ~0 minecraft:copper_block',
       'setblock ~0 ~3 ~0 minecraft:oak_wall_sign[facing=south]{front_text:{messages:[\'{"text":"1800 RPM"}\',\'{"text":"under load"}\',\'{"text":"- J.K."}\',\'{"text":""}\']}}',
       'playsound minecraft:block.note_block.bit master @a ~0 ~1 ~0 2 1.6'
-    ]
+    ],
+    run: dryWorks
   },
 
   // Q72 — the coolant loop. Josie's rule: the waste heat goes to the town.
@@ -1194,6 +1479,17 @@ function originPos(v, name) {
   return v.mark(name)
 }
 
+// Where a scene actually builds. Normally that is its own mark; a scene that
+// can legitimately run before its mark exists carries a `fallback(v, source)`
+// which returns a position or null. SCENES.cellar is the only one: Q5 is two
+// quests before the Surveyor's Stake.
+function sceneOrigin(v, scene, source) {
+  let p = originPos(v, scene.origin)
+  if (p) return p
+  if (scene.fallback) return scene.fallback(v, source)
+  return null
+}
+
 function runScene(source, key) {
   let v = global.valley
   if (!v) { msg(source, Text.red('[valley] core script not loaded.')); return 0 }
@@ -1204,9 +1500,22 @@ function runScene(source, key) {
       Object.keys(SCENES).join(' ')))
     return 0
   }
-  if (!v.anchor()) {
+  // Almost every scene is anchor-relative, so no anchor means nothing to
+  // measure from. `noAnchor` is the exception for a scene measured from the
+  // homestead instead — see SCENES.cellar, which is a Q5 reward and therefore
+  // fires two quests BEFORE the stake is driven.
+  if (!scene.noAnchor && !v.anchor()) {
     msg(source, Text.red(
       'No Town Anchor is set, so a scene has nothing to measure from. Place the Surveyor\'s Stake first (Q7).'))
+    return 0
+  }
+
+  // Resolve the origin BEFORE the once() latch is burned: a scene that could
+  // not find anywhere to build has not played, and must stay re-runnable.
+  let origin = sceneOrigin(v, scene, source)
+  if (!origin) {
+    console.warn('[valley] scene ' + key + ': no origin "' + scene.origin + '" and no usable fallback; nothing built')
+    msg(source, Text.gray('[valley] scene ' + key + ' has nothing to measure from yet.'))
     return 0
   }
 
@@ -1222,14 +1531,10 @@ function runScene(source, key) {
   // "scene played", and never builds. `bram` carries once:true and is the only
   // thing that puts Bram at the mill, so a claim from 200 blocks away used to
   // make Q12 unwinnable for good. Hold the chunks for six seconds.
-  let sr = [v.anchor()]
-  let addMark = name => {
-    if (!name) return
-    let p = originPos(v, name)
-    if (p) sr.push(p)
-  }
-  addMark(scene.origin)
-  if (scene.also) addMark(scene.also.origin)
+  let sr = [origin]
+  let a = v.anchor()
+  if (a) sr.push(a)
+  if (scene.also) { let p2 = originPos(v, scene.also.origin); if (p2) sr.push(p2) }
   if (scene.home) { let h = v.home(); if (h) sr.push(h) }
   sr = sr.filter(p => p)
   forceload(server, sr, 'add')
@@ -1238,11 +1543,7 @@ function runScene(source, key) {
   try {
     // A scene may need the ground prepared before its own commands land.
     if (scene.pre) scene.pre(server, v)
-    if (scene.cmds) {
-      let origin = originPos(v, scene.origin)
-      if (origin) runSeg(server, origin, scene.cmds)
-      else console.warn('[valley] scene ' + key + ': no mark "' + scene.origin + '"')
-    }
+    if (scene.cmds) runSeg(server, origin, scene.cmds)
     if (scene.also) {
       let o2 = originPos(v, scene.also.origin)
       if (o2) runSeg(server, o2, scene.also.cmds)

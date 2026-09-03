@@ -448,7 +448,7 @@ The centrepiece of the pack.
 
 ### Act V finale — **Founder's Day** *(triggered by Q91)*
 - `/sereneseasons setseason early_spring` · `/time set noon` · `/weather clear`
-- Clear/pad/template the finished town: the town hall façade, a signpost carrying every resident's name (`oak_sign` with `front_text`, reading *COPPER KETTLE / VALLEY / pop. 15 / est. again*), a stone bridge, the rebuilt mill roof, banners, paved square, flower beds.
+- Clear/pad/template the finished town: the town hall façade, a signpost carrying every resident's name (`oak_sign` with `front_text`, reading *LITTLE KETTLE / VALLEY / pop. 15 / est. again*), a stone bridge, the rebuilt mill roof, banners, paved square, flower beds.
 - `bossbar valley:lamps 40` · `bossbar valley:folk 15`.
 - Summon all residents **plus three new arrivals** on the road 24 blocks out, on a pre-filled path, with a `follow_player` objective so they walk the last stretch in. Visible proof the valley is alive again — and it is a short approach, not a journey, because long-distance pathing does not work.
 - Halden reads the last page of Josie's journal aloud: five `tellraw` lines, each scheduling the next 5 seconds later.
@@ -910,7 +910,7 @@ weather clear
 place template valley:town_hall ~-20 ~1 ~-6
 place template valley:stone_bridge ~10 ~0 ~-14
 place template valley:mill_roof ~-24 ~4 ~2
-setblock ~0 ~1 ~-3 minecraft:oak_sign{front_text:{messages:['{"text":"COPPER KETTLE"}','{"text":"VALLEY"}','{"text":"pop. 15"}','{"text":"est. again"}']}}
+setblock ~0 ~1 ~-3 minecraft:oak_sign{front_text:{messages:['{"text":"LITTLE KETTLE"}','{"text":"VALLEY"}','{"text":"pop. 15"}','{"text":"est. again"}']}}
 bossbar set valley:lamps value 40
 bossbar set valley:folk value 15
 easy_npc preset import_new valley:newcomer_a ~0 ~1 ~24

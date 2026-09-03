@@ -644,9 +644,14 @@ ServerEvents.tick(event => {
       // OTHER team in the world.
       if (v.isDone(c.key, team)) continue
       let ok = false
+      // A predicate that throws is logged and SKIPPED for this tick only.
+      // This used to POLLS.splice(i, 1), which is world-level surgery in a
+      // per-player loop: one bad tick — a null level, a player mid-dimension-
+      // change — disarmed that check for EVERY team in the world, permanently,
+      // and the quest it feeds could never fire again. Same bug as the old
+      // splice in fire(); same fix. Nothing is ever removed from POLLS.
       try { ok = c.need(event.server, player) } catch (err) {
-        console.error('[valley] check ' + c.key + ' failed: ' + err)
-        POLLS.splice(i, 1)
+        console.error('[valley] check ' + c.key + ' failed (left armed): ' + err)
         continue
       }
       if (ok) fire(player, c.key)

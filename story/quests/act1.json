@@ -195,7 +195,7 @@
         { "type": "checkmark", "title": "Stairs cleared — you are standing below the cottage floor" }
       ],
       "rewards": [
-        { "type": "command", "command": "execute positioned {x} {y} {z} run function valley:act1/cellar_door", "team": true },
+        { "type": "command", "command": "/valley scene cellar", "team": true },
         { "type": "item", "item": "waystones:waystone" },
         { "type": "item", "item": "minecraft:iron_axe" },
         { "type": "item", "item": "minecraft:iron_hoe" },
@@ -249,7 +249,7 @@
         { "type": "checkmark", "title": "Surveyor's Stake placed north of the gate" }
       ],
       "rewards": [
-        { "type": "command", "command": "execute positioned {x} {y} {z} run function valley:act1/square_path", "team": true },
+        { "type": "command", "command": "/valley scene square_path", "team": true },
         { "type": "command", "command": "bossbar set valley:lamps value 2", "team": true },
         { "type": "toast", "title": "Lantern Road 2/40", "description": "Next: sleep one night in your bed. Somebody is going to see the smoke." }
       ]
@@ -271,9 +271,9 @@
         { "type": "checkmark", "title": "Slept one night in the cottage bed" }
       ],
       "rewards": [
-        { "type": "command", "command": "execute positioned {x} {y} {z} run function valley:act1/marnie_arrives", "team": true },
-        { "type": "command", "command": "/valley scene bram", "team": true },
         { "type": "command", "command": "/valley scene inn", "team": true },
+        { "type": "command", "command": "/valley scene bram", "team": true },
+        { "type": "command", "command": "/valley scene marnie", "team": true },
         { "type": "command", "command": "bossbar set valley:folk value 1", "team": true },
         { "type": "item", "item": "minecraft:bread", "count": 8 },
         { "type": "item", "item": "waystones:waystone" },
@@ -356,7 +356,7 @@
         { "type": "item", "item": "minecraft:egg", "count": 3, "consume": true }
       ],
       "rewards": [
-        { "type": "command", "command": "execute positioned {x} {y} {z} run function valley:act1/pip_arrives", "team": true },
+        { "type": "command", "command": "/valley scene pip", "team": true },
         { "type": "command", "command": "bossbar set valley:folk value 2", "team": true },
         { "type": "item", "item": "duckling:duck_spawn_egg" },
         { "type": "item", "item": "minecraft:white_wool", "count": 16 },

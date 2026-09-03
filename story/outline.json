@@ -331,7 +331,7 @@
         {"id": "Q91", "title": "The Feast", "lane": "cozy", "task": "Set the eight dishes from the Feast Crate on the long table and light the Hearth.", "task_type": "item (8 feast dishes, consume)", "reward": "Act V finale — Founder's Day", "reward_type": "command (/valley finale act5)", "depends_on": ["Q79", "Q90"], "est_minutes": 10}
       ],
       "finale": {
-        "description": "Founder's Day. Spring at noon, clear. The finished town is pad-and-templated: town hall facade, a signpost carrying every resident's name reading COPPER KETTLE / VALLEY / pop. 15 / est. again, a stone bridge, the rebuilt mill roof, banners, paved square, flower beds. Lamps 40, residents 15. All residents plus three new arrivals spawn 24 blocks out on a pre-filled path with a follow objective so they walk the last stretch in. Halden reads the last page of Josie's journal as five tellraw lines, each scheduling the next. Every player receives the Kettle Family Deed, a Founder's Plaque with their own name on it, the plushie set, a top-tier backpack and a Copper Kettle trophy. Fireworks, a long chord, and proximity voice chat around a full table — which needs no code at all. The border opens to 60,000,000 in both dimensions and the Endless Seasons chapter unlocks, which is the only place random Bountiful bounties ever appear.",
+        "description": "Founder's Day. Spring at noon, clear. The finished town is pad-and-templated: town hall facade, a signpost carrying every resident's name reading LITTLE KETTLE / VALLEY / pop. 15 / est. again, a stone bridge, the rebuilt mill roof, banners, paved square, flower beds. Lamps 40, residents 15. All residents plus three new arrivals spawn 24 blocks out on a pre-filled path with a follow objective so they walk the last stretch in. Halden reads the last page of Josie's journal as five tellraw lines, each scheduling the next. Every player receives the Kettle Family Deed, a Founder's Plaque with their own name on it, the plushie set, a top-tier backpack and a Copper Kettle trophy. Fireworks, a long chord, and proximity voice chat around a full table — which needs no code at all. The border opens to 60,000,000 in both dimensions and the Endless Seasons chapter unlocks, which is the only place random Bountiful bounties ever appear.",
         "commands": [
           "sereneseasons setseason early_spring",
           "time set noon",
@@ -339,7 +339,7 @@
           "place template valley:town_hall ~-20 ~1 ~-6",
           "place template valley:stone_bridge ~10 ~0 ~-14",
           "place template valley:mill_roof ~-24 ~4 ~2",
-          "setblock ~0 ~1 ~-3 minecraft:oak_sign{front_text:{messages:['{\"text\":\"COPPER KETTLE\"}','{\"text\":\"VALLEY\"}','{\"text\":\"pop. 15\"}','{\"text\":\"est. again\"}']}}",
+          "setblock ~0 ~1 ~-3 minecraft:oak_sign{front_text:{messages:['{\"text\":\"LITTLE KETTLE\"}','{\"text\":\"VALLEY\"}','{\"text\":\"pop. 15\"}','{\"text\":\"est. again\"}']}}",
           "bossbar set valley:lamps value 40",
           "bossbar set valley:folk value 15",
           "easy_npc preset import_new valley:newcomer_a ~0 ~1 ~24",

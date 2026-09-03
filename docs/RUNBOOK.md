@@ -50,8 +50,8 @@ Rebuilds `dist/LittleKettleValley.zip` and uploads it to the GitHub release. Fri
 2. `cd pack && ../tools/packwiz refresh`
 3. Test: `server_ctl.sh start` then `wait`, watch for errors, `stop`.
 4. `git add -A && git commit -m "what changed"` then `git push`.
-5. Friends get the update automatically on their next launch. The server gets it by re-running the installer:
-   `cd server && ../tools/jdk17/Contents/Home/bin/java -jar ../tools/packwiz-installer-bootstrap.jar -g -s server ../pack/pack.toml`
+5. Friends get the update automatically on their next launch. The server gets it with the sync script, which also clears the quest files the game rewrites on its own so they never shadow an update:
+   `"$HOME/Desktop/1. Projects/Minecraft/tools/scripts/sync_server.sh"`
 
 ## Roll back a bad update
 ```bash
@@ -93,7 +93,7 @@ It temporarily sets `online-mode=false`, boots a fresh world, joins the offline 
 1. Edit `story/quests/act*.json` (or `oda.json`). The format is `docs/QUEST_FORMAT.md`.
 2. Compile: `tools/venv/bin/python tools/scripts/compile_quests.py story/quests pack/config/ftbquests/quests scratch/ids_plus.json --strict`. It refuses unknown item ids.
 3. `cd pack && ../tools/packwiz refresh`, then `git add -A && git commit -m "..." && git push`.
-4. On the running server, without restarting: re-run the installer (`cd server && ../tools/jdk17/Contents/Home/bin/java -jar ../tools/packwiz-installer-bootstrap.jar -g -s server ../pack/pack.toml`), then in the console `ftbquests reload`. Everyone online sees the new quests immediately; quest text comes from the server.
+4. On the running server, without restarting: run `tools/scripts/sync_server.sh`, then in the console `ftbquests reload`. Everyone online sees the new quests immediately; quest text comes from the server.
 5. KubeJS recipe or script edits: same install, then `kubejs reload server_scripts`. Datapack functions: `reload`.
    * `kubejs reload server_scripts` does NOT rebuild the command tree: `/valley` keeps running the functions from the last full server start. If you changed anything inside `/valley finale`, `/valley scene`, `/valley check` or `/valley standing`, restart the server or the reload will look like it did nothing.
 

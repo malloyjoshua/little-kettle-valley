@@ -18,7 +18,7 @@ hash = "87954188750d81c4ea67c7fb947d0e66868a85c6a6c81fe577c3b09f76dd9b3b"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act1.snbt"
-hash = "38a0de60a7c61e9118feb42bbf9fcd4bad763bbdab665d16a037ac775992c8fd"
+hash = "321a2e1842387b1b155d60e306863786222a7b6d17bb7a9b1b4b4b9a76ab0882"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act2.snbt"
@@ -30,7 +30,7 @@ hash = "0897888f60658abb46e3786196f13293e720d134a35697631419e31303eca551"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act4.snbt"
-hash = "a246dcf5eb1d016162609a298435b0a22648ad54a23aba494c37317335957f32"
+hash = "87df5b381e0f36b092fbf2ee8612cdc8be19e9649b4790860f5cddc3f4a76fa3"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act5.snbt"
@@ -638,15 +638,15 @@ hash = "9234f4b2641dff53dd8c6b6e2a13360afbad5df8b02f872292fe3559c6c62421"
 
 [[files]]
 file = "kubejs/server_scripts/valley_checks.js"
-hash = "a6606612c7c95e10529f96f9ffb454384e6a0e8d2ddc38b99b31f92b993d760f"
+hash = "989a3517cc373b205a1d1569a9f59628c1f7a0e47b28d75fd4a45f70f1eb6a7d"
 
 [[files]]
 file = "kubejs/server_scripts/valley_core.js"
-hash = "c101dff5458ca8486e0e3129b21f26e5acfc50c2ec53b07298534411bd33db95"
+hash = "87004c605083c172741cea5e978c96013faf6f2f2bf7a9a95f6784edfa51a294"
 
 [[files]]
 file = "kubejs/server_scripts/valley_finales.js"
-hash = "6ef8e7735312723b2655afaa7facac3af0625ae4579c03752b6b8cac12f84d9f"
+hash = "b4ab5daec955f9d62e8873cac42677a1b4359184571cc5d20ee4dd22025d552b"
 
 [[files]]
 file = "kubejs/server_scripts/valley_gates.js"

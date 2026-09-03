@@ -47,6 +47,19 @@ Then in the game: Multiplayer > Direct Connect > `localhost`.
 ## Branding (done)
 Chunky cream-and-copper title logo with the kettle, the "put the kettle on" tagline, an illustrated dusk panorama of the valley behind the title screen, a kettle launcher icon and server-list icon, and hand-drawn 16 px textures for all 49 valley items. Sources and build scripts in `media/`; in-game capture at `media/title_screen_in_game.png`. The Supplementaries "Amendments" popup is suppressed for every client.
 
+
+## Gameplay redteam (2026-09-03 afternoon)
+Five adversarial agents (the non-creative partner, the Tekkit veteran, a late-joining friend, the game engine on a headless server, a taste critic) attacked the shipped pack. 54 attacks, 49 kept: 7 critical, 14 high. Verdict before fixes: do not ship. All 21 critical and high items were then fixed and independently re-verified on fresh worlds, including one with the town on an island so the Works sat underwater. Highlights of what changed:
+- Act I no longer deadlocks at q12 (Bram arrives the night you first sleep).
+- Progress is shared for real (one party, recorded by its real name) and every auto-check latches per team, so a second player is never stuck.
+- The ruined Kettle farm exists at first join with a lit path to it; the cottage rebuilds around its hearthstone; the letter has four pages.
+- Finales run as re-entrant beats, forceload their region, and survive restarts, reloads, and being claimed from far away.
+- The forty lamps light (copper lamps on posts, swept by the Act IV lever). The reactor climax needs the real terminal in view.
+- Turbine bill has both bearings, the greenhouse glass passes light, scrip is capped (738 earnable against 350 of gates), the Works is excavated and sealed, the beach holds, the Lantern Float floats, the noticeboard carries the destination line.
+Still unverified without a real player: the reactor look-at rule and the two-player latches. Run `tools/scripts/playthrough.sh` when the Mac is free (it launches the game window).
+
+Next: the beauty pass. The town, the starting ruin and the Works get rebuilt from the pack's own designed structure templates (Towns and Towers, Dungeons and Taverns) in one consistent style, with staged arrival moments for discovery.
+
 ## Known rough edges
 - The 26 per-player stage flags granted by quests are milestone markers with no consumer. Harmless. Documented in `docs/integration-plan.md`.
 - Forge's update checker logs a JSON warning for Canary's remote version file at startup. Cosmetic.
