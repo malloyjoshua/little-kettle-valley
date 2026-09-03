@@ -25,7 +25,7 @@ elif sys.argv[1] == 'command':
     vs = [v['id'] for v in mll.utils.get_installed_versions(str(MCDIR)) if 'forge' in v['id']]
     version = vs[0]
     opts = {
-        'username': 'PackTester', 'uuid': str(uuid.uuid3(uuid.NAMESPACE_DNS, 'PackTester')), 'token': '0',
+        'username': 'packtester', 'uuid': str(uuid.uuid3(uuid.NAMESPACE_DNS, 'packtester')), 'token': '0',
         'executablePath': str(JAVA), 'jvmArguments': [f'-Xmx{xmx}M', '-Xms1024M', '-XX:+UseG1GC', '-XX:+UnlockExperimentalVMOptions', '-XX:G1NewSizePercent=20', '-XX:G1ReservePercent=20', '-XX:MaxGCPauseMillis=50', '-XX:G1HeapRegionSize=32M'],
         'gameDirectory': gamedir, 'launcherName': 'packtester', 'launcherVersion': '1',
     }

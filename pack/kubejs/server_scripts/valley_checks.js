@@ -140,7 +140,7 @@ BlockEvents.placed(event => {
     const tryRoute = (list, name) => {
       if (matched) return
       for (let i = 0; i < list.length; i++) {
-        const p = [anchor[0] + list[i][0], anchor[1] + list[i][1], anchor[2] + list[i][2]]
+        let p = [anchor[0] + list[i][0], anchor[1] + list[i][1], anchor[2] + list[i][2]]
         if (Math.abs(b.x - p[0]) <= tol && Math.abs(b.y - p[1]) <= tol && Math.abs(b.z - p[2]) <= tol) {
           matched = p; route = name; return
         }
@@ -195,7 +195,7 @@ function countOnRoute(v, anchor, route) {
   const tol = v.C.LAMP_TOLERANCE
   let n = 0
   for (let i = 0; i < route.length; i++) {
-    const p = [anchor[0] + route[i][0], anchor[1] + route[i][1], anchor[2] + route[i][2]]
+    let p = [anchor[0] + route[i][0], anchor[1] + route[i][1], anchor[2] + route[i][2]]
     for (let j = 0; j < lamps.length; j++) {
       if (Math.abs(lamps[j][0] - p[0]) <= tol &&
           Math.abs(lamps[j][1] - p[1]) <= tol &&
@@ -409,7 +409,7 @@ ServerEvents.tick(event => {
       catch (err) { console.error('[valley] standing check failed: ' + err) }
     }
     for (let i = POLLS.length - 1; i >= 0; i--) {
-      const c = POLLS[i]
+      let c = POLLS[i]
       let ok = false
       try { ok = c.need(event.server, player) } catch (err) {
         console.error('[valley] check ' + c.key + ' failed: ' + err)

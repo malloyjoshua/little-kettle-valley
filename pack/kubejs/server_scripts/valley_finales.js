@@ -74,8 +74,11 @@ function resolve(cmd, origin) {
 function runSeg(server, origin, cmds) {
   cmds.forEach(c => {
     if (!c || c.charAt(0) === '#') return
-    try { server.runCommandSilent(resolve(c, origin)) }
-    catch (err) { console.error('[valley] finale command failed: ' + c + ' :: ' + err) }
+    const full = resolve(c, origin)
+    try {
+      const r = server.runCommandSilent(full)
+      if (r === 0) console.warn('[valley] command returned 0 (no effect / failed): ' + full)
+    } catch (err) { console.error('[valley] finale command failed: ' + full + ' :: ' + err) }
   })
 }
 
@@ -782,6 +785,20 @@ ServerEvents.commandRegistry(event => {
           .executes(ctx => runScene(ctx.source, event.arguments.WORD.getResult(ctx, 'key')))))
 
       // --- /valley anchor -------------------------------------------------
+      .then(Commands.literal('anchor').then(Commands.literal('set').requires(src => src.hasPermission(2))
+        .then(Commands.argument('x', Arguments.INTEGER.create(event)).then(Commands.argument('y', Arguments.INTEGER.create(event)).then(Commands.argument('z', Arguments.INTEGER.create(event)).executes(ctx => {
+          const x = Arguments.INTEGER.getResult(ctx, 'x'), y = Arguments.INTEGER.getResult(ctx, 'y'), z = Arguments.INTEGER.getResult(ctx, 'z')
+          global.valley.setAnchor(x, y, z)
+          msg(ctx.source, Text.gold('Town Anchor set to ' + x + ' ' + y + ' ' + z))
+          return 1
+        }))))))
+      .then(Commands.literal('home').then(Commands.literal('set').requires(src => src.hasPermission(2))
+        .then(Commands.argument('x', Arguments.INTEGER.create(event)).then(Commands.argument('y', Arguments.INTEGER.create(event)).then(Commands.argument('z', Arguments.INTEGER.create(event)).executes(ctx => {
+          const x = Arguments.INTEGER.getResult(ctx, 'x'), y = Arguments.INTEGER.getResult(ctx, 'y'), z = Arguments.INTEGER.getResult(ctx, 'z')
+          global.valley.setHome(x, y, z)
+          msg(ctx.source, Text.gold('Home set to ' + x + ' ' + y + ' ' + z))
+          return 1
+        }))))))
       .then(Commands.literal('anchor').executes(ctx => {
         const v = global.valley
         const a = v ? v.anchor() : null
