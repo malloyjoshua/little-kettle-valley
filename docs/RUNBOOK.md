@@ -57,3 +57,15 @@ Friends pick up the revert on next launch.
 - Server: `server/logs/latest.log`
 - Crashes: `server/crash-reports/`
 - Client (Prism): right-click the instance, "Minecraft Folder", then `logs/latest.log`
+
+## Let friends connect without port forwarding (playit.gg, free)
+1. Download the macOS agent from https://github.com/playit-cloud/playit-agent/releases (playit-darwin-arm64), put it in `tools/`, `chmod +x`.
+2. Run `tools/playit-darwin-arm64` once. It prints a claim link. Open it, sign in (free account), name the agent.
+3. In the playit dashboard add a tunnel: type Minecraft Java, local address `127.0.0.1:25565`. It gives a hostname like `something.playit.gg`. That is the server address friends use.
+4. Keep the agent running whenever the server is up (a second terminal, or a launchd job later).
+
+## Automated playthrough (proves every quest reward and finale still works after a change)
+```bash
+"$HOME/Desktop/1. Projects/Minecraft/tools/scripts/playthrough.sh"
+```
+It temporarily sets `online-mode=false`, boots a fresh world, joins the offline test client, completes all quests in order from the console, and prints every command error. It restores `online-mode=true` when it exits. Do not run it while people are playing.
