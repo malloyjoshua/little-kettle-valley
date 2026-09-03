@@ -75,3 +75,20 @@ Friends pick up the revert on next launch.
 "$HOME/Desktop/1. Projects/Minecraft/tools/scripts/playthrough.sh"
 ```
 It temporarily sets `online-mode=false`, boots a fresh world, joins the offline test client, completes all quests in order from the console, and prints every command error. It restores `online-mode=true` when it exits. Do not run it while people are playing.
+
+## Fixing the story while people are playing
+
+**Someone is stuck on a quest right now (no files, no restart):**
+1. Make yourself op once: `server_ctl.sh cmd "op YourName"`.
+2. In the game, open the quest book and run `/ftbquests editing_mode` in chat. Right-click any quest for Complete or Reset. Run the command again to leave edit mode.
+3. Missing a stage the story should have given: `/kubejs stages add PlayerName stage_name` (stage names are in `story/quests/*.json`).
+4. A finale or scene that did not fire: `/valley finale act2`, `/valley scene q59`. If the town anchor was never set: `/valley anchor set x y z`.
+
+**Change text, tasks, rewards, or dependencies (permanent):**
+1. Edit `story/quests/act*.json` (or `oda.json`). The format is `docs/QUEST_FORMAT.md`.
+2. Compile: `tools/venv/bin/python tools/scripts/compile_quests.py story/quests pack/config/ftbquests/quests scratch/ids_plus.json --strict`. It refuses unknown item ids.
+3. `cd pack && ../tools/packwiz refresh`, then `git add -A && git commit -m "..." && git push`.
+4. On the running server, without restarting: re-run the installer (`cd server && ../tools/jdk17/Contents/Home/bin/java -jar ../tools/packwiz-installer-bootstrap.jar -g -s server ../pack/pack.toml`), then in the console `ftbquests reload`. Everyone online sees the new quests immediately; quest text comes from the server.
+5. KubeJS recipe or script edits: same install, then `kubejs reload server_scripts`. Datapack functions: `reload`.
+
+**One rule:** in-game edit mode writes to the server's quest files, and the compiler overwrites those from the JSON. Use edit mode to unstick people, use the JSON for anything you want to keep.
