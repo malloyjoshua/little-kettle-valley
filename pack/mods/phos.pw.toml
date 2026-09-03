@@ -1,0 +1,13 @@
+name = "Phosphophyllite"
+filename = "phos-forge-1.2.2_FORGE-201_260721.1324-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/g9B9ojpb/versions/Bvbxn1xR/phos-forge-1.2.2_FORGE-201_260721.1324-1.20.1.jar"
+hash-format = "sha512"
+hash = "23e154f063dade1b9948ff99622343ed022a8732c6fb64aed37f3a395c25eb49aadc7f7ac038e535ff5002775b1e2a27a7525918b8a0a9c3201bbdb83beb74d8"
+
+[update]
+[update.modrinth]
+mod-id = "g9B9ojpb"
+version = "Bvbxn1xR"

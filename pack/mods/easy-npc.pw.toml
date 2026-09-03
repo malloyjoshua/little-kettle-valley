@@ -1,0 +1,13 @@
+name = "Easy NPC"
+filename = "easy_npc_bundle-forge-1.20.1-7.11.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/CgGEe1h3/versions/MITC14Ol/easy_npc_bundle-forge-1.20.1-7.11.0.jar"
+hash-format = "sha512"
+hash = "7be76df39d8a52c02db78d83ff51de4be6207fe554710db4302f87c6133d327c3eb0378104b706ab8ea4ade6c9d582fce32cd4a77abea9f3279e5ec159b78f2b"
+
+[update]
+[update.modrinth]
+mod-id = "CgGEe1h3"
+version = "MITC14Ol"
