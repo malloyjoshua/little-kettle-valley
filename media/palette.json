@@ -1,0 +1,15 @@
+{
+  "name": "Little Kettle Valley",
+  "colors": {
+    "cream": "#F6E7C8", "paper": "#EFDDB8", "copper": "#B87333", "copper_light": "#D9955A", "copper_dark": "#7A4A1F",
+    "kettle_dark": "#5A3A24", "sage": "#8FA98A", "sage_dark": "#5F7A5B", "lamp": "#F2C14E", "lamp_glow": "#FFE59A",
+    "dusk": "#E8A87C", "sky": "#3E5C76", "night": "#1F3A44", "steam": "#FFFFFF", "blush": "#F4B6B6", "ink": "#2B2118",
+    "water": "#5B9BB5", "water_dark": "#3A6F86", "wood": "#9C6B3F", "wood_dark": "#6B4426", "stone": "#9A9A94", "stone_dark": "#6B6B66",
+    "wool": "#F1EDE4", "red": "#C8553D", "green": "#6FA36B", "blue": "#5D7FB3", "purple": "#9A7BB0", "gold": "#E0B04A", "silver": "#C9CFD6"
+  },
+  "dsl": {
+    ".": null, "c": "cream", "p": "paper", "C": "copper", "L": "copper_light", "D": "copper_dark", "k": "kettle_dark",
+    "s": "sage", "S": "sage_dark", "y": "lamp", "Y": "lamp_glow", "u": "dusk", "b": "sky", "n": "night", "w": "steam", "h": "blush", "i": "ink",
+    "a": "water", "A": "water_dark", "o": "wood", "O": "wood_dark", "t": "stone", "T": "stone_dark", "W": "wool", "r": "red", "g": "green", "e": "blue", "v": "purple", "G": "gold", "V": "silver"
+  }
+}

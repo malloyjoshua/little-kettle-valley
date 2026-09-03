@@ -125,200 +125,236 @@ file = "kubejs/assets/geolosys/lang/en_us.json"
 hash = "8d353c4cf6bed76f3f92e31b77b46de3696f99417ad75c4bea819aea50835b7f"
 
 [[files]]
+file = "kubejs/assets/minecraft/textures/gui/title/background/panorama_0.png"
+hash = "406e1d1c8c05b2b43ea54dcc0f6e9d59a77b961a2409ef80ceb0c83efcfa2b9d"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/title/background/panorama_1.png"
+hash = "97e7053c31ed81bf1bf82596609e7321c028e82f5bed33deb6ee24b41fb93ac7"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/title/background/panorama_2.png"
+hash = "45a5c0dcc2cf0766aeabd95bd047389ea4f5d1d483c38a52f842378ad39aef1f"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/title/background/panorama_3.png"
+hash = "17d39be78e01fcad0c698c33a7eee13d4ca88f6b3a9678004308cf979c3b9e3d"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/title/background/panorama_4.png"
+hash = "e556640fa4c1730defc0c8f4df86d16fc13854d5dd4c2a7c452c919288a4cfe3"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/title/background/panorama_5.png"
+hash = "7925eb0e05b7b984ff17c25d4b58d11332d10bbb0cc674cff26264eade2d2eca"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/title/edition.png"
+hash = "44f52d21d1a60c3ef4122797834aeb8ee909161a0f6188fd787c44b316df8848"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/title/minecraft.png"
+hash = "75ce78b44c6bad17d48513906123184394b969bb8b428521195598251eae54bc"
+
+[[files]]
 file = "kubejs/assets/valley/lang/en_us.json"
 hash = "869516321a524eba69ccbd29d3ce2938ab3dc6b100768826795df5ae7fa16317"
 
 [[files]]
+file = "kubejs/assets/valley/textures/block/town_anchor.png"
+hash = "ef708d28dbc2a95e5d903937ea25ae8b9b401cdc8086a64cd7af8d01490d85cb"
+
+[[files]]
 file = "kubejs/assets/valley/textures/item/blanket.png"
-hash = "85dd5be47efe479e2951753f89a8fe6c1219368f40ca8402f9ef195f97b011a5"
+hash = "74c6b62316512f1a326ff2ca23ce1aac55943c2e9dc3898c75f198a17d0281ab"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/bounty_receipt.png"
-hash = "7fb91a113b1c28dce9d69ee4b3f8177d4bfa95a01f9bcecb4a6af9ab051863df"
+hash = "5699ac3d7f35a97bbdbacc7f9370f2324d200be5097d9187b6e80f38f7821351"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/catalogue.png"
-hash = "55b0ccb50ecfee611bd71b48c8dede1abeba364468462824075115e4c665b324"
+hash = "ddd0b64260cf755a6e0993ca2dadda3dbc3bd07a115bad2ed29c0e5accc22834"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/chicken_feed.png"
-hash = "e8a0254d039e5ad99329ca69d28080cc0877382600ee1f55aaadaf0beb9f6112"
+hash = "4d84ae39af6d320c26078061de32c9c991f7d22aef159796c03973b05ab64c31"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/copper_kettle_trophy.png"
-hash = "1d2a9e29ee9d3f9b73d71b12b8aa6b3409cb89e9ba5bb2bd0ab3725a4b36fa86"
+hash = "e2d93575d2e8891ff43c11b884a6d9ca8bab192d64791299924ab7cb5df9f295"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/courier_parcel.png"
-hash = "f7e37975798907c661550a16d899f5c540eba62a4999c53cb10e00d92c2b17fb"
+hash = "f4e582f293e456f049ac569dc9408c1d994b5590750feef0198a971b78979f93"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/cow_crate.png"
-hash = "fe42c3e080320bda42406bd380b2d43c7922580971cda7068d854121ebb394f6"
+hash = "a79807f39be9409387e2d3683210eb790266675e5755d989ac12d7ef7e22be21"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/deed.png"
-hash = "99f57d6088be2f23f5429db5084240124e566666d96d1aa12705d6934e339858"
+hash = "073cf8811496bfcd47f0277093571f25a9461a53d4af7195f544e581fa01d475"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/deed_works.png"
-hash = "592069cbafdb2ff43d09481461ff264459e6b7dbe9312540fe2f30d58e957f64"
+hash = "e590e9dac5e58c7b85d9dfef89c6ef0184b6f8c92479a40db8ee47a7b984e8ad"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/deep_survey.png"
-hash = "d8a84c54b53401534e68be6e09037492b55facc1884b5408295bb47acdbcf13d"
+hash = "1bbcc9fd85cab9a16a2669d2f1037b622164a0439172b9995fea9e8d88c86485"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/delivery_crate.png"
-hash = "fe42c3e080320bda42406bd380b2d43c7922580971cda7068d854121ebb394f6"
+hash = "f620e8dde1fe428db7fcd5b2a0245054661a9197c97339f369a87902fd838ba0"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/dredge_net.png"
-hash = "1956d7da9c2d38e10a4b2b6f640a64271711028d9b3cb35beecdf5ca99ee89d9"
+hash = "534dacf1a04115b045f2e26b3f84855d9db927b307fbfaaf3307a4fd296c7b81"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/feast_crate.png"
-hash = "fe42c3e080320bda42406bd380b2d43c7922580971cda7068d854121ebb394f6"
+hash = "2b9f50890b72b93413d32335757d149b2e07dba0b6da9e8008b86fd89ef23bb9"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/firewood_bundle.png"
-hash = "95e12600ada536999cee9b202a1584409d9262a77e82c669047a4ceba0aead11"
+hash = "9fb72b9d1db0e2d2bfc224e2df2ba016c9cca2c5eae87c947b68a4929266e8ea"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/framed_town_map.png"
-hash = "296a1ae4bfb79d470cde8962c2522917411d68415a209e41c4de22b3fbe03057"
+hash = "f4ae79bff612e55929514cb692c466748a6012920d3c09470a60a57d41396320"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/green_oak_plank.png"
-hash = "691c24cb409615114b5db594499629e3c4898c39abc0c1862aa8ea5abcc57f32"
+hash = "bdec36049712a9ac57bb9d19ae0d7912463d812519ac9eb8cc7aa43e6d904c79"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/hearthkeepers_lantern.png"
-hash = "12264dd04649cf31767dad2ad80d70cb189c71c71446d8466980b4232d0a6296"
+hash = "026c099a12cdeb4d16fa44c8f51c1e06f5275da6b3ffd8ae4cb32ac077620fd1"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/hen_crate.png"
-hash = "fe42c3e080320bda42406bd380b2d43c7922580971cda7068d854121ebb394f6"
+hash = "82aaa292213608806e6cb51ef7f873d8dedc0126559b5d3e2eb077f4c4f9ba4a"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/ice_auger.png"
-hash = "cb8a626477e7bba6b0cf008ee974558aea635c65dcdd5aadb8619c9f17de7202"
+hash = "4a264bc3014b8be0cc1e24e5838bcd2627f183601b944a0ca4d1d11d5750bd3a"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/josies_lantern.png"
-hash = "b4f16fb7e98e902b899d6541686e367f4eeee741cf992474555125e1bd45ddf2"
+hash = "867d1a681636443da68b0a59f3dbdedc821d93a5b0c28e794ddc930e4c370f00"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/kettle_deed.png"
-hash = "99f57d6088be2f23f5429db5084240124e566666d96d1aa12705d6934e339858"
+hash = "0f2362a2bdc577b58544446934f03fdf00135c39d6fb22f30a885961ee9a08d9"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/kettle_plate_a.png"
-hash = "20b6326beaed45904374ec7fbde8d900df1a2f34c4c007a7f68268f7e535dfe7"
+hash = "c2b3c69e37b8019107671f631d65c83fd2d22b588960719120d1b1396bc43c38"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/kettle_plate_b.png"
-hash = "d3d5d263445fe0567188192b39f8e3d2cf596948acb30c177216ecc615453959"
+hash = "59ecb116a95944204a352558370ccd086412d685813abcfea85ea2d857b0d1c4"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/lake_sand.png"
-hash = "26bf9a2427dd3374a13f3466404f64d20c6334b4f6c4d237c68488746ea01013"
+hash = "6d4879fc2f624882f13110248b66f040b9daf895f97502839622e33ca9a25d44"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/letter.png"
-hash = "a6658f47cd9b015b47fbd729a046016060ec6993d5c527d531cba0f43eeca3fd"
+hash = "69644ba6c7ade70d05c536ce1132be9c407eef7fc7594b86bae3cdc108e5aedd"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/oda_broom.png"
-hash = "893fcf2392f92e8040974f34551ff08ff4162fee134df97dbe257cb3077977af"
+hash = "1129173150474fe7783f72729f311679aa1c7d89220e608b311846455570772f"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/odas_ledger.png"
-hash = "4cb5fadae7ff745e1889477f0c02214169821a42bed2ff9a0a3df38ff2247f6f"
+hash = "3b11868dd22c48ffb8815338cef5652ec873a9ef25e2afa329865902c6fde576"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/paper_lantern.png"
-hash = "b4f16fb7e98e902b899d6541686e367f4eeee741cf992474555125e1bd45ddf2"
+hash = "7cbfbc2f220c10ffaae96ad9c8f734a384b3ab424ad271312c70fafc19963bc6"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/place_setting.png"
-hash = "4de1c10032327650ed4327b9cffc376f63a1bc2ff403a7ee5422e8f285828d0c"
+hash = "1e789f3dfcd7af2dd2e23c6cd0ae92ad0a74a6b6942d0116942be03bc1a2ecaf"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/plushie_token.png"
-hash = "db884ca39145abcabbfc843140eb028ce4b7561e3db03d24839ca0286ebdb3a0"
+hash = "c1fcda26ae40fda16bd24cf85e3c27fe1be9a20f2fa8f1c5a4a08d3e7edf3743"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/scrip.png"
-hash = "16e61d7ea691c666a136d56503e4f88da10b41f497a463de7a2d4f8f6f8e160e"
+hash = "bd3db10e01af70154b79c41aec9fee719460d83bdfbfb45308cd3a83b0e43abe"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/seasoned_oak_board.png"
-hash = "7d8d01c379a29cc138dbdf6655cce504c90cced6cb7a22eacb2f3b9db5e3f90f"
+hash = "cc6fcd8b50a148271fbb72c3e0f2ae39cae5cb6d72671a67083c7c1f65073b67"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/sheep_crate.png"
-hash = "fe42c3e080320bda42406bd380b2d43c7922580971cda7068d854121ebb394f6"
+hash = "9a9c8652b3f600de10b72213b93213922c2185c489e9f47063aaf85ac992f3d6"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/spring_water.png"
-hash = "18ada8ac7594024fdfd65f48a99960d87c34188372a961fcc662880c8e3b5d11"
+hash = "f6bb549ca254b7a6f1bd8d8e98b0f72eeaa741b3895eb579702ec14f2b285d39"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/token_bram.png"
-hash = "08b72d71f8b4159cfe5ca88c30176056804bf427f828f7af522e885125079272"
+hash = "e5a54be2aba50ebff095cbd8b1b30e53bcc853312082bae55c191a0177dab717"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/token_halden.png"
-hash = "4b81ec545ba997553f34d8e2344a0bd1c276eb8a770c6f42dcab020a554a5490"
+hash = "d695bf0efadd8032d3737da8c89f77ba0a455c81c1846c5d01078b50837488f0"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/token_marnie.png"
-hash = "44bc9a9431464b878b4c74f54db06829902afaa86a7374da556cb532fe0527b7"
+hash = "8c0854573336cccabfa2fc7ccd2b8c2c5ad660b21e5600e3b7b55d370d0f529e"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/token_nella.png"
-hash = "305c3c2e9927d55d75f2ff6de2a030c5740341242fe7e9e900ce4c741058241a"
+hash = "e873734a301d5d1cec4fda9ca3bf667f74b11b50011ea67c72e5166dde57004a"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/token_oda.png"
-hash = "2083390dae79dfef395f854e683c6c62c7825e25183fd19d344164060a57d9a6"
+hash = "58690b8bdc9c0f0a481ccf27bae27acc824cbcf7fbb292ef3a377999a068045e"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/token_pip.png"
-hash = "19433628f12cb4fa5427ea5bcd48d96710b6d3b0727ff2d5a0be53ee9e64b471"
+hash = "77fbf93099176693b7682ffe8fc9dc768e74d9f283899c282704ab787615ab90"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/token_tobin.png"
-hash = "c34eb529e3bb6377e26526a02d4462940e688d9363fc0c774c5959cd5c34cfdc"
+hash = "843ba09474d774dc82478fe359d84e68be1bb690361cbaf38894f6cfacbf6f24"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/token_wisp.png"
-hash = "e95e828493e4a2500b1f0dc2a7a921a26a1866ce4851417bfa47901e607e1e16"
+hash = "7fc628c2895c1c7cb7bba99b902fb60ba76f78df52d8e2b0a774bba1c086ccbe"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/turbine_notes.png"
-hash = "88add4fc9ee5292dd1e3b06b1ca54fd107ed8bc8861be29a4bcdb842d5ba45b0"
+hash = "34d877bc068e1cd26bf3aa20e2224b504097589aebb2d4946b136022f8ca1ca7"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/washed_silica.png"
-hash = "680fe24e268e75f28b7eabc5b54379588344298a08b8dc0b9c331cba47365315"
+hash = "f91ebfe698673ee0956ec31906e5e0ec9ae1b47a48cd0105b77392ecc4fcbc0e"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/winter_cloak.png"
-hash = "85dd5be47efe479e2951753f89a8fe6c1219368f40ca8402f9ef195f97b011a5"
+hash = "9187ba6097d2fa1a96176f48adb655e44e2151b95e4d029ca6452438a635e33d"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/winter_tomato.png"
-hash = "ee5dadbb7164485c9ab28b8c706c3b92a727415e444f5cd1b744874965707b36"
+hash = "8621f3dfe97120fdd8f8cd00cc3973f961eae7e1bc47d6f5a0b00d484b59fefb"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/winter_tonic.png"
-hash = "604a4721f29373e1c6aa1c4ff35fcf5467a7d7e5d1a9d1aeeb971fcdfc321f1e"
+hash = "15a83370eef2071420d1c5f5d51fcf08999eb54593ae05cb817da7028a10212b"
 
 [[files]]
 file = "kubejs/assets/valley/textures/item/works_power_tap.png"
-hash = "7ffc0c8605c8f41f566c91c9582fc9cdd892be882e24c4fc74d64978adb5d3b1"
+hash = "ed55aee0e12897578e8c97c126d1a8e8c56cd0fd0866c9d34481a75bed650626"
 
 [[files]]
 file = "kubejs/client_scripts/hide.js"
@@ -594,7 +630,7 @@ hash = "af597e0441944b4f9635ac3defa8660d7050afbf88a2a45279275c0ffe0cafc2"
 
 [[files]]
 file = "kubejs/startup_scripts/valley_items.js"
-hash = "776c50ed165a630f1f93aa93b1e0a55c1af984e2409ba83ef6c114d141f59755"
+hash = "437c0aaf3a936f7be796a6b8f1dd4c158e2fe5a65c7d28805c7885114865b3ca"
 
 [[files]]
 file = "mods/additional-enchanted-miner.pw.toml"

@@ -31,3 +31,7 @@ server/*
 !server/eula.txt
 vh_*.html
 dist/CozyTech/
+media/logo_v2/
+media/pano_v2/
+media/ref/
+dist/v*/

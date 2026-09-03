@@ -108,13 +108,13 @@ StartupEvents.registry('item', event => {
 // valley:town_anchor — Q7. A decorative stone marker. Placing it is what sets
 // the Town Anchor (see valley_checks.js, BlockEvents.placed). Quest text calls
 // it "Bram's old Surveyor's Stake", so that is its display name.
-// Texture is a vanilla block texture reference, which is guaranteed present on
-// every client; no block PNG is shipped.
+// Texture is a hand-authored pack texture (media/items/png/town_anchor.png,
+// installed at assets/valley/textures/block/town_anchor.png).
 // -----------------------------------------------------------------------------
 StartupEvents.registry('block', event => {
   event.create('valley:town_anchor')
     .displayName("Surveyor's Stake")
-    .textureAll('minecraft:block/chiseled_stone_bricks')
+    .textureAll('valley:block/town_anchor')
     .stoneSoundType()
     .hardness(1.5)
     .resistance(6.0)

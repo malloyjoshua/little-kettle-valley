@@ -1,0 +1,275 @@
+[
+ {
+  "name": "paper_lantern",
+  "rows": [
+   "................",
+   "........O.......",
+   "......OOOO......",
+   "......OOOO......",
+   ".....TTWWTT.....",
+   "....TWcWcWcT....",
+   "...TWWcYcYcWT...",
+   "...TWYcYcYcWT...",
+   "...WWYcYcYcWW...",
+   "...WWYcYcYcWW...",
+   "...TWYcYcYcWT...",
+   "...TWWcYcYcWT...",
+   "....TWcWcWcT....",
+   ".....TOOOOc.....",
+   "......OOOO......",
+   "................"
+  ]
+ },
+ {
+  "name": "josies_lantern",
+  "rows": [
+   "................",
+   ".......DD.......",
+   "......D..D......",
+   ".....DDDDDD.....",
+   ".....DDDDDD.....",
+   ".....DCCCCD.....",
+   ".....DYYYYD.....",
+   ".....DYYYYD.....",
+   ".....DDDDDD.....",
+   ".....DyyyyD.....",
+   ".....DyyyyD.....",
+   ".....DyyyyD.....",
+   "....DDDDDDDD....",
+   "....DCCCCCCD....",
+   ".....CCCCCC.....",
+   "................"
+  ]
+ },
+ {
+  "name": "hearthkeepers_lantern",
+  "rows": [
+   "................",
+   ".......GG.......",
+   "......G..G......",
+   ".....GGGGGG.....",
+   "...Y.GGGGGG.Y...",
+   ".....GDDDDG.....",
+   ".....GwwwwG.....",
+   ".....GwwwwG.....",
+   "..Y..GGGGwG..Y..",
+   ".....GYYYYG.....",
+   ".....GYYYYG.....",
+   ".....GYYYYG.....",
+   "....GGGGGGGG....",
+   "....GDDDDDDG....",
+   ".....DDDDDD.....",
+   "................"
+  ]
+ },
+ {
+  "name": "plushie_token",
+  "rows": [
+   "................",
+   "........O.......",
+   "........O.......",
+   "........O.......",
+   ".....DDLLDD.....",
+   "....DLLCCLLD....",
+   "...DLCCCCCCLD...",
+   "...DLCiCCiCLD...",
+   "...DLhCCCChLD...",
+   "...DLCCiiCCLD...",
+   "...DLCCCCCCLD...",
+   "...DLCCCCCCLD...",
+   "....DLLCCLLD....",
+   ".....DDLLDD.....",
+   "................",
+   "................"
+  ]
+ },
+ {
+  "name": "token_marnie",
+  "rows": [
+   "................",
+   "................",
+   ".......DD.......",
+   ".....DDwwDD.....",
+   "....DwhhhhwD....",
+   "...DwhhhhhhwD...",
+   "...DhhhhhhhhD...",
+   "..DwhhhOhOhhwD..",
+   "..DwhhOhohOhwD..",
+   "...DhhOOOOOhD...",
+   "...DwhhhhhhwD...",
+   "....DwhhhhwD....",
+   ".....DDwwDD.....",
+   ".......DD.......",
+   "................",
+   "................"
+  ]
+ },
+ {
+  "name": "token_bram",
+  "rows": [
+   "................",
+   "................",
+   ".......TT.......",
+   ".....TTwwTT.....",
+   "....TwttttwT....",
+   "...TwttiittwT...",
+   "...TttiiiittT...",
+   "..TwtiittiitwT..",
+   "..TwtiittiitwT..",
+   "...TttiiiittT...",
+   "...TwttiittwT...",
+   "....TwttttwT....",
+   ".....TTwwTT.....",
+   ".......TT.......",
+   "................",
+   "................"
+  ]
+ },
+ {
+  "name": "token_oda",
+  "rows": [
+   "................",
+   "................",
+   ".......DD.......",
+   ".....DDwwDD.....",
+   "....DwGGGGwD....",
+   "...DwGGDDGGwD...",
+   "...DGGDGGDGGD...",
+   "..DwGDGGGGDGwD..",
+   "..DwGDGGGGDGwD..",
+   "...DGGDGGDGGD...",
+   "...DwGGDDGGwD...",
+   "....DwGGGGwD....",
+   ".....DDwwDD.....",
+   ".......DD.......",
+   "................",
+   "................"
+  ]
+ },
+ {
+  "name": "token_nella",
+  "rows": [
+   "................",
+   "................",
+   ".......AA.......",
+   ".....AAwwAA.....",
+   "....AwaaaawA....",
+   "...AwaaaaaawA...",
+   "...AaaaaaaaaA...",
+   "..AwaaaiiaiawA..",
+   "..AwaaiwaiaiwA..",
+   "...AaaaiiaiaA...",
+   "...AwaaaaaawA...",
+   "....AwaaaawA....",
+   ".....AAwwAA.....",
+   ".......AA.......",
+   "................",
+   "................"
+  ]
+ },
+ {
+  "name": "token_halden",
+  "rows": [
+   "................",
+   "................",
+   ".......SS.......",
+   ".....SSwwSS.....",
+   "....SwggggwS....",
+   "...SwgggiggwS...",
+   "...SgggiiiggS...",
+   "..SwggigigigwS..",
+   "..SwgggiiiggwS..",
+   "...SggggigggS...",
+   "...SwggggggwS...",
+   "....SwggggwS....",
+   ".....SSwwSS.....",
+   ".......SS.......",
+   "................",
+   "................"
+  ]
+ },
+ {
+  "name": "token_tobin",
+  "rows": [
+   "................",
+   "................",
+   ".......DD.......",
+   ".....DDwwDD.....",
+   "....DwCCCCwD....",
+   "...DwCCCCCCwD...",
+   "...DCCiCCCiCD...",
+   "..DwCCCiCiCCwD..",
+   "..DwCCCCiCCCwD..",
+   "...DCCCiCiCCD...",
+   "...DwCiCCCiwD...",
+   "....DwCCCCwD....",
+   ".....DDwwDD.....",
+   ".......DD.......",
+   "................",
+   "................"
+  ]
+ },
+ {
+  "name": "token_wisp",
+  "rows": [
+   "................",
+   "................",
+   ".......SS.......",
+   ".....SSwwSS.....",
+   "....SwsssswS....",
+   "...SwssSSsswS...",
+   "...SssSSSSswS...",
+   "..SwsSSSSSwswS..",
+   "..SwsSSSwSSswS..",
+   "...SssSSSSssS...",
+   "...SwssSSsswS...",
+   "....SwsssswS....",
+   ".....SSwwSS.....",
+   ".......SS.......",
+   "................",
+   "................"
+  ]
+ },
+ {
+  "name": "token_pip",
+  "rows": [
+   "................",
+   "................",
+   ".......DD.......",
+   ".....DDwwDD.....",
+   "....DwrrrrwD....",
+   "...DwrrrrrrwD...",
+   "...DrriiiiirD...",
+   "..DwrriiWiirwD..",
+   "..DwrriWWWirwD..",
+   "...DrriWWWirD...",
+   "...DwriiiiiwD...",
+   "....DwrrrrwD....",
+   ".....DDwwDD.....",
+   ".......DD.......",
+   "................",
+   "................"
+  ]
+ },
+ {
+  "name": "town_anchor",
+  "rows": [
+   "TTTTTTTTTTTTTTTT",
+   "TtttttttTttttttt",
+   "TtttttttTttttttt",
+   "TtttttttTttttttt",
+   "TTTTTDDCCDDTTTTT",
+   "ttttDCCCCCCDTttt",
+   "ttttDCCCCCCDTttt",
+   "ttttCCCkkkCCTttt",
+   "TTTTCkkkkkDCTTTT",
+   "TtttDCkkkkCDtttt",
+   "TtttDCCCCCCDtttt",
+   "TttttDDCCDDttttt",
+   "TTTTTTTTTTTTTTTT",
+   "ttttTtttttttTttt",
+   "ttttTtttttttTttt",
+   "ttttTtttttttTttt"
+  ]
+ }
+]
