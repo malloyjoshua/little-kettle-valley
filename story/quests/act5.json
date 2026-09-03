@@ -18,7 +18,7 @@
       "subtitle": "Year two.",
       "icon": "minecraft:oak_sapling",
       "description": [
-        "Marnie: \"You slept clean through the thaw. Come on — the square's still standing and I want you to see it in daylight.\"",
+        "Marnie: \"Snow's still on the ridge and the square's still standing. Come on — I want you to see it in daylight.\"",
         "",
         "Sleep one night in your own bed after the Longest Night, then walk the square with Marnie.",
         "",
@@ -97,7 +97,7 @@
         {
           "type": "toast",
           "title": "Year two",
-          "description": "Next: glaze Nella's cold frame with 16 Greenhouse Glass."
+          "description": "Next: glaze Nella's cold frame with 16 Tinted Glass — and the square's thirty marked copper tiles, from the packet in this payout."
         }
       ]
     },
@@ -107,9 +107,9 @@
       "subtitle": "Nella's chain closes.",
       "icon": "thermal:tomato",
       "description": [
-        "Nella: \"Glass in February, and I grew a tomato. I'm not making a speech about it.\"",
+        "Nella: \"Glass, and I grew a tomato before the snow was off the ridge. I'm not making a speech about it.\"",
         "",
-        "Glaze Nella's cold frame with 16 Greenhouse Glass — the recipe went live when the coolant loop reached the heaters — then grow and hold one Tomato, one Strawberry, one Bell Pepper and one Corn at the same time.",
+        "Glaze Nella's cold frame with 16 panes of greenhouse glass — in this valley that is Tinted Glass: two amethyst shards, one glass and one Cyanite Ingot makes two, so 16 shards and 8 cyanite. Cyanite comes out of the reactor; the amethyst is the geode the Works waystone stands over. Then grow and hold one Tomato, one Strawberry, one Bell Pepper and one Corn at the same time.",
         "",
         "Nella takes the gardener's job and her chain closes. Marnie eats the first tomato standing in the doorway and says nothing about it."
       ],
@@ -255,9 +255,9 @@
       "subtitle": "The Fishing Derby.",
       "icon": "aquaculture:oak_fish_mount",
       "description": [
-        "Nella: \"Six for the wall. Trout and pike sit in the cold water off the pier; the rest are anywhere.\"",
+        "Nella: \"Bluegill and perch off the pier any time. Trout and pike in the cold water past the reeds; catfish and carp are night fish and they want a worm.\"",
         "",
-        "Catch one Bluegill, one Perch, one Brown Trout, one Muskellunge (that's the pike), one Catfish and one Carp — worm bait for the catfish and carp — then craft 3 Oak Fish Mounts and hang three of them on the inn wall.",
+        "Catch one Bluegill, one Perch, one Brown Trout, one Muskellunge (that's the pike), one Catfish and one Carp — the worm box in your bag holds thirty-two. If a species will not come, move one bank up the river; the water changes temperature there. Then hang three of your Oak Fish Mounts on the inn wall.",
         "",
         "Pays 50 Valley Scrip toward the town's winter debt."
       ],
@@ -331,13 +331,13 @@
     },
     {
       "key": "q83",
-      "title": "Hit 25,000 FE/t on a Second Turbine Without Passing 60 mB/t of Fuel",
+      "title": "Hit 25,000 FE/t Across Both Turbines Without Passing 60 mB/t of Fuel",
       "subtitle": "A problem, not a recipe.",
       "icon": "biggerreactors:turbine_rotor_blade",
       "description": [
         "Tobin: \"Second turbine, same reactor, and the fuel line does not move. I did the arithmetic four times, then once more with Bram watching.\"",
         "",
-        "Build a second turbine off the reactor and hold 25,000 FE/t across both, with fuel burn at 60 mB/t or under. Tobin's signed figures are the journal page from his safety check. Run /valley check power at the reactor terminal — it prints both numbers and ticks this quest.",
+        "Build a second turbine off the reactor and hold 25,000 FE/t summed across both turbine terminals, while the reactor's fuel burn stays at or under 60 mB/t of yellorium. Steam is free; fuel is the budget. Tobin's signed figures are on the Turbine page in your journal — eighteen hundred under load, and the burn he wrote under it. Run /valley check power at the reactor terminal; it prints both numbers and ticks this quest.",
         "",
         "Stage big_power. The quarry runs off this and nothing else does."
       ],
@@ -715,7 +715,7 @@
       "subtitle": "Six of eight neighbours' stories closed.",
       "icon": "minecraft:emerald",
       "description": [
-        "Not a quest you do. A quest that notices.",
+        "Oda: \"I don't keep a book of who likes you. I keep a book of who you've finished a thing for. Six is the number.\"",
         "",
         "Standing is simply how many of the eight named residents' stories your team has finished: Wisp, Marnie, Halden, Pip, Bram, Tobin, Nella, Oda. At six, the valley considers you one of its own and Oda will sell you the Works Deed.",
         "",
@@ -754,7 +754,7 @@
         "",
         "Pay 80 Valley Scrip at Oda's counter. The second half is Standing: Trusted — six of the eight resident chains closed — and it locks itself open the moment the sixth one does.",
         "",
-        "Wisp Q59 · Marnie Q60 · Halden Q62 · Pip Q63 · Bram Q73 · Tobin Q75 · Nella Q77 · Oda Q85. Run /valley check standing for the count.",
+        "Wisp's people came in off the ice · Marnie sat down at her own table · Halden's rounds · Pip's satchel · Bram's cocoa · Tobin's signature on the readings · Nella's tomato · Oda's ledger. Run /valley check standing for the count.",
         "",
         "The Deed is yours: QuarryPlus becomes craftable, the residents vote, and Bram signs as witness."
       ],
@@ -805,7 +805,7 @@
       "subtitle": "Tobin's arc closes.",
       "icon": "quarryplus:quarry",
       "description": [
-        "Tobin: \"Rig on my X, markers on the four corners, power off the reactor. I am extremely calm about this.\"",
+        "Tobin: \"Rig on my X, markers on the corners — or one Flexible Marker and type the box, which is quicker. Power off the reactor. I am extremely calm about this.\"",
         "",
         "Hold the QuarryPlus Quarry and 4 Markers, set them on the site the deep survey picked, and run power to the rig from the reactor.",
         "",
@@ -866,7 +866,7 @@
       "description": [
         "Bram: \"Rock into the box, box into the granary. That's a public works, not a hole in a hill.\"",
         "",
-        "Route the quarry's output into the ME network, then deliver 1,024 cobblestone out of network stock to the granary. One bounded cycle — the quarry keeps running afterwards.",
+        "Pattern the quarry's output so cobble goes to the granary, ore goes to the Pulverizer and the rest goes to the void, then let one full cycle land: 1,024 cobblestone out of network stock into the granary. Bram wants to see the sorting work before he calls it a public works, and the quarry keeps running afterwards.",
         "",
         "Stage town_provides: Oda's shelves restock themselves from your network from now on, permanently."
       ],
@@ -905,15 +905,15 @@
     },
     {
       "key": "q89",
-      "title": "Cast 1 Bell From Quarry Copper and Hang It on the Marked Post",
-      "subtitle": "Pip's arc closes.",
+      "title": "Hang the Quarry-Copper Bell on the Marked Post",
+      "subtitle": "Big Copper.",
       "icon": "minecraft:bell",
       "description": [
         "Pip: \"I get to ring it, and I already named it! It's called Big Copper!\"",
         "",
-        "Cast 1 Bell from the quarry's own copper and hang it on the marked post in the finished square.",
+        "Hang the Bell on the marked post in the finished square — Marnie's, off the firewood stacks, recast in the quarry's own copper.",
         "",
-        "Every resident comes out for it. Pip is the bell-ringer from today, and his arc closes."
+        "Every resident comes out for it. Pip has been the courier since December; from today he is also the bell-ringer, and nobody is getting that rope off him."
       ],
       "deps": [
         "q78",
@@ -963,9 +963,9 @@
       "subtitle": "The last lamp.",
       "icon": "minecraft:lantern",
       "description": [
-        "Josie, in the journal: \"Leave one post bare. Somebody will want it later.\"",
+        "Josie, on the last page: \"There's a lamp post on my porch with nothing on it. I'd like to be on the line.\"",
         "",
-        "Walk up to Josie's porch and place the fortieth lamp on the bare post — the only one on the whole road that never got lit.",
+        "Walk up to Josie's porch and put one Lantern on the bare post — the only one on the whole road that never got lit. There are twenty-four in your bag from the road work.",
         "",
         "Forty lamps. Fifteen people. One winter that nobody leaves."
       ],
@@ -1007,19 +1007,19 @@
         {
           "type": "toast",
           "title": "Lamps 40/40",
-          "description": "Next: set the eight dishes on the long table and light the Hearth."
+          "description": "Next: set the eight dishes on the long table and bank the Hearth for the night."
         }
       ]
     },
     {
       "key": "q91",
-      "title": "Set the Eight Feast Dishes on the Long Table and Light the Hearth",
+      "title": "Set the Eight Feast Dishes on the Long Table and Bank the Hearth",
       "subtitle": "Act V finale — Founder's Day.",
       "icon": "farmersdelight:stuffed_pumpkin",
       "description": [
         "Marnie: \"Bring the crate. Everyone's already here — I have never once had to set this many chairs.\"",
         "",
-        "Take the eight dishes out of the Feast Crate, set them on the long table in the inn, and light the Hearth.",
+        "Take the eight dishes out of the Feast Crate, set them on the long table in the inn, and bank the Hearth for the night the way Josie's last page describes.",
         "",
         "Forty lamps. Fifteen people. One winter that nobody leaves.",
         "",

@@ -21,14 +21,14 @@
 			size: 1.5d
 			hide_details_until_startable: true
 			tasks: [{ id: "63ABED446AAD8963", type: "item", item: "valley:letter", count: 1L }]
-			rewards: [{ id: "2CE6C10F10901267", type: "command", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "2E02494110ABA558", type: "command", command: "advancement grant @p only valley:journal/entry_1", elevate_perms: true, silent: true }, { id: "AF4454DEC6D9AC3E", type: "item", item: "herbalbrews:copper_tea_kettle" }, { id: "57FB6284847DF7A5", type: "item", item: "explorerscompass:explorerscompass" }, { id: "247FEDC305D9174F", type: "item", item: "waystones:waystone" }, { id: "9179D57ACB5764B2", type: "item", item: "minecraft:iron_shovel" }, { id: "EB7D5A8547F763D1", type: "item", item: "minecraft:iron_pickaxe" }, { id: "AD3CBD17C7A4B6CB", type: "item", item: "minecraft:cooked_beef", count: 16 }, { id: "8C7370F659BD5285", type: "item", item: "minecraft:torch", count: 16 }, { id: "E0EC286BB1A9A20D", type: "item", item: "torchmaster:megatorch" }, { id: "51DF0745E0B474F5", type: "toast", title: "Journal Entry 1", description: "Next: follow the Kettle Farm Compass to the old farm and put the waystone on the hearthstone." }]
+			rewards: [{ id: "2CE6C10F10901267", type: "command", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "2E02494110ABA558", type: "command", command: "advancement grant @p only valley:journal/entry_1", elevate_perms: true, silent: true }, { id: "AF4454DEC6D9AC3E", type: "item", item: "herbalbrews:copper_tea_kettle" }, { id: "57FB6284847DF7A5", type: "item", item: "explorerscompass:explorerscompass" }, { id: "247FEDC305D9174F", type: "item", item: "waystones:waystone" }, { id: "9179D57ACB5764B2", type: "item", item: "minecraft:iron_shovel" }, { id: "EB7D5A8547F763D1", type: "item", item: "minecraft:iron_pickaxe" }, { id: "AD3CBD17C7A4B6CB", type: "item", item: "minecraft:cooked_beef", count: 16 }, { id: "8C7370F659BD5285", type: "item", item: "minecraft:torch", count: 16 }, { id: "E0EC286BB1A9A20D", type: "item", item: "torchmaster:megatorch" }, { id: "07DBB17A6739B17D", type: "toast", title: "Journal Entry 1", description: "Next: right-click the Explorer's Compass — it is already pointed at the old Kettle farm — and follow the needle. Put the waystone on the hearthstone when you get there." }]
 		}
 		{
 			id: "87A167074EA22047"
 			title: "Put the Waystone on the Hearthstone"
 			subtitle: "Name it Home."
 			icon: "waystones:waystone"
-			description: ["Josie: \"The hearthstone is the one thing in that house I never had to fix. Start from the part that held.\"", "", "Follow the Kettle Farm Compass to the old farm — the chimney is still standing. Place the Homestead Waystone on the hearthstone, type Home in the box, click the tick.", "", "The roof and the walls go back up around you, with a doorway, two window holes and a wool mat where the bed goes."]
+			description: ["Josie: \"The hearthstone is the one thing in that house I never had to fix. Start from the part that held.\"", "", "Right-click the Explorer's Compass and walk the needle to the old farm — the chimney is still standing. Place the Homestead Waystone on the hearthstone, type Home in the box, click the tick.", "", "The roof and the walls go back up around you, with a doorway, two window holes and a wool mat where the bed goes."]
 			x: 2.0d
 			y: 0.0d
 			dependencies: ["E5A7BE39721C20E9"]
@@ -70,7 +70,7 @@
 			title: "Dig Out the Cellar Stairs"
 			subtitle: "About 75 marked blocks of gravel."
 			icon: "minecraft:iron_door"
-			description: ["Josie: \"Not yet — I'll explain when you have people who can help you carry it. Dig anyway; I know you.\"", "", "There is a trapdoor under the ash in the old kitchen and it is glowing. Dig the gravel out of the stairs beneath it — about 75 marked blocks. The iron shovel is in your bag.", "", "At the bottom: a sealed iron door with no handle, Josie's chalk on it, a Cellar Waystone and her tool chest."]
+			description: ["Josie: \"There's a door down there I'm not going to explain yet. Dig anyway; I know you.\"", "", "There is a trapdoor under the ash in the old kitchen and it is glowing. Dig the gravel out of the stairs beneath it — about 75 marked blocks. The iron shovel is in your bag.", "", "At the bottom: a sealed iron door with no handle and four words chalked on it in her hand — Not yet. — J.K. Beside it, a Cellar Waystone and her tool chest."]
 			x: 4.0d
 			y: 0.8d
 			dependencies: ["87A167074EA22047"]
@@ -84,7 +84,7 @@
 			title: "Cook One Vegetable Soup"
 			subtitle: "Kettle on the hook, pot on the fire."
 			icon: "herbalbrews:copper_tea_kettle"
-			description: ["Josie: \"Kettle on the hook, soup in the pot — that is the entire ceremony. There has never been a bigger one.\"", "", "Put the campfire down outside your door, hang the Copper Kettle above it, and cook one Vegetable Soup in the Cooking Pot. The cabbage, carrots and potatoes are in the basket.", "", "Bram's old Surveyor's Stake comes out of Josie's tool chest with the knife — the next quest is what you do with it."]
+			description: ["Josie: \"Kettle on the hook, soup in the pot — that is the entire ceremony. There has never been a bigger one.\"", "", "Put the campfire down outside your door, set the Cooking Pot on top of it — a Cooking Pot only cooks over a lit fire — and cook one Vegetable Soup. The cabbage, carrots and potatoes are in the basket; three planks at the bench make four bowls. The Copper Kettle hangs on the hook by the door whenever you want it.", "", "Bram's old Surveyor's Stake is in the basket with the vegetables, wrapped in a rag with your name on it — the next quest is what you do with it."]
 			x: 6.0d
 			y: 0.8d
 			dependencies: ["0778ACD6AAB0BFA3"]
@@ -119,14 +119,14 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "752A40EDF7EFA0F7", type: "checkmark", title: "Slept one night in the cottage bed" }]
-			rewards: [{ id: "3591BC634AFBC362", type: "command", team_reward: true, command: "execute positioned {x} {y} {z} run function valley:act1/marnie_arrives", elevate_perms: true, silent: true }, { id: "914B9C675564A833", type: "command", team_reward: true, command: "bossbar set valley:folk value 2", elevate_perms: true, silent: true }, { id: "423B87F3CF732616", type: "item", item: "minecraft:bread", count: 8 }, { id: "DC468CB60B925A73", type: "item", item: "waystones:waystone" }, { id: "EDFF5744CA98B391", type: "item", item: "valley:green_oak_plank", count: 32 }, { id: "BA47B8B0DCC7D201", type: "item", item: "minecraft:flint_and_steel" }, { id: "E065774855CAB93B", type: "item", item: "minecraft:wheat_seeds", count: 9 }, { id: "1191BFDA5CA26BE3", type: "item", item: "minecraft:carrot", count: 9 }, { id: "2DC0531E45C02FEC", type: "item", item: "minecraft:potato", count: 9 }, { id: "3B0D4B8CE4BEAE72", type: "toast", title: "Residents 2/15", description: "Next: till the 3x9 patch behind the house. Or dry her green planks in the inn oven — Bram needs those." }]
+			rewards: [{ id: "3591BC634AFBC362", type: "command", team_reward: true, command: "execute positioned {x} {y} {z} run function valley:act1/marnie_arrives", elevate_perms: true, silent: true }, { id: "914B9C675564A833", type: "command", team_reward: true, command: "bossbar set valley:folk value 2", elevate_perms: true, silent: true }, { id: "423B87F3CF732616", type: "item", item: "minecraft:bread", count: 8 }, { id: "DC468CB60B925A73", type: "item", item: "waystones:waystone" }, { id: "EDFF5744CA98B391", type: "item", item: "valley:green_oak_plank", count: 32 }, { id: "BA47B8B0DCC7D201", type: "item", item: "minecraft:flint_and_steel" }, { id: "E065774855CAB93B", type: "item", item: "minecraft:wheat_seeds", count: 9 }, { id: "1191BFDA5CA26BE3", type: "item", item: "minecraft:carrot", count: 9 }, { id: "2DC0531E45C02FEC", type: "item", item: "minecraft:potato", count: 9 }, { id: "A220A4707207BC9D", type: "toast", title: "Residents 2/15", description: "Next: till the 3x9 patch behind the house. Or dry her green planks in any furnace — Bram needs those." }]
 		}
 		{
 			id: "A2DF54626799495A"
 			title: "Till and Plant the 3x9 Patch"
 			subtitle: "Wheat, carrots, potatoes."
 			icon: "minecraft:wheat_seeds"
-			description: ["Marnie: \"Three beds: wheat, carrots, potatoes. Anything fancier and you'll be eating it alone in July.\"", "", "Till the 3x9 patch behind the house — every tile is marked in path blocks — then plant the 9 wheat seeds, 9 carrots and 9 potatoes from Marnie's sack. Any order is right.", "", "Marnie hands over the fence, the gate, the trough and three Hen Crates for the pen next to it."]
+			description: ["Marnie: \"Three beds: wheat, carrots, potatoes. Anything fancier and you'll be eating it alone in July.\"", "", "Till the 3x9 patch behind the house — every tile is marked in path blocks — then plant the 9 carrots, 9 potatoes and 9 wheat seeds from Marnie's sack. Any order is right, but hand this in while the wheat seeds are still in your hand: the book counts them and never takes them, so those nine go in last.", "", "Marnie hands over the fence, the gate, the trough and three Hen Crates for the pen next to it."]
 			x: 12.0d
 			y: -1.5d
 			dependencies: ["ACA1AF8451E957EA"]
@@ -154,7 +154,7 @@
 			title: "Take Three Eggs to Marnie"
 			subtitle: "Pip is watching the box."
 			icon: "minecraft:egg"
-			description: ["Pip: \"Is that an egg? Aunt Marnie says I get a duck if I'm useful, so I am being extremely useful.\"", "", "Collect 3 eggs from the nesting box behind your house — right-click a hen with chicken feed if you would rather not wait — and hand all three to Marnie at the inn.", "", "Pip moves in with a Duckling for you to name and keep, his courier board opens, and Marnie empties her carding basket of 16 wool onto the counter."]
+			description: ["Pip: \"Is that an egg? Aunt Marnie says I get a duck if I'm useful, so I am being extremely useful.\"", "", "Collect 3 eggs from the nesting box behind your house — right-click a hen with chicken feed if you would rather not wait — and hand them in here. Marnie gets them either way; the book does the walking.", "", "Pip moves in, hands you a Duckling and names it after you before you can stop him. His courier board opens, and Marnie empties her carding basket of 16 wool onto the counter."]
 			x: 16.0d
 			y: -0.8d
 			dependencies: ["0BFB18E2492D8F4D"]
@@ -168,21 +168,21 @@
 			title: "Talk to Bram at the Broken Mill"
 			subtitle: "He will not accept help. He will accept 'hold this'."
 			icon: "valley:token_bram"
-			description: ["Bram: \"I don't need help — I need somebody to hold things. Different word, same pair of hands.\"", "", "Walk to the mill plot marked on your map, talk to Bram, and bring back the Millwright's Bolt he puts in your hand.", "", "Bram opens his labelled crates: 12 iron ingots and 24 andesite, which is exactly enough and not one ingot more."]
+			description: ["Bram: \"I don't need help — I need somebody to hold things. Different word, same pair of hands.\"", "", "Walk to the mill plot marked on your map, talk to Bram, and bring back the Millwright's Bolt he puts in your hand.", "", "Bram opens his labelled crates: 12 iron ingots and 24 andesite — three times what the eight alloys want, because the Millstone wants the rest."]
 			x: 12.0d
 			y: 0.0d
 			dependencies: ["ACA1AF8451E957EA"]
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "B7840C18479A70A7", type: "item", item: "valley:token_bram", count: 1L, consume_items: true }]
-			rewards: [{ id: "226F6892A3A1EF80", type: "item", item: "create:wrench" }, { id: "2C366D84BFCB8766", type: "item", item: "create:goggles" }, { id: "E376C4ABA54D8A50", type: "item", item: "minecraft:iron_ingot", count: 12 }, { id: "B6CE00BCF4AF352F", type: "item", item: "minecraft:andesite", count: 24 }, { id: "1ABBBD460B1C492F", type: "command", command: "advancement grant @a only valley:journal/found_2", elevate_perms: true, silent: true }, { id: "917B97BC0FF7A6B7", type: "toast", title: "Residents 4/15", description: "Next: craft 8 Andesite Alloy out of what Bram gave you. Eight. Not nine." }]
+			rewards: [{ id: "226F6892A3A1EF80", type: "item", item: "create:wrench" }, { id: "2C366D84BFCB8766", type: "item", item: "create:goggles" }, { id: "E376C4ABA54D8A50", type: "item", item: "minecraft:iron_ingot", count: 12 }, { id: "B6CE00BCF4AF352F", type: "item", item: "minecraft:andesite", count: 24 }, { id: "1ABBBD460B1C492F", type: "command", command: "advancement grant @a only valley:journal/found_2", elevate_perms: true, silent: true }, { id: "5732816B76FCB305", type: "toast", title: "Bram is at the mill", description: "Next: craft 8 Andesite Alloy out of what Bram gave you. Eight. Not nine." }]
 		}
 		{
 			id: "F0AF7E0ABE69FA26"
 			title: "Craft 8 Andesite Alloy"
 			subtitle: "Eight. Not nine."
 			icon: "create:andesite_alloy"
-			description: ["Bram: \"Eight, not nine. If you're making nine you've misread something, and I would like to know what.\"", "", "Craft 8 Andesite Alloy from the 12 iron ingots and 24 andesite Bram gave you, and hold them when you hand the quest in.", "", "You get a pre-made Mechanical Press, 8 cogwheels, 8 shafts and 32 wheat — the whole bill for the Millstone and its first grind."]
+			description: ["Bram: \"One andesite, one iron nugget, pressed. Eight of them, not nine — if you're making nine you've misread something.\"", "", "Craft 8 Andesite Alloy — one andesite and one iron nugget each, so eight andesite and one ingot's worth of nuggets — and hold them when you hand the quest in. The rest of Bram's crate is for the Millstone.", "", "You get a pre-made Mechanical Press, 8 cogwheels, 8 shafts and 32 wheat — the whole bill for the Millstone and its first grind."]
 			x: 14.0d
 			y: 0.0d
 			dependencies: ["967FBD502857379B"]
@@ -207,17 +207,17 @@
 		}
 		{
 			id: "3D62FF07E2F30634"
-			title: "Dry 32 Green Oak Planks in the Inn Oven"
-			subtitle: "Light it, sleep, collect the boards."
+			title: "Dry 32 Green Oak Planks in Any Furnace"
+			subtitle: "Two minutes of heat, and they're boards."
 			icon: "valley:seasoned_oak_board"
-			description: ["Marnie: \"Green planks go in the bread oven overnight. Josie dried every board in this valley that way and was insufferable about it.\"", "", "Put the 32 Green Oak Planks in the inn's oven, light it with the flint and steel, and go to bed. In the morning hold 32 Seasoned Oak Boards.", "", "Bram cannot craft a Water Wheel without these boards — that gate is the oven, and the oven is you. You also get the inn's spare crockery, a chair by the fire, and the Counter, Sink and Oven for the kitchen."]
+			description: ["Marnie: \"Green planks want heat and time. Josie dried every board in this valley in a furnace and was insufferable about it.\"", "", "Smelt the 32 Green Oak Planks in any furnace — about two minutes for the lot — and hold 32 Seasoned Oak Boards. Marnie's charcoal is in the barrel by the door.", "", "Bram cannot craft a Water Wheel without these boards — that gate is the furnace, and the furnace is you. You also get the inn's spare crockery, a chair by the fire, and the Counter, Sink and Oven for the kitchen."]
 			x: 12.0d
 			y: 1.5d
 			dependencies: ["ACA1AF8451E957EA"]
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "64DDBAAE73CBCB72", type: "item", item: "valley:seasoned_oak_board", count: 32L }]
-			rewards: [{ id: "D6998CF8096FCD57", type: "command", team_reward: true, command: "tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Dry boards. In April. Well.\",\"color\":\"white\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "54B778A040082B22", type: "stage", stage: "seasoned" }, { id: "5724EBA0DD5C0927", type: "item", item: "handcrafted:wood_crockery_combo" }, { id: "8CFCAFBFACAA10F0", type: "item", item: "handcrafted:oak_chair" }, { id: "73EB427311358B17", type: "item", item: "cookingforblockheads:counter" }, { id: "76B2CD7B7CB67151", type: "item", item: "cookingforblockheads:sink" }, { id: "30A9366001661B8A", type: "item", item: "cookingforblockheads:oven" }, { id: "6264164DD9EEB0D7", type: "toast", title: "Stage: seasoned", description: "Next: fit the Counter, Sink and Oven along the inn's back wall. Bram's wheels are unblocked." }]
+			rewards: [{ id: "0669F7DEAF619A91", type: "command", team_reward: true, command: "tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Dry boards. In April. Hm.\",\"color\":\"white\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "54B778A040082B22", type: "stage", stage: "seasoned" }, { id: "5724EBA0DD5C0927", type: "item", item: "handcrafted:wood_crockery_combo" }, { id: "8CFCAFBFACAA10F0", type: "item", item: "handcrafted:oak_chair" }, { id: "73EB427311358B17", type: "item", item: "cookingforblockheads:counter" }, { id: "76B2CD7B7CB67151", type: "item", item: "cookingforblockheads:sink" }, { id: "30A9366001661B8A", type: "item", item: "cookingforblockheads:oven" }, { id: "6264164DD9EEB0D7", type: "toast", title: "Stage: seasoned", description: "Next: fit the Counter, Sink and Oven along the inn's back wall. Bram's wheels are unblocked." }]
 		}
 		{
 			id: "5656BC94973A071C"
@@ -238,7 +238,7 @@
 			title: "Cut 128 Boards and Give Bram 64"
 			subtitle: "Sixty-four boards is four stalls."
 			icon: "create:mechanical_saw"
-			description: ["Bram: \"Oda wants four stalls for the fair, and sixty-four boards is four stalls. I checked it twice.\"", "", "Cut 128 Oak Planks on the Mechanical Saw, hold all 128, then hand Bram 64 of them for the market stalls.", "", "Stage market_stalls: the Thaw Fair now has somewhere to trade from, and you keep Macaw's roof kits and four planters for your own roof."]
+			description: ["Bram: \"Oda wants four stalls for the fair. Sixty-four boards is four stalls.\"", "", "Cut 128 Oak Planks on the Mechanical Saw — about twenty-two oak logs off the ridge behind the mill — hold all 128, then hand Bram 64 of them for the market stalls.", "", "Stage market_stalls: the Thaw Fair now has somewhere to trade from, and you keep Macaw's roof kits and four planters for your own roof."]
 			x: 20.0d
 			y: 0.0d
 			dependencies: ["5656BC94973A071C"]
@@ -252,7 +252,7 @@
 			title: "Fit the Kitchen and Cook Three Dishes"
 			subtitle: "Counter, sink, oven, back wall."
 			icon: "cookingforblockheads:oven"
-			description: ["Marnie: \"Counter, sink, oven, along the back wall in that order. I've had the spots chalked for four years.\"", "", "Hold the Kitchen Counter, Sink and Oven, set them on the three marked spots along the inn's back wall, then cook Bread, a Pumpkin Pie and a Vegetable Soup in that kitchen. Everything is in the crate by the counter. Any order is right.", "", "You get the recipe book, the fruit basket, Marnie's cupboards — and Oda's broom off the back door, which Q19 needs."]
+			description: ["Marnie: \"Counter, sink, oven, along the back wall in that order. I've had the spots chalked for four years.\"", "", "Hold the Kitchen Counter, Sink and Oven when you hand this in — the book counts them and never takes them — then set them on the three marked spots along the inn's back wall: counter, sink, oven, in that order. Cook Bread, a Pumpkin Pie and a Vegetable Soup in that kitchen; everything is in the crate by the counter.", "", "You get the recipe book, the fruit basket, Marnie's cupboards — and Oda's broom off the back door, which Q19 needs."]
 			x: 14.0d
 			y: 1.5d
 			dependencies: ["3D62FF07E2F30634"]
@@ -275,7 +275,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "4BC2F2390A94072B", type: "checkmark", title: "Every marked cobweb swept out of the store" }, { id: "1246F3D4D043D7F1", type: "item", item: "create:wheat_flour", count: 16L, consume_items: true }, { id: "A2F078ABBBCEEFCE", type: "item", item: "minecraft:bread", count: 8L, consume_items: true }]
-			rewards: [{ id: "01A9087BF15F1DE4", type: "command", command: "/valley finale act1", elevate_perms: true, silent: true }, { id: "AF6E6CE7419FDE00", type: "command", command: "advancement grant @a only valley:journal/found_3", elevate_perms: true, silent: true }, { id: "5A820389DE5EBE3B", type: "stage", stage: "act2" }, { id: "06A871F8670682EB", type: "loot", table_id: 10797532679477389079L }, { id: "487656F5AD7E70CB", type: "item", item: "explorerscompass:explorerscompass" }, { id: "97D38B2D1D6CB250", type: "toast", title: "The Thaw Fair", description: "Next: Act II. Marnie's Explorer's Compass is in this payout, already set to the Ribbit village downstream." }]
+			rewards: [{ id: "01A9087BF15F1DE4", type: "command", command: "/valley finale act1", elevate_perms: true, silent: true }, { id: "AF6E6CE7419FDE00", type: "command", command: "advancement grant @a only valley:journal/found_3", elevate_perms: true, silent: true }, { id: "5A820389DE5EBE3B", type: "stage", stage: "act2" }, { id: "06A871F8670682EB", type: "loot", table_id: 10797532679477389079L }, { id: "487656F5AD7E70CB", type: "item", item: "explorerscompass:explorerscompass" }, { id: "10E0812A1A89E640", type: "toast", title: "The Thaw Fair", description: "Next: Act II. Marnie's Explorer's Compass is in this payout, already set to the Ribbit village downstream — and there is a woman fixing a beached boat at the lake and a prospector camped by the copper outcrop." }]
 		}
 	]
 	title: "Act I: The Thaw"

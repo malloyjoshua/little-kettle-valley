@@ -23,14 +23,14 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "C7831093E5788B67", type: "checkmark", title: "Read the board and the prices under it" }]
-			rewards: [{ id: "E3897F04BEC3881B", type: "item", item: "valley:catalogue" }, { id: "A7A2E446F0A125E1", type: "item", item: "valley:scrip", count: 10 }, { id: "9A43EC7C2714279E", type: "command", command: "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"yellow\"},{\"text\":\"Ten Scrip on the house. That is the only time those four words happen in this store.\",\"color\":\"white\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "13B750BBEDA9E97C", type: "toast", title: "Oda's Counter is open", description: "Scrip only. Every line restocks. Cheap tech first, decor when the rail comes in." }]
+			rewards: [{ id: "E3897F04BEC3881B", type: "item", item: "valley:catalogue" }, { id: "A7A2E446F0A125E1", type: "item", item: "valley:scrip", count: 10 }, { id: "6AEB39C32069159D", type: "command", command: "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"yellow\"},{\"text\":\"Ten Scrip, on the house. That is the only time those three words happen in this store.\",\"color\":\"white\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "13B750BBEDA9E97C", type: "toast", title: "Oda's Counter is open", description: "Scrip only. Every line restocks. Cheap tech first, decor when the rail comes in." }]
 		}
 		{
 			id: "92489253BB7C0744"
 			title: "Buy 16 Andesite Casing — 10 Scrip"
 			subtitle: "10 Scrip. Restocks."
 			icon: "create:andesite_casing"
-			description: ["Oda: \"Sixteen casings. Bram cuts them through the dead weeks when there is nothing else to do, and I count them twice before they go on the shelf.\"", "", "Ten Scrip. That is under a bounty's pay, and it is four minutes of your life you get back."]
+			description: ["Oda: \"Sixteen casings. Bram cuts them through the dead weeks when there is nothing else to do.\"", "", "Ten Scrip. That is under a bounty's pay, and it is four minutes of your life you get back."]
 			x: 3.0d
 			y: -4.4d
 			dependencies: ["E61864478A97F41E"]

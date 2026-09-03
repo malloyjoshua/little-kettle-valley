@@ -156,9 +156,9 @@
       "icon": "ribbits:swamp_lantern",
       "shape": "circle",
       "description": [
-        "Wisp: \"The reeds is all ice now, and we are eleven with no roof. Can we be your neighbours nearer?\"",
+        "Wisp: \"The reeds is all ice now, and we are four with no roof. Can we be your neighbours nearer?\"",
         "",
-        "The river is solid — walk it. Follow Wisp's lit lanterns downstream to the reed village and bring the Ribbits back to the inn.",
+        "The river is solid — walk it. Follow Wisp's lit lanterns downstream to the reed village and talk to Reed, Sedge, Mudlark and Puddle. They pack up and walk back to the inn on their own; you only have to be the one who went and asked.",
         "",
         "Four Ribbits move into town for good, Wisp's arc closes, and Nella hands you her Ice Auger."
       ],
@@ -208,7 +208,7 @@
         {
           "type": "toast",
           "title": "The Reed Village Comes In",
-          "description": "Next: cook 12 bowls of Vegetable Soup for the long table at the inn."
+          "description": "Next: cook 12 bowls of Vegetable Soup for the long table at the inn. Nella's Ice Auger goes through the lake whenever you want it."
         },
         {
           "type": "command",
@@ -340,14 +340,14 @@
     },
     {
       "key": "q62",
-      "title": "Brew 8 Winter Tonics and Deliver One to Each Resident",
+      "title": "Brew 8 Winter Tonics, One for Each Neighbour",
       "subtitle": "At the still in the hedge garden.",
       "icon": "valley:winter_tonic",
       "shape": "circle",
       "description": [
         "Halden, slowly: \"Eight people, eight bottles. I would go round myself, but they talk to you more than they talk to me.\"",
         "",
-        "Brew 8 Winter Tonics at the still in the hedge garden and hand one each to Marnie, Bram, Oda, Nella, Tobin, Wisp, Pip and Halden.",
+        "Brew 8 Winter Tonics at the still in the hedge garden — one Flask, one Green Tea Leaf and one Honey Bottle each, and Halden's payout at the hedge gate left you four flasks and sixteen leaves — then hand one each to Marnie, Bram, Oda, Nella, Tobin, Wisp, Pip and Halden.",
         "",
         "Halden's arc closes, and nobody in the valley gets sick this winter."
       ],
@@ -470,9 +470,9 @@
       "description": [
         "Nella: \"Nothing grows in it yet. I'll sit in it anyway — it's the only quiet room in town.\"",
         "",
-        "Put one Oak Window in each of the six frames of the greenhouse shell on the square, hang the Oak Cottage Door, and set the 8 Planters on the marked bench. Every block is in this quest's packet. Any order is right.",
+        "Put one Oak Window in each of the six frames of the greenhouse shell on the square, hang the Oak Cottage Door, and set 8 Planters on the marked bench. Windows and cottage doors are Macaw's kits at your own bench; the eight Planters are Oda's Garden page, ten Scrip. Any order is right.",
         "",
-        "A potting bench and seed trays go in — and the shell becomes a room the reactor's coolant loop can heat."
+        "This payout is the spare set — eight more windows, two more doors, eight more planters, and the eight Flower Boxes the solstice tiles want next. The shell becomes a room the reactor's coolant loop can heat."
       ],
       "deps": [
         "q60"
@@ -531,9 +531,9 @@
       "description": [
         "Marnie: \"Twelve spots. The solstice is the solstice, even in a year like this one has been.\"",
         "",
-        "Dress the inn: set a Candle Holder, a Sconce and a Flower Box on each of the twelve marked copper tiles. Every block is in this quest's packet. Any order is right.",
+        "Dress the inn: set a Candle Holder, a Sconce and a Flower Box on each of the twelve marked copper tiles — thirty-six pieces. The greenhouse payout left you eight Flower Boxes; Oda's Lamp Oil crate is eight Candle Holders for six Scrip and her Lighting page twelve Sconces for fourteen. Any order is right.",
         "",
-        "Solstice decor for the whole inn, and Marnie's mulled cider."
+        "This payout restocks all three, sixteen apiece — and Marnie's mulled cider."
       ],
       "deps": [
         "q64"
@@ -635,9 +635,9 @@
       "description": [
         "Marnie: \"Four empty houses, four beds, four blankets. People arrive in spring, and beds should be made before they get here.\"",
         "",
-        "Shear the flock in the pasture, spin the wool at the loom in the inn, and make 4 Blankets — one for each empty house.",
+        "Shear the flock in the pasture until you have 32 wool, then craft 4 Blankets at any crafting table — eight wool around one string each. Marnie's string is in the basket by the door.",
         "",
-        "The four blankets go onto the four beds, and the loom set stays yours."
+        "The four blankets go onto the four beds, and the loom set in this payout stays yours."
       ],
       "deps": [
         "q68a"
@@ -691,15 +691,15 @@
     {
       "key": "q72a",
       "title": "Set a Bench, a Shelf and a Lantern on Each Bathhouse Spot",
-      "subtitle": "Behind the inn, and every spot is marked.",
+      "subtitle": "Twelve marked spots behind the inn.",
       "icon": "handcrafted:oak_bench",
       "shape": "circle",
       "description": [
         "Bram: \"Built it, piped it, didn't furnish it. That end's not mine.\"",
         "",
-        "Set an Oak Bench, an Oak Shelf and a Lantern on each marked spot in the bathhouse behind the inn. Every block is in this quest's packet. Any order is right.",
+        "Set an Oak Bench, an Oak Shelf and a Lantern on each of the twelve marked spots in the bathhouse behind the inn — thirty-six pieces. Benches and shelves are oak at your own bench; the twelve Lanterns are two of Oda's Lamp Oil crates, six Scrip each. Any order is right.",
         "",
-        "The bathhouse opens — the reactor's waste heat becomes a warm room people sit in."
+        "This payout restocks all three, twelve apiece. The bathhouse opens: his waste heat becomes a warm room people sit in."
       ],
       "deps": [
         "q72"
@@ -749,7 +749,7 @@
       "icon": "minecraft:iron_pickaxe",
       "shape": "square",
       "description": [
-        "Tobin, fast: \"Ninety blocks of fallen adit, I counted twice, and behind it is the entire works, and I have not slept.\"",
+        "Tobin, fast: \"The fall is the last stretch of it, I paced it twice, and behind the fall is the entire works, and I have not slept.\"",
         "",
         "Mine the roughly 90 marked blocks out of the collapsed adit into Josie's Works, then place the Waystone on the marked plinth inside.",
         "",
@@ -816,11 +816,11 @@
       "icon": "thermal:energy_cell",
       "shape": "square",
       "description": [
-        "Bram: \"Mill makes it, Works needs it, duct in between. That's the whole job.\"",
+        "Bram: \"Mill makes it, Works needs it, duct in between. You have done this once already.\"",
         "",
         "Run Energy Duct from the mill to the Works, then install 2 Thermal Energy Cells at the Works end of the line.",
         "",
-        "The Works has power — which is what everything from here to the reactor runs on."
+        "The Works has power — which is what everything from here to the reactor runs on. It still is not yours: Josie left it to whoever the valley trusts, and the valley counts that in people. Six of eight, when you get there."
       ],
       "deps": [
         "q65"
@@ -997,7 +997,7 @@
       "description": [
         "Tobin: \"Her map puts the pocket a fixed walk from the Works waystone. Josie's surveys have never once been wrong.\"",
         "",
-        "Follow Josie's yellorite map from the Works Waystone to the pocket and process the ore into 128 Uranium Ingots — \"yellorium\", in Josie's shorthand.",
+        "Follow Josie's yellorite map from the Works Waystone to the pocket, mine 64 uranium ore and run it through your Pulverizer — one ore is two dust is two ingots, so 64 in the hole is 128 Uranium Ingots in your bag. \"Yellorium\", in Josie's shorthand, and anything past 64 is mining for fun.",
         "",
         "Your own network auto-crafts 64 Reactor Casings while you walk back."
       ],
@@ -1037,15 +1037,15 @@
     {
       "key": "q70",
       "title": "Build the Vessel",
-      "subtitle": "64 Reactor Casings, 1 Terminal, 4 Fuel Rods, 4 Control Rods, 1 Access Port.",
+      "subtitle": "64 Casings, 1 Terminal, 8 Fuel Rods, 4 Control Rods, 1 Access Port, 2 Coolant Ports.",
       "icon": "biggerreactors:reactor_casing",
       "shape": "square",
       "description": [
-        "Bram: \"Shell, terminal, fuel rods, control rods, one access port — build it square. Her drawing's on the wall behind you.\"",
+        "Bram: \"Shell, terminal, fuel rods, control rods, an access port and two coolant ports — build it square. Her drawing's on the wall behind you.\"",
         "",
-        "Gather 64 Reactor Casings, 1 Reactor Terminal, 4 Reactor Fuel Rods, 4 Reactor Control Rods and 1 Reactor Access Port, then assemble the vessel on the marked pad in the Works.",
+        "Gather 64 Reactor Casings, 1 Reactor Terminal, 8 Reactor Fuel Rods, 4 Reactor Control Rods, 1 Reactor Access Port and 2 Reactor Coolant Ports, then assemble the vessel on the marked pad in the Works — four rod columns two rods tall, and one coolant port on each long face, water in one side and steam out the other. Without the pair it runs passive and the turbine never sees steam.",
         "",
-        "Computer port, redstone port, Josie's blueprint framed above it — and her turbine tuning page, which the next quest needs."
+        "Computer port, redstone port, Josie's blueprint framed above it — and four more pages of Josie's Turbine Notes, which the next quest reads."
       ],
       "deps": [
         "q69"
@@ -1105,7 +1105,7 @@
         {
           "type": "toast",
           "title": "The Vessel Is Square",
-          "description": "Next: build the turbine from Bram's crate to hold 1,800 RPM under load."
+          "description": "Next: build the turbine to a fixed budget and hold 1,800 RPM under load."
         }
       ]
     },
@@ -1118,7 +1118,7 @@
       "description": [
         "Bram: \"Crate's got what it's got — blades, coils, casing. Get it to eighteen hundred RPM under load and hold it there.\"",
         "",
-        "Build the turbine from the fixed budget in Bram's crate so it holds 1,800 RPM under load without going over, then run /valley check turbine to confirm the reading. Josie's tuning page from the last quest has the numbers.",
+        "Build the turbine to a fixed budget — 1 Rotor Bearing, 4 Rotor Shafts, 16 Rotor Blades, 32 Turbine Casing, 8 Turbine Glass and the coil ring, all of it craftable now Josie's Turbine Notes are home. Hold 1,800 RPM under load without going over, then run /valley check turbine to confirm the reading. Josie's Turbine Notes from the last quest have the numbers.",
         "",
         "The lever goes live, and her own figures get pencilled into your journal margin."
       ],
@@ -1174,7 +1174,7 @@
         "",
         "Run Fluid Duct and Energy Duct from the reactor to the 6 greenhouse heaters on the square, and to the bathhouse tank behind the inn.",
         "",
-        "Greenhouse Glass becomes craftable world-wide — the valley can grow food in January."
+        "The valley's greenhouse glazing — Tinted Glass: two amethyst shards, one glass and one Cyanite Ingot makes two — becomes craftable world-wide, and the valley can grow food in January."
       ],
       "deps": [
         "q71",
@@ -1218,8 +1218,8 @@
         },
         {
           "type": "toast",
-          "title": "Greenhouse Glass Unlocked",
-          "description": "Next: fetch Bram from the mill, and take the cocoa with you."
+          "title": "Tinted Glass Unlocked",
+          "description": "Next: fetch Bram from the mill, and take the cocoa with you. The bathhouse behind the inn is piped and bare — twelve marked spots."
         }
       ]
     },
@@ -1232,7 +1232,7 @@
       "description": [
         "Marnie: \"He'll say the mill needs him at midnight in January. Take the cocoa anyway, and don't argue with him about it.\"",
         "",
-        "Walk to the mill, click Bram to take his token, and hand him 1 Hot Cocoa. He will say no. Bring him anyway.",
+        "Walk to the mill, click Bram to take his token, and hand him 1 Hot Cocoa. He will say no, then he will put his tools down and walk down with you.",
         "",
         "Bram's arc closes, his father's wrench is yours, and the lever quest opens."
       ],
@@ -1299,7 +1299,7 @@
       "description": [
         "Josie, page forty: \"Forty posts, mill to square to lake. I counted them on my fingers before I could count to forty.\"",
         "",
-        "Place the last 17 lamp posts on the marked spots, mill to square to lake. Any order is right. When the last post goes down the duct runs itself along the line.",
+        "Place the last 17 lamp posts on the marked spots, mill to square to lake. Any order is right. The duct runs itself along the line as you go, and not one of them lights until Bram pulls the lever.",
         "",
         "Lamps 39 of 40. One post stays bare on purpose: Josie's porch."
       ],
@@ -1356,7 +1356,7 @@
         "",
         "Forty lamps. Fifteen people. One winter that nobody leaves.",
         "",
-        "Tonight, for the first time in eleven years, the valley keeps its own lights on."
+        "Tonight the valley keeps its own lights on, and it does not need anybody in this room to stay awake to do it."
       ],
       "deps": [
         "q73",
@@ -1400,7 +1400,7 @@
         {
           "type": "toast",
           "title": "The Longest Night",
-          "description": "Next: sleep one night, then walk the square with Marnie. It is spring again."
+          "description": "Next: sleep one night, then walk the square with Marnie. And Tobin wants a second turbine off the same reactor without moving the fuel line."
         },
         {
           "type": "command",

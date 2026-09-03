@@ -16,7 +16,7 @@
     },
     {
       "type": "patchouli:text",
-      "text": "Of the 56 shell blocks:$(br2)$(li)$(bold)4$() Control Rods, on the four inner squares of the lid.$(li)$(bold)1$() Reactor Controller.$(li)$(bold)1$() Access Port -- fuel in, waste out.$(li)$(bold)1$() Power Tap.$(li)The other $(bold)49$() are plain Casing.$(br2)Inside: $(bold)4$() Fuel Rod columns, each $(bold)2$() tall, hanging straight down from the Control Rods. A rod column must run the full inside height or the box will not form.",
+      "text": "Of the 56 shell blocks:$(br2)$(li)$(bold)4$() Control Rods, on the four inner squares of the lid.$(li)$(bold)1$() Reactor Terminal.$(li)$(bold)1$() Access Port -- fuel in, waste out.$(li)$(bold)2$() Coolant Ports, one on each long face -- water in one side, steam out the other. Without the pair the vessel runs passive and the turbine never sees steam.$(li)The other $(bold)48$() are plain Casing.$(br2)Inside: $(bold)4$() Fuel Rod columns, each $(bold)2$() tall, hanging straight down from the Control Rods. A rod column must run the full inside height or the box will not form.",
       "title": "What goes where"
     },
     {

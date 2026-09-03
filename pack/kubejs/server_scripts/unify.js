@@ -138,8 +138,8 @@ ServerEvents.recipes(event => {
   //    xp + cook time copied from Geolosys' own cluster recipes (0.7 / 200 / 100).
   // ===========================================================================
   Object.keys(CLUSTER_SMELT).forEach(cluster => {
-    const ingot = CLUSTER_SMELT[cluster]
-    const name = cluster.split(':')[1]
+    let ingot = CLUSTER_SMELT[cluster]
+    let name = cluster.split(':')[1]
     event.smelting(ingot, cluster).xp(0.7).cookingTime(200).id('cozytech:smelting/' + name)
     event.blasting(ingot, cluster).xp(0.7).cookingTime(100).id('cozytech:blasting/' + name)
   })
@@ -187,15 +187,15 @@ ServerEvents.recipes(event => {
   //     Give all four a furnace path to the same ingot the un-crushed cluster
   //     reaches, so crushing is uniformly a doubling step, never a shredder.
   // ===========================================================================
-  const CRUSHED = {
+  let CRUSHED = {
     'create:crushed_raw_platinum': 'geolosys:platinum_ingot',
     'create:crushed_raw_osmium': 'geolosys:platinum_ingot', // no osmium ingot exists in this pack
     'create:crushed_raw_aluminum': 'geolosys:aluminum_ingot',
     'create:crushed_raw_uranium': 'biggerreactors:uranium_ingot'
   }
   Object.keys(CRUSHED).forEach(crushed => {
-    const ingot = CRUSHED[crushed]
-    const name = crushed.split(':')[1]
+    let ingot = CRUSHED[crushed]
+    let name = crushed.split(':')[1]
     event.smelting(ingot, crushed).xp(0.1).cookingTime(200).id('cozytech:smelting/' + name)
     event.blasting(ingot, crushed).xp(0.1).cookingTime(100).id('cozytech:blasting/' + name)
   })
@@ -247,7 +247,7 @@ ServerEvents.recipes(event => {
   //     already work in every tag-driven machine recipe - this is purely for
   //     tidying inventories into the canonical item.
   // ===========================================================================
-  const legacy = id => 'cozytech:legacy/' + id.replace(':', '_')
+  let legacy = id => 'cozytech:legacy/' + id.replace(':', '_')
   Object.keys(HARD_RETIRE).forEach(r => {
     event.shapeless(HARD_RETIRE[r], [r]).id(legacy(r))
   })

@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Bram: $(italic)Dynamos make it. Ducts carry it. The cell is what stops the lights going out when the fire does.$()$(br2)Q47: charge $(bold)one Energy Cell$() off your dynamos and run $(item)Fluxduct$() from the mill to the inn. Q31 already paid you $(bold)32$() duct; Q46 pays $(bold)64$() more.",
+      "text": "Bram: $(italic)Dynamos make it. Ducts carry it. The cell is what stops the lights going out when the fire does.$()$(br2)Q47: charge $(bold)one Energy Cell$() off your dynamos and run $(item)Energy Duct$() from the mill to the inn. Q31 already paid you $(bold)32$() duct; Q46 pays $(bold)64$() more.",
       "title": "The Cell on the Wall"
     },
     {

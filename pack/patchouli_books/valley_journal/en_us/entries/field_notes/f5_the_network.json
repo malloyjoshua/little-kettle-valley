@@ -16,7 +16,7 @@
     },
     {
       "type": "patchouli:text",
-      "text": "$(li)$(bold)No controller:$() the network is ad-hoc and carries $(bold)8 devices$(), total.$(li)$(bold)A controller$() gives $(bold)32 channels per face$().$(li)Ordinary cable, and any full-block machine, passes $(bold)8$().$(li)$(bold)Dense$() cable passes $(bold)32$().$(br2)Q51 needs four devices, so you do not need a controller yet. Q84 does.",
+      "text": "$(li)$(bold)No controller:$() the network is ad-hoc and carries $(bold)8 devices$(), total.$(li)$(bold)A controller$() gives $(bold)32 channels per face$().$(li)Ordinary cable, and any full-block machine, passes $(bold)8$().$(li)$(bold)Dense$() cable passes $(bold)32$().$(br2)Q51 needs four devices, so you do not need a controller yet. A town-sized net -- Works, mill and granary on one network -- is where one starts paying for itself.",
       "title": "Channels, honestly"
     },
     {
@@ -34,7 +34,7 @@
     },
     {
       "type": "patchouli:text",
-      "text": "$(bold)2 FE = 1 AE.$() Feed it in through an $(item)Energy Acceptor$() off the same fluxduct as everything else.$(br2)A bare network buffers only $(bold)25 AE per part$(), which is why dumping a full inventory into a small net makes it reboot. One $(item)ME Energy Cell$() holds $(bold)200,000 AE$() and cures it. A $(item)Dense Energy Cell$() holds $(bold)1,600,000$() and is what Q84 wants.",
+      "text": "$(bold)2 FE = 1 AE.$() Feed it in through an $(item)Energy Acceptor$() off the same Energy Duct as everything else.$(br2)A bare network buffers only $(bold)25 AE per part$(), which is why dumping a full inventory into a small net makes it reboot. One $(item)ME Energy Cell$() holds $(bold)200,000 AE$() and cures it. A $(item)Dense Energy Cell$() holds $(bold)1,600,000$() and is the one to build once the whole town is on the net.",
       "title": "Power"
     },
     {

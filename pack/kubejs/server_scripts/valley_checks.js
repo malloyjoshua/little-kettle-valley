@@ -29,7 +29,7 @@ const POLLS = []
 function poll(key, need) { POLLS.push({ key: key, need: need }) }
 
 function fire(player, key) {
-  const v = V()
+  let v = V()
   // Drop it from the poll list first, so an already-latched check can never
   // sit in the list re-testing forever after a /reload.
   for (let i = POLLS.length - 1; i >= 0; i--) {
@@ -44,11 +44,11 @@ function fire(player, key) {
 // EVENT-DRIVEN CHECKS
 // =============================================================================
 BlockEvents.placed(event => {
-  const v = V()
+  let v = V()
   if (!v || !global.valleyServer) return
-  const b = event.block
-  const id = String(b.id)
-  const player = event.entity
+  let b = event.block
+  let id = String(b.id)
+  let player = event.entity
   if (!player || !player.isPlayer()) return
 
   // ---------------------------------------------------------------------
@@ -80,13 +80,13 @@ BlockEvents.placed(event => {
     // Record the lamp posts the Act I finale is about to place, so the Act IV
     // lever relights the whole road and not just the stretches she built.
     v.C.LAMPS_FINALE.forEach(off => {
-      const p = v.offset(off)
+      let p = v.offset(off)
       if (p) v.addLamp(p[0], p[1], p[2])
     })
     // ...and the two that valley:act1/square_path is about to setblock as
     // this quest's own reward. A setblock never fires this listener.
     v.C.LAMPS_Q07.forEach(off => {
-      const p = v.offset(off)
+      let p = v.offset(off)
       if (p) v.addLamp(p[0], p[1], p[2])
     })
     fire(player, 'q07')
@@ -98,7 +98,7 @@ BlockEvents.placed(event => {
   // Within 32 of Home (§12.4: "megatorch within 32 of Home").
   // ---------------------------------------------------------------------
   if (id === 'torchmaster:megatorch' && !v.isDone('q04')) {
-    const home = v.home()
+    let home = v.home()
     if (home && Math.abs(b.x - home[0]) <= 32 && Math.abs(b.z - home[2]) <= 32) {
       fire(player, 'q04')
     }
@@ -119,9 +119,9 @@ BlockEvents.placed(event => {
     // anchor-relative, so it has to run before the anchor bail-out below.
     // -------------------------------------------------------------------
     if (!v.isDone('q90')) {
-      const home = v.home()
+      let home = v.home()
       if (home) {
-        const porch = [home[0] + v.C.HOME_PORCH[0], home[1] + v.C.HOME_PORCH[1], home[2] + v.C.HOME_PORCH[2]]
+        let porch = [home[0] + v.C.HOME_PORCH[0], home[1] + v.C.HOME_PORCH[1], home[2] + v.C.HOME_PORCH[2]]
         if (Math.abs(b.x - porch[0]) <= 2 && Math.abs(b.y - porch[1]) <= 2 && Math.abs(b.z - porch[2]) <= 2) {
           v.addLamp(b.x, b.y, b.z)
           global.valleyServer.runCommandSilent('bossbar set valley:lamps value 40')
@@ -132,12 +132,12 @@ BlockEvents.placed(event => {
       }
     }
 
-    const anchor = v.anchor()
+    let anchor = v.anchor()
     if (!anchor) return
-    const tol = v.C.LAMP_TOLERANCE
+    let tol = v.C.LAMP_TOLERANCE
     let matched = null
     let route = null
-    const tryRoute = (list, name) => {
+    let tryRoute = (list, name) => {
       if (matched) return
       for (let i = 0; i < list.length; i++) {
         let p = [anchor[0] + list[i][0], anchor[1] + list[i][1], anchor[2] + list[i][2]]
@@ -151,7 +151,7 @@ BlockEvents.placed(event => {
     if (!matched) return
 
     v.addLamp(b.x, b.y, b.z)
-    const total = v.lamps().length
+    let total = v.lamps().length
     global.valleyServer.runCommandSilent('bossbar set valley:lamps value ' + Math.min(total, 40))
 
     if (route === 'q34' && !v.isDone('q34') && countOnRoute(v, anchor, v.C.LAMPS_Q34) >= v.C.LAMPS_Q34.length) {
@@ -168,7 +168,7 @@ BlockEvents.placed(event => {
   // (§12.1 C11: this proximity is a QUEST check, never a recipe condition.)
   // ---------------------------------------------------------------------
   if (id === 'thermal:energy_duct' && !v.isDone('q47')) {
-    const inn = v.mark('inn')
+    let inn = v.mark('inn')
     if (inn && Math.abs(b.x - inn[0]) <= 12 && Math.abs(b.y - inn[1]) <= 12 && Math.abs(b.z - inn[2]) <= 12) {
       fire(player, 'q47')
     }
@@ -182,7 +182,7 @@ BlockEvents.placed(event => {
   //  touching AE2's internal API — so the crate is the interface.)
   // ---------------------------------------------------------------------
   if (id === 'minecraft:barrel' && !v.isDone('q53')) {
-    const board = v.mark('board')
+    let board = v.mark('board')
     if (board && Math.abs(b.x - board[0]) <= 10 && Math.abs(b.y - board[1]) <= 6 && Math.abs(b.z - board[2]) <= 10) {
       v.set('valley_crate_pos', b.x + ',' + b.y + ',' + b.z)
       v.say(player, 'Oda', "Crate's beside the board. Fill it and I'll stop asking.")
@@ -191,8 +191,8 @@ BlockEvents.placed(event => {
 })
 
 function countOnRoute(v, anchor, route) {
-  const lamps = v.lamps()
-  const tol = v.C.LAMP_TOLERANCE
+  let lamps = v.lamps()
+  let tol = v.C.LAMP_TOLERANCE
   let n = 0
   for (let i = 0; i < route.length; i++) {
     let p = [anchor[0] + route[i][0], anchor[1] + route[i][1], anchor[2] + route[i][2]]
@@ -211,12 +211,12 @@ function countOnRoute(v, anchor, route) {
 // ("the 6 spots he marked"), rather than off the cumulative vanilla stat.
 // -----------------------------------------------------------------------------
 ItemEvents.rightClicked('geolosys:prospectors_pick', event => {
-  const v = V()
+  let v = V()
   if (!v || !global.valleyServer) return
-  const player = event.player
+  let player = event.player
   if (player.level.isClientSide()) return
   if (v.isDone('q28')) return
-  const n = parseInt(v.get('valley_pick_uses', '0'), 10) + 1
+  let n = parseInt(v.get('valley_pick_uses', '0'), 10) + 1
   v.set('valley_pick_uses', n)
   if (n >= 6) {
     v.say(player, 'Tobin', "That's the six. Copper's under the third one, which — anyway. Copper.")
@@ -230,16 +230,16 @@ ItemEvents.rightClicked('geolosys:prospectors_pick', event => {
 
 // ---- Q5: "Dig Out the Cellar Stairs." Player below the ruin floor. ---------
 poll('q05', (server, player) => {
-  const v = V()
-  const home = v.home()
+  let v = V()
+  let home = v.home()
   if (!home) return false
   return v.flatDist(player, home) <= 16 && player.y <= home[1] + v.C.HOME_CELLAR_Y
 })
 
 // ---- Q55: "Read the Cellar Wall." Deeper, and only after Q54 has revealed it.
 poll('q55', (server, player) => {
-  const v = V()
-  const home = v.home()
+  let v = V()
+  let home = v.home()
   if (!home) return false
   if (!v.hasWorldStage('act3')) return false
   return v.flatDist(player, home) <= 10 && player.y <= home[1] + v.C.HOME_DEEP_Y
@@ -247,8 +247,8 @@ poll('q55', (server, player) => {
 
 // ---- Q10: "Three chickens standing inside the finished pen." --------------
 poll('q10', (server, player) => {
-  const v = V()
-  const home = v.home()
+  let v = V()
+  let home = v.home()
   if (!home) return false
   if (v.flatDist(player, home) > 32) return false
   return v.countNear(player.level, home, 12, 'minecraft:chicken') >= 3
@@ -256,8 +256,8 @@ poll('q10', (server, player) => {
 
 // ---- Q25: "2 cows and 2 sheep are standing inside the fenced pasture." ----
 poll('q25', (server, player) => {
-  const v = V()
-  const home = v.home()
+  let v = V()
+  let home = v.home()
   if (!home) return false
   if (v.flatDist(player, home) > 40) return false
   return v.countNear(player.level, home, 24, 'minecraft:cow') >= 2 &&
@@ -268,12 +268,12 @@ poll('q25', (server, player) => {
 // The vanilla fish stat is cumulative (§12.4), so the baseline is taken the
 // first time this check sees the player, which is the moment the quest opens.
 poll('q22', (server, player) => {
-  const v = V()
+  let v = V()
   if (!v.hasWorldStage('act2')) return false
-  const name = v.pname(player)
-  const key = 'valley_fish_base_' + name
-  const now = player.stats.fishCaught
-  const base = v.get(key, null)
+  let name = v.pname(player)
+  let key = 'valley_fish_base_' + name
+  let now = player.stats.fishCaught
+  let base = v.get(key, null)
   if (base === null) { v.set(key, now); return false }
   return (now - parseInt(base, 10)) >= 10
 })
@@ -281,34 +281,34 @@ poll('q22', (server, player) => {
 // ---- Q59: "The Reed Village Comes In." Walk the Ribbits home. -------------
 // Satisfied when the player is standing with at least two Ribbits.
 poll('q59', (server, player) => {
-  const v = V()
+  let v = V()
   if (!v.hasWorldStage('act4')) return false
-  const here = [player.x, player.y, player.z]
+  let here = [player.x, player.y, player.z]
   return v.countNear(player.level, here, 8, 'ribbits:') >= 2
 })
 
 // ---- Q65: "Open the Works." Player inside the Works box. ------------------
 poll('q65', (server, player) => {
-  const v = V()
+  let v = V()
   return v.inBox(player, v.mark('works'), v.C.BOX.works)
 })
 
 // ---- Q82: "Deeper and Darker." Player inside the echo cave. ---------------
 poll('q82', (server, player) => {
-  const v = V()
+  let v = V()
   return v.inBox(player, v.mark('echo_cave'), v.C.BOX.echo_cave)
 })
 
 // ---- Q53: the Delivery Crate is placed AND fed. ---------------------------
 poll('q53', (server, player) => {
-  const v = V()
-  const raw = v.get('valley_crate_pos', null)
+  let v = V()
+  let raw = v.get('valley_crate_pos', null)
   if (!raw) return false
-  const parts = String(raw).split(',')
-  const b = player.level.getBlock(
+  let parts = String(raw).split(',')
+  let b = player.level.getBlock(
     parseInt(parts[0], 10), parseInt(parts[1], 10), parseInt(parts[2], 10))
   if (String(b.id) !== 'minecraft:barrel') return false
-  const inv = b.inventory
+  let inv = b.inventory
   if (!inv) return false
   return !inv.isEmpty()
 })
@@ -323,10 +323,10 @@ poll('q53', (server, player) => {
 const sleeping = {}
 
 function checkSleep(server, player) {
-  const v = V()
-  const name = v.pname(player)
-  const now = !!player.isSleeping()
-  const was = !!sleeping[name]
+  let v = V()
+  let name = v.pname(player)
+  let now = !!player.isSleeping()
+  let was = !!sleeping[name]
   sleeping[name] = now
   if (!(was && !now)) return          // only the sleeping -> awake edge counts
 
@@ -364,15 +364,15 @@ function checkSleep(server, player) {
 const STANDING_INTERVAL = 200          // ticks; ~10 seconds
 
 function checkStanding(server, player) {
-  const v = V()
-  const team = v.teamId(player)
+  let v = V()
+  let team = v.teamId(player)
   if (v.standingGranted(team)) return
 
   // Top-up pass: whatever FTB Quests already knows goes into the ledger.
-  const api = v.standingApiClosed(player)
+  let api = v.standingApiClosed(player)
   if (api) api.forEach(k => v.recordStanding(team, k))
 
-  const closed = v.standingClosed(team)
+  let closed = v.standingClosed(team)
   if (closed.length < v.STANDING_REQUIRED) return
 
   v.markStandingGranted(team)
@@ -394,13 +394,13 @@ function checkStanding(server, player) {
 // -----------------------------------------------------------------------------
 ServerEvents.tick(event => {
   if (global.valleyTick % POLL_INTERVAL !== 0) return
-  const v = V()
+  let v = V()
   if (!v || !global.valleyServer) return
   if (!prunedOnce) pruneFinished()
-  const players = event.server.players
+  let players = event.server.players
   if (players.length === 0) return
 
-  const slow = (global.valleyTick % STANDING_INTERVAL === 0)
+  let slow = (global.valleyTick % STANDING_INTERVAL === 0)
 
   players.forEach(player => {
     checkSleep(event.server, player)
@@ -428,7 +428,7 @@ ServerEvents.tick(event => {
 let prunedOnce = false
 
 function pruneFinished() {
-  const v = V()
+  let v = V()
   for (let i = POLLS.length - 1; i >= 0; i--) {
     if (v.isDone(POLLS[i].key)) POLLS.splice(i, 1)
   }

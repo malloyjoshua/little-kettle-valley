@@ -83,7 +83,7 @@
       "description": [
         "Nella: \"Ten, any ten. The lake isn't fussy and neither am I.\"",
         "",
-        "Cast Nella's Iron Rod from the shore until you have caught 10 fish of any kind, then cook one cod on a Farmer's Delight Skillet and hand the cooked cod in.",
+        "Cast Nella's Iron Rod from the shore until you have caught 10 fish of any kind, then cook one cod on a Farmer's Delight Skillet and hand the cooked cod in. Nothing is counting the ten for you — tick that box yourself when you know you are there.",
         "",
         "The Dredge Net comes out of this, and the dredge is where the sand for the workshop's first machine comes from."
       ],
@@ -113,7 +113,7 @@
       "description": [
         "Halden: \"Nothing in a hedge garden is urgent. That is more or less the entire argument for having one.\"",
         "",
-        "Plant Wisp's poppy, dandelion and cornflower in the three flower boxes on your window ledge, bone-meal the grass around them until you have 8 of each, and bring all 24 to Halden on the south slope.",
+        "Plant Wisp's poppy, dandelion and cornflower in the three flower boxes on your window ledge, then bone-meal the grass on the flat by the Town Anchor — that ground is plains, and plains grows all three — until you have 8 of each. Bring all 24 to Halden on the south slope.",
         "",
         "Halden moves into the hedge garden, the spring above it starts running, and the trellis and grape starts for the slope come with him."
       ],
@@ -163,7 +163,7 @@
         { "type": "item", "item": "vinery:fermentation_barrel", "count": 1 },
         { "type": "item", "item": "vinery:oak_wine_rack_small", "count": 2 },
         { "type": "stage", "stage": "vinery" },
-        { "type": "command", "command": "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"Well. She was right about the slope. Don't tell her.\",\"italic\":true}]", "elevate": true, "silent": true },
+        { "type": "command", "command": "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"She was right about the slope. Don't tell her.\",\"italic\":true}]", "elevate": true, "silent": true },
         { "type": "toast", "title": "The south slope is planted", "description": "Next: fence the pasture and let out 2 cows and 2 sheep." }
       ]
     },
@@ -204,7 +204,7 @@
       "description": [
         "Nella: \"Sit down, hold the rope, don't help. You never get in the water on my boat.\"",
         "",
-        "Sit in Nella's boat over the marked shallows and use the Dredge Net six times. Each pull brings up 16 Lake Sand; hand in 96.",
+        "Sit in Nella's boat over the marked shallows and use the Dredge Net six times. Each pull brings up 16 Lake Sand; hand in 96 — the book counts it, then gives it straight back for Bram.",
         "",
         "Lake Sand is the only source of Washed Silica, and Washed Silica is the only way to a Thermal Machine Frame — Bram cannot start the workshop without it."
       ],
@@ -219,7 +219,7 @@
         { "type": "item", "item": "minecraft:oak_boat", "count": 1 },
         { "type": "stage", "stage": "dredged" },
         { "type": "command", "command": "/tellraw @a [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"Ninety-six. Take it to Bram before he asks me twice.\",\"italic\":true}]", "elevate": true, "silent": true },
-        { "type": "toast", "title": "96 Lake Sand on the pier", "description": "Next: wash the sand under an Encased Fan for 64 Washed Silica." }
+        { "type": "toast", "title": "96 Lake Sand on the pier", "description": "Next: 64 Washed Silica on the bench — two Lake Sand and a bucket of water each, so keep the net out; it takes 128 sand." }
       ]
     },
     {
@@ -283,9 +283,9 @@
       "description": [
         "Bram: \"Stream drops every August, and the wheel stops with it. Wind doesn't drop — put it on the roof.\"",
         "",
-        "Craft one Windmill Bearing and 8 White Sails and hold them. The 16 wool for the sails is in Bram's crate by the mill door.",
+        "Craft one Windmill Bearing and 8 White Sails and hold them to hand in, then set the bearing in the marked roof slot and the eight sails on its shaft. The 16 wool is in Bram's crate by the mill door.",
         "",
-        "The Encased Fan comes with the gear kit — that fan is what washes Nella's lake sand."
+        "A second Encased Fan comes with the gear kit — one stays belted to the mill, one goes down to the sand."
       ],
       "deps": ["q16"],
       "shape": "hexagon",
@@ -312,9 +312,9 @@
       "description": [
         "Bram: \"Fan over running water, sand on the belt underneath. Wash it twice if it still looks like a beach.\"",
         "",
-        "Set the Encased Fan blowing down through a block of water, run your 96 Lake Sand under it, and hand in 64 Washed Silica.",
+        "Two Lake Sand and a bucket of water make one Washed Silica on the bench, so 64 silica is 128 sand — Nella's net is still yours for the last two pulls. (An Encased Fan blowing down through water does the same job, if you would rather watch it happen.)",
         "",
-        "Washed Silica is the gate item on the Thermal Machine Frame — the recipe in EMI will not accept anything else."
+        "Washed Silica is the gate item on the Thermal Machine Frame — press U on the frame in JEI and the silica is sitting in the grid where the tin used to be."
       ],
       "deps": ["q26", "q29"],
       "shape": "circle",
@@ -328,7 +328,7 @@
         { "type": "stage", "stage": "washed_silica" },
         { "type": "stage", "stage": "silica" },
         { "type": "command", "command": "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"That's the stuff Josie kept writing about. I never worked out where she got it.\",\"italic\":true}]", "elevate": true, "silent": true },
-        { "type": "toast", "title": "128 Washed Silica on the bench", "description": "Next: craft your first Thermal Machine Frame from Josie's schematic." }
+        { "type": "toast", "title": "64 Washed Silica, and 64 More", "description": "Next: craft your first Thermal Machine Frame from Josie's schematic." }
       ]
     },
     {
@@ -341,7 +341,7 @@
         "",
         "Take Bram's crate of Josie's papers and craft one Thermal Machine Frame — Washed Silica plus tin from the deposit Tobin pinned on your map. Hold it to hand it in.",
         "",
-        "Everything Thermal in this pack is built on that frame, and the Stirling Dynamo you get with it is the workshop's first real power."
+        "Every Thermal machine is that frame with an RF Coil under it — silver and redstone, wound. Tobin's second map has the silver seam two ridges over, and Oda sells eight coils for 18 Scrip once her board is open. The Stirling Dynamo in this payout is the workshop's first real power."
       ],
       "deps": ["q30"],
       "shape": "hexagon",
@@ -394,7 +394,7 @@
       "description": [
         "Bram: \"Two dust out of one ore. That's not a trick, that's just knowing what a hammer is for.\"",
         "",
-        "Build a Thermal Pulverizer on the Machine Frame, feed it from the Stirling Dynamo, run 32 iron ore through it and hand in 32 Iron Dust.",
+        "Build a Thermal Pulverizer on the Machine Frame and put the Stirling Dynamo against its input face — it burns what the bread oven burns, and a stack of charcoal runs it all evening. Run 32 iron ore through and hand in 32 Iron Dust.",
         "",
         "Ore is doubled from here on, and the second dynamo is what lights the first two lamp posts on the road."
       ],
@@ -415,13 +415,13 @@
     },
     {
       "key": "q34",
-      "title": "Place 4 Lamp Posts and Run Fluxduct to Two of Them",
+      "title": "Place 4 Lamp Posts and Run Energy Duct to Two of Them",
       "subtitle": "Four marked spots, mill to square.",
       "icon": "minecraft:lantern",
       "description": [
         "Oda: \"Six lamps lit, thirty-four dark. I count them every night whether I mean to or not.\"",
         "",
-        "Put one lamp post on each of the 4 marked spots between the mill and the square, then run Fluxduct from the Redstone Furnace to the nearest two. Any order is right. Every post and every length of duct is in the crate at the mill door.",
+        "Put one lamp post on each of the 4 marked spots between the mill and the square, then run Energy Duct from the Stirling Dynamo at the mill to the nearest two — the furnace eats power, the dynamo makes it, so wire from the dynamo's output face. Any order is right. Every post and every length of duct is in the crate at the mill door.",
         "",
         "Lamps 10 of 40. Nothing hostile spawns anywhere along the lit road, for good."
       ],
@@ -436,7 +436,7 @@
         { "type": "item", "item": "torchmaster:megatorch", "count": 2 },
         { "type": "item", "item": "thermal:energy_duct", "count": 32 },
         { "type": "command", "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Ten. Write it in the ledger. I want it in ink.\",\"italic\":true}]", "elevate": true, "silent": true },
-        { "type": "toast", "title": "Lamps 10 / 40", "description": "Next: Oda's three notices — 24 wheat, 8 cooked fish, 8 wool." }
+        { "type": "toast", "title": "Lamps 10 / 40", "description": "Next: Wisp's stilt house over the shallows. Every spot on the decking is marked." }
       ]
     },
     {
@@ -445,7 +445,7 @@
       "subtitle": "Every spot on the decking is marked.",
       "icon": "ribbits:swamp_lantern",
       "description": [
-        "Wisp: \"Two places is too many places. I would like to be in the one place, with you lot, please.\"",
+        "Wisp: \"Two places is too many places for one person. I would like to be in the one place, with you lot. Please can I?\"",
         "",
         "The platform is already out over the shallows and every spot is marked. From the crate on the decking: put a mossy oak post on each of the 6 marks, the bed on the wool mat, the door in the doorway, a window in each of the 2 holes, and the 3 swamp lanterns on the hooks. Any order is right.",
         "",
@@ -470,12 +470,12 @@
     {
       "key": "q36",
       "title": "Craft 24 Paper Lanterns With Marnie and Pip",
-      "subtitle": "One paper and one torch, twenty-four times.",
+      "subtitle": "Eight paper around one torch, six times.",
       "icon": "valley:paper_lantern",
       "description": [
         "Marnie: \"Nella says nobody will come, and Nella has made forty of these. Draw your own conclusions, love.\"",
         "",
-        "One paper and one torch makes one Paper Lantern. Make 24 at the inn's long table from the crate Oda sent, and hand them in.",
+        "Eight paper around one torch makes four Paper Lanterns — six batches for twenty-four, so 48 paper and 6 torches. Oda's crate holds 24 paper and 24 torches; the rest is sugar cane off the reeds under Wisp's stilt house, three to a sheet. Any crafting table will do.",
         "",
         "These are the lanterns that go on the water at the Float. The festival clothes and 20 Valley Scrip come with them."
       ],

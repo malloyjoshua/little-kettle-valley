@@ -25,7 +25,7 @@ JEIEvents.hideItems(event => {
   // ---------------------------------------------------------------------------
   // 1. Retired duplicate metals - unobtainable after unify.js.
   // ---------------------------------------------------------------------------
-  const RETIRED = [
+  let RETIRED = [
     'geolosys:tin_ingot', 'geolosys:tin_nugget',
     'geolosys:silver_ingot', 'geolosys:silver_nugget',
     'geolosys:lead_ingot', 'geolosys:lead_nugget',
@@ -42,7 +42,7 @@ JEIEvents.hideItems(event => {
   //    mercury analogue is named "cinnabar" and is never tagged as quicksilver),
   //    so both of Create's producing recipes self-disable on forge:tag_empty.
   // ---------------------------------------------------------------------------
-  const UNREACHABLE = [
+  let UNREACHABLE = [
     'create:crushed_raw_quicksilver'
   ]
 
@@ -54,7 +54,7 @@ JEIEvents.hideItems(event => {
   //    NOTE: leave these commented until that config edit ships, otherwise you
   //    hide items the world is still generating.
   // ---------------------------------------------------------------------------
-  const RETIRED_THERMAL_RAW = [
+  let RETIRED_THERMAL_RAW = [
     'thermal:raw_tin',
     'thermal:raw_lead',
     'thermal:raw_silver',

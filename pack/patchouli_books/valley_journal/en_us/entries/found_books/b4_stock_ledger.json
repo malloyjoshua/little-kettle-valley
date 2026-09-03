@@ -11,7 +11,7 @@
     },
     {
       "type": "patchouli:text",
-      "text": "Year 9 -- wheat 340, flour 180, salt 40, oil 12, apples 900$(br)Year 10 -- wheat 210, flour 95, salt 40, oil 6, apples 400$(br)Year 11 -- wheat 60, flour 0, salt 40, oil 0, apples 0$(br)Year 12 -- (blank)$(br)Year 13 -- (blank)$(br)Year 14 -- (blank)"
+      "text": "Year 9 -- wheat 340, flour 180, salt 40, oil 12, apples 900$(br)Year 10 -- wheat 210, flour 95, salt 40, oil 6, apples 400$(br)Year 11 -- wheat 60, flour 0, salt 40, oil 0, apples 0$(br)Year 12 -- (blank)$(br)Year 13 -- (blank)$(br)Year 14 -- (blank)$(br)Years 15 to 22 -- (blank, every line)"
     },
     {
       "type": "patchouli:text",

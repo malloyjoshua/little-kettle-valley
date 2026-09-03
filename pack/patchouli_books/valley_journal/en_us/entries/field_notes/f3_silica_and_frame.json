@@ -6,12 +6,12 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Bram: $(italic)Thermal won't take river grit. It wants glass sand, washed.$()$(br2)Nella dredges it: Q26 is $(bold)96 Lake Sand$() off the shallows.$(br2)You wash it: Q30 is $(bold)64 Washed Silica$(), made by running an $(item)Encased Fan$() down through flowing water onto the sand. Q30 pays another $(bold)64$() when you're done, so plan on 128 in hand.",
+      "text": "Bram: $(italic)Thermal won't take river grit. It wants glass sand, washed.$()$(br2)Nella dredges it: Q26 is $(bold)96 Lake Sand$() off the shallows.$(br2)You wash it: Q30 is $(bold)64 Washed Silica$(). Two Lake Sand and a bucket of water make one on the bench, so 64 silica is $(bold)128 sand$() -- keep Nella's net out for the last two pulls. An $(item)Encased Fan$() blowing down through flowing water does the same job if you would rather watch it. Q30 pays another $(bold)64$() silica when you're done.",
       "title": "Sand, twice"
     },
     {
       "type": "patchouli:text",
-      "text": "The $(item)Thermal Machine Frame$() in this valley is built with $(item)Washed Silica$(). That is the entire gate -- no stage to chase, no unlock to find, just an ingredient somebody has to have made.$(br2)Q31 asks for $(bold)one$() frame and pays you back $(bold)two$() spares, a Redstone Furnace, 32 Fluxduct and a Stirling Dynamo.",
+      "text": "The $(item)Thermal Machine Frame$() in this valley is built with $(item)Washed Silica$(). That is the entire gate -- no stage to chase, no unlock to find, just an ingredient somebody has to have made.$(br2)Q31 asks for $(bold)one$() frame and pays you back $(bold)two$() spares, a Redstone Furnace, 32 Energy Duct and a Stirling Dynamo.",
       "title": "The gate"
     },
     {

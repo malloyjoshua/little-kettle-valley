@@ -62,7 +62,7 @@ function npc(name, x, y, z) {
 const TILDE3 = /(^|\s)~(-?[0-9]*\.?[0-9]*)[ ]+~(-?[0-9]*\.?[0-9]*)[ ]+~(-?[0-9]*\.?[0-9]*)(?=[ ]|$)/g
 
 function num(base, d) {
-  const v = base + (d === '' || d === '-' ? 0 : parseFloat(d))
+  let v = base + (d === '' || d === '-' ? 0 : parseFloat(d))
   return (v === Math.floor(v)) ? String(Math.floor(v)) : String(v)
 }
 
@@ -74,9 +74,9 @@ function resolve(cmd, origin) {
 function runSeg(server, origin, cmds) {
   cmds.forEach(c => {
     if (!c || c.charAt(0) === '#') return
-    const full = resolve(c, origin)
+    let full = resolve(c, origin)
     try {
-      const r = server.runCommandSilent(full)
+      let r = server.runCommandSilent(full)
       if (r === 0) console.warn('[valley] command returned 0 (no effect / failed): ' + full)
     } catch (err) { console.error('[valley] finale command failed: ' + full + ' :: ' + err) }
   })
@@ -266,7 +266,7 @@ function finaleAct4(server, v) {
   // Four seconds later, the instant. Bram pulls the lever: NPCs cannot
   // interact with blocks, so the lever is setblock and Bram is narration.
   v.delay(80, s => {
-    const works = v.mark('works')
+    let works = v.mark('works')
     runSeg(s, works, [
       'setblock ~0 ~2 ~0 minecraft:lever[face=wall,facing=south,powered=true]',
       'particle minecraft:cloud ~2 ~3 ~2 1 1 1 0.02 60 force @a',
@@ -275,7 +275,7 @@ function finaleAct4(server, v) {
     ])
 
     // The world changes in one instant: every stored lamp post lights at once.
-    const lamps = v.lamps()
+    let lamps = v.lamps()
     lamps.forEach(p => {
       s.runCommandSilent('setblock ' + p[0] + ' ' + (p[1] + 1) + ' ' + p[2] + ' minecraft:lantern')
       s.runCommandSilent('particle minecraft:end_rod ' + p[0] + ' ' + (p[1] + 2) + ' ' + p[2] + ' 0.2 0.2 0.2 0.01 8 force @a')
@@ -283,9 +283,9 @@ function finaleAct4(server, v) {
     s.runCommandSilent('bossbar set valley:lamps value ' + Math.max(lamps.length, 39))
 
     // The Hearth relights, and the bathhouse starts steaming.
-    const inn = v.mark('inn')
+    let inn = v.mark('inn')
     if (inn) s.runCommandSilent('setblock ' + inn[0] + ' ' + inn[1] + ' ' + inn[2] + ' minecraft:campfire[lit=true]')
-    const bath = v.mark('bathhouse')
+    let bath = v.mark('bathhouse')
     if (bath) s.runCommandSilent('particle minecraft:cloud ' + bath[0] + ' ' + (bath[1] + 2) + ' ' + bath[2] + ' 2 1 2 0.02 120 force @a')
 
     s.runCommandSilent('give @a valley:hearthkeepers_lantern 1')
@@ -350,7 +350,7 @@ function finaleAct5(server, v) {
 
   // Halden reads the last page of Josie's journal: five lines, each five
   // seconds after the last. (§7: `function valley:act5/read1` .. read5.)
-  const page = [
+  let page = [
     'The Works ran. For eleven days, in the winter Old Dell left.',
     'The greenhouse was warm and the bakery had flour and I stood in the lane at ten at night in February, and every lamp on the road was lit.',
     'A machine that one person can run is not infrastructure. It is a hostage.',
@@ -627,13 +627,13 @@ const SCENES = {
     origin: 'anchor',
     who: ['Josie', 'Forty posts, mill to square to lake. I counted them on my fingers before I could count to forty.'],
     run: function (server, v) {
-      const lamps = v.lamps()
+      let lamps = v.lamps()
       lamps.forEach(p => {
         server.runCommandSilent('particle minecraft:end_rod ' +
           p[0] + ' ' + (p[1] + 2) + ' ' + p[2] + ' 0.2 0.4 0.2 0.01 6 force @a')
       })
       server.runCommandSilent('bossbar set valley:lamps value ' + Math.min(Math.max(lamps.length, 39), 40))
-      const home = v.home()
+      let home = v.home()
       if (home) {
         // the fortieth post stays bare on purpose: Josie's porch, Q90.
         server.runCommandSilent('setblock ' +
@@ -647,10 +647,10 @@ const SCENES = {
 }
 
 function runScene(source, key) {
-  const v = global.valley
+  let v = global.valley
   if (!v) { msg(source, Text.red('[valley] core script not loaded.')); return 0 }
 
-  const scene = SCENES[key]
+  let scene = SCENES[key]
   if (!scene) {
     msg(source, Text.gray('[valley] no scene "' + key + '". Known scenes: ' +
       Object.keys(SCENES).join(' ')))
@@ -662,15 +662,15 @@ function runScene(source, key) {
     return 0
   }
 
-  const server = source.server
+  let server = source.server
   try {
     if (scene.cmds) {
-      const origin = scene.origin === 'anchor' ? v.anchor() : v.mark(scene.origin)
+      let origin = scene.origin === 'anchor' ? v.anchor() : v.mark(scene.origin)
       if (origin) runSeg(server, origin, scene.cmds)
       else console.warn('[valley] scene ' + key + ': no mark "' + scene.origin + '"')
     }
     if (scene.also) {
-      const o2 = scene.also.origin === 'anchor' ? v.anchor() : v.mark(scene.also.origin)
+      let o2 = scene.also.origin === 'anchor' ? v.anchor() : v.mark(scene.also.origin)
       if (o2) runSeg(server, o2, scene.also.cmds)
     }
     if (scene.run) scene.run(server, v)
@@ -698,7 +698,7 @@ const FINALES = {
 // instead, and falls back to the console when the source is not a player.
 // -----------------------------------------------------------------------------
 function msg(source, component) {
-  const p = srcPlayer(source)
+  let p = srcPlayer(source)
   if (p) p.tell(component)
   else console.info('[valley] ' + component.getString())
 }
@@ -714,8 +714,8 @@ function srcPlayer(source) {
 // The P7 guard. One entry point, one flag, one refusal message.
 // -----------------------------------------------------------------------------
 function runFinale(source, act) {
-  const v = global.valley
-  const server = source.server
+  let v = global.valley
+  let server = source.server
   if (!v) { msg(source, Text.red('[valley] core script not loaded.')); return 0 }
 
   if (!v.anchor()) {
@@ -738,8 +738,8 @@ function runFinale(source, act) {
 // calls it").
 // =============================================================================
 ServerEvents.commandRegistry(event => {
-  const Commands = event.commands
-  const Arguments = event.arguments
+  let Commands = event.commands
+  let Arguments = event.arguments
 
   event.register(
     Commands.literal('valley')
@@ -787,22 +787,22 @@ ServerEvents.commandRegistry(event => {
       // --- /valley anchor -------------------------------------------------
       .then(Commands.literal('anchor').then(Commands.literal('set').requires(src => src.hasPermission(2))
         .then(Commands.argument('x', Arguments.INTEGER.create(event)).then(Commands.argument('y', Arguments.INTEGER.create(event)).then(Commands.argument('z', Arguments.INTEGER.create(event)).executes(ctx => {
-          const x = Arguments.INTEGER.getResult(ctx, 'x'), y = Arguments.INTEGER.getResult(ctx, 'y'), z = Arguments.INTEGER.getResult(ctx, 'z')
+          let x = Arguments.INTEGER.getResult(ctx, 'x'), y = Arguments.INTEGER.getResult(ctx, 'y'), z = Arguments.INTEGER.getResult(ctx, 'z')
           global.valley.setAnchor(x, y, z)
           msg(ctx.source, Text.gold('Town Anchor set to ' + x + ' ' + y + ' ' + z))
           return 1
         }))))))
       .then(Commands.literal('home').then(Commands.literal('set').requires(src => src.hasPermission(2))
         .then(Commands.argument('x', Arguments.INTEGER.create(event)).then(Commands.argument('y', Arguments.INTEGER.create(event)).then(Commands.argument('z', Arguments.INTEGER.create(event)).executes(ctx => {
-          const x = Arguments.INTEGER.getResult(ctx, 'x'), y = Arguments.INTEGER.getResult(ctx, 'y'), z = Arguments.INTEGER.getResult(ctx, 'z')
+          let x = Arguments.INTEGER.getResult(ctx, 'x'), y = Arguments.INTEGER.getResult(ctx, 'y'), z = Arguments.INTEGER.getResult(ctx, 'z')
           global.valley.setHome(x, y, z)
           msg(ctx.source, Text.gold('Home set to ' + x + ' ' + y + ' ' + z))
           return 1
         }))))))
       .then(Commands.literal('anchor').executes(ctx => {
-        const v = global.valley
-        const a = v ? v.anchor() : null
-        const h = v ? v.home() : null
+        let v = global.valley
+        let a = v ? v.anchor() : null
+        let h = v ? v.home() : null
         if (!a) {
           msg(ctx.source, Text.gray('No Town Anchor set yet. Place the Surveyor\'s Stake (Q7).'))
         } else {
@@ -814,8 +814,8 @@ ServerEvents.commandRegistry(event => {
 
       // --- /valley lamps --------------------------------------------------
       .then(Commands.literal('lamps').executes(ctx => {
-        const v = global.valley
-        const n = v ? v.lamps().length : 0
+        let v = global.valley
+        let n = v ? v.lamps().length : 0
         msg(ctx.source, Text.gold('Lantern Road: ' + n + ' posts recorded of 40.'))
         return 1
       }))
@@ -844,12 +844,12 @@ ServerEvents.commandRegistry(event => {
 // Works, and prints the number the quest asked for either way.
 // -----------------------------------------------------------------------------
 function checkAt(source, key, ok, hint) {
-  const v = global.valley
-  const player = srcPlayer(source)
+  let v = global.valley
+  let player = srcPlayer(source)
   if (!v || !player) { msg(source, Text.red('Run this as a player, standing at the Works.')); return 0 }
-  const works = v.mark('works')
+  let works = v.mark('works')
   if (!works) { msg(source, Text.red('No Town Anchor set, so the Works has no position yet.')); return 0 }
-  const d = Math.max(Math.abs(player.x - works[0]), Math.abs(player.z - works[2]))
+  let d = Math.max(Math.abs(player.x - works[0]), Math.abs(player.z - works[2]))
   if (d > 48) {
     msg(source, Text.gray('Stand at the Works and run this again.'))
     msg(source, Text.gray(hint))
@@ -875,21 +875,21 @@ const STANDING_WHO = {
 }
 
 function checkStanding(source) {
-  const v = global.valley
+  let v = global.valley
   if (!v) { msg(source, Text.red('[valley] core script not loaded.')); return 0 }
-  const player = srcPlayer(source)
+  let player = srcPlayer(source)
   if (!player) { msg(source, Text.red('Run this as a player.')); return 0 }
 
-  const team = v.teamId(player)
-  const api = v.standingApiClosed(player)
+  let team = v.teamId(player)
+  let api = v.standingApiClosed(player)
   if (api) api.forEach(k => v.recordStanding(team, k))
 
-  const closed = v.standingClosed(team)
-  const done = {}
+  let closed = v.standingClosed(team)
+  let done = {}
   closed.forEach(k => { done[k] = true })
 
   msg(source, Text.gold('Standing: ' + closed.length + ' of 8 chains closed. Six are needed.'))
-  const line = v.standingChains().map(k =>
+  let line = v.standingChains().map(k =>
     (done[k] ? '✓ ' : '· ') + STANDING_WHO[k] + ' ' + k.toUpperCase()).join('   ')
   msg(source, Text.gray(line))
   if (v.standingGranted(team)) {
@@ -909,11 +909,11 @@ function checkStanding(source) {
 // is exactly one place where "six of eight" is decided.
 // -----------------------------------------------------------------------------
 function standingCmd(ctx, event, teamArgName) {
-  const v = global.valley
+  let v = global.valley
   if (!v) return 0
-  const key = event.arguments.WORD.getResult(ctx, 'key')
-  const player = srcPlayer(ctx.source)
-  const team = teamArgName ? event.arguments.WORD.getResult(ctx, teamArgName) : v.teamId(player)
+  let key = event.arguments.WORD.getResult(ctx, 'key')
+  let player = srcPlayer(ctx.source)
+  let team = teamArgName ? event.arguments.WORD.getResult(ctx, teamArgName) : v.teamId(player)
 
   if (v.standingChains().indexOf(key) === -1) {
     msg(ctx.source, Text.red('Not a chain-closing quest: ' + key +
@@ -921,8 +921,8 @@ function standingCmd(ctx, event, teamArgName) {
     return 0
   }
 
-  const fresh = v.recordStanding(team, key)
-  const closed = v.standingClosed(team)
+  let fresh = v.recordStanding(team, key)
+  let closed = v.standingClosed(team)
   if (fresh && player) {
     v.say(player, 'Oda', (STANDING_WHO[key] || 'That') + "'s story is closed. That's " +
       closed.length + ' of eight in my book.')
@@ -936,15 +936,15 @@ function standingCmd(ctx, event, teamArgName) {
 // /valley stage ...
 // -----------------------------------------------------------------------------
 function stageCmd(ctx, event, op, scope) {
-  const v = global.valley
-  const id = event.arguments.WORD.getResult(ctx, 'id')
+  let v = global.valley
+  let id = event.arguments.WORD.getResult(ctx, 'id')
   if (!v) return 0
   if (scope === 'world') {
     v.addWorldStage(id)
     msg(ctx.source, Text.gray('World stage ' + id + ' granted.'))
     return 1
   }
-  const player = srcPlayer(ctx.source)
+  let player = srcPlayer(ctx.source)
   if (!player) { msg(ctx.source, Text.red('Run this as a player.')); return 0 }
   if (scope === 'team') {
     v.stageAll(null, id)

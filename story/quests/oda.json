@@ -48,7 +48,7 @@
         },
         {
           "type": "command",
-          "command": "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"yellow\"},{\"text\":\"Ten Scrip on the house. That is the only time those four words happen in this store.\",\"color\":\"white\",\"italic\":true}]"
+          "command": "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"yellow\"},{\"text\":\"Ten Scrip, on the house. That is the only time those three words happen in this store.\",\"color\":\"white\",\"italic\":true}]"
         },
         {
           "type": "toast",
@@ -65,7 +65,7 @@
       "subtitle": "10 Scrip. Restocks.",
       "icon": "create:andesite_casing",
       "description": [
-        "Oda: \"Sixteen casings. Bram cuts them through the dead weeks when there is nothing else to do, and I count them twice before they go on the shelf.\"",
+        "Oda: \"Sixteen casings. Bram cuts them through the dead weeks when there is nothing else to do.\"",
         "",
         "Ten Scrip. That is under a bounty's pay, and it is four minutes of your life you get back."
       ],

@@ -578,7 +578,7 @@ hash = "b691052beff4e091bd77422460051fb66b48b68e8a14e1b2f2ce3bf2791707a9"
 
 [[files]]
 file = "kubejs/server_scripts/valley_checks.js"
-hash = "cb0b47c1dd4f3c02c248fc5ee62ba1bfe3a0497971d14636a9a32a0f3086587e"
+hash = "b6ee9f68ae828ffd99a471b4c7cc97190854e9c6ab7641b6d31887cb7ca6b1b5"
 
 [[files]]
 file = "kubejs/server_scripts/valley_core.js"
@@ -586,7 +586,7 @@ hash = "9b0d6dd9832f12282916f35e53ba033227ec8e42f7df03072090b5abfdbd51cb"
 
 [[files]]
 file = "kubejs/server_scripts/valley_finales.js"
-hash = "f676749bc4cccb665dd460708fc4e00a8052405f1d85081bac4496eaae1858e2"
+hash = "b2b56d3411948f82e2f6be0f70d07e9ee28130aed3e87403363c1bb32937101f"
 
 [[files]]
 file = "kubejs/server_scripts/valley_gates.js"

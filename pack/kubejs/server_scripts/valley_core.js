@@ -99,28 +99,28 @@ const $AABB = Java.loadClass('net.minecraft.world.phys.AABB')
 // 1. persistentData. Flat keys only — see the header note.
 // -----------------------------------------------------------------------------
 function pdata() {
-  const s = global.valleyServer
+  let s = global.valleyServer
   return s ? s.persistentData : null
 }
 
 function pdGet(key, fallback) {
-  const d = pdata()
+  let d = pdata()
   if (!d || !d.contains(key)) return fallback
   return d.getString(key)
 }
 
 function pdPut(key, value) {
-  const d = pdata()
+  let d = pdata()
   if (d) d.putString(key, String(value))
 }
 
 function pdFlag(key) {
-  const d = pdata()
+  let d = pdata()
   return !!(d && d.contains(key))
 }
 
 function pdSetFlag(key) {
-  const d = pdata()
+  let d = pdata()
   if (d) d.putString(key, '1')
 }
 
@@ -128,9 +128,9 @@ function posToStr(p) { return p[0] + ',' + p[1] + ',' + p[2] }
 
 function strToPos(s) {
   if (!s) return null
-  const parts = String(s).split(',')
+  let parts = String(s).split(',')
   if (parts.length !== 3) return null
-  const x = parseInt(parts[0], 10), y = parseInt(parts[1], 10), z = parseInt(parts[2], 10)
+  let x = parseInt(parts[0], 10), y = parseInt(parts[1], 10), z = parseInt(parts[2], 10)
   if (isNaN(x) || isNaN(y) || isNaN(z)) return null
   return [x, y, z]
 }
@@ -176,14 +176,14 @@ global.valley = {
 
   // ---- anchor + offset -> absolute [x,y,z]. Null if no anchor. ------------
   offset: function (off) {
-    const a = global.valley.anchor()
+    let a = global.valley.anchor()
     if (!a) return null
     return [a[0] + off[0], a[1] + off[1], a[2] + off[2]]
   },
 
   // ---- Named mark by key from VALLEY.OFF ---------------------------------
   mark: function (name) {
-    const off = VALLEY.OFF[name]
+    let off = VALLEY.OFF[name]
     return off ? global.valley.offset(off) : null
   },
 
@@ -191,8 +191,8 @@ global.valley = {
   // key is an outline key: 'q07'. Silently no-ops if the compiler has not
   // emitted that key into _quest_ids.js yet, so a half-built pack still runs.
   complete: function (player, key) {
-    const ids = global.valleyQuestIds || {}
-    const id = ids[key]
+    let ids = global.valleyQuestIds || {}
+    let id = ids[key]
     if (!id) {
       if (!global.valleyMissingWarned) global.valleyMissingWarned = {}
       if (!global.valleyMissingWarned[key]) {
@@ -201,7 +201,7 @@ global.valley = {
       }
       return false
     }
-    const s = global.valleyServer
+    let s = global.valleyServer
     if (!s) return false
     s.runCommandSilent('ftbquests change_progress ' + global.valley.pname(player) + ' complete ' + id)
     return true
@@ -214,7 +214,7 @@ global.valley = {
   // Stages are per player (§naming contract), so a team-wide grant is a loop.
   // `team` may be an FTB team object, or null for "everyone online".
   stageAll: function (team, stage) {
-    const s = global.valleyServer
+    let s = global.valleyServer
     if (!s) return
     s.players.forEach(p => {
       if (team) {
@@ -230,24 +230,24 @@ global.valley = {
   // ---- One resident line, in that resident's colour (§writer-brief 10). ---
   // Built as tellraw JSON so nothing depends on a Component builder overload.
   say: function (player, who, text) {
-    const colour = VALLEY.VOICE[who] || 'white'
-    const json = [
+    let colour = VALLEY.VOICE[who] || 'white'
+    let json = [
       { text: who + ': ', color: colour, bold: false },
       { text: text, color: 'white', italic: true }
     ]
-    const s = global.valleyServer
+    let s = global.valleyServer
     if (!s) return
     s.runCommandSilent('tellraw ' + global.valley.pname(player) + ' ' + JSON.stringify(json))
   },
 
   // ---- Same line, to everyone. Used by the finales. ----------------------
   sayAll: function (who, text) {
-    const colour = VALLEY.VOICE[who] || 'white'
-    const json = [
+    let colour = VALLEY.VOICE[who] || 'white'
+    let json = [
       { text: who + ': ', color: colour },
       { text: text, color: 'white', italic: true }
     ]
-    const s = global.valleyServer
+    let s = global.valleyServer
     if (s) s.runCommandSilent('tellraw @a ' + JSON.stringify(json))
   },
 
@@ -263,17 +263,17 @@ global.valley = {
 
   // ---- The Lantern Road list. Absolute coords, CSV in persistentData. ----
   lamps: function () {
-    const raw = pdGet('valley_lamps', '')
+    let raw = pdGet('valley_lamps', '')
     if (!raw) return []
     return String(raw).split(';').filter(s => s.length > 0).map(strToPos).filter(p => p)
   },
 
   addLamp: function (x, y, z) {
-    const list = global.valley.lamps()
+    let list = global.valley.lamps()
     for (let i = 0; i < list.length; i++) {
       if (list[i][0] === x && list[i][1] === y && list[i][2] === z) return false
     }
-    const raw = pdGet('valley_lamps', '')
+    let raw = pdGet('valley_lamps', '')
     pdPut('valley_lamps', raw ? raw + ';' + posToStr([x, y, z]) : posToStr([x, y, z]))
     return true
   },
@@ -324,7 +324,7 @@ global.valley = {
   // Returns true the first time this chain is recorded for this team.
   recordStanding: function (teamId, questKey) {
     if (VALLEY.STANDING_CHAINS.indexOf(questKey) === -1) return false
-    const slot = global.valley.standingSlot(teamId, questKey)
+    let slot = global.valley.standingSlot(teamId, questKey)
     if (pdFlag(slot)) return false
     pdSetFlag(slot)
     console.info('[valley] standing: ' + questKey + ' recorded for team ' + teamId)
@@ -357,14 +357,14 @@ global.valley = {
   //      16-char hex ids _quest_ids.js already stores)
   standingApiClosed: function (player) {
     if (typeof FTBQuests === 'undefined' || !player) return null
-    const ids = global.valleyQuestIds || {}
-    const out = []
+    let ids = global.valleyQuestIds || {}
+    let out = []
     try {
-      const data = FTBQuests.getServerDataFromPlayer(player)
+      let data = FTBQuests.getServerDataFromPlayer(player)
       if (!data) return null
       for (let i = 0; i < VALLEY.STANDING_CHAINS.length; i++) {
-        const k = VALLEY.STANDING_CHAINS[i]
-        const id = ids[k]
+        let k = VALLEY.STANDING_CHAINS[i]
+        let id = ids[k]
         if (!id) continue
         if (data.isCompleted(id)) out.push(k)
       }
@@ -396,7 +396,7 @@ global.valley = {
 
   // ---- Entities of a type inside a box centred on [x,y,z]. ---------------
   countNear: function (level, pos, radius, typePrefix) {
-    const box = new $AABB(
+    let box = new $AABB(
       pos[0] - radius, pos[1] - radius, pos[2] - radius,
       pos[0] + radius, pos[1] + radius, pos[2] + radius
     )
@@ -417,7 +417,7 @@ global.valley = {
 
   // ---- Horizontal distance, for "within N of Home" checks. ---------------
   flatDist: function (player, pos) {
-    const dx = player.x - pos[0], dz = player.z - pos[2]
+    let dx = player.x - pos[0], dz = player.z - pos[2]
     return Math.sqrt(dx * dx + dz * dz)
   }
 }
@@ -434,7 +434,7 @@ ServerEvents.loaded(event => {
 
   // §P6 — the two counters are bossbars. Re-issued on every load; `add` on an
   // existing bar is a harmless failure.
-  const s = event.server
+  let s = event.server
   s.runCommandSilent('bossbar add valley:lamps {"text":"Lantern Road","color":"gold"}')
   s.runCommandSilent('bossbar set valley:lamps max 40')
   s.runCommandSilent('bossbar set valley:lamps players @a')
@@ -442,7 +442,7 @@ ServerEvents.loaded(event => {
   s.runCommandSilent('bossbar set valley:folk max 15')
   s.runCommandSilent('bossbar set valley:folk players @a')
 
-  const a = global.valley.anchor()
+  let a = global.valley.anchor()
   console.info('[valley] core loaded. Anchor: ' + (a ? a.join(' ') : 'not set yet'))
 })
 
@@ -458,7 +458,7 @@ ServerEvents.tick(event => {
   if (valleyPending.length === 0) return
   for (let i = valleyPending.length - 1; i >= 0; i--) {
     if (valleyPending[i].at <= global.valleyTick) {
-      const job = valleyPending.splice(i, 1)[0]
+      let job = valleyPending.splice(i, 1)[0]
       try { job.fn(event.server) } catch (err) { console.error('[valley] delayed step failed: ' + err) }
     }
   }
@@ -468,10 +468,10 @@ ServerEvents.tick(event => {
 // 5. Login: the FTB Teams auto-party, then the first-join handler.
 // =============================================================================
 PlayerEvents.loggedIn(event => {
-  const player = event.entity
-  const server = global.valleyServer || player.server
+  let player = event.entity
+  let server = global.valleyServer || player.server
   if (!server) return
-  const name = global.valley.pname(player)
+  let name = global.valley.pname(player)
 
   // ---- §9-A: everybody lands on one party called Cozy. Guarded by the
   // per-player stage cozy_party; skipped entirely for anyone holding
@@ -513,7 +513,7 @@ function valleyFirstJoin(server, player, name) {
   server.runCommandSilent('execute at ' + name + ' run playsound minecraft:block.note_block.chime master ' + name + ' ~ ~ ~ 1 0.8')
 
   // The premise, then the destination line, verbatim (writer-brief rule 3).
-  const lines = [
+  let lines = [
     [{ text: 'You inherited the old Kettle farm from a great-aunt you barely remember — ', color: 'white' },
      { text: 'Josie Kettle', color: 'gold' },
      { text: ', who kept the lights on in this valley long after everyone else stopped trying.', color: 'white' }],
@@ -548,10 +548,10 @@ const CRATE_SPAWN = {
 // Q10 (three Hen Crates) and Q25 (Cow Crate + Sheep Crate).
 Object.keys(CRATE_SPAWN).forEach(crateId => {
   ItemEvents.rightClicked(crateId, event => {
-    const player = event.player
+    let player = event.player
     if (player.level.isClientSide()) return
-    const entityId = CRATE_SPAWN[crateId]
-    const e = player.level.createEntity(entityId)
+    let entityId = CRATE_SPAWN[crateId]
+    let e = player.level.createEntity(entityId)
     if (!e) return
     e.setPosition(player.x, player.y, player.z)
     e.spawn()
@@ -562,14 +562,14 @@ Object.keys(CRATE_SPAWN).forEach(crateId => {
 
 // Chicken feed: the nearest hen within 8 blocks lays immediately.
 ItemEvents.rightClicked('valley:chicken_feed', event => {
-  const player = event.player
+  let player = event.player
   if (player.level.isClientSide()) return
-  const box = new $AABB(player.x - 8, player.y - 4, player.z - 8, player.x + 8, player.y + 4, player.z + 8)
+  let box = new $AABB(player.x - 8, player.y - 4, player.z - 8, player.x + 8, player.y + 4, player.z + 8)
   let laid = 0
   player.level.getEntitiesWithin(box).forEach(e => {
     if (laid > 0) return
     if (String(e.type) !== 'minecraft:chicken') return
-    const b = player.level.getBlock(Math.floor(e.x), Math.floor(e.y), Math.floor(e.z))
+    let b = player.level.getBlock(Math.floor(e.x), Math.floor(e.y), Math.floor(e.z))
     b.popItem(Item.of('minecraft:egg'))
     laid++
   })

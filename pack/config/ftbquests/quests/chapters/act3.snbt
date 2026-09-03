@@ -14,7 +14,7 @@
 			title: "Take Oda's Token to the Store Counter"
 			subtitle: "She counts the whole town's stores out loud."
 			icon: "minecraft:book"
-			description: ["Oda: \"Four hundred and ten days of grain for fifteen people is one hundred and twelve days short of March. I have checked it twice.\"", "", "Take Oda's token to her counter at the store and stand there while she counts the whole town's stores out loud.", "", "It opens the winter checklist, the granary blueprint, and both lanes of autumn work."]
+			description: ["Oda: \"Nine people, a hundred and twelve days to the end of March, and grain for eighty-one of them. That is thirty-one days of nothing.\"", "", "Take Oda's token to her counter at the store and stand there while she counts the whole town's stores out loud.", "", "It opens the winter checklist, the granary blueprint, and both lanes of autumn work."]
 			x: 0.0d
 			y: -0.8d
 			dependencies: ["D51AAB093CEA5743"]
@@ -30,21 +30,21 @@
 			title: "Fill the Granary's Twelve Alcoves"
 			subtitle: "One drawer per alcove, at the Lantern Float."
 			icon: "storagedrawers:oak_full_drawers_1"
-			description: ["Oda: \"The shell went up at the Lantern Float: twelve alcoves, twelve drawers. Do not improvise on me.\"", "", "Put one Oak Storage Drawer into each of the twelve marked alcoves in the granary at the Lantern Float, then tick this. Any order is right.", "", "The drawers arrive already holding the town's current stock, and the Granary Waystone goes up outside the door."]
+			description: ["Oda: \"The shell went up at the Lantern Float: twelve alcoves, twelve drawers. Do not improvise on me.\"", "", "Craft 12 Oak Full Drawers — the single-compartment kind, oak planks and sticks at any bench — and put one into each of the twelve marked alcoves in the granary at the Lantern Float. Any order is right.", "", "The drawers arrive already holding the town's current stock, and the Granary Waystone goes up outside the door."]
 			x: 2.0d
 			y: -1.5d
 			dependencies: ["B79DF28AF21498E4"]
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "AD63E31E229F4635", type: "item", item: "storagedrawers:oak_full_drawers_1", count: 12L, consume_items: true }, { id: "714C0E903C58241A", type: "checkmark", title: "All twelve alcoves filled." }]
-			rewards: [{ id: "C7E446091D131BA6", type: "item", item: "waystones:waystone" }, { id: "5882054579F667FF", type: "item", item: "storagedrawers:controller" }, { id: "D581D1B3D00E0FF3", type: "item", item: "storagedrawers:copper_storage_upgrade", count: 12 }, { id: "BF9A25A282BF4DCE", type: "item", item: "storagedrawers:drawer_key" }, { id: "4204AFB10F706FCD", type: "stage", stage: "granary" }, { id: "0CD5636AFA9019D9", type: "command", command: "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"The key's brass. My initials are scratched off it and yours are scratched on. Don't lose it.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "0AFB4D111BECCDE7", type: "command", command: "advancement grant @a only valley:journal/found_4", elevate_perms: true, silent: true }, { id: "F2ADE0E937640B6D", type: "toast", title: "Granary stocked", description: "Next: Marnie has the autumn seed pack — pumpkin, beetroot, oats and barley into the marked beds." }]
+			rewards: [{ id: "C7E446091D131BA6", type: "item", item: "waystones:waystone" }, { id: "5882054579F667FF", type: "item", item: "storagedrawers:controller" }, { id: "D581D1B3D00E0FF3", type: "item", item: "storagedrawers:copper_storage_upgrade", count: 12 }, { id: "BF9A25A282BF4DCE", type: "item", item: "storagedrawers:drawer_key" }, { id: "4204AFB10F706FCD", type: "stage", stage: "granary" }, { id: "0CD5636AFA9019D9", type: "command", command: "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"The key's brass. My initials are scratched off it and yours are scratched on. Don't lose it.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "0AFB4D111BECCDE7", type: "command", command: "advancement grant @a only valley:journal/found_4", elevate_perms: true, silent: true }, { id: "00A2636888D2CE0A", type: "toast", title: "Granary stocked", description: "Next: the four marked beds behind the inn — pumpkin, beetroot, oats and barley, four of each." }]
 		}
 		{
 			id: "5C9E4AA1B6ADCEA6"
 			title: "Sow the Four Autumn Crops"
 			subtitle: "Marked beds behind the inn."
 			icon: "minecraft:pumpkin_seeds"
-			description: ["Marnie: \"Pumpkin, beetroot, oats and barley. Everything else is finished for the year, love, and arguing with it won't feed anybody.\"", "", "Plant 4 Pumpkin Seeds, 4 Beetroot Seeds, 4 Oat Seeds and 4 Barley Seeds in the four marked beds behind the inn. Any order is right.", "", "It pays out the larder crate — eggs, sugar, milk, meat, apples and twelve empty jars — which is everything the preserving work needs."]
+			description: ["Marnie: \"Pumpkin, beetroot, oats and barley. Everything else is finished for the year, love, and arguing with it won't feed anybody.\"", "", "Plant 4 Pumpkin Seeds, 4 Beetroot Seeds, 4 Oat Seeds and 4 Barley Seeds in the four marked beds behind the inn, and hand in holding four of each — the book counts them and never takes them, so they go in the ground after. Oda's Seed Box is four Scrip for the pumpkin and beetroot; the Oat Seeds are Bakery's and the Barley Seeds are Thermal's, spelled exactly like that. Any order is right.", "", "It pays out the larder crate — eggs, sugar, milk, meat, apples and twelve empty jars — which is everything the preserving work needs."]
 			x: 2.0d
 			y: 0.0d
 			dependencies: ["B79DF28AF21498E4"]
@@ -72,35 +72,35 @@
 			title: "Put Up Twelve Preserves"
 			subtitle: "Cookbook pages 3 to 5."
 			icon: "handcrafted:berry_jam_jar"
-			description: ["Marnie: \"Four pies, four jams, four jars of pickles — pages three to five. Everything you need is in the crate by the counter.\"", "", "Make 4 Apple Pies, 4 Berry Jam Jars and 4 sealed Jars of pickles, and bring all twelve to the inn counter.", "", "Bram left a fridge blueprint on that counter. It needs power, and he says he's working on it, which from Bram is a promise."]
+			description: ["Marnie: \"Four pies, four jams, four jars of pickles — pages three to five. Everything you need is in the crate by the counter.\"", "", "Make 4 Apple Pies and 4 Berry Jam Jars, then seal 4 Jars of pickles — the plain glass Jar, not the Bakery jar that came with the larder crate — and bring all twelve to the inn counter.", "", "Twelve jars. Oda's count says that is four days off the hundred and twelve. Bram left a fridge blueprint on that counter too, and he says he is working on the power, which from Bram is a promise."]
 			x: 4.0d
 			y: 0.0d
 			dependencies: ["5C9E4AA1B6ADCEA6"]
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "5D6F8C89BE3A1EF3", type: "item", item: "farmersdelight:apple_pie", count: 4L }, { id: "4E7C183094473F4B", type: "item", item: "handcrafted:berry_jam_jar", count: 4L }, { id: "054A5CF10C8B0FA5", type: "item", item: "supplementaries:jar", count: 4L }]
-			rewards: [{ id: "DAD24BBF96A5E757", type: "item", item: "handcrafted:wood_crockery_combo", count: 4 }, { id: "3407546A171D0AE1", type: "item", item: "bakery:cabinet" }, { id: "002D06F202A29C95", type: "item", item: "farm_and_charm:tool_rack" }, { id: "C7168881655384D4", type: "item", item: "patchouli:guide_book" }, { id: "F29C96A25638EF97", type: "item", item: "cookingforblockheads:spice_rack", count: 2 }, { id: "AF1C81EBCC625A98", type: "toast", title: "Larder stocked", description: "Next: the inn kitchen — 4 loaves, 2 pies and 2 cakes. Halden's drying rack is in your pack for later." }]
+			rewards: [{ id: "DAD24BBF96A5E757", type: "item", item: "handcrafted:wood_crockery_combo", count: 4 }, { id: "3407546A171D0AE1", type: "item", item: "bakery:cabinet" }, { id: "002D06F202A29C95", type: "item", item: "farm_and_charm:tool_rack" }, { id: "C7168881655384D4", type: "item", item: "patchouli:guide_book" }, { id: "F29C96A25638EF97", type: "item", item: "cookingforblockheads:spice_rack", count: 2 }, { id: "E118B8930BA0F9D2", type: "toast", title: "Larder stocked", description: "Next: the inn kitchen — 4 loaves, 2 pies and 2 cakes. Josie's drying rack is in your pack for the hams after it." }]
 		}
 		{
 			id: "177A495F36B16021"
 			title: "Bake 4 Bread, 2 Chocolate Pies and 2 Cakes"
 			subtitle: "In the inn kitchen, off one heat."
 			icon: "minecraft:bread"
-			description: ["Marnie: \"Four loaves, two pies, two cakes. If you bank the oven right you'll get the lot out of one heat.\"", "", "Bake 4 Bread, 2 Chocolate Pies and 2 Cakes in the inn kitchen.", "", "It stocks the inn for the Supper, opens Pip's courier board, and it is half of what lets Halden read the Plate."]
+			description: ["Marnie: \"Four loaves, two pies, two cakes. If you bank the oven right you'll get the lot out of one heat.\"", "", "Bake 4 Bread, 2 Chocolate Pies and 2 Cakes in the inn kitchen. Milk and eggs came with the larder crate; the cocoa beans are the one thing this valley does not grow, so they come off a wandering trader or a jungle pod.", "", "It stocks the inn for the Supper, opens Pip's courier board, and it is half of what lets Halden read the Plate."]
 			x: 6.0d
 			y: -1.5d
 			dependencies: ["A340A46B5E7C8359"]
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "77E82A3944166D6C", type: "item", item: "minecraft:bread", count: 4L }, { id: "153E239A47ACCA03", type: "item", item: "farmersdelight:chocolate_pie", count: 2L }, { id: "DE08EE95A2E60D96", type: "item", item: "minecraft:cake", count: 2L }]
-			rewards: [{ id: "E8BFBA3BF133335A", type: "item", item: "bakery:cake_stand", count: 2 }, { id: "CBB4355833C2EE2B", type: "item", item: "bakery:bread_crate", count: 2 }, { id: "F47990D6FD6B6A4B", type: "item", item: "vinery:winemaker_apron" }, { id: "11EBE1E319274CB4", type: "item", item: "perfectplushies:hedgehog_plushie" }, { id: "C35ECBB27FFFD068", type: "loot", table_id: 6428311738069300697L }, { id: "47035FF31A969CE2", type: "command", command: "/tellraw @p [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"That's the first full oven since Josie. Don't tell Oda, she'll want it written down.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "DDEA113E747BDC7F", type: "toast", title: "The oven is full", description: "Next: Pip has three parcels on the counter and is already shouting about them." }]
+			rewards: [{ id: "E8BFBA3BF133335A", type: "item", item: "bakery:cake_stand", count: 2 }, { id: "CBB4355833C2EE2B", type: "item", item: "bakery:bread_crate", count: 2 }, { id: "F47990D6FD6B6A4B", type: "item", item: "vinery:winemaker_apron" }, { id: "11EBE1E319274CB4", type: "item", item: "perfectplushies:hedgehog_plushie" }, { id: "C35ECBB27FFFD068", type: "loot", table_id: 6428311738069300697L }, { id: "9928D5851DE82370", type: "command", command: "/tellraw @p [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"That's the first full oven since Josie. Oda will want it written down, and she can wait until morning.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "DDEA113E747BDC7F", type: "toast", title: "The oven is full", description: "Next: Pip has three parcels on the counter and is already shouting about them." }]
 		}
 		{
 			id: "2BA1B3E087841436"
 			title: "Run Three of Pip's Parcels"
 			subtitle: "Named, sorted and urgent, apparently."
 			icon: "valley:courier_parcel"
-			description: ["Pip: \"This one's HENRIETTA, this one's THE BIG ONE, and this one is for Nella so you should probably run.\"", "", "Deliver 3 of Pip's Courier Parcels to the addresses chalked on them.", "", "It gets you the courier satchel, and Pip draws you. You are mostly hat."]
+			description: ["Pip: \"This one's HENRIETTA, this one's THE BIG ONE, and this one is for Nella so you should probably run.\"", "", "Fold 3 Courier Parcels — eight paper around one string each — and deliver them to the three names chalked on the sides.", "", "It gets you the courier satchel, and Pip draws you. You are mostly hat."]
 			x: 8.0d
 			y: -1.5d
 			dependencies: ["177A495F36B16021"]
@@ -114,21 +114,21 @@
 			title: "Cure Eight Hams on the Rack"
 			subtitle: "The shed behind the inn."
 			icon: "farmersdelight:smoked_ham"
-			description: ["Marnie: \"Eight on the rack in the shed — salt, air and a week. No cleverness required, which is why I like it.\"", "", "Hang 8 Smoked Ham on Josie's drying rack in the shed behind the inn, then tick this.", "", "Thirty-two cured meat goes straight into the granary and the larder is closed for the year. The Nether stays shut until this act ends; you don't need it."]
+			description: ["Marnie: \"Eight on the rack in the shed — salt, air and a week. No cleverness required, which is why I like it.\"", "", "Smoke 8 Ham into Smoked Ham on the stove in the inn kitchen, then hang all eight on Josie's drying rack in the shed behind the inn and tick this.", "", "Thirty-two cured meat into the granary — ninety-one days short now, and Oda has stopped saying the number out loud. The Nether stays shut until this act ends; you don't need it."]
 			x: 10.0d
 			y: -1.5d
 			dependencies: ["2BA1B3E087841436"]
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "71BDEC55F3226A6C", type: "item", item: "farmersdelight:smoked_ham", count: 8L, consume_items: true }, { id: "154D85D15C405D8B", type: "checkmark", title: "Eight hams hung on the rack." }]
-			rewards: [{ id: "2069E5F7B63CD19B", type: "item", item: "farmersdelight:ham", count: 32 }, { id: "1175608485AFC581", type: "item", item: "farmersdelight:stove" }, { id: "4DFCA76CD80E2F69", type: "item", item: "handcrafted:oak_counter", count: 4 }, { id: "088FC8D80362CDC6", type: "item", item: "supplementaries:sconce", count: 8 }, { id: "97847E633B83B80D", type: "stage", stage: "larder" }, { id: "F5300042E98C4350", type: "command", command: "/tellraw @p [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"That's meat in February. I have not been able to say that sentence in nine years.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "84C10BEB019CF0E0", type: "toast", title: "The larder is closed", description: "Next: the two upstairs bedrooms at the inn. Bed, rug, lantern and chest on each marked spot." }]
+			rewards: [{ id: "2069E5F7B63CD19B", type: "item", item: "farmersdelight:ham", count: 32 }, { id: "1175608485AFC581", type: "item", item: "farmersdelight:stove" }, { id: "4DFCA76CD80E2F69", type: "item", item: "handcrafted:oak_counter", count: 4 }, { id: "088FC8D80362CDC6", type: "item", item: "supplementaries:sconce", count: 8 }, { id: "97847E633B83B80D", type: "stage", stage: "larder" }, { id: "C23067B7457DF5AD", type: "command", command: "/tellraw @p [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"That's meat in February. I have not been able to say that sentence in eleven years.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "84C10BEB019CF0E0", type: "toast", title: "The larder is closed", description: "Next: the two upstairs bedrooms at the inn. Bed, rug, lantern and chest on each marked spot." }]
 		}
 		{
 			id: "EB74496143CDDB11"
 			title: "Fit Out the Two Guest Rooms"
 			subtitle: "Everything is in the packet."
 			icon: "handcrafted:oak_fancy_bed"
-			description: ["Marnie: \"Two rooms upstairs, both bare: a bed, a rug, a lantern and a chest in each. It's all in the packet.\"", "", "Put a bed, a rug, a lantern and a chest on each of the eight marked spots across the inn's two upstairs bedrooms. Any order is right.", "", "Two rooms Marnie can rent — and a letter arrives from the first person who wants one."]
+			description: ["Marnie: \"Two rooms upstairs, both bare: a bed, a rug, a lantern and a chest in each. It's all in the packet.\"", "", "Eight spots, four in each room: the bed on the wool mat, the rug beside it, the lantern on the hook and the chest at the foot — twice. Oda's Furniture page has the lot if the packet came up short. Any order is right.", "", "Two rooms Marnie can rent — and a letter arrives from the first person who wants one."]
 			x: 12.0d
 			y: -0.8d
 			dependencies: ["B53BBFB416B61074"]
@@ -186,21 +186,21 @@
 			title: "Alloy Eight Bronze, Eight Electrum"
 			subtitle: "Build the Induction Smelter first."
 			icon: "thermal:machine_smelter"
-			description: ["Bram: \"Smelter takes two inputs and a dust: copper and tin for bronze, gold and silver for electrum. That's the whole machine.\"", "", "Build a Thermal Induction Smelter in the mill workshop, then hold 8 Bronze Ingots and 8 Electrum Ingots.", "", "It pays out the Centrifugal Separator, 64 Fluxduct and 2 spare Machine Frames — the entire bill for the energy cell and the rail line."]
+			description: ["Bram: \"Smelter takes two inputs and gives you back more than you put in. Three copper and one tin makes four bronze; one gold and one silver makes two electrum. That's the whole machine.\"", "", "Build a Thermal Induction Smelter in the mill workshop, then hold 8 Bronze Ingots and 8 Electrum Ingots.", "", "It pays out the Centrifugal Separator, 64 Energy Duct and 2 spare Machine Frames — the entire bill for the energy cell and the rail line."]
 			x: 2.0d
 			y: 1.5d
 			dependencies: ["B4538B89B64CC7D7"]
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "ED8509580A679DD2", type: "item", item: "thermal:machine_smelter", count: 1L }, { id: "A88EF185DB802491", type: "item", item: "thermal:bronze_ingot", count: 8L }, { id: "02E8B0C8E598A123", type: "item", item: "thermal:electrum_ingot", count: 8L }]
-			rewards: [{ id: "8202229A2AAC648D", type: "item", item: "thermal:machine_centrifuge" }, { id: "BFBE1DEE53C661F3", type: "item", item: "thermal:energy_duct", count: 64 }, { id: "5D49F58668AF8362", type: "item", item: "thermal:machine_frame", count: 2 }, { id: "49D397878552E8CD", type: "loot", table_id: 10224540141677657293L }, { id: "22A926771A60447B", type: "toast", title: "Alloys running", description: "Next: charge a Thermal Energy Cell off the dynamos and run Fluxduct to the inn." }]
+			rewards: [{ id: "8202229A2AAC648D", type: "item", item: "thermal:machine_centrifuge" }, { id: "BFBE1DEE53C661F3", type: "item", item: "thermal:energy_duct", count: 64 }, { id: "5D49F58668AF8362", type: "item", item: "thermal:machine_frame", count: 2 }, { id: "49D397878552E8CD", type: "loot", table_id: 10224540141677657293L }, { id: "6122FF3FB2AE4C85", type: "toast", title: "Alloys running", description: "Next: charge a Thermal Energy Cell off the dynamos and run Energy Duct to the inn." }]
 		}
 		{
 			id: "92CF0601171AFE5B"
-			title: "Run Fluxduct to the Inn"
+			title: "Run Energy Duct to the Inn"
 			subtitle: "Cell on the wall, duct to Marnie's kitchen."
 			icon: "thermal:energy_cell"
-			description: ["Bram: \"Cell on the wall, duct to the inn, and Marnie gets her fridge. That's the whole job — don't overthink it.\"", "", "Charge a Thermal Energy Cell off your dynamos, then run Fluxduct from the mill until the line ends within 12 blocks of the inn.", "", "That's the Works Power Tap: the Fridge, the Sink and the Milk Jar become craftable, and one is in this payout already."]
+			description: ["Bram: \"Cell on the wall, duct to the inn, and Marnie gets her fridge. That's the whole job — don't overthink it.\"", "", "Charge a Thermal Energy Cell off your dynamos, then run Energy Duct from the mill until the line ends within 12 blocks of the inn. Bram has the coils; the Cell Frame is twelve Scrip on Oda's board and she will not be talked down — frame, four RF Coils and a bucket of redstone is the cell.", "", "That's the Works Power Tap: the Fridge, the Sink and the Milk Jar become craftable, and one is in this payout already."]
 			x: 6.0d
 			y: 0.0d
 			dependencies: ["F6EEF65327004696", "A340A46B5E7C8359"]
@@ -235,14 +235,14 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "B749865DAC99AB20", type: "item", item: "valley:delivery_crate", count: 1L, consume_items: true }]
-			rewards: [{ id: "41D2AB7DF6A8DE97", type: "item", item: "valley:scrip", count: 25 }, { id: "39402C8CFF839F75", type: "command", command: "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Forty-one of forty-one. That is the first delivery this valley has taken in nine years. Shop's open properly now.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "0B9378D8A9244267", type: "toast", title: "Oda's counter, tier three", description: "Next: plant Certus Quartz Seeds in Halden's Spring Water and grow 32 certus." }]
+			rewards: [{ id: "41D2AB7DF6A8DE97", type: "item", item: "valley:scrip", count: 25 }, { id: "2C1EB8660580A873", type: "command", command: "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Forty-one of forty-one. That is the first delivery this valley has taken in eleven years. Shop's open properly now.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "0B9378D8A9244267", type: "toast", title: "Oda's counter, tier three", description: "Next: plant Certus Quartz Seeds in Halden's Spring Water and grow 32 certus." }]
 		}
 		{
 			id: "8A2EA8E5F9EA51CB"
 			title: "Grow Thirty-Two Certus in Spring Water"
 			subtitle: "Josie's jar starts the first batch."
 			icon: "ae2:certus_quartz_crystal"
-			description: ["Halden: \"She kept that jar on my shelf for four years and told me I'd know when. I know when.\"", "", "Plant Certus Quartz Seeds in Halden's Spring Water and grow 32 Certus Quartz Crystals. The 16 from Josie's jar seed the first batch immediately.", "", "Thirty-two certus is exactly the drive, two cells and terminal the next quest asks for."]
+			description: ["Halden: \"She kept that jar on my shelf for four years and told me I'd know when. I know when.\"", "", "Plant Certus Quartz Seeds in Halden's Spring Water and grow 32 Certus Quartz Crystals. The 16 from Josie's jar seed the first batch immediately, and the four Growth Accelerators in this payout turn every batch after it into overnight work.", "", "Thirty-two certus is exactly the drive, two cells and terminal the next quest asks for. Halden's compass points at a sky-stone meteorite: dig it out and take the four presses from the chest inside — silicon, logic, calculation, engineering. Nothing on this lane crafts without them, and the nether quartz for fluix is in the same chest, so the Nether stays shut."]
 			x: 8.0d
 			y: 0.0d
 			dependencies: ["92F011564E219F52", "92CF0601171AFE5B"]
@@ -270,7 +270,7 @@
 			title: "Bus the Granary onto the Network"
 			subtitle: "Twelve drawers on one screen."
 			icon: "ae2:wireless_terminal"
-			description: ["Oda: \"If I can see all twelve drawers from the counter, I will stop walking down there four times a day. Do it.\"", "", "Put a Storage Bus on the granary's drawer controller, link it to the mill network, and hold a Wireless Terminal that reads the whole town's stock.", "", "Two wireless terminals come back — one for you, one to hand your partner — and Oda's ledger updates itself in the book from here on."]
+			description: ["Oda: \"If I can see all twelve drawers from the counter, I will stop walking down there four times a day. Do it.\"", "", "Put a Storage Bus on the granary's drawer controller, link it to the mill network, and hold a Wireless Terminal. It reads nothing until there is an ME Wireless Access Point on the mill wall — the receiver for one is in this payout, and the Charger beside it is what keeps the terminal alive.", "", "Two wireless terminals come back — one for you, one to hand your partner — and Oda's ledger updates itself in the book from here on."]
 			x: 12.0d
 			y: 0.8d
 			dependencies: ["A524B0A81A85E5DB", "F6C4B9946F943E38"]
@@ -314,7 +314,7 @@
 			title: "Read the Cellar Wall"
 			subtitle: "Down the stairs under the farmhouse."
 			icon: "minecraft:iron_door"
-			description: ["Josie, in chalk, in her own hand: \"A machine that one person can run is not infrastructure — it's a hostage. So I shut it off and I waited for two of you.\"", "", "Go down the stairs under the farmhouse and stand in front of the cellar wall until you have read the whole thing.", "", "The Works Waystone goes in, her steel toolbox is on the bench, and her original reactor blueprint is yours to hang."]
+			description: ["Josie, in chalk, in her own hand: \"A machine that one person can run is not infrastructure — it's a hostage. So I shut it off and I waited for two of you.\"", "", "Go back down the stairs under the farmhouse. It finished turning some time in the night and it is standing open — stand in front of the cellar wall until you have read the whole thing.", "", "The cellar waystone is yours for the walk back, her chalk copies itself into the journal, and her original reactor blueprint is rolled in the tube by the stairs."]
 			x: 10.0d
 			y: 1.5d
 			dependencies: ["C63503CEDF72AFBE"]
@@ -323,14 +323,14 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "BEF6120442290A6E", type: "checkmark", title: "You are standing in the cellar, in front of the wall." }]
-			rewards: [{ id: "73BA21E60E087C8A", type: "item", item: "waystones:waystone" }, { id: "6FD7A83C87BE2A1D", type: "item", item: "create:orange_toolbox" }, { id: "058AA334012F4326", type: "item", item: "create:crafting_blueprint" }, { id: "42363C52BFC025A4", type: "loot", table_id: 10797532679477389079L }, { id: "B604C10435D45D91", type: "command", command: "/tellraw @a [{\"text\":\"Josie, on the wall: \",\"color\":\"gold\"},{\"text\":\"If there's more than one set of footprints on my cellar stairs, then I was right to wait. Go and turn it on.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "005A6CC308CB8681", type: "command", command: "advancement grant @a only valley:journal/cellar_wall", elevate_perms: true, silent: true }, { id: "5BE20D09D012A6E6", type: "toast", title: "The Works was a power plant", description: "Next: the long table in the square — twelve place settings and the centrepiece. That's the Harvest Supper." }]
+			rewards: [{ id: "73BA21E60E087C8A", type: "item", item: "waystones:waystone" }, { id: "6FD7A83C87BE2A1D", type: "item", item: "create:orange_toolbox" }, { id: "058AA334012F4326", type: "item", item: "create:crafting_blueprint" }, { id: "42363C52BFC025A4", type: "loot", table_id: 10797532679477389079L }, { id: "B604C10435D45D91", type: "command", command: "/tellraw @a [{\"text\":\"Josie, on the wall: \",\"color\":\"gold\"},{\"text\":\"If there's more than one set of footprints on my cellar stairs, then I was right to wait. Go and turn it on.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "005A6CC308CB8681", type: "command", command: "advancement grant @a only valley:journal/cellar_wall", elevate_perms: true, silent: true }, { id: "808766ABB417868B", type: "toast", title: "The Works was a power plant", description: "Next: the long table in the square — twelve place settings and the centrepiece. That's the Harvest Supper. And Tobin is stood at the collapsed adit with a shovel and a theory: the Works opens from there." }]
 		}
 		{
 			id: "C47F0160D253CCD3"
 			title: "Set the Long Table for Twelve"
 			subtitle: "Act III finale — twelve settings and one centrepiece."
 			icon: "handcrafted:white_crockery_combo"
-			description: ["Marnie: \"Twelve places: nobody stands, nobody eats in the kitchen, and nobody eats alone. That's the rule tonight.\"", "", "Place the Long Table in the square, put 1 Place Setting on each of the twelve marked spots, and set the Candle Holder in the middle. Any order is right.", "", "Forty lamps. Fifteen people. One winter that nobody leaves.", "", "Sit down. The granary's full, the lamps are lit down the road, and every single person this valley has is at this table."]
+			description: ["Marnie: \"Twelve places: nobody stands, nobody eats in the kitchen, and nobody eats alone. That's the rule tonight.\"", "", "Place the Long Table in the square, put one White Crockery setting on each of the twelve marked spots, and set the Candle Holder in the middle. Any order is right.", "", "Forty lamps. Fifteen people. One winter that nobody leaves.", "", "Sit down. The granary's full, the lamps are lit down the road, and there are three empty chairs at this table because Marnie set it for the year we are going to have."]
 			x: 18.0d
 			y: 0.0d
 			dependencies: ["177A495F36B16021", "B53BBFB416B61074", "2A58745479C32D0A", "CB7C03A613A457FE"]
