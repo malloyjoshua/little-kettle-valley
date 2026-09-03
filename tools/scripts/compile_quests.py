@@ -164,7 +164,7 @@ for tk, t in tables.items():
 (out / 'chapter_groups.snbt').write_text('{\n\tchapter_groups: [\n' + '\n'.join(f'\t\t{{ id: "{gid}", title: {q(g)} }}' for g, gid in groups.items()) + '\n\t]\n}\n')
 data_file = out / 'data.snbt'
 if not data_file.exists():
-    data_file.write_text('{\n\tdefault_hide_dependency_lines: false\n\tdefault_quest_shape: ""\n\tfilename: "cozytech"\n\tlock_message: "Not yet. Finish the quest before this one."\n\tprogression_mode: "flexible"\n\ttitle: "Copper Kettle Valley"\n\tversion: 13\n}\n')
+    data_file.write_text('{\n\tdefault_hide_dependency_lines: false\n\tdefault_quest_shape: ""\n\tfilename: "cozytech"\n\tlock_message: "Not yet. Finish the quest before this one."\n\tprogression_mode: "flexible"\n\ttitle: "Little Kettle Valley"\n\tversion: 13\n}\n')
 # purge stale chapter/table files not produced this run
 keep_ch = {ch['key'] for _, d in chapters for ch in [d['chapter']]}
 for p in (out / 'chapters').glob('*.snbt'):

@@ -1,5 +1,5 @@
 // =============================================================================
-// valley_finales.js — Copper Kettle Valley: the /valley command tree and the
+// valley_finales.js — Little Kettle Valley: the /valley command tree and the
 // five finale chains.
 //
 // §12.2 P7 — finale idempotency. FTB Quests command rewards fire once per

@@ -1,4 +1,4 @@
-# Writer brief — Copper Kettle Valley quest text
+# Writer brief — Little Kettle Valley quest text
 
 Fifteen rules. They are binding on every quest description, NPC line, toast, noticeboard string and journal page. Sources: `docs/story-research.md`, `docs/story-gap-analysis.md`, `story/story-final.md` §3, §8, §10.
 

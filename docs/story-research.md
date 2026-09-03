@@ -1,6 +1,6 @@
 # Story research — what actually makes a modpack storyline land
 
-**Scope.** Research for *Copper Kettle Valley* (Forge 1.20.1, FTB Quests + KubeJS + Easy NPC, two-player household plus friends). Every claim below is tagged:
+**Scope.** Research for *Little Kettle Valley* (Forge 1.20.1, FTB Quests + KubeJS + Easy NPC, two-player household plus friends). Every claim below is tagged:
 
 - **[DOC]** — the exact text exists at the cited URL (questbook text, dev/pack description, wiki, forum post, review, GitHub issue, API response).
 - **[INF]** — my inference. No source states it.
@@ -18,7 +18,7 @@
 
 ## 1. Ranked packs
 
-Ranked by *usefulness to Copper Kettle Valley × strength of evidence*, not by popularity.
+Ranked by *usefulness to Little Kettle Valley × strength of evidence*, not by popularity.
 
 ### 1. Create: Above and Beyond (1.16.5, 2021)
 **Device.** The whole quest tree *is* the build path to one physical object stated on the welcome page. Questbook, verbatim: "Your entire factory will be put to the test as final products flow into the Data Centre, programming the Guidance computer of your Spaceship." The CurseForge blurb frames the entire pack the same way — "an epic technological journey toward space travel," "fifty inventions between you and the moon."

@@ -1,4 +1,4 @@
-# COPPER KETTLE VALLEY — Story Document (final)
+# LITTLE KETTLE VALLEY — Story Document (final)
 ### *A Year in the Valley* · Minecraft Forge 1.20.1 · private modpack
 **Status:** build-ready. Spine = *seasons*, with the Lanternwick lamp-line and the Copperbell buried-age grafts folded in. This revision applies three audit passes in full — the non-creative player's advocate (38 findings), the anti-grind audit (blockers, spikes, gather-chains, economy), and the implementation pass (12 corrections, 8 patterns, 11 impossible-mechanic substitutes).
 
@@ -10,11 +10,11 @@
 
 **Candidates considered**
 
-1. **Copper Kettle Valley** — warm and domestic on the title screen, and quietly names the tech spine. The valley is named for the Kettle family, who ran the copper works and the inn. A kettle is a cozy object and a pressure vessel.
+1. **Little Kettle Valley** — warm and domestic on the title screen, and quietly names the tech spine. The valley is named for the Kettle family, who ran the copper works and the inn. A kettle is a cozy object and a pressure vessel.
 2. **Hearthfall** — evocative, but a non-gamer reads it as generic fantasy.
 3. **The Long Year at Mossgrove** — good prose, wrong promise. "Long" reads as slog.
 
-**Chosen: COPPER KETTLE VALLEY.**
+**Chosen: LITTLE KETTLE VALLEY.**
 
 **Tagline:** *You inherited a cold house in a quiet valley. Put the kettle on — you have one year, and one winter, to prove this place can keep its own lights on.*
 
@@ -35,7 +35,7 @@ You have one spring to make this place livable, one summer to make it worth stay
 **First-join screen (title + subtitle + tellraw):**
 
 > *Spring, Year One.*
-> **COPPER KETTLE VALLEY**
+> **LITTLE KETTLE VALLEY**
 > Open your Quest Book. There is exactly one thing to do.
 
 **Second letter (multiplayer, see §9).** Josie wrote to more than one relative. She was not a woman who put all her eggs in one nephew. Any second team's first-join gives them their own copy of the letter, in her hand, dated the same day.
@@ -759,7 +759,7 @@ server.runCommandSilent(`execute positioned ${a.x} ${a.y} ${a.z} run function va
 ```
 title @s times 20 90 30
 title @s subtitle {"text":"Spring, Year One.","color":"gray","italic":true}
-title @s title {"text":"COPPER KETTLE VALLEY","color":"gold","bold":true}
+title @s title {"text":"LITTLE KETTLE VALLEY","color":"gold","bold":true}
 playsound minecraft:block.note_block.chime master @s ~ ~ ~ 1 0.8
 tellraw @s [{"text":"Open your Quest Book. There is exactly one thing to do.","color":"white"}]
 give @s valley:letter

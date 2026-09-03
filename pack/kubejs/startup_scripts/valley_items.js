@@ -1,5 +1,5 @@
 // =============================================================================
-// valley_items.js — Copper Kettle Valley: every custom item, plus the Town
+// valley_items.js — Little Kettle Valley: every custom item, plus the Town
 // Anchor block. Runs at registry time (startup_scripts), KubeJS 2001.6.5.
 //
 // Textures: every item below ships a 16x16 PNG at

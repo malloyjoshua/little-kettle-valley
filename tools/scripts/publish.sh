@@ -3,8 +3,8 @@
 # Run only after Josh approves a public repo. Everything here is reversible (delete the repo).
 set -e
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"; cd "$ROOT"
-REPO="${1:-copper-kettle-valley}"
-gh repo create "$REPO" --public --source=. --remote=origin --push --description "Copper Kettle Valley: a cozy story modpack for Forge 1.20.1 (packwiz)"
+REPO="${1:-little-kettle-valley}"
+gh repo create "$REPO" --public --source=. --remote=origin --push --description "Little Kettle Valley: a cozy story modpack for Forge 1.20.1 (packwiz)"
 # GitHub Pages from the main branch root so pack/pack.toml is served over HTTPS
 gh api -X POST "repos/{owner}/$REPO/pages" -f 'source[branch]=main' -f 'source[path]=/' >/dev/null 2>&1 || gh api -X PUT "repos/{owner}/$REPO/pages" -f 'source[branch]=main' -f 'source[path]=/' >/dev/null
 OWNER=$(gh api user --jq .login)

@@ -1,4 +1,4 @@
-# Copper Kettle Valley — Story Bible
+# Little Kettle Valley — Story Bible
 ### *A Year in the Valley* — Minecraft Forge 1.20.1 private modpack
 
 ---
@@ -7,11 +7,11 @@
 
 **Candidates**
 
-1. **Copper Kettle Valley** — warm, domestic, and quietly hints at the copper-and-brass tech spine (Create, Thermal). The valley is named for the Kettle family, who ran the old copper works and the inn.
+1. **Little Kettle Valley** — warm, domestic, and quietly hints at the copper-and-brass tech spine (Create, Thermal). The valley is named for the Kettle family, who ran the old copper works and the inn.
 2. **Hearthfall** — evocative and seasonal, but abstract; a non-gamer partner reads it as vaguely fantasy rather than cozy.
 3. **The Long Year at Mossgrove** — good literary flavor, but "long year" reads as a slog, which is exactly the feeling we are designing against.
 
-**Chosen: Copper Kettle Valley.**
+**Chosen: Little Kettle Valley.**
 
 **Tagline:** *You inherited a cold house in a quiet valley. Put the kettle on — it takes a year to bring a town back.*
 
@@ -23,7 +23,7 @@ You inherited the old Kettle farm from a great-aunt you barely remember — Josi
 
 **First-join screen text (title + tellraw):**
 > *Spring, Year One.*
-> **Copper Kettle Valley**
+> **Little Kettle Valley**
 > Open your Quest Book. There is exactly one thing to do.
 
 ---

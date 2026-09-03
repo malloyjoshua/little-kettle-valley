@@ -42,7 +42,7 @@ hash = "bafd78f88d2c35291c47bca634ff488ce63e6679a2e43e1897e8e97e51ee6b1b"
 
 [[files]]
 file = "config/ftbquests/quests/data.snbt"
-hash = "3afa71c27c5f765969a7fe494db0cd512ced7b24d51034f2eaab8633ecb5e962"
+hash = "2e2a4ff8e7a4f40a88a40f35736bd48196c43531f98aea253d44fb1790f59e85"
 
 [[files]]
 file = "config/ftbquests/quests/reward_tables/cozy_crate.snbt"
@@ -402,63 +402,63 @@ hash = "a3b1d4c9ad75fbfa2c60937cad2bfbd0fafcf7cf1f28c5927be94dfa2a5f736c"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/bram.npc.snbt"
-hash = "3d2c4926e820e6fa0c9c5daceb00c3ee8fd96143d6e2628239b74b4739187de0"
+hash = "2d0b0f696c5c7ba9c1658cc476dc857d2bfa5b1db642b6883e41419cce9cf725"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/halden.npc.snbt"
-hash = "ab96407229e98d0ce371dcd99c27a33bfcc8c3dc705872be25cb975747cdc82a"
+hash = "747e483612ce7f3a10cbcfda01dc47a47c12b0ff8d0ef9ca3fc39a8b8ad5974b"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/marnie.npc.snbt"
-hash = "50704b7c080a73d9126c8f5a06f96d0455586b4d394906e88c3a72587f11a377"
+hash = "29ea0df3d1bc0664c735f617d242aee99e745ed6602ddf37ad5f5de6b4558be6"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/nella.npc.snbt"
-hash = "7cca396ec208c04dbb6794d0c437cf6ffe5ccc0e02df415c81b94000b4bbac6e"
+hash = "75c69393a6328f76af83521ce1c8c763cc233215e344db72a327ef56fd68ff72"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/newcomer_corin.npc.snbt"
-hash = "de1062d456a536c38e6c59559fa8bdddc8203f01dfa57beeac2ab627ad12e0e5"
+hash = "59da947ab93a99f55deb779d028d0e5461874056bb7ab3e5da2ab49accb26d39"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/newcomer_mab.npc.snbt"
-hash = "42005192a7a107e42a4ee991d6314a8a02f12e9f3d9b7f3c8298f9be075c754c"
+hash = "0e4dab28b255dd56cf221d9c6eb3e8d1814bb96677b5219136f8b794148de2a0"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/newcomer_tess.npc.snbt"
-hash = "63fdbb6d8974beafbcb3c53a8acdfaf2e63e6cf02d8a16961497417d12bbb6bd"
+hash = "2f36e526150d162dcee559333f5749e6c11daa6a8f4066adb13d61fb2d354d25"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/oda.npc.snbt"
-hash = "1095f2d325ffaf037450914cb289fdabe1ecc1c216db7bac9b3fcd44be253de0"
+hash = "8e60b1170d45f606387745edab8c63a68f90994a8e597dedd8bc955cee10bebb"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/pip.npc.snbt"
-hash = "c534ae89b97b4a5eeade80b59f72984707d5bf5eb407636cbf09351170cb45f6"
+hash = "ba3fc7553e1d0911e171a75636c81fe4c7588786ffad51ace91b1b3aec4ecb1d"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/ribbit_mudlark.npc.snbt"
-hash = "bdf1bfa4b112ffc01f15f0e9c222fb678702aab4522974cb0f78b81dd7c00699"
+hash = "0ba4d0e45201acd24aec9f6b1a6802e6d594f57a172f33bcbaabb3c03df05b9d"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/ribbit_puddle.npc.snbt"
-hash = "5d97a34c0a86bcbbcad61c98e4a582574a0fc3d72c5ef0b04f02b626889043c5"
+hash = "a40d10f801d78b89d2332366779335eb6363f6bbd0d65fd9b249f4962729f03c"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/ribbit_reed.npc.snbt"
-hash = "050afafd8893fb5b79728b4cbe908f12f2ab9b5a4d60af52e19523259bdcb4d8"
+hash = "07c6bb9674920c3f2c8ecd0d769feba124ed4541c82a550d910afeed2ce88073"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/ribbit_sedge.npc.snbt"
-hash = "1615bcbc52a96456fa9801de44c3fe10264fd25d0d435d4581b3d2e42ca3959b"
+hash = "082f30661cf99659ea63436c58523e8005b3eac307a8be1fd6c4858a1bfef361"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/tobin.npc.snbt"
-hash = "6d253780ab4e4a42727c174f6ffcd4c1431ac980bbde478253f6ed152cdbfbf3"
+hash = "eb146888c7e8d71923e7c4233e920500d87388ba8e40e622ddfffd52a867ca6b"
 
 [[files]]
 file = "kubejs/data/valley/easy_npc/preset/wisp.npc.snbt"
-hash = "cd41d7fc9c80ccc1ef05e12dd3634a918d7753a5e084f52a7f53ac65abdf8b53"
+hash = "91963f2cdab518a097893cc79b4eba3daf95403c9f3005a3d2b038a721a5f43a"
 
 [[files]]
 file = "kubejs/data/valley/functions/act1/cellar_door.mcfunction"
@@ -578,23 +578,23 @@ hash = "211dd94c7fd8236c2fd0747aa334a475d124a261cc9e019f27e3a0efee2ca2ee"
 
 [[files]]
 file = "kubejs/server_scripts/valley_checks.js"
-hash = "dd6586185fef3ad5e05bde46304eecec6588673f914caeb133a8bacdc9110913"
+hash = "eb1fdf08837b5ce9bb11db02100d20fdd74c9b16d7fdecf8d920cdd148e15c6d"
 
 [[files]]
 file = "kubejs/server_scripts/valley_core.js"
-hash = "15ed88420a5ec1ba81911e47d69d96375d6413abf45a7fa991b5118f783429bf"
+hash = "12970221a5abdc47711f8d52a5fe9363199fc122b8914aafa15aff9f3e90e4ac"
 
 [[files]]
 file = "kubejs/server_scripts/valley_finales.js"
-hash = "1f89e85a474160ec7d1c8e0843581cb650ac95a3b3cfbd06e862140a7ea1f8ba"
+hash = "485d39b822e8b0b89bf6f326d3711631a5d7cdf60dd37d97d74442d6b6bee00a"
 
 [[files]]
 file = "kubejs/server_scripts/valley_gates.js"
-hash = "8f2633ce9bea779d9d8e9207562e8da189933b6dd091ee48b53cd61eb7c105f9"
+hash = "af597e0441944b4f9635ac3defa8660d7050afbf88a2a45279275c0ffe0cafc2"
 
 [[files]]
 file = "kubejs/startup_scripts/valley_items.js"
-hash = "a8d3ac420712047abe2dd529ebea838dd760174abe8baed09cdac67eb60de959"
+hash = "776c50ed165a630f1f93aa93b1e0a55c1af984e2409ba83ef6c114d141f59755"
 
 [[files]]
 file = "mods/additional-enchanted-miner.pw.toml"
@@ -1232,7 +1232,7 @@ hash = "ff3b9ec8546c2317b75428c24615ddafb5ca10c0091e4eea3d5ce9552871f47c"
 
 [[files]]
 file = "patchouli_books/valley_journal/book.json"
-hash = "fb683ff87677318bed4f92933c560d737fb2c0e236b1a50adc9c12357d4218c9"
+hash = "8cebf1d7187adb624af3a5d50d43e2d9d9c145585e1a82df6987a2a7450da12c"
 
 [[files]]
 file = "patchouli_books/valley_journal/en_us/categories/field_notes.json"
@@ -1288,7 +1288,7 @@ hash = "db7dfc5596145f95f191ab8a4ba4887ce057b717f24925a96f32d56d3bfb8c16"
 
 [[files]]
 file = "patchouli_books/valley_journal/en_us/entries/found_books/b3_weathered_notice.json"
-hash = "49b04a9040152f64eec55de5a3fb6c5bdb15222ee0d23d4430f1586ed788ba85"
+hash = "b96b374cee6dd56543c7fb16abadf0532d5ed599e1611a2be9ab3e97b7abe994"
 
 [[files]]
 file = "patchouli_books/valley_journal/en_us/entries/found_books/b4_stock_ledger.json"

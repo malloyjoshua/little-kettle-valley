@@ -3,7 +3,7 @@
 make_structures.py — build every `/place template valley:<name>` target as a
 real Minecraft structure NBT.
 
-Copper Kettle Valley ships ten templates, all placed by valley_finales.js:
+Little Kettle Valley ships ten templates, all placed by valley_finales.js:
 
     market_stall (x4)  long_table   mill_race   mill_roof   pier
     granary_shell      granary_facade           noticeboard

@@ -9,7 +9,7 @@ Read alongside `docs/story-research.md`. Every lesson from that document is chec
 ## Framing and voice
 
 ### F1 — Name the destination in quest one, in the words the last quest uses · **GAP**
-**Bible today.** The tagline names a year and a winter. The first-join screen says: *"Spring, Year One. COPPER KETTLE VALLEY. Open your Quest Book. There is exactly one thing to do."* Q1's task is "read the letter." Each act has its own one-sentence goal. The lamp counter appears at Q7.
+**Bible today.** The tagline names a year and a winter. The first-join screen says: *"Spring, Year One. LITTLE KETTLE VALLEY. Open your Quest Book. There is exactly one thing to do."* Q1's task is "read the letter." Each act has its own one-sentence goal. The lamp counter appears at Q7.
 
 Nowhere in hour one does the player learn **the countable thing the pack ends on**. Create: Above and Beyond names the spaceship on its welcome page and ends on the spaceship; that is the single most-copied device in the survey.
 
@@ -172,7 +172,7 @@ No change. The story document's premise — that the non-creative player needs a
 ### E1 — Scope to what you can finish · **PARTIAL → the most important GAP**
 **Bible today.** §11's custom-code bill is nine build steps: the anchor listener, the `/valley` command tree, ~15 custom items and six recipe gates, ~25 KubeJS listeners, **11 hand-built structure NBTs** (§12.2 P8 actually lists 16), ~24 Easy NPC presets, five finale functions, five journal advancements, five Patchouli entries, a Bountiful edit, five Global Loot Modifiers, and 99 quest JSONs. §11 is honest that the NBTs are "the long pole."
 
-Overgrown is the one lesson in the entire research pass that survived verification unqualified: it shipped at ~80% and stopped. Ferret Business shipped for six years and never reached 1.0. Nothing in the story document currently prevents Copper Kettle Valley from becoming either of them.
+Overgrown is the one lesson in the entire research pass that survived verification unqualified: it shipped at ~80% and stopped. Ferret Business shipped for six years and never reached 1.0. Nothing in the story document currently prevents Little Kettle Valley from becoming either of them.
 
 **Change — add a §11 subsection, "Ship gates":**
 

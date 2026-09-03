@@ -1,7 +1,7 @@
 # Status: 2026-09-03 morning
 
 ## Where it stands
-Copper Kettle Valley is built, boots, and has been played through end to end by an automated harness. Everything below was verified by running the real thing, not by reading code.
+Little Kettle Valley is built, boots, and has been played through end to end by an automated harness. Everything below was verified by running the real thing, not by reading code.
 
 ## What you do this morning
 1. Open Prism Launcher. It will show a first-run wizard (language, Java). Click through with defaults.
@@ -39,7 +39,7 @@ Then in the game: Multiplayer > Direct Connect > `localhost`.
 ## Still open (needs you)
 - **Prism sign-in and first launch.** Not something I can do.
 - **The Air test.** Not on the network tonight. Expect it to work at 3072 MB with render distance 6; if it stutters, the cut list is in `docs/integration-plan.md` and starts with Regions Unexplored.
-- **GitHub: done.** Public repo https://github.com/malloyjoshua/copper-kettle-valley, pack served at https://raw.githubusercontent.com/malloyjoshua/copper-kettle-valley/main/pack/pack.toml, your Prism instance and the friend zip (`dist/CozyTech.zip`) both update from it on every launch.
+- **GitHub: done.** Public repo https://github.com/malloyjoshua/little-kettle-valley, pack served at https://raw.githubusercontent.com/malloyjoshua/little-kettle-valley/main/pack/pack.toml, your Prism instance and the friend zip (`dist/CozyTech.zip`) both update from it on every launch.
 - **playit.gg tunnel** for friends without port forwarding. Steps in `docs/RUNBOOK.md`; needs your browser sign-in to claim the agent.
 - **Your wife's cute picks.** Placeholder cozy set is in (Farmer's Delight, Let's Do, Handcrafted, Macaw's, plushies, Ribbits, ducks, pets). Swap in her three things when she names them.
 

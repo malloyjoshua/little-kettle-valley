@@ -1,5 +1,5 @@
 // =============================================================================
-// valley_gates.js — Copper Kettle Valley: the six ingredient gates, plus the
+// valley_gates.js — Little Kettle Valley: the six ingredient gates, plus the
 // anti-grind recipe edits named in §8.
 //
 // The rule (§5 "How gating actually works", §12.2 P4):

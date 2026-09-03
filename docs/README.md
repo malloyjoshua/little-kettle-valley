@@ -1,4 +1,4 @@
-# Copper Kettle Valley
+# Little Kettle Valley
 
 A private Minecraft modpack for Josh, his wife, and friends. Forge 1.20.1, about 125 mods, a five-act Stardew-style story written as FTB Quests chapters, braided with Tekkit-style tech (Create, Thermal, Applied Energistics, Bigger Reactors, QuarryPlus).
 

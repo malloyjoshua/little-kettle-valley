@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the Copper Kettle Valley Easy NPC presets from story/npcs.json.
+"""Build the Little Kettle Valley Easy NPC presets from story/npcs.json.
 
 Usage: make_npc_presets.py <npcs.json> <pack_dir> [--check]
   <pack_dir>  the pack root, e.g. .../Minecraft/pack
@@ -161,7 +161,7 @@ def build(n):
     }
     meta = {
         'access': 'PUBLIC',          # INTERNAL would make it unusable by command
-        'author': 'Copper Kettle Valley',
+        'author': 'Little Kettle Valley',
         'category': 'Valley',
         'created': Raw(f'{CREATED_MS}L'),
         'description': f'{n["name"]} -- {n["role"]}.',

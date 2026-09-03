@@ -1,5 +1,5 @@
 // =============================================================================
-// valley_checks.js — Copper Kettle Valley: the "checkmark·kjs" auto-completions.
+// valley_checks.js — Little Kettle Valley: the "checkmark·kjs" auto-completions.
 //
 // §12.2 P2 — the KubeJS escape hatch. FTB Quests Location tasks are authored
 // as fixed coordinates and cannot reference a runtime anchor, so every

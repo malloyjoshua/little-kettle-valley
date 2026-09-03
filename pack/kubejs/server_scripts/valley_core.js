@@ -1,5 +1,5 @@
 // =============================================================================
-// valley_core.js — Copper Kettle Valley: the spine.
+// valley_core.js — Little Kettle Valley: the spine.
 //
 // Owns:
 //   * global.valley           the helper API every other valley script uses
@@ -514,7 +514,7 @@ function valleyFirstJoin(server, player, name) {
   server.runCommandSilent('title ' + name + ' subtitle ' +
     JSON.stringify({ text: 'Spring, Year One.', color: 'gray', italic: true }))
   server.runCommandSilent('title ' + name + ' title ' +
-    JSON.stringify({ text: 'COPPER KETTLE VALLEY', color: 'gold', bold: true }))
+    JSON.stringify({ text: 'LITTLE KETTLE VALLEY', color: 'gold', bold: true }))
   // `~ ~ ~` resolves against the COMMAND SOURCE, and runCommandSilent runs as
   // the server (0 0 0, overworld) — so the sound has to be run `execute at`
   // the player or nobody hears it.
