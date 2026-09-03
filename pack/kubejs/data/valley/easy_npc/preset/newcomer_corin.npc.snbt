@@ -1,0 +1,78 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"Copper Kettle Valley",
+    category:"Valley",
+    created:1788000000000L,
+    description:"Corin Ashe -- Act V arrival, roofer and carpenter.",
+    entityTypeId:"easy_npc:humanoid",
+    modified:1788000000000L,
+    name:"Corin Ashe",
+    variantType:"KAI",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_INTERACTION:[
+          {
+            Cmd:"/info_message I mend roofs. Heard this valley has roofs again. Here I am.",
+            ExecAsUser:0b,
+            PermLevel:2,
+            Type:"COMMAND"
+          },
+          {
+            Cmd:"/ftbquests open_book",
+            ExecAsUser:1b,
+            PermLevel:0,
+            Type:"COMMAND"
+          }
+        ]
+      }
+    },
+    ArmorDropChances:[0.085f,0.085f,0.085f,0.085f],
+    ArmorItems:[
+      {},
+      {},
+      {},
+      {}
+    ],
+    Brain:{
+      memories:{}
+    },
+    CanPickUpLoot:0b,
+    CustomName:'{"color":"#8FA9C9","text":"Corin Ashe"}',
+    CustomNameVisible:1b,
+    EasyNPCVersion:3,
+    HandDropChances:[0.085f,0.085f],
+    HandItems:[
+      {},
+      {}
+    ],
+    Invulnerable:1b,
+    LeftHanded:0b,
+    ModelData:{},
+    ObjectiveData:{
+      HasObjectives:1b,
+      ObjectiveDataSet:[
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_AT_RESET"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    SkinData:{
+      Type:"DEFAULT"
+    },
+    Status:{
+      finalized:1b
+    },
+    Tags:["valley_npc","npc_newcomer_corin","newcomer"],
+    UUID:[I;1348619164,-102672595,-1311811433,-240804967],
+    VariantType:"KAI",
+    id:"easy_npc:humanoid"
+  }
+}

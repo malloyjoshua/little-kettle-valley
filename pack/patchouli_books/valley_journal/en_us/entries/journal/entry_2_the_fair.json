@@ -1,0 +1,22 @@
+{
+  "name": "The Thaw Fair",
+  "icon": "minecraft:sweet_berries",
+  "category": "patchouli:journal",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "I forgot how loud five people are.$(br2)We had the Fair today, first one in -- I want to say nine years, but Oda would correct me and she'd be right, she always is, she keeps the book.",
+      "title": "Entry Two"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Four stalls, and one of them was a plank on two barrels, and Pip sold flowers he had picked out of my own garden and charged me for them.$(br2)Bram got the wheel turning at noon. He stood there with his hands on his hips and said $(italic)well$(). That is the most emotional I have ever seen that man."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Write this down somewhere you'll find it in November, when it's dark and you're tired and you're wondering why you're bothering:$(br2)$(bold)It's this.$()$(br2)It was always going to be this."
+    }
+  ],
+  "advancement": "valley:journal/entry_2"
+}

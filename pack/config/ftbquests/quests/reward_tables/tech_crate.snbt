@@ -1,0 +1,23 @@
+{
+	empty_weight: 0.0f
+	id: "8DE4DD16406B3CCD"
+	loot_size: 1
+	order_index: 0
+	title: "Tech Crate"
+	use_title: true
+	rewards: [
+		{ item: "create:andesite_alloy", count: 8, weight: 3.0f }
+		{ item: "create:cogwheel", count: 4, weight: 3.0f }
+		{ item: "create:shaft", count: 8, weight: 3.0f }
+		{ item: "minecraft:iron_ingot", count: 6, weight: 3.0f }
+		{ item: "minecraft:copper_ingot", count: 8, weight: 3.0f }
+		{ item: "minecraft:redstone", count: 12, weight: 2.0f }
+		{ item: "create:andesite_casing", count: 4, weight: 2.0f }
+		{ item: "create:belt_connector", count: 4, weight: 2.0f }
+		{ item: "thermal:redstone_servo", count: 2, weight: 2.0f }
+		{ item: "minecraft:gold_ingot", count: 4, weight: 1.0f }
+		{ item: "create:electron_tube", count: 2, weight: 1.0f }
+		{ item: "thermal:rf_coil", count: 2, weight: 1.0f }
+	]
+	loot_crate: { string_id: "tech_crate", item_name: "Tech Crate", color: 8421504, glow: false, drops: { passive: 0, monster: 0, boss: 0 } }
+}

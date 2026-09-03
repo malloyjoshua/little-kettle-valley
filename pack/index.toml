@@ -1,6 +1,14 @@
 hash-format = "sha256"
 
 [[files]]
+file = "config/chunky/config.json"
+hash = "0f66e0fe4ace9776492a292e6fc84616f72e77bbb4d21f948bb4b60cdc291451"
+
+[[files]]
+file = "config/easy_npc/security.cfg"
+hash = "f5226e0d00b5db5898ebcabed57ec89c2f330c8694c948be9466f10439fe0529"
+
+[[files]]
 file = "config/fallingtree.json"
 hash = "922a0a06c316eb1f0aba285f5bc59f4421b51b6f861661f3cdab38bbd44e4927"
 
@@ -9,20 +17,48 @@ file = "config/ftbquests/quests/chapter_groups.snbt"
 hash = "87954188750d81c4ea67c7fb947d0e66868a85c6a6c81fe577c3b09f76dd9b3b"
 
 [[files]]
-file = "config/ftbquests/quests/chapters/ztest.snbt"
-hash = "ea18763b87cff4304fc84ba9800f5049c8ac7f11733cc1b1f2806cbc43c9c004"
+file = "config/ftbquests/quests/chapters/act1.snbt"
+hash = "aa00556cdaf5416b3b2e7bd621eddffe6111e98abcd63b5f35b85207b41f6ad0"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/act2.snbt"
+hash = "45c08e0620e955a58ba2bcdd13cc4b25c3a5ab95c9b21f2274f023aabde47314"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/act3.snbt"
+hash = "fa48b982cfdbcf40a881ec1ad83f39d7425ccd6b515bc91d12079f2c2fdbd4fd"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/act4.snbt"
+hash = "29b609265bea82d5221068d38f3ac1ddbde72b5299985d5395ed0737f282f44f"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/act5.snbt"
+hash = "ad1679fd11654b4c007a39315e3f14c12fba199e633ffd678dbe3f105e1d2953"
 
 [[files]]
 file = "config/ftbquests/quests/data.snbt"
-hash = "328747453f0d2d7c354404bdf515b755db0a246f5663f34ac105f3091f5a325b"
+hash = "3afa71c27c5f765969a7fe494db0cd512ced7b24d51034f2eaab8633ecb5e962"
 
 [[files]]
-file = "config/ftbquests/quests/reward_tables/test_crate.snbt"
-hash = "228d132373bcf8ec5b65570c4f01937d275f1105b7339afe62753b1a1d243785"
+file = "config/ftbquests/quests/reward_tables/cozy_crate.snbt"
+hash = "dda35fdbdadd8dadaf1052d66ed9f0887fc7cd4452d5ed41cfb0dcba86ae5b39"
+
+[[files]]
+file = "config/ftbquests/quests/reward_tables/story_crate.snbt"
+hash = "68d8eacabf73821098c0e5eae0785414500eb9db1227108771fe35ec9bdf9a96"
+
+[[files]]
+file = "config/ftbquests/quests/reward_tables/tech_crate.snbt"
+hash = "65c2dcd4db3d2a81b16bb04e8409357f4bfc690b2774057176ac18c09999dcc9"
+
+[[files]]
+file = "config/ftbxmodcompat.snbt"
+hash = "d357a0fa1cf5f3016b7cde3f34fec95354dcd01a2186f545530cc6f3077d1b5c"
 
 [[files]]
 file = "config/geolosys-common.toml"
-hash = "45a1d8345681406b8d0e003f0932e5a5d7d8d6eda94e7f0b73cae87c80f49d66"
+hash = "e807e83cd74d789d4cfecdb2413167351426d808265cefa2dd4a5fa14bb0a853"
 
 [[files]]
 file = "config/lootr-common.toml"
@@ -30,7 +66,7 @@ hash = "67a6571c1a4b6a371507cca4a71dceb710b8842d9aa1318a63751b4cf042d0a2"
 
 [[files]]
 file = "config/quarryplus-common.toml"
-hash = "d637dd600cc965adbb6a6e63829884e0e81521c3147275a8a2cdc04b77dc2962"
+hash = "34ad0c2015ff7fb8af834cfd0815b92711ceee39e21d54862b083332ec077771"
 
 [[files]]
 file = "config/sereneseasons/fertility.toml"
@@ -42,7 +78,15 @@ hash = "37318b1bc35ab1cdd08ad049e544a737b7831f4061b89d049b50bbad61bf0c58"
 
 [[files]]
 file = "config/sparsestructures.json5"
-hash = "b972fd8a9a875b139df83e36330d71dbea45375b75f26a28872552aa88d1deb8"
+hash = "a83cfd5dcd908b8348db943209001b68f2ae52343142bb950575b63f34134f0d"
+
+[[files]]
+file = "config/supplementaries-common.toml"
+hash = "7732619a4db40ccc8f64e99fcb1a650c8edfd9d85b4996ea1700244064508b16"
+
+[[files]]
+file = "config/thermal-common.toml"
+hash = "f6ce2b44ed3dc8b0dcba15874b209bc8aea325c829ff2f3b4a9420365bfe60c9"
 
 [[files]]
 file = "config/torchmaster.toml"
@@ -54,7 +98,11 @@ hash = "c493a98b3c92e0f7439306ea7fccc127d9f14aa3dfae7ad6264eccbcb49a14c8"
 
 [[files]]
 file = "config/veinmining-server.toml"
-hash = "05b77cb91536394a9abb27d5b318ba1e870142143ba9ecc05a141d5ad2d3c41a"
+hash = "a5480658fa21b490e4721d03ba48b9df7235ae6e8a036c8a3b6685d18cc4a1b9"
+
+[[files]]
+file = "config/voicechat/voicechat-server.properties"
+hash = "6a3eee0baf3e211aa4a3fa4dac25a8d70dbd0c933f6e3312dca104c30646c66f"
 
 [[files]]
 file = "config/waystones-common.toml"
@@ -69,12 +117,384 @@ file = "defaultconfigs/forge-server.toml"
 hash = "d3c131a2568fa7d791c5b9a64f924426b0c053c0255c2557fb05c351bab2a737"
 
 [[files]]
-file = "kubejs/server_scripts/init.js"
-hash = "91cb431365bcca2552741614453c658dc31383fe32eba012b29c097cad8cba30"
+file = "kubejs/assets/geolosys/lang/en_us.json"
+hash = "8d353c4cf6bed76f3f92e31b77b46de3696f99417ad75c4bea819aea50835b7f"
 
 [[files]]
-file = "kubejs/startup_scripts/init.js"
-hash = "fd12aed472cb3d3e28b17140ba54b0b1fc9c294d8398d20605a2779f5f20fa86"
+file = "kubejs/assets/valley/lang/en_us.json"
+hash = "438b85b77a31756daf89199fce66a908d13df59e2abb486401fde13dcf8aebbb"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/blanket.png"
+hash = "85dd5be47efe479e2951753f89a8fe6c1219368f40ca8402f9ef195f97b011a5"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/bounty_receipt.png"
+hash = "7fb91a113b1c28dce9d69ee4b3f8177d4bfa95a01f9bcecb4a6af9ab051863df"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/chicken_feed.png"
+hash = "e8a0254d039e5ad99329ca69d28080cc0877382600ee1f55aaadaf0beb9f6112"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/copper_kettle_trophy.png"
+hash = "1d2a9e29ee9d3f9b73d71b12b8aa6b3409cb89e9ba5bb2bd0ab3725a4b36fa86"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/courier_parcel.png"
+hash = "f7e37975798907c661550a16d899f5c540eba62a4999c53cb10e00d92c2b17fb"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/cow_crate.png"
+hash = "fe42c3e080320bda42406bd380b2d43c7922580971cda7068d854121ebb394f6"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/deed.png"
+hash = "99f57d6088be2f23f5429db5084240124e566666d96d1aa12705d6934e339858"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/deed_works.png"
+hash = "592069cbafdb2ff43d09481461ff264459e6b7dbe9312540fe2f30d58e957f64"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/deep_survey.png"
+hash = "d8a84c54b53401534e68be6e09037492b55facc1884b5408295bb47acdbcf13d"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/delivery_crate.png"
+hash = "fe42c3e080320bda42406bd380b2d43c7922580971cda7068d854121ebb394f6"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/dredge_net.png"
+hash = "1956d7da9c2d38e10a4b2b6f640a64271711028d9b3cb35beecdf5ca99ee89d9"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/feast_crate.png"
+hash = "fe42c3e080320bda42406bd380b2d43c7922580971cda7068d854121ebb394f6"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/firewood_bundle.png"
+hash = "95e12600ada536999cee9b202a1584409d9262a77e82c669047a4ceba0aead11"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/framed_town_map.png"
+hash = "296a1ae4bfb79d470cde8962c2522917411d68415a209e41c4de22b3fbe03057"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/green_oak_plank.png"
+hash = "691c24cb409615114b5db594499629e3c4898c39abc0c1862aa8ea5abcc57f32"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/hearthkeepers_lantern.png"
+hash = "12264dd04649cf31767dad2ad80d70cb189c71c71446d8466980b4232d0a6296"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/hen_crate.png"
+hash = "fe42c3e080320bda42406bd380b2d43c7922580971cda7068d854121ebb394f6"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/ice_auger.png"
+hash = "cb8a626477e7bba6b0cf008ee974558aea635c65dcdd5aadb8619c9f17de7202"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/josies_lantern.png"
+hash = "b4f16fb7e98e902b899d6541686e367f4eeee741cf992474555125e1bd45ddf2"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/kettle_deed.png"
+hash = "99f57d6088be2f23f5429db5084240124e566666d96d1aa12705d6934e339858"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/kettle_plate_a.png"
+hash = "20b6326beaed45904374ec7fbde8d900df1a2f34c4c007a7f68268f7e535dfe7"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/kettle_plate_b.png"
+hash = "d3d5d263445fe0567188192b39f8e3d2cf596948acb30c177216ecc615453959"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/lake_sand.png"
+hash = "26bf9a2427dd3374a13f3466404f64d20c6334b4f6c4d237c68488746ea01013"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/letter.png"
+hash = "a6658f47cd9b015b47fbd729a046016060ec6993d5c527d531cba0f43eeca3fd"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/oda_broom.png"
+hash = "893fcf2392f92e8040974f34551ff08ff4162fee134df97dbe257cb3077977af"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/odas_ledger.png"
+hash = "4cb5fadae7ff745e1889477f0c02214169821a42bed2ff9a0a3df38ff2247f6f"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/paper_lantern.png"
+hash = "b4f16fb7e98e902b899d6541686e367f4eeee741cf992474555125e1bd45ddf2"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/place_setting.png"
+hash = "4de1c10032327650ed4327b9cffc376f63a1bc2ff403a7ee5422e8f285828d0c"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/plushie_token.png"
+hash = "db884ca39145abcabbfc843140eb028ce4b7561e3db03d24839ca0286ebdb3a0"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/scrip.png"
+hash = "16e61d7ea691c666a136d56503e4f88da10b41f497a463de7a2d4f8f6f8e160e"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/seasoned_oak_board.png"
+hash = "7d8d01c379a29cc138dbdf6655cce504c90cced6cb7a22eacb2f3b9db5e3f90f"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/sheep_crate.png"
+hash = "fe42c3e080320bda42406bd380b2d43c7922580971cda7068d854121ebb394f6"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/spring_water.png"
+hash = "18ada8ac7594024fdfd65f48a99960d87c34188372a961fcc662880c8e3b5d11"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/token_bram.png"
+hash = "08b72d71f8b4159cfe5ca88c30176056804bf427f828f7af522e885125079272"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/token_halden.png"
+hash = "4b81ec545ba997553f34d8e2344a0bd1c276eb8a770c6f42dcab020a554a5490"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/token_marnie.png"
+hash = "44bc9a9431464b878b4c74f54db06829902afaa86a7374da556cb532fe0527b7"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/token_nella.png"
+hash = "305c3c2e9927d55d75f2ff6de2a030c5740341242fe7e9e900ce4c741058241a"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/token_oda.png"
+hash = "2083390dae79dfef395f854e683c6c62c7825e25183fd19d344164060a57d9a6"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/token_pip.png"
+hash = "19433628f12cb4fa5427ea5bcd48d96710b6d3b0727ff2d5a0be53ee9e64b471"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/token_tobin.png"
+hash = "c34eb529e3bb6377e26526a02d4462940e688d9363fc0c774c5959cd5c34cfdc"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/token_wisp.png"
+hash = "e95e828493e4a2500b1f0dc2a7a921a26a1866ce4851417bfa47901e607e1e16"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/turbine_notes.png"
+hash = "88add4fc9ee5292dd1e3b06b1ca54fd107ed8bc8861be29a4bcdb842d5ba45b0"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/washed_silica.png"
+hash = "680fe24e268e75f28b7eabc5b54379588344298a08b8dc0b9c331cba47365315"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/winter_cloak.png"
+hash = "85dd5be47efe479e2951753f89a8fe6c1219368f40ca8402f9ef195f97b011a5"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/winter_tomato.png"
+hash = "ee5dadbb7164485c9ab28b8c706c3b92a727415e444f5cd1b744874965707b36"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/winter_tonic.png"
+hash = "604a4721f29373e1c6aa1c4ff35fcf5467a7d7e5d1a9d1aeeb971fcdfc321f1e"
+
+[[files]]
+file = "kubejs/assets/valley/textures/item/works_power_tap.png"
+hash = "7ffc0c8605c8f41f566c91c9582fc9cdd892be882e24c4fc74d64978adb5d3b1"
+
+[[files]]
+file = "kubejs/client_scripts/hide.js"
+hash = "2205a1961b2eb5189cb4a0a3806f2fa4ba31860f2a8c477cf1e7152f7efa3d42"
+
+[[files]]
+file = "kubejs/data/bountiful/bounty_decrees/valley/cozy.json"
+hash = "5be49b6e79f1ca57e93ab8e479d462ae3ab852de5f7e1d9275bf2ae9d5639031"
+
+[[files]]
+file = "kubejs/data/bountiful/bounty_decrees/valley/tech.json"
+hash = "5a4505bd0dd01c385208059b78b8ded8457c95b7185d065d710357938b7653da"
+
+[[files]]
+file = "kubejs/data/bountiful/bounty_pools/valley/cozy_objectives.json"
+hash = "092208c9c971a89aa8b3e31652076ccef2e4e4117acea2128325b7446aa01fc0"
+
+[[files]]
+file = "kubejs/data/bountiful/bounty_pools/valley/cozy_rewards.json"
+hash = "c320805d2a4767289a024c225531c8929877b18a80295062efd1560d649d0fca"
+
+[[files]]
+file = "kubejs/data/bountiful/bounty_pools/valley/tech_objectives.json"
+hash = "e087cb865e5fd665cb374578aa311899650d2d8f7732db70e2377f48ff059a35"
+
+[[files]]
+file = "kubejs/data/bountiful/bounty_pools/valley/tech_rewards.json"
+hash = "182b981d08d66ff2c1a7bf1f25e4382b344347c436220a842ad62ebe0628e546"
+
+[[files]]
+file = "kubejs/data/forge/tags/items/raw_materials/yellorium.json"
+hash = "bef4d172fc1bfb34d342e79090726c4a0c272dd404783c3ea022b992e0e0415e"
+
+[[files]]
+file = "kubejs/data/valley/easy_npc/preset/bram.npc.snbt"
+hash = "e1600a607799de6bcf851acecb0e7ce4eeb8d2805912d241efea7f4ff40737f4"
+
+[[files]]
+file = "kubejs/data/valley/easy_npc/preset/halden.npc.snbt"
+hash = "ab96407229e98d0ce371dcd99c27a33bfcc8c3dc705872be25cb975747cdc82a"
+
+[[files]]
+file = "kubejs/data/valley/easy_npc/preset/marnie.npc.snbt"
+hash = "50704b7c080a73d9126c8f5a06f96d0455586b4d394906e88c3a72587f11a377"
+
+[[files]]
+file = "kubejs/data/valley/easy_npc/preset/nella.npc.snbt"
+hash = "93306b7b44100225752037d456b9d6feb5abec9465bd7c6d15232fb5872920c2"
+
+[[files]]
+file = "kubejs/data/valley/easy_npc/preset/newcomer_corin.npc.snbt"
+hash = "de1062d456a536c38e6c59559fa8bdddc8203f01dfa57beeac2ab627ad12e0e5"
+
+[[files]]
+file = "kubejs/data/valley/easy_npc/preset/newcomer_mab.npc.snbt"
+hash = "42005192a7a107e42a4ee991d6314a8a02f12e9f3d9b7f3c8298f9be075c754c"
+
+[[files]]
+file = "kubejs/data/valley/easy_npc/preset/newcomer_tess.npc.snbt"
+hash = "63fdbb6d8974beafbcb3c53a8acdfaf2e63e6cf02d8a16961497417d12bbb6bd"
+
+[[files]]
+file = "kubejs/data/valley/easy_npc/preset/oda.npc.snbt"
+hash = "c062bf4db4ace5bcfbead020836b322506b5de44f5ecae401e1ac8f8a1003f93"
+
+[[files]]
+file = "kubejs/data/valley/easy_npc/preset/pip.npc.snbt"
+hash = "c534ae89b97b4a5eeade80b59f72984707d5bf5eb407636cbf09351170cb45f6"
+
+[[files]]
+file = "kubejs/data/valley/easy_npc/preset/ribbit_mudlark.npc.snbt"
+hash = "bdf1bfa4b112ffc01f15f0e9c222fb678702aab4522974cb0f78b81dd7c00699"
+
+[[files]]
+file = "kubejs/data/valley/easy_npc/preset/ribbit_puddle.npc.snbt"
+hash = "5d97a34c0a86bcbbcad61c98e4a582574a0fc3d72c5ef0b04f02b626889043c5"
+
+[[files]]
+file = "kubejs/data/valley/easy_npc/preset/ribbit_reed.npc.snbt"
+hash = "050afafd8893fb5b79728b4cbe908f12f2ab9b5a4d60af52e19523259bdcb4d8"
+
+[[files]]
+file = "kubejs/data/valley/easy_npc/preset/ribbit_sedge.npc.snbt"
+hash = "1615bcbc52a96456fa9801de44c3fe10264fd25d0d435d4581b3d2e42ca3959b"
+
+[[files]]
+file = "kubejs/data/valley/easy_npc/preset/tobin.npc.snbt"
+hash = "f2acd75ec98c7a74b80db1e0c9ca2ffb1dce00cd7529b783fa785c9c2b0c9139"
+
+[[files]]
+file = "kubejs/data/valley/easy_npc/preset/wisp.npc.snbt"
+hash = "cd41d7fc9c80ccc1ef05e12dd3634a918d7753a5e084f52a7f53ac65abdf8b53"
+
+[[files]]
+file = "kubejs/data/valley/preset/bram.npc.snbt"
+hash = "e1600a607799de6bcf851acecb0e7ce4eeb8d2805912d241efea7f4ff40737f4"
+
+[[files]]
+file = "kubejs/data/valley/preset/halden.npc.snbt"
+hash = "ab96407229e98d0ce371dcd99c27a33bfcc8c3dc705872be25cb975747cdc82a"
+
+[[files]]
+file = "kubejs/data/valley/preset/marnie.npc.snbt"
+hash = "50704b7c080a73d9126c8f5a06f96d0455586b4d394906e88c3a72587f11a377"
+
+[[files]]
+file = "kubejs/data/valley/preset/nella.npc.snbt"
+hash = "93306b7b44100225752037d456b9d6feb5abec9465bd7c6d15232fb5872920c2"
+
+[[files]]
+file = "kubejs/data/valley/preset/newcomer_corin.npc.snbt"
+hash = "de1062d456a536c38e6c59559fa8bdddc8203f01dfa57beeac2ab627ad12e0e5"
+
+[[files]]
+file = "kubejs/data/valley/preset/newcomer_mab.npc.snbt"
+hash = "42005192a7a107e42a4ee991d6314a8a02f12e9f3d9b7f3c8298f9be075c754c"
+
+[[files]]
+file = "kubejs/data/valley/preset/newcomer_tess.npc.snbt"
+hash = "63fdbb6d8974beafbcb3c53a8acdfaf2e63e6cf02d8a16961497417d12bbb6bd"
+
+[[files]]
+file = "kubejs/data/valley/preset/oda.npc.snbt"
+hash = "c062bf4db4ace5bcfbead020836b322506b5de44f5ecae401e1ac8f8a1003f93"
+
+[[files]]
+file = "kubejs/data/valley/preset/pip.npc.snbt"
+hash = "c534ae89b97b4a5eeade80b59f72984707d5bf5eb407636cbf09351170cb45f6"
+
+[[files]]
+file = "kubejs/data/valley/preset/ribbit_mudlark.npc.snbt"
+hash = "bdf1bfa4b112ffc01f15f0e9c222fb678702aab4522974cb0f78b81dd7c00699"
+
+[[files]]
+file = "kubejs/data/valley/preset/ribbit_puddle.npc.snbt"
+hash = "5d97a34c0a86bcbbcad61c98e4a582574a0fc3d72c5ef0b04f02b626889043c5"
+
+[[files]]
+file = "kubejs/data/valley/preset/ribbit_reed.npc.snbt"
+hash = "050afafd8893fb5b79728b4cbe908f12f2ab9b5a4d60af52e19523259bdcb4d8"
+
+[[files]]
+file = "kubejs/data/valley/preset/ribbit_sedge.npc.snbt"
+hash = "1615bcbc52a96456fa9801de44c3fe10264fd25d0d435d4581b3d2e42ca3959b"
+
+[[files]]
+file = "kubejs/data/valley/preset/tobin.npc.snbt"
+hash = "f2acd75ec98c7a74b80db1e0c9ca2ffb1dce00cd7529b783fa785c9c2b0c9139"
+
+[[files]]
+file = "kubejs/data/valley/preset/wisp.npc.snbt"
+hash = "cd41d7fc9c80ccc1ef05e12dd3634a918d7753a5e084f52a7f53ac65abdf8b53"
+
+[[files]]
+file = "kubejs/server_scripts/_quest_ids.js"
+hash = "5e4d64f3a1d8cd5697eb98461351474a7a3a0fa7d149c21ecfdb1e0265f75a56"
+
+[[files]]
+file = "kubejs/server_scripts/seasons_tags.js"
+hash = "642b7d6e811f78a2c9e4efe363e1bce5a152218d8958c8b9064a6ff60e160906"
+
+[[files]]
+file = "kubejs/server_scripts/unify.js"
+hash = "b691052beff4e091bd77422460051fb66b48b68e8a14e1b2f2ce3bf2791707a9"
+
+[[files]]
+file = "kubejs/server_scripts/valley_checks.js"
+hash = "748744da621a479afbf022ea79cc74a79a96a5c5075c487558ff0671ea8126ca"
+
+[[files]]
+file = "kubejs/server_scripts/valley_core.js"
+hash = "87ae61d5ff000321533dbac3fbe4bf180bbfcfc71a999509371a1822e28a8dd9"
+
+[[files]]
+file = "kubejs/server_scripts/valley_finales.js"
+hash = "65c4f828ad01778ee4da4f122001d6b098b2849f12be51072d88e336aad50a26"
+
+[[files]]
+file = "kubejs/server_scripts/valley_gates.js"
+hash = "52082feb242e8568b53d07118c3ebb223955d2c846be365bc2f3dea8a0b8e60f"
+
+[[files]]
+file = "kubejs/startup_scripts/valley_items.js"
+hash = "67ec899ef9f4d46c482df8c5cea11075c5fb70b4a3170391554a846f55aab4c8"
 
 [[files]]
 file = "mods/additional-enchanted-miner.pw.toml"
@@ -244,11 +664,6 @@ metafile = true
 [[files]]
 file = "mods/dungeons-and-taverns.pw.toml"
 hash = "a6af059766ea70358690d048898d19e493108e2e06a97542fac696fd5e03589a"
-metafile = true
-
-[[files]]
-file = "mods/dynamic-torches.pw.toml"
-hash = "69aaac3512cc2b6766260d707e28d56d9b53eb7a85532d9fe63052ebb046927c"
 metafile = true
 
 [[files]]
@@ -710,3 +1125,99 @@ metafile = true
 file = "mods/yungs-extras.pw.toml"
 hash = "cbc4a42265c7235d95f596f4d03819d868e002c2b175f2f6bd30420416a7cef2"
 metafile = true
+
+[[files]]
+file = "options.txt"
+hash = "ff3b9ec8546c2317b75428c24615ddafb5ca10c0091e4eea3d5ce9552871f47c"
+
+[[files]]
+file = "patchouli_books/valley_journal/book.json"
+hash = "fb683ff87677318bed4f92933c560d737fb2c0e236b1a50adc9c12357d4218c9"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/categories/field_notes.json"
+hash = "622925610ac3d3ea228495c59fde5523a11dce07dab7bf26226561e839f631b3"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/categories/found_books.json"
+hash = "bfc21933052fc5767a07b0a8640853ba7cbbada5559c144fb5fd7e3a4a743328"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/categories/journal.json"
+hash = "adc9e1ae5914d7557d692e8f84cd42eaa2685b43d95536753135b352c7b555df"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/field_notes/f1_andesite_and_the_wheel.json"
+hash = "2609ab20cd394cc98df7c0ebc892ce96c6c0bfda09cffb1de54757163855a813"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/field_notes/f2_the_windmill.json"
+hash = "1ee68fb5373242b430ec4246ef50325188b1c654896f8fa0e53baea91053e5f7"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/field_notes/f3_silica_and_frame.json"
+hash = "37bbf496c22846af01feb64d36bf73e9b92f61233ac312aa202a8ae5d40c8554"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/field_notes/f4_cells_and_ducts.json"
+hash = "61a1edb659bbed7517cdbac03c88af848ffc13e2d19e0c6ba29bb70fe5677db0"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/field_notes/f5_the_network.json"
+hash = "df4e6a4daf46ca133f01cda7ff0db44fded0770da03c7ba8e33649ba8792dd1c"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/field_notes/f6_the_vessel.json"
+hash = "d0ecbd2e35db24d6f4daa886cafd71f946fc6083ed5ca190238fcecfb735d57b"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/field_notes/f7_the_turbine.json"
+hash = "48bab85717dbfd1237c5cccd4928c217094fb331ce14f78278bafb3a388036e0"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/field_notes/f8_quarry_and_markers.json"
+hash = "351cbadbb04f6924feb0e947c4eb62414559d9ad5036e54b0d243d22c959f70b"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/found_books/b1_ledger_page.json"
+hash = "9ecbd7976371cb1ac34eea66f56c02dfba703c25bee267fcb38cfd5a7da25974"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/found_books/b2_crate_label.json"
+hash = "db7dfc5596145f95f191ab8a4ba4887ce057b717f24925a96f32d56d3bfb8c16"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/found_books/b3_weathered_notice.json"
+hash = "49b04a9040152f64eec55de5a3fb6c5bdb15222ee0d23d4430f1586ed788ba85"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/found_books/b4_stock_ledger.json"
+hash = "abaabf4499662473d335aea03eac9a6a8862503680d98a74fd9affd1e1dc0c21"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/found_books/b5_turbine_notebook.json"
+hash = "108461eb2240c5c0e4a52c596626018e8413fcee70fa3ebbb9ded84edc82be93"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/journal/cellar_wall.json"
+hash = "d59edb342e4cbe6d60980dd18aeec30d33c0dcf7cd5045ab01caa5be28f4248f"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/journal/entry_1_the_porch.json"
+hash = "f4f4506efa6417089a08e539bd6edb2ff61a187f2afc60b62179a1019b537a40"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/journal/entry_2_the_fair.json"
+hash = "e1f34b3e79ffbfa785bdfe92057866a1b8383c2a26d27e02976d74c2717f9348"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/journal/entry_3_the_float.json"
+hash = "53d018d1375a13ad065dd2d722f239076198141a4b2e647253ae1ace250f9fb7"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/journal/entry_4_the_works.json"
+hash = "1e14b44240ed01af0f043ffbf1557f5bae42950b90489b14b53300aee7f09a9b"
+
+[[files]]
+file = "patchouli_books/valley_journal/en_us/entries/journal/entry_5_the_last_page.json"
+hash = "75e210323dc4721698848f03c5314c9b4cdd5712b8128bd0b6a7a797ab80d826"

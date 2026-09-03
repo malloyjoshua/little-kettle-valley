@@ -1,0 +1,37 @@
+{
+  "name": "Andesite, and the First Wheel",
+  "icon": "create:water_wheel",
+  "category": "patchouli:field_notes",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Bram: $(italic)Boards first. Wheel second. There is no third.$()$(br2)$(bold)Andesite Alloy$() is the whole of the first tier: two andesite, two iron nuggets, in a two-by-two. Q13 asks for $(bold)8$(). Bram's crate for the mill race carries $(bold)32$() more.",
+      "title": "The Mill"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "create:crafting/materials/andesite_alloy",
+      "text": "Once the wheels turn, a Millstone or a Mixer over a Basin makes these in bulk and you never craft one by hand again."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "create:crafting/kinetics/millstone",
+      "text": "The Millstone is the first thing the wheels drive. Grain in, flour out -- which is Q14, and Marnie's whole kitchen after it."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)One Water Wheel: 32 su per RPM, spinning at 8 RPM. 256 su.$()$(br2)Two wheels on the race is $(bold)512 su$(), which is exactly what Q16 asks for.$(br2)$(li)Millstone: 4 per RPM = $(bold)32 su$()$(li)Mechanical Saw: 4 = $(bold)32 su$()$(li)Mechanical Press: 8 = $(bold)64 su$()$(li)Mechanical Mixer: 4 = $(bold)32 su$()",
+      "title": "Stress, in plain numbers"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "The four machines Act One gives you come to $(bold)160 su$() against $(bold)512$(). You will not run out. If the Stressometer goes red anyway, something you forgot about is spinning.$(br2)Act Two adds an $(item)Encased Fan$() at $(bold)16 su$(). Still fine."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)The gate:$() the Water Wheel in this valley is built with $(item)Seasoned Oak Boards$(). Green oak will not do it.$(br2)Marnie's oven makes them -- $(bold)32 boards$() come out of Q15 and go straight into Bram's crate. Bram cannot build the wheel until the boards are dry. That is the oven, and that is you.",
+      "title": "Who holds the gate"
+    }
+  ]
+}

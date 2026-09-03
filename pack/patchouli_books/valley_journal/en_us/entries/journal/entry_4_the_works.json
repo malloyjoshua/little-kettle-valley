@@ -1,0 +1,30 @@
+{
+  "name": "What the Works Was For",
+  "icon": "minecraft:copper_ingot",
+  "category": "patchouli:journal",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Halden -- if you're the one reading this out loud to somebody: yes. Tell them. I don't mind any more.$(br2)The Works was never going to be a mine. I was building a power plant. Copper, then brass, then a boiler, then a good deal past a boiler.",
+      "title": "Entry Four"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "And the point of it -- the entire point, the only point -- is that this valley loses people every winter. Not to anything dramatic. To cold rooms and empty larders and four months of nothing to do. People leave in February and they do not come back in April."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)You cannot fix that with kindness.$() I tried. I was extremely kind for three decades and Old Dell still left.$(br2)You fix it with heat and light in January. That's it. That's the whole design document."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "People think I want the lamps back for the light. There's plenty of light -- it's a valley, the sun comes up. I want them back because when the road was lit you could see, from your own window, at ten o'clock at night in February, that somebody else was still awake.$(br2)That's what a town is. Not the buildings. That."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "The plans are in the crate under the bench. Bram will tell you they don't work. Bram is wrong; he has simply never had enough hands.$(br2)You have hands. Go on."
+    }
+  ],
+  "advancement": "valley:journal/entry_4"
+}

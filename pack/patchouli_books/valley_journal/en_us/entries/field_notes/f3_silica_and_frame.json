@@ -1,0 +1,33 @@
+{
+  "name": "Washed Silica, and the Frame",
+  "icon": "thermal:machine_frame",
+  "category": "patchouli:field_notes",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Bram: $(italic)Thermal won't take river grit. It wants glass sand, washed.$()$(br2)Nella dredges it: Q26 is $(bold)96 Lake Sand$() off the shallows.$(br2)You wash it: Q30 is $(bold)64 Washed Silica$(), made by running an $(item)Encased Fan$() down through flowing water onto the sand. Q30 pays another $(bold)64$() when you're done, so plan on 128 in hand.",
+      "title": "Sand, twice"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "The $(item)Thermal Machine Frame$() in this valley is built with $(item)Washed Silica$(). That is the entire gate -- no stage to chase, no unlock to find, just an ingredient somebody has to have made.$(br2)Q31 asks for $(bold)one$() frame and pays you back $(bold)two$() spares, a Redstone Furnace, 32 Fluxduct and a Stirling Dynamo.",
+      "title": "The gate"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "thermal:machine_pulverizer",
+      "text": "Every Thermal machine is this same shape. Learn it once."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(li)$(bold)Frame$() in the middle.$(li)$(bold)RF Coil$() directly beneath it.$(li)$(bold)Copper gear$() either side of the coil.$(li)Three pieces on the top and sides that say $(italic)which$() machine it is -- flint and a piston make a Pulverizer, bricks and redstone make a Furnace.$(br2)Sixteen machines, one recipe, three swapped parts.",
+      "title": "Reading the grid"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Q32 wants a $(item)Pulverizer$() built and $(bold)32 iron ore$() run through it. Ore doubles from that moment on, permanently, and Q32 hands you a Sawmill and 8 Redstone Servos for the trouble.$(br2)Power: one $(item)Stirling Dynamo$() from Q31, a second from Q32. They burn what the oven burns.",
+      "title": "First job"
+    }
+  ]
+}

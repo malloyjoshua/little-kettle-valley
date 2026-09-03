@@ -1,0 +1,191 @@
+{
+	"content": {
+
+		"cozy_rew_scrip_common": {
+			"type": "item",
+			"content": "valley:scrip",
+			"amount": { "min": 3, "max": 8 },
+			"unitWorth": 40,
+			"weightMult": 2.5
+		},
+
+		"cozy_rew_scrip_uncommon": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "valley:scrip",
+			"amount": { "min": 8, "max": 16 },
+			"unitWorth": 45,
+			"weightMult": 2.2
+		},
+
+		"cozy_rew_scrip_rare": {
+			"type": "item",
+			"rarity": "RARE",
+			"content": "valley:scrip",
+			"amount": { "min": 15, "max": 28 },
+			"unitWorth": 55,
+			"weightMult": 2.0
+		},
+
+		"cozy_rew_scrip_epic": {
+			"type": "item",
+			"rarity": "EPIC",
+			"content": "valley:scrip",
+			"amount": { "min": 30, "max": 60 },
+			"unitWorth": 65,
+			"weightMult": 1.8
+		},
+
+		"cozy_rew_wheat_seeds": {
+			"type": "item",
+			"content": "minecraft:wheat_seeds",
+			"amount": { "min": 6, "max": 16 },
+			"unitWorth": 30
+		},
+
+		"cozy_rew_tomato_seeds": {
+			"type": "item",
+			"content": "thermal:tomato_seeds",
+			"amount": { "min": 4, "max": 10 },
+			"unitWorth": 40
+		},
+
+		"cozy_rew_grape_seeds": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "vinery:red_grape_seeds",
+			"amount": { "min": 2, "max": 6 },
+			"unitWorth": 70
+		},
+
+		"cozy_rew_candle_holder": {
+			"type": "item",
+			"content": "supplementaries:candle_holder",
+			"amount": { "min": 1, "max": 3 },
+			"unitWorth": 60,
+			"weightMult": 0.8
+		},
+
+		"cozy_rew_sconce": {
+			"type": "item",
+			"content": "supplementaries:sconce",
+			"amount": { "min": 1, "max": 2 },
+			"unitWorth": 70,
+			"weightMult": 0.8
+		},
+
+		"cozy_rew_stone_lamp": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "supplementaries:stone_lamp",
+			"amount": { "min": 1, "max": 2 },
+			"unitWorth": 110,
+			"weightMult": 0.7
+		},
+
+		"cozy_rew_flag": {
+			"type": "item",
+			"content": "supplementaries:flag_red",
+			"amount": { "min": 1, "max": 2 },
+			"unitWorth": 55,
+			"weightMult": 0.8
+		},
+
+		"cozy_rew_oak_shelf": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "candlelight:oak_shelf",
+			"amount": { "min": 1, "max": 1 },
+			"unitWorth": 120,
+			"weightMult": 0.6
+		},
+
+		"cozy_rew_oak_couch": {
+			"type": "item",
+			"rarity": "RARE",
+			"content": "handcrafted:oak_couch",
+			"amount": { "min": 1, "max": 1 },
+			"unitWorth": 260,
+			"weightMult": 0.5
+		},
+
+		"cozy_rew_bookshelf": {
+			"type": "item",
+			"rarity": "RARE",
+			"content": "mcwfurnitures:oak_bookshelf",
+			"amount": { "min": 1, "max": 1 },
+			"unitWorth": 240,
+			"weightMult": 0.5
+		},
+
+		"cozy_rew_storage_drawer": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "storagedrawers:oak_full_drawers_1",
+			"amount": { "min": 1, "max": 2 },
+			"unitWorth": 150,
+			"weightMult": 0.6
+		},
+
+		"cozy_rew_cake_stand": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "bakery:cake_stand",
+			"amount": { "min": 1, "max": 1 },
+			"unitWorth": 130,
+			"weightMult": 0.6
+		},
+
+		"cozy_rew_plushie_cat": {
+			"type": "item",
+			"rarity": "RARE",
+			"content": "perfectplushies:cat_plushie",
+			"amount": { "min": 1, "max": 1 },
+			"unitWorth": 350,
+			"weightMult": 0.5
+		},
+
+		"cozy_rew_plushie_duck": {
+			"type": "item",
+			"rarity": "RARE",
+			"content": "perfectplushies:duck_plushie",
+			"amount": { "min": 1, "max": 1 },
+			"unitWorth": 350,
+			"weightMult": 0.5
+		},
+
+		"cozy_rew_plushie_rabbit": {
+			"type": "item",
+			"rarity": "EPIC",
+			"content": "perfectplushies:white_rabbit_plushie",
+			"amount": { "min": 1, "max": 1 },
+			"unitWorth": 900,
+			"weightMult": 0.4
+		},
+
+		"cozy_rew_emerald": {
+			"type": "item",
+			"content": "minecraft:emerald",
+			"amount": { "min": 2, "max": 5 },
+			"unitWorth": 50,
+			"weightMult": 0.9
+		},
+
+		"cozy_rew_honey_bottle": {
+			"type": "item",
+			"content": "minecraft:honey_bottle",
+			"amount": { "min": 2, "max": 4 },
+			"unitWorth": 35,
+			"weightMult": 0.9
+		},
+
+		"cozy_rew_bounty_receipt": {
+			"type": "item",
+			"content": "valley:bounty_receipt",
+			"amount": { "min": 1, "max": 1 },
+			"unitWorth": 15,
+			"weightMult": 1.0
+		}
+
+	}
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Wind for When the Stream Is Low",
+  "icon": "create:windmill_bearing",
+  "category": "patchouli:field_notes",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Bram: $(italic)The stream drops in high summer and freezes in winter. The roof does neither.$()$(br2)Speed off a windmill is $(bold)two RPM per sail$(), and it stops climbing at $(bold)16 RPM$().$(br2)$(bold)Eight sails reaches the ceiling.$() A ninth sail does nothing at all. That is why the crate holds exactly eight.",
+      "title": "The Roof"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "create:crafting/kinetics/windmill_bearing",
+      "text": "The bearing's stress figure is 512 -- it is not what limits you. Speed is. Read the total off a Stressometer if you want the exact number on the day."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(li)Wool for the sails: $(bold)16$(), in Bram's crate from Q16.$(li)Sails go on the shaft, then you right-click the bearing once to assemble.$(li)The roof frame is already standing and the slot is marked. Put it in the marked slot; nothing here is a judgement call.$(br2)Q29 pays back 6 gearboxes, a clutch, a gearshift and 3 Mechanical Crafters -- $(bold)2 su per RPM$() each, so 3 crafters is 48 su. Cheap.",
+      "title": "Building it"
+    }
+  ]
+}

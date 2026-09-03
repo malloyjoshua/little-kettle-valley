@@ -1,0 +1,23 @@
+{
+  "name": "Cells, Ducts and the Tap",
+  "icon": "thermal:energy_cell",
+  "category": "patchouli:field_notes",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Bram: $(italic)Dynamos make it. Ducts carry it. The cell is what stops the lights going out when the fire does.$()$(br2)Q47: charge $(bold)one Energy Cell$() off your dynamos and run $(item)Fluxduct$() from the mill to the inn. Q31 already paid you $(bold)32$() duct; Q46 pays $(bold)64$() more.",
+      "title": "The Cell on the Wall"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Charging that cell is what mints the $(item)Works Power Tap$(), and the Tap is the ingredient that makes Marnie's $(item)Fridge$(), $(item)Sink$() and $(item)Milk Jar$() craftable. No stage, no wiki -- one item, and Bram hands it to you.$(br2)The cell has to end up within $(bold)12 blocks$() of the inn wall. That is a quest check, not a recipe condition, so the book will tell you if you are short.",
+      "title": "What the cell buys"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Q66 runs duct on to the Works and installs $(bold)2 more cells$(). $(bold)Three cells total$() is the number that wants to be standing behind the reactor before anybody pulls a lever.$(br2)Type $(bold)/valley check power$() at any point. It prints what is going in, what is coming out, and which of the two is losing.",
+      "title": "The Works grid"
+    }
+  ]
+}

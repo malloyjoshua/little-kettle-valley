@@ -27,7 +27,7 @@
 	allowWorkInClaimedChunkByFBTChunks = false
 	#The range limit(unit: blocks) of ChunkDestroyer. Set -1 or 0 to remove limitation.
 	#Range: > -1
-	chunkDestroyerLimit = -1
+	chunkDestroyerLimit = 128
 	#The max distance(unit: blocks) Flexible Marker can reach
 	#Range: 16 ~ 4096
 	flexMarkerMaxDistance = 256
@@ -35,7 +35,7 @@
 	allowWorkbenchExtraction = false
 	#Use simple chunk load function.
 	#If you have other chunk load system, please disable this and use other mods.
-	enableChunkLoader = true
+	enableChunkLoader = false
 	#Trace quarry work
 	logAllQuarryWork = false
 	#Custom player

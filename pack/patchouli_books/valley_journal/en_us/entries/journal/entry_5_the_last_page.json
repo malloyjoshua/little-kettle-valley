@@ -1,0 +1,30 @@
+{
+  "name": "The Last Page",
+  "icon": "minecraft:bell",
+  "category": "patchouli:journal",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Last one. The writing's gone shaky, so I'll be brief, which Marnie will tell you is a first.$(br2)If the lights are on out there -- if you're reading this warm, in the dark half of the year, with the greenhouse going and somebody's kid asleep by the fire -- then it worked, and it wasn't me who did it, and that is exactly right.",
+      "title": "Entry Five"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "I only ever got this valley to hold on. You got it to stay.$(br2)Everything I know how to do, somebody taught me on a bad afternoon when they had better things to be doing. My mother taught me the porch trick. Bram's father taught me to read a wheel."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "A woman whose name I have genuinely forgotten taught me to bank an oven so it holds overnight, in about ninety seconds, in the rain, because I looked cold.$(br2)None of them saw what I did with it. That's normal. That's the arrangement."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "So: the wheel goes counter-clockwise, the third lamp post leans and always has, and Marnie takes her tea far too strong.$(br2)Don't turn this into a monument. Don't put my name on the square. Put a bell there, and ring it when supper's ready."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "And when somebody new comes up the road next spring -- and they will, they always do when there's smoke -- go out and meet them. Bring bread. Pretend you were passing.$(br2)-- J.K.$(br2)$(italic)(P.S. There's a lamp post on my porch with nothing on it. I'd like to be on the line.)$()"
+    }
+  ],
+  "advancement": "valley:journal/entry_5"
+}

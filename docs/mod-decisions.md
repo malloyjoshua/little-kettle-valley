@@ -18,3 +18,4 @@ Log of every swap, cut, or pin, with the reason. Newest at the bottom.
 | 2026-09-02 | EMI | Replaced by JEI | Thermal, Create, AE2, Bigger Reactors and Farmer's Delight all ship JEI plugins natively; EMI would have needed a JEI bridge to show their recipes. One recipe viewer, full coverage. |
 | 2026-09-02 | Create Crafts & Additions | Added | Bridges Create rotational power and Thermal/AE2 RF with an alternator and motor. Without it the two power systems never touch. |
 | 2026-09-02 | Jade Addons | Added (client) | Hover info for Create and Thermal machines, so "what is this doing" is answered on screen. |
+| 2026-09-02 | Dynamic Lights (dynamic-torches) | Removed | It is a bundled datapack that runs a per-tick fill/clear loop of light blocks around every glowing entity, not a client renderer. Real TPS risk on a 3.5 GB client. Torchmaster's Feral Flare Lantern is the pack's carry-light. |

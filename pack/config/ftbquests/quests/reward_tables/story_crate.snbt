@@ -1,0 +1,23 @@
+{
+	empty_weight: 0.0f
+	id: "95D88AC3A2EBE717"
+	loot_size: 1
+	order_index: 0
+	title: "Josie's Crate"
+	use_title: true
+	rewards: [
+		{ item: "minecraft:paper", count: 8, weight: 3.0f }
+		{ item: "minecraft:lantern", count: 4, weight: 3.0f }
+		{ item: "minecraft:candle", count: 8, weight: 2.0f }
+		{ item: "minecraft:bookshelf", count: 4, weight: 2.0f }
+		{ item: "minecraft:amethyst_shard", count: 4, weight: 2.0f }
+		{ item: "supplementaries:jar", count: 2, weight: 2.0f }
+		{ item: "supplementaries:antique_ink", weight: 2.0f }
+		{ item: "handcrafted:wood_crockery_combo", weight: 2.0f }
+		{ item: "valley:scrip", count: 10, weight: 2.0f }
+		{ item: "minecraft:emerald", count: 3, weight: 2.0f }
+		{ item: "supplementaries:globe_sepia", weight: 1.0f }
+		{ item: "supplementaries:hourglass", weight: 1.0f }
+	]
+	loot_crate: { string_id: "story_crate", item_name: "Josie's Crate", color: 11224814, glow: true, drops: { passive: 0, monster: 0, boss: 0 } }
+}

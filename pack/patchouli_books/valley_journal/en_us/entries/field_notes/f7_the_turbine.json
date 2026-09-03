@@ -1,0 +1,27 @@
+{
+  "name": "The Turbine",
+  "icon": "biggerreactors:turbine_rotor_blade",
+  "category": "patchouli:field_notes",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Bram: $(italic)This one's a problem, not a recipe. Read the numbers, then build to them.$()$(br2)$(bold)Q71: hold 1,800 RPM under load, and do not go over.$()$(br2)The crate holds a fixed budget of rotor blades, coils and casing. Spending all of it is not the answer, and nothing is lost by taking a piece back out.",
+      "title": "Eighteen hundred"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(li)More $(bold)rotor blades$() -- more torque, slower spin.$(li)More $(bold)coils$() -- more power drawn, slower spin.$(li)More $(bold)steam$() -- faster spin.$(br2)So: build it, open the flow, read the RPM. Over 1,800, add a blade or a coil. Under, take one out. It settles in about three passes and there is no way to break it.",
+      "title": "How the three dials work"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "biggerreactors:crafting/turbine/turbine_rotor_blade"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)/valley check turbine$() prints RPM, steam in and power out without you opening a single menu.$(br2)Smallest turbine the game will accept: $(bold)5 x 5 x 4$().$(br2)Q83 asks for a second one that meets the town's stated winter budget without going past the fuel burn Tobin signed off. $(bold)/valley check power$() is the other half of that answer.",
+      "title": "Readouts and sizes"
+    }
+  ]
+}

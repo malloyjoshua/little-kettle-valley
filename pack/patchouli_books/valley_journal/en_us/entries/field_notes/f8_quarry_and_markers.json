@@ -1,0 +1,32 @@
+{
+  "name": "The Quarry and Its Markers",
+  "icon": "quarryplus:quarry",
+  "category": "patchouli:field_notes",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Tobin: $(italic)Right, so, the markers, they're not decoration, they're the box, the machine only eats what's inside the box, which is good, because otherwise it'd just --$()$(br2)Bram: $(italic)Tobin.$()$(br2)Q87 is the rig and its markers on the site Tobin surveyed. Q88 is $(bold)1,024 cobblestone$() out of network stock into the granary -- one bounded cycle. The quarry keeps running afterwards.",
+      "title": "The Shaft"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(li)Put a $(item)Flexible Marker$() on the corner stake Tobin left.$(li)Right-click it and type the box you want.$(li)This pack caps a side at $(bold)256 blocks$(). Tobin's site is well inside that.$(li)Set $(item)Quarry Plus$() flat against the marker, facing in.$(li)Power it off the reactor grid. It builds its own frame.",
+      "title": "The easy way: one marker"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "quarryplus:flex_marker"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(item)Marker Plus$() at three corners -- right-click each one to run its guide line out -- and the rectangle between them is the box. Same result, more walking.$(br2)$(bold)It keeps working when you log off.$() Chunk loading is on in this pack, so the shaft runs through the night and through your dinner.",
+      "title": "The old way: three markers"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "The quarry will not craft without the $(item)Works Deed$(). The deed is $(bold)80 Valley Scrip$() at Oda's counter and needs $(bold)Standing: Trusted$() -- six of the eight resident chains closed.$(br2)Josie's reason for that is chalked on the cellar wall, and it is a good one.",
+      "title": "The gate"
+    }
+  ]
+}

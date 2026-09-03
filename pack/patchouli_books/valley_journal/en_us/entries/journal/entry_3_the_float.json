@@ -1,0 +1,22 @@
+{
+  "name": "The Lantern Float",
+  "icon": "minecraft:lantern",
+  "category": "patchouli:journal",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Nella was certain nobody would come. She spent all week telling me it was a silly idea, and she spent all week making lanterns, which is how you know somebody means it.",
+      "title": "Entry Three"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Everyone came. Wisp brought the whole reed village and they sang something in frog that I believe was about soup. Halden cried and said it was the smoke.$(br2)A thing I've noticed about summer here: it gives you more than you can hold. Fish, fruit, light, hours."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "And every single year we let most of it rot, because we had nowhere to put it.$(br2)That is not a farming problem. That is an engineering problem, and I have been calling it a farming problem for thirty years because I was frightened of the other kind.$(br2)I'm going to stop doing that. I bought a book about turbines."
+    }
+  ],
+  "advancement": "valley:journal/entry_3"
+}

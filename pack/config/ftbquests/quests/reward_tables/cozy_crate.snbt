@@ -1,0 +1,24 @@
+{
+	empty_weight: 0.0f
+	id: "5935F377951835D9"
+	loot_size: 1
+	order_index: 0
+	title: "Cozy Crate"
+	use_title: true
+	rewards: [
+		{ item: "farmersdelight:cabbage_seeds", count: 4, weight: 3.0f }
+		{ item: "farmersdelight:tomato_seeds", count: 4, weight: 3.0f }
+		{ item: "farmersdelight:rice", count: 4, weight: 3.0f }
+		{ item: "minecraft:sweet_berries", count: 6, weight: 3.0f }
+		{ item: "minecraft:honey_bottle", count: 2, weight: 2.0f }
+		{ item: "supplementaries:flower_box", count: 2, weight: 2.0f }
+		{ item: "supplementaries:candle_holder", count: 4, weight: 2.0f }
+		{ item: "farmersdelight:canvas_rug", weight: 2.0f }
+		{ item: "handcrafted:oak_chair", count: 2, weight: 2.0f }
+		{ item: "minecraft:cake", weight: 2.0f }
+		{ item: "cookingforblockheads:fruit_basket", weight: 1.0f }
+		{ item: "perfectplushies:duck_plushie", weight: 1.0f }
+		{ item: "perfectplushies:cat_plushie", weight: 1.0f }
+	]
+	loot_crate: { string_id: "cozy_crate", item_name: "Cozy Crate", color: 16755200, glow: false, drops: { passive: 0, monster: 0, boss: 0 } }
+}

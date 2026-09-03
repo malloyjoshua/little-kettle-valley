@@ -1,0 +1,30 @@
+{
+  "name": "The Cellar Wall",
+  "icon": "minecraft:chiseled_stone_bricks",
+  "category": "patchouli:journal",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(italic)Chalk on stone, behind the iron door. Copied out here so nobody has to keep going down the stairs to read it.$()",
+      "title": "Behind the Door"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "The Works ran. For eleven days, in the winter Old Dell left. The greenhouse was warm and the bakery had flour and I stood in the lane at ten o'clock at night in February and every lamp on the road was lit and I have never been happier in my life.$(br2)Then I shut it down, and I sealed the door, and I told everybody the boiler cracked."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Here is why, and I want it in writing so nobody has to guess.$(br2)$(bold)A machine that one person can run is not infrastructure. It's a hostage.$()"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "I was seventy-one. If I'd died in the spring -- and I nearly did -- this valley would have spent one warm winter and then frozen with the answer sitting under my kitchen, and they'd have blamed themselves for not being clever enough, which is the cruellest thing I could possibly have left them."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "So I shut it off and I waited for two of you.$(br2)If you're reading this and there is more than one set of footprints on my cellar stairs, then I was right to wait, and I'm sorry it took so long, and go and turn it on."
+    }
+  ],
+  "advancement": "valley:journal/cellar_wall"
+}

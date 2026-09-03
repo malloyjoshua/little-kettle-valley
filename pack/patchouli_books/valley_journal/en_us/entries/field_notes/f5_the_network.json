@@ -1,0 +1,46 @@
+{
+  "name": "The Network",
+  "icon": "ae2:controller",
+  "category": "patchouli:field_notes",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Bram: $(italic)One screen with everything on it. Oda will cry.$()$(br2)Certus comes first. Q50: plant Certus Quartz Seeds in Halden's $(item)Spring Water$() and grow $(bold)32$(). The seeds will not craft without his water -- that is the gate, and Halden knows it, and he is enjoying it.",
+      "title": "Certus first"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "ae2:network/blocks/storage_drive",
+      "text": "Q51 is the Drive, two storage cells and a terminal, in the mill workshop. Four devices."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(li)$(bold)No controller:$() the network is ad-hoc and carries $(bold)8 devices$(), total.$(li)$(bold)A controller$() gives $(bold)32 channels per face$().$(li)Ordinary cable, and any full-block machine, passes $(bold)8$().$(li)$(bold)Dense$() cable passes $(bold)32$().$(br2)Q51 needs four devices, so you do not need a controller yet. Q84 does.",
+      "title": "Channels, honestly"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "ae2:network/blocks/controller"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(li)$(bold)One$() controller per network. Never two.$(li)The whole thing must fit inside $(bold)7x7x7$().$(li)Any block may have two neighbours on $(bold)one axis only$(). Break that rule and it turns red and sulks.$(li)Each block draws $(bold)6 AE/t$() and stores $(bold)8,000 AE$().",
+      "title": "Controller rules"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "ae2:network/blocks/energy_energy_cell"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)2 FE = 1 AE.$() Feed it in through an $(item)Energy Acceptor$() off the same fluxduct as everything else.$(br2)A bare network buffers only $(bold)25 AE per part$(), which is why dumping a full inventory into a small net makes it reboot. One $(item)ME Energy Cell$() holds $(bold)200,000 AE$() and cures it. A $(item)Dense Energy Cell$() holds $(bold)1,600,000$() and is what Q84 wants.",
+      "title": "Power"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Q52 storage-buses the granary drawers onto the network, so the town's whole stock reads on one screen -- and Oda's ledger updates itself from then on.$(br2)Q53 points an export bus at a $(item)Delivery Crate$() beside the bounty board. After that, every $(italic)bring X to Y$() quest in the pack is already filled when you walk up to it.",
+      "title": "What it is actually for"
+    }
+  ]
+}

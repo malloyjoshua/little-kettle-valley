@@ -1,0 +1,27 @@
+{
+  "name": "The Turbine Notebook",
+  "icon": "minecraft:writable_book",
+  "category": "patchouli:found_books",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(italic)Soft-bound, water-stained, tied shut with string. Josie's hand, shakier than the journal.$()$(br2)$(bold)p.1$() -- the vessel is the easy half. anybody can build a box.",
+      "title": "Found in the Works"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)p.2$() -- steam is the whole trick. too much and you cook the coils. too little and the blades stall and you have built a very expensive kettle.$(br2)$(bold)p.3$() -- so the number is $(bold)eighteen hundred$(). under load. not idle. idle is a lie the machine tells you."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)p.4$() -- (torn out)$(br)$(bold)p.5$() -- see previous page.$(br2)$(italic)The stub of page four is still in the binding. Somebody removed it neatly, a long time ago, and it was not Josie.$()"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Halden thinks she posted it, because she did not trust herself to keep the only copy of anything that mattered.$(br2)Q67 walks to the Wandering Merchant's Tower and brings it back. The waystone is already standing there and the chest has a beam on it.$(br2)You are not searching. You are collecting.",
+      "title": "Where page four went"
+    }
+  ],
+  "advancement": "valley:journal/found_5"
+}

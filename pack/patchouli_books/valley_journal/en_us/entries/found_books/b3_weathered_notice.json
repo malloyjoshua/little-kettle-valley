@@ -1,0 +1,22 @@
+{
+  "name": "The Weathered Notice",
+  "icon": "bountiful:bountyboard",
+  "category": "patchouli:found_books",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(italic)Still pinned to the board outside the store. Rain has taken the bottom third. The nail is rusted through and it has not fallen down anyway.$()",
+      "title": "Found on the bounty board"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "WANTED -- ANY HANDS$(br)Copper Kettle Valley. Spring. Dry work and wet.$(br)Board and meals at the inn.$(br)Pay negotiable and honest.$(br)Ask for J. Kettle, the farm on the rise."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(italic)Underneath, in a second hand -- Oda's, much smaller:$()$(br2)posted yr 11, spring$(br)no replies$(br)left up$(br2)$(italic)Oda has replaced the nail twice.$()"
+    }
+  ],
+  "advancement": "valley:journal/found_3"
+}

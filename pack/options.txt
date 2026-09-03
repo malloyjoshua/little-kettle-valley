@@ -1,0 +1,10 @@
+renderDistance:8
+simulationDistance:6
+entityDistanceScaling:0.75
+maxFps:60
+key_key.veinmining.activate.desc:key.keyboard.grave.accent
+key_key.ftbquests.quests:key.keyboard.j
+key_key.sophisticatedbackpacks.open_backpack:key.keyboard.b
+key_key.carry.desc:key.keyboard.c
+key_key.inventorysorter.sort:key.mouse.middle
+key_key.push_to_talk:key.keyboard.caps.lock

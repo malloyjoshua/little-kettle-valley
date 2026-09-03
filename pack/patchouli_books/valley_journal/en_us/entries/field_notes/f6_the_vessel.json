@@ -1,0 +1,40 @@
+{
+  "name": "The Vessel",
+  "icon": "biggerreactors:reactor_casing",
+  "category": "patchouli:field_notes",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Josie's hand, pencil, in the margins of a seed catalogue.$(br2)$(bold)Q69: 64 uranium ore in, 128 yellorium ingots out.$() The pocket is a guaranteed cluster at a fixed offset from the Works waystone -- Tobin's deep survey points straight at it, and it is genuinely there.$(br2)Your own network auto-crafts $(bold)64 Reactor Casings$() while you walk back.",
+      "title": "Fuel"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "A reactor is a hollow box. Shell blocks = length x width x height, minus the inside.$(br2)$(li)$(bold)3x3x3$(): 27 - 1 = $(bold)26$() shell. The legal minimum.$(li)$(bold)4x4x4$(): 64 - 8 = $(bold)56$() shell.$(li)$(bold)5x5x5$(): 125 - 27 = $(bold)98$() shell.$(br2)Sixty-four casings is a $(bold)4x4x4$(), with spares. That is the one Josie drew.",
+      "title": "The arithmetic of a shell"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Of the 56 shell blocks:$(br2)$(li)$(bold)4$() Control Rods, on the four inner squares of the lid.$(li)$(bold)1$() Reactor Controller.$(li)$(bold)1$() Access Port -- fuel in, waste out.$(li)$(bold)1$() Power Tap.$(li)The other $(bold)49$() are plain Casing.$(br2)Inside: $(bold)4$() Fuel Rod columns, each $(bold)2$() tall, hanging straight down from the Control Rods. A rod column must run the full inside height or the box will not form.",
+      "title": "What goes where"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "biggerreactors:crafting/reactor/reactor_fuel_rod"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "biggerreactors:crafting/reactor/reactor_control_rod"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "biggerreactors:crafting/reactor/reactor_access_port"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Casings are built with $(item)Josie's Turbine Notes$() in the recipe. Q67 brings the torn page home from the Wandering Merchant's Tower; until then the casing will not craft, and that is on purpose.$(br2)If you ever get ambitious, the ceilings in this pack are $(bold)128$() long, $(bold)128$() wide and $(bold)192$() tall. You will never need them.",
+      "title": "The gate, and the ceiling"
+    }
+  ]
+}

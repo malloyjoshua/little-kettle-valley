@@ -1,0 +1,22 @@
+{
+  "name": "The Crate Label",
+  "icon": "minecraft:oak_sign",
+  "category": "patchouli:found_books",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(italic)A slat of pine, planed smooth, nailed to the third crate in Bram's yard. The hand is not his -- rounder, older, pressed harder into the wood.$()",
+      "title": "Found in Bram's crates"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "TOLLIVER -- MILL$(br)AXLE STOCK. SEASONED. DO NOT BURN.$(br)cut first week of spring, dried two summers$(br)if the wheel judders it is the shaft and not the wheel$(br)look at the shaft first$(br2)-- for Bram, when he is tall enough"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(italic)The crate has been empty for years. He kept the label.$()$(br2)He will not talk about it and he will not throw it away, and those are the same fact."
+    }
+  ],
+  "advancement": "valley:journal/found_2"
+}

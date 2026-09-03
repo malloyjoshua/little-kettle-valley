@@ -1,0 +1,104 @@
+{
+  PresetMetadata:{
+    access:"PUBLIC",
+    author:"Copper Kettle Valley",
+    category:"Valley",
+    created:1788000000000L,
+    description:"Nella Brightwater -- Fisher and ferryman.",
+    entityTypeId:"easy_npc:humanoid_slim",
+    modified:1788000000000L,
+    name:"Nella Brightwater",
+    variantType:"KAI",
+    version:"1.0.0"
+  },
+  data:{
+    ActionData:{
+      ActionEventSet:{
+        ON_INTERACTION:[
+          {
+            Cmd:"/info_message Lake is in a mood. So am I. Bring a rod anyway.",
+            ConditionDataSet:{
+              ConditionDataSet:[
+                {
+                  Name:"valley_arc_nella",
+                  Operation:"LESS_THAN",
+                  Type:"SCOREBOARD",
+                  Value:1
+                }
+              ]
+            },
+            ExecAsUser:0b,
+            PermLevel:2,
+            Type:"COMMAND"
+          },
+          {
+            Cmd:"/info_message Turns out I like growing things. Do not make it strange.",
+            ConditionDataSet:{
+              ConditionDataSet:[
+                {
+                  Name:"valley_arc_nella",
+                  Operation:"GREATER_THAN_OR_EQUALS",
+                  Type:"SCOREBOARD",
+                  Value:1
+                }
+              ]
+            },
+            ExecAsUser:0b,
+            PermLevel:2,
+            Type:"COMMAND"
+          },
+          {
+            Cmd:"/ftbquests open_book",
+            ExecAsUser:1b,
+            PermLevel:0,
+            Type:"COMMAND"
+          }
+        ]
+      }
+    },
+    ArmorDropChances:[0.085f,0.085f,0.085f,0.085f],
+    ArmorItems:[
+      {},
+      {},
+      {},
+      {}
+    ],
+    Brain:{
+      memories:{}
+    },
+    CanPickUpLoot:0b,
+    CustomName:'{"color":"#4FA3D1","text":"Nella Brightwater"}',
+    CustomNameVisible:1b,
+    EasyNPCVersion:3,
+    HandDropChances:[0.085f,0.085f],
+    HandItems:[
+      {},
+      {}
+    ],
+    Invulnerable:1b,
+    LeftHanded:0b,
+    ModelData:{},
+    ObjectiveData:{
+      HasObjectives:1b,
+      ObjectiveDataSet:[
+        {
+          Type:"LOOK_AT_PLAYER"
+        },
+        {
+          Type:"LOOK_AT_RESET"
+        }
+      ]
+    },
+    PersistenceRequired:1b,
+    SkinData:{
+      Type:"DEFAULT"
+    },
+    Status:{
+      finalized:1b
+    },
+    Tags:["valley_npc","npc_nella"],
+    UUID:[I;-832055698,-1810015832,-1720845327,275043804],
+    VariantType:"KAI",
+    id:"easy_npc:humanoid_slim"
+  }
+}

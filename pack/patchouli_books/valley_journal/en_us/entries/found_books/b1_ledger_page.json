@@ -1,0 +1,18 @@
+{
+  "name": "The Ledger Page",
+  "icon": "minecraft:paper",
+  "category": "patchouli:found_books",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(italic)Loose paper, folded twice, wedged behind a stone in the cellar. Josie's hand, faster than usual.$()$(br2)Nov 28 -- lit. 31 out. Greenhouse 61.$(br)Nov 29 -- held. Bread.$(br)Nov 30 -- held.$(br)Dec 1 -- held. Marnie brought soup up, said the lane looked like a fair.",
+      "title": "Found in the cellar"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Dec 2 -- held.$(br)Dec 3 -- held.$(br)Dec 4 -- held.$(br)Dec 5 -- held.$(br)Dec 6 -- held.$(br)Dec 7 -- held. 40/40.$(br)Dec 8 -- held.$(br2)$(bold)Eleven days.$()$(br2)$(italic)There is no explanation anywhere on the page, and there is no page after it.$()"
+    }
+  ],
+  "advancement": "valley:journal/found_1"
+}

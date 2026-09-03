@@ -2,6 +2,8 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "cozytech"
-	title: "Cozy Tech Pack"
+	lock_message: "Not yet. Finish the quest before this one."
+	progression_mode: "flexible"
+	title: "Copper Kettle Valley"
 	version: 13
 }

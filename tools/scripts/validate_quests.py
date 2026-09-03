@@ -43,14 +43,19 @@ def walk(node, path, fname):
 for f in chapter_files:
     if f not in parsed: continue
     ch = parsed[f]
+    # A quest is a local "entry point" if it has no unmet dependency inside
+    # THIS chapter file. Cross-chapter deps (e.g. act2's first quest depending
+    # on act1's finale) are valid by design (see naming contract: "Cross-act
+    # deps are fine") and must not count against this file's own entry check.
+    local_ids = {str(q.get('id')) for q in ch.get('quests', [])}
     entry = 0
     for q in ch.get('quests', []):
         deps = [str(d) for d in q.get('dependencies', [])]
-        if not deps: entry += 1
+        if not any(d in local_ids for d in deps): entry += 1
         for d in deps:
             if d not in quest_ids: errors.append(f"{f.name}: quest {q.get('id')} depends on missing {d}")
         walk(q, f"quest[{q.get('id')}]", f.name)
-    if entry > 1: warnings.append(f"{f.name}: {entry} quests have no dependencies (more than one entry point)")
+    if entry > 1: warnings.append(f"{f.name}: {entry} quests have no in-chapter dependency (more than one entry point)")
     if entry == 0 and ch.get('quests'): errors.append(f"{f.name}: no entry quest (circular?)")
 print(f"files: {len(parsed)}  quests: {len(quest_ids)}  errors: {len(errors)}  warnings: {len(warnings)}")
 for e in errors: print("ERROR", e)
