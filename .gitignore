@@ -17,3 +17,5 @@ server/*.jar
 # scratch
 scratch/
 .DS_Store
+tools/packwiz-src/
+tools/venv/
