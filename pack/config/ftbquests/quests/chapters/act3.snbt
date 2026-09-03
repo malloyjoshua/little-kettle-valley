@@ -23,7 +23,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "0A26D68617DBB657", type: "item", item: "valley:token_oda", count: 1L, consume_items: true }]
-			rewards: [{ id: "4E5A706B1E91E20F", type: "item", item: "valley:scrip", count: 30 }, { id: "3F723B616E5EEEE7", type: "item", item: "patchouli:guide_book" }, { id: "2CBBFECBE5EC9306", type: "item", item: "minecraft:filled_map" }, { id: "87EA2B9EB0A7AE7B", type: "command", command: "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Twelve alcoves in the granary shell. Twelve drawers. Nobody is going hungry on my arithmetic.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "56FCAD039FF18AD8", type: "toast", title: "The ledger is open", description: "Next: twelve drawers into the granary's twelve alcoves, and the autumn seed pack into the marked beds." }]
+			rewards: [{ id: "4E5A706B1E91E20F", type: "item", item: "valley:scrip", count: 30 }, { id: "50760B1EFFFD756C", type: "command", title: "Josie's Journal", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "2CBBFECBE5EC9306", type: "item", item: "minecraft:filled_map" }, { id: "87EA2B9EB0A7AE7B", type: "command", command: "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Twelve alcoves in the granary shell. Twelve drawers. Nobody is going hungry on my arithmetic.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "56FCAD039FF18AD8", type: "toast", title: "The ledger is open", description: "Next: twelve drawers into the granary's twelve alcoves, and the autumn seed pack into the marked beds." }]
 		}
 		{
 			id: "F6C4B9946F943E38"
@@ -51,7 +51,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "E26E80E226B740F1", type: "item", item: "minecraft:pumpkin_seeds", count: 4L }, { id: "DDCA169C36495D2B", type: "item", item: "minecraft:beetroot_seeds", count: 4L }, { id: "152C76F39F44ECCB", type: "item", item: "bakery:oat_seeds", count: 4L }, { id: "19CD4C2CC4D49AD3", type: "item", item: "thermal:barley_seeds", count: 4L }]
-			rewards: [{ id: "89FB5C19F1219FC0", type: "item", item: "farm_and_charm:scarecrow" }, { id: "7F8E34C69682510B", type: "item", item: "patchouli:guide_book" }, { id: "CE913FA34D1132E4", type: "item", item: "minecraft:egg", count: 32 }, { id: "A78B4BBD42CF1AC0", type: "item", item: "minecraft:sugar", count: 32 }, { id: "9CC988A72299E10F", type: "item", item: "farmersdelight:milk_bottle", count: 12 }, { id: "D9F71BDEF1CCAFDA", type: "item", item: "minecraft:beef", count: 32 }, { id: "7F1EDC9A1FF51924", type: "item", item: "minecraft:apple", count: 16 }, { id: "C5F7DAE2CB62083D", type: "item", item: "bakery:jar", count: 12 }, { id: "635680FBF8088D56", type: "loot", table_id: 6428311738069300697L }, { id: "26A91E1039ADF1B1", type: "toast", title: "Autumn sown", description: "Next: Halden is waiting at the hedge garden gate to walk you up to the spring." }]
+			rewards: [{ id: "89FB5C19F1219FC0", type: "item", item: "farm_and_charm:scarecrow" }, { id: "5EA3AB184DFEAEAB", type: "command", title: "Josie's Journal", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "CE913FA34D1132E4", type: "item", item: "minecraft:egg", count: 32 }, { id: "A78B4BBD42CF1AC0", type: "item", item: "minecraft:sugar", count: 32 }, { id: "9CC988A72299E10F", type: "item", item: "farmersdelight:milk_bottle", count: 12 }, { id: "D9F71BDEF1CCAFDA", type: "item", item: "minecraft:beef", count: 32 }, { id: "7F1EDC9A1FF51924", type: "item", item: "minecraft:apple", count: 16 }, { id: "C5F7DAE2CB62083D", type: "item", item: "bakery:jar", count: 12 }, { id: "635680FBF8088D56", type: "loot", table_id: 6428311738069300697L }, { id: "26A91E1039ADF1B1", type: "toast", title: "Autumn sown", description: "Next: Halden is waiting at the hedge garden gate to walk you up to the spring." }]
 		}
 		{
 			id: "92F011564E219F52"
@@ -79,7 +79,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "5D6F8C89BE3A1EF3", type: "item", item: "farmersdelight:apple_pie", count: 4L }, { id: "4E7C183094473F4B", type: "item", item: "handcrafted:berry_jam_jar", count: 4L }, { id: "054A5CF10C8B0FA5", type: "item", item: "supplementaries:jar", count: 4L }]
-			rewards: [{ id: "DAD24BBF96A5E757", type: "item", item: "handcrafted:wood_crockery_combo", count: 4 }, { id: "3407546A171D0AE1", type: "item", item: "bakery:cabinet" }, { id: "002D06F202A29C95", type: "item", item: "farm_and_charm:tool_rack" }, { id: "C7168881655384D4", type: "item", item: "patchouli:guide_book" }, { id: "F29C96A25638EF97", type: "item", item: "cookingforblockheads:spice_rack", count: 2 }, { id: "E118B8930BA0F9D2", type: "toast", title: "Larder stocked", description: "Next: the inn kitchen — 4 loaves, 2 pies and 2 cakes. Josie's drying rack is in your pack for the hams after it." }]
+			rewards: [{ id: "DAD24BBF96A5E757", type: "item", item: "handcrafted:wood_crockery_combo", count: 4 }, { id: "3407546A171D0AE1", type: "item", item: "bakery:cabinet" }, { id: "002D06F202A29C95", type: "item", item: "farm_and_charm:tool_rack" }, { id: "D6A9CCCBD0179E64", type: "command", title: "Josie's Journal", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "F29C96A25638EF97", type: "item", item: "cookingforblockheads:spice_rack", count: 2 }, { id: "E118B8930BA0F9D2", type: "toast", title: "Larder stocked", description: "Next: the inn kitchen — 4 loaves, 2 pies and 2 cakes. Josie's drying rack is in your pack for the hams after it." }]
 		}
 		{
 			id: "177A495F36B16021"
@@ -277,7 +277,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "5ED403BECBE2B131", type: "item", item: "ae2:wireless_terminal", count: 1L }, { id: "DEF24C6156627A7A", type: "checkmark", title: "The granary's drawers read on the terminal." }]
-			rewards: [{ id: "984DBAC0537E1334", type: "item", item: "ae2:wireless_terminal" }, { id: "DAE7A546CF604664", type: "item", item: "ae2:wireless_receiver" }, { id: "331AFA4B3F18D76B", type: "item", item: "ae2:charger" }, { id: "15EE1C56B975654D", type: "item", item: "patchouli:guide_book" }, { id: "A28959B919B10AB1", type: "toast", title: "One screen, whole town", description: "Next: a Delivery Crate beside Oda's bounty board, fed by an export bus." }]
+			rewards: [{ id: "984DBAC0537E1334", type: "item", item: "ae2:wireless_terminal" }, { id: "DAE7A546CF604664", type: "item", item: "ae2:wireless_receiver" }, { id: "331AFA4B3F18D76B", type: "item", item: "ae2:charger" }, { id: "90C9F29B7871ED8F", type: "command", title: "Josie's Journal", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "A28959B919B10AB1", type: "toast", title: "One screen, whole town", description: "Next: a Delivery Crate beside Oda's bounty board, fed by an export bus." }]
 		}
 		{
 			id: "E5E361864DFF29DC"
@@ -307,7 +307,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "789BC3BC0CD4CC94", type: "item", item: "valley:kettle_plate_a", count: 1L, consume_items: true }]
-			rewards: [{ id: "75203D60A97FE201", type: "item", item: "patchouli:guide_book" }, { id: "80A5BD42BE10C114", type: "item", item: "valley:scrip", count: 20 }, { id: "2BB8141309539CF7", type: "command", command: "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"It's a parts list. It has always been a parts list. She wasn't digging a mine.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "4CECED31F1846095", type: "toast", title: "The door turns a quarter", description: "Next: go down into the cellar under the farmhouse and read the wall." }]
+			rewards: [{ id: "EC7C5DCA8F097AF9", type: "command", title: "Josie's Journal", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "80A5BD42BE10C114", type: "item", item: "valley:scrip", count: 20 }, { id: "2BB8141309539CF7", type: "command", command: "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"It's a parts list. It has always been a parts list. She wasn't digging a mine.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "4CECED31F1846095", type: "toast", title: "The door turns a quarter", description: "Next: go down into the cellar under the farmhouse and read the wall." }]
 		}
 		{
 			id: "CB7C03A613A457FE"

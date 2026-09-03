@@ -1,5 +1,5 @@
 // =============================================================================
-// unify.js - Cozy Tech Pack materials unification
+// unify.js - Little Kettle Valley materials unification
 // KubeJS 2001.6.5 / Forge 1.20.1 / Minecraft 1.20.1
 // =============================================================================
 // GOAL: one item per material, one furnace path per ore, no dead-end drops.

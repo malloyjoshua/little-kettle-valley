@@ -26,7 +26,7 @@ hash = "a3590a69f42be563cc7f0d74aa0b683a07380dde7004ceb423e084220eef3287"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act3.snbt"
-hash = "449a9792421ce20f5649399d8e30f331fe12ca18dd6ada398d70677bd4ddc87f"
+hash = "0897888f60658abb46e3786196f13293e720d134a35697631419e31303eca551"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act4.snbt"
@@ -366,7 +366,7 @@ hash = "ed55aee0e12897578e8c97c126d1a8e8c56cd0fd0866c9d34481a75bed650626"
 
 [[files]]
 file = "kubejs/client_scripts/hide.js"
-hash = "67393fdf8071fcd7171e9aa282bbc2fe63194ffb5ae7407f3a9f52bb231c158e"
+hash = "a3c6ef5c325c4fcbbd07aa804bb58172a71b35734921c341e6026bc9a560518f"
 
 [[files]]
 file = "kubejs/data/bountiful/bounty_decrees/valley/cozy.json"
@@ -618,7 +618,7 @@ hash = "642b7d6e811f78a2c9e4efe363e1bce5a152218d8958c8b9064a6ff60e160906"
 
 [[files]]
 file = "kubejs/server_scripts/unify.js"
-hash = "211dd94c7fd8236c2fd0747aa334a475d124a261cc9e019f27e3a0efee2ca2ee"
+hash = "9234f4b2641dff53dd8c6b6e2a13360afbad5df8b02f872292fe3559c6c62421"
 
 [[files]]
 file = "kubejs/server_scripts/valley_checks.js"

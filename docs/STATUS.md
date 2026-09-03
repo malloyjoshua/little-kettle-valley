@@ -29,15 +29,18 @@ Little Kettle Valley is built, boots, and has been played through end to end by 
 | Client memory | ~3.0 GB resident joined to the server, ~4.5 GB in singleplayer (integrated server), at a 3.5 GB heap. Air guidance: 3072 MB heap, play on Josh's server rather than singleplayer |
 
 ## First server start
-The whitelist is on and empty. Start the server, then add yourself:
+The whitelist is on and empty, and nobody is op. Start the server, then add and op yourself (exact Minecraft username):
 ```bash
 "$HOME/Desktop/1. Projects/Minecraft/tools/scripts/server_ctl.sh" cmd "whitelist add YourMinecraftName"
+```
+```bash
+"$HOME/Desktop/1. Projects/Minecraft/tools/scripts/server_ctl.sh" cmd "op YourMinecraftName"
 ```
 Then in the game: Multiplayer > Direct Connect > `localhost`.
 
 ## Still open (needs you)
 - **The Air test.** Not on the network tonight. Expect it to work at 3072 MB with render distance 6; if it stutters, the cut list is in `docs/integration-plan.md` and starts with Regions Unexplored.
-- **GitHub: done.** Public repo https://github.com/malloyjoshua/little-kettle-valley, pack served at https://raw.githubusercontent.com/malloyjoshua/little-kettle-valley/main/pack/pack.toml, your Prism instance and the friend zip (`dist/CozyTech.zip`) both update from it on every launch.
+- **GitHub: done.** Public repo https://github.com/malloyjoshua/little-kettle-valley, pack served at https://raw.githubusercontent.com/malloyjoshua/little-kettle-valley/main/pack/pack.toml, your Prism instance and the friend zip (`dist/LittleKettleValley.zip`, also attached to the GitHub release) both update from it on every launch.
 - **playit.gg tunnel** for friends without port forwarding. Steps in `docs/RUNBOOK.md`; needs your browser sign-in to claim the agent.
 - **Your wife's cute picks.** Placeholder cozy set is in (Farmer's Delight, Let's Do, Handcrafted, Macaw's, plushies, Ribbits, ducks, pets). Swap in her three things when she names them.
 

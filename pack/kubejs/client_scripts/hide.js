@@ -1,5 +1,5 @@
 // =============================================================================
-// hide.js - JEI cleanup for the Cozy Tech Pack
+// hide.js - JEI cleanup for the Little Kettle Valley
 // KubeJS 2001.6.5 / Forge 1.20.1. MUST live in kubejs/client_scripts/ -
 // JEIEvents does not exist server-side and throws on load in server_scripts.
 // =============================================================================

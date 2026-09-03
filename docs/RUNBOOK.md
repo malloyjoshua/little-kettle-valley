@@ -36,8 +36,14 @@ Backups land in `server/backups/`, newest 20 kept. Point Time Machine or Backbla
 
 ## Add a friend
 1. Get their exact Minecraft username.
-2. `server_ctl.sh cmd "whitelist add <name>"`
-3. Send them `docs/INSTALL.md` and the server address.
+2. `server_ctl.sh cmd "whitelist add <name>"` (and `op <name>` only if they should run commands)
+3. Send them `dist/LittleKettleValley.zip` (or the GitHub release link) plus `docs/INSTALL.md` and the server address.
+
+## Publish a new friend zip
+```bash
+"$HOME/Desktop/1. Projects/Minecraft/tools/scripts/release.sh"
+```
+Rebuilds `dist/LittleKettleValley.zip` and uploads it to the GitHub release. Friends who already installed do not need it; the pack itself updates from GitHub on every launch after `git push`.
 
 ## Update the pack
 1. Edit files under `pack/` (mods via `tools/packwiz`, configs, quests, KubeJS).
