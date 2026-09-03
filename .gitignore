@@ -30,3 +30,4 @@ server/*
 !server/user_jvm_args.txt
 !server/eula.txt
 vh_*.html
+dist/CozyTech/
