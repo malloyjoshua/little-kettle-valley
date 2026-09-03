@@ -1,4 +1,4 @@
-# LANTERNWICK — Story Bible
+# LANTERNWICK — Story Document
 
 ## 1. Pack name and tagline
 
@@ -416,4 +416,4 @@ On completion, KubeJS grants the joiner **every stage the host team has already 
 
 ---
 
-*End of bible. Next step: convert to FTB Quests chapter files, KubeJS stage gates, Easy NPC spawn commands, and the Patchouli book JSON.*
+*End of story document. Next step: convert to FTB Quests chapter files, KubeJS stage gates, Easy NPC spawn commands, and the Patchouli book JSON.*

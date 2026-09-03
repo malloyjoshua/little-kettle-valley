@@ -1,4 +1,4 @@
-# COPPER KETTLE VALLEY — Story Bible (final)
+# COPPER KETTLE VALLEY — Story Document (final)
 ### *A Year in the Valley* · Minecraft Forge 1.20.1 · private modpack
 **Status:** build-ready. Spine = *seasons*, with the Lanternwick lamp-line and the Copperbell buried-age grafts folded in. This revision applies three audit passes in full — the non-creative player's advocate (38 findings), the anti-grind audit (blockers, spikes, gather-chains, economy), and the implementation pass (12 corrections, 8 patterns, 11 impossible-mechanic substitutes).
 
@@ -79,7 +79,7 @@ KubeJS records the Town Anchor coordinates on placement. From then on, **every**
 
 1. `/fill` an air box above the pad (clear).
 2. `/fill` a stone-and-dirt pad at anchor+offset (level).
-3. `/place template valley:<name>` — a hand-built, exported `.nbt`, which **is** deterministic and is the correct tool on a known pad. (The bible's earlier "zero `/place` calls" rule conflated `/place structure` with `/place template`. Only the jigsaw form is banned.)
+3. `/place template valley:<name>` — a hand-built, exported `.nbt`, which **is** deterministic and is the correct tool on a known pad. (The story document's earlier "zero `/place` calls" rule conflated `/place structure` with `/place template`. Only the jigsaw form is banned.)
 
 Coordinates are already solved by the anchor, so this is arithmetic, not pathing. It works on a cliff, in a swamp, on a beach.
 
@@ -656,7 +656,7 @@ Patchouli, five chapters, one per act finale, plus the cellar wall in Act III. S
 
 ## 11. Build notes
 
-**Mod-list check.** The live manifest at `/Users/joshuamalloy/Desktop/1. Projects/Minecraft/pack/mods` (124 entries) was verified three times against this bible. Everything the story depends on is present: `create`, `create-steam-n-rails`, `geolosys`, `vein-mining`, `torchmaster`, `additional-enchanted-miner` (this is QuarryPlus — the mod's actual id), `biggerreactors`, `ae2`, all four Thermal jars plus Cultivation and Innovation, `serene-seasons`, `aquaculture`, `easy-npc`, `kubejs`, `ftb-quests-forge`, `ftb-teams-forge`, `patchouli`, `lootr`, `corpse`, `bountiful`, `waystones`, `duckling`, `ribbits`, `perfect-plushies`, `simple-voice-chat`, `dynamic-torches`. Extras now used: `domestication-innovation` (Pip's duck), `supplementaries` (lantern posts, candle holders), `create-deco`.
+**Mod-list check.** The live manifest at `/Users/joshuamalloy/Desktop/1. Projects/Minecraft/pack/mods` (124 entries) was verified three times against this story document. Everything the story depends on is present: `create`, `create-steam-n-rails`, `geolosys`, `vein-mining`, `torchmaster`, `additional-enchanted-miner` (this is QuarryPlus — the mod's actual id), `biggerreactors`, `ae2`, all four Thermal jars plus Cultivation and Innovation, `serene-seasons`, `aquaculture`, `easy-npc`, `kubejs`, `ftb-quests-forge`, `ftb-teams-forge`, `patchouli`, `lootr`, `corpse`, `bountiful`, `waystones`, `duckling`, `ribbits`, `perfect-plushies`, `simple-voice-chat`, `dynamic-torches`. Extras now used: `domestication-innovation` (Pip's duck), `supplementaries` (lantern posts, candle holders), `create-deco`.
 
 **The absences that shaped the design, stated plainly:** there is **no GameStages, no Recipe Stages, no CraftTweaker and no LootJS.** Every consequence of that is already folded into §5 (ingredient gating), §7 (finale guards), §9 (world vs team) and §12 (Global Loot Modifiers instead of LootJS). Do not design against a per-player recipe lock; it does not exist here.
 
@@ -959,4 +959,4 @@ Q82's echo cave is not a hunt: it is a `valley:echo_cave` template placed at an 
 
 ---
 
-*End of bible. Next: FTB Quests chapter SNBT (99 quests, per §12.4), the KubeJS anchor/stage/listener scripts, the 16 structure NBTs, Easy NPC presets, the five finale functions, and Josie's Patchouli book.*
+*End of story document. Next: FTB Quests chapter SNBT (99 quests, per §12.4), the KubeJS anchor/stage/listener scripts, the 16 structure NBTs, Easy NPC presets, the five finale functions, and Josie's Patchouli book.*

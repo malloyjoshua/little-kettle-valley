@@ -1,4 +1,4 @@
-# COPPER KETTLE VALLEY — Story Bible v1
+# COPPER KETTLE VALLEY — Story Document v1
 ### *A Year in the Valley* · Minecraft Forge 1.20.1 · private modpack
 **Status:** final synthesis. Winner spine = *seasons*. Grafts from *inheritance* (Lanternwick) and *buried-age* (Copperbell Hollow) marked inline where they matter.
 
@@ -603,7 +603,7 @@ Patchouli, five chapters, one per act finale, plus the cellar wall in Act III. S
 
 ## 11. Build notes
 
-**Mod-list check.** The live manifest at `/Users/joshuamalloy/Desktop/1. Projects/Minecraft/pack/mods` (124 entries) was verified against this bible. Everything this story depends on is present: `create`, `create-steam-n-rails`, `geolosys`, `vein-mining`, `torchmaster`, `additional-enchanted-miner` (this is QuarryPlus — the mod's actual id), `biggerreactors`, `ae2`, all four Thermal jars plus Cultivation and Innovation, `serene-seasons`, `aquaculture`, `easy-npc`, `kubejs`, `ftb-quests-forge`, `ftb-teams-forge`, `patchouli`, `lootr`, `corpse`, `bountiful`, `waystones`, `duckling`, `ribbits`, `perfect-plushies`, `simple-voice-chat`. **A prior feasibility flag claiming Create, Geolosys, QuarryPlus, Torchmaster, Steam 'n' Rails and vein-mining were absent is incorrect** — the flag appears to have searched for `quarryplus` rather than `additional-enchanted-miner`. No blocker. `dynamic-torches` provides the held-light behaviour in place of Dynamic Lights; the Hearthkeeper's Lantern is authored against it.
+**Mod-list check.** The live manifest at `/Users/joshuamalloy/Desktop/1. Projects/Minecraft/pack/mods` (124 entries) was verified against this story document. Everything this story depends on is present: `create`, `create-steam-n-rails`, `geolosys`, `vein-mining`, `torchmaster`, `additional-enchanted-miner` (this is QuarryPlus — the mod's actual id), `biggerreactors`, `ae2`, all four Thermal jars plus Cultivation and Innovation, `serene-seasons`, `aquaculture`, `easy-npc`, `kubejs`, `ftb-quests-forge`, `ftb-teams-forge`, `patchouli`, `lootr`, `corpse`, `bountiful`, `waystones`, `duckling`, `ribbits`, `perfect-plushies`, `simple-voice-chat`. **A prior feasibility flag claiming Create, Geolosys, QuarryPlus, Torchmaster, Steam 'n' Rails and vein-mining were absent is incorrect** — the flag appears to have searched for `quarryplus` rather than `additional-enchanted-miner`. No blocker. `dynamic-torches` provides the held-light behaviour in place of Dynamic Lights; the Hearthkeeper's Lantern is authored against it.
 
 **Custom-code bill, in build order.**
 1. **Town Anchor** — one KubeJS block-place listener, one persistent coord, one `offset(x,y,z)` helper. Everything else in the pack calls it. Build this first; nothing else works without it.
@@ -616,4 +616,4 @@ Patchouli, five chapters, one per act finale, plus the cellar wall in Act III. S
 
 **Honour-system tasks.** Every "build a shelter / pen / greenhouse shell" quest is an FTB Quests Checkmark task with a screenshot in the quest text. Item delivery and item crafting carry the real gating. This is a deliberate choice, not an oversight — FTB Quests has no build detection and faking one is not worth a week.
 
-*End of bible. Next: FTB Quests chapter JSON (Q1–Q91), the KubeJS stage and anchor scripts, Easy NPC spawn commands, and Josie's Patchouli book.*
+*End of story document. Next: FTB Quests chapter JSON (Q1–Q91), the KubeJS stage and anchor scripts, Easy NPC spawn commands, and Josie's Patchouli book.*
