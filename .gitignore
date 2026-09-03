@@ -1,0 +1,19 @@
+# jars and downloads
+*.jar
+!tools/packwiz-installer-bootstrap.jar
+tools/jdk17/
+tools/packwiz
+pack/mods/*.jar
+# server runtime
+server/world/
+server/world_*/
+server/logs/
+server/crash-reports/
+server/backups/
+server/libraries/
+server/mods/
+server/config/
+server/*.jar
+# scratch
+scratch/
+.DS_Store
