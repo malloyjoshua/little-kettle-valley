@@ -21,3 +21,12 @@ tools/packwiz-src/
 tools/venv/
 server/local/
 server/*.txt.bak
+# --- never publish: Mojang client files, test-client runtime, server runtime copies
+tools/client/
+server/*
+!server/start.sh
+!server/backup.sh
+!server/server.properties
+!server/user_jvm_args.txt
+!server/eula.txt
+vh_*.html
