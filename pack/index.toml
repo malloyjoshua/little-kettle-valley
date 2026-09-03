@@ -85,6 +85,10 @@ file = "config/sparsestructures.json5"
 hash = "a83cfd5dcd908b8348db943209001b68f2ae52343142bb950575b63f34134f0d"
 
 [[files]]
+file = "config/supplementaries-client.toml"
+hash = "3d3a398ecd113215267dbdd000a7d556b9bf7da1af3ed1b676e15b70928fb182"
+
+[[files]]
 file = "config/supplementaries-common.toml"
 hash = "7732619a4db40ccc8f64e99fcb1a650c8edfd9d85b4996ea1700244064508b16"
 
