@@ -1,6 +1,82 @@
 hash-format = "sha256"
 
 [[files]]
+file = "config/fallingtree.json"
+hash = "922a0a06c316eb1f0aba285f5bc59f4421b51b6f861661f3cdab38bbd44e4927"
+
+[[files]]
+file = "config/ftbquests/quests/chapter_groups.snbt"
+hash = "9d1e5ecd4ee90954f09a22d40c3837ba97376a1c15b4df4e77a22b052be00003"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/smoke.snbt"
+hash = "2a21045c558bf984b7788e45cfd62132867bf13a5ee03fdbb6976a8061841a7b"
+
+[[files]]
+file = "config/ftbquests/quests/data.snbt"
+hash = "328747453f0d2d7c354404bdf515b755db0a246f5663f34ac105f3091f5a325b"
+
+[[files]]
+file = "config/ftbquests/quests/reward_tables/smoke_crate.snbt"
+hash = "e6f609dbf950526b25bb66af6861a0e015e14cc437a0fd36fa19ff88cb57c7f8"
+
+[[files]]
+file = "config/geolosys-common.toml"
+hash = "45a1d8345681406b8d0e003f0932e5a5d7d8d6eda94e7f0b73cae87c80f49d66"
+
+[[files]]
+file = "config/lootr-common.toml"
+hash = "67a6571c1a4b6a371507cca4a71dceb710b8842d9aa1318a63751b4cf042d0a2"
+
+[[files]]
+file = "config/quarryplus-common.toml"
+hash = "d637dd600cc965adbb6a6e63829884e0e81521c3147275a8a2cdc04b77dc2962"
+
+[[files]]
+file = "config/sereneseasons/fertility.toml"
+hash = "e67138d1168068fa5a5ab66f90f9583b87dea826b7e6c0bb77730fe76b275c06"
+
+[[files]]
+file = "config/sereneseasons/seasons.toml"
+hash = "37318b1bc35ab1cdd08ad049e544a737b7831f4061b89d049b50bbad61bf0c58"
+
+[[files]]
+file = "config/sparsestructures.json5"
+hash = "b972fd8a9a875b139df83e36330d71dbea45375b75f26a28872552aa88d1deb8"
+
+[[files]]
+file = "config/torchmaster.toml"
+hash = "968522483c909cd663b133543c10aae4c5b5d7dca693ef2bf611c8a55278a51c"
+
+[[files]]
+file = "config/veinmining-common.toml"
+hash = "c493a98b3c92e0f7439306ea7fccc127d9f14aa3dfae7ad6264eccbcb49a14c8"
+
+[[files]]
+file = "config/veinmining-server.toml"
+hash = "05b77cb91536394a9abb27d5b318ba1e870142143ba9ecc05a141d5ad2d3c41a"
+
+[[files]]
+file = "config/waystones-common.toml"
+hash = "ab59733f395865456bb3baf3ca3e5be45d81f3b57eb6b15321acfe4f27574c42"
+
+[[files]]
+file = "defaultconfigs/corpse-server.toml"
+hash = "15e258f5581f452128834f1f7578bd5bff057046517435dc825a2169fefa6967"
+
+[[files]]
+file = "defaultconfigs/forge-server.toml"
+hash = "d3c131a2568fa7d791c5b9a64f924426b0c053c0255c2557fb05c351bab2a737"
+
+[[files]]
+file = "kubejs/server_scripts/init.js"
+hash = "91cb431365bcca2552741614453c658dc31383fe32eba012b29c097cad8cba30"
+
+[[files]]
+file = "kubejs/startup_scripts/init.js"
+hash = "fd12aed472cb3d3e28b17140ba54b0b1fc9c294d8398d20605a2779f5f20fa86"
+
+[[files]]
 file = "mods/additional-enchanted-miner.pw.toml"
 hash = "d8691ae51962aee90cefa370c41d5f30f4449c8eabef6ffc69c825e20dcf2beb"
 metafile = true
@@ -126,6 +202,11 @@ hash = "fb5c251cf4997fa65ca043bab7c9ecbd02e108031584a3e26276b77d212de23c"
 metafile = true
 
 [[files]]
+file = "mods/createaddition.pw.toml"
+hash = "e6d1f36e9e0193fe410d136e0cda8a7f6dbbc809c0644f06a601bddf5b38a395"
+metafile = true
+
+[[files]]
 file = "mods/creativecore.pw.toml"
 hash = "d584896433cab9fdba6034182ce0f8376cfd5eb1255fa98ed47e535b94f7674b"
 metafile = true
@@ -188,11 +269,6 @@ metafile = true
 [[files]]
 file = "mods/embeddium.pw.toml"
 hash = "5ec0c37f3f4ad07a40c10376668bca80334ddb7ad2bab06eb4de8f7aac339c8e"
-metafile = true
-
-[[files]]
-file = "mods/emi.pw.toml"
-hash = "5feac37b8e20cc95c9f0795d94fc620238d39191f018102116b3735aa2b3ea76"
 metafile = true
 
 [[files]]
@@ -286,8 +362,18 @@ hash = "15737439a8dbfff1c2bd5e89b89e31681faf8d0629edfa9b890021b7cec8367e"
 metafile = true
 
 [[files]]
+file = "mods/jade-addons-forge.pw.toml"
+hash = "a712e48d4d5772e3def8cfe6185f9cc3383ee19d7ccf3f668911e6ac887ec21f"
+metafile = true
+
+[[files]]
 file = "mods/jade.pw.toml"
 hash = "5d03d20b037a8b7a4765ded0e25146fc970964be46401dff5f9b1059875084e8"
+metafile = true
+
+[[files]]
+file = "mods/jei.pw.toml"
+hash = "7ffe94c2daa8151edea01fccefaa2bbb87e648d92dd0ca9ae485880053e50e20"
 metafile = true
 
 [[files]]

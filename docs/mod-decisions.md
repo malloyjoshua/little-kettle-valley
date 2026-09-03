@@ -15,3 +15,6 @@ Log of every swap, cut, or pin, with the reason. Newest at the bottom.
 | 2026-09-02 | Phosphophyllite | Sourced from CurseForge, not the Modrinth "phos" project | Modrinth's "Phosphophyllite" is a different mod by a different author. Bigger Reactors needs BiggerSeries' library, which is CurseForge-only. |
 | 2026-09-02 | Quartz | Added from CurseForge | Second required library for Bigger Reactors 0.6.0-beta.10. |
 | 2026-09-02 | Duckling, ImmediatelyFast | Pinned to 3.0.0 and 1.2.4+1.20.1 | packwiz's non-interactive picker grabbed NeoForge 1.20.4 and 1.20.2 builds. Both mislabel game versions on Modrinth. |
+| 2026-09-02 | EMI | Replaced by JEI | Thermal, Create, AE2, Bigger Reactors and Farmer's Delight all ship JEI plugins natively; EMI would have needed a JEI bridge to show their recipes. One recipe viewer, full coverage. |
+| 2026-09-02 | Create Crafts & Additions | Added | Bridges Create rotational power and Thermal/AE2 RF with an alternator and motor. Without it the two power systems never touch. |
+| 2026-09-02 | Jade Addons | Added (client) | Hover info for Create and Thermal machines, so "what is this doing" is answered on screen. |
