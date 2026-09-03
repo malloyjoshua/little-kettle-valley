@@ -28,7 +28,15 @@ const VALLEY = {
   OFF: {
     square:      [0, 1, 0],      // the Town Square waystone (act1 finale)
     board:       [0, 1, -5],     // Oda's noticeboard (act3 finale)
-    inn:         [-14, 1, 4],
+    // The Hearth, and the centre of the 9x9 inn shell built at Q8 by
+    // valley:act1/inn_shell. This was [-14, 1, 4] — the exact south-west
+    // corner block of the granary shell finaleAct2 places at [-14, 1, -4]
+    // (9x6x9 = x -14..-6, z -4..4), so an inn on the old mark had the
+    // granary driven through its north wall and its fire six quests later.
+    // Everything anchored to `inn` (Q47's duct check, Q60's relight, Q70a's
+    // beds, Q73's chair, the Act IV hearth) addresses the mark, never a
+    // literal coordinate, so they all moved with it.
+    inn:         [-8, 1, 12],
     mill:        [-26, 0, 4],    // the mill race (act1 finale)
     granary:     [-14, 1, -4],   // (act2 finale)
     lake:        [0, 1, 34],     // the Pier waystone
@@ -54,7 +62,32 @@ const VALLEY = {
   // Act I's finale places LAMPS_FINALE itself. Q34 whitelists LAMPS_Q34, Q74
   // the rest. Everything actually placed is stored absolute in persistentData
   // and re-lit, all at once, by the Act IV lever.
-  LAMP_BLOCK: 'candlelight:lamp',
+  //
+  // THE LAMP BLOCK. candlelight:lamp was wrong twice over: its blockstate
+  // (letsdo-candlelight-forge-1.2.13.jar, assets/candlelight/blockstates/
+  // lamp.json) carries ONLY `hanging`, so it has no lit form at all and the
+  // Act IV lever could never turn it on; and its model is a 6x6 base, a 2x2
+  // post and a cloth shade — a bedside table lamp sitting on the ground, not
+  // a lamp post. createdeco:yellow_copper_lamp is a cage lamp with a real
+  // lit=false|true, and copper is the valley's own metal.
+  //
+  // CageLampBlock#shouldBeLit is `inverted XOR redstone into the mounting
+  // face`, and CageLampBlock#neighborChanged writes that answer straight back
+  // over whatever `lit` a setblock wrote. So `lit` on its own does not hold:
+  // a lamp that must STAY lit with no redstone on it is inverted=true,lit=true
+  // and a dark one is inverted=false,lit=false. facing=up mounts it on the
+  // block below, which is the fence post.
+  //
+  // A post is TWO blocks: LAMP_POST at the offset's own y, and the lamp at
+  // y + LAMP_HEAD. Everything stored in persistentData.lamps[] is the LAMP's
+  // position, never the post's, because that is what the Act IV sweep sets.
+  // valley_finales.js mirrors these three strings as file-local constants
+  // (they are baked into command arrays at script load) — change both.
+  LAMP_BLOCK: 'createdeco:yellow_copper_lamp',
+  LAMP_POST:  'minecraft:oak_fence',
+  LAMP_HEAD:  1,
+  LAMP_DARK:  'createdeco:yellow_copper_lamp[facing=up,inverted=false,lit=false]',
+  LAMP_LIT:   'createdeco:yellow_copper_lamp[facing=up,inverted=true,lit=true]',
   LAMP_TOLERANCE: 2,
   LAMPS_FINALE: [[-12,1,0],[12,1,0],[0,1,-12],[0,1,12]],
   // The two posts the datapack function valley:act1/square_path sets down
@@ -172,6 +205,15 @@ global.valley = {
   setHome: function (x, y, z) {
     pdPut('valley_home', posToStr([x, y, z]))
     console.info('[valley] Home set to ' + x + ' ' + y + ' ' + z)
+  },
+
+  // ---- The ruined Kettle farm's hearthstone (§3 "the one exception").
+  //      Placed at first join by placeRuin() below. Returns [x,y,z] or null.
+  ruin: function () { return strToPos(pdGet('valley_ruin', null)) },
+
+  setRuin: function (x, y, z) {
+    pdPut('valley_ruin', posToStr([x, y, z]))
+    console.info('[valley] Kettle ruin hearthstone at ' + x + ' ' + y + ' ' + z)
   },
 
   // ---- anchor + offset -> absolute [x,y,z]. Null if no anchor. ------------
@@ -323,6 +365,21 @@ global.valley = {
     return player ? global.valley.pname(player) : 'server'
   },
 
+  // The FTB Teams short name for this player, or NULL when FTB Teams is not
+  // answering. teamId() above falls back to the LOGIN NAME on purpose, which
+  // is right for a ledger key and wrong for anything that has to be handed
+  // back to `ftbteams party join` — hence this second, strict reader.
+  teamShortName: function (player) {
+    try {
+      let t = player ? player.team : null
+      if (!t) return null
+      let n = t.shortName
+      if (!n) { try { n = t.getShortName() } catch (e2) { n = null } }
+      if (!n) n = t.name
+      return n ? String(n) : null
+    } catch (err) { return null }
+  },
+
   // persistentData is flat primitives only (see the header note), so the team
   // and the quest key are folded into the key name.
   standingSlot: function (teamId, questKey) {
@@ -387,13 +444,27 @@ global.valley = {
     return out
   },
 
-  // ---- Generic once-per-world latch, used by the checks. -----------------
-  once: function (key) {
-    if (pdFlag('valley_once_' + key)) return false
-    pdSetFlag('valley_once_' + key)
+  // ---- Generic once-per-TEAM latch, used by the checks. ------------------
+  // A checkmark quest is completed per FTB Teams PARTY, so the latch that
+  // stops it re-firing has to be per party too. A flat world-level latch
+  // (which is what this was) let the first party through and then hard-stuck
+  // the second one on every KubeJS-completed quest — twenty of them, starting
+  // at Q2. The slot name folds in the same sanitised short name the Standing
+  // ledger uses, because persistentData is flat primitives only.
+  //
+  // `team` omitted means world-level, which is exactly what the genuinely
+  // one-per-world flags want (world_opened, ruin_placed).
+  onceSlot: function (key, team) {
+    let t = team ? String(team).replace(/[^A-Za-z0-9]/g, '') : 'w'
+    return 'valley_once_' + t + '_' + key
+  },
+  once: function (key, team) {
+    let k = global.valley.onceSlot(key, team)
+    if (pdFlag(k)) return false
+    pdSetFlag(k)
     return true
   },
-  isDone: function (key) { return pdFlag('valley_once_' + key) },
+  isDone: function (key, team) { return pdFlag(global.valley.onceSlot(key, team)) },
 
   // ---- Delay, in ticks. ---------------------------------------------------
   delay: valleyDelay,
@@ -481,15 +552,22 @@ PlayerEvents.loggedIn(event => {
   if (!server) return
   let name = global.valley.pname(player)
 
-  // ---- §9-A: everybody lands on one party called Cozy. Guarded by the
-  // per-player stage cozy_party; skipped entirely for anyone holding
-  // solo_team (§9-B, the second letter / a player who wants their own book).
+  // ---- §9-A: everybody lands on ONE party. Guarded by the per-player stage
+  // cozy_party; skipped entirely for anyone holding solo_team (§9-B, the
+  // second letter / a player who wants their own book).
+  //
+  // `ftbteams party join Cozy` can never work: the join argument is a party
+  // ID or short name, not the display name, and every player who ran the old
+  // pair of commands ended up on their OWN party that was also displayed as
+  // "Cozy". Both commands are runCommandSilent, so nothing said so — and FTB
+  // Quests then keyed progress off a different team id per player.
+  //
+  // So: the FIRST player through creates the party and we write down the real
+  // short name FTB Teams gave it. Everyone after that joins THAT string, and
+  // only falls through to creating one if the join left them where they were.
   if (!player.stages.has('cozy_party') && !player.stages.has('solo_team')) {
     player.stages.add('cozy_party')
-    // join first: if Cozy exists this succeeds and create/settings are no-ops.
-    server.runCommandSilent('execute as ' + name + ' run ftbteams party join Cozy')
-    server.runCommandSilent('execute as ' + name + ' run ftbteams party create Cozy')
-    server.runCommandSilent('execute as ' + name + ' run ftbteams party settings free_to_join true')
+    valleyJoinParty(server, player, name)
   }
 
   // ---- §12.5 first-join block. Per player, once.
@@ -503,9 +581,211 @@ PlayerEvents.loggedIn(event => {
   server.runCommandSilent('bossbar set valley:folk players @a')
 })
 
+// The party dance. Split out of loggedIn so the retry can run a tick later:
+// FTB Teams applies a join/create on the command's own tick, so player.team is
+// still the old value at the moment the command returns.
+function valleyJoinParty(server, player, name) {
+  let stored = pdGet('valley_team', null)
+
+  if (stored) {
+    server.runCommandSilent('execute as ' + name + ' run ftbteams party join ' + stored)
+  }
+
+  valleyDelay(1, s => {
+    let now = global.valley.teamShortName(player)
+    // Already on the pack's party — nothing more to do.
+    if (stored && now && now === stored) {
+      console.info('[valley] ' + name + ' joined party ' + stored)
+      return
+    }
+    // No party recorded yet, or the join did not take: make one and record
+    // whatever short name FTB Teams actually assigned it.
+    s.runCommandSilent('execute as ' + name + ' run ftbteams party create Cozy')
+    s.runCommandSilent('execute as ' + name + ' run ftbteams party settings free_to_join true')
+    valleyDelay(1, s2 => {
+      let made = global.valley.teamShortName(player)
+      if (!made) {
+        console.warn('[valley] FTB Teams did not report a party for ' + name +
+                     '; quest progress will be keyed on their login name.')
+        return
+      }
+      if (!pdGet('valley_team', null)) {
+        pdPut('valley_team', made)
+        console.info('[valley] the pack party is "' + made + '" (created by ' + name + ')')
+      } else if (made !== pdGet('valley_team', null)) {
+        console.warn('[valley] ' + name + ' is on party "' + made + '", not "' +
+                     pdGet('valley_team', null) + '". They keep their own quest book.')
+      }
+    })
+  })
+}
+
+// =============================================================================
+// FIX: the ruined Kettle farm (§3 "The one exception, and it matters", §12.1
+// C5, §12.5 `function valley:setup/place_ruin`).
+//
+// The premise, Q1's map and Q2's instruction all send the player to a house
+// that had no worldgen entry, no structure NBT and no placement anywhere in
+// the pack — the only chimney in the files was the one Q2's REWARD builds.
+// This puts it on the ground before Q2 asks for it, 48-64 blocks from spawn on
+// a levelled pad, and lays a lit path to it so "go and find it" is a walk and
+// never a search.
+// =============================================================================
+
+// Eight bearings, north first, so the path reads the same way in most worlds.
+const RUIN_BEARINGS = [
+  [0, -1], [1, -1], [-1, -1], [1, 0], [-1, 0], [1, 1], [-1, 1], [0, 1]
+]
+const RUIN_DIST = [56, 64, 48]
+const RUIN_NAME = { '0,-1': 'north', '1,-1': 'north-east', '-1,-1': 'north-west',
+                    '1,0': 'east', '-1,0': 'west', '1,1': 'south-east',
+                    '-1,1': 'south-west', '0,1': 'south' }
+
+// Blocks that are "on top of" the ground rather than the ground itself.
+const RUIN_SKIP = {
+  'minecraft:air': 1, 'minecraft:cave_air': 1, 'minecraft:void_air': 1,
+  'minecraft:snow': 1, 'minecraft:grass': 1, 'minecraft:tall_grass': 1,
+  'minecraft:fern': 1, 'minecraft:large_fern': 1, 'minecraft:dead_bush': 1,
+  'minecraft:vine': 1, 'minecraft:sugar_cane': 1, 'minecraft:seagrass': 1,
+  'minecraft:tall_seagrass': 1
+}
+
+// Top solid Y at (x,z), or -1. Skips foliage and treetops so a spot under an
+// oak is still "the ground" and not "y+7 in the canopy".
+function ruinSurface(level, x, z) {
+  for (let y = 200; y > 2; y--) {
+    let id = String(level.getBlock(x, y, z).id)
+    if (RUIN_SKIP[id]) continue
+    if (id.indexOf('leaves') >= 0 || id.indexOf('_log') >= 0 ||
+        id.indexOf('_wood') >= 0 || id.indexOf('mushroom_block') >= 0) continue
+    if (id === 'minecraft:water' || id === 'minecraft:lava' ||
+        id === 'minecraft:ice' || id === 'minecraft:frosted_ice') return -1
+    return y
+  }
+  return -1
+}
+
+// A site is good if the ground is found at the centre and at all four corners
+// of the pad, and the pad is not a cliff.
+function ruinSiteOk(level, x, z) {
+  let c = ruinSurface(level, x, z)
+  if (c < 40 || c > 180) return -1
+  let probes = [[-8, -8], [8, -8], [-8, 8], [8, 8], [0, -8], [0, 8]]
+  for (let i = 0; i < probes.length; i++) {
+    let h = ruinSurface(level, x + probes[i][0], z + probes[i][1])
+    if (h < 0) return -1
+    if (Math.abs(h - c) > 6) return -1
+  }
+  return c
+}
+
+// The lit path from spawn to the gate. One setblock per step, each at that
+// step's own surface, so it drapes over the terrain instead of cutting it.
+function ruinPath(server, level, from, to) {
+  let dx = to[0] - from[0], dz = to[2] - from[2]
+  let steps = Math.max(Math.abs(dx), Math.abs(dz))
+  if (steps < 1) return
+  for (let i = 0; i <= steps; i++) {
+    let x = Math.round(from[0] + dx * i / steps)
+    let z = Math.round(from[2] + dz * i / steps)
+    let y = ruinSurface(level, x, z)
+    if (y < 0) continue
+    // three wide, across whichever axis the path is running along
+    let side = Math.abs(dx) >= Math.abs(dz) ? [0, 1] : [1, 0]
+    for (let k = -1; k <= 1; k++) {
+      let px = x + side[0] * k, pz = z + side[1] * k
+      let py = (k === 0) ? y : ruinSurface(level, px, pz)
+      if (py < 0) continue
+      server.runCommandSilent('setblock ' + px + ' ' + py + ' ' + pz +
+        (k === 0 ? ' minecraft:dirt_path' : ' minecraft:gravel'))
+      server.runCommandSilent('setblock ' + px + ' ' + (py + 1) + ' ' + pz + ' minecraft:air')
+    }
+    // a lantern on a post every eight blocks, on alternating sides
+    if (i > 0 && i % 8 === 0) {
+      let k = (i % 16 === 0) ? 2 : -2
+      let px = x + side[0] * k, pz = z + side[1] * k
+      let py = ruinSurface(level, px, pz)
+      if (py < 0) continue
+      server.runCommandSilent('setblock ' + px + ' ' + (py + 1) + ' ' + pz + ' minecraft:oak_fence')
+      server.runCommandSilent('setblock ' + px + ' ' + (py + 2) + ' ' + pz + ' minecraft:lantern[hanging=false]')
+    }
+  }
+}
+
+// Returns the bearing name the path runs in, or null if nothing was placed.
+function placeRuin(server, player) {
+  let level = player.level
+  let sx = Math.floor(player.x), sy = Math.floor(player.y), sz = Math.floor(player.z)
+
+  let best = null
+  for (let d = 0; d < RUIN_DIST.length && !best; d++) {
+    for (let b = 0; b < RUIN_BEARINGS.length && !best; b++) {
+      let bear = RUIN_BEARINGS[b]
+      let len = RUIN_DIST[d]
+      let norm = (bear[0] !== 0 && bear[1] !== 0) ? 0.7071 : 1
+      let x = sx + Math.round(bear[0] * len * norm)
+      let z = sz + Math.round(bear[1] * len * norm)
+      let y = ruinSiteOk(level, x, z)
+      if (y > 0) best = { x: x, y: y, z: z, bearing: bear, dist: len }
+    }
+  }
+  // Nothing passed — an island, a swamp, a mountain. Take due north at 56 and
+  // let the pad fill do the levelling; a ruin on a filled pad beats no ruin.
+  if (!best) {
+    let x = sx, z = sz - 56
+    let y = ruinSurface(level, x, z)
+    if (y < 0) y = sy
+    best = { x: x, y: y, z: z, bearing: [0, -1], dist: 56 }
+    console.warn('[valley] no clean ruin site found; forcing one due north of spawn.')
+  }
+
+  // The hearthstone sits one above the ground the pad is cut to.
+  let hx = best.x, hy = best.y + 1, hz = best.z
+  server.runCommandSilent(
+    'execute positioned ' + hx + ' ' + hy + ' ' + hz + ' run function valley:setup/place_ruin')
+  global.valley.setRuin(hx, hy, hz)
+  ruinPath(server, level, [sx, sy, sz], [hx, hy, hz])
+  return RUIN_NAME[best.bearing[0] + ',' + best.bearing[1]] || 'north'
+}
+
+// The four pages of Josie's Letter. Q1's one instruction is "read all four
+// pages", and valley:letter was a plain KubeJS item with a rarity tint and no
+// right-click behaviour — clicking it did nothing, there were no pages, and the
+// quest was ticked the moment it landed in her bag. A vanilla written_book opens
+// the real book screen on the first click: four pages, arrows, no mod involved
+// and no NBT key we have to guess right.
+const LETTER_PAGES = [
+  "If you're reading this I'm dead and the valley is cold. Only one of those is your problem.\n\nThe farm is yours. So is the mess.",
+  "Fifteen people stayed. Marnie keeps an inn with no guests. Bram keeps a mill with a snapped axle. Oda has kept the ledger of an empty shop for eleven years.\n\nThat is not stubbornness. That is a town waiting.",
+  "Forty lamp posts stand along that road and not one of them is lit. That is the whole job. Nobody is going to thank you for it until they do.\n\nForty lamps. Fifteen people. One winter that nobody leaves.",
+  "The map, then. Follow the lit path from where you woke up. It ends at a chimney with three walls still standing.\n\nPut the waystone on the flat grey hearthstone and name it Home. Start from the part that held.\n\n\u2014 Josie Kettle"
+]
+
+// Built fresh per player: an ItemStack handed to two people is one stack.
+function josieLetter() {
+  try {
+    // title / author / pages are exactly what WrittenBookItem.makeSureTagIsValid
+    // requires (string, string, list). `generation` is deliberately absent: a JS
+    // number comes through the KubeJS NBT converter as a DOUBLE, and while
+    // getInt() survives that, an un-written key reads as 0 with no surprises.
+    return Item.of('minecraft:written_book', {
+      title: "Josie's Letter",
+      author: 'Josie Kettle',
+      pages: LETTER_PAGES.map(page => JSON.stringify({ text: page }))
+    })
+  } catch (err) {
+    // Never let the letter cost somebody their first join. The keepsake item is
+    // still registered and Q1's task is a checkmark she can tick by hand.
+    console.error('[valley] could not build the written letter (' + err + '); ' +
+                  'handing over valley:letter instead.')
+    return Item.of(VALLEY.ITEM.letter)
+  }
+}
+
 function valleyFirstJoin(server, player, name) {
-  // The letter, the deed and the kettle. Q1's task is holding the letter.
-  player.give(Item.of(VALLEY.ITEM.letter))
+  // The letter, the deed and the kettle. Q1's task is READING the letter, which
+  // valley_checks.js ticks off the right-click that opens the book.
+  player.give(josieLetter())
   player.give(Item.of(VALLEY.ITEM.deed))
   player.give(Item.of(VALLEY.ITEM.kettle))
 
@@ -520,15 +800,37 @@ function valleyFirstJoin(server, player, name) {
   // the player or nobody hears it.
   server.runCommandSilent('execute at ' + name + ' run playsound minecraft:block.note_block.chime master ' + name + ' ~ ~ ~ 1 0.8')
 
+  // §3 "The one exception, and it matters": the ruined Kettle farm goes on the
+  // ground NOW, before Q1's map and Q2's instruction send her to it. Once per
+  // world; the bearing is stored so a player joining later gets the same
+  // direction and walks the same path.
+  let where = pdGet('valley_ruin_bearing', null)
+  if (global.valley.once('ruin_placed')) {
+    try {
+      where = placeRuin(server, player)
+      if (where) pdPut('valley_ruin_bearing', where)
+    } catch (err) {
+      console.error('[valley] could not place the Kettle ruin: ' + err)
+    }
+  }
+  let ruinPos = global.valley.ruin()
+
   // The premise, then the destination line, verbatim (writer-brief rule 3).
   let lines = [
     [{ text: 'You inherited the old Kettle farm from a great-aunt you barely remember — ', color: 'white' },
      { text: 'Josie Kettle', color: 'gold' },
      { text: ', who kept the lights on in this valley long after everyone else stopped trying.', color: 'white' }],
-    [{ text: 'A chimney, three walls, a bed frame, and a copper kettle over a cold hearth. Outside: an inn with no innkeeper, a mill with a snapped axle, a store with the shutters down, and forty dark lamp posts.', color: 'white' }],
-    [{ text: 'Forty lamps. Fifteen people. One winter that nobody leaves.', color: 'gold', bold: true }],
-    [{ text: 'Open your Quest Book. There is exactly one thing to do.', color: 'white' }]
+    [{ text: 'A chimney, three walls, a bed frame, and a copper kettle over a cold hearth. Outside: an inn with no innkeeper, a mill with a snapped axle, a store with the shutters down, and forty dark lamp posts.', color: 'white' }]
   ]
+  if (ruinPos) {
+    lines.push([
+      { text: 'The lit path at your feet runs ' + (where || 'north') + ' to it. Follow the lanterns to the gate — the farm is at ', color: 'white' },
+      { text: ruinPos[0] + ' ' + ruinPos[1] + ' ' + ruinPos[2], color: 'gold' },
+      { text: '.', color: 'white' }
+    ])
+  }
+  lines.push([{ text: 'Forty lamps. Fifteen people. One winter that nobody leaves.', color: 'gold', bold: true }])
+  lines.push([{ text: 'Open your Quest Book. There is exactly one thing to do.', color: 'white' }])
   lines.forEach((l, i) => {
     valleyDelay(20 + i * 20, s => s.runCommandSilent('tellraw ' + name + ' ' + JSON.stringify(l)))
   })

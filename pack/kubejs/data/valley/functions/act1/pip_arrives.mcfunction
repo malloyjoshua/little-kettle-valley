@@ -5,7 +5,8 @@
 # duplicated (docs/NPCS.md, "Importing and re-importing").
 
 fill ~-2 ~0 ~2 ~2 ~0 ~4 minecraft:dirt_path
-setblock ~2 ~1 ~3 candlelight:lamp
+setblock ~2 ~1 ~3 minecraft:oak_fence
+setblock ~2 ~2 ~3 createdeco:yellow_copper_lamp[facing=up,inverted=true,lit=true]
 
 # --- Pip, and the duck he was promised for being extremely useful ----------
 easy_npc preset import data valley:easy_npc/preset/pip.npc.snbt ~0 ~1 ~3

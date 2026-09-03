@@ -3,11 +3,19 @@
 make_structures.py — build every `/place template valley:<name>` target as a
 real Minecraft structure NBT.
 
-Little Kettle Valley ships ten templates, all placed by valley_finales.js:
+Little Kettle Valley ships eleven templates:
 
     market_stall (x4)  long_table   mill_race   mill_roof   pier
     granary_shell      granary_facade           noticeboard
     town_hall          stone_bridge
+
+...all placed by valley_finales.js, plus
+
+    kettle_ruin
+
+...placed once at first join by valley:setup/place_ruin. The ruin is the one
+structure the story document says must exist BEFORE a quest sends anyone to it
+(story-final.md S3 "The one exception, and it matters", S12.1 C5).
 
 Story document §7 rule 2 is "clear-fill air -> fill pad -> /place template",
 and §12.2 P8 says these are `.nbt` files under data/valley/structures/, not
@@ -157,6 +165,92 @@ OAK = "minecraft:oak_planks"
 LOG = "minecraft:oak_log"
 FENCE = "minecraft:oak_fence"
 SB = "minecraft:stone_bricks"
+
+
+def kettle_ruin():
+    """11 x 10 x 11 -- the ruined Kettle farm. A chimney, three broken walls,
+    a bed frame and the hearthstone. Q2's reward function valley:act1/cottage
+    repairs it in place, so this footprint is the SAME footprint that file
+    rebuilds: local (5, 2, 5) is the hearthstone, and everything else is that
+    file's own offsets shifted by (+5, +2, +5).
+
+        cottage.mcfunction   ->   kettle_ruin local
+        ~-5 .. ~5   (x)           0 .. 10
+        ~-2 .. ~7   (y)           0 ..  9
+        ~-5 .. ~5   (z)           0 .. 10
+
+    Walls at cottage's ~-4 / ~+4 are local 1 / 9. The chimney at ~-5 ~-2
+    (x, z) is local (0, 3). Get this wrong and the repair leaves a ruin wall
+    standing through the new one.
+    """
+    s = Struct("kettle_ruin", 11, 10, 11)
+
+    COB = "minecraft:cobblestone"
+    MOSS = "minecraft:mossy_cobblestone"
+
+    # --- the old foundation, the full footprint (cottage rebuilds it) -------
+    s.fill(0, 0, 0, 10, 0, 10, COB)
+
+    # --- the floor: boards mostly still down, dirt where they rotted through
+    s.fill(1, 1, 1, 9, 1, 9, OAK)
+    for (x, z) in [(2, 6), (3, 7), (7, 2), (8, 8), (6, 6), (4, 8)]:
+        s.set(x, 1, z, "minecraft:dirt")
+
+    # --- the hearthstone. Q2: "put the waystone on the hearthstone." --------
+    s.set(5, 1, 5, "minecraft:polished_andesite")
+    s.set(4, 1, 5, "minecraft:polished_andesite")
+    s.set(6, 1, 5, "minecraft:polished_andesite")
+
+    # --- three walls. North (z=1), west (x=1), east (x=9). ------------------
+    # Ragged: the top course is gone in patches, which is what makes it read
+    # as a ruin from the path rather than as a small grey house.
+    def ragged(cells):
+        for i, (x, y, z) in enumerate(cells):
+            s.set(x, y, z, MOSS if (x + y + z) % 3 == 0 else COB)
+
+    north = [(x, y, 1) for x in range(1, 10) for y in (2, 3, 4)]
+    west = [(1, y, z) for z in range(2, 10) for y in (2, 3, 4)]
+    east = [(9, y, z) for z in range(2, 10) for y in (2, 3, 4)]
+    gone = {(3, 4, 1), (4, 4, 1), (7, 4, 1), (1, 4, 5), (1, 4, 6), (1, 3, 6),
+            (9, 4, 3), (9, 4, 4), (9, 4, 7), (9, 3, 7), (1, 4, 8), (9, 4, 8),
+            (1, 4, 9), (9, 4, 9), (2, 4, 1), (8, 4, 1)}
+    ragged([c for c in north + west + east if c not in gone])
+
+    # --- the fourth wall is down. Two stumps and a spill of stone. ----------
+    s.set(1, 2, 9, COB)
+    s.set(9, 2, 9, MOSS)
+    for (x, z) in [(3, 10), (4, 10), (6, 10), (2, 9), (7, 10), (8, 9)]:
+        s.set(x, 2, z, MOSS if (x + z) % 2 else COB)
+
+    # --- corner posts, what is left of them --------------------------------
+    for (x, z, h) in [(1, 1, 4), (9, 1, 3), (1, 9, 2)]:
+        s.fill(x, 2, z, x, h, z, "minecraft:stripped_oak_log", axis="y")
+
+    # --- the chimney: the one thing Josie never had to fix ------------------
+    # cottage.mcfunction rebuilds bricks over exactly this column.
+    s.fill(0, 1, 3, 0, 8, 3, "minecraft:bricks")
+    s.set(0, 5, 3, "minecraft:cracked_stone_bricks")
+    s.set(1, 2, 3, "minecraft:campfire", lit="false", facing="north",
+          signal_fire="false", waterlogged="false")
+    for (x, z) in [(0, 2), (0, 4), (1, 2)]:
+        s.set(x, 2, z, MOSS)
+
+    # --- the bed frame. This sits exactly on the wool mat cottage.mcfunction
+    #     lays for Q3's Red Bed, so that file clears these four cells.
+    s.set(2, 2, 2, "minecraft:oak_fence")
+    s.set(3, 2, 3, "minecraft:oak_fence")
+    s.set(2, 2, 3, "minecraft:stripped_oak_log", axis="x")
+    s.set(3, 2, 2, "minecraft:stripped_oak_log", axis="x")
+
+    # --- four years of nobody coming in ------------------------------------
+    for (x, y, z) in [(2, 4, 2), (8, 4, 8), (2, 4, 8), (8, 4, 2), (5, 4, 2)]:
+        s.set(x, y, z, "minecraft:cobweb")
+
+    # --- her gate, in the gap where the south wall was ----------------------
+    for x in (4, 6):
+        s.fill(x, 2, 10, x, 3, 10, FENCE)
+        s.set(x, 4, 10, "minecraft:lantern", hanging="false", waterlogged="false")
+    return s
 
 
 def market_stall():
@@ -409,6 +503,7 @@ def stone_bridge():
 
 
 BUILDERS = [
+    kettle_ruin,
     market_stall, long_table, mill_race, mill_roof, pier,
     granary_shell, granary_facade, noticeboard, town_hall, stone_bridge,
 ]

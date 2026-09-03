@@ -81,26 +81,25 @@
       "description": [
         "Josie: \"If you're reading this I'm dead and the valley is cold. Only one of those is your problem.\"",
         "",
-        "Take Josie's Letter out of your bag and hold it. Read all four pages — the last one is a map to the old Kettle farm.",
+        "Take Josie's Letter out of your bag and right-click it. Read all four pages — the last one tells you where the old Kettle farm is.",
         "",
         "Forty lamps. Fifteen people. One winter that nobody leaves."
       ],
       "deps": [],
       "tasks": [
-        { "type": "item", "item": "valley:letter", "count": 1 }
+        { "type": "checkmark", "title": "Josie's Letter read — all four pages" }
       ],
       "rewards": [
         { "type": "command", "command": "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}" },
         { "type": "command", "command": "advancement grant @p only valley:journal/entry_1" },
         { "type": "item", "item": "herbalbrews:copper_tea_kettle" },
-        { "type": "item", "item": "explorerscompass:explorerscompass" },
         { "type": "item", "item": "waystones:waystone" },
         { "type": "item", "item": "minecraft:iron_shovel" },
         { "type": "item", "item": "minecraft:iron_pickaxe" },
         { "type": "item", "item": "minecraft:cooked_beef", "count": 16 },
         { "type": "item", "item": "minecraft:torch", "count": 16 },
         { "type": "item", "item": "torchmaster:megatorch" },
-        { "type": "toast", "title": "Journal Entry 1", "description": "Next: right-click the Explorer's Compass — it is already pointed at the old Kettle farm — and follow the needle. Put the waystone on the hearthstone when you get there." }
+        { "type": "toast", "title": "Journal Entry 1", "description": "Next: follow the lit path from where you woke up. It ends at the old Kettle farm. Put the waystone on the flat grey hearthstone by the chimney." }
       ]
     },
     {
@@ -111,7 +110,7 @@
       "description": [
         "Josie: \"The hearthstone is the one thing in that house I never had to fix. Start from the part that held.\"",
         "",
-        "Right-click the Explorer's Compass and walk the needle to the old farm — the chimney is still standing. Place the Homestead Waystone on the hearthstone, type Home in the box, click the tick.",
+        "Follow the lit path from where you woke up to the old farm — the chimney is still standing. Place the Homestead Waystone on the flat grey hearthstone beside it, type Home in the box, click the tick.",
         "",
         "The roof and the walls go back up around you, with a doorway, two window holes and a wool mat where the bed goes."
       ],
@@ -120,7 +119,6 @@
         { "type": "checkmark", "title": "Homestead Waystone standing on the hearthstone, named Home" }
       ],
       "rewards": [
-        { "type": "command", "command": "execute positioned {x} {y} {z} run function valley:act1/cottage", "team": true },
         { "type": "item", "item": "mcwdoors:oak_cottage_door" },
         { "type": "item", "item": "mcwwindows:oak_window", "count": 4 },
         { "type": "item", "item": "minecraft:red_bed" },
@@ -231,24 +229,24 @@
         { "type": "item", "item": "farmersdelight:tomato_seeds", "count": 8 },
         { "type": "item", "item": "farmersdelight:rice", "count": 8 },
         { "type": "item", "item": "valley:town_anchor" },
-        { "type": "toast", "title": "Put the Kettle On", "description": "Next: carry the Surveyor's Stake up the road north of your gate and place it on the green ground." }
+        { "type": "toast", "title": "Put the Kettle On", "description": "Next: carry the Surveyor's Stake north up the road and place it where the ground sparks green." }
       ]
     },
     {
       "key": "q07",
       "title": "Place the Surveyor's Stake North of Your Gate",
-      "subtitle": "Walk until the ground goes green.",
+      "subtitle": "Walk north. The ground tells you where.",
       "icon": "valley:town_anchor",
       "description": [
         "Josie: \"Bram surveyed that flat by the road twice and never drove the stake — forty years of nearly. Drive it.\"",
         "",
-        "Carry Bram's Surveyor's Stake up the road north of your gate. Walk until the ground under your feet turns green, then place the stake. That spot is the Town Anchor and every building in the pack is measured from it.",
+        "Carry Bram's Surveyor's Stake north up the road from your gate. Green sparks come up around your feet the moment you are standing on ground flat enough to hold a town — place the stake in the sparks. That spot is the Town Anchor and every building in the pack is measured from it.",
         "",
         "A stone path is laid from your door to the anchor and the first two lamp posts go up. 2 of 40."
       ],
       "deps": ["q06"],
       "tasks": [
-        { "type": "checkmark", "title": "Surveyor's Stake placed on green ground north of the gate" }
+        { "type": "checkmark", "title": "Surveyor's Stake placed north of the gate" }
       ],
       "rewards": [
         { "type": "command", "command": "execute positioned {x} {y} {z} run function valley:act1/square_path", "team": true },
@@ -274,6 +272,8 @@
       ],
       "rewards": [
         { "type": "command", "command": "execute positioned {x} {y} {z} run function valley:act1/marnie_arrives", "team": true },
+        { "type": "command", "command": "/valley scene bram", "team": true },
+        { "type": "command", "command": "/valley scene inn", "team": true },
         { "type": "command", "command": "bossbar set valley:folk value 1", "team": true },
         { "type": "item", "item": "minecraft:bread", "count": 8 },
         { "type": "item", "item": "waystones:waystone" },
@@ -282,7 +282,7 @@
         { "type": "item", "item": "minecraft:wheat_seeds", "count": 9 },
         { "type": "item", "item": "minecraft:carrot", "count": 9 },
         { "type": "item", "item": "minecraft:potato", "count": 9 },
-        { "type": "toast", "title": "Residents 1/15", "description": "Next: till the 3x9 patch behind the house. Or dry her green planks in any furnace — Bram needs those." }
+        { "type": "toast", "title": "Residents 1/15", "description": "Next: till the 3x9 patch behind the house. Or walk west from the stake to the mill — Bram is standing outside it now, and he needs a pair of hands." }
       ]
     },
     {
@@ -322,7 +322,7 @@
       "description": [
         "Marnie: \"Two hens and a rooster. Don't name the rooster — you'll get attached, and he is horrible.\"",
         "",
-        "Put a fence section on each marked block behind the house, hang the gate in the gap, then right-click all three Hen Crates inside the finished pen. Any order is right.",
+        "Put a fence section on each of the 23 stone footings marked out behind the house, hang the gate on the single grey slab in the middle of the side facing you, then right-click all three Hen Crates inside the finished pen. Any order is right.",
         "",
         "A nesting box goes down with two eggs already in it, a Megatorch goes up over the coop, and you get chicken feed — right-click a hen with it and she lays."
       ],
@@ -331,7 +331,7 @@
         { "type": "checkmark", "title": "Three chickens standing inside the finished pen" }
       ],
       "rewards": [
-        { "type": "command", "command": "execute positioned {x} {y} {z} run function valley:act1/nesting_box", "team": true },
+        { "type": "command", "command": "/valley scene coop", "team": true },
         { "type": "item", "item": "farm_and_charm:chicken_nest" },
         { "type": "item", "item": "valley:chicken_feed", "count": 8 },
         { "type": "item", "item": "torchmaster:megatorch" },
@@ -529,7 +529,7 @@
       "description": [
         "Marnie: \"Counter, sink, oven, along the back wall in that order. I've had the spots chalked for four years.\"",
         "",
-        "Hold the Kitchen Counter, Sink and Oven when you hand this in — the book counts them and never takes them — then set them on the three marked spots along the inn's back wall: counter, sink, oven, in that order. Cook Bread, a Pumpkin Pie and a Vegetable Soup in that kitchen; everything is in the crate by the counter.",
+        "Hold the Kitchen Counter, Sink and Oven when you hand this in — the book counts them and never takes them — then set them on the three marked spots along the inn's back wall \u2014 three grey slabs, numbered 1, 2 and 3 on the wall above them: counter, sink, oven, in that order. Cook Bread, a Pumpkin Pie and a Vegetable Soup in that kitchen; everything is in the crate by the counter.",
         "",
         "You get the recipe book, the fruit basket, Marnie's cupboards — and Oda's broom off the back door, which Q19 needs."
       ],
@@ -582,7 +582,7 @@
         { "type": "stage", "stage": "act2" },
         { "type": "loot", "table": "story_crate" },
         { "type": "item", "item": "explorerscompass:explorerscompass" },
-        { "type": "toast", "title": "The Thaw Fair", "description": "Next: Act II. Marnie's Explorer's Compass is in this payout, already set to the Ribbit village downstream — and there is a woman fixing a beached boat at the lake and a prospector camped by the copper outcrop." }
+        { "type": "toast", "title": "The Thaw Fair", "description": "Next: Act II. Right-click Marnie's Explorer's Compass, type Ribbit in the search box and click Ribbit Village — the needle points there until you pick something else. There is also a woman fixing a beached boat at the lake and a prospector camped by the copper outcrop." }
       ]
     }
   ]

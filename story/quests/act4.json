@@ -489,7 +489,7 @@
         "",
         "Gather 64 Reactor Casings, 1 Reactor Terminal, 8 Reactor Fuel Rods, 4 Reactor Control Rods, 1 Reactor Access Port and 2 Reactor Coolant Ports, then assemble the vessel on the marked pad in the Works — four rod columns two rods tall, and one coolant port on each long face, water in one side and steam out the other. Without the pair it runs passive and the turbine never sees steam.",
         "",
-        "Computer port, redstone port, four more pages of Josie's Turbine Notes — and Bram's turbine crate, which is the entire bill for the next quest: 64 Turbine Casing, 16 Turbine Glass, a Rotor Bearing, 4 Shafts, 16 Blades, 2 Fluid Ports, 16 copper blocks for the coil ring and the Turbine Terminal to read it on."
+        "Computer port, redstone port, four more pages of Josie's Turbine Notes — and Bram's turbine crate, which is the entire bill for the next quest: 64 Turbine Casing, 16 Turbine Glass, 2 Rotor Bearings, one at each end, 6 Shafts, 16 Blades, 2 Fluid Ports, 16 copper blocks for the coil ring and the Turbine Terminal to read it on."
       ],
       "deps": ["q69"],
       "tasks": [
@@ -508,8 +508,8 @@
         { "type": "item", "item": "valley:turbine_notes", "count": 4 },
         { "type": "item", "item": "biggerreactors:turbine_casing", "count": 64 },
         { "type": "item", "item": "biggerreactors:turbine_glass", "count": 16 },
-        { "type": "item", "item": "biggerreactors:turbine_rotor_bearing", "count": 1 },
-        { "type": "item", "item": "biggerreactors:turbine_rotor_shaft", "count": 4 },
+        { "type": "item", "item": "biggerreactors:turbine_rotor_bearing", "count": 2 },
+        { "type": "item", "item": "biggerreactors:turbine_rotor_shaft", "count": 6 },
         { "type": "item", "item": "biggerreactors:turbine_rotor_blade", "count": 16 },
         { "type": "item", "item": "biggerreactors:turbine_fluid_port", "count": 2 },
         { "type": "item", "item": "biggerreactors:turbine_terminal", "count": 1 },
@@ -528,7 +528,7 @@
       "description": [
         "Bram: \"Crate's got what it's got — blades, coils, casing. Get it to eighteen hundred RPM under load and hold it there.\"",
         "",
-        "Build the turbine out of Bram's crate — 64 Turbine Casing, 16 Turbine Glass, 1 Rotor Bearing, 4 Rotor Shafts, 16 Rotor Blades, 2 Fluid Ports and 16 copper blocks for the coil ring, all of it in the vessel payout. Hold 1,800 RPM under load without going over, then run /valley check turbine on the Turbine Terminal that came with it.",
+        "Build the turbine out of Bram's crate — 64 Turbine Casing, 16 Turbine Glass, 2 Rotor Bearings, one at each end, 6 Rotor Shafts, 16 Rotor Blades, 2 Fluid Ports and 16 copper blocks for the coil ring, all of it in the vessel payout. Hold 1,800 RPM under load without going over, then run /valley check turbine on the Turbine Terminal that came with it.",
         "",
         "The lever goes live, and her own figures get pencilled into your journal margin."
       ],

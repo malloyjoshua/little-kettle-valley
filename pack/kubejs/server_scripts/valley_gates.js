@@ -179,25 +179,49 @@ ServerEvents.recipes(event => {
   }).id('valley:gate/quarry')
 
   // ===========================================================================
-  // GATE 7 (an ENABLE, not a gate) — reactor heat -> winter crops.  (Q72)
+  // GATE 7 (an ENABLE, not a gate) — reactor heat -> winter crops.  (Q72, Q77)
   // Serene Seasons 9.1.0.3 does not ship a Greenhouse Glass ITEM: greenhouse
   // glass is the BLOCK TAG sereneseasons:greenhouse_glass, which by default
   // contains #forge:glass — i.e. every glass block already works, and a tag
   // cannot be flipped at runtime.
-  // Substitute, same shape as every other gate: the tag is narrowed to
-  // minecraft:tinted_glass (see ServerEvents.tags below) and tinted glass is
-  // re-cut so it consumes a Cyanite Ingot, which only exists once a reactor
-  // has actually run. The reactor is still literally the reason food exists
-  // in January, and it is one ingredient in JEI instead of a hidden hook.
+  // Substitute, same shape as every other gate: the tag is narrowed to ONE
+  // glass (see ServerEvents.tags below) and that glass is re-cut so it
+  // consumes a Cyanite Ingot, which only exists once a reactor has actually
+  // run. The reactor is still literally the reason food exists in January,
+  // and it is one ingredient in JEI instead of a hidden hook.
+  //
+  // THE GLASS IS ae2:quartz_vibrant_glass. It used to be minecraft:tinted
+  // glass, and tinted glass was wrong twice over:
+  //
+  //  1. SereneSeasonsAPI's greenhouse test (isGlassAboveBlock) is TAG-ONLY and
+  //     has no opinion about light. The four Thermal crops Q77 asks for do:
+  //     a crop needs light level 9 to grow. Tinted glass is the one glass in
+  //     the game that blocks all light (Blocks.TINTED_GLASS is built with
+  //     .noOcclusion() but keeps a full lightBlock), so the greenhouse the
+  //     pack tells you to build was a dark room, and nothing planted in it
+  //     could ever grow. The gate "opened" onto a cold frame that did nothing.
+  //  2. Vibrant Quartz Glass is AEBlocks.QUARTZ_VIBRANT_GLASS — a QuartzLampBlock
+  //     built from glassProps() with lightLevel 15. It lets skylight through
+  //     AND emits light 15 itself, so the frame is its own lantern and Nella's
+  //     tomato ripens at midnight in January. That is the promise, rendered.
+  //
+  // Why not ae2:quartz_glass (the plain one): it is an ingredient in every AE2
+  // item and fluid storage cell, both cell housings, the energy cell, the
+  // energy acceptor, the molecular assembler and blank patterns. Re-cutting it
+  // to want a Cyanite Ingot would put the whole of AE2 behind an Act IV
+  // reactor. ae2:quartz_vibrant_glass is an ingredient in nothing, in AE2 or
+  // in this pack, so it is the only safe thing to re-cut.
+  //
+  // Tinted glass keeps its vanilla recipe.
   // ===========================================================================
-  event.remove({ output: 'minecraft:tinted_glass' })
-  event.shaped('2x minecraft:tinted_glass', [
-    ' A ',
-    'AGA',
-    ' C '
+  event.remove({ output: 'ae2:quartz_vibrant_glass' })
+  event.shaped('2x ae2:quartz_vibrant_glass', [
+    ' G ',
+    'QCQ',
+    ' G '
   ], {
-    A: 'minecraft:amethyst_shard',
-    G: 'minecraft:glass',
+    G: 'minecraft:glowstone_dust',
+    Q: 'ae2:quartz_glass',
     C: 'biggerreactors:cyanite_ingot'
   }).id('valley:gate/greenhouse_glass')
 
@@ -365,11 +389,12 @@ ServerEvents.recipes(event => {
 
 // =============================================================================
 // The greenhouse-glass tag narrowing that GATE 7 depends on.
-// Default: #forge:glass + #c:glass_blocks (i.e. all glass). Narrowed to tinted
-// glass so the reactor-gated recipe above is the only way to build a
-// greenhouse that grows out of season.
+// Default: #forge:glass + #c:glass_blocks (i.e. all glass). Narrowed to
+// Vibrant Quartz Glass so the reactor-gated recipe above is the only way to
+// build a greenhouse that grows out of season — and, unlike tinted glass, a
+// roof of it is bright enough for the crops underneath it to actually grow.
 // =============================================================================
 ServerEvents.tags('block', event => {
   event.removeAll('sereneseasons:greenhouse_glass')
-  event.add('sereneseasons:greenhouse_glass', 'minecraft:tinted_glass')
+  event.add('sereneseasons:greenhouse_glass', 'ae2:quartz_vibrant_glass')
 })

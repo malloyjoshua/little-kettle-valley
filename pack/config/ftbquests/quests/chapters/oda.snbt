@@ -7,14 +7,14 @@
 	id: "029B71308ACB6B43"
 	order_index: 5
 	quest_links: [ ]
-	subtitle: ["The Valley Scrip shop. Open from the moment the store reopens.", "Cozy work pays Scrip; Scrip deletes tech grind. Every line restocks.", "Stock arrives in tiers, and the tiers arrive on the rail line."]
+	subtitle: ["The Valley Scrip shop. Open from the moment the store reopens.", "Cozy work pays Scrip; Scrip deletes tech grind. Every buy line restocks.", "Stock arrives in tiers, and the tiers arrive on the rail line."]
 	quests: [
 		{
 			id: "E61864478A97F41E"
 			title: "Read Oda's Board at the Counter"
-			subtitle: "Scrip only. Every line restocks."
+			subtitle: "Scrip only. Every buy line restocks."
 			icon: "valley:scrip"
-			description: ["Oda: \"Store's open. Shelves are thin and my ledger is thinner, but they're open. Cash is Scrip. I don't barter and I don't round up.\"", "", "Scrip comes from deliveries, festival baskets, closing a neighbour's story — and my standing order, which is twenty-four wheat for eight Scrip and always will be. Nothing else pays it and nothing else spends it.", "", "Every line below restocks. Buy a line as many times as you can pay for it."]
+			description: ["Oda: \"Store's open. Shelves are thin and my ledger is thinner, but they're open. Cash is Scrip. I don't barter and I don't round up.\"", "", "Scrip comes from deliveries, festival baskets and closing a neighbour's story. My standing order pays eight Scrip for twenty-four wheat, once, and then that page is closed. Nothing else pays it and nothing else spends it.", "", "Every buy line below restocks. Buy a line as many times as you can pay for it."]
 			x: 0.0d
 			y: 0.0d
 			dependencies: ["1589859EB1A28DCE"]
@@ -23,21 +23,20 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "C7831093E5788B67", type: "checkmark", title: "Read the board and the prices under it" }]
-			rewards: [{ id: "E3897F04BEC3881B", type: "item", item: "valley:catalogue" }, { id: "A7A2E446F0A125E1", type: "item", item: "valley:scrip", count: 10 }, { id: "6AEB39C32069159D", type: "command", command: "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"yellow\"},{\"text\":\"Ten Scrip, on the house. That is the only time those three words happen in this store.\",\"color\":\"white\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "13B750BBEDA9E97C", type: "toast", title: "Oda's Counter is open", description: "Scrip only. Every line restocks. Cheap tech first, decor when the rail comes in." }]
+			rewards: [{ id: "E3897F04BEC3881B", type: "item", item: "valley:catalogue" }, { id: "A7A2E446F0A125E1", type: "item", item: "valley:scrip", count: 10 }, { id: "6AEB39C32069159D", type: "command", command: "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"yellow\"},{\"text\":\"Ten Scrip, on the house. That is the only time those three words happen in this store.\",\"color\":\"white\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "8A79A688CEB845DA", type: "toast", title: "Oda's Counter is open", description: "Scrip only. Every buy line restocks. Cheap tech first, decor when the rail comes in." }]
 		}
 		{
 			id: "0FE8C79C42C61940"
 			title: "Fill a Standing Order — 24 Wheat for 8 Scrip"
-			subtitle: "8 Scrip. Restocks."
+			subtitle: "8 Scrip. Once."
 			icon: "minecraft:wheat"
-			description: ["Oda: \"A standing order is not a bounty. It is the same twenty-four sheaves, the same eight Scrip, every week, forever, and I never have to think about it.\"", "", "Twenty-four wheat across the counter, eight Scrip back. It is the floor under every other price on this board."]
+			description: ["Oda: \"One standing order, filled once. After that the wheat goes on my shelf and the Scrip comes out of your work, not my ledger.\"", "", "Twenty-four wheat across the counter, eight Scrip back, one time. Every Scrip after this comes from deliveries, festival baskets and closing a neighbour's story."]
 			x: 0.0d
 			y: 3.0d
 			dependencies: ["E61864478A97F41E"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
-			can_repeat: true
 			tasks: [{ id: "CDD955FF1A526E60", type: "item", item: "minecraft:wheat", count: 24L, consume_items: true }]
 			rewards: [{ id: "412DADF38F4FC498", type: "item", item: "valley:scrip", count: 8 }]
 		}
@@ -135,7 +134,7 @@
 			hide_until_deps_complete: true
 			can_repeat: true
 			tasks: [{ id: "76ED610DDAB2D7AE", type: "item", item: "valley:scrip", count: 6L, consume_items: true }]
-			rewards: [{ id: "8775E822249EAB9C", type: "item", item: "minecraft:lantern", count: 8 }, { id: "6FDE1D999625F516", type: "item", item: "supplementaries:candle_holder", count: 8 }, { id: "1941396D05F8F4DE", type: "item", item: "candlelight:lamp", count: 4 }]
+			rewards: [{ id: "8775E822249EAB9C", type: "item", item: "minecraft:lantern", count: 8 }, { id: "6FDE1D999625F516", type: "item", item: "supplementaries:candle_holder", count: 8 }, { id: "D8021C13844F4179", type: "item", item: "createdeco:yellow_copper_lamp", count: 4 }]
 		}
 		{
 			id: "65425A40C3B60A06"

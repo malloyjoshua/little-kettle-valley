@@ -8,14 +8,14 @@ The one line the pack repeats in every act: **Forty lamps. Fifteen people. One w
 
 | When | What you do | What you get for it |
 |---|---|---|
-| 0:00 | Read Josie's letter. The last page is a map. | The journal, the copper kettle, a compass already pointing at the farm, food, torches, a megatorch |
-| 0:03 | Follow the compass. Put the waystone on the hearthstone. | The cottage rebuilds itself around you: walls, roof, doorway, two window holes, a bed mat |
+| 0:00 | Right-click Josie's letter and read all four pages. The last one is the way to the farm. | The journal, the copper kettle, the Homestead Waystone, a shovel and pick, food, torches, a megatorch. A lit path is already laid from your feet to the ruined farm |
+| 0:03 | Follow the lit path to the ruin — chimney, three broken walls, a bed frame. Put the waystone on the hearthstone. | The cottage rebuilds itself around you: walls, roof, doorway, two window holes, a bed mat |
 | 0:07 | Hang the door, windows, bed and sconce (all in your bag). | Table, chairs, a rug |
 | 0:13 | Place the megatorch inside. | Nothing hostile spawns near home, ever |
 | 0:14 | Dig out the cellar stairs. | You find an iron door with no handle, chalked "Not yet. J.K." and a crate of Josie's tools |
 | 0:18 | Cook one vegetable soup. | Skillet, knife, seeds |
 | 0:23 | Plant the Surveyor's Stake where the town will be. | A stone path lays itself to the stake and the first two lamps go up (2 of 40) |
-| 0:28 | Sleep one night. | **Marnie arrives.** The inn shell is standing at the stake when you wake |
+| 0:28 | Sleep one night. | **Marnie arrives** at your door, and **Bram** is down at the mill with the race cut and the axle on the floor |
 | 0:34 | Till and plant. Fence a pen, open the hen crates. | Watering can, straw hat, a chicken feeder |
 | 0:46 | Take three eggs to Marnie. | **Pip arrives** with a duckling for you to name |
 | 0:52 | Talk to Bram at the broken mill. | **Bram arrives.** Wrench, goggles, iron and andesite |

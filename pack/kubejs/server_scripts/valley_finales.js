@@ -29,15 +29,44 @@
 //  4. `valley stage add world actN` -> handled in-process (still available as
 //     a real command for quest command rewards).
 //  5. `supplementaries:lantern_post` / `lantern_post_lit` DO NOT EXIST in this
-//     mod list. The lamp post is `candlelight:lamp` (see valley_core.js
-//     VALLEY.LAMP_BLOCK); the Act IV "everything lights at once" moment sets
-//     a lantern on top of every stored post.
+//     mod list. A lamp post is minecraft:oak_fence with
+//     createdeco:yellow_copper_lamp on top of it (valley_core.js
+//     VALLEY.LAMP_POST / LAMP_BLOCK); the Act IV "everything lights at once"
+//     moment re-sets every stored lamp into its lit state, from the Works
+//     outward, one post per tick.
+//     This used to be `candlelight:lamp` with a lantern dropped on top at
+//     y+1. candlelight:lamp has no lit state — its blockstate carries only
+//     `hanging` — so the forty lamps could not be turned on at all, and the
+//     lantern the lever placed went one block ABOVE the lamp, in the air.
 //  6. `~` offsets are resolved to ABSOLUTE coordinates here, because 1.20.1
 //     has no macro functions and we are not shipping mcfunctions (§12.1 C6).
+//  7. The Act II Float floats on water this file DIGS. Nothing at the Lake
+//     Waystone is lake: finaleAct2's own fills level y-2..y-1 to stone across
+//     29x29. And a `fill <pos> <pos> supplementaries:candle_holder` writes the
+//     block's default state, which is lit=FALSE — the candle holders on the
+//     pier are set one at a time with lit=true, standing on fence posts. The
+//     basin is sealed by five `replace minecraft:water` plugs, so a lakeside
+//     or coastal anchor cannot drain it.
 // ---------------------------------------------------------------------------
 // =============================================================================
 
 const FIN_ACTS = ['act1', 'act2', 'act3', 'act4', 'act5']
+
+// -----------------------------------------------------------------------------
+// The lamp post, mirrored from valley_core.js VALLEY.LAMP_*. These are baked
+// into the command arrays below at script load, before global.valley is
+// guaranteed to exist, so they cannot be read off v.C there. Change both files.
+//
+//   POST      the fence the lamp stands on, at the offset's own y
+//   LAMP_LIT  burning and staying burning (inverted=true beats shouldBeLit)
+//   LAMP_DARK dark and staying dark, until the Act IV lever
+// -----------------------------------------------------------------------------
+// Every post below is written out as two literal setblock lines — the fence at
+// ~1 and the lamp at ~2 — rather than built by a helper, because resolve() is
+// the only thing in this file allowed to do arithmetic on a tilde.
+const POST = 'minecraft:oak_fence'
+const LAMP_LIT = 'createdeco:yellow_copper_lamp[facing=up,inverted=true,lit=true]'
+const LAMP_DARK = 'createdeco:yellow_copper_lamp[facing=up,inverted=false,lit=false]'
 
 // Easy NPC preset addressing. DataPresetDataFiles scans the folder constant
 // "easy_npc/preset" in every namespace, so a preset shipped at
@@ -83,25 +112,193 @@ function runSeg(server, origin, cmds) {
 }
 
 // =============================================================================
+// Beats.
+//
+// Every finale is a chain of BEATS: one synchronous opening and then one or
+// more v.delay() payoffs. The act used to be latched done in runFinale before
+// the first beat ran, which meant a reload, a crash or a /stop anywhere inside
+// a delay window burned the act permanently — the queue in valley_core.js is
+// in memory and is cleared on load. Act III's delay(120) is the only thing
+// that grants stage act4; Act IV's delay(80) is the lever, the lamp sweep and
+// stages act5 + greenhouse_warm; Act IV's delay(200) is spring; Act V's last
+// delay is the world border. Losing the act4 window also strands Q76 forever,
+// because valley_checks.js gates it on hasWorldStage('act5').
+//
+// So: each beat carries its own world-level once() latch, and only the LAST
+// beat of a chain calls markFinale. A re-run therefore skips what already
+// happened and finishes what did not, and `/valley finale <act> force` is the
+// backstop for an act that latched before this file changed.
+// =============================================================================
+// Opens a beat. false means it already ran in this world and the caller must
+// return without doing anything.
+function beat(v, act, n) {
+  if (v.once('fin_' + act + '_b' + n)) return true
+  console.info('[valley] finale ' + act + ' beat ' + n + ' already ran; skipped')
+  return false
+}
+
+// Called at the END of a chain's LAST beat, and nowhere else. Latching the act
+// and dropping its forceload are the same event, so an act that never finished
+// keeps its chunks and an act that finished cannot leak them.
+function endAct(v, act) {
+  v.markFinale(act)
+  let s = v.server()
+  if (s) forceRelease(s, act)
+  console.info('[valley] finale ' + act + ' complete')
+}
+
+// -----------------------------------------------------------------------------
+// Forceload.
+//
+// Every command below runs as the SERVER, from 0 0 0, via runCommandSilent —
+// so a setblock, fill or place into a chunk nobody is standing in is refused,
+// and runSeg turns the whole refusal into a console warning. server.properties
+// ships view-distance=8, and a finale card can be claimed from the Nether, the
+// ridge, or a mineshaft. The result was an act that "ran", latched, and built
+// nothing.
+//
+// The ground each act builds on is forceloaded before the chain starts and
+// released after its last beat. FORCE_R is a radius in blocks around each mark
+// the act touches; 40 covers every fill and template in that act, and the Act
+// IV lamp sweep, whose furthest post is anchor + [24, 1, 26].
+// -----------------------------------------------------------------------------
+const FORCE_R = 40
+
+const FINALE_MARKS = {
+  act1: ['anchor', 'lake'],
+  act2: ['anchor', 'lake'],
+  act3: ['anchor'],
+  act4: ['anchor', 'works', 'inn', 'bathhouse'],
+  act5: ['anchor']
+}
+
+// Comfortably past each chain's last beat: act3 turns at 120, act4 at 200,
+// act5's fifth journal line at 100 + 5*100.
+const FINALE_RELEASE = { act1: 60, act2: 60, act3: 200, act4: 300, act5: 720 }
+
+// Squared horizontal distance from a stored lamp to a mark. Used only to order
+// the Act IV sweep, so the square root would be waste.
+function lampSort(p, mark) {
+  if (!mark) return 0
+  let dx = p[0] - mark[0], dz = p[2] - mark[2]
+  return dx * dx + dz * dz
+}
+
+function forceRegions(v, act) {
+  let out = []
+  let names = FINALE_MARKS[act] || ['anchor']
+  names.forEach(name => {
+    let p = name === 'anchor' ? v.anchor() : v.mark(name)
+    if (p) out.push(p)
+  })
+  return out
+}
+
+function forceload(server, regions, op) {
+  regions.forEach(p => {
+    server.runCommandSilent('forceload ' + op + ' ' +
+      (p[0] - FORCE_R) + ' ' + (p[2] - FORCE_R) + ' ' +
+      (p[0] + FORCE_R) + ' ' + (p[2] + FORCE_R))
+  })
+}
+
+// What each act is currently holding. Re-seeded by every runFinale, so a
+// restart mid-act cannot orphan the release: the re-run that finishes the act
+// is the thing that lets the chunks go.
+const FORCE_HELD = {}
+
+function forceHold(server, v, act) {
+  let regions = forceRegions(v, act)
+  FORCE_HELD[act] = regions
+  forceload(server, regions, 'add')
+  return regions
+}
+
+function forceRelease(server, act) {
+  let regions = FORCE_HELD[act]
+  if (!regions || regions.length === 0) return
+  FORCE_HELD[act] = null
+  forceload(server, regions, 'remove')
+}
+
+// -----------------------------------------------------------------------------
+// The Works is a HOLE, and nothing in the pack was digging it.
+//
+// VALLEY.OFF.works is anchor + [34, -6, -20]: six blocks under the surface, in
+// undisturbed stone. Act IV's opening beat tp's all eleven residents to
+// works + [~0..~±4, ~1, ~2..~6] and its second beat setblocks the lever at
+// works + [0, 2, 0] — every one of those coordinates was inside solid rock, so
+// The Longest Night played with the whole town suffocating in the wall and the
+// lever buried where nobody could see it. The only clear anywhere in the pack
+// was SCENES.q65's `fill ... air replace minecraft:cobblestone`, and cobblestone
+// does not generate naturally, so it cleared nothing.
+//
+// This digs the chamber: a stone-brick floor at ~-1, four blocks of headroom
+// (~0..~3), and a stone-brick ceiling at ~4 so q65's five `lantern[hanging=true]`
+// have something to hang from. It runs east/south to +8 so the stable pad q65
+// lays at ~5..~7 and its saddled horse at ~6 ~1 ~6 are in the room too.
+//
+// It is latched once per world rather than filtered, because it has to be safe
+// to call from BOTH ends: q65 normally opens the Works, but `/valley finale act4`
+// on a world where q65 never played must still not entomb anybody — and an
+// unfiltered re-fill at finale time would delete the lanterns, smithing table,
+// barrel, hay and horse q65 put there. First caller digs; the other is a no-op.
+// -----------------------------------------------------------------------------
+function excavateWorks(server, v) {
+  if (!v.once('works_excavated')) return
+  let works = v.mark('works')
+  if (!works) { console.warn('[valley] excavateWorks: no "works" mark'); return }
+  runSeg(server, works, [
+    'fill ~-6 ~0 ~-6 ~8 ~3 ~8 minecraft:air',
+    'fill ~-6 ~-1 ~-6 ~8 ~-1 ~8 minecraft:stone_bricks',
+    'fill ~-6 ~4 ~-6 ~8 ~4 ~8 minecraft:stone_bricks'
+  ])
+  console.info('[valley] Works chamber excavated at ' + works.join(' '))
+}
+
+// =============================================================================
 // The five chains. Each is a list of segments; a segment names its origin mark
 // (a key in VALLEY.OFF, or 'anchor') and its commands, with `~` offsets from
 // that origin. Written out rather than read from outline.json so the six
 // corrections above are visible in the file that runs them.
 // =============================================================================
 function finaleAct1(server, v) {
+  // One beat — nothing here is delayed, so beat 0 is also the last beat.
+  if (!beat(v, 'act1', 0)) return
   runSeg(server, v.anchor(), [
     'season set early_spring',
     'time set day',
     'weather clear',
     // levelled pad, then templates (§7 rule 2) — never /place structure
-    'fill ~-18 ~1 ~-18 ~18 ~14 ~18 minecraft:air',
+    //
+    // THE PAD HAS A HOLE IN IT, and the hole is the inn. `/valley scene inn`
+    // builds the 9x9 inn shell (plus a 1-block eave) at Q8, eleven quests
+    // before this finale runs, and it stands at anchor x -13..-3, z 7..17. A
+    // single `fill ~-18 ~1 ~-18 ~18 ~14 ~18 air` would have bulldozed it —
+    // walls, roof, Hearth, Q18's three chalked spots and whatever the player
+    // had already fitted into the kitchen — and then paved the floor over.
+    // So the air fill and the cobblestone fill are each written as the same
+    // four rectangles: everything north of the inn, everything south of it,
+    // and the two strips either side. The dirt and stone courses are BELOW
+    // the inn's floor (which sits at ~0) and can stay whole.
+    'fill ~-18 ~1 ~-18 ~18 ~14 ~6 minecraft:air',
+    'fill ~-18 ~1 ~18 ~18 ~14 ~18 minecraft:air',
+    'fill ~-18 ~1 ~7 ~-14 ~14 ~17 minecraft:air',
+    'fill ~-2 ~1 ~7 ~18 ~14 ~17 minecraft:air',
     'fill ~-18 ~-3 ~-18 ~18 ~-2 ~18 minecraft:dirt',
     'fill ~-18 ~-1 ~-18 ~18 ~-1 ~18 minecraft:stone',
-    'fill ~-18 ~0 ~-18 ~18 ~0 ~18 minecraft:cobblestone',
+    'fill ~-18 ~0 ~-18 ~18 ~0 ~6 minecraft:cobblestone',
+    'fill ~-18 ~0 ~18 ~18 ~0 ~18 minecraft:cobblestone',
+    'fill ~-18 ~0 ~7 ~-14 ~0 ~17 minecraft:cobblestone',
+    'fill ~-2 ~0 ~7 ~18 ~0 ~17 minecraft:cobblestone',
     'fill ~-7 ~0 ~-7 ~7 ~0 ~7 minecraft:stone_bricks',
     'place template valley:market_stall ~-10 ~1 ~-10',
     'place template valley:market_stall ~8 ~1 ~-10',
-    'place template valley:market_stall ~-10 ~1 ~8',
+    // The fourth stall was at ~-10 ~1 ~8. A stall is 5x4x3, so it stood at
+    // x -10..-6, z 8..10 — inside the inn's common room. Moved to the lane
+    // south of the square, clear of the inn (x <= -3), of the third stall
+    // (z 8..10) and of the Act V approach path (x -2..2).
+    'place template valley:market_stall ~4 ~1 ~14',
     'place template valley:market_stall ~8 ~1 ~8',
     // §7 rule 2. The shipped long_table is 9x2x3 with the table row on its
     // own local z=1, so this origin puts the table at ~-2..~-11 and the two
@@ -109,13 +306,25 @@ function finaleAct1(server, v) {
     // ~0 ~1 ~0 and of the Act V signpost at ~0 ~1 ~-3, both of which the
     // doc's ~-3 ~1 ~0 would have punched a hole through.
     'place template valley:long_table ~-4 ~1 ~-11',
-    // the mill race is cut here so Q16's water wheels have water on any terrain
-    'place template valley:mill_race ~-26 ~0 ~4',
+    // The mill race is NOT cut here any more. It is cut at Q8, by
+    // valley:act1/bram_arrives — Q16 ("the race is cut, set two Water Wheels
+    // in it") comes three quests before this finale, so pasting the template
+    // here both broke Q16's premise and would have re-pasted the race over
+    // the wheels the player had already built in it.
     'setblock ~0 ~1 ~0 waystones:waystone{WaystoneName:"Town Square"}',
-    'setblock ~-12 ~1 ~0 candlelight:lamp',
-    'setblock ~12 ~1 ~0 candlelight:lamp',
-    'setblock ~0 ~1 ~-12 candlelight:lamp',
-    'setblock ~0 ~1 ~12 candlelight:lamp',
+    // Four posts on the square. With square_path's two that is the "six lamps
+    // burning" the quest text promises and the 6 the bossbar reads, so these
+    // are LIT — Act II's Oda counts exactly these six ("six lamps lit,
+    // thirty-four dark"). Every post placed after this one lands dark and
+    // waits for the lever. Fence at ~1, lamp at ~2.
+    'setblock ~-12 ~1 ~0 ' + POST,
+    'setblock ~-12 ~2 ~0 ' + LAMP_LIT,
+    'setblock ~12 ~1 ~0 ' + POST,
+    'setblock ~12 ~2 ~0 ' + LAMP_LIT,
+    'setblock ~0 ~1 ~-12 ' + POST,
+    'setblock ~0 ~2 ~-12 ' + LAMP_LIT,
+    'setblock ~0 ~1 ~12 ' + POST,
+    'setblock ~0 ~2 ~12 ' + LAMP_LIT,
     'bossbar set valley:lamps value 6',
     'bossbar set valley:folk value 5',
     npc('marnie', '~-4', '~1', '~-2'),
@@ -135,34 +344,199 @@ function finaleAct1(server, v) {
     'advancement grant @a only valley:journal/entry_2',
     'worldborder set 3000 10'
   ])
+  // Q21 and Q27 both hang off this finale and both hand in a resident's token
+  // — and Nella's and Tobin's only imports in the pack were inside finaleAct2,
+  // which does not run until Q37. Neither NPC existed to be talked to, so both
+  // quests were unwinnable. They arrive with the Fair instead, at the two
+  // places their own quest text names.
+  runSeg(server, v.mark('lake'), [
+    // Nella, at the beached boat. A small pad only — Act II's finale is what
+    // builds the beach and the pier here.
+    'fill ~-4 ~0 ~4 ~4 ~7 ~12 minecraft:air',
+    // Support course first. This pad is sand laid straight onto whatever the
+    // lake shore happens to be, and Nella stands on it (~0 ~0 ~8) from Q21
+    // until the Act II Float; sand over a hollow shore is a hole.
+    'fill ~-4 ~-2 ~4 ~4 ~-2 ~12 minecraft:stone',
+    'fill ~-4 ~-1 ~4 ~4 ~-1 ~12 minecraft:sand',
+    'summon minecraft:boat ~1 ~0 ~7 {Type:"oak"}',
+    'setblock ~-2 ~0 ~6 minecraft:oak_stairs[facing=east,half=bottom]',
+    'setblock ~-2 ~0 ~7 minecraft:oak_stairs[facing=east,half=bottom]',
+    'setblock ~-2 ~0 ~8 minecraft:oak_planks',
+    'setblock ~-3 ~0 ~7 minecraft:campfire[lit=true]',
+    'setblock ~3 ~0 ~9 minecraft:barrel[facing=up]',
+    'setblock ~3 ~0 ~6 minecraft:oak_fence',
+    'setblock ~3 ~1 ~6 minecraft:lantern[hanging=false]',
+    npc('nella', '~0', '~0', '~8')
+  ])
+  runSeg(server, v.anchor(), [
+    // Tobin, camped at the copper outcrop. Placed OUTSIDE the ~18 pad the
+    // segment above just levelled, or the Fair's fills would flatten it.
+    'fill ~19 ~1 ~-21 ~27 ~8 ~-13 minecraft:air',
+    'fill ~19 ~0 ~-21 ~27 ~0 ~-13 minecraft:grass_block',
+    'fill ~23 ~1 ~-19 ~26 ~3 ~-16 minecraft:stone',
+    'setblock ~24 ~2 ~-18 minecraft:copper_ore',
+    'setblock ~25 ~2 ~-17 minecraft:copper_ore',
+    'setblock ~24 ~3 ~-17 minecraft:copper_ore',
+    'setblock ~26 ~1 ~-18 minecraft:copper_ore',
+    'setblock ~23 ~1 ~-15 minecraft:raw_copper_block',
+    'fill ~20 ~1 ~-15 ~21 ~2 ~-14 minecraft:brown_wool',
+    'setblock ~21 ~1 ~-16 minecraft:campfire[lit=true]',
+    'setblock ~20 ~1 ~-16 minecraft:barrel[facing=up]',
+    'setblock ~22 ~1 ~-14 minecraft:oak_fence',
+    'setblock ~22 ~2 ~-14 minecraft:lantern[hanging=false]',
+    npc('tobin', '~22', '~1', '~-16')
+  ])
   v.sayAll('Tobin', "Walked the north ridge. It's fine to the cairn. Also I found a rock, but that's a separate conversation.")
   v.addWorldStage('act2')
+  endAct(v, 'act1')
 }
 
 function finaleAct2(server, v) {
+  // One beat — nothing here is delayed, so beat 0 is also the last beat.
+  if (!beat(v, 'act2', 0)) return
   // Positioned at the Lake Waystone, not the anchor.
   runSeg(server, v.mark('lake'), [
     'season set mid_summer',
     'time set 18000',
     'weather clear',
     'fill ~-14 ~1 ~-14 ~14 ~10 ~14 minecraft:air',
-    'fill ~-14 ~-1 ~-14 ~14 ~-1 ~14 minecraft:stone',
+    // TWO courses, not one. The beach below is laid into the same ~-1 layer as
+    // the floor, so a single course meant the whole 13x11 patch was falling
+    // sand with nothing under it — and Oda (~-2 ~1 ~6), Halden (~2 ~1 ~6) and
+    // Nella (~0 ~1 ~9) are all tp'd onto it. The Float opened with three
+    // residents dropping through the floor of their own festival.
+    'fill ~-14 ~-2 ~-14 ~14 ~-1 ~14 minecraft:stone',
     // the shipped pier is 3 wide, so ~-1 centres it on the waystone axis
     'place template valley:pier ~-1 ~0 ~0',
-    'fill ~-6 ~-1 ~6 ~6 ~-1 ~16 minecraft:sand',
-    'fill ~-2 ~2 ~2 ~-2 ~2 ~18 supplementaries:candle_holder',
-    'fill ~2 ~2 ~2 ~2 ~2 ~18 supplementaries:candle_holder',
+    // sandstone, not sand: it reads the same from standing height and it is
+    // not affected by gravity, so the beach cannot fall again if anything
+    // later opens the course beneath it.
+    'fill ~-6 ~-1 ~6 ~6 ~-1 ~16 minecraft:sandstone',
+    // --- The Lantern Float has to float. ----------------------------------
+    // What stood here: two fills of bare `supplementaries:candle_holder` at
+    // x=±2, y=+2, z=2..18. Wrong three ways at once. A fill writes the
+    // block's DEFAULT state and CandleHolderBlock's is lit=false, so all
+    // thirty-four were unlit. x=±2 is off BOTH sides of the pier — the
+    // template is 3x3x9 placed at ~-1, so its deck is x -1..1 — and y=+2 is
+    // the rail course, one above the deck, so every one of them had air
+    // underneath; a floor-mounted candle holder fails canSurvive there and
+    // pops on the first neighbour update. And z ran to 18, ten blocks past
+    // the end of a 9-long pier. Thirty-four unlit candlesticks hanging over
+    // nothing, at a festival called the Lantern Float.
+    //
+    // There was also nothing to float ON. The two fills above level y-2..y-1
+    // to stone across the whole 29x29 and clear y1..y10 to air, so the lake
+    // at the Lake Waystone is a stone yard. The basin is DUG here rather than
+    // trusted to the seed, and sealed rather than trusted to the water table:
+    //
+    //   1  stone shell, y-4..y-1, one block proud of the water on all four
+    //      sides (x=±9, z=9, z=25) and under it (y-4).
+    //   2  everything above cleared to y+8. This starts at z=10, and the two
+    //      lines after it clear z=9 in halves — because finaleAct1 sets
+    //      Nella's barrel at ~3 ~0 ~9 and a player may have put something in
+    //      it between the two festivals.
+    //   3  five 1-thick `replace minecraft:water` plugs, one per face of a
+    //      box just outside the shell. They touch nothing but water, so on a
+    //      dry anchor they are no-ops and on a lakeside or coastal one they
+    //      are the reason the basin does not simply drain into the map.
+    //   4  three courses of source water, top face at y+0 — flush with the
+    //      beach, two below the pier deck, so the pier reads as a pier.
+    //
+    // This is also the only open water in the valley, which is what Q26's
+    // Dredge Net looks for (valley_core.js dredgePull: water within two
+    // blocks horizontally, dy +1..-4). The shore lip at z=9 is inside that.
+    'fill ~-9 ~-4 ~9 ~9 ~-1 ~25 minecraft:stone',
+    'fill ~-9 ~0 ~10 ~9 ~8 ~25 minecraft:air',
+    'fill ~-9 ~0 ~9 ~2 ~0 ~9 minecraft:air',
+    'fill ~4 ~0 ~9 ~9 ~0 ~9 minecraft:air',
+    'fill ~-10 ~-5 ~8 ~-10 ~3 ~26 minecraft:stone replace minecraft:water',
+    'fill ~10 ~-5 ~8 ~10 ~3 ~26 minecraft:stone replace minecraft:water',
+    'fill ~-10 ~-5 ~8 ~10 ~3 ~8 minecraft:stone replace minecraft:water',
+    'fill ~-10 ~-5 ~26 ~10 ~3 ~26 minecraft:stone replace minecraft:water',
+    'fill ~-10 ~-5 ~8 ~10 ~-5 ~26 minecraft:stone replace minecraft:water',
+    'fill ~-8 ~-3 ~10 ~8 ~-1 ~24 minecraft:water[level=0]',
+    // the shore lip the shell just paved over, back in beach sandstone so the
+    // water's edge reads as an edge and not as a kerb
+    'fill ~-6 ~-1 ~9 ~6 ~-1 ~9 minecraft:sandstone',
+
+    // Twelve rafts, each a lantern on a waterlogged TOP slab. A top slab's
+    // upper face IS the block boundary, so it sits flush with the water and
+    // still supports the lantern; a bottom slab's up-face shape is empty at
+    // that boundary and the lantern would pop straight back off.
+    'setblock ~-6 ~-1 ~13 minecraft:oak_slab[type=top,waterlogged=true]',
+    'setblock ~-6 ~0 ~13 minecraft:lantern[hanging=false]',
+    'setblock ~-2 ~-1 ~12 minecraft:oak_slab[type=top,waterlogged=true]',
+    'setblock ~-2 ~0 ~12 minecraft:lantern[hanging=false]',
+    'setblock ~2 ~-1 ~14 minecraft:oak_slab[type=top,waterlogged=true]',
+    'setblock ~2 ~0 ~14 minecraft:lantern[hanging=false]',
+    'setblock ~6 ~-1 ~12 minecraft:oak_slab[type=top,waterlogged=true]',
+    'setblock ~6 ~0 ~12 minecraft:lantern[hanging=false]',
+    'setblock ~-7 ~-1 ~18 minecraft:oak_slab[type=top,waterlogged=true]',
+    'setblock ~-7 ~0 ~18 minecraft:lantern[hanging=false]',
+    'setblock ~-3 ~-1 ~17 minecraft:oak_slab[type=top,waterlogged=true]',
+    'setblock ~-3 ~0 ~17 minecraft:lantern[hanging=false]',
+    'setblock ~1 ~-1 ~19 minecraft:oak_slab[type=top,waterlogged=true]',
+    'setblock ~1 ~0 ~19 minecraft:lantern[hanging=false]',
+    'setblock ~5 ~-1 ~17 minecraft:oak_slab[type=top,waterlogged=true]',
+    'setblock ~5 ~0 ~17 minecraft:lantern[hanging=false]',
+    'setblock ~-5 ~-1 ~22 minecraft:oak_slab[type=top,waterlogged=true]',
+    'setblock ~-5 ~0 ~22 minecraft:lantern[hanging=false]',
+    'setblock ~0 ~-1 ~23 minecraft:oak_slab[type=top,waterlogged=true]',
+    'setblock ~0 ~0 ~23 minecraft:lantern[hanging=false]',
+    'setblock ~4 ~-1 ~21 minecraft:oak_slab[type=top,waterlogged=true]',
+    'setblock ~4 ~0 ~21 minecraft:lantern[hanging=false]',
+    'setblock ~7 ~-1 ~23 minecraft:oak_slab[type=top,waterlogged=true]',
+    'setblock ~7 ~0 ~23 minecraft:lantern[hanging=false]',
+    // Three big pads and a scatter of small ones. Both are WaterlilyBlock:
+    // they need a water SOURCE directly below and no fluid in their own
+    // block, which is exactly y+0 over this basin.
+    'setblock ~-8 ~0 ~15 ribbits:giant_lilypad',
+    'setblock ~8 ~0 ~19 ribbits:giant_lilypad',
+    'setblock ~-1 ~0 ~21 ribbits:giant_lilypad',
+    'setblock ~-4 ~0 ~11 minecraft:lily_pad',
+    'setblock ~0 ~0 ~11 minecraft:lily_pad',
+    'setblock ~4 ~0 ~11 minecraft:lily_pad',
+    'setblock ~-8 ~0 ~13 minecraft:lily_pad',
+    'setblock ~8 ~0 ~14 minecraft:lily_pad',
+    'setblock ~-5 ~0 ~16 minecraft:lily_pad',
+    'setblock ~3 ~0 ~16 minecraft:lily_pad',
+    'setblock ~-1 ~0 ~15 minecraft:lily_pad',
+    'setblock ~6 ~0 ~20 minecraft:lily_pad',
+    'setblock ~-7 ~0 ~21 minecraft:lily_pad',
+    'setblock ~2 ~0 ~24 minecraft:lily_pad',
+    'setblock ~-3 ~0 ~24 minecraft:lily_pad',
+
+    // The pier template posts its rail only at z=0, 4 and 8, so six of the
+    // deck's nine blocks are open on both long sides — with a basin under
+    // them now, that is a two-block drop into cold water at a party. Close
+    // the rail, then stand a LIT candle holder on every other post:
+    // floor-mounted on a fence top, which does support it, at y+3 so the
+    // walkway down the middle of the deck stays clear.
+    'fill ~-1 ~2 ~1 ~-1 ~2 ~7 minecraft:oak_fence',
+    'fill ~1 ~2 ~1 ~1 ~2 ~7 minecraft:oak_fence',
+    'setblock ~-1 ~3 ~2 supplementaries:candle_holder[lit=true,face=floor,facing=north,candles=3]',
+    'setblock ~-1 ~3 ~4 supplementaries:candle_holder[lit=true,face=floor,facing=north,candles=3]',
+    'setblock ~-1 ~3 ~6 supplementaries:candle_holder[lit=true,face=floor,facing=north,candles=3]',
+    'setblock ~1 ~3 ~2 supplementaries:candle_holder[lit=true,face=floor,facing=north,candles=3]',
+    'setblock ~1 ~3 ~4 supplementaries:candle_holder[lit=true,face=floor,facing=north,candles=3]',
+    'setblock ~1 ~3 ~6 supplementaries:candle_holder[lit=true,face=floor,facing=north,candles=3]',
     'setblock ~0 ~1 ~-2 waystones:waystone{WaystoneName:"The Pier"}',
     'bossbar set valley:lamps value 12',
-    // Nella and Wisp arrive in Act II and had no import anywhere in the
-    // pack. Import BEFORE the /tp block below, or the tp selects nothing.
+    // Nella already arrived with the Act I finale (Q21 needs her token). This
+    // re-import is the same UUID, so it MOVES her to the Float rather than
+    // duplicating her. Wisp arrives here for the first time. Both must be
+    // imported BEFORE the /tp block below, or the tp selects nothing.
     npc('nella', '~0', '~1', '~8'),
-    npc('wisp', '~-8', '~1', '~12'),
+    // Wisp used to arrive at ~-8 ~1 ~12 and Nella was tp'd to ~0 ~1 ~10.
+    // Both are open water now, so both came to the Float by falling into it.
+    // They stand on the sandstone shore lip at z=9 instead, at the water's
+    // edge with the lanterns.
+    npc('wisp', '~-5', '~1', '~9'),
     // residents are teleported, never pathed (§7 rule 4)
     'tp @e[tag=npc_marnie,limit=1] ~-2 ~1 ~4',
     'tp @e[tag=npc_bram,limit=1] ~2 ~1 ~4',
     'tp @e[tag=npc_oda,limit=1] ~-2 ~1 ~6',
-    'tp @e[tag=npc_nella,limit=1] ~0 ~1 ~10',
+    'tp @e[tag=npc_nella,limit=1] ~0 ~1 ~9',
     'tp @e[tag=npc_halden,limit=1] ~2 ~1 ~6',
     'tp @e[tag=npc_pip,limit=1] ~0 ~1 ~4',
     'title @a times 15 70 25',
@@ -170,6 +544,10 @@ function finaleAct2(server, v) {
     'summon firework_rocket ~0 ~4 ~12 {LifeTime:18,FireworksItem:{id:"minecraft:firework_rocket",Count:1b,tag:{Fireworks:{Explosions:[{Type:1b,Colors:[I;16766720],FadeColors:[I;16777215]}]}}}}',
     'summon firework_rocket ~4 ~4 ~14 {LifeTime:22,FireworksItem:{id:"minecraft:firework_rocket",Count:1b,tag:{Fireworks:{Explosions:[{Type:4b,Colors:[I;3847130]}]}}}}',
     'playsound minecraft:entity.firework_rocket.launch master @a ~0 ~2 ~0 2 1',
+    // the float itself, over the water: one drifting sheet of end_rod motes
+    // above the lanterns. `force` so it renders regardless of the viewer's
+    // particle setting.
+    'particle minecraft:end_rod ~0 ~2 ~17 8 1 6 0.005 200 force @a',
     'give @a supplementaries:candle_holder 1',
     'give @a perfectplushies:frog_plushie 1',
     // the visible "the next tier is already in your hands" moment
@@ -182,15 +560,17 @@ function finaleAct2(server, v) {
   // into twelve marked alcoves and not a build.
   runSeg(server, v.anchor(), [
     'place template valley:granary_shell ~-14 ~1 ~-4',
-    // Tobin walks in off the north ridge in Act II (docs/NPCS.md).
+    // Tobin came down to the outcrop with the Act I finale (Q27 needs his
+    // token). Same UUID, so this moves him into the square for the Float.
     npc('tobin', '~12', '~1', '~-14')
   ])
   v.sayAll('Nella', 'You all came. Right.')
   v.addWorldStage('act3')
+  endAct(v, 'act2')
 }
 
 function finaleAct3(server, v) {
-  runSeg(server, v.anchor(), [
+  if (beat(v, 'act3', 0)) runSeg(server, v.anchor(), [
     'season set mid_autumn',
     'time set 13000',
     'weather clear',
@@ -231,7 +611,10 @@ function finaleAct3(server, v) {
   ])
 
   // The turn, six seconds later (§7: /schedule function valley:act3/turn 6s).
+  // LAST BEAT: this is the only thing in the pack that grants stage act4, so
+  // it is the thing act3 is latched on.
   v.delay(120, s => {
+    if (!beat(v, 'act3', 1)) return
     runSeg(s, v.anchor(), [
       'season set early_winter',
       'weather rain',                                  // §12.1 C10: /weather snow does not exist
@@ -241,49 +624,70 @@ function finaleAct3(server, v) {
     ])
     v.sayAll('Oda', "That's the last warm night. Let's not lose anybody this year.")
     v.addWorldStage('act4')
+    endAct(v, 'act3')
   })
 }
 
 function finaleAct4(server, v) {
-  runSeg(server, v.mark('works'), [
-    'season set mid_winter',
-    'time set 18000',
-    'weather rain',
-    'title @a times 20 100 30',
-    'title @a title {"text":"The Longest Night","color":"white"}',
-    'tp @e[tag=npc_bram,limit=1] ~0 ~1 ~2',
-    // Puddle is the fourth Ribbit and arrives here (docs/NPCS.md).
-    npc('ribbit_puddle', '~-4', '~1', '~6'),
-    'tp @e[tag=npc_pip,limit=1] ~0 ~1 ~4',
-    'tp @e[tag=npc_marnie,limit=1] ~-3 ~1 ~4',
-    'tp @e[tag=npc_oda,limit=1] ~3 ~1 ~4',
-    'tp @e[tag=npc_tobin,limit=1] ~-3 ~1 ~2',
-    'tp @e[tag=npc_nella,limit=1] ~-3 ~1 ~6',
-    'tp @e[tag=npc_halden,limit=1] ~3 ~1 ~6',
-    'tp @e[tag=npc_wisp,limit=1] ~0 ~1 ~6',
-    'tp @e[tag=npc_ribbit_reed,limit=1] ~2 ~1 ~6',
-    'tp @e[tag=npc_ribbit_sedge,limit=1] ~4 ~1 ~6',
-    'tp @e[tag=npc_ribbit_mudlark,limit=1] ~-2 ~1 ~6',
-    'playsound minecraft:block.bell.use master @a ~0 ~1 ~0 1 1.4'
-  ])
-  v.sayAll('Pip', 'I get to ring it. Marnie said. RING IT.')
+  if (beat(v, 'act4', 0)) {
+    // Before a single tp: dig the room out. No-op if Q65 already opened it.
+    excavateWorks(server, v)
+    runSeg(server, v.mark('works'), [
+      'season set mid_winter',
+      'time set 18000',
+      'weather rain',
+      'title @a times 20 100 30',
+      'title @a title {"text":"The Longest Night","color":"white"}',
+      'tp @e[tag=npc_bram,limit=1] ~0 ~1 ~2',
+      // Puddle is the fourth Ribbit and arrives here (docs/NPCS.md).
+      npc('ribbit_puddle', '~-4', '~1', '~6'),
+      'tp @e[tag=npc_pip,limit=1] ~0 ~1 ~4',
+      'tp @e[tag=npc_marnie,limit=1] ~-3 ~1 ~4',
+      'tp @e[tag=npc_oda,limit=1] ~3 ~1 ~4',
+      'tp @e[tag=npc_tobin,limit=1] ~-3 ~1 ~2',
+      'tp @e[tag=npc_nella,limit=1] ~-3 ~1 ~6',
+      'tp @e[tag=npc_halden,limit=1] ~3 ~1 ~6',
+      'tp @e[tag=npc_wisp,limit=1] ~0 ~1 ~6',
+      'tp @e[tag=npc_ribbit_reed,limit=1] ~2 ~1 ~6',
+      'tp @e[tag=npc_ribbit_sedge,limit=1] ~4 ~1 ~6',
+      'tp @e[tag=npc_ribbit_mudlark,limit=1] ~-2 ~1 ~6',
+      'playsound minecraft:block.bell.use master @a ~0 ~1 ~0 1 1.4'
+    ])
+    v.sayAll('Pip', 'I get to ring it. Marnie said. RING IT.')
+  }
 
   // Four seconds later, the instant. Bram pulls the lever: NPCs cannot
   // interact with blocks, so the lever is setblock and Bram is narration.
   v.delay(80, s => {
+    if (!beat(v, 'act4', 1)) return
     let works = v.mark('works')
     runSeg(s, works, [
+      // A wall lever needs a wall. The chamber is open air now, so the panel
+      // the lever hangs on is placed first or the lever pops off the next
+      // time anything updates the block beside it.
+      'setblock ~0 ~2 ~-1 minecraft:polished_andesite',
       'setblock ~0 ~2 ~0 minecraft:lever[face=wall,facing=south,powered=true]',
       'particle minecraft:cloud ~2 ~3 ~2 1 1 1 0.02 60 force @a',
       'playsound minecraft:block.beacon.activate master @a ~0 ~1 ~0 3 0.7',
       'playsound minecraft:block.conduit.activate master @a ~0 ~1 ~0 2 1'
     ])
 
-    // The world changes in one instant: every stored lamp post lights at once.
-    let lamps = v.lamps()
-    lamps.forEach(p => {
-      s.runCommandSilent('setblock ' + p[0] + ' ' + (p[1] + 1) + ' ' + p[2] + ' minecraft:lantern')
-      s.runCommandSilent('particle minecraft:end_rod ' + p[0] + ' ' + (p[1] + 2) + ' ' + p[2] + ' 0.2 0.2 0.2 0.01 8 force @a')
+    // The world changes: every stored lamp post lights, nearest the Works
+    // first, one post per tick, so from the doorway it reads as a wave going
+    // down the road instead of forty blocks changing in the same frame.
+    //
+    // Each stored coordinate IS the lamp (valley_checks.js stores the lamp,
+    // not the fence it stands on), so this sets the block in place — the old
+    // `p[1] + 1` dropped a plain lantern in the air one block above a
+    // candlelight lamp that had no lit state to begin with.
+    let lamps = v.lamps().slice()
+    lamps.sort((a, b) => lampSort(a, works) - lampSort(b, works))
+    lamps.forEach((p, i) => {
+      v.delay(i, srv => {
+        srv.runCommandSilent('setblock ' + p[0] + ' ' + p[1] + ' ' + p[2] + ' ' + LAMP_LIT)
+        srv.runCommandSilent('particle minecraft:end_rod ' + p[0] + ' ' + (p[1] + 1) + ' ' + p[2] + ' 0.2 0.2 0.2 0.01 8 force @a')
+        srv.runCommandSilent('playsound minecraft:block.copper.place master @a ' + p[0] + ' ' + p[1] + ' ' + p[2] + ' 0.6 1.6')
+      })
     })
     s.runCommandSilent('bossbar set valley:lamps value ' + Math.max(lamps.length, 39))
 
@@ -312,19 +716,30 @@ function finaleAct4(server, v) {
   // The turn, six seconds after the lever, the way Act III turns after the
   // Supper. Without this nothing sets spring until Q91 and the whole of Act V
   // — Nella's tomato, Marnie's walk round the square — plays in mid-winter.
+  // LAST BEAT.
   v.delay(200, s => {
+    if (!beat(v, 'act4', 2)) return
     runSeg(s, v.mark('works'), [
       'season set early_spring',
       'weather clear',
       'particle minecraft:falling_water ~0 ~5 ~0 8 3 8 0.01 160 force @a',
       'playsound minecraft:block.amethyst_block.chime master @a ~0 ~1 ~0 2 1.2'
     ])
+    // Backstop for the sweep. The one-post-per-tick wave above is scheduled on
+    // the in-memory queue, so a /stop two seconds after the lever would leave
+    // the far end of the road dark with beat 1 already latched. This is the
+    // same setblocks with no particles and no sound: by now they are either a
+    // no-op or the only thing that lit those posts.
+    v.lamps().forEach(p => {
+      s.runCommandSilent('setblock ' + p[0] + ' ' + p[1] + ' ' + p[2] + ' ' + LAMP_LIT)
+    })
     v.sayAll('Marnie', "Snow's off the ridge by morning. It always turns the night after the longest one.")
+    endAct(v, 'act4')
   })
 }
 
 function finaleAct5(server, v) {
-  runSeg(server, v.anchor(), [
+  if (beat(v, 'act5', 0)) runSeg(server, v.anchor(), [
     'season set early_spring',
     'time set noon',
     'weather clear',
@@ -383,10 +798,16 @@ function finaleAct5(server, v) {
     'If there is more than one set of footprints on my cellar stairs, then I was right to wait, and go and turn it on.'
   ]
   page.forEach((line, i) => {
-    v.delay(100 + i * 100, s => v.sayAll('Halden', line))
+    v.delay(100 + i * 100, s => {
+      if (!beat(v, 'act5', 1 + i)) return
+      v.sayAll('Halden', line)
+    })
   })
 
+  // LAST BEAT: the world border comes off here and nowhere else, so this is
+  // the thing act5 is latched on. Thirty seconds after the card is claimed.
   v.delay(100 + page.length * 100, s => {
+    if (!beat(v, 'act5', 1 + page.length)) return
     s.runCommandSilent('worldborder set 59999968')
     s.runCommandSilent('execute in minecraft:the_nether run worldborder set 59999968')
     s.runCommandSilent('tellraw @a ' + JSON.stringify({
@@ -394,6 +815,7 @@ function finaleAct5(server, v) {
       color: 'gold', italic: true
     }))
     v.addWorldStage('endless_seasons')
+    endAct(v, 'act5')
   })
 }
 
@@ -411,10 +833,61 @@ function finaleAct5(server, v) {
 //     offset from it and resolve() turns those into absolute coordinates.
 //   * `run` is for the two scenes that need runtime state (the lamp list).
 //   * an unknown key is a friendly message, never an exception (§P3).
-//   * scenes are NOT latched — a scene is a set change, and re-running one
-//     just re-places the same blocks. Only finales are once-per-world (§P7).
+//   * scenes are NOT latched by default — a scene is a set change, and
+//     re-running one just re-places the same blocks. Only finales are
+//     once-per-world (§P7). A scene that puts a TEMPLATE down sets
+//     `once: true`, because re-pasting a template over what the player has
+//     since built in it is destructive, not idempotent.
 // =============================================================================
 const SCENES = {
+
+  // Q8's reward — Marnie arrives at the door, Bram is down at the mill.
+  //
+  // Q12 ("Talk to Bram at the Broken Mill") consumes valley:token_bram; the
+  // token's only source is Bram's ON_INTERACTION action in
+  // data/valley/easy_npc/preset/bram.npc.snbt; and Bram's only import used to
+  // be inside finaleAct1, which runs from Q19's reward — six quests past the
+  // quest that needs him (Q19 <- Q17 <- Q16 <- Q14 <- Q13 <- Q12). Act I could
+  // not be completed by anybody. He is imported here instead, at the mill plot
+  // Q12's text sends the player to, and the mill race comes with him so Q16's
+  // "the race is cut" is true when Q16 says it.
+  //
+  // Latched: it places valley:mill_race, and Q16 puts two Water Wheels in it.
+  bram: {
+    origin: 'mill',
+    once: true,
+    cmds: ['execute positioned ~0 ~0 ~0 run function valley:act1/bram_arrives']
+  },
+
+  // Q8's other reward — the inn.
+  //
+  // Q8's payoff line is "Marnie moves in, the inn shell goes up at the Town
+  // Anchor" and Q18 puts a Counter, a Sink and an Oven "on the three marked
+  // spots along the inn's back wall". No inn was ever built: story-final.md
+  // P8 lists inn_shell among the required structures and it was never made,
+  // so Q18's three chalked spots existed on no wall in the world and the
+  // Hearth that Act IV puts out and Q60 relights was a campfire in a field.
+  //
+  // Latched: Q18 sets three blocks down inside it and Q70a makes three beds
+  // in it, and a second run would fill the room back in over both.
+  inn: {
+    origin: 'inn',
+    once: true,
+    cmds: ['execute positioned ~0 ~0 ~0 run function valley:act1/inn_shell']
+  },
+
+  // Q10's reward — the coop, built inside the pen the player has just fenced.
+  //
+  // cottage.mcfunction marks the pen out at home + [1..7, -1, -12..-6], so its
+  // interior centre is home + [4, -1, -9] and that is where this positions the
+  // nesting box. The reward used to be
+  // `execute positioned {x} {y} {z} run function valley:act1/nesting_box` —
+  // the CLAIMING PLAYER'S FEET — so Marnie's nesting box, her straw and her
+  // two lamps were built wherever the card happened to be claimed from.
+  coop: {
+    origin: 'home',
+    cmds: ['execute positioned ~4 ~-1 ~-9 run function valley:act1/nesting_box']
+  },
 
   // Q58 — the four firewood stacks. Wisp lights a lantern path down the
   // frozen river, which is the first thing that happens after the Hearth
@@ -423,14 +896,18 @@ const SCENES = {
     origin: 'anchor',
     who: ['Wisp', 'Warm inn. Warm soup. I light the way, you walk it. That is a fair trade.'],
     cmds: [
-      'setblock ~2 ~1 ~14 candlelight:lamp',
-      'setblock ~-2 ~1 ~20 candlelight:lamp',
-      'setblock ~2 ~1 ~26 candlelight:lamp',
-      'setblock ~-2 ~1 ~32 candlelight:lamp',
-      'setblock ~2 ~2 ~14 minecraft:lantern[hanging=false]',
-      'setblock ~-2 ~2 ~20 minecraft:lantern[hanging=false]',
-      'setblock ~2 ~2 ~26 minecraft:lantern[hanging=false]',
-      'setblock ~-2 ~2 ~32 minecraft:lantern[hanging=false]',
+      // Four posts down the frozen river, lit on the spot — this is Wisp
+      // lighting the way, so they do not wait for the lever. They are not on
+      // any LAMPS_* route, so they never enter the count. The lanterns that
+      // used to sit at ~2 are gone: ~2 is where the lamp itself now goes.
+      'setblock ~2 ~1 ~14 ' + POST,
+      'setblock ~2 ~2 ~14 ' + LAMP_LIT,
+      'setblock ~-2 ~1 ~20 ' + POST,
+      'setblock ~-2 ~2 ~20 ' + LAMP_LIT,
+      'setblock ~2 ~1 ~26 ' + POST,
+      'setblock ~2 ~2 ~26 ' + LAMP_LIT,
+      'setblock ~-2 ~1 ~32 ' + POST,
+      'setblock ~-2 ~2 ~32 ' + LAMP_LIT,
       'particle minecraft:end_rod ~0 ~3 ~24 1 1 8 0.01 80 force @a',
       'playsound minecraft:block.amethyst_block.chime master @a ~0 ~1 ~0 2 1.2'
     ]
@@ -448,7 +925,8 @@ const SCENES = {
       'easy_npc preset import data valley:easy_npc/preset/ribbit_mudlark.npc.snbt ~-12 ~1 ~4',
       'easy_npc preset import data valley:easy_npc/preset/ribbit_puddle.npc.snbt ~-12 ~1 ~6',
       'setblock ~-11 ~1 ~5 minecraft:campfire[lit=true]',
-      'setblock ~-13 ~1 ~5 candlelight:lamp',
+      'setblock ~-13 ~1 ~5 ' + POST,
+      'setblock ~-13 ~2 ~5 ' + LAMP_LIT,
       // Eight named + four Ribbits = twelve. The last three are the Act V
       // arrivals, and the bar does not count the player.
       'bossbar set valley:folk value 12',
@@ -482,8 +960,9 @@ const SCENES = {
       'fill ~-4 ~4 ~-3 ~4 ~4 ~3 minecraft:oak_fence',
       // the marked bench for Q64's eight planters
       'fill ~-3 ~0 ~0 ~3 ~0 ~0 minecraft:oak_slab[type=top]',
-      'setblock ~-4 ~1 ~0 candlelight:lamp',
-      'setblock ~4 ~1 ~0 candlelight:lamp'
+      // Set INTO the two side walls, so no post here — the wall is the post.
+      'setblock ~-4 ~1 ~0 ' + LAMP_LIT,
+      'setblock ~4 ~1 ~0 ' + LAMP_LIT
     ],
     also: {
       origin: 'inn',
@@ -537,9 +1016,13 @@ const SCENES = {
   // in the stable (the quest's reward line, made literally true).
   q65: {
     origin: 'works',
+    // The chamber itself. This used to be a `fill ... air replace
+    // minecraft:cobblestone` in the cmds below, which cleared nothing, because
+    // the Works is six blocks down in natural stone and cobblestone does not
+    // generate. Everything below this line decorates a room that now exists.
+    pre: excavateWorks,
     who: ['Tobin', 'Forty blocks of fallen adit, I paced it twice, and behind forty blocks is the entire works, and I have not slept.'],
     cmds: [
-      'fill ~-5 ~0 ~-5 ~5 ~4 ~5 minecraft:air replace minecraft:cobblestone',
       'setblock ~-4 ~3 ~-4 minecraft:lantern[hanging=true]',
       'setblock ~4 ~3 ~-4 minecraft:lantern[hanging=true]',
       'setblock ~-4 ~3 ~4 minecraft:lantern[hanging=true]',
@@ -557,6 +1040,9 @@ const SCENES = {
   // Q66 — the grid. Duct from the mill to the Works, two cells at this end.
   q66: {
     origin: 'works',
+    // Q66's cells and duct sit at works + [~±2, ~0, ~-4]; if a player somehow
+    // reaches the grid before the Works is opened, they go in rock too.
+    pre: excavateWorks,
     who: ['Bram', "Mill makes it, Works needs it, duct in between. That's the whole job."],
     cmds: [
       'setblock ~-2 ~0 ~-4 thermal:energy_cell',
@@ -574,15 +1060,21 @@ const SCENES = {
     origin: 'inn',
     who: ['Marnie', 'Three empty houses, three beds, three blankets. People arrive in spring, and beds should be made before they get here.'],
     cmds: [
-      'setblock ~4 ~0 ~2 minecraft:white_bed[facing=south,part=foot]',
-      'setblock ~4 ~0 ~3 minecraft:white_bed[facing=south,part=head]',
-      'setblock ~6 ~0 ~2 minecraft:white_bed[facing=south,part=foot]',
-      'setblock ~6 ~0 ~3 minecraft:white_bed[facing=south,part=head]',
-      'setblock ~8 ~0 ~2 minecraft:white_bed[facing=south,part=foot]',
-      'setblock ~8 ~0 ~3 minecraft:white_bed[facing=south,part=head]',
-      'setblock ~5 ~0 ~2 minecraft:white_carpet',
-      'setblock ~7 ~0 ~2 minecraft:light_gray_carpet',
-      'setblock ~9 ~0 ~2 minecraft:brown_carpet',
+      // Along the inn's west wall. These used to run from inn+4 to inn+9 on
+      // x, i.e. ten blocks east of the Hearth — which was fine while the inn
+      // was an imaginary building and put all three beds outside the real one
+      // the moment `/valley scene inn` built it. The room is 7x7 inside; the
+      // beds are the west row, the kitchen is the south wall (Q18) and the
+      // fire is in the middle.
+      'setblock ~-3 ~0 ~-3 minecraft:white_bed[facing=south,part=foot]',
+      'setblock ~-3 ~0 ~-2 minecraft:white_bed[facing=south,part=head]',
+      'setblock ~-3 ~0 ~-1 minecraft:white_bed[facing=south,part=foot]',
+      'setblock ~-3 ~0 ~0 minecraft:white_bed[facing=south,part=head]',
+      'setblock ~-3 ~0 ~1 minecraft:white_bed[facing=south,part=foot]',
+      'setblock ~-3 ~0 ~2 minecraft:white_bed[facing=south,part=head]',
+      'setblock ~-2 ~0 ~-3 minecraft:white_carpet',
+      'setblock ~-2 ~0 ~-1 minecraft:light_gray_carpet',
+      'setblock ~-2 ~0 ~1 minecraft:brown_carpet',
       'playsound minecraft:block.wool.place master @a ~0 ~1 ~0 2 1'
     ]
   },
@@ -635,8 +1127,10 @@ const SCENES = {
       cmds: [
         'fill ~-2 ~0 ~-2 ~2 ~0 ~2 minecraft:water[level=0]',
         'setblock ~0 ~-1 ~0 minecraft:magma_block',
-        'setblock ~-3 ~1 ~-3 candlelight:lamp',
-        'setblock ~3 ~1 ~3 candlelight:lamp',
+        'setblock ~-3 ~1 ~-3 ' + POST,
+        'setblock ~-3 ~2 ~-3 ' + LAMP_LIT,
+        'setblock ~3 ~1 ~3 ' + POST,
+        'setblock ~3 ~2 ~3 ' + LAMP_LIT,
         'particle minecraft:cloud ~0 ~2 ~0 2 1 2 0.02 200 force @a',
         'playsound minecraft:block.bubble_column.upwards_ambient master @a ~0 ~1 ~0 2 0.8'
       ]
@@ -648,10 +1142,13 @@ const SCENES = {
     origin: 'inn',
     who: ['Bram', "The mill needs me at midnight in January, is the thing. ... Fine. One cocoa."],
     cmds: [
-      'tp @e[tag=npc_bram,limit=1] ~2 ~1 ~1',
-      'setblock ~2 ~1 ~2 handcrafted:oak_chair',
-      'setblock ~1 ~1 ~1 handcrafted:oak_table',
-      'particle minecraft:campfire_cosy_smoke ~2 ~2 ~1 0.2 0.4 0.2 0.01 30 force @a',
+      // ~1 was a block of air above the inn's floor: the chair and the table
+      // hung in mid-air and Bram was dropped through them. The floor is at
+      // inn-1 (the Hearth at inn+0 stands on it), so furniture is inn+0.
+      'tp @e[tag=npc_bram,limit=1] ~2 ~0 ~1',
+      'setblock ~2 ~0 ~2 handcrafted:oak_chair',
+      'setblock ~1 ~0 ~1 handcrafted:oak_table',
+      'particle minecraft:campfire_cosy_smoke ~2 ~1 ~1 0.2 0.4 0.2 0.01 30 force @a',
       'playsound minecraft:entity.villager.yes master @a ~0 ~1 ~0 1 0.8'
     ]
   },
@@ -661,12 +1158,16 @@ const SCENES = {
   // command list: the coordinates only exist at runtime.
   q74: {
     origin: 'anchor',
+    // `home` asks runScene to forceload the homestead too: the bare fortieth
+    // post goes down at home + HOME_PORCH, which is nowhere near the anchor.
+    home: true,
     who: ['Josie', 'Forty posts, mill to square to lake. I counted them on my fingers before I could count to forty.'],
     run: function (server, v) {
       let lamps = v.lamps()
       lamps.forEach(p => {
+        // p IS the lamp, so the spark sits one block over its head.
         server.runCommandSilent('particle minecraft:end_rod ' +
-          p[0] + ' ' + (p[1] + 2) + ' ' + p[2] + ' 0.2 0.4 0.2 0.01 6 force @a')
+          p[0] + ' ' + (p[1] + 1) + ' ' + p[2] + ' 0.2 0.4 0.2 0.01 6 force @a')
       })
       server.runCommandSilent('bossbar set valley:lamps value ' + Math.min(Math.max(lamps.length, 39), 40))
       let home = v.home()
@@ -680,6 +1181,17 @@ const SCENES = {
       server.runCommandSilent('playsound minecraft:block.chain.place master @a ~ ~ ~ 1 1')
     }
   }
+}
+
+// A scene's origin. 'anchor' is the Town Anchor, 'home' is the Homestead
+// waystone on the Kettle hearthstone (Q2) — the only two fixed points that are
+// not anchor offsets — and anything else is a key in VALLEY.OFF. 'home' exists
+// so `coop` can build inside the pen cottage.mcfunction marked out behind the
+// house without measuring from the claiming player's feet.
+function originPos(v, name) {
+  if (name === 'anchor') return v.anchor()
+  if (name === 'home') return v.home()
+  return v.mark(name)
 }
 
 function runScene(source, key) {
@@ -698,15 +1210,41 @@ function runScene(source, key) {
     return 0
   }
 
+  if (scene.once && !v.once('scene_' + key)) {
+    console.info('[valley] scene ' + key + ' already played in this world')
+    return 1
+  }
+
   let server = source.server
+
+  // Same trap as a finale, and worse for `bram`: a scene reward claimed from
+  // anywhere the origin's chunk is not loaded refuses every setblock, logs
+  // "scene played", and never builds. `bram` carries once:true and is the only
+  // thing that puts Bram at the mill, so a claim from 200 blocks away used to
+  // make Q12 unwinnable for good. Hold the chunks for six seconds.
+  let sr = [v.anchor()]
+  let addMark = name => {
+    if (!name) return
+    let p = originPos(v, name)
+    if (p) sr.push(p)
+  }
+  addMark(scene.origin)
+  if (scene.also) addMark(scene.also.origin)
+  if (scene.home) { let h = v.home(); if (h) sr.push(h) }
+  sr = sr.filter(p => p)
+  forceload(server, sr, 'add')
+  v.delay(120, s => forceload(s, sr, 'remove'))
+
   try {
+    // A scene may need the ground prepared before its own commands land.
+    if (scene.pre) scene.pre(server, v)
     if (scene.cmds) {
-      let origin = scene.origin === 'anchor' ? v.anchor() : v.mark(scene.origin)
+      let origin = originPos(v, scene.origin)
       if (origin) runSeg(server, origin, scene.cmds)
       else console.warn('[valley] scene ' + key + ': no mark "' + scene.origin + '"')
     }
     if (scene.also) {
-      let o2 = scene.also.origin === 'anchor' ? v.anchor() : v.mark(scene.also.origin)
+      let o2 = originPos(v, scene.also.origin)
       if (o2) runSeg(server, o2, scene.also.cmds)
     }
     if (scene.run) scene.run(server, v)
@@ -749,7 +1287,7 @@ function srcPlayer(source) {
 // -----------------------------------------------------------------------------
 // The P7 guard. One entry point, one flag, one refusal message.
 // -----------------------------------------------------------------------------
-function runFinale(source, act) {
+function runFinale(source, act, force) {
   let v = global.valley
   let server = source.server
   if (!v) { msg(source, Text.red('[valley] core script not loaded.')); return 0 }
@@ -759,13 +1297,34 @@ function runFinale(source, act) {
       'No Town Anchor is set. Place the Surveyor\'s Stake first (Q7), then run this again.'))
     return 0
   }
-  if (v.finaleDone(act)) {
+  if (v.finaleDone(act) && !force) {
     msg(source, Text.gray('[valley] ' + act + ' finale has already run in this world.'))
+    msg(source, Text.gray('If a payoff never landed, /valley finale ' + act +
+      ' force replays only the beats that never fired.'))
     return 1
   }
-  v.markFinale(act)
-  console.info('[valley] running finale ' + act)
-  FINALES[act](server, v)
+
+  // The act is NOT latched here. See the Beats block above: markFinale lives
+  // in the last beat of each chain, so a reload inside a delay window leaves
+  // the act re-runnable and the re-run picks up where the queue was lost.
+  //
+  // Forceload first. Every command in this file runs as the server, from
+  // 0 0 0, so a chunk nobody is standing in refuses all of them and runSeg
+  // swallows the whole act into console warnings.
+  let regions = forceHold(server, v, act)
+  console.info('[valley] running finale ' + act + (force ? ' (forced)' : '') +
+               ', ' + regions.length + ' region(s) forceloaded')
+  try {
+    FINALES[act](server, v)
+  } catch (err) {
+    console.error('[valley] finale ' + act + ' threw: ' + err)
+    msg(source, Text.gray('[valley] ' + act + ' hit a snag; see the log. ' +
+      '/valley finale ' + act + ' force picks it up again.'))
+  }
+  // Belt and braces. endAct releases as soon as the chain finishes; this
+  // catches a forced re-run whose beats were all done already, and it is a
+  // no-op when endAct got there first.
+  v.delay(FINALE_RELEASE[act] || 60, s => forceRelease(s, act))
   return 1
 }
 
@@ -781,9 +1340,15 @@ ServerEvents.commandRegistry(event => {
     Commands.literal('valley')
       .requires(src => src.hasPermission(0))
 
-      // --- /valley finale act1 .. act5 -----------------------------------
+      // --- /valley finale act1 .. act5 [force] ----------------------------
+      // `force` is the backstop for an act latched done by an older build, or
+      // by a crash between markFinale and the payoff: it skips the done check
+      // and lets each beat's own latch decide what still has to run.
       .then(FIN_ACTS.reduce((node, act) =>
-        node.then(Commands.literal(act).executes(ctx => runFinale(ctx.source, act))),
+        node.then(Commands.literal(act)
+          .executes(ctx => runFinale(ctx.source, act, false))
+          .then(Commands.literal('force')
+            .executes(ctx => runFinale(ctx.source, act, true)))),
         Commands.literal('finale').requires(src => src.hasPermission(2))))
 
       // --- /valley check power | turbine ---------------------------------
@@ -883,21 +1448,61 @@ ServerEvents.commandRegistry(event => {
 // /valley check <x> — completes the quest if the player is actually at the
 // Works, and prints the number the quest asked for either way.
 // -----------------------------------------------------------------------------
+// The block each check has to be looking at, and its name in the quest text.
+// Q70's rewards hand the player biggerreactors:turbine_terminal, and Q70's own
+// task consumes a biggerreactors:reactor_terminal into the vessel, so both of
+// these are standing in the Works before the quest that checks them opens.
+const CHECK_BLOCK = {
+  q71: ['biggerreactors:turbine_terminal', 'Turbine Terminal'],
+  q83: ['biggerreactors:reactor_terminal', 'Reactor Terminal']
+}
+
 function checkAt(source, key, ok, hint) {
   let v = global.valley
   let player = srcPlayer(source)
   if (!v || !player) { msg(source, Text.red('Run this as a player, standing at the Works.')); return 0 }
   let works = v.mark('works')
   if (!works) { msg(source, Text.red('No Town Anchor set, so the Works has no position yet.')); return 0 }
+  // 16, not 48. `check` sits under the root's hasPermission(0) — unlike
+  // `finale` and `standing`, which both demand 2 — because Q71's own text
+  // tells the player to type it. That is fine; a 96-block-wide box around town
+  // in which typing one line finishes the reactor is not.
   let d = Math.max(Math.abs(player.x - works[0]), Math.abs(player.z - works[2]))
-  if (d > 48) {
+  if (d > 16) {
     msg(source, Text.gray('Stand at the Works and run this again.'))
     msg(source, Text.gray(hint))
     return 0
   }
+  // §12.3's honour system is "the player reads the number off the terminal",
+  // and both quest cards say so in as many words: "on the Turbine Terminal
+  // that came with it", "at the reactor terminal". So the terminal has to be
+  // in the crosshair. Without this, q71 handed out stage reactor_ready (which
+  // opens q72, q73 and q75) and q83 handed out big_power (the only gate on
+  // the quarry) with no machine built at all.
+  let want = CHECK_BLOCK[key]
+  if (want) {
+    let look = null
+    let traced = true
+    try {
+      look = player.rayTrace(6)
+    } catch (err) {
+      // A clean miss refuses. A BROKEN BINDING does not: an unwinnable climax
+      // is worse than a loophole in a two-player pack, so if rayTrace itself
+      // ever goes away this falls back to the 16-block check and says so in
+      // the log rather than locking Q71 and Q83 shut.
+      traced = false
+      console.error('[valley] rayTrace unavailable, /valley check ' + key +
+                    ' fell back to distance only: ' + err)
+    }
+    if (traced && (!look || !look.block || String(look.block.id) !== want[0])) {
+      msg(source, Text.gray('Look at the ' + want[1] + ' and run this again.'))
+      msg(source, Text.gray(hint))
+      return 0
+    }
+  }
   msg(source, Text.gold(ok))
   v.complete(player, key)
-  v.once(key)
+  v.once(key, v.teamId(player))
   return 1
 }
 

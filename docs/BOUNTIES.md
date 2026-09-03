@@ -28,16 +28,16 @@ Per `story/story-final.md` §12 (correction C8): **FTB Quests cannot see a Bount
 
 ## The two lanes
 
-- **`cozy`** — Marnie/Oda-flavoured chores: crops, wool, fish, cooked meals. Pays scrip, seeds, decor (candles, sconces, shelving, plushies).
-- **`tech`** — ore/alloy/machine-part chores: ingots, dusts, geolosys ore samples, Thermal gears/servos. Pays scrip, small Thermal/AE2 parts, decor.
+- **`cozy`** — Marnie/Oda-flavoured chores: crops, wool, fish, cooked meals. Pays seeds, decor (candles, sconces, shelving, plushies), emeralds, honey.
+- **`tech`** — ore/alloy/machine-part chores: ingots, dusts, geolosys ore samples, Thermal gears/servos. Pays small Thermal/AE2 parts, redstone, decor.
 
-Both decrees pay **Valley Scrip (`valley:scrip`) as the dominant reward** — every reward pool has four scrip entries (one per rarity tier: common/uncommon/rare/epic) each carrying a `weightMult` of 1.8–2.5, well above every other entry (0.35–1.0), so Bountiful's weighted RNG picks scrip far more often than any single decor/part entry. That's deliberate: per the story doc (§10, §"Income"), scrip is the whole tech-skip economy — it's what Oda's counter sells Andesite Casings, Redstone Servo crates, Machine Frames, reactor casing bundles and eventually the Works Deed for. A repeatable board that mostly pays something else would break that loop.
+**Neither decree pays Valley Scrip, and that is the point.** Both pools used to carry four `valley:scrip` entries each (one per rarity tier) at `weightMult` 1.8–2.5, well above every other entry — and the board is repeatable forever and craftable for one copper ingot. Together with Oda's standing order, that made Scrip infinitely printable, and the 350 Scrip Act V asks for (Q85 = 120, Q86 = 80, the Works Deed = 150) stopped being a gate at all. Scrip is now **hand-authored only**: quest rewards, festival baskets, arc closures, and one 8-Scrip standing order. The pools pay goods.
 
-Scrip payout scales with rarity: common notices pay ~3-8 scrip, uncommon ~8-16, rare ~15-28, epic jackpots ~30-60. That's calibrated against the story's stated hand-authored scrip income (§"Income": festival baskets, arc closures, Q53 = 60, etc. all sit in the same 15-200 range) so the repeatable board feels like a smaller, steady trickle of the same currency, not a separate economy.
+What the board is *for*, then, is the thing Scrip cannot buy: a reason to fish, farm, shear and smelt after the story stops handing out quests, paid in the decor, seeds and parts that make the valley look lived-in. If a future edit wants a repeatable Scrip trickle, it has to come with a sink of the same size — an uncapped faucet on a hand-authored currency is what this removal fixed.
 
 ## `valley:bounty_receipt`
 
-Both reward pools include a `valley:bounty_receipt` entry (low `unitWorth`, `weightMult` 1.0, so it shows up reasonably often but never crowds out scrip). This exists purely so a future KubeJS `InventoryChanged` or crafting-style listener can count "how many bounties has this team turned in" for an Endless Seasons stat/advancement — the same C8 fix noted in the story doc, since Bountiful completion itself is invisible to everything else. It's already appended to `story/quests/_custom_ids.txt`; register the actual item in `valley_items.js` alongside the rest of the `valley:` namespace before shipping.
+Both reward pools include a `valley:bounty_receipt` entry (low `unitWorth`, `weightMult` 1.0, so it shows up reasonably often without crowding out the goods). This exists purely so a future KubeJS `InventoryChanged` or crafting-style listener can count "how many bounties has this team turned in" for an Endless Seasons stat/advancement — the same C8 fix noted in the story doc, since Bountiful completion itself is invisible to everything else. It's already appended to `story/quests/_custom_ids.txt`; register the actual item in `valley_items.js` alongside the rest of the `valley:` namespace before shipping.
 
 ## The Bountiful schema, as read from the mod's own data
 

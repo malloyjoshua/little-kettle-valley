@@ -6,8 +6,15 @@
 # a deterministic UUID, so `preset import data` updates in place (docs/NPCS.md).
 
 # --- a spot to stand on, just outside the south door -----------------------
-fill ~-2 ~0 ~6 ~2 ~0 ~8 minecraft:dirt_path
-setblock ~-2 ~1 ~7 candlelight:lamp
+# COBBLESTONE, not dirt_path. Q9 sends the player to "the 3x9 patch behind the
+# house - every tile is marked in path blocks", and cottage.mcfunction now
+# marks exactly 27 dirt_path tiles north of the house. A 5x3 dirt_path pad
+# south of the DOOR was the first path-block rectangle anyone would find, on
+# the wrong side of the house and 15 tiles instead of 27. There is now exactly
+# one patch of path blocks on this farm and it is the one Q9 means.
+fill ~-2 ~0 ~6 ~2 ~0 ~8 minecraft:cobblestone
+setblock ~-2 ~1 ~7 minecraft:oak_fence
+setblock ~-2 ~2 ~7 createdeco:yellow_copper_lamp[facing=up,inverted=true,lit=true]
 
 # --- Marnie herself --------------------------------------------------------
 easy_npc preset import data valley:easy_npc/preset/marnie.npc.snbt ~0 ~1 ~7

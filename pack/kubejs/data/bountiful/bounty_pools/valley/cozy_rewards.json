@@ -1,41 +1,6 @@
 {
 	"content": {
 
-		"cozy_rew_scrip_common": {
-			"type": "item",
-			"content": "valley:scrip",
-			"amount": { "min": 3, "max": 8 },
-			"unitWorth": 40,
-			"weightMult": 2.5
-		},
-
-		"cozy_rew_scrip_uncommon": {
-			"type": "item",
-			"rarity": "UNCOMMON",
-			"content": "valley:scrip",
-			"amount": { "min": 8, "max": 16 },
-			"unitWorth": 45,
-			"weightMult": 2.2
-		},
-
-		"cozy_rew_scrip_rare": {
-			"type": "item",
-			"rarity": "RARE",
-			"content": "valley:scrip",
-			"amount": { "min": 15, "max": 28 },
-			"unitWorth": 55,
-			"weightMult": 2.0
-		},
-
-		"cozy_rew_scrip_epic": {
-			"type": "item",
-			"rarity": "EPIC",
-			"content": "valley:scrip",
-			"amount": { "min": 30, "max": 60 },
-			"unitWorth": 65,
-			"weightMult": 1.8
-		},
-
 		"cozy_rew_wheat_seeds": {
 			"type": "item",
 			"content": "minecraft:wheat_seeds",

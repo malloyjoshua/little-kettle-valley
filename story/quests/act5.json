@@ -41,10 +41,12 @@
         { "type": "item", "item": "minecraft:lantern", "count": 6 },
         { "type": "item", "item": "handcrafted:oak_bench", "count": 4 },
         { "type": "item", "item": "supplementaries:planter", "count": 4 },
+        { "type": "item", "item": "ae2:quartz_glass", "count": 16 },
+        { "type": "item", "item": "minecraft:glowstone_dust", "count": 16 },
         { "type": "stage", "stage": "year_two" },
         { "type": "command", "command": "/valley scene q76", "elevate": true, "silent": true },
         { "type": "command", "command": "/tellraw @a [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"The noticeboard's rewritten. Year two, and it's a longer list than last spring.\",\"color\":\"white\",\"italic\":true}]" },
-        { "type": "toast", "title": "Year two", "description": "Next: glaze Nella's cold frame with 16 Tinted Glass — and the square's thirty marked copper tiles, from the packet in this payout." }
+        { "type": "toast", "title": "Year two", "description": "Next: glaze Nella's cold frame with 16 Vibrant Quartz Glass — the quartz glass and the glowstone are in this payout — and the square's thirty marked copper tiles." }
       ]
     },
     {
@@ -55,7 +57,7 @@
       "description": [
         "Nella: \"Glass, and I grew a tomato before the snow was off the ridge. I'm not making a speech about it.\"",
         "",
-        "Glaze Nella's cold frame with 16 panes of greenhouse glass — in this valley that is Tinted Glass: two amethyst shards, one glass and one Cyanite Ingot makes two, so 16 shards and 8 cyanite. Cyanite comes out of the reactor; the amethyst is the geode the Works waystone stands over. Then grow and hold one Tomato, one Strawberry, one Bell Pepper and one Corn at the same time.",
+        "Glaze Nella's cold frame with 16 panes of greenhouse glass — in this valley that is Vibrant Quartz Glass: 2 glowstone dust, 2 Quartz Glass and 1 Cyanite Ingot makes 2 panes, so 8 crafts for the 16. The glass and the glowstone came with Marnie's walk round the square; the cyanite comes out of the reactor. It glows, so the frame lights itself and nothing under it needs a lantern. Then grow and hold one Tomato, one Strawberry, one Bell Pepper and one Corn at the same time.",
         "",
         "Nella takes the gardener's job and her chain closes. Marnie eats the first tomato standing in the doorway and says nothing about it."
       ],
@@ -63,7 +65,7 @@
       "shape": "circle",
       "size": 1.25,
       "tasks": [
-        { "type": "checkmark", "title": "Cold frame glazed with 16 Tinted Glass" },
+        { "type": "checkmark", "title": "Cold frame glazed with 16 Vibrant Quartz Glass" },
         { "type": "item", "item": "thermal:tomato", "count": 1 },
         { "type": "item", "item": "thermal:strawberry", "count": 1 },
         { "type": "item", "item": "thermal:bell_pepper", "count": 1 },

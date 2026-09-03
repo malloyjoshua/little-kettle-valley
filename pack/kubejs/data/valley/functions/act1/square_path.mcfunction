@@ -20,8 +20,16 @@ fill ~-2 ~0 ~4 ~-2 ~0 ~20 minecraft:cobblestone
 fill ~2 ~0 ~4 ~2 ~0 ~20 minecraft:cobblestone
 
 # --- the first two lamp posts. 2 of 40. ------------------------------------
-setblock ~-2 ~1 ~8 candlelight:lamp
-setblock ~2 ~1 ~16 candlelight:lamp
+# A post is oak_fence at ~1 with the lamp on top at ~2, and it goes up LIT:
+# with the four the Act I finale sets on the square that is the "six lamps
+# burning" the quest text promises. The lamp is createdeco:yellow_copper_lamp
+# with inverted=true, because CageLampBlock#neighborChanged recomputes `lit`
+# from `inverted XOR redstone` and would put a plain lit=true straight back
+# out. valley_core.js LAMPS_Q07 records these two at the LAMP's y (~2).
+setblock ~-2 ~1 ~8 minecraft:oak_fence
+setblock ~-2 ~2 ~8 createdeco:yellow_copper_lamp[facing=up,inverted=true,lit=true]
+setblock ~2 ~1 ~16 minecraft:oak_fence
+setblock ~2 ~2 ~16 createdeco:yellow_copper_lamp[facing=up,inverted=true,lit=true]
 
 # --- a marker at the head of the road --------------------------------------
 setblock ~-2 ~1 ~2 minecraft:oak_fence

@@ -4,7 +4,7 @@
     "title": "Oda's Counter",
     "subtitle": [
       "The Valley Scrip shop. Open from the moment the store reopens.",
-      "Cozy work pays Scrip; Scrip deletes tech grind. Every line restocks.",
+      "Cozy work pays Scrip; Scrip deletes tech grind. Every buy line restocks.",
       "Stock arrives in tiers, and the tiers arrive on the rail line."
     ],
     "icon": "valley:scrip",
@@ -15,14 +15,14 @@
     {
       "key": "oda_open",
       "title": "Read Oda's Board at the Counter",
-      "subtitle": "Scrip only. Every line restocks.",
+      "subtitle": "Scrip only. Every buy line restocks.",
       "icon": "valley:scrip",
       "description": [
         "Oda: \"Store's open. Shelves are thin and my ledger is thinner, but they're open. Cash is Scrip. I don't barter and I don't round up.\"",
         "",
-        "Scrip comes from deliveries, festival baskets, closing a neighbour's story — and my standing order, which is twenty-four wheat for eight Scrip and always will be. Nothing else pays it and nothing else spends it.",
+        "Scrip comes from deliveries, festival baskets and closing a neighbour's story. My standing order pays eight Scrip for twenty-four wheat, once, and then that page is closed. Nothing else pays it and nothing else spends it.",
         "",
-        "Every line below restocks. Buy a line as many times as you can pay for it."
+        "Every buy line below restocks. Buy a line as many times as you can pay for it."
       ],
       "deps": ["q19"],
       "shape": "hexagon",
@@ -34,7 +34,7 @@
         { "type": "item", "item": "valley:catalogue", "count": 1 },
         { "type": "item", "item": "valley:scrip", "count": 10 },
         { "type": "command", "command": "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"yellow\"},{\"text\":\"Ten Scrip, on the house. That is the only time those three words happen in this store.\",\"color\":\"white\",\"italic\":true}]" },
-        { "type": "toast", "title": "Oda's Counter is open", "description": "Scrip only. Every line restocks. Cheap tech first, decor when the rail comes in." }
+        { "type": "toast", "title": "Oda's Counter is open", "description": "Scrip only. Every buy line restocks. Cheap tech first, decor when the rail comes in." }
       ],
       "x": 0.0,
       "y": 0.0
@@ -42,17 +42,16 @@
     {
       "key": "oda_standing_order",
       "title": "Fill a Standing Order — 24 Wheat for 8 Scrip",
-      "subtitle": "8 Scrip. Restocks.",
+      "subtitle": "8 Scrip. Once.",
       "icon": "minecraft:wheat",
       "description": [
-        "Oda: \"A standing order is not a bounty. It is the same twenty-four sheaves, the same eight Scrip, every week, forever, and I never have to think about it.\"",
+        "Oda: \"One standing order, filled once. After that the wheat goes on my shelf and the Scrip comes out of your work, not my ledger.\"",
         "",
-        "Twenty-four wheat across the counter, eight Scrip back. It is the floor under every other price on this board."
+        "Twenty-four wheat across the counter, eight Scrip back, one time. Every Scrip after this comes from deliveries, festival baskets and closing a neighbour's story."
       ],
       "deps": ["oda_open"],
       "shape": "square",
       "size": 1.0,
-      "can_repeat": true,
       "hide_details_until_startable": false,
       "tasks": [
         { "type": "item", "item": "minecraft:wheat", "count": 24, "consume": true }
@@ -213,7 +212,7 @@
       "rewards": [
         { "type": "item", "item": "minecraft:lantern", "count": 8 },
         { "type": "item", "item": "supplementaries:candle_holder", "count": 8 },
-        { "type": "item", "item": "candlelight:lamp", "count": 4 }
+        { "type": "item", "item": "createdeco:yellow_copper_lamp", "count": 4 }
       ],
       "x": 3.0,
       "y": 4.38

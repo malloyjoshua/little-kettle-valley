@@ -6,11 +6,13 @@
 // "be at / place / sleep / dig / keep N animals" gate is a CHECKMARK task
 // completed by a listener calling /ftbquests change_progress.
 //
-// Every check in this file:
-//   * is latched once per world in server.persistentData, and
-//   * removes itself from the poll list the moment it fires.
-// Event-driven checks (block placed, item used) cost nothing at all. The poll
-// runs once every 20 ticks and, once the pack is finished, has an empty list.
+// Every check in this file is latched once per TEAM in server.persistentData.
+// It used to be once per WORLD, and the check then removed itself from the poll
+// list on the first fire — which meant the first party to reach a quest turned
+// the check off for everybody, and a second party was hard-stuck from Q2 on.
+// Nothing is spliced out of POLLS any more; the per-team latch is the guard,
+// and the poll loop skips a check for any player whose team has already
+// satisfied it, so a finished pack still costs one flag read per check.
 //
 // Quest keys follow the naming contract: Q7 -> "q07", Q74 -> "q74".
 // =============================================================================
@@ -30,14 +32,11 @@ function poll(key, need) { POLLS.push({ key: key, need: need }) }
 
 function fire(player, key) {
   let v = V()
-  // Drop it from the poll list first, so an already-latched check can never
-  // sit in the list re-testing forever after a /reload.
-  for (let i = POLLS.length - 1; i >= 0; i--) {
-    if (POLLS[i].key === key) POLLS.splice(i, 1)
-  }
-  if (!v.once(key)) return
+  let team = v.teamId(player)
+  // Per TEAM. The check stays in POLLS for everyone else — see the header.
+  if (!v.once(key, team)) return
   v.complete(player, key)
-  console.info('[valley] check satisfied: ' + key)
+  console.info('[valley] check satisfied: ' + key + ' (team ' + team + ')')
 }
 
 // =============================================================================
@@ -50,17 +49,56 @@ BlockEvents.placed(event => {
   let id = String(b.id)
   let player = event.entity
   if (!player || !player.isPlayer()) return
+  let team = v.teamId(player)
 
   // ---------------------------------------------------------------------
   // Q2 — "Put the Waystone on the Hearthstone."
-  // The FIRST waystone placed in the world is Home. That position becomes
-  // the reference for Q4, Q5, Q10, Q25, Q55 and Q90.
+  // Home is the waystone that lands ON the Kettle ruin's hearthstone — never
+  // "the first waystone anywhere in the world", which is what this was and
+  // which let a crafted waystone dropped at spawn become the reference point
+  // for Q4, Q5, Q10, Q25, Q55 and Q90.
   // ---------------------------------------------------------------------
-  if (id === 'waystones:waystone' && !v.isDone('q02')) {
-    v.setHome(b.x, b.y, b.z)
+  if (id === 'waystones:waystone' && !v.isDone('q02', team)) {
+    // Where the ruin is known, the waystone has to land ON the hearthstone —
+    // that is the whole instruction, and accepting it anywhere left the ruin
+    // unvisited and the cellar under open field. Off the mark, she is told
+    // where the mark is instead of being silently failed.
+    let ruin = v.ruin()
+    if (ruin && !nearRuinHearth(b, ruin)) {
+      v.say(player, 'Josie', 'Not there. The flat grey hearthstone by the chimney, at ' +
+        ruin[0] + ' ' + ruin[1] + ' ' + ruin[2] + '.')
+      return
+    }
+    // placeRuin() is wrapped in a try/catch, so valley_ruin CAN be missing —
+    // and then the gate above is skipped and this waystone silently becomes
+    // Home wherever it is. Accept it (refusing would hard-stop the pack at Q2)
+    // but never do it silently: the op has to know the cottage, the cellar and
+    // the porch lamp are all now measured from here.
+    if (!ruin && !v.home()) {
+      console.warn('[valley] no Kettle ruin recorded; Home is being set from a ' +
+                   'waystone at ' + b.x + ' ' + b.y + ' ' + b.z + ' instead of the hearthstone.')
+      global.valleyServer.runCommandSilent(
+        'tellraw @a ' + JSON.stringify({
+          text: 'No ruin was recorded for this world, so Home is being set here (' +
+                b.x + ' ' + b.y + ' ' + b.z + '). An op can move it with /valley home set.',
+          color: 'gold'
+        }))
+    }
+    // Home itself is one place per world (the cellar, Q5, Q55 and Q90 all
+    // measure from it), so only the first party sets it; a later party still
+    // gets the tick for putting their waystone on the same hearth.
+    if (!v.home()) v.setHome(b.x, b.y, b.z)
     global.valleyServer.runCommandSilent(
       'setblock ' + b.x + ' ' + b.y + ' ' + b.z + ' waystones:waystone{WaystoneName:"Home"}')
     v.say(player, 'Josie', 'That is where the hearth was. Good.')
+    // The repair is centred on the HEARTHSTONE, not on wherever the player is
+    // standing when they claim. Once per world: a second party's waystone must
+    // not re-fill the walls and delete the door, windows and bed the first
+    // party hung. (This was q02's command reward until the ruin existed.)
+    if (v.once('cottage_built')) {
+      global.valleyServer.runCommandSilent(
+        'execute positioned ' + b.x + ' ' + b.y + ' ' + b.z + ' run function valley:act1/cottage')
+    }
     fire(player, 'q02')
     return
   }
@@ -71,24 +109,45 @@ BlockEvents.placed(event => {
   // finale, every mark, every lamp — depends on this one block placement.
   // ---------------------------------------------------------------------
   if (id === 'valley:town_anchor') {
-    v.setAnchor(b.x, b.y, b.z)
-    global.valleyServer.runCommandSilent(
-      'tellraw @a ' + JSON.stringify({
-        text: 'Town Anchor set at ' + b.x + ' ' + b.y + ' ' + b.z + '. This is where the town will be.',
-        color: 'gold'
-      }))
-    // Record the lamp posts the Act I finale is about to place, so the Act IV
-    // lever relights the whole road and not just the stretches she built.
-    v.C.LAMPS_FINALE.forEach(off => {
-      let p = v.offset(off)
-      if (p) v.addLamp(p[0], p[1], p[2])
-    })
-    // ...and the two that valley:act1/square_path is about to setblock as
-    // this quest's own reward. A setblock never fires this listener.
-    v.C.LAMPS_Q07.forEach(off => {
-      let p = v.offset(off)
-      if (p) v.addLamp(p[0], p[1], p[2])
-    })
+    // There is exactly ONE town, so only the first stake in the world moves
+    // the anchor. A second party driving a stake still gets Q7 ticked; the
+    // valley does not relocate around them.
+    let setAnchorAt = v.anchor()
+    if (setAnchorAt && (setAnchorAt[0] !== b.x || setAnchorAt[1] !== b.y || setAnchorAt[2] !== b.z)) {
+      // A stake is a plain Q6 reward and is craftable from 1 copper + 6 stone
+      // bricks, so a second one WILL get placed — by a friend tidying up, or by
+      // whoever finds the spare in a chest in Act IV. Say so out loud instead of
+      // leaving them to wonder why the town did not move.
+      global.valleyServer.runCommandSilent(
+        'tellraw ' + v.pname(player) + ' ' + JSON.stringify({
+          text: 'The Town Anchor is already set at ' + setAnchorAt.join(' ') +
+                ' — an op can move it with /valley anchor set.',
+          color: 'gold'
+        }))
+    }
+    if (!setAnchorAt) {
+      v.setAnchor(b.x, b.y, b.z)
+      global.valleyServer.runCommandSilent(
+        'tellraw @a ' + JSON.stringify({
+          text: 'Town Anchor set at ' + b.x + ' ' + b.y + ' ' + b.z + '. This is where the town will be.',
+          color: 'gold'
+        }))
+      // Record the lamp posts the Act I finale is about to place, so the Act IV
+      // lever relights the whole road and not just the stretches she built.
+      // A LAMPS_* offset is the POST's y; the lamp itself sits LAMP_HEAD above
+      // it, and the lamp is what the Act IV sweep sets, so that is what goes in
+      // the list.
+      v.C.LAMPS_FINALE.forEach(off => {
+        let p = v.offset(off)
+        if (p) v.addLamp(p[0], p[1] + v.C.LAMP_HEAD, p[2])
+      })
+      // ...and the two that valley:act1/square_path is about to setblock as
+      // this quest's own reward. A setblock never fires this listener.
+      v.C.LAMPS_Q07.forEach(off => {
+        let p = v.offset(off)
+        if (p) v.addLamp(p[0], p[1] + v.C.LAMP_HEAD, p[2])
+      })
+    }
     fire(player, 'q07')
     return
   }
@@ -97,7 +156,7 @@ BlockEvents.placed(event => {
   // Q4 — "Place the Megatorch Inside the Cottage."
   // Within 32 of Home (§12.4: "megatorch within 32 of Home").
   // ---------------------------------------------------------------------
-  if (id === 'torchmaster:megatorch' && !v.isDone('q04')) {
+  if (id === 'torchmaster:megatorch' && !v.isDone('q04', team)) {
     let home = v.home()
     if (home && Math.abs(b.x - home[0]) <= 32 && Math.abs(b.z - home[2]) <= 32) {
       fire(player, 'q04')
@@ -118,12 +177,18 @@ BlockEvents.placed(event => {
     // Checked FIRST, and only for the lamp block: it is Home-relative, not
     // anchor-relative, so it has to run before the anchor bail-out below.
     // -------------------------------------------------------------------
-    if (!v.isDone('q90')) {
+    if (!v.isDone('q90', team)) {
       let home = v.home()
       if (home) {
         let porch = [home[0] + v.C.HOME_PORCH[0], home[1] + v.C.HOME_PORCH[1], home[2] + v.C.HOME_PORCH[2]]
         if (Math.abs(b.x - porch[0]) <= 2 && Math.abs(b.y - porch[1]) <= 2 && Math.abs(b.z - porch[2]) <= 2) {
           v.addLamp(b.x, b.y, b.z)
+          // The fortieth. Every other post on the road has been burning since
+          // Bram pulled the lever, so this one lights the moment it lands —
+          // and it is force-set, because a cage lamp placed by hand comes down
+          // dark and facing whatever face the player clicked.
+          global.valleyServer.runCommandSilent(
+            'setblock ' + b.x + ' ' + b.y + ' ' + b.z + ' ' + v.C.LAMP_LIT)
           global.valleyServer.runCommandSilent('bossbar set valley:lamps value 40')
           v.sayAll('Josie', 'Forty lamps. Fifteen people. One winter that nobody leaves.')
           fire(player, 'q90')
@@ -151,13 +216,21 @@ BlockEvents.placed(event => {
     if (!matched) return
 
     v.addLamp(b.x, b.y, b.z)
+    // Normalise the post the moment it lands. CageLampBlock's placement state
+    // takes `facing` from the face the player clicked, so a post set against a
+    // wall or the underside of a slab ends up a sconce; and it comes down with
+    // inverted=false, which shouldBeLit reads as dark. Both are what we want
+    // for a road post — it stays dark until Bram pulls the lever — but only if
+    // the state is written down rather than left to how she happened to click.
+    global.valleyServer.runCommandSilent(
+      'setblock ' + b.x + ' ' + b.y + ' ' + b.z + ' ' + v.C.LAMP_DARK)
     let total = v.lamps().length
     global.valleyServer.runCommandSilent('bossbar set valley:lamps value ' + Math.min(total, 40))
 
-    if (route === 'q34' && !v.isDone('q34') && countOnRoute(v, anchor, v.C.LAMPS_Q34) >= v.C.LAMPS_Q34.length) {
+    if (route === 'q34' && !v.isDone('q34', team) && countOnRoute(v, anchor, v.C.LAMPS_Q34) >= v.C.LAMPS_Q34.length) {
       fire(player, 'q34')
     }
-    if (route === 'q74' && !v.isDone('q74') && countOnRoute(v, anchor, v.C.LAMPS_Q74) >= v.C.LAMPS_Q74.length) {
+    if (route === 'q74' && !v.isDone('q74', team) && countOnRoute(v, anchor, v.C.LAMPS_Q74) >= v.C.LAMPS_Q74.length) {
       fire(player, 'q74')
     }
     return
@@ -167,7 +240,7 @@ BlockEvents.placed(event => {
   // Q47 — "The Cell on the Wall." Energy Duct within 12 blocks of the inn.
   // (§12.1 C11: this proximity is a QUEST check, never a recipe condition.)
   // ---------------------------------------------------------------------
-  if (id === 'thermal:energy_duct' && !v.isDone('q47')) {
+  if (id === 'thermal:energy_duct' && !v.isDone('q47', team)) {
     let inn = v.mark('inn')
     if (inn && Math.abs(b.x - inn[0]) <= 12 && Math.abs(b.y - inn[1]) <= 12 && Math.abs(b.z - inn[2]) <= 12) {
       fire(player, 'q47')
@@ -181,7 +254,7 @@ BlockEvents.placed(event => {
   // (§12.3: FTB Quests reads inventory only, and querying an AE2 grid means
   //  touching AE2's internal API — so the crate is the interface.)
   // ---------------------------------------------------------------------
-  if (id === 'minecraft:barrel' && !v.isDone('q53')) {
+  if (id === 'minecraft:barrel' && !v.isDone('q53', team)) {
     let board = v.mark('board')
     if (board && Math.abs(b.x - board[0]) <= 10 && Math.abs(b.y - board[1]) <= 6 && Math.abs(b.z - board[2]) <= 10) {
       v.set('valley_crate_pos', b.x + ',' + b.y + ',' + b.z)
@@ -189,6 +262,15 @@ BlockEvents.placed(event => {
     }
   }
 })
+
+// Q2's mark. The hearthstone is one block, but she is placing a waystone by
+// hand on a 9x9 floor, so the accept box is generous horizontally and tight
+// vertically: anywhere in the ruin's front room counts, the yard does not.
+function nearRuinHearth(b, ruin) {
+  return Math.abs(b.x - ruin[0]) <= 4 &&
+         Math.abs(b.z - ruin[2]) <= 4 &&
+         Math.abs(b.y - ruin[1]) <= 3
+}
 
 function countOnRoute(v, anchor, route) {
   let lamps = v.lamps()
@@ -206,6 +288,41 @@ function countOnRoute(v, anchor, route) {
 }
 
 // -----------------------------------------------------------------------------
+// Q1 — "Read Josie's Letter."
+// The letter is a vanilla written_book built in valley_core.js, so clicking it
+// opens the real four-page book screen. THAT is what ticks Q1. The task used to
+// be "hold valley:letter", which the first-join gift satisfied before she had
+// read a word — the quest was green on the title screen.
+//
+// Q1's task is a CHECKMARK, so this listener is a convenience, not a gate: if
+// right-click ever fails to reach the server, the box is still tickable by hand
+// in the quest book and quest 1 cannot wall.
+// -----------------------------------------------------------------------------
+function letterRead(player) {
+  let v = V()
+  if (!v || !global.valleyServer) return
+  if (!player || player.level.isClientSide()) return
+  if (v.isDone('q01', v.teamId(player))) return
+  v.say(player, 'Josie', 'Four pages and a chimney. Go and look at it.')
+  fire(player, 'q01')
+}
+
+ItemEvents.rightClicked('minecraft:written_book', event => {
+  try {
+    let stack = event.item
+    let nbt = stack ? stack.nbt : null
+    if (!nbt || String(nbt.getString('title')) !== "Josie's Letter") return
+  } catch (err) {
+    return
+  }
+  letterRead(event.player)
+})
+
+// The keepsake copy. valley:letter is still registered and is still Q1's icon,
+// and it is what josieLetter() falls back to, so it reads the same way.
+ItemEvents.rightClicked('valley:letter', event => letterRead(event.player))
+
+// -----------------------------------------------------------------------------
 // Q28 — "Read the Rock." Six uses of Tobin's prospector pick.
 // Counted per world in persistentData, which is what the quest text promises
 // ("the 6 spots he marked"), rather than off the cumulative vanilla stat.
@@ -215,9 +332,13 @@ ItemEvents.rightClicked('geolosys:prospectors_pick', event => {
   if (!v || !global.valleyServer) return
   let player = event.player
   if (player.level.isClientSide()) return
-  if (v.isDone('q28')) return
-  let n = parseInt(v.get('valley_pick_uses', '0'), 10) + 1
-  v.set('valley_pick_uses', n)
+  let team = v.teamId(player)
+  if (v.isDone('q28', team)) return
+  // Per team, or the second party inherits the first party's six strikes and
+  // Q28 completes on their very first swing.
+  let slot = 'valley_pick_uses_' + String(team).replace(/[^A-Za-z0-9]/g, '')
+  let n = parseInt(v.get(slot, '0'), 10) + 1
+  v.set(slot, n)
   if (n >= 6) {
     v.say(player, 'Tobin', "That's the six. Copper's under the third one, which — anyway. Copper.")
     fire(player, 'q28')
@@ -330,12 +451,13 @@ function checkSleep(server, player) {
   sleeping[name] = now
   if (!(was && !now)) return          // only the sleeping -> awake edge counts
 
-  if (!v.isDone('q08')) { fire(player, 'q08'); return }
-  if (v.hasWorldStage('act4') && !v.isDone('q57')) {
+  let team = v.teamId(player)
+  if (!v.isDone('q08', team)) { fire(player, 'q08'); return }
+  if (v.hasWorldStage('act4') && !v.isDone('q57', team)) {
     v.say(player, 'Pip', "The hearth's out. Marnie says come down. She said it twice.")
     fire(player, 'q57'); return
   }
-  if (v.hasWorldStage('act5') && !v.isDone('q76')) {
+  if (v.hasWorldStage('act5') && !v.isDone('q76', team)) {
     v.say(player, 'Marnie', "Walk the square with me. It looks different in the light.")
     fire(player, 'q76')
   }
@@ -389,6 +511,106 @@ function checkStanding(server, player) {
 }
 
 // -----------------------------------------------------------------------------
+// Q7 — the ground that goes green.
+//
+// Q7 told her to "walk until the ground under your feet turns green" and
+// nothing in the pack turned any ground any colour. The anchor listener above
+// fires on PLACEMENT only, there is no zone test, and Q7's own reward is the
+// road — so the walk that decides where all ninety-nine remaining quests get
+// measured from had zero feedback, and the one judgement call in Act I was the
+// one she is least equipped to make.
+//
+// This is the signal the text promises. While the world has no anchor and she
+// is holding the Surveyor's Stake, a ring of green sparks comes up around her
+// feet whenever she is standing far enough north of Home on a level 5x5 pad
+// with headroom. Josie says it once, and once more with a way out if the
+// terrain up there never offers a flat spot.
+//
+// It is help, never a gate: the anchor listener still accepts a stake placed
+// anywhere, so a player who ignores the sparks loses nothing.
+// -----------------------------------------------------------------------------
+const STAKE_ITEM      = 'valley:town_anchor'
+const STAKE_NORTH_MIN = 30     // blocks north of Home: past the garden
+const STAKE_NORTH_MAX = 96     // and still this valley
+const STAKE_SIDE_MAX  = 48     // "up the road", not over the ridge
+const STAKE_PAD       = 2      // a 5x5 pad, level, two blocks of headroom
+const STAKE_NUDGE_AT  = 30     // polls (~30s) in range with no green
+
+let stakeGuideOff = false      // one thrown error disables it for the session
+const stakeSearching = {}      // team -> consecutive in-range polls with no pad
+
+// Mojang names both getters exactly once, and they do not match each other:
+// getMainHandItem() / getOffhandItem() (server-1.20.1 mappings, lines 1924 and
+// 1928), so the bean properties are `mainHandItem` and `offhandItem`.
+//
+// A wrong property name here would return undefined and read as "not holding
+// it", which is a signal that silently never fires — the exact failure this
+// whole fix exists to remove. So an unreadable hand is NOT a no: if neither
+// hand can be read at all, the guide falls back to "the world has no anchor and
+// she is standing in the right place", which is still the right thing to show.
+function holdingStake(player) {
+  let m = player.mainHandItem
+  let o = player.offhandItem
+  if (m === undefined && o === undefined) return true    // API mismatch: don't gate
+  if (m && !m.isEmpty() && String(m.id) === STAKE_ITEM) return true
+  return !!(o && !o.isEmpty() && String(o.id) === STAKE_ITEM)
+}
+
+// Level, solid, walkable, clear overhead. Deliberately loose: a 5x5 of
+// same-height non-fluid ground with two open blocks above it. Blocks are read
+// by id rather than isAir(), which is the idiom the rest of this pack already
+// uses against this KubeJS build (valley_core.js ruinSurface, dredgePull).
+const AIR = 'minecraft:air'
+
+function padIsFlat(level, x, y, z) {
+  for (let dx = -STAKE_PAD; dx <= STAKE_PAD; dx++) {
+    for (let dz = -STAKE_PAD; dz <= STAKE_PAD; dz++) {
+      let gid = String(level.getBlock(x + dx, y - 1, z + dz).id)
+      if (gid === AIR) return false
+      if (gid.indexOf('water') >= 0 || gid.indexOf('lava') >= 0) return false
+      if (String(level.getBlock(x + dx, y, z + dz).id) !== AIR) return false
+      if (String(level.getBlock(x + dx, y + 1, z + dz).id) !== AIR) return false
+    }
+  }
+  return true
+}
+
+function stakeGuide(server, player) {
+  if (stakeGuideOff) return
+  let v = V()
+  if (v.anchor()) return
+  if (!holdingStake(player)) return
+  let home = v.home()
+  if (!home) return
+
+  let x = Math.floor(player.x), y = Math.floor(player.y), z = Math.floor(player.z)
+  let north = home[2] - z
+  if (north < STAKE_NORTH_MIN || north > STAKE_NORTH_MAX) return
+  if (Math.abs(x - home[0]) > STAKE_SIDE_MAX) return
+
+  let team = v.teamId(player)
+  if (!padIsFlat(player.level, x, y, z)) {
+    // She is in the right part of the valley and the ground keeps saying no.
+    // Rather than let her walk to the world border, tell her the pad is the
+    // only requirement and that she is allowed to make one.
+    stakeSearching[team] = (stakeSearching[team] || 0) + 1
+    if (stakeSearching[team] === STAKE_NUDGE_AT && v.once('q07_nudge', team)) {
+      v.say(player, 'Josie',
+        'Nothing flat up here? Then flatten a five-by-five and stake that. Level is the whole requirement.')
+    }
+    return
+  }
+
+  server.runCommandSilent(
+    'particle minecraft:happy_villager ' + (x + 0.5) + ' ' + (y + 0.1) + ' ' + (z + 0.5) +
+    ' 2.4 0.1 2.4 0 40 force ' + v.pname(player))
+  if (v.once('q07_green', team)) {
+    v.say(player, 'Josie',
+      'That is the flat Bram surveyed twice and never staked. Green means yes — put it down.')
+  }
+}
+
+// -----------------------------------------------------------------------------
 // The tick handler. One modulo, one length check, then at most POLLS.length
 // cheap predicates per online player. POLLS shrinks as the pack is played.
 // -----------------------------------------------------------------------------
@@ -404,12 +626,23 @@ ServerEvents.tick(event => {
 
   players.forEach(player => {
     checkSleep(event.server, player)
+    // Pre-Q7 only: bails on one flag read the moment the anchor exists.
+    try { stakeGuide(event.server, player) }
+    catch (err) {
+      stakeGuideOff = true
+      console.error('[valley] Q7 stake guide disabled after: ' + err)
+    }
     if (slow) {
       try { checkStanding(event.server, player) }
       catch (err) { console.error('[valley] standing check failed: ' + err) }
     }
+    let team = v.teamId(player)
     for (let i = POLLS.length - 1; i >= 0; i--) {
       let c = POLLS[i]
+      // One flag read, per player, for work this player's team has finished.
+      // This is what replaces the old splice: the check stays armed for every
+      // OTHER team in the world.
+      if (v.isDone(c.key, team)) continue
       let ok = false
       try { ok = c.need(event.server, player) } catch (err) {
         console.error('[valley] check ' + c.key + ' failed: ' + err)
@@ -421,17 +654,16 @@ ServerEvents.tick(event => {
   })
 })
 
-// Drop checks that are already satisfied in this world, so a mid-game /reload
-// does not re-poll finished work. Done lazily on the first poll rather than in
+// One line in the log saying what is armed. This used to DROP every check the
+// world had already seen, which is the same bug as the splice in fire(): a
+// second party's checks were pruned away before they ever ran one. Nothing is
+// removed here any more — the per-team latch read in the poll loop is what
+// keeps a finished check cheap. Done lazily on the first poll rather than in
 // ServerEvents.loaded, because server scripts load alphabetically and this file
 // is registered before valley_core.js defines global.valley.
 let prunedOnce = false
 
 function pruneFinished() {
-  let v = V()
-  for (let i = POLLS.length - 1; i >= 0; i--) {
-    if (v.isDone(POLLS[i].key)) POLLS.splice(i, 1)
-  }
   prunedOnce = true
   console.info('[valley] checks armed: ' + POLLS.map(c => c.key).join(' ') + ' (+ sleep, + block/use listeners)')
 }
