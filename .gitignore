@@ -19,3 +19,5 @@ scratch/
 .DS_Store
 tools/packwiz-src/
 tools/venv/
+server/local/
+server/*.txt.bak
