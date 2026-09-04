@@ -23,9 +23,10 @@ Stdlib only.
 Usage:
     python installers/windows/stage.py --out build/stage [--cache .cache] [--java-path <abs path>]
 
-`--java-path` is only for local verification. In the real build the JavaPath value is left as the
-placeholder token below and Inno Setup's [Code] section substitutes the true install path after the
-files are copied (the path is not knowable until the user picks a destination folder).
+`--java-path` and `--max-mem` are only for local verification. In the real build both values are
+left as the placeholder tokens below and Inno Setup's [Code] section substitutes the real ones after
+the files are copied: the install path is not knowable until the user picks a destination folder, and
+the heap size is not knowable until we can read the target machine's physical RAM.
 """
 
 from __future__ import annotations
@@ -75,6 +76,13 @@ PACK_URL = "https://raw.githubusercontent.com/malloyjoshua/little-kettle-valley/
 
 # Replaced by the Inno Setup [Code] section at install time with the real absolute path.
 JAVA_PATH_TOKEN = "@@JAVA_PATH@@"
+
+# Likewise replaced at install time, with a heap size chosen from the machine's physical RAM
+# (GlobalMemoryStatusEx). Baking one number here would hand an 8 GB laptop a 3584 MB heap, which is
+# exactly what docs/INSTALL.md tells people not to do. Tiers live in the .iss [Code] section:
+#   < 12 GB -> 3072    12-24 GB -> 3584    > 24 GB -> 4096
+MAX_MEM_TOKEN = "@@MAX_MEM@@"
+MIN_MEM_MB = 1024
 
 # Prism's own self-updater. Deliberately NOT shipped: Application::updaterEnabled() (Application.cpp
 # 1272-1279) only turns the updater on when this binary sits next to the exe, so omitting it stops
@@ -226,7 +234,7 @@ def pack_version(repo_root: Path) -> str:
 # ---------------------------------------------------------------------------
 
 
-def instance_cfg(java_path: str) -> str:
+def instance_cfg(java_path: str, max_mem: str) -> str:
     """
     Prism reads this through INIFile::loadFile. With no ConfigVersion key present it falls back to
     parseOldFileFormat(), which runs unescape() over every value -- unescape() *eats* backslashes
@@ -240,8 +248,8 @@ def instance_cfg(java_path: str) -> str:
             f"name={INSTANCE_NAME}",
             "iconKey=lkv",
             "OverrideMemory=true",
-            "MinMemAlloc=1024",
-            "MaxMemAlloc=3584",
+            f"MinMemAlloc={MIN_MEM_MB}",
+            f"MaxMemAlloc={max_mem}",
             "OverrideCommands=true",
             # Prism never runs PreLaunchCommand through a shell: it substitutes $INST_JAVA in C++
             # and tokenizes with QProcess::splitCommand(), then execs directly. Same string works
@@ -260,7 +268,7 @@ def instance_cfg(java_path: str) -> str:
     )
 
 
-def launcher_cfg(java_path: str) -> str:
+def launcher_cfg(java_path: str, max_mem: str) -> str:
     """
     Global Prism settings. Every first-run wizard page is skipped except Login (Microsoft sign-in
     cannot be pre-seeded, by design). Conditions verified against Application::createSetupWizard()
@@ -283,8 +291,10 @@ def launcher_cfg(java_path: str) -> str:
             "UserAskedAboutAutomaticJavaDownload=true",
             "IgnoreJavaWizard=true",
             f"JavaPath={java_path}",
-            "MinMemAlloc=1024",
-            "MaxMemAlloc=3584",
+            # Launcher-wide defaults for any *new* instance the player makes. The pack instance
+            # pins its own values above; these are patched to the same tier for consistency.
+            f"MinMemAlloc={MIN_MEM_MB}",
+            f"MaxMemAlloc={max_mem}",
             "InstanceDir=instances",
             "IconsDir=icons",
             "ShowConsole=false",
@@ -311,6 +321,12 @@ def main() -> int:
         "--java-path",
         default=JAVA_PATH_TOKEN,
         help="absolute path to javaw.exe to bake in (default: placeholder replaced by the installer)",
+    )
+    ap.add_argument(
+        "--max-mem",
+        default=MAX_MEM_TOKEN,
+        help="MaxMemAlloc in MB to bake in (default: placeholder replaced by the installer, which "
+        "picks 3072/3584/4096 from the machine's physical RAM)",
     )
     args = ap.parse_args()
 
@@ -367,12 +383,12 @@ def main() -> int:
         src_instance / ".minecraft" / "packwiz-installer-bootstrap.jar",
         inst / ".minecraft" / "packwiz-installer-bootstrap.jar",
     )
-    write_text(inst / "instance.cfg", instance_cfg(args.java_path))
+    write_text(inst / "instance.cfg", instance_cfg(args.java_path, args.max_mem))
 
     # 4. Icons + launcher config ------------------------------------------------
     (out / "icons").mkdir(exist_ok=True)
     shutil.copy2(src_instance / "lkv.png", out / "icons" / "lkv.png")
-    write_text(out / "prismlauncher.cfg", launcher_cfg(args.java_path))
+    write_text(out / "prismlauncher.cfg", launcher_cfg(args.java_path, args.max_mem))
 
     ico = here / "LittleKettleValley.ico"
     if not ico.is_file():
@@ -382,7 +398,19 @@ def main() -> int:
     # 5. Version include for Inno Setup ----------------------------------------
     write_text(here / "version.iss", f'; generated by stage.py -- do not edit\n#define AppVersion "{version}"\n')
 
-    # 6. Report -----------------------------------------------------------------
+    # 6. Sanity: the installer can only substitute tokens it can actually find ---
+    for rel, tokens in (
+        (f"instances/{INSTANCE_NAME}/instance.cfg", (args.java_path, args.max_mem)),
+        ("prismlauncher.cfg", (args.java_path, args.max_mem)),
+    ):
+        body = (out / rel).read_text(encoding="utf-8")
+        for tok in tokens:
+            if tok not in body:
+                raise SystemExit(f"{rel} does not contain {tok!r} -- the installer would never patch it")
+    if args.max_mem == MAX_MEM_TOKEN:
+        log("memory left as a token; the installer picks 3072/3584/4096 from the machine's RAM")
+
+    # 7. Report -----------------------------------------------------------------
     files = [p for p in out.rglob("*") if p.is_file()]
     total = sum(p.stat().st_size for p in files)
     log(f"staged {len(files)} files, {total / 1024 / 1024:.1f} MiB -> {out}")

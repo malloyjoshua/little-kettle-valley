@@ -10,6 +10,8 @@ Pick the path for your computer. All three end up in the same place — Prism La
 4. Leave **Launch Little Kettle Valley** ticked. The launcher opens and asks you to **sign in with your Microsoft account** — the one that owns Minecraft. That's the only sign-in.
 5. Click **Little Kettle Valley → Play**.
 
+*Memory:* nothing to set. The installer reads how much RAM your PC has and picks the right amount for you (3 GB on an 8 GB machine, 3.5 GB on 16 GB, 4 GB above that).
+
 ## Mac
 
 1. Download **LittleKettleValley.dmg** from the [release page](https://github.com/malloyjoshua/little-kettle-valley/releases/tag/friends) and open it. Three steps are drawn right on the disk image:
@@ -18,6 +20,8 @@ Pick the path for your computer. All three end up in the same place — Prism La
    - **Drag the kettle zip onto Prism's window** (or Add Instance > Import). First launch installs the pack.
 2. The first time you open Prism Launcher, macOS shows a one-time confirmation — *"Prism Launcher is an app downloaded from the Internet. Are you sure you want to open it?"* Click **Open**. You won't see this again, and you won't need to dig into System Settings — the app is notarized by its own developers.
 3. Sign in with your Microsoft account when Prism asks (Accounts, top right, if it doesn't ask automatically).
+
+*Memory:* the instance comes preset to 3072 MB, sized for an 8 GB MacBook Air. If your Mac has 16 GB or more, raise it: select the instance, **Edit → Settings → Memory**, and set the maximum to **3584** (16 GB) or **4096** (32 GB+).
 
 ## Manual (any launcher)
 
@@ -29,6 +33,8 @@ Use this if you already run a different launcher, or the Windows/Mac installer d
 4. In Prism: **Add Instance** > **Import** > pick the zip. Click OK.
 5. Select the instance, click **Edit** > **Settings**, and set memory: **3072 MB** on an 8 GB machine, **3584 MB** on 16 GB, **4096 MB** on 32 GB. (Measured: the game uses about 1 GB on top of whatever you allocate, so 3072 on an 8 GB machine leaves room for the OS.)
 6. Click **Launch**.
+
+*Memory:* the zip ships at **3584 MB**, which suits a 16 GB machine. On an 8 GB machine drop it to **3072** in step 5 — that is the one setting worth getting right.
 
 ## First launch
 

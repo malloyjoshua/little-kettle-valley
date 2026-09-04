@@ -35,3 +35,10 @@ media/logo_v2/
 media/pano_v2/
 media/ref/
 dist/v*/
+
+# --- installer binaries: built, not committed (tens of MB each)
+dist/LittleKettleValley.dmg
+dist/*.exe
+# dist/LittleKettleValley.zip is the exception and stays TRACKED on purpose: the Windows
+# installer is built on a GitHub runner, which has no dist/CozyTech/, so installers/windows/stage.py
+# unpacks this committed zip to get the instance. tools/scripts/release.sh commits it each release.

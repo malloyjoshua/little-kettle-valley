@@ -81,22 +81,87 @@ jobs:
             Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
 
       # The runner IS a Windows box, so actually install the thing rather than inspecting the tree
-      # we handed to the compiler. This proves: no elevation needed, the [Code] JavaPath rewrite
-      # fires with a real install path, the bundled JRE runs, and the exact PreLaunchCommand string
-      # from instance.cfg installs the pack.
-      - name: Smoke test - silent install, JavaPath rewrite, bundled JRE, packwiz bootstrap
+      # we handed to the compiler. This proves: no elevation needed, the [Code] JavaPath rewrite and
+      # the RAM-tier MaxMemAlloc rewrite both fire with a real install path, the bundled JRE runs,
+      # and the exact PreLaunchCommand string from instance.cfg installs the pack.
+      #
+      # The primary install goes into a path with spaces AND a nested folder, because that is what a
+      # real "C:\Users\Jo Smith\AppData\Local\Programs\Little Kettle Valley" looks like and it is
+      # the case most likely to break quoting somewhere in the chain.
+      - name: Smoke test - silent install, config rewrites, bundled JRE, packwiz bootstrap
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
           $exe = (Resolve-Path "installers\windows\build\out\LittleKettleValley-Setup.exe").Path
-          $dir = "D:\lkv-smoke"
-          $log = "D:\lkv-setup.log"
 
-          Start-Process -FilePath $exe -Wait -ArgumentList @(
-            '/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', "/DIR=$dir", "/LOG=$log"
-          )
+          function Invoke-Setup {
+            param([string]$Dir, [string]$Extra = '', [string]$LogPath = '')
+            $line = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /DIR="{0}"' -f $Dir
+            if ($LogPath) { $line += (' /LOG="{0}"' -f $LogPath) }
+            if ($Extra)   { $line += " $Extra" }
+            Write-Host "--- setup $line"
+            $p = Start-Process -FilePath $exe -Wait -PassThru -ArgumentList $line
+            if ($p.ExitCode -ne 0) { throw "setup exited $($p.ExitCode) for '$Dir'" }
+            if (-not (Test-Path (Join-Path $Dir 'prismlauncher.exe'))) { throw "nothing installed into '$Dir'" }
+          }
+
+          function Invoke-Uninstall {
+            param([string]$Dir)
+            $u = Get-ChildItem $Dir -Filter 'unins*.exe' -ErrorAction SilentlyContinue | Select-Object -First 1
+            if (-not $u) { throw "uninstaller not found in '$Dir'" }
+            # A /SILENT uninstall must not block on the "delete your worlds?" prompt, and its
+            # suppressed default must be IDNO.
+            Start-Process -FilePath $u.FullName -Wait -ArgumentList '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART'
+            Start-Sleep -Seconds 5
+          }
+
+          function Get-InstanceCfg {
+            param([string]$Dir)
+            Get-Content (Join-Path $Dir 'instances\Little Kettle Valley\instance.cfg') -Raw
+          }
+
+          # Both config files must come out with every token substituted, the JRE path pointing at
+          # the copy we just installed, and the heap size for this machine's tier.
+          function Assert-Configs {
+            param([string]$Dir, [int]$ExpectMem, [switch]$EscapeHash)
+            $wantJava = "$Dir\jre\bin\javaw.exe".Replace('\','/')
+            if ($EscapeHash) { $wantJava = $wantJava.Replace('#','\#') }
+            foreach ($cfg in @("$Dir\instances\Little Kettle Valley\instance.cfg", "$Dir\prismlauncher.cfg")) {
+              $text = Get-Content $cfg -Raw
+              Write-Host "--- $cfg ---"; Write-Host $text
+              if ($text -match '@@JAVA_PATH@@') { throw "$cfg still contains the JavaPath placeholder" }
+              if ($text -match '@@MAX_MEM@@')   { throw "$cfg still contains the MaxMemAlloc placeholder" }
+              if ($text -notmatch [regex]::Escape("JavaPath=$wantJava")) { throw "$cfg has the wrong JavaPath" }
+              if ($text -notmatch "(?m)^MaxMemAlloc=$ExpectMem\s*$") { throw "$cfg is not MaxMemAlloc=$ExpectMem" }
+              if ($text -notmatch "(?m)^MinMemAlloc=1024\s*$") { throw "$cfg is not MinMemAlloc=1024" }
+              $bytes = [System.IO.File]::ReadAllBytes($cfg)
+              if ($bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF) { throw "$cfg has a UTF-8 BOM" }
+            }
+            Write-Host "configs ok for '$Dir' (MaxMemAlloc=$ExpectMem)"
+          }
+
+          # Same tiers as the .iss [Code] section, so the unforced install below is checked against
+          # the runner's real RAM rather than a number copied by hand.
+          function Get-ExpectedMem {
+            param([int]$GB)
+            if ($GB -lt 12) { return 3072 } elseif ($GB -le 24) { return 3584 } else { return 4096 }
+          }
+
+          $totalPhys = (Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory
+          $runnerGB  = [int][math]::Ceiling($totalPhys / 1GB)
+          $runnerMem = Get-ExpectedMem $runnerGB
+          Write-Host "runner physical RAM: $totalPhys bytes -> $runnerGB GB -> expect MaxMemAlloc=$runnerMem"
+          if ($runnerMem -ne 3584) {
+            Write-Host "::warning::GitHub's windows runner is no longer the 16 GB box this test was written against ($runnerGB GB); the medium tier is still covered by the forced /LKVRAMGB=16 install below."
+          }
+
+          # ---------------------------------------------------------------- 1. the real install
+          $dir = "D:\lkv smoke test\Little Kettle Valley"
+          $log = "D:\lkv smoke test\setup.log"
+          New-Item -ItemType Directory -Force -Path "D:\lkv smoke test" | Out-Null
+          Invoke-Setup -Dir $dir -LogPath $log
           Write-Host "--- setup log tail ---"
-          Get-Content $log -Tail 25
+          Get-Content $log -Tail 30
 
           $expected = @(
             'prismlauncher.exe', 'portable.txt', 'prismlauncher.cfg', 'LittleKettleValley.ico',
@@ -113,19 +178,12 @@ jobs:
           }
           Write-Host "installed tree ok ($((Get-ChildItem $dir -Recurse -File).Count) files)"
 
-          # JavaPath must be the real absolute path, forward slashes, no placeholder left.
-          $wantJava = "$dir\jre\bin\javaw.exe".Replace('\','/')
-          foreach ($cfg in @("$dir\instances\Little Kettle Valley\instance.cfg", "$dir\prismlauncher.cfg")) {
-            $text = Get-Content $cfg -Raw
-            Write-Host "--- $cfg ---"; Write-Host $text
-            if ($text -match '@@JAVA_PATH@@') { throw "$cfg still contains the placeholder token" }
-            if ($text -notmatch [regex]::Escape("JavaPath=$wantJava")) { throw "$cfg has the wrong JavaPath" }
-            $bytes = [System.IO.File]::ReadAllBytes($cfg)
-            if ($bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF) { throw "$cfg has a UTF-8 BOM" }
-          }
-          $inst = Get-Content "$dir\instances\Little Kettle Valley\instance.cfg" -Raw
+          # JavaPath must be the real absolute path with forward slashes, and MaxMemAlloc must match
+          # the tier for the RAM this machine actually has.
+          Assert-Configs -Dir $dir -ExpectMem $runnerMem
+          $inst = Get-InstanceCfg $dir
           if ($inst -notmatch 'OverrideJavaLocation=true') { throw "instance.cfg is missing OverrideJavaLocation" }
-          if ($inst -notmatch 'MaxMemAlloc=3584') { throw "instance.cfg is missing the memory override" }
+          if ($inst -notmatch 'OverrideMemory=true') { throw "instance.cfg is missing OverrideMemory" }
           if ($inst -notmatch 'iconKey=lkv') { throw "instance.cfg is missing iconKey" }
 
           # Shortcuts
@@ -133,11 +191,12 @@ jobs:
           if (-not (Test-Path $sm)) { throw "Start Menu shortcut missing" }
           Write-Host "Start Menu shortcut ok"
 
-          # The bundled JRE actually runs
+          # The bundled JRE actually runs, from a path with spaces in it
           & "$dir\jre\bin\java.exe" -version 2>&1 | ForEach-Object { Write-Host $_ }
           if ($LASTEXITCODE -ne 0) { throw "bundled JRE failed to run" }
 
-          # Run the instance's PreLaunchCommand verbatim, with javaw.exe, exactly as Prism would.
+          # Run the instance's PreLaunchCommand verbatim, with javaw.exe, exactly as Prism would --
+          # still inside the spaced path, which is where an unquoted argument would blow up.
           Push-Location "$dir\instances\Little Kettle Valley\.minecraft"
           $packUrl = "https://raw.githubusercontent.com/malloyjoshua/little-kettle-valley/main/pack/pack.toml"
           $p = Start-Process -FilePath "$dir\jre\bin\javaw.exe" -Wait -PassThru -NoNewWindow `
@@ -150,33 +209,36 @@ jobs:
           if (-not (Test-Path "$mc\packwiz.json")) { throw "packwiz.json not written - bootstrap did not run the installer" }
           if ($mods.Count -lt 1) { throw "packwiz installed no mods" }
 
-          # Silent uninstall must not block on the 'delete your worlds?' prompt, and must default to
-          # keeping the player's data.
-          $unins = Get-ChildItem $dir -Filter 'unins*.exe' | Select-Object -First 1
-          if (-not $unins) { throw "uninstaller not found" }
-          Start-Process -FilePath $unins.FullName -Wait -ArgumentList @('/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART')
-          Start-Sleep -Seconds 5
+          Invoke-Uninstall -Dir $dir
           if (Test-Path "$dir\prismlauncher.exe") { throw "uninstall left prismlauncher.exe behind" }
           if (-not (Test-Path "$mc\mods")) { throw "uninstall destroyed the player's instance data (should default to keeping it)" }
           Write-Host "uninstall ok: launcher removed, player data kept"
-          Remove-Item $dir -Recurse -Force -ErrorAction SilentlyContinue
+          Remove-Item "D:\lkv smoke test" -Recurse -Force -ErrorAction SilentlyContinue
 
+          # ------------------------------------------- 2+3. the two tiers this runner is not on
+          # /LKVRAMGB pretends the machine has a different amount of RAM. It exists purely so all
+          # three branches of the tier table are exercised on every build.
+          foreach ($case in @(@{ GB = 8; Mem = 3072 }, @{ GB = 16; Mem = 3584 })) {
+            $d = "D:\lkv ram $($case.GB)"
+            Invoke-Setup -Dir $d -Extra "/LKVRAMGB=$($case.GB)"
+            Assert-Configs -Dir $d -ExpectMem $case.Mem
+            if ((Get-ExpectedMem $case.GB) -ne $case.Mem) { throw "test table disagrees with itself for $($case.GB) GB" }
+            Invoke-Uninstall -Dir $d
+            Remove-Item $d -Recurse -Force -ErrorAction SilentlyContinue
+            Write-Host "$($case.GB) GB -> MaxMemAlloc=$($case.Mem) ok"
+          }
+
+          # ------------------------------------------------- 4. '#' in the path, and the top tier
           # Windows allows '#' in a user name, and Prism's old-format INI parser treats an
-          # unescaped '#' as a comment. Prove the escaping in BundledJavaPath() handles it.
+          # unescaped '#' as a comment. Prove the escaping in BundledJavaPath() handles it, and
+          # ride along on the same install to cover the >24 GB tier.
           $hashDir = "D:\lkv#hash"
-          Start-Process -FilePath $exe -Wait -ArgumentList @(
-            '/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', "/DIR=$hashDir"
-          )
-          $cfg = Get-Content "$hashDir\instances\Little Kettle Valley\instance.cfg" -Raw
-          $wantEscaped = 'JavaPath=' + "$hashDir\jre\bin\javaw.exe".Replace('\','/').Replace('#','\#')
-          Write-Host ($cfg -split "`n" | Where-Object { $_ -like 'JavaPath=*' })
-          if ($cfg -notmatch [regex]::Escape($wantEscaped)) { throw "'#' in the install path was not escaped" }
+          Invoke-Setup -Dir $hashDir -Extra "/LKVRAMGB=32"
+          Assert-Configs -Dir $hashDir -ExpectMem 4096 -EscapeHash
           if (-not (Test-Path "$hashDir\jre\bin\javaw.exe")) { throw "JRE missing in the '#' install" }
-          $u = Get-ChildItem $hashDir -Filter 'unins*.exe' | Select-Object -First 1
-          Start-Process -FilePath $u.FullName -Wait -ArgumentList @('/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART')
-          Start-Sleep -Seconds 5
+          Invoke-Uninstall -Dir $hashDir
           Remove-Item $hashDir -Recurse -Force -ErrorAction SilentlyContinue
-          Write-Host "'#' install path ok"
+          Write-Host "'#' install path ok, 32 GB -> MaxMemAlloc=4096 ok"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

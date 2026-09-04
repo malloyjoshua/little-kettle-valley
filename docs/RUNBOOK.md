@@ -43,13 +43,14 @@ Backups land in `server/backups/`, newest 20 kept. Point Time Machine or Backbla
 ```bash
 "$HOME/Desktop/1. Projects/Minecraft/tools/scripts/release.sh"
 ```
-Rebuilds `dist/LittleKettleValley.zip` and uploads it to the GitHub release. Friends who already installed do not need it; the pack itself updates from GitHub on every launch after `git push`.
+Rebuilds all four release assets — see [Installers](#installers) for what it does in what order and why. Friends who already installed do not need any of it; the pack itself updates from GitHub on every launch after `git push`.
 
 ## Update the pack
 1. Edit files under `pack/` (mods via `tools/packwiz`, configs, quests, KubeJS).
 2. `cd pack && ../tools/packwiz refresh`
 3. Test: `server_ctl.sh start` then `wait`, watch for errors, `stop`.
-4. `git add -A && git commit -m "what changed"` then `git push`.
+4. Stage by path — never `git add -A`, `dist/` and `server/` collect large local-only junk that must not land in a commit:
+   `git add pack/ story/ docs/ && git commit -m "what changed"` then `git push`. Narrow it further when only some of those changed; `git status --short` before and `git show --stat` after.
 5. Friends get the update automatically on their next launch. The server gets it with the sync script, which also clears the quest files the game rewrites on its own so they never shadow an update:
    `"$HOME/Desktop/1. Projects/Minecraft/tools/scripts/sync_server.sh"`
 
@@ -92,7 +93,7 @@ It temporarily sets `online-mode=false`, boots a fresh world, joins the offline 
 **Change text, tasks, rewards, or dependencies (permanent):**
 1. Edit `story/quests/act*.json` (or `oda.json`). The format is `docs/QUEST_FORMAT.md`.
 2. Compile: `tools/venv/bin/python tools/scripts/compile_quests.py story/quests pack/config/ftbquests/quests scratch/ids_plus.json --strict`. It refuses unknown item ids.
-3. `cd pack && ../tools/packwiz refresh`, then `git add -A && git commit -m "..." && git push`.
+3. `cd pack && ../tools/packwiz refresh`, then stage by path (not `-A`): `git add story/quests pack/config/ftbquests && git commit -m "..." && git push`.
 4. On the running server, without restarting: run `tools/scripts/sync_server.sh`, then in the console `ftbquests reload`. Everyone online sees the new quests immediately; quest text comes from the server.
 5. KubeJS recipe or script edits: same install, then `kubejs reload server_scripts`. Datapack functions: `reload`.
    * `kubejs reload server_scripts` does NOT rebuild the command tree: `/valley` keeps running the functions from the last full server start. If you changed anything inside `/valley finale`, `/valley scene`, `/valley check` or `/valley standing`, restart the server or the reload will look like it did nothing.
@@ -105,19 +106,38 @@ Three friend-facing assets plus a PDF guide, all attached to the GitHub release 
 ```bash
 "$HOME/Desktop/1. Projects/Minecraft/tools/scripts/release.sh"
 ```
-It rebuilds the zip, rebuilds the dmg, triggers the Windows `installers.yml` workflow on GitHub Actions and waits for it (that job builds the `.exe` on a real Windows runner, silent-installs it, and uploads it to the release itself), rebuilds the install guide PDF into a new `dist/vN/` folder, then uploads the zip + dmg + PDF (the `.exe` is already on the release by that point). Takes several minutes end to end because of the Windows CI run.
+In order: rebuilds the zip → **commits and pushes it** (CI builds the `.exe` from the copy on `main`, so this has to happen first) → rebuilds the dmg → triggers the Windows `installers.yml` workflow on GitHub Actions and waits for it (that job builds the `.exe` on a real Windows runner, silent-installs it four ways, and uploads it to the release itself) → rebuilds the install guide PDF into a new `dist/vN/` folder → uploads the zip + dmg + PDF (the `.exe` is already on the release by that point). Takes several minutes end to end because of the Windows CI run.
 
 ### Rebuild one asset at a time
 
-- **Zip** (manual/any-launcher import): `rm -f dist/LittleKettleValley.zip && (cd dist/CozyTech && zip -qr ../LittleKettleValley.zip . -x '.DS_Store')` — same line `release.sh` runs.
+- **Zip** (manual/any-launcher import): `rm -f dist/LittleKettleValley.zip && (cd dist/CozyTech && zip -qr ../LittleKettleValley.zip . -x '.DS_Store' -x '*/.DS_Store' -x '__MACOSX/*')` — same line `release.sh` runs. Then `git add dist/LittleKettleValley.zip && git commit && git push`, because the Windows build reads it from `main`.
 - **macOS disk image**: `tools/venv/bin/python installers/macos/build_dmg.py` → `dist/LittleKettleValley.dmg`. Add `--verify-only` to re-check an already-built image (codesign/notarization/hashes) without rebuilding it.
-- **Windows installer**: `gh workflow run installers.yml` (or push a tag matching `installer-*`), then `gh run watch <run-id> --exit-status`. It stages the payload with `installers/windows/stage.py`, compiles `installers/windows/LittleKettleValley.iss` with Inno Setup on the runner, silent-installs + silent-uninstalls it as a smoke test, and uploads the `.exe` to both the workflow artifact and the `friends` release. There is no macOS-side build for this one — Inno Setup only runs on Windows, which is why CI does it.
+- **Windows installer**: `gh workflow run installers.yml --ref main` (or push a tag matching `installer-*`), then `gh run watch <run-id> --exit-status`. It stages the payload with `installers/windows/stage.py`, compiles `installers/windows/LittleKettleValley.iss` with Inno Setup on the runner, silent-installs + silent-uninstalls it as a smoke test, and uploads the `.exe` to both the workflow artifact and the `friends` release. There is no macOS-side build for this one — Inno Setup only runs on Windows, which is why CI does it.
+  **The runner has no `dist/CozyTech/`**, so `stage.py` builds the instance out of the committed `dist/LittleKettleValley.zip`. Rebuilding the zip locally and *not* pushing it means CI silently ships the previous instance — `release.sh` commits and pushes the zip before it triggers the workflow for exactly this reason.
 - **Install guide PDF**: `tools/venv/bin/python tools/scripts/install_guide_pdf.py "dist/vN/Little Kettle Valley - Install Guide.pdf"` — pick the next unused `vN` (never overwrite an existing version; the whole `dist/v*/` prefix is gitignored, so these live locally and on the release only). Render a quick visual check before shipping: `pdftoppm -png -r 150 "dist/vN/Little Kettle Valley - Install Guide.pdf" /tmp/page` then look at the PNGs — reportlab gives no warning when text or a numbered-step circle collides with something else on the page.
 
+### How much memory the installer gives the game
+
+`MinMemAlloc` is always 1024. `MaxMemAlloc` is not baked in — `stage.py` writes an `@@MAX_MEM@@` token and the `.iss` `[Code]` section replaces it at install time, after reading physical RAM with `GlobalMemoryStatusEx`:
+
+| Physical RAM | `MaxMemAlloc` |
+| --- | --- |
+| under 12 GB | 3072 |
+| 12–24 GB | 3584 |
+| over 24 GB | 4096 |
+
+Windows reports slightly less RAM than the sticker (firmware takes a cut), so the reading is rounded up to whole GB before the table is applied — a 16 GB machine reports ~15.9 GB and still lands on 3584. If the reading fails for any reason the installer falls back to 3584 and says so in `/LOG`. The same tiers are what `docs/INSTALL.md` tells manual-import users to set by hand.
+
+`/LKVRAMGB=<n>` makes the installer pretend the machine has *n* GB. It exists so CI can prove all three branches on one 16 GB runner (8 → 3072, 16 → 3584, 32 → 4096, plus an unforced install checked against the runner's real RAM); it is not documented for players.
+
+The **Mac disk image is a separate number**: `MAX_MEM_MB = 3072` near the top of `installers/macos/build_dmg.py`, baked into the instance because a dmg has no install-time code to run. It is set for an 8 GB Air; on a bigger Mac raise it in Prism (Edit → Settings → Memory). The tracked `dist/LittleKettleValley.zip` carries 3584, matching the middle tier.
+
 ### Where they live
-- `dist/LittleKettleValley.zip`, `dist/LittleKettleValley.dmg` — always the current build, gitignored, re-uploaded with `--clobber` each release.
-- `dist/vN/Little Kettle Valley - Install Guide.pdf` — versioned locally (gitignored), but uploaded to the release under the same asset name every time, so the release always serves the latest guide.
-- `installers/windows/build/out/LittleKettleValley-Setup.exe` — CI-only output (the `installers/windows/build/` tree isn't committed); the release asset is the copy CI uploads.
+- `dist/LittleKettleValley.zip` — **tracked in git, on purpose.** It is both a release asset and the build input CI uses to make the `.exe` (see above), so it has to be on `main`. `release.sh` commits and pushes it; if you rebuild it by hand, commit it by hand: `git add dist/LittleKettleValley.zip`.
+- `dist/LittleKettleValley.dmg` — gitignored (47 MB of Prism Launcher). Local build output, re-uploaded with `--clobber` each release.
+- `dist/vN/Little Kettle Valley - Install Guide.pdf` — the `dist/v*/` prefix is gitignored, but the **current** guide is force-added so the repo has a copy of what shipped; `dist/v2/…` is the one in git today. Every version is uploaded to the release under the same asset name, so the release always serves the latest guide.
+- `installers/windows/build/out/LittleKettleValley-Setup.exe` — CI-only output; `installers/windows/build/` is gitignored and `dist/*.exe` is too. The release asset is the copy CI uploads. Its size and sha256 for each release are recorded in `installers/RELEASE-NOTES.md`.
+- `installers/RECON-prism.md`, `installers/RECON-instance.md` — the source-level audits of Prism Launcher and of the shipped instance that every non-obvious decision in the `.iss` and in `stage.py` cites. Read these before changing either.
 - Release page: `gh release view friends --web` or https://github.com/malloyjoshua/little-kettle-valley/releases/tag/friends
 
 ### When Prism or Java releases move
