@@ -1760,7 +1760,7 @@ const SCENES = {
   // that will not be empty in spring: Tess, Mab and Corin arrive in Act V.
   q70a: {
     origin: 'anchor',
-    who: ['Marnie', 'Three empty houses, three beds, three blankets. People arrive in spring, and beds should be made before they get here.'],
+    who: ['Marnie', 'Three empty houses, three beds, three blankets. I want them turned down before anybody gets to the top of the road.'],
     // Three beds in the inn's common room. The old ~-3 ~0 ~-3..~2 row was
     // measured against a 9x9 plank box that no longer exists; the plan pairs
     // adjacent floor cells it read off the tavern piece itself, so the beds
@@ -1772,7 +1772,7 @@ const SCENES = {
   // stays word for word, because rule 3 says it is never paraphrased.
   q76: {
     origin: 'anchor',
-    who: ['Oda', "Year two on the board, and it is a longer list than last spring. I have written the bottom four lines out exactly as they were."],
+    who: ['Oda', "Year two on the board. Longer list than last spring, and the bottom four lines are still in Josie's hand."],
     cmds: [
       // Same trap as finaleAct3, same fix: the sign is already standing on
       // the noticeboard in this exact blockstate, so /setblock refuses and
@@ -2181,6 +2181,21 @@ ServerEvents.commandRegistry(event => {
           '25,000 FE/t sustained at 60 mB/t of fuel or under.',
           'Tobin: 25,000 FE/t across both turbines, 60 mB/t of fuel or under. Reactor Terminal, top two rows.')))
         .then(Commands.literal('standing').executes(ctx => standingReport(ctx.source))))
+      // --- /valley intro: face the path, the title card, the compass again ---
+      .then(Commands.literal('intro').executes(ctx => {
+        let pl = ctx.source.player
+        if (!pl) { ctx.source.sendFailure(Component.literal('Only a player can be turned around.')); return 0 }
+        global.valley.orient(ctx.source.server, pl)
+        return 1
+      }))
+      // --- /valley book: the Quest Book item, for a lost bag or an unbound key --
+      .then(Commands.literal('book').executes(ctx => {
+        let pl = ctx.source.player
+        if (!pl) { ctx.source.sendFailure(Component.literal('Only a player can be handed a book.')); return 0 }
+        pl.give(Item.of('ftbquests:book'))
+        ctx.source.sendSuccess(Component.literal('The Quest Book is in your bag. Right-click it.'), false)
+        return 1
+      }))
       // --- /valley letter: a fresh copy of Josie's letter for whoever asks ----
       .then(Commands.literal('letter').executes(ctx => {
         let pl = ctx.source.player
@@ -2442,7 +2457,7 @@ function standingCmd(ctx, event, teamArgName) {
 
   let closed = v.standingClosed(self)
   if (fresh && player) {
-    v.say(player, 'Oda', (STANDING_WHO[key] || 'That') + "'s story is closed. That's " +
+    v.say(player, 'Oda', (STANDING_WHO[key] || 'That') + "'s account is closed. That's " +
       closed.length + ' of eight in my book.')
   }
   console.info('[valley] /valley standing ' + key + ' [' + keys.join(', ') + ']' +

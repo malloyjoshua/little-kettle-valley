@@ -14,15 +14,15 @@
  "quests": [
   {
    "key": "q76",
-   "title": "Sleep One Night, Then Walk the Square With Marnie",
-   "subtitle": "Sleep one night, then meet Marnie in the square. Year two.",
+   "title": "Sleep, Then Walk the Square With Marnie",
+   "subtitle": "Year two, and the noticeboard is longer.",
    "icon": "minecraft:oak_sapling",
    "description": [
     "Marnie: \"Snow's still on the ridge and the square's still standing. Come on — I want you to see it in daylight.\"",
     "",
     "Sleep one night in your own bed after the Longest Night, then walk the square with Marnie.",
     "",
-    "Opens year two: Nella's cold frame, Oda's counter, and the thirty tiles of the square. The dressing packet for those tiles is in this quest's rewards."
+    "Year two opens: Nella's cold frame, Oda's counter and the square's thirty tiles. The packet for those tiles is in this payout."
    ],
    "deps": [
     "q75"
@@ -32,7 +32,7 @@
    "tasks": [
     {
      "type": "checkmark",
-     "title": "Slept one night after the Longest Night, then walked the square with Marnie"
+     "title": "A night slept and the square walked with Marnie"
     }
    ],
    "rewards": [
@@ -112,26 +112,26 @@
     },
     {
      "type": "toast",
-     "title": "Year two",
-     "description": "Next: glaze Nella's cold frame with 16 Vibrant Quartz Glass — the quartz glass and the glowstone are in this payout — and the square's thirty marked copper tiles."
+     "title": "Year Two, Longer List",
+     "description": "Next: glaze Nella's cold frame with 16 Vibrant Quartz Glass — the quartz and the glowstone are in this payout — and dress the square's thirty tiles."
     }
    ]
   },
   {
    "key": "q77",
-   "title": "Glaze the Cold Frame and Grow Four Crops Out of Season",
-   "subtitle": "Nella's chain closes.",
+   "title": "Glaze the Cold Frame and Grow Four Crops",
+   "subtitle": "Four crops with snow still on the ridge.",
    "icon": "thermal:tomato",
    "description": [
-    "Nella: \"Glass, and I grew a tomato before the snow was off the ridge. I'm not making a speech about it.\"",
+    "Nella: \"Glass, and I'll have a tomato up before the snow's off the ridge. I'm not making a speech about it.\"",
     "",
-    "Glaze Nella's cold frame with 16 panes and grow her something out of season.",
+    "Glaze Nella's cold frame with 16 Vibrant Quartz Glass, then grow a Tomato, a Strawberry, a Bell Pepper and a Corn under it.",
     "",
-    "The glass is Vibrant Quartz Glass — 2 glowstone dust, 2 Quartz Glass and 1 Cyanite Ingot makes two panes, so eight crafts gets you the sixteen. The glowstone and the quartz glass came with Marnie's walk round the square; the cyanite comes out of the reactor.",
+    "2 dust, 2 Quartz Glass, 1 Cyanite Ingot makes two panes — eight crafts. Marnie brought the dust and glass; the reactor makes the cyanite.",
     "",
-    "It glows on its own, so nothing under that frame ever needs a lantern. Then grow a Tomato, a Strawberry, a Bell Pepper and a Corn, and hold all four at once.",
+    "It glows on its own, so nothing under that frame ever needs a lantern. Hold all four crops at once when you hand this in.",
     "",
-    "Nella takes the gardener's job and her chain closes. Marnie eats the first tomato standing in the doorway and says nothing about it."
+    "Nella takes the gardener's job. Marnie eats the first tomato standing in the doorway and says nothing about it."
    ],
    "deps": [
     "q76",
@@ -206,7 +206,7 @@
     },
     {
      "type": "toast",
-     "title": "Nella's chain closes",
+     "title": "The Gardener's Job",
      "description": "Next: the derby — six fish for the inn wall."
     },
     {
@@ -219,8 +219,8 @@
   },
   {
    "key": "q78",
-   "title": "Put One Item on Each of the 30 Marked Copper Tiles",
-   "subtitle": "Thirty tiles, thirty things. Any order is right.",
+   "title": "Dress the Square's 30 Copper Tiles",
+   "subtitle": "Everything for it came in Marnie's packet.",
    "icon": "supplementaries:flower_box",
    "description": [
     "Oda: \"Thirty tiles, thirty things. I have a preferred order — ignore me.\"",
@@ -235,7 +235,7 @@
    "tasks": [
     {
      "type": "checkmark",
-     "title": "All 30 marked copper tiles in the square have something on them"
+     "title": "Something on each of the 30 marked copper tiles"
     }
    ],
    "rewards": [
@@ -271,15 +271,15 @@
   },
   {
    "key": "q80",
-   "title": "Catch Three Named Fish and Hang Three Mounts on the Inn Wall",
-   "subtitle": "The Fishing Derby.",
+   "title": "Catch Three Named Fish for the Inn Wall",
+   "subtitle": "Bluegill and perch by day, catfish after dark.",
    "icon": "aquaculture:oak_fish_mount",
    "description": [
     "Nella: \"Bluegill and perch off the pier any time. Catfish is a night fish and he wants a worm on the hook.\"",
     "",
-    "Catch one Bluegill, one Perch and one Catfish off the pier — bluegill and perch in daylight, catfish after dark on a worm, and the box in your bag holds thirty-two. Then hang three of your Oak Fish Mounts on the inn wall; Nella shipped two at the salting and two more at the ice. If you've fished an hour and he still hasn't come up, he's in the deep water off the reeds, not off the pier.",
+    "Catch one Bluegill, one Perch and one Catfish off the pier — the first two in daylight, the catfish after dark on a worm — then hang three of the four Fish Mounts Nella sent you. If he won't come up, he is in the deep water off the reeds.",
     "",
-    "Pays 50 Valley Scrip toward the town's winter debt."
+    "Fifty Scrip toward the winter debt, and three fish looking down at the long table."
    ],
    "deps": [
     "q77"
@@ -341,9 +341,9 @@
    "description": [
     "Tobin: \"Second turbine, same reactor, and the fuel line does not move. I did the arithmetic four times, then once more with Bram watching.\"",
     "",
-    "Build a second turbine off the reactor you already have, then stand at the reactor terminal, press T to open the chat box and type /valley check power. It prints two numbers and ticks this quest for you when they're right: 25,000 or more coming out of the two turbines together, and 60 or less going in as fuel. Steam is free; fuel is the budget. Tobin's signed figures are on the Turbine page in your journal — eighteen hundred under load, and the burn he wrote under it.",
+    "Build a second turbine off the reactor you already have, then stand at the reactor terminal, press T and type /valley check power. It ticks this quest when both turbines make 25,000 or more on 60 or less fuel.",
     "",
-    "Stage big_power. The quarry runs off this and nothing else does."
+    "Enough power to sink a quarry, and nothing else in the valley needs this much."
    ],
    "deps": [
     "q75"
@@ -351,7 +351,7 @@
    "tasks": [
     {
      "type": "checkmark",
-     "title": "Both turbines together making 25,000+ on 60 or less fuel (/valley check power)"
+     "title": "Both turbines at 25,000+ on 60 or less fuel"
     }
    ],
    "rewards": [
@@ -385,22 +385,22 @@
     },
     {
      "type": "toast",
-     "title": "Stage: big_power",
+     "title": "Power for a Quarry",
      "description": "Next: two Crafting CPUs and wireless across the whole town."
     }
    ]
   },
   {
    "key": "q84",
-   "title": "Hold 2 16k Crafting Storage, 2 Access Points and 4 Wireless Boosters",
-   "subtitle": "Everything, everywhere.",
+   "title": "Build the Network Out Across the Town",
+   "subtitle": "2 Access Points, 4 Boosters, mill to lake.",
    "icon": "ae2:wireless_terminal",
    "description": [
     "Bram: \"Wireless, in my mill. Fine.\"",
     "",
     "Build the network out: hold 2 16k Crafting Storage, 2 ME Wireless Access Points and 4 Wireless Boosters.",
     "",
-    "Every player gets a wireless terminal, an export subnet keeps Marnie's pantry stocked, and the Delivery Crate fills itself for the eight dinners."
+    "Every player gets a wireless terminal, and the Delivery Crate starts filling itself for the eight dinners."
    ],
    "deps": [
     "q83",
@@ -450,14 +450,14 @@
     },
     {
      "type": "toast",
-     "title": "The town is on the network",
+     "title": "Wireless, Mill to Lake",
      "description": "Next: pattern the subnet that keeps Marnie's pantry full, then the eight dinners the crate will stock."
     }
    ]
   },
   {
    "key": "q84a",
-   "title": "Encode 8 Patterns and Put a Level Emitter on Marnie's Pantry",
+   "title": "Encode 8 Patterns and Wire Marnie's Pantry",
    "subtitle": "The subnet that restocks the inn.",
    "icon": "ae2:pattern_provider",
    "description": [
@@ -511,17 +511,17 @@
     {
      "type": "toast",
      "title": "The Pantry Fills Itself",
-     "description": "Next: the network is done until Tobin's site is cut — and that opens the moment you come back up the echo cave. Go and be useless somewhere warm; the bathhouse is open."
+     "description": "Next: nothing, until Tobin's site is cut — and that opens the moment you come back up the echo cave. Go and be useless somewhere warm; the bathhouse is open."
     }
    ]
   },
   {
    "key": "q86a",
-   "title": "Cut the Rig Pad and Run the Power Lane to Tobin's Site",
+   "title": "Cut the Rig Pad and Run the Power Lane",
    "subtitle": "Legal to build. Not yet legal to run.",
    "icon": "quarryplus:flex_marker",
    "description": [
-    "Tobin: \"The site's surveyed, so the pad is mine to cut. The rig isn't mine to switch on until the town says so. Those are different problems.\"",
+    "Tobin: \"The site's surveyed, so the pad is mine to cut. The rig isn't mine to switch on until the town says so. Different problems.\"",
     "",
     "Level the 9x9 pad on the site the deep survey picked and run Energy Duct from the reactor grid out to it, then set the Flexible Marker on the corner stake and type the box — a side of 64 is well inside this pack's 256 cap.",
     "",
@@ -576,13 +576,13 @@
   },
   {
    "key": "q79",
-   "title": "Cook and Deliver Each Resident's Favourite Dish",
+   "title": "Cook Each Resident's Favourite Dish",
    "subtitle": "Eight plates, eight people.",
    "icon": "farmersdelight:roast_chicken",
    "description": [
     "Marnie: \"Eight plates, eight people. The crate by the counter already has every ingredient in it — your network saw to that.\"",
     "",
-    "Cook and hand over one of each: Roast Chicken for Marnie, Beef Stew for Bram, Cabbage Rolls for Oda, Fish Stew for Nella, Mushroom Rice for Halden, Bacon and Eggs for Tobin, Fruit Salad for Wisp, Sweet Berry Cheesecake for Pip. Hold all eight plates when you hand this in — Marnie sends them round the table herself. Walking them out one at a time is the better evening, though.",
+    "Cook one each: Roast Chicken for Marnie, Beef Stew for Bram, Cabbage Rolls for Oda, Fish Stew for Nella, Mushroom Rice for Halden, Bacon and Eggs for Tobin, Fruit Salad for Wisp, Sweet Berry Cheesecake for Pip. Hold all eight at hand-in.",
     "",
     "You keep the Feast Crate: one of each, set aside for Founder's Day."
    ],
@@ -675,13 +675,13 @@
   },
   {
    "key": "q81",
-   "title": "Sail to the Cairn Chapel and the Drowned Lighthouse",
+   "title": "Sail to the Cairn and the Drowned Lighthouse",
    "subtitle": "Out past the ridge.",
    "icon": "artifacts:cross_necklace",
    "description": [
     "Pip: \"The chapel's called the Cairn and the lighthouse is called Drowned and I named the boat Biscuit!\"",
     "",
-    "Take the boat out with Nella and Pip, following the Explorer's Compass from the last payout to the Cairn Chapel and then the Drowned Lighthouse. A waystone stands at each and the chest is under the beacon beam. Bring back the Cross Necklace from the chapel and the Snorkel from the lighthouse.",
+    "Take the boat out with Nella and Pip, following the compass from the last payout to the Cairn Chapel and the Drowned Lighthouse. A waystone stands at each and the chest is under the beacon beam. Bring back the Necklace and the Snorkel.",
     "",
     "You keep the Warding Lamp — you'll want it in the cave under the Works."
    ],
@@ -726,7 +726,7 @@
     },
     {
      "type": "command",
-     "command": "title @p subtitle {\"text\": \"And the Drowned Lighthouse, past the ridge.\", \"color\": \"gray\", \"italic\": true}"
+     "command": "title @p subtitle {\"text\": \"And the Drowned Lighthouse past it.\", \"color\": \"gray\", \"italic\": true}"
     },
     {
      "type": "command",
@@ -745,15 +745,15 @@
   },
   {
    "key": "q82",
-   "title": "Follow Tobin's Lanterns Down and Bring Back 1 Echo Shard",
-   "subtitle": "Down Tobin's lanterns for one Echo Shard. Deeper and darker.",
+   "title": "Bring Back One Echo Shard",
+   "subtitle": "Down Tobin's lantern line, under the Works.",
    "icon": "minecraft:echo_shard",
    "description": [
     "Tobin: \"Dead sculk, no Warden — I checked twice, then again with a stick. Mind the third lantern, it hangs crooked.\"",
     "",
     "Follow Tobin's lantern line down into the echo cave under the Works and bring back 1 Echo Shard. The Warding Lamp from the boat trip holds the dark off the whole chamber.",
     "",
-    "The deep survey data is what sites the quarry."
+    "Tobin reads the echo off the shard and puts a stake in the ground where the quarry goes."
    ],
    "deps": [
     "q81"
@@ -792,7 +792,7 @@
     },
     {
      "type": "command",
-     "command": "title @p subtitle {\"text\": \"Tobin's lanterns go down further than anyone dug.\", \"color\": \"gray\", \"italic\": true}"
+     "command": "title @p subtitle {\"text\": \"Further down than anyone ever dug.\", \"color\": \"gray\", \"italic\": true}"
     },
     {
      "type": "command",
@@ -812,14 +812,14 @@
   {
    "key": "q85",
    "title": "Pay 120 Valley Scrip at Oda's Counter",
-   "subtitle": "Oda's chain closes.",
+   "subtitle": "Eleven years of red ink, cleared.",
    "icon": "valley:scrip",
    "description": [
     "Oda: \"Eleven years, and here — you hold the ledger. I've held it long enough.\"",
     "",
     "Hand 120 Valley Scrip across Oda's counter to clear the town's winter debt.",
     "",
-    "The books balance for the first time since Josie. Oda's chain closes and 25 Scrip comes straight back to you."
+    "The books balance for the first time since Josie, and 25 Scrip comes straight back across the counter."
    ],
    "deps": [
     "q79",
@@ -874,7 +874,7 @@
     "",
     "Standing is simply how many of the eight named residents' stories your team has finished: Wisp, Marnie, Halden, Pip, Bram, Tobin, Nella, Oda. At six, the valley considers you one of its own and Oda will sell you the Works Deed.",
     "",
-    "You don't have to do anything for this one. It ticks itself the moment the sixth neighbour's story closes — Oda keeps the count, and she is not going to be talked into rounding it up."
+    "You don't have to do anything here. It ticks itself when the sixth neighbour's story closes, and Oda will not be talked into rounding up."
    ],
    "deps": [
     "q76"
@@ -895,21 +895,21 @@
     {
      "type": "toast",
      "title": "Standing: Trusted",
-     "description": "Six of eight neighbours' stories are closed. Oda will sell you the Works Deed. (Press T and type /valley check standing if you want to see her count.)"
+     "description": "Next: 80 Scrip at Oda's counter buys the Works Deed. (Press T and type /valley check standing to see her count.)"
     }
    ]
   },
   {
    "key": "q86",
-   "title": "Buy the Works Deed: 80 Valley Scrip and Standing: Trusted",
-   "subtitle": "Six of eight chains closed.",
+   "title": "Buy the Works Deed at Oda's Counter",
+   "subtitle": "80 Scrip, and six of eight stories closed.",
    "icon": "valley:deed",
    "description": [
     "Halden: \"Josie meant the Works to belong to whoever stayed. Nobody has argued about it in four years.\"",
     "",
     "Pay 80 Valley Scrip at Oda's counter. The second half is Standing: Trusted — six of the eight resident chains closed — and it locks itself open the moment the sixth one does.",
     "",
-    "Wisp's people came in off the ice · Marnie sat down at her own table · Halden's rounds · Pip's satchel · Bram's cocoa · Tobin's signature on the readings · Nella's tomato · Oda's ledger. Run /valley check standing for the count.",
+    "Eight neighbours, six needed: Wisp, Marnie, Halden, Pip, Bram, Tobin, Nella, Oda. Run /valley check standing for where you are.",
     "",
     "The Deed is yours: QuarryPlus becomes craftable, the residents vote, and Bram signs as witness."
    ],
@@ -944,13 +944,13 @@
     },
     {
      "type": "command",
-     "command": "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"Go and read her wall again some time. A machine one person can run is a hostage — that was the whole of it. There are eight names on this deed and not one of them is hers. She would have been unbearable about it.\",\"italic\":true}]",
+     "command": "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"Eight names on this deed and not one of them hers. She would have been unbearable about it.\",\"italic\":true}]",
      "elevate": true,
      "silent": true
     },
     {
      "type": "command",
-     "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Filed, witnessed and in ink. If every one of us walked out of this valley tomorrow the lights would still be on in it on Thursday. That is the first time that has ever been true.\",\"italic\":true}]",
+     "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"If every one of us walked out tomorrow, the lights here would still be on come Thursday. Never been true before.\",\"italic\":true}]",
      "elevate": true,
      "silent": true
     },
@@ -969,14 +969,14 @@
   {
    "key": "q87",
    "title": "Set the Quarry on the Marker and Switch It On",
-   "subtitle": "Tobin's arc closes.",
+   "subtitle": "Flat against the marker, facing in.",
    "icon": "quarryplus:quarry",
    "description": [
     "Tobin: \"Pad's cut, marker's typed, lane's live. Rig flat against the marker, facing in, and switch it on. I am extremely calm about this.\"",
     "",
     "Hold the QuarryPlus Quarry, set it flat against the Flexible Marker you already typed and facing in, and switch it on off the lane you already ran. It builds its own frame.",
     "",
-    "The shaft sinks and the quarry runs. It is the biggest thing Tobin has ever been responsible for, and his arc closes here."
+    "The shaft sinks and the quarry runs. It is the biggest thing Tobin has ever been responsible for and he checks the gauge four times."
    ],
    "deps": [
     "q86",
@@ -991,7 +991,7 @@
     },
     {
      "type": "checkmark",
-     "title": "Quarry set against the marker and running off the reactor lane"
+     "title": "Quarry running off the reactor lane"
     }
    ],
    "rewards": [
@@ -1016,22 +1016,22 @@
     },
     {
      "type": "toast",
-     "title": "Tobin's arc closes",
+     "title": "The Shaft Sinks",
      "description": "Next: 1,024 cobblestone from network stock to the granary."
     }
    ]
   },
   {
    "key": "q88",
-   "title": "Deliver 1,024 Cobblestone From Network Stock to the Granary",
+   "title": "Deliver 1,024 Cobblestone to the Granary",
    "subtitle": "The first load.",
    "icon": "minecraft:cobblestone",
    "description": [
     "Bram: \"Rock into the box, box into the granary. That's a public works, not a hole in a hill.\"",
     "",
-    "Pattern the quarry's output so cobble goes to the granary, ore goes to the Pulverizer and the rest goes to the void, then let one full cycle land: 1,024 cobblestone out of network stock into the granary. Bram wants to see the sorting work before he calls it a public works, and the quarry keeps running afterwards.",
+    "Pattern the quarry's output — cobble to the granary, ore to the Pulverizer, the rest to the void — then let one full cycle land: 1,024 cobblestone out of network stock into the granary. The quarry keeps running afterwards.",
     "",
-    "Stage town_provides: Oda's shelves restock themselves from your network from now on, permanently."
+    "Oda's shelves restock themselves off your network from now on, and she will check that they did."
    ],
    "deps": [
     "q87",
@@ -1061,22 +1061,22 @@
     },
     {
      "type": "toast",
-     "title": "Stage: town_provides",
+     "title": "Shelves Fill Themselves",
      "description": "Next: cast a bell from the quarry's own copper."
     }
    ]
   },
   {
    "key": "q89",
-   "title": "Hang the Quarry-Copper Bell on the Marked Post",
-   "subtitle": "Cast one copper bell and hang it. Pip named it Big Copper.",
+   "title": "Hang the Copper Bell on the Marked Post",
+   "subtitle": "Pip has already named it Big Copper.",
    "icon": "minecraft:bell",
    "description": [
     "Pip: \"I get to ring it, and I already named it! It's called Big Copper!\"",
     "",
     "Cast one Bell from the quarry's own copper — a copper block ringed by four copper ingots at any bench — and hang it on the marked post in the finished square.",
     "",
-    "Every resident comes out for it. Pip has been the courier since December; from today he is also the bell-ringer, and nobody is getting that rope off him."
+    "Every resident comes out for it. Pip has been the courier since December; from today he has the bell rope and nobody is getting it off him."
    ],
    "deps": [
     "q78",
@@ -1086,8 +1086,7 @@
     {
      "type": "item",
      "item": "minecraft:bell",
-     "count": 1,
-     "consume": true
+     "count": 1
     },
     {
      "type": "checkmark",
@@ -1105,7 +1104,7 @@
     },
     {
      "type": "command",
-     "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Eleven. Eleven days she ran it. Eleven years I kept the book of a shop with nothing in it. Eleven feet of porch, she used to say, and never look at more than that at once. I have stopped believing that is a coincidence and I have stopped needing it not to be.\",\"italic\":true}]",
+     "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Eleven days she ran it, eleven years I kept an empty book, eleven feet of porch — I have stopped calling it chance.\",\"italic\":true}]",
      "elevate": true,
      "silent": true
     },
@@ -1128,7 +1127,7 @@
   },
   {
    "key": "q90",
-   "title": "Put the Fortieth Lamp on the Bare Post at Josie's Porch",
+   "title": "Put the Fortieth Lamp on Josie's Bare Post",
    "subtitle": "The last lamp.",
    "icon": "minecraft:lantern",
    "description": [
@@ -1179,7 +1178,7 @@
     },
     {
      "type": "command",
-     "command": "title @p subtitle {\"text\": \"The fortieth post. It has been bare since she left.\", \"color\": \"gray\", \"italic\": true}"
+     "command": "title @p subtitle {\"text\": \"The fortieth post, bare since she left.\", \"color\": \"gray\", \"italic\": true}"
     },
     {
      "type": "command",
@@ -1198,13 +1197,13 @@
   },
   {
    "key": "q91",
-   "title": "Set the Eight Feast Dishes on the Long Table and Bank the Hearth",
+   "title": "Set the Eight Dishes and Bank the Hearth",
    "subtitle": "Act V finale — Founder's Day.",
    "icon": "farmersdelight:stuffed_pumpkin",
    "description": [
     "Marnie: \"Bring the crate. Everyone's already here — I have never once had to set this many chairs.\"",
     "",
-    "Take the eight dishes out of the Feast Crate, set them on the long table in the inn, and bank the Hearth for the night the way Josie's last page describes — the trick a woman whose name she had forgotten taught her in ninety seconds, in the rain, because Josie looked cold. Bank it like that and it holds till morning. It has not gone out since.",
+    "Take the eight dishes out of the Feast Crate, set them on the long table in the inn, and bank the Hearth the way Josie's last page describes — the trick a woman whose name she'd forgotten taught her in the rain, because Josie looked cold.",
     "",
     "Forty lamps. Fifteen people. One winter that nobody leaves.",
     "",

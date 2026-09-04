@@ -1,0 +1,16 @@
+{
+  "__comment": "OVERRIDE. letsdo-vinery-forge-1.4.41.jar ships data/vinery/loot_tables/blocks/apple_press.json as literally `{}` — an empty table — so an Apple Press that is placed and then broken is destroyed, with any tool, silently. It is a quest reward in this pack, so that is a way to lose a story item with no message and no way back. Drop itself, every time.",
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "conditions": [
+        { "condition": "minecraft:survives_explosion" }
+      ],
+      "entries": [
+        { "type": "minecraft:item", "name": "vinery:apple_press" }
+      ]
+    }
+  ]
+}

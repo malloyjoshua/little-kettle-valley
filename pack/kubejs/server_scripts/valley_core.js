@@ -656,6 +656,8 @@ PlayerEvents.loggedIn(event => {
     valleyJoinParty(server, player, name)
   }
 
+  startObjectiveLoop()
+
   // ---- §12.5 first-join block. Per player, once.
   if (!player.stages.has('first_join')) {
     player.stages.add('first_join')
@@ -786,14 +788,16 @@ function ruinPath(server, level, from, to) {
         (k === 0 ? ' minecraft:dirt_path' : ' minecraft:gravel'))
       server.runCommandSilent('setblock ' + px + ' ' + (py + 1) + ' ' + pz + ' minecraft:air')
     }
-    // a lantern on a post every eight blocks, on alternating sides
-    if (i > 0 && i % 8 === 0) {
-      let k = (i % 16 === 0) ? 2 : -2
-      let px = x + side[0] * k, pz = z + side[1] * k
-      let py = ruinSurface(level, px, pz)
-      if (py < 0) continue
-      server.runCommandSilent('setblock ' + px + ' ' + (py + 1) + ' ' + pz + ' minecraft:oak_fence')
-      server.runCommandSilent('setblock ' + px + ' ' + (py + 2) + ' ' + pz + ' minecraft:lantern[hanging=false]')
+    // a lantern on a post every six blocks, BOTH sides: from spawn the path
+    // has to read as a lit corridor, not a hint.
+    if (i > 0 && i % 6 === 0) {
+      [2, -2].forEach(k => {
+        let px = x + side[0] * k, pz = z + side[1] * k
+        let py = ruinSurface(level, px, pz)
+        if (py < 0) return
+        server.runCommandSilent('setblock ' + px + ' ' + (py + 1) + ' ' + pz + ' minecraft:oak_fence')
+        server.runCommandSilent('setblock ' + px + ' ' + (py + 2) + ' ' + pz + ' minecraft:lantern[hanging=false]')
+      })
     }
   }
 }
@@ -845,7 +849,7 @@ function placeRuin(server, player) {
 // and no NBT key we have to guess right.
 const LETTER_PAGES = [
   "I wrote three of these and posted them all. Whichever of you is reading it: I'm dead, the valley is cold, and the farm is yours.\n\nSo is the kettle. So is the mess.",
-  "A few of us stayed. Marnie keeps an inn with no guests. Bram keeps a mill with a snapped axle. Oda opens a shop nobody walks into and writes down the takings anyway.\n\nThey are not stubborn. They are waiting. Don't tell them I said so.",
+  "A few of us stayed. Marnie keeps an inn with no guests. Bram keeps a mill with a snapped axle. Oda opens a shop nobody walks into and writes the takings down.\n\nThey are not stubborn. They are waiting. Don't tell them I said so.",
   "Forty lamp posts stand along the road and not one is lit. I lit them once. Then I put them out, on purpose.\n\nThere is a door in the cellar. Leave it shut until somebody can read my handwriting. It is not a riddle. It is a lock.",
   "The map, then. Follow the lit path from where you woke. It ends at a chimney with three walls standing.\n\nPut the waystone on the flat grey hearthstone and name it Home. Start from the part that held.\n\nPut the kettle on. \u2014 Josie"
 ]
@@ -873,12 +877,118 @@ function josieLetter() {
 
 global.valley.letter = josieLetter
 
+// -----------------------------------------------------------------------------
+// Orientation. "When I spawned in, I had no clue what to do or where to go."
+// Chat scrolls away and a letter in a bag is invisible, so the first minute is
+// said on every channel there is: the body (face the path), the screen (a second
+// title card, then the action bar until Q2 is done), the world (a signpost and
+// a lit corridor) and the hand (a compass that points at the hearth).
+// -----------------------------------------------------------------------------
+function yawToward(from, to) {
+  let dx = to[0] - from[0], dz = to[2] - from[2]
+  return Math.round(Math.atan2(-dx, dz) * 180 / Math.PI)
+}
+
+function facePath(server, player, name) {
+  let ruin = global.valley.ruin()
+  if (!ruin) return
+  let yaw = yawToward([player.x, player.y, player.z], ruin)
+  server.runCommandSilent('tp ' + name + ' ' + player.x + ' ' + player.y + ' ' + player.z + ' ' + yaw + ' 8')
+}
+
+function kettleFarmCompass() {
+  let ruin = global.valley.ruin()
+  let tag = ruin
+    ? 'LodestonePos:{X:' + ruin[0] + ',Y:' + ruin[1] + ',Z:' + ruin[2] + '},LodestoneDimension:"minecraft:overworld",LodestoneTracked:0b,'
+    : ''
+  return 'minecraft:compass{' + tag +
+    'display:{Name:\'{"text":"Kettle Farm Compass","italic":false,"color":"gold"}\',' +
+    'Lore:[\'{"text":"It points at the hearth.","color":"gray","italic":true}\']}}'
+}
+
+// A signpost where the lit path leaves spawn, its face turned to the player.
+function spawnSignpost(server, from) {
+  let ruin = global.valley.ruin()
+  if (!ruin) return
+  let dx = ruin[0] - from[0], dz = ruin[2] - from[2]
+  let steps = Math.max(Math.abs(dx), Math.abs(dz))
+  if (steps < 4) return
+  let level = server.overworld ? server.overworld() : null
+  let x = Math.round(from[0] + dx * 3 / steps), z = Math.round(from[2] + dz * 3 / steps)
+  let side = Math.abs(dx) >= Math.abs(dz) ? [0, 1] : [1, 0]
+  x += side[0] * 2; z += side[1] * 2
+  let y = level ? ruinSurface(level, x, z) : -1
+  if (y < 0) y = from[1] - 1
+  // standing-sign rotation: 0 faces south, 22.5 degrees a step; face the spawn
+  let rot = ((Math.round(yawToward([x, y, z], from) / 22.5) % 16) + 16) % 16
+  server.runCommandSilent('setblock ' + x + ' ' + (y + 1) + ' ' + z + ' minecraft:oak_sign[rotation=' + rot + ']' +
+    '{front_text:{messages:[\'{"text":"The Kettle farm"}\',\'{"text":"this way \u2192","color":"dark_red"}\',\'{"text":"follow the lanterns"}\',\'{"text":"\u2014 J.K."}\'],has_glowing_text:1b}}')
+  server.runCommandSilent('setblock ' + x + ' ' + (y + 2) + ' ' + z + ' minecraft:lantern[hanging=false]')
+}
+
+// Second title card, a few seconds after the first: where to walk.
+function tellWhere(server, name, where) {
+  valleyDelay(90, s => {
+    s.runCommandSilent('title ' + name + ' times 10 70 20')
+    s.runCommandSilent('title ' + name + ' subtitle ' +
+      JSON.stringify({ text: 'to the chimney with three walls. Your letter is in your hand.', color: 'gray' }))
+    s.runCommandSilent('title ' + name + ' title ' +
+      JSON.stringify({ text: 'Follow the lanterns ' + (where || 'north'), color: 'gold' }))
+    s.runCommandSilent('execute at ' + name + ' run playsound minecraft:block.note_block.bell master ' + name + ' ~ ~ ~ 1 1.2')
+  })
+}
+
+// The standing objective on the action bar, every three seconds, until the
+// waystone is on the hearthstone. One loop per server; it reschedules itself.
+function objectiveLine(player) {
+  let v = global.valley
+  let team = v.teamId(player)
+  if (v.isDone('q02', team)) return null
+  if (!v.isDone('q01', team)) {
+    return { text: 'Read Josie\'s letter. It is in your hand: right-click.', color: 'gold' }
+  }
+  let ruin = v.ruin()
+  if (!ruin) return { text: 'Open the Quest Book (right-click it, or press J).', color: 'gold' }
+  let d = Math.round(Math.sqrt(Math.pow(ruin[0] - player.x, 2) + Math.pow(ruin[2] - player.z, 2)))
+  if (d <= 6) return { text: 'Put the Homestead Waystone on the flat grey hearthstone and name it Home.', color: 'gold' }
+  let where = pdGet('valley_ruin_bearing', 'north')
+  return { text: 'Follow the lanterns ' + where + ' to the farm: ' + d + ' blocks. The compass points at it.', color: 'gold' }
+}
+
+function objectiveLoop() {
+  let server = global.valleyServer
+  if (!server) return
+  try {
+    server.players.forEach(pl => {
+      let line = objectiveLine(pl)
+      if (line) server.runCommandSilent('title ' + global.valley.pname(pl) + ' actionbar ' + JSON.stringify(line))
+    })
+  } catch (err) {
+    console.warn('[valley] objective loop: ' + err)
+  }
+  valleyDelay(60, objectiveLoop)
+}
+
+function startObjectiveLoop() {
+  if (global.valleyObjectiveLoop) return
+  global.valleyObjectiveLoop = true
+  valleyDelay(40, objectiveLoop)
+}
+
+global.valley.orient = function (server, player) {
+  let name = global.valley.pname(player)
+  facePath(server, player, name)
+  tellWhere(server, name, pdGet('valley_ruin_bearing', 'north'))
+  server.runCommandSilent('give ' + name + ' ' + kettleFarmCompass() + ' 1')
+  startObjectiveLoop()
+}
+
+
 function valleyFirstJoin(server, player, name) {
   // The letter, the deed and the kettle. Q1's task is READING the letter, which
   // valley_checks.js ticks off the right-click that opens the book.
+  // Hotbar order is the tutorial: the letter lands in the selected slot.
   player.give(josieLetter())
-  player.give(Item.of(VALLEY.ITEM.deed))
-  player.give(Item.of(VALLEY.ITEM.kettle))
 
   // Title card. Exactly the words in §2.
   server.runCommandSilent('title ' + name + ' times 20 90 30')
@@ -905,6 +1015,18 @@ function valleyFirstJoin(server, player, name) {
     }
   }
   let ruinPos = global.valley.ruin()
+  if (ruinPos) {
+    if (global.valley.once('spawn_signpost')) {
+      try { spawnSignpost(server, [Math.floor(player.x), Math.floor(player.y), Math.floor(player.z)]) } catch (err) { console.warn('[valley] signpost: ' + err) }
+    }
+    server.runCommandSilent('give ' + name + ' ' + kettleFarmCompass() + ' 1')
+  }
+  player.give(Item.of('ftbquests:book'))
+  player.give(Item.of(VALLEY.ITEM.deed))
+  player.give(Item.of(VALLEY.ITEM.kettle))
+  valleyDelay(5, s => { try { facePath(s, player, name) } catch (err) {} })
+  tellWhere(server, name, where)
+  startObjectiveLoop()
 
   // Three short lines. The premise lives in the letter itself now; chat only
   // says what to do (writer-brief rule 3 keeps the destination line verbatim).
@@ -919,7 +1041,7 @@ function valleyFirstJoin(server, player, name) {
       { text: '.', color: 'white' }
     ])
   }
-  lines.push([{ text: 'Press J for the Quest Book. There is exactly one thing to do.', color: 'gray', italic: true }])
+  lines.push([{ text: 'Right-click the Quest Book in your bag (or press J). There is exactly one thing to do.', color: 'gray', italic: true }])
   lines.forEach((l, i) => {
     valleyDelay(20 + i * 20, s => s.runCommandSilent('tellraw ' + name + ' ' + JSON.stringify(l)))
   })
@@ -955,7 +1077,7 @@ Object.keys(CRATE_SPAWN).forEach(crateId => {
     e.setPosition(player.x, player.y, player.z)
     e.spawn()
     if (!player.isCreative()) event.item.count = event.item.count - 1
-    global.valley.say(player, 'Marnie', 'There you are. Mind the gate.')
+    global.valley.say(player, 'Marnie', 'Mind the gate. Those two would walk to the lake if you let them.')
   })
 })
 
@@ -973,7 +1095,7 @@ ItemEvents.rightClicked('valley:chicken_feed', event => {
     laid++
   })
   if (laid > 0 && !player.isCreative()) event.item.count = event.item.count - 1
-  if (laid === 0) global.valley.say(player, 'Marnie', 'No hen close enough. Stand in the pen.')
+  if (laid === 0) global.valley.say(player, 'Marnie', 'She won\'t lay from over there. Stand in the pen with her.')
 })
 
 // Q26: the Dredge Net. Q22 pays the net and Q26's text promises "each pull

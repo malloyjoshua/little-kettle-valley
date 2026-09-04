@@ -84,6 +84,59 @@ Testing note: the tunnel only forwards connections that send a Minecraft handsha
 ```
 It temporarily sets `online-mode=false`, boots a fresh world, joins the offline test client, completes all quests in order from the console, and prints every command error. It restores `online-mode=true` when it exits. Do not run it while people are playing.
 
+## Lost something
+
+The story hands out a lot of one-of-a-kind things and none of them can be crafted. If one goes in lava, goes down with a bag nobody got back to, or gets left in a chest in a chunk nobody walks to again, **any player** can ask for it back — no op, no edit mode, no restart:
+
+```
+/valley keepsake              lists every keepsake and its short name
+/valley keepsake <name>       hands that one back
+```
+
+The names tab-complete. They are:
+
+| name | what you get back |
+| --- | --- |
+| `letter` | Josie's Letter — the four pages you start with (a fresh written book, re-readable for Q1) |
+| `book` | The Quest Book (same as `/valley book`; also the fix for an unbound J key) |
+| `journal` | Josie's Journal, the Patchouli book |
+| `kettle` | The Copper Tea Kettle off the hearth |
+| `deed` | The Kettle Farm Deed |
+| `works_deed` | The Works Deed |
+| `kettle_deed` | The Kettle Family Deed |
+| `compass` | Marnie's Explorer's Compass |
+| `hammer` | Bram's stone hammer |
+| `stake` | The Surveyor's Stake (`valley:town_anchor`) |
+| `waystone` | A Waystone — Home, or the cellar one |
+| `plate_a` / `plate_b` | The two Kettle Plates |
+| `survey` | Tobin's Deep Survey |
+| `notes` | Josie's Turbine Notes |
+| `lantern` / `hearth_lantern` | Josie's Lantern / the Hearthkeeper's Lantern |
+| `trophy` | The Copper Kettle (the Act V trophy) |
+| `ledger` / `catalogue` / `broom` | Oda's Ledger, Catalogue, Broom |
+| `net` / `auger` | The Dredge Net, the Ice Auger |
+
+It hands out a second copy without asking. Nothing in the pack breaks on a duplicate: every quest check reads "hold one", never "hold exactly one", and none of these is a currency. Placing the stake or the waystone a second time is handled too — the town and Home are one-per-world and the pack says so in chat instead of moving them.
+
+Lives in `pack/kubejs/server_scripts/valley_keepsakes.js`. It registers a second `Commands.literal('valley')` root, which Brigadier merges into the tree `valley_finales.js` owns — so adding a keepsake never means touching the finale file. Adding one is a line in the `KEEPSAKES` table at the top; then `sync_server.sh` and a **full server restart** (`kubejs reload server_scripts` does not rebuild the command tree).
+
+**Blocks that used to eat what you placed.** A story keepsake you *place* used to be a second way to lose it, because a block only gives its item back if its loot table says so:
+
+* **The two HerbalBrews kettles** needed a pickaxe; set the Copper Tea Kettle on the hearth and take it back by hand and it was gone. Fixed in `pack/kubejs/startup_scripts/valley_blocks.js` (`requiresTool = false` — note the KubeJS property for hardness is `destroySpeed`, `block.hardness` throws at startup and takes the server down).
+* **Vinery's Apple Press** ships an empty loot table and is destroyed by *any* tool. **Farm & Charm's Chicken Nest** gives the nest back only with Silk Touch — a bare hand gets wheat. Both are quest rewards. Both are overridden under `pack/kubejs/data/<mod>/loot_tables/blocks/`.
+
+Everything else the quests ask you to place — the Waystone, the Surveyor's Stake, the Megatorch, all forty cage lamps, the Delivery Crate barrel, the energy duct, the bell, the noticeboard, the whole Create / Thermal / AE2 / Bigger Reactors / QuarryPlus set, the drawers, the beds and the furniture — was checked and already drops itself into an empty hand.
+
+**To re-check after a mod update**, with the server up and nobody on it:
+
+```bash
+tools/scripts/server_ctl.sh cmd "setblock 0 199 0 minecraft:bedrock"
+tools/scripts/server_ctl.sh cmd "setblock 0 200 0 <block>"
+tools/scripts/server_ctl.sh cmd "loot spawn 0 205 0 mine 0 200 0 minecraft:air"
+```
+
+`minecraft:air` is the empty hand. The console prints `Dropped 1 [<Item>] from loot table <mod>:blocks/<block>` if it is safe, and `Dropped 0 items` / a different item if it is a trap. Two-block blocks (beds) must be tested with `[part=head]` or they read as a false positive.
+
 ## Fixing the story while people are playing
 
 **Someone is stuck on a quest right now (no files, no restart):**

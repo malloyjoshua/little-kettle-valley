@@ -25,7 +25,7 @@
     "",
     "Take Oda's token to her counter at the store and stand there while she counts the whole town's stores out loud.",
     "",
-    "It opens the winter checklist, the granary blueprint, and both lanes of autumn work."
+    "The winter checklist and the granary blueprint go into your book, and Oda leaves the ledger open on the counter."
    ],
    "deps": [
     "q37"
@@ -86,8 +86,7 @@
     {
      "type": "item",
      "item": "storagedrawers:oak_full_drawers_1",
-     "count": 12,
-     "consume": true
+     "count": 12
     },
     {
      "type": "checkmark",
@@ -146,9 +145,9 @@
    "description": [
     "Marnie: \"Pumpkin, beetroot, oats and barley. Everything else is finished for the year, love, and arguing with it won't feed anybody.\"",
     "",
-    "Plant 4 Pumpkin Seeds, 4 Beetroot Seeds, 4 Oat Seeds and 4 Barley Seeds in the four marked beds behind the inn, and hand in with four of each in your bag. The quest checks them and never takes them, so they go in the ground straight after. Oda's Seed Box is four Scrip for the pumpkin and beetroot; the Oat Seeds are Bakery's and the Barley Seeds are Thermal's, spelled exactly like that. Any order is right. Nothing has to sprout for this: the quest only checks the seeds are in your bag. It is still summer when Marnie hands it over, so the beds sit until the season turns — pumpkin and beetroot take once autumn lands, the oats grow whenever, and the barley is a spring crop that will wait in the ground until the thaw.",
+    "Plant 4 Pumpkin Seeds, 4 Beetroot Seeds, 4 Oat Seeds and 4 Barley Seeds in the four marked beds behind the inn, then hand in with four of each. Oat Seeds are Bakery's, Barley Seeds are Thermal's. Nothing has to sprout and nothing is taken.",
     "",
-    "It pays out the larder crate — eggs, sugar, milk, meat, apples and twelve empty jars — which is everything the preserving work needs."
+    "The larder crate comes back — eggs, sugar, milk, meat, apples, twelve empty jars — and the beds sit until the season turns."
    ],
    "deps": [
     "q38"
@@ -235,9 +234,9 @@
    "description": [
     "Halden: \"There's a spring above the hedge garden, and Josie used it for the quartz, not the tea. I'll walk up with you.\"",
     "",
-    "Follow Halden to the spring above the hedge garden and pour out the 3 bottles Q23 left you, then fill them there. He tops you up to six.",
+    "Follow Halden up to the spring above the hedge garden, pour out the 3 bottles he sent you home with in the summer, and fill them there. He tops you up to six.",
     "",
-    "Spring Water is what grows certus quartz, which is the tech lane's next gate — and Josie's jar of sixteen crystals has been on Halden's shelf for four years."
+    "Spring Water is what grows certus quartz — and Josie's jar of sixteen crystals has been on Halden's shelf for four years."
    ],
    "deps": [
     "q40"
@@ -287,7 +286,7 @@
     },
     {
      "type": "command",
-     "command": "/tellraw @p [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"Snow never sat on that slope either. She used to walk up there in February in her shirtsleeves and tell me it was good circulation. I let her tell me that for thirty years.\",\"italic\":true}]",
+     "command": "/tellraw @p [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"She walked that slope in February in her shirtsleeves and called it good circulation, and snow never sat on it.\",\"italic\":true}]",
      "elevate": true,
      "silent": true
     },
@@ -308,9 +307,9 @@
     "",
     "Make 4 Apple Pies and 4 Berry Jam Jars, then seal 4 Jars of pickles — the plain glass Jar, not the Bakery jar that came with the larder crate — and bring all twelve to the inn counter.",
     "",
-    "Sweet berries are a spring and winter crop, so the bushes will not be fruiting now: pick wild ones off taiga bushes, or buy the Rare Seed Case at Oda's counter — sixteen Scrip and eight berries come with it. Anything you stockpiled in Act II keeps in the granary.",
+    "Sweet berries are not fruiting now: pick wild ones off taiga bushes, or buy Oda's Rare Seed Case — sixteen Scrip, eight berries in the tin.",
     "",
-    "Twelve jars. Oda's count says that is four days off the hundred and twelve. Bram left a fridge blueprint on that counter too, and he says he is working on the power, which from Bram is a promise."
+    "Twelve jars: four days off the hundred and twelve. Bram left a fridge blueprint on the counter, and 'working on it' from Bram is a promise."
    ],
    "deps": [
     "q40"
@@ -491,7 +490,7 @@
     "",
     "Smoke 8 Ham into Smoked Ham on the stove in the inn kitchen, then hang all eight on Josie's drying rack in the shed behind the inn and tick this.",
     "",
-    "Thirty-two cured meat into the granary — ninety-one days short now, and Oda has stopped saying the number out loud. The Nether stays shut until this act ends; you don't need it."
+    "Thirty-two cured meat into the granary — ninety-one days covered, twenty-one short, and Oda has stopped saying the number out loud."
    ],
    "deps": [
     "q45a"
@@ -549,7 +548,7 @@
   {
    "key": "q48a",
    "title": "Fit Out the Two Guest Rooms",
-   "subtitle": "Everything is in the packet.",
+   "subtitle": "Eight marked spots, four in each room.",
    "icon": "handcrafted:oak_fancy_bed",
    "description": [
     "Marnie: \"Two rooms upstairs, both bare: a bed, a rug, a lantern and a chest in each. It's all in the packet.\"",
@@ -564,7 +563,7 @@
    "tasks": [
     {
      "type": "checkmark",
-     "title": "Both rooms furnished: bed, rug, lantern and chest on every marked spot."
+     "title": "Bed, rug, lantern and chest on all eight marked spots."
     }
    ],
    "rewards": [
@@ -595,7 +594,7 @@
     {
      "type": "toast",
      "title": "Two rooms to let",
-     "description": "There is a letter in your bag from the first person who wants one of these rooms. Read it. Next: Wisp is downstream at the marsh beds — 12 rice, all ripe on the same day."
+     "description": "Next: Wisp is downstream at the marsh beds — 12 rice, ripe on the same day. There is a letter in your bag from the first person who wants a room."
     }
    ]
   },
@@ -605,7 +604,7 @@
    "subtitle": "The marked plants downstream.",
    "icon": "farmersdelight:rice_panicle",
    "description": [
-    "Wisp: \"Downstream is many rice and they are ready all on the same day, which is rude of them, but good for us!\"",
+    "Wisp: \"Downstream is many rice and they are ready all on the same day, which is rude of them, but good for us.\"",
     "",
     "Cut 12 Rice Panicles from the marked plants downstream — the whole heads, not the milled rice off Oda's shelf — and hand them to Wisp at the reed village.",
     "",
@@ -663,14 +662,14 @@
   {
    "key": "q54a",
    "title": "Salt Eight Fillets into the Granary",
-   "subtitle": "Eight Cooked Fish Fillets into the granary drawers.",
+   "subtitle": "Nella is on the pier before the lake turns.",
    "icon": "aquaculture:fish_fillet_cooked",
    "description": [
     "Nella: \"Eight fillets, salted, straight into the granary drawers. Ice fishing works too, but this is the easy way round.\"",
     "",
     "Catch fish off the pier, cure 8 Cooked Fish Fillets from them, and put all eight in the granary drawers.",
     "",
-    "That's fish in the granary and a salt barrel on the pier — and Marnie's crate of twelve bowls, twelve bricks, twelve iron and twelve copper, which is the twelve place settings the long table wants."
+    "Fish in the granary and a salt barrel on the pier — and Marnie's crate of twelve bowls, twelve bricks, twelve iron, twelve copper."
    ],
    "deps": [
     "q51a"
@@ -749,7 +748,7 @@
     "",
     "Take Tobin's 3 core samples to the marked hillside, dig out the adit — roughly 90 marked blocks — and open the Lootr chest at the back.",
     "",
-    "The chest holds Josie's Kettle Plate, and the seam pays out raw: 48 copper, 16 tin, 16 gold, 16 silver. Hold on to the plate — Halden is the one who can read it, and that quest opens once the bakery line is done."
+    "Josie's Kettle Plate is in the chest at the back; keep it, Halden reads that hand. The seam pays raw: 48 copper, 16 tin, 16 gold, 16 silver."
    ],
    "deps": [
     "q28"
@@ -807,7 +806,7 @@
     },
     {
      "type": "command",
-     "command": "title @p subtitle {\"text\": \"Forty blocks of fallen rock, and something behind it.\", \"color\": \"gray\", \"italic\": true}"
+     "command": "title @p subtitle {\"text\": \"Forty blocks of rock. Something behind.\", \"color\": \"gray\", \"italic\": true}"
     },
     {
      "type": "command",
@@ -830,9 +829,9 @@
    "subtitle": "Build the Induction Smelter first.",
    "icon": "thermal:machine_smelter",
    "description": [
-    "Bram: \"Smelter takes two inputs and gives you back more than you put in. Three copper and one tin makes four bronze; one gold and one silver makes two electrum. That's the whole machine.\"",
+    "Bram: \"Two inputs, more back than you put in. Three copper and one tin is four bronze. That's the whole machine.\"",
     "",
-    "Build a Thermal Induction Smelter in the mill workshop and run Tobin's raw ore through it until you have 16 Bronze Ingots and 16 Electrum Ingots. The smelter takes them; 12 copper and 4 tin is the bronze, 8 gold and 8 silver is the electrum.",
+    "Build a Thermal Induction Smelter in the mill workshop and run Tobin's raw ore through until you have 16 Bronze Ingots and 16 Electrum Ingots. The smelter takes them; 12 copper and 4 tin is the bronze, 8 gold and 8 silver is the electrum.",
     "",
     "It pays out the Centrifugal Separator, 64 Energy Duct and 2 spare Machine Frames — the entire bill for the energy cell and the rail line."
    ],
@@ -881,21 +880,21 @@
     {
      "type": "toast",
      "title": "Alloys running",
-     "description": "Next: charge a Thermal Energy Cell off the dynamos and run Energy Duct to the inn. While Marnie's preserving line finishes, Oda sells Machine Frames at 25 Scrip and the granary drawers still are not bussed."
+     "description": "Next: charge a Thermal Energy Cell and run Energy Duct to the inn. Oda sells Machine Frames at 25 Scrip, and the granary drawers are still not bussed."
     }
    ]
   },
   {
    "key": "q47",
    "title": "Run Energy Duct to the Inn",
-   "subtitle": "Cell on the wall, duct to Marnie's kitchen.",
+   "subtitle": "Marnie gets a fridge out of it.",
    "icon": "thermal:energy_cell",
    "description": [
     "Bram: \"Cell on the wall, duct to the inn, and Marnie gets her fridge. That's the whole job — don't overthink it.\"",
     "",
-    "Charge a Thermal Energy Cell off your dynamos, then run Energy Duct from the mill until the line ends within 12 blocks of the inn. Bram has the coils; the Cell Frame is twelve Scrip on Oda's board and she will not be talked down — frame, four RF Coils and a bucket of redstone is the cell.",
+    "Charge a Thermal Energy Cell off your dynamos, then run Energy Duct from the mill until the line ends within 12 blocks of the inn. The Cell Frame is twelve Scrip on Oda's board: frame, four RF Coils and a bucket of redstone is the cell.",
     "",
-    "That is what the Works Power Tap is for: four of them come off the line in this payout, and one goes into every Fridge, Sink and Milk Jar you ever build. One of each is already made."
+    "The Works Power Tap comes off the line — four in this payout, one for every Fridge, Sink and Milk Jar. One of each is already made."
    ],
    "deps": [
     "q46",
@@ -962,7 +961,7 @@
    "subtitle": "Mill to square, station included.",
    "icon": "create:track_station",
    "description": [
-    "Bram: \"Station at the mill, track to the square, and sixty-four track and the station are in the packet. Don't curve it more than you have to.\"",
+    "Bram: \"Station at the mill, track to the square, both in the packet. Don't curve it more than you have to.\"",
     "",
     "Place 1 Create Train Station at the mill and lay 64 Track from it to the town square.",
     "",
@@ -1031,7 +1030,7 @@
     "",
     "Take the Delivery Crate out of the station chest in the square and open it at Oda's counter.",
     "",
-    "It opens Oda's catalogue tier three — the full decor list, seeds and animals, all buyable with Valley Scrip."
+    "Oda's catalogue opens all the way: the full decor list, seeds and animals, every line paid in Valley Scrip."
    ],
    "deps": [
     "q48"
@@ -1058,7 +1057,7 @@
     },
     {
      "type": "toast",
-     "title": "Oda's counter, tier three",
+     "title": "Oda's shelves fill up",
      "description": "Next: plant Certus Quartz Seeds in Halden's Spring Water and grow 32 certus."
     }
    ]
@@ -1073,7 +1072,7 @@
     "",
     "Plant Certus Quartz Seeds in Halden's Spring Water and grow 32 Certus Quartz Crystals. The 16 from Josie's jar seed the first batch immediately, and the four Growth Accelerators in this payout turn every batch after it into overnight work.",
     "",
-    "Thirty-two certus is exactly the drive, two cells and terminal the next quest asks for. Halden's compass points at a sky-stone meteorite: dig it out and take the four presses from the chest inside — silicon, logic, calculation, engineering. Nothing on this lane crafts without them, and the nether quartz for fluix is in the same chest, so the Nether stays shut."
+    "Halden's compass leads to a sky-stone meteorite: the four presses and the nether quartz are in the chest inside, so the Nether stays shut."
    ],
    "deps": [
     "q41",
@@ -1130,7 +1129,7 @@
     "",
     "Build 1 ME Drive, 2 Item Storage Cells (4k) and 1 ME Terminal, and set them up in the mill workshop.",
     "",
-    "It pays out four more cells and the full bus set, which is what busses the granary onto the network."
+    "Four more cells and the full bus set come back — the granary is twelve drawers and one screen away."
    ],
    "deps": [
     "q50"
@@ -1196,7 +1195,7 @@
    "description": [
     "Oda: \"If I can see all twelve drawers from the counter, I will stop walking down there four times a day. Do it.\"",
     "",
-    "Put a Storage Bus on the granary's drawer controller, link it to the mill network, and hold a Wireless Terminal. It reads nothing until there is an ME Wireless Access Point on the mill wall — the receiver for one is in this payout, and the Charger beside it is what keeps the terminal alive.",
+    "Put a Storage Bus on the granary's drawer controller, link it to the mill network, and hold a Wireless Terminal. It reads nothing until an ME Wireless Access Point is on the mill wall — the receiver and the Charger are in this payout.",
     "",
     "Two wireless terminals come back — one for you, one to hand your partner — and Oda's ledger updates itself in the book from here on."
    ],
@@ -1246,14 +1245,14 @@
   {
    "key": "q53",
    "title": "Stand Up the Order Board",
-   "subtitle": "Crate beside Oda's board, export bus pointed at it.",
+   "subtitle": "Export bus pointed at a crate by the board.",
    "icon": "supplementaries:notice_board",
    "description": [
     "Oda: \"Standing orders: bread, planks, nails, lamp oil. If the crate is full when somebody walks up, nobody waits on me.\"",
     "",
     "Place a Delivery Crate beside Oda's bounty board in the square and point an ME Export Bus at it with the town's standing orders patterned in.",
     "",
-    "Every delivery and every \"bring X to Y\" quest from here on is already filled when you walk up to it."
+    "From here on the crate is already full when somebody walks up to it, including you."
    ],
    "deps": [
     "q52"
@@ -1261,7 +1260,7 @@
    "tasks": [
     {
      "type": "checkmark",
-     "title": "Delivery Crate placed beside the board and fed by the export bus."
+     "title": "Crate beside the board, export bus feeding it."
     }
    ],
    "rewards": [
@@ -1292,7 +1291,7 @@
     },
     {
      "type": "command",
-     "command": "title @p subtitle {\"text\": \"Eleven years of ledger, and a crate beside it.\", \"color\": \"gray\", \"italic\": true}"
+     "command": "title @p subtitle {\"text\": \"Eleven years of ledger, one full crate.\", \"color\": \"gray\", \"italic\": true}"
     },
     {
      "type": "command",
@@ -1317,11 +1316,11 @@
    "shape": "diamond",
    "size": 1.5,
    "description": [
-    "Halden: \"I have been able to read that hand for four years. I have been finding reasons not to for four years. Give it here before I find another one.\"",
+    "Halden: \"I have been able to read that hand for four years. I have been finding reasons not to. Give it here before I find another one.\"",
     "",
     "Bring the Kettle Plate from the adit to Halden at his cottage and put it in his hands.",
     "",
-    "The iron door under your farmhouse turns a quarter and stops. Journal Part Two opens, and the Bigger Reactors recipes appear — casings still need Josie's Turbine Notes."
+    "The door turns a quarter and stops. Journal Part Two opens and the reactor recipes appear — the casings still want Josie's Turbine Notes."
    ],
    "deps": [
     "q45",
@@ -1367,11 +1366,11 @@
    "shape": "diamond",
    "size": 1.5,
    "description": [
-    "Halden, at the top of the stairs, not coming down: \"She wrote it all on that wall. I carried the chalk up for her and I went home. I have never read the bottom half and I am not going to read it over your shoulder now.\"",
+    "Halden, from the top of the stairs: \"I carried the chalk up for her and went home. I am not reading the bottom half over your shoulder.\"",
     "",
     "Go back down the stairs under the farmhouse. The door finished turning some time in the night and it is standing open. Stand in front of the wall and read the whole thing — every line, all the way to the bottom.",
     "",
-    "The cellar waystone is yours for the walk back, her chalk copies itself into the journal, and her original reactor blueprint is rolled in the tube by the stairs — with the Works Pick, Efficiency V, for the forty blocks of fallen adit Tobin is stood in front of."
+    "Her chalk copies itself into the journal, the cellar waystone is yours, and the Works Pick is in the tube by the stairs with her blueprint."
    ],
    "deps": [
     "q54"
@@ -1415,7 +1414,7 @@
     },
     {
      "type": "command",
-     "command": "/tellraw @a [{\"text\":\"Josie, on the wall: \",\"color\":\"gold\"},{\"text\":\"If there's more than one set of footprints on my cellar stairs, then I was right to wait. Go and turn it on.\",\"italic\":true}]",
+     "command": "/tellraw @a [{\"text\":\"Josie, on the wall: \",\"color\":\"gold\"},{\"text\":\"If there's more than one set of footprints on these stairs, I was right to wait. Go and turn it on.\",\"italic\":true}]",
      "elevate": true,
      "silent": true
     },
@@ -1431,7 +1430,7 @@
     },
     {
      "type": "command",
-     "command": "title @p subtitle {\"text\": \"Josie wrote it down. She waited for two of you.\", \"color\": \"gray\", \"italic\": true}"
+     "command": "title @p subtitle {\"text\": \"She waited for two of you.\", \"color\": \"gray\", \"italic\": true}"
     },
     {
      "type": "command",
@@ -1443,15 +1442,15 @@
     },
     {
      "type": "toast",
-     "title": "The Works was a power plant",
-     "description": "Next: the long table in the square — twelve place settings and the centrepiece. That's the Harvest Supper. And Tobin is stood at the collapsed adit with a shovel and a theory: the Works opens from there."
+     "title": "She Built a Power Plant",
+     "description": "Next: the long table in the square, twelve settings and the centrepiece. Tobin is at the collapsed adit with a shovel and a theory about where the Works opens."
     }
    ]
   },
   {
    "key": "q56",
    "title": "Set the Long Table for Twelve",
-   "subtitle": "Act III finale — twelve settings and one centrepiece.",
+   "subtitle": "Act III finale — the Harvest Supper.",
    "icon": "valley:place_setting",
    "shape": "gear",
    "size": 2.0,
@@ -1462,7 +1461,7 @@
     "",
     "Forty lamps. Fifteen people. One winter that nobody leaves.",
     "",
-    "Sit down. The granary's full, the lamps are lit down the road, and there are three empty chairs at this table because Marnie set it for the year we are going to have."
+    "Sit down. The granary is full, the road is lit, and three chairs are empty because Marnie set the table for the year we are going to have."
    ],
    "deps": [
     "q43",
@@ -1474,8 +1473,7 @@
     {
      "type": "item",
      "item": "handcrafted:oak_table",
-     "count": 1,
-     "consume": true
+     "count": 1
     },
     {
      "type": "item",
@@ -1486,8 +1484,7 @@
     {
      "type": "item",
      "item": "supplementaries:candle_holder",
-     "count": 1,
-     "consume": true
+     "count": 1
     },
     {
      "type": "checkmark",
