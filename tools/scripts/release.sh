@@ -19,7 +19,7 @@ git add dist/LittleKettleValley.zip
 if git diff --cached --quiet -- dist/LittleKettleValley.zip; then
   echo "    unchanged"
 else
-  git commit -m "Refresh dist/LittleKettleValley.zip for the release"
+  git commit -m "Refresh dist/LittleKettleValley.zip for the release" -- dist/LittleKettleValley.zip
   echo "    committed"
 fi
 git push origin main
