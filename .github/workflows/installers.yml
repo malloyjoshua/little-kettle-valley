@@ -52,7 +52,11 @@ jobs:
             $iscc = $candidates | Where-Object { Test-Path $_ } | Select-Object -First 1
           }
           if (-not $iscc) { throw "ISCC.exe not found" }
-          Write-Host "ISCC: $iscc  (version $((Get-Item $iscc).VersionInfo.ProductVersion))"
+          Write-Host "ISCC: $iscc"
+          # ISCC with no arguments prints its banner then exits 1; only the banner interests us.
+          $banner = (& $iscc 2>&1 | Select-String -Pattern 'Inno Setup' -SimpleMatch)
+          $banner | ForEach-Object { Write-Host $_ }
+          $global:LASTEXITCODE = 0
           "iscc=$iscc" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
 
       - name: Compile installer
@@ -75,6 +79,87 @@ jobs:
           "sha256=$hash" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
           "## Windows installer`n`n- size: $($item.Length) bytes`n- sha256: ``$hash``" |
             Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+
+      # The runner IS a Windows box, so actually install the thing rather than inspecting the tree
+      # we handed to the compiler. This proves: no elevation needed, the [Code] JavaPath rewrite
+      # fires with a real install path, the bundled JRE runs, and the exact PreLaunchCommand string
+      # from instance.cfg installs the pack.
+      - name: Smoke test - silent install, JavaPath rewrite, bundled JRE, packwiz bootstrap
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $exe = (Resolve-Path "installers\windows\build\out\LittleKettleValley-Setup.exe").Path
+          $dir = "D:\lkv-smoke"
+          $log = "D:\lkv-setup.log"
+
+          Start-Process -FilePath $exe -Wait -ArgumentList @(
+            '/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', "/DIR=$dir", "/LOG=$log"
+          )
+          Write-Host "--- setup log tail ---"
+          Get-Content $log -Tail 25
+
+          $expected = @(
+            'prismlauncher.exe', 'portable.txt', 'prismlauncher.cfg', 'LittleKettleValley.ico',
+            'jre\bin\javaw.exe', 'jre\bin\java.exe', 'icons\lkv.png',
+            'instances\Little Kettle Valley\instance.cfg',
+            'instances\Little Kettle Valley\mmc-pack.json',
+            'instances\Little Kettle Valley\.minecraft\packwiz-installer-bootstrap.jar'
+          )
+          foreach ($rel in $expected) {
+            if (-not (Test-Path (Join-Path $dir $rel))) { throw "installed tree is missing $rel" }
+          }
+          if (Test-Path (Join-Path $dir 'prismlauncher_updater.exe')) {
+            throw "prismlauncher_updater.exe should not ship (it enables Prism self-update prompts)"
+          }
+          Write-Host "installed tree ok ($((Get-ChildItem $dir -Recurse -File).Count) files)"
+
+          # JavaPath must be the real absolute path, forward slashes, no placeholder left.
+          $wantJava = "$dir\jre\bin\javaw.exe".Replace('\','/')
+          foreach ($cfg in @("$dir\instances\Little Kettle Valley\instance.cfg", "$dir\prismlauncher.cfg")) {
+            $text = Get-Content $cfg -Raw
+            Write-Host "--- $cfg ---"; Write-Host $text
+            if ($text -match '@@JAVA_PATH@@') { throw "$cfg still contains the placeholder token" }
+            if ($text -notmatch [regex]::Escape("JavaPath=$wantJava")) { throw "$cfg has the wrong JavaPath" }
+            $bytes = [System.IO.File]::ReadAllBytes($cfg)
+            if ($bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF) { throw "$cfg has a UTF-8 BOM" }
+          }
+          $inst = Get-Content "$dir\instances\Little Kettle Valley\instance.cfg" -Raw
+          if ($inst -notmatch 'OverrideJavaLocation=true') { throw "instance.cfg is missing OverrideJavaLocation" }
+          if ($inst -notmatch 'MaxMemAlloc=3584') { throw "instance.cfg is missing the memory override" }
+          if ($inst -notmatch 'iconKey=lkv') { throw "instance.cfg is missing iconKey" }
+
+          # Shortcuts
+          $sm = Join-Path $env:APPDATA 'Microsoft\Windows\Start Menu\Programs\Little Kettle Valley\Little Kettle Valley.lnk'
+          if (-not (Test-Path $sm)) { throw "Start Menu shortcut missing" }
+          Write-Host "Start Menu shortcut ok"
+
+          # The bundled JRE actually runs
+          & "$dir\jre\bin\java.exe" -version 2>&1 | ForEach-Object { Write-Host $_ }
+          if ($LASTEXITCODE -ne 0) { throw "bundled JRE failed to run" }
+
+          # Run the instance's PreLaunchCommand verbatim, with javaw.exe, exactly as Prism would.
+          Push-Location "$dir\instances\Little Kettle Valley\.minecraft"
+          $packUrl = "https://raw.githubusercontent.com/malloyjoshua/little-kettle-valley/main/pack/pack.toml"
+          $p = Start-Process -FilePath "$dir\jre\bin\javaw.exe" -Wait -PassThru -NoNewWindow `
+                 -ArgumentList @('-jar', 'packwiz-installer-bootstrap.jar', '-g', '-s', 'client', $packUrl)
+          Pop-Location
+          if ($p.ExitCode -ne 0) { throw "packwiz bootstrap (the PreLaunchCommand) exited $($p.ExitCode)" }
+          $mc = "$dir\instances\Little Kettle Valley\.minecraft"
+          $mods = Get-ChildItem "$mc\mods" -File -ErrorAction SilentlyContinue
+          Write-Host "packwiz installed $($mods.Count) mods, $((Get-ChildItem $mc -Recurse -File).Count) files under .minecraft"
+          if (-not (Test-Path "$mc\packwiz.json")) { throw "packwiz.json not written - bootstrap did not run the installer" }
+          if ($mods.Count -lt 1) { throw "packwiz installed no mods" }
+
+          # Silent uninstall must not block on the 'delete your worlds?' prompt, and must default to
+          # keeping the player's data.
+          $unins = Get-ChildItem $dir -Filter 'unins*.exe' | Select-Object -First 1
+          if (-not $unins) { throw "uninstaller not found" }
+          Start-Process -FilePath $unins.FullName -Wait -ArgumentList @('/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART')
+          Start-Sleep -Seconds 5
+          if (Test-Path "$dir\prismlauncher.exe") { throw "uninstall left prismlauncher.exe behind" }
+          if (-not (Test-Path "$mc\mods")) { throw "uninstall destroyed the player's instance data (should default to keeping it)" }
+          Write-Host "uninstall ok: launcher removed, player data kept"
+          Remove-Item $dir -Recurse -Force -ErrorAction SilentlyContinue
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

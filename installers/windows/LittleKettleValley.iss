@@ -27,9 +27,10 @@ AppPublisherURL={#AppURL}
 AppSupportURL={#AppURL}
 AppUpdatesURL={#AppURL}/releases
 
-; No UAC prompt: everything lands in the user's own profile.
+; No UAC prompt, ever: everything lands in the user's own profile. Deliberately no
+; PrivilegesRequiredOverridesAllowed -- that would add an "install for all users?" dialog whose
+; other branch triggers UAC.
 PrivilegesRequired=lowest
-PrivilegesRequiredOverridesAllowed=dialog
 DefaultDirName={localappdata}\Programs\Little Kettle Valley
 DefaultGroupName={#AppName}
 DisableProgramGroupPage=yes
@@ -163,11 +164,13 @@ begin
     Instances := ExpandConstant('{app}\instances');
     if DirExists(Instances) then
     begin
-      if MsgBox('Also delete your Little Kettle Valley worlds, mods and downloaded game files?' + #13#10 + #13#10 +
+      { SuppressibleMsgBox, not MsgBox: a /SILENT uninstall must not block on a dialog, and the
+        safe default there is IDNO -- never destroy someone's worlds without them saying so. }
+      if SuppressibleMsgBox('Also delete your Little Kettle Valley worlds, mods and downloaded game files?' + #13#10 + #13#10 +
                 'Yes  -  remove everything in' + #13#10 + '      ' + ExpandConstant('{app}') + #13#10 + #13#10 +
                 'No  -  leave that folder alone (several GB), so reinstalling later picks up right ' +
                 'where you left off.',
-                mbConfirmation, MB_YESNO or MB_DEFBUTTON2) = IDYES then
+                mbConfirmation, MB_YESNO or MB_DEFBUTTON2, IDNO) = IDYES then
         DelTree(ExpandConstant('{app}'), True, True, True);
     end;
   end;
