@@ -1338,7 +1338,7 @@
     "",
     "Run Fluid Duct and Energy Duct from the reactor to the 6 greenhouse heaters on the square, and to the bathhouse tank behind the inn.",
     "",
-    "The valley's greenhouse glazing — Tinted Glass: two amethyst shards, one glass and one Cyanite Ingot makes two — becomes craftable world-wide, and the twelve benches, twelve shelves and twelve lanterns the bare bathhouse wants are in this payout."
+    "The valley's greenhouse glazing — Vibrant Quartz Glass: 2 glowstone dust, 2 Quartz Glass and 1 Cyanite Ingot makes two panes — becomes craftable world-wide. It passes daylight and glows on its own, which is the whole point: a frame glazed with it grows out of season and never needs a lantern. The twelve benches, twelve shelves and twelve lanterns the bare bathhouse wants are in this payout."
    ],
    "deps": [
     "q71",
@@ -1397,7 +1397,7 @@
     },
     {
      "type": "toast",
-     "title": "Tinted Glass Unlocked",
+     "title": "Vibrant Quartz Glass Unlocked",
      "description": "Next: fetch Bram from the mill, and take the cocoa with you. The bathhouse behind the inn is piped and bare — twelve marked spots."
     }
    ]
@@ -1531,7 +1531,7 @@
    "description": [
     "Tobin, calm for once: \"Fuel, coolant, rods — I check them, I sign it, Bram pulls it. That's the order, and I wrote it down twice.\"",
     "",
-    "Open the Reactor Terminal in the Works and verify all three readings (press T, type /valley check turbine) — fuel level, coolant flow, control-rod insertion — then tell Tobin the numbers are good and hand Bram the lever.",
+    "Open the Reactor Terminal in the Works and read all three off its screen — fuel level, coolant flow, control-rod insertion — then tell Tobin the numbers are good and hand Bram the lever. This one is Tobin's signature, not a command: you tick it yourself. /valley check turbine belongs to the Turbine Terminal back in Q71, and /valley check power to the Reactor Terminal in Act V, once there are two turbines on it.",
     "",
     "Forty lamps. Fifteen people. One winter that nobody leaves.",
     "",

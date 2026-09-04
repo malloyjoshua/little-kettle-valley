@@ -300,7 +300,7 @@
 			title: "Duct the Coolant Loop to the Greenhouse and the Bathhouse"
 			subtitle: "Josie's rule: the heat goes to the town."
 			icon: "thermal:fluid_duct"
-			description: ["Josie's rule, in her own hand: \"The waste heat goes to the town, not the sky. Anything else is a fire you paid for twice.\"", "", "Run Fluid Duct and Energy Duct from the reactor to the 6 greenhouse heaters on the square, and to the bathhouse tank behind the inn.", "", "The valley's greenhouse glazing — Tinted Glass: two amethyst shards, one glass and one Cyanite Ingot makes two — becomes craftable world-wide, and the twelve benches, twelve shelves and twelve lanterns the bare bathhouse wants are in this payout."]
+			description: ["Josie's rule, in her own hand: \"The waste heat goes to the town, not the sky. Anything else is a fire you paid for twice.\"", "", "Run Fluid Duct and Energy Duct from the reactor to the 6 greenhouse heaters on the square, and to the bathhouse tank behind the inn.", "", "The valley's greenhouse glazing — Vibrant Quartz Glass: 2 glowstone dust, 2 Quartz Glass and 1 Cyanite Ingot makes two panes — becomes craftable world-wide. It passes daylight and glows on its own, which is the whole point: a frame glazed with it grows out of season and never needs a lantern. The twelve benches, twelve shelves and twelve lanterns the bare bathhouse wants are in this payout."]
 			x: 12.0d
 			y: 0.0d
 			dependencies: ["747A8CE174E8B8F2", "42110AE47CE14E3A"]
@@ -308,7 +308,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "648080CBDC6E0C03", type: "checkmark", title: "All 6 greenhouse heaters connected and running" }, { id: "4DA6E9F5B587A1EC", type: "checkmark", title: "Bathhouse tank connected and steaming" }]
-			rewards: [{ id: "30F8DB4EDBFFD05F", type: "item", item: "thermal:fluid_duct", count: 64 }, { id: "3994D4340039C7AF", type: "item", item: "thermal:energy_duct", count: 64 }, { id: "0FAEA54EB11E4717", type: "item", item: "thermal:machine_speed_augment", count: 4 }, { id: "1C592B4015263A1D", type: "item", item: "handcrafted:oak_bench", count: 12 }, { id: "4F139C6538A3BE47", type: "item", item: "handcrafted:oak_shelf", count: 12 }, { id: "1104BABD00F7DE12", type: "item", item: "minecraft:lantern", count: 12 }, { id: "7C824C3224AD6F58", type: "stage", stage: "greenhouse" }, { id: "1A3234C7F3811704", type: "command", command: "/valley scene q72", elevate_perms: true, silent: true }, { id: "1E315E0407D276B0", type: "toast", title: "Tinted Glass Unlocked", description: "Next: fetch Bram from the mill, and take the cocoa with you. The bathhouse behind the inn is piped and bare — twelve marked spots." }]
+			rewards: [{ id: "30F8DB4EDBFFD05F", type: "item", item: "thermal:fluid_duct", count: 64 }, { id: "3994D4340039C7AF", type: "item", item: "thermal:energy_duct", count: 64 }, { id: "0FAEA54EB11E4717", type: "item", item: "thermal:machine_speed_augment", count: 4 }, { id: "1C592B4015263A1D", type: "item", item: "handcrafted:oak_bench", count: 12 }, { id: "4F139C6538A3BE47", type: "item", item: "handcrafted:oak_shelf", count: 12 }, { id: "1104BABD00F7DE12", type: "item", item: "minecraft:lantern", count: 12 }, { id: "7C824C3224AD6F58", type: "stage", stage: "greenhouse" }, { id: "1A3234C7F3811704", type: "command", command: "/valley scene q72", elevate_perms: true, silent: true }, { id: "5309A4F6112FFFE9", type: "toast", title: "Vibrant Quartz Glass Unlocked", description: "Next: fetch Bram from the mill, and take the cocoa with you. The bathhouse behind the inn is piped and bare — twelve marked spots." }]
 		}
 		{
 			id: "172DD04B6274EDDA"
@@ -345,7 +345,7 @@
 			title: "Verify the Three Readings, Then Hand Bram the Lever"
 			subtitle: "Act IV finale — the Longest Night."
 			icon: "minecraft:lever"
-			description: ["Tobin, calm for once: \"Fuel, coolant, rods — I check them, I sign it, Bram pulls it. That's the order, and I wrote it down twice.\"", "", "Open the Reactor Terminal in the Works and verify all three readings (press T, type /valley check turbine) — fuel level, coolant flow, control-rod insertion — then tell Tobin the numbers are good and hand Bram the lever.", "", "Forty lamps. Fifteen people. One winter that nobody leaves.", "", "Tonight the valley keeps its own lights on, and it does not need anybody in this room to stay awake to do it."]
+			description: ["Tobin, calm for once: \"Fuel, coolant, rods — I check them, I sign it, Bram pulls it. That's the order, and I wrote it down twice.\"", "", "Open the Reactor Terminal in the Works and read all three off its screen — fuel level, coolant flow, control-rod insertion — then tell Tobin the numbers are good and hand Bram the lever. This one is Tobin's signature, not a command: you tick it yourself. /valley check turbine belongs to the Turbine Terminal back in Q71, and /valley check power to the Reactor Terminal in Act V, once there are two turbines on it.", "", "Forty lamps. Fifteen people. One winter that nobody leaves.", "", "Tonight the valley keeps its own lights on, and it does not need anybody in this room to stay awake to do it."]
 			x: 14.0d
 			y: 1.5d
 			dependencies: ["172DD04B6274EDDA", "13FC9DEDA582A29C", "61D152A866E44CBB"]

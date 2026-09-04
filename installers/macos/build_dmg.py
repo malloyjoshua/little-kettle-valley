@@ -71,6 +71,23 @@ ZIP_NAME = "Little Kettle Valley.zip"
 MAX_MEM_MB = 3072
 MIN_MEM_MB = 1024
 
+# The pack ships render 8 / simulation 6 (pack/options.txt), which is right for
+# Josh's M1 Max and for the Windows exe.  The DMG is the Air's copy, and render
+# distance is the single cheapest frame-rate dial there — see the "Air budget"
+# section of docs/integration-audit-night.md — so this instance starts at 6/6.
+#
+# It sticks because `options.txt` is marked `preserve = true` in pack/index.toml:
+# packwiz-installer only writes a preserved file when it does not already exist
+# ("the file is not overwritten if it already exists, to preserve changes made
+# by a user" — packwiz index.toml reference; confirmed in the shipped
+# packwiz-installer.jar, DownloadTask.download(): `if (metadata.getPreserve() &&
+# dest.getNioPath().toFile().exists()) return`).  We put ours in .minecraft/
+# before the first PreLaunchCommand runs, so the installer leaves it alone —
+# and so does every later update, along with whatever she changes herself.
+AIR_RENDER_DISTANCE = 6
+AIR_SIMULATION_DISTANCE = 6
+PACK_OPTIONS = ROOT / "pack" / "options.txt"
+
 # --------------------------------------------------------------------------
 # Window / background layout — one source of truth, shared by the PNG we draw
 # and the icon positions dmgbuild writes into the .DS_Store.
@@ -279,6 +296,34 @@ def tune_instance_cfg(text: str) -> str:
     return "\n".join(out) + "\n"
 
 
+def air_options_txt() -> bytes:
+    """pack/options.txt with the two distance dials turned down for the Air.
+
+    Every other line — the 12 de-collided keybinds, maxFps, entityDistanceScaling
+    — is carried through byte for byte, in the pack's own order, so the DMG never
+    silently drifts from the pack it installs.
+    """
+    if not PACK_OPTIONS.is_file():
+        raise SystemExit(f"FATAL: {PACK_OPTIONS} missing — nothing to tune")
+    wanted = {
+        "renderDistance": AIR_RENDER_DISTANCE,
+        "simulationDistance": AIR_SIMULATION_DISTANCE,
+    }
+    out, seen = [], set()
+    for line in PACK_OPTIONS.read_text(encoding="utf-8").splitlines():
+        key = line.split(":", 1)[0] if ":" in line else None
+        if key in wanted:
+            line = f"{key}:{wanted[key]}"
+            seen.add(key)
+        out.append(line)
+    missing = set(wanted) - seen
+    if missing:
+        raise SystemExit(f"FATAL: pack/options.txt has no {sorted(missing)}")
+    if not out or not out[0].startswith("version:"):
+        raise SystemExit("FATAL: pack/options.txt does not start with a version: line")
+    return ("\n".join(out) + "\n").encode("utf-8")
+
+
 def build_instance_zip() -> Path:
     src = DIST / "CozyTech"
     if not (src / "instance.cfg").is_file():
@@ -297,6 +342,15 @@ def build_instance_zip() -> Path:
             data = tune_instance_cfg(data.decode("utf-8")).encode("utf-8")
         members.append((arc, data))
 
+    # Synthesised, not copied: dist/CozyTech has no options.txt, and adding one
+    # there would make the pack's own copy and the Air's copy two files to keep
+    # in step.  This is generated from pack/options.txt on every build instead.
+    opts = ".minecraft/options.txt"
+    if any(a == opts for a, _ in members):
+        raise SystemExit(f"FATAL: dist/CozyTech already ships {opts}")
+    members.append((opts, air_options_txt()))
+    members.sort(key=lambda m: m[0])
+
     # Fixed timestamps so re-running produces byte-identical output.
     stamp = (2026, 1, 1, 0, 0, 0)
     with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
@@ -309,8 +363,16 @@ def build_instance_zip() -> Path:
     cfg = next(d for a, d in members if a == "instance.cfg").decode()
     assert f"MaxMemAlloc={MAX_MEM_MB}" in cfg and f"MinMemAlloc={MIN_MEM_MB}" in cfg
     assert "JavaPath" not in cfg and "OverrideJavaLocation" not in cfg
+    opt = next(d for a, d in members if a == ".minecraft/options.txt").decode()
+    assert opt.splitlines()[0].startswith("version:")
+    assert f"renderDistance:{AIR_RENDER_DISTANCE}" in opt
+    assert f"simulationDistance:{AIR_SIMULATION_DISTANCE}" in opt
     say(f"{ZIP_NAME}: {len(members)} entries, "
         f"MaxMemAlloc={MAX_MEM_MB} MinMemAlloc={MIN_MEM_MB}, no Java pin")
+    say(f"  .minecraft/options.txt: {len(opt.splitlines())} lines, "
+        f"renderDistance={AIR_RENDER_DISTANCE} "
+        f"simulationDistance={AIR_SIMULATION_DISTANCE} "
+        "(preserve=true keeps packwiz off it)")
     return out
 
 
@@ -658,6 +720,31 @@ def verify() -> None:
             for info in zf.infolist():
                 print(f"    {info.file_size:>9,}  {info.filename}")
             cfg = zf.read("instance.cfg").decode()
+            names_in_zip = set(zf.namelist())
+            opt = (zf.read(".minecraft/options.txt").decode()
+                   if ".minecraft/options.txt" in names_in_zip else None)
+        if opt is None:
+            problems.append("the instance zip carries no .minecraft/options.txt")
+        else:
+            # version:3465 is 1.20.1's options format, and it is asserted
+            # literally on purpose: the pack is pinned to 1.20.1, and a
+            # missing/wrong version line is the exact bug that once made every
+            # fresh install silently discard render distance and all 12 keybinds
+            # (docs/STATUS.md).  Cheap guard, and it fails loudly if it ever
+            # regresses.
+            lines = opt.splitlines()
+            print(f"\n  .minecraft/options.txt ({len(lines)} lines):")
+            for line in lines[:5]:
+                print(f"    {line}")
+            print("    ...")
+            if not lines or lines[0] != "version:3465":
+                problems.append("options.txt line 1 is not 'version:3465' "
+                                f"(got {lines[0] if lines else '<empty>'!r})")
+            if f"renderDistance:{AIR_RENDER_DISTANCE}" not in lines:
+                problems.append(f"options.txt is not renderDistance:{AIR_RENDER_DISTANCE}")
+            if f"simulationDistance:{AIR_SIMULATION_DISTANCE}" not in lines:
+                problems.append(
+                    f"options.txt is not simulationDistance:{AIR_SIMULATION_DISTANCE}")
         print("\n  instance.cfg:")
         for line in cfg.splitlines():
             print(f"    {line}")

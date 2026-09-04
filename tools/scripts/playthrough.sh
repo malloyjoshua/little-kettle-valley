@@ -7,7 +7,7 @@
 # per-TEAM latch, with a SECOND offline client on its own team. online-mode is restored on exit.
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"; SRV="$ROOT/server"; C="$ROOT/tools/scripts/server_ctl.sh"; JAVA="$ROOT/tools/jdk17/Contents/Home/bin/java"
 GD="$HOME/Library/Application Support/PrismLauncher/instances/CozyTech/.minecraft"
-LOG="$SRV/logs/latest.log"; OUT="$ROOT/scratch/night_playthrough"; mkdir -p "$OUT"; rm -f "$OUT/completed.txt"
+LOG="$SRV/logs/latest.log"; OUT="${PLAYTHROUGH_OUT:-$ROOT/scratch/night_playthrough}"; mkdir -p "$OUT"; rm -f "$OUT/completed.txt"
 GD2="$OUT/gamedir2"
 FIFO="$ROOT/scratch/server.in"; P=packtester; P2=packmate; PIDF="$ROOT/scratch/server.pid"
 
@@ -65,8 +65,25 @@ MARK=$(wc -l < "$LOG" | tr -d ' '); echo "log mark $MARK"
 say "data get entity $P Pos" 2
 POS=$(grep 'has the following entity data' "$LOG" | tail -1 | sed -E 's/.*\[(.*)\].*/\1/' | tr -d 'd' | tr ',' ' ')
 PX=$(echo $POS | awk '{printf "%d",$1}'); PY=$(echo $POS | awk '{printf "%d",$2}'); PZ=$(echo $POS | awk '{printf "%d",$3}'); echo "player at $PX $PY $PZ"
-AX=$((PX+14)); AY=$PY; AZ=$((PZ+14))
-say "valley home set $PX $PY $PZ" 1; say "valley anchor set $AX $AY $AZ" 1; say "setblock $((PX-2)) $PY $((PZ-2)) waystones:waystone" 1; say "valley anchor" 1
+# The stake has to clear the cottage. town_box is x[-48,63] z[-45,60] grown by
+# town_clearance 12, so an anchor within 60 blocks of Home on EITHER axis is
+# refused by anchorSetCmd() — and this harness used to put it 14 blocks away,
+# which set no anchor at all and left every finale with nothing to measure
+# from. 80 clears it on both axes with room to spare.
+#
+# The two attempts below are also the client-visible half of the clearance
+# check: they run `execute as/at` the PLAYER, so the refusal and the
+# acceptance are p.tell()'d into the client's own chat log, which is the only
+# place either message can be read. The console-side rule (every cardinal,
+# per-position) is verify_run.sh + vt_check.py section (11); this is the half
+# that needs a real player on the other end of it.
+AX=$((PX+80)); AY=$PY; AZ=$((PZ+80))
+NX=$((PX+14)); NZ=$((PZ+14))
+say "valley home set $PX $PY $PZ" 1
+say "execute as $P at $P run valley anchor set $NX $PY $NZ" 1   # too close: must refuse
+say "valley anchor" 1                                           # ...and must still be unset
+say "execute as $P at $P run valley anchor set $AX $AY $AZ" 1   # 80 out: must be accepted
+say "setblock $((PX-2)) $PY $((PZ-2)) waystones:waystone" 1; say "valley anchor" 1
 ts "== quests"; n=0
 tools/venv/bin/python tools/scripts/quest_order.py | while IFS=$'\t' read -r key id title ch cmdid; do
   echo "$key $id $title" >> "$OUT/completed.txt"; say "ftbquests change_progress $P complete $cmdid" 1.0
@@ -89,6 +106,29 @@ echo "finales complete: $(grep -oE 'finale act[0-9] complete' "$LOG" | sort -u |
 echo "arrival retries that gave up: $(grep -c 'gave up' "$LOG")"
 echo "distinct scenes run: $(grep -oE 'valley\] scene [a-z0-9_]+' "$LOG" | sort -u | wc -l | tr -d ' ')"
 echo "client RSS MB after finales: $(ps -o rss= -p $(pgrep -f cpw.mods.bootstraplauncher | head -1) 2>/dev/null | awk '{print int($1/1024)}')"
+
+# -----------------------------------------------------------------------------
+# The four things this run was re-opened for. Driven from newbits_probe.py so the
+# camp cells and the chair offset are READ OUT of the town plan rather than typed
+# here: the planner solves square.scenes.ribbit_camp against the four market
+# carts, and a copy in this file would go stale the first time it re-solves.
+#   1. the 3x3 hammer: the quest's reward item and the cheap copper recipe
+#   2. Q59's Ribbits stand on open ground, not inside the fisher's cart
+#   3. Bram's Act IV chair teleport, cold
+# (the anchor clearance rule is #4 and ran up in the setup, before the town
+#  existed; its verdict is read off the client chat log at the end.)
+# -----------------------------------------------------------------------------
+ts "== new bits: hammer / Q59 camp / Q73 chair"
+NBMARK=$(wc -l < "$LOG" | tr -d ' ')
+tools/venv/bin/python tools/scripts/newbits_probe.py cmds $AX $AY $AZ | while IFS= read -r cmd; do
+  case "$cmd" in
+    "valley scene q59"|"valley scene q73") say "$cmd" 10;;
+    say\ NB_*SETTLE) say "$cmd" 6;;
+    *) say "$cmd" 0.6;;
+  esac
+done
+sleep 3
+tail -n +"$NBMARK" "$LOG" > "$OUT/newbits.log"
 
 # -----------------------------------------------------------------------------
 # The look-at rule on /valley check (valley_finales.js CHECK_BLOCK).
@@ -220,6 +260,24 @@ for f in "$OUT/client.log" "$OUT/client2.log"; do
   echo "   ERROR lines:         $(grep -c '/ERROR\]' "$f")"
   echo "   FATAL lines:         $(grep -c '/FATAL\]' "$f")"
 done
+echo "=== NEW BITS"
+tools/venv/bin/python tools/scripts/newbits_probe.py check $AX $AY $AZ "$OUT/newbits.log" || true
+echo "  quest reward declares the hammer: $(grep -c 'item: \"justhammers:stone_hammer\"' "$ROOT/pack/config/ftbquests/quests/chapters/act1.snbt") (want 1)"
+# JEI builds its registry from the recipes the SERVER syncs to the client, so the
+# sync landing is the link between "/recipe give accepted the id" and "JEI can see it".
+echo "  server->client recipe sync:          $(grep -ca 'recipe sync for player' "$OUT/playthrough.log") (want >=1)"
+  # Forge prints the level BEFORE the logger name, so "jei.*ERROR" never matches
+  # a JEI error line. Match the logger, and the phrases JEI uses when a recipe
+  # will not go into its registry, independently.
+  echo "  JEI loaded its recipe registry:      $(grep -cE 'mezz\.jei.*(Registering recipes|Building recipe registry|Starting JEI)' "$OUT/client.log" 2>/dev/null)"
+  echo "  JEI errors / broken recipes:         $(grep -cE '(ERROR|WARN).*mezz\.jei|broken recipe|Failed to register recipe' "$OUT/client.log" 2>/dev/null)"
+echo "=== ANCHOR CLEARANCE (player-visible, read off the client's chat log)"
+if [ -f "$OUT/client.log" ]; then
+  echo "  refused, too close to the cottage: $(grep -c 'Too close to the cottage' "$OUT/client.log") (want 1)"
+  echo "  Josie says why:                    $(grep -c 'will not have them in your dooryard' "$OUT/client.log") (want 1)"
+  echo "  accepted 80 blocks out:            $(grep -c 'Town Anchor set to' "$OUT/client.log") (want 1)"
+  echo "  forced overrides needed:           $(grep -c '(forced)' "$OUT/client.log") (want 0)"
+fi
 echo "=== LOOK-AT RULE (read off the client's chat log)"
 LC="$OUT/client.log"
 if [ -f "$LC" ]; then

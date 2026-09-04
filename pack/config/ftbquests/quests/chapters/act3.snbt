@@ -44,7 +44,7 @@
 			title: "Sow the Four Autumn Crops"
 			subtitle: "Marked beds behind the inn."
 			icon: "minecraft:pumpkin_seeds"
-			description: ["Marnie: \"Pumpkin, beetroot, oats and barley. Everything else is finished for the year, love, and arguing with it won't feed anybody.\"", "", "Plant 4 Pumpkin Seeds, 4 Beetroot Seeds, 4 Oat Seeds and 4 Barley Seeds in the four marked beds behind the inn, and hand in with four of each in your bag. The quest checks them and never takes them, so they go in the ground straight after. Oda's Seed Box is four Scrip for the pumpkin and beetroot; the Oat Seeds are Bakery's and the Barley Seeds are Thermal's, spelled exactly like that. Any order is right.", "", "It pays out the larder crate — eggs, sugar, milk, meat, apples and twelve empty jars — which is everything the preserving work needs."]
+			description: ["Marnie: \"Pumpkin, beetroot, oats and barley. Everything else is finished for the year, love, and arguing with it won't feed anybody.\"", "", "Plant 4 Pumpkin Seeds, 4 Beetroot Seeds, 4 Oat Seeds and 4 Barley Seeds in the four marked beds behind the inn, and hand in with four of each in your bag. The quest checks them and never takes them, so they go in the ground straight after. Oda's Seed Box is four Scrip for the pumpkin and beetroot; the Oat Seeds are Bakery's and the Barley Seeds are Thermal's, spelled exactly like that. Any order is right. Nothing has to sprout for this: the quest only checks the seeds are in your bag. It is still summer when Marnie hands it over, so the beds sit until the season turns — pumpkin and beetroot take once autumn lands, the oats grow whenever, and the barley is a spring crop that will wait in the ground until the thaw.", "", "It pays out the larder crate — eggs, sugar, milk, meat, apples and twelve empty jars — which is everything the preserving work needs."]
 			x: 2.0d
 			y: 0.0d
 			dependencies: ["379DF28AF21498E4"]
@@ -72,7 +72,7 @@
 			title: "Put Up Twelve Preserves"
 			subtitle: "Cookbook pages 3 to 5."
 			icon: "handcrafted:berry_jam_jar"
-			description: ["Marnie: \"Four pies, four jams, four jars of pickles — pages three to five. Everything you need is in the crate by the counter.\"", "", "Make 4 Apple Pies and 4 Berry Jam Jars, then seal 4 Jars of pickles — the plain glass Jar, not the Bakery jar that came with the larder crate — and bring all twelve to the inn counter.", "", "Twelve jars. Oda's count says that is four days off the hundred and twelve. Bram left a fridge blueprint on that counter too, and he says he is working on the power, which from Bram is a promise."]
+			description: ["Marnie: \"Four pies, four jams, four jars of pickles — pages three to five. Everything you need is in the crate by the counter.\"", "", "Make 4 Apple Pies and 4 Berry Jam Jars, then seal 4 Jars of pickles — the plain glass Jar, not the Bakery jar that came with the larder crate — and bring all twelve to the inn counter.", "", "Sweet berries are a spring and winter crop, so the bushes will not be fruiting now: pick wild ones off taiga bushes, or buy the Rare Seed Case at Oda's counter — sixteen Scrip and eight berries come with it. Anything you stockpiled in Act II keeps in the granary.", "", "Twelve jars. Oda's count says that is four days off the hundred and twelve. Bram left a fridge blueprint on that counter too, and he says he is working on the power, which from Bram is a promise."]
 			x: 4.0d
 			y: 0.0d
 			dependencies: ["5C9E4AA1B6ADCEA6"]

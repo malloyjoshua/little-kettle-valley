@@ -54,6 +54,8 @@ Rebuilds all four release assets — see [Installers](#installers) for what it d
 5. Friends get the update automatically on their next launch. The server gets it with the sync script, which also clears the quest files the game rewrites on its own so they never shadow an update:
    `"$HOME/Desktop/1. Projects/Minecraft/tools/scripts/sync_server.sh"`
 
+> **`pack/options.txt` is the one file an update does not push.** It is marked `preserve = true` in `pack/index.toml`, so packwiz writes it only when it is missing — see *Video settings* under Installers below. Change a keybind there and existing players keep the old one; only fresh installs get it. Tell them the new binding, or have them delete their `options.txt` and relaunch.
+
 ## Roll back a bad update
 ```bash
 git revert HEAD && git push
@@ -83,7 +85,7 @@ It temporarily sets `online-mode=false`, boots a fresh world, joins the offline 
 1. Make yourself op once: `server_ctl.sh cmd "op YourName"`.
 2. In the game, open the quest book and run `/ftbquests editing_mode` in chat. Right-click any quest for Complete or Reset. Run the command again to leave edit mode.
 3. Missing a stage the story should have given: `/kubejs stages add PlayerName stage_name` (stage names are in `story/quests/*.json`).
-4. A finale or scene that did not fire: `/valley finale act2`, `/valley scene q59`. If the town anchor was never set: `/valley anchor set x y z`.
+4. A finale or scene that did not fire: `/valley finale act2`, `/valley scene q59`. If the town anchor was never set: `/valley anchor set x y z`. It refuses a spot that would build the town on top of the cottage — fifteen houses, a square and a mill go in around that stake, so it has to be more than about 60 blocks from Home on both axes. It says so and names Home when it refuses; `/valley anchor set x y z force` sets it anyway if you really mean it.
    * Each act is a chain of timed beats and only the last one marks the act done, so re-running a half-finished finale is safe: it skips the beats that already played and runs the ones that did not. If the act is already marked done but a payoff never landed (no spring after the Longest Night, the world border never came off), use `/valley finale act4 force` — same skipping, but it ignores the done flag.
    * The act's ground is force-loaded for the length of the build and released when the last beat ends, so it no longer matters where anybody is standing when the card is claimed.
 5. **Bram is not at the mill** (Q12 wants his token and there is nobody to take it from): `/valley scene bram`. It also cuts the mill race Q16 needs. It is latched once per world, so if it already ran and he is still missing, `/data remove` is not the answer — re-run the import by hand: `easy_npc preset import data valley:easy_npc/preset/bram.npc.snbt <x> <y> <z>`.
@@ -131,6 +133,28 @@ Windows reports slightly less RAM than the sticker (firmware takes a cut), so th
 `/LKVRAMGB=<n>` makes the installer pretend the machine has *n* GB. It exists so CI can prove all three branches on one 16 GB runner (8 → 3072, 16 → 3584, 32 → 4096, plus an unforced install checked against the runner's real RAM); it is not documented for players.
 
 The **Mac disk image is a separate number**: `MAX_MEM_MB = 3072` near the top of `installers/macos/build_dmg.py`, baked into the instance because a dmg has no install-time code to run. It is set for an 8 GB Air; on a bigger Mac raise it in Prism (Edit → Settings → Memory). The tracked `dist/LittleKettleValley.zip` carries 3584, matching the middle tier.
+
+### Video settings, and why keybind changes only reach fresh installs
+
+`pack/options.txt` carries render distance, `maxFps`, `entityDistanceScaling` and the 12 de-collided keybinds from the night audit. Its entry in `pack/index.toml` is marked:
+
+```toml
+[[files]]
+file = "options.txt"
+hash = "..."
+preserve = true
+```
+
+`preserve = true` means **write-once-if-missing, never overwrite** — packwiz's own reference puts it as "the file is not overwritten if it already exists, to preserve changes made by a user", and the shipped `packwiz-installer.jar` implements exactly that: `DownloadTask.download()` returns early, before any hashing or writing, when `metadata.getPreserve()` is true and the destination file exists. The hash in the index is still refreshed on every `packwiz refresh`; it is simply never acted on for a file that is already there.
+
+Two consequences, both deliberate:
+
+- **Good:** a player's own video settings, sensitivity, sound levels and rebinds survive every update. Without the flag, every launch would silently stamp them back to ours.
+- **The cost:** a keybind fix we make in `pack/options.txt` reaches **only fresh installs**. Existing players keep whatever their file says. If a future audit re-shuffles a binding, either announce the new key or tell them to delete `.minecraft/options.txt` and relaunch — packwiz will then lay down the current copy.
+
+The flag is also what makes the Mac image's lower render distance stick. `installers/macos/build_dmg.py` synthesises `.minecraft/options.txt` into the instance zip from `pack/options.txt`, with `renderDistance` and `simulationDistance` both forced to **6** (`AIR_RENDER_DISTANCE` / `AIR_SIMULATION_DISTANCE` near the top of the file) — every other line, keybinds included, is copied through byte for byte in the pack's own order. Because that file exists before the first `PreLaunchCommand` runs, the packwiz installer leaves it alone, on that launch and every one after.
+
+So there are two different render distances on purpose: **8** in `pack/options.txt` (Josh's Mac, the Windows `.exe`, the tracked `dist/LittleKettleValley.zip`) and **6** in the DMG instance (the 8 GB Air). Render distance is the cheapest frame-rate dial in the pack — see the Air budget table in `docs/integration-audit-night.md`. Changing the Air's number means editing the two constants in `build_dmg.py` and rebuilding the image; changing everyone else's means editing `pack/options.txt`, and only fresh installs will see it.
 
 ### Where they live
 - `dist/LittleKettleValley.zip` — **tracked in git, on purpose.** It is both a release asset and the build input CI uses to make the `.exe` (see above), so it has to be on `main`. `release.sh` commits and pushes it; if you rebuild it by hand, commit it by hand: `git add dist/LittleKettleValley.zip`.

@@ -267,7 +267,7 @@
 			title: "Fit the Kitchen and Cook Three Dishes"
 			subtitle: "Counter, sink, oven, back wall."
 			icon: "cookingforblockheads:oven"
-			description: ["Marnie: \"Counter, sink, oven, along the back wall in that order. I've had the spots chalked for four years.\"", "", "Have the Kitchen Counter, Sink and Oven in your bag when you hand this in — the quest checks for them and gives them straight back — then set them on the three marked spots along the inn's back wall — three grey slabs, numbered 1, 2 and 3 on the wall above them: counter, sink, oven, in that order. Cook Bread, a Pumpkin Pie and a Vegetable Soup in that kitchen; everything is in the crate by the counter.", "", "You get the recipe book, the fruit basket, Marnie's cupboards — and Oda's broom off the back door, which Q19 needs."]
+			description: ["Marnie: \"Counter, sink, oven, along the back wall in that order. I've had the spots chalked for four years.\"", "", "Have the Kitchen Counter, Sink and Oven in your bag when you hand this in — the quest checks for them and gives them straight back — then set them on the three marked spots along the inn's back wall — three grey slabs, numbered 1, 2 and 3 on the wall above them: counter, sink, oven, in that order. Cook Bread, a Pumpkin Pie and a Vegetable Soup in that kitchen; everything is in the crate by the counter. The one thing the crate cannot hold is the pumpkin — pumpkins are an autumn crop and will not grow in spring, so walk the grass and the taiga edges and pick a wild one. Oda's Seed Box sells the seeds, but save them for Act III.", "", "You get the recipe book, the fruit basket, Marnie's cupboards — and Oda's broom off the back door, which Q19 needs."]
 			x: 14.0d
 			y: 1.5d
 			dependencies: ["3D62FF07E2F30634"]

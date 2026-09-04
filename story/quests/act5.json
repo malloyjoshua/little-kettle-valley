@@ -792,7 +792,7 @@
     },
     {
      "type": "command",
-     "command": "title @p subtitle {\"text\": \"Tobin\\u2019s lanterns go down further than anyone dug.\", \"color\": \"gray\", \"italic\": true}"
+     "command": "title @p subtitle {\"text\": \"Tobin's lanterns go down further than anyone dug.\", \"color\": \"gray\", \"italic\": true}"
     },
     {
      "type": "command",
