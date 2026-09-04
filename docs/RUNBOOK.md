@@ -68,10 +68,12 @@ Friends pick up the revert on next launch.
 - Client (Prism): right-click the instance, "Minecraft Folder", then `logs/latest.log`
 
 ## Let friends connect without port forwarding (playit.gg, free)
-1. Download the macOS agent from https://github.com/playit-cloud/playit-agent/releases (playit-darwin-arm64), put it in `tools/`, `chmod +x`.
-2. Run `tools/playit-darwin-arm64` once. It prints a claim link. Open it, sign in (free account), name the agent.
-3. In the playit dashboard add a tunnel: type Minecraft Java, local address `127.0.0.1:25565`. It gives a hostname like `something.playit.gg`. That is the server address friends use.
-4. Keep the agent running whenever the server is up (a second terminal, or a launchd job later).
+playit publishes no macOS binary, so the agent is built from source once (`tools/playit-src`, tag v1.0.10) into `tools/playit/` (gitignored, as is the secret).
+
+1. First time only, claim the agent: `tools/scripts/playit_ctl.sh claim` prints a link. Open it in a browser, sign in to playit.gg (free account), approve. The script saves the secret and starts the daemon.
+2. In the playit dashboard (https://playit.gg/account/agents) add a tunnel to that agent: type **Minecraft Java**, local address `127.0.0.1:25565`. It gives a hostname like `something.joinmc.link`. That is the server address friends use. Add it to `docs/INSTALL.md`.
+3. Every time you play: `tools/scripts/playit_ctl.sh start` before or after the server; `status` shows the tunnel, `stop` ends it. The daemon only forwards while it runs.
+4. To move the agent to another machine or start over: `tools/playit/playit-cli reset`, then `claim` again.
 
 ## Automated playthrough (proves every quest reward and finale still works after a change)
 ```bash

@@ -42,3 +42,5 @@ dist/*.exe
 # dist/LittleKettleValley.zip is the exception and stays TRACKED on purpose: the Windows
 # installer is built on a GitHub runner, which has no dist/CozyTech/, so installers/windows/stage.py
 # unpacks this committed zip to get the instance. tools/scripts/release.sh commits it each release.
+tools/playit/
+tools/playit-src/
