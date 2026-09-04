@@ -1,16 +1,42 @@
 # Little Kettle Valley: install guide for friends
 
-Five minutes, one download, and it updates itself after that.
+Pick the path for your computer. All three end up in the same place — Prism Launcher, signed in with your Microsoft account, with the pack installed and self-updating.
+
+## Windows
+
+1. Download **LittleKettleValley-Setup.exe** from the [release page](https://github.com/malloyjoshua/little-kettle-valley/releases/tag/friends) and open it. Your browser will probably flag it as uncommonly downloaded — choose **Keep**.
+2. Windows SmartScreen will show a blue "Windows protected your PC" screen with only a **Don't run** button. Click **More info**, then **Run anyway**. This happens because the installer isn't code-signed (no cost was spared, just a fee) — it's a one-time click.
+3. Click through **Next → Install**. No admin password, nothing else to install — Java is bundled.
+4. Leave **Launch Little Kettle Valley** ticked. The launcher opens and asks you to **sign in with your Microsoft account** — the one that owns Minecraft. That's the only sign-in.
+5. Click **Little Kettle Valley → Play**.
+
+## Mac
+
+1. Download **LittleKettleValley.dmg** from the [release page](https://github.com/malloyjoshua/little-kettle-valley/releases/tag/friends) and open it. Three steps are drawn right on the disk image:
+   - **Drag Prism Launcher into Applications.** Leave the window open for step 3.
+   - **Open Prism Launcher, sign in with your Microsoft account.** It fetches its own Java — let it, that's normal.
+   - **Drag the kettle zip onto Prism's window** (or Add Instance > Import). First launch installs the pack.
+2. The first time you open Prism Launcher, macOS shows a one-time confirmation — *"Prism Launcher is an app downloaded from the Internet. Are you sure you want to open it?"* Click **Open**. You won't see this again, and you won't need to dig into System Settings — the app is notarized by its own developers.
+3. Sign in with your Microsoft account when Prism asks (Accounts, top right, if it doesn't ask automatically).
+
+## Manual (any launcher)
+
+Use this if you already run a different launcher, or the Windows/Mac installer doesn't fit your setup.
 
 1. Install **Prism Launcher** (free): https://prismlauncher.org/download/
 2. Open Prism. Sign in with your Microsoft account when it asks (Accounts, top right).
-3. Download the pack file Josh sent you (`LittleKettleValley.zip`). Don't unzip it. (It's also at https://github.com/malloyjoshua/little-kettle-valley/releases when Josh publishes a release.)
+3. Download the pack file (`LittleKettleValley.zip`) from the [release page](https://github.com/malloyjoshua/little-kettle-valley/releases/tag/friends). Don't unzip it.
 4. In Prism: **Add Instance** > **Import** > pick the zip. Click OK.
-5. Select the instance, click **Edit** > **Settings**, and set memory: **3072 MB** on an 8 GB machine, **3584 MB** on 16 GB, **4096 MB** on 32 GB. (Measured: the game uses about 1 GB on top of whatever you allocate, so 3072 on an 8 GB Mac leaves room for macOS.)
-6. Click **Launch**. The first launch downloads about 130 mods and takes a few minutes. After that it's fast.
-7. Add the server: **Multiplayer** > **Add Server**, address from Josh.
+5. Select the instance, click **Edit** > **Settings**, and set memory: **3072 MB** on an 8 GB machine, **3584 MB** on 16 GB, **4096 MB** on 32 GB. (Measured: the game uses about 1 GB on top of whatever you allocate, so 3072 on an 8 GB machine leaves room for the OS.)
+6. Click **Launch**.
 
-Every time you launch, the pack checks for updates and applies them. You never need to download anything again.
+## First launch
+
+The first launch downloads about 125 mods and takes a few minutes. After that it's fast. Every time you launch after that, the pack checks for updates and applies them — you never need to download anything again.
+
+## Join the server
+
+**Multiplayer** > **Add Server**, address from Josh. Your name has to be on the whitelist first, so send Josh your exact Minecraft username before you try to connect.
 
 ## If it won't start
 - Make sure memory is set to at least 3072 MB (Edit > Settings > Memory).

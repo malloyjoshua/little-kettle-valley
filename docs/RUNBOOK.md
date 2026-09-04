@@ -98,3 +98,30 @@ It temporarily sets `online-mode=false`, boots a fresh world, joins the offline 
    * `kubejs reload server_scripts` does NOT rebuild the command tree: `/valley` keeps running the functions from the last full server start. If you changed anything inside `/valley finale`, `/valley scene`, `/valley check` or `/valley standing`, restart the server or the reload will look like it did nothing.
 
 **One rule:** in-game edit mode writes to the server's quest files, and the compiler overwrites those from the JSON. Use edit mode to unstick people, use the JSON for anything you want to keep.
+
+## Installers
+
+Three friend-facing assets plus a PDF guide, all attached to the GitHub release tagged `friends`. One command rebuilds and re-uploads everything:
+```bash
+"$HOME/Desktop/1. Projects/Minecraft/tools/scripts/release.sh"
+```
+It rebuilds the zip, rebuilds the dmg, triggers the Windows `installers.yml` workflow on GitHub Actions and waits for it (that job builds the `.exe` on a real Windows runner, silent-installs it, and uploads it to the release itself), rebuilds the install guide PDF into a new `dist/vN/` folder, then uploads the zip + dmg + PDF (the `.exe` is already on the release by that point). Takes several minutes end to end because of the Windows CI run.
+
+### Rebuild one asset at a time
+
+- **Zip** (manual/any-launcher import): `rm -f dist/LittleKettleValley.zip && (cd dist/CozyTech && zip -qr ../LittleKettleValley.zip . -x '.DS_Store')` — same line `release.sh` runs.
+- **macOS disk image**: `tools/venv/bin/python installers/macos/build_dmg.py` → `dist/LittleKettleValley.dmg`. Add `--verify-only` to re-check an already-built image (codesign/notarization/hashes) without rebuilding it.
+- **Windows installer**: `gh workflow run installers.yml` (or push a tag matching `installer-*`), then `gh run watch <run-id> --exit-status`. It stages the payload with `installers/windows/stage.py`, compiles `installers/windows/LittleKettleValley.iss` with Inno Setup on the runner, silent-installs + silent-uninstalls it as a smoke test, and uploads the `.exe` to both the workflow artifact and the `friends` release. There is no macOS-side build for this one — Inno Setup only runs on Windows, which is why CI does it.
+- **Install guide PDF**: `tools/venv/bin/python tools/scripts/install_guide_pdf.py "dist/vN/Little Kettle Valley - Install Guide.pdf"` — pick the next unused `vN` (never overwrite an existing version; the whole `dist/v*/` prefix is gitignored, so these live locally and on the release only). Render a quick visual check before shipping: `pdftoppm -png -r 150 "dist/vN/Little Kettle Valley - Install Guide.pdf" /tmp/page` then look at the PNGs — reportlab gives no warning when text or a numbered-step circle collides with something else on the page.
+
+### Where they live
+- `dist/LittleKettleValley.zip`, `dist/LittleKettleValley.dmg` — always the current build, gitignored, re-uploaded with `--clobber` each release.
+- `dist/vN/Little Kettle Valley - Install Guide.pdf` — versioned locally (gitignored), but uploaded to the release under the same asset name every time, so the release always serves the latest guide.
+- `installers/windows/build/out/LittleKettleValley-Setup.exe` — CI-only output (the `installers/windows/build/` tree isn't committed); the release asset is the copy CI uploads.
+- Release page: `gh release view friends --web` or https://github.com/malloyjoshua/little-kettle-valley/releases/tag/friends
+
+### When Prism or Java releases move
+
+- **Prism Launcher version**: pinned by URL + sha256 in *two* places that need to move together — `PRISM_DMG_URL`/`PRISM_DMG_SHA256` near the top of `installers/macos/build_dmg.py`, and the portable-zip URL/hash near the top of `installers/windows/stage.py`. Update both to the new version, then just run the builds — each one aborts loudly on a sha256 mismatch rather than shipping unverified bytes, so a bad copy-paste fails fast instead of shipping quietly. After bumping the Mac side, `build_dmg.py` re-verifies the new `.app`'s codesign/notarization itself as part of the build.
+- **Java on Windows**: `installers/windows/stage.py` always pulls Adoptium's "latest GA" Temurin 17 build via their API and verifies the download's own checksum before extracting — no pin to maintain, but it does mean a rebuild next month can bundle a newer 17.x point release than today's. Say the word if that should be pinned instead.
+- **Java on Mac**: not bundled at all — Prism's `AutomaticJavaDownload`/`AutomaticJavaSwitch` are left on in the shipped instance config, so Prism fetches its own JRE on first launch. Nothing to update here when Java moves.
