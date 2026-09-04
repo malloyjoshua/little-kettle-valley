@@ -758,13 +758,18 @@ function ruinSurface(level, x, z) {
 function ruinSiteOk(level, x, z) {
   let c = ruinSurface(level, x, z)
   if (c < 40 || c > 180) return -1
-  let probes = [[-8, -8], [8, -8], [-8, 8], [8, 8], [0, -8], [0, 8]]
+  // The pad is cut at the HIGHEST point of the site, not the centre: cut at the
+  // centre on a hillside and the ruin sits in a pit with dirt walls on three
+  // sides ("the farm is half in the dirt"). Proud of a slope beats buried in it.
+  let probes = [[-8, -8], [8, -8], [-8, 8], [8, 8], [0, -8], [0, 8], [-8, 0], [8, 0]]
+  let top = c
   for (let i = 0; i < probes.length; i++) {
     let h = ruinSurface(level, x + probes[i][0], z + probes[i][1])
     if (h < 0) return -1
-    if (Math.abs(h - c) > 6) return -1
+    if (Math.abs(h - c) > 5) return -1
+    if (h > top) top = h
   }
-  return c
+  return top
 }
 
 // The lit path from spawn to the gate. One setblock per step, each at that
@@ -938,35 +943,55 @@ function tellWhere(server, name, where) {
   })
 }
 
-// The standing objective on the action bar, every three seconds, until the
-// waystone is on the hearthstone. One loop per server; it reschedules itself.
-function objectiveLine(player) {
+// The objective is said ONCE per step, not every three seconds (the repeating
+// bar was "really, really annoying"). Three steps: read the letter, walk to the
+// farm, put the waystone on the hearthstone. After the letter is read a thin
+// column of light rises from the hearthstone until the waystone is on it, so
+// "the flat grey stone" is the one you can see from the gate.
+function objectiveState(player) {
   let v = global.valley
   let team = v.teamId(player)
-  if (v.isDone('q02', team)) return null
-  if (!v.isDone('q01', team)) {
-    return { text: 'Read Josie\'s letter. It is in your hand: right-click.', color: 'gold' }
-  }
+  if (v.isDone('q02', team)) return 'done'
+  if (!v.isDone('q01', team)) return 'letter'
   let ruin = v.ruin()
-  if (!ruin) return { text: 'Open the Quest Book (right-click it, or press J).', color: 'gold' }
-  let d = Math.round(Math.sqrt(Math.pow(ruin[0] - player.x, 2) + Math.pow(ruin[2] - player.z, 2)))
-  if (d <= 6) return { text: 'Put the Homestead Waystone on the flat grey hearthstone and name it Home.', color: 'gold' }
-  let where = pdGet('valley_ruin_bearing', 'north')
-  return { text: 'Follow the lanterns ' + where + ' to the farm: ' + d + ' blocks. The compass points at it.', color: 'gold' }
+  if (!ruin) return 'book'
+  let d = Math.sqrt(Math.pow(ruin[0] - player.x, 2) + Math.pow(ruin[2] - player.z, 2))
+  return d <= 12 ? 'hearth' : 'walk'
+}
+
+function objectiveLine(state) {
+  if (state === 'letter') return { text: 'Read Josie\'s letter. It is in your hand: right-click.', color: 'gold' }
+  if (state === 'book') return { text: 'Open the Quest Book (right-click it, or press J).', color: 'gold' }
+  if (state === 'walk') return { text: 'The Homestead Waystone is in your bag. Follow the lanterns and the compass to the farm.', color: 'gold' }
+  if (state === 'hearth') return { text: 'Put the Homestead Waystone on the flat grey hearthstone, where the light rises, and name it Home.', color: 'gold' }
+  return null
 }
 
 function objectiveLoop() {
   let server = global.valleyServer
   if (!server) return
+  let v = global.valley
+  global.valleyObjectiveSeen = global.valleyObjectiveSeen || {}
+  let anyLit = false
   try {
     server.players.forEach(pl => {
-      let line = objectiveLine(pl)
-      if (line) server.runCommandSilent('title ' + global.valley.pname(pl) + ' actionbar ' + JSON.stringify(line))
+      let name = v.pname(pl)
+      let state = objectiveState(pl)
+      if (state !== 'done' && state !== 'letter') anyLit = true
+      if (global.valleyObjectiveSeen[name] === state) return
+      global.valleyObjectiveSeen[name] = state
+      let line = objectiveLine(state)
+      if (line) server.runCommandSilent('title ' + name + ' actionbar ' + JSON.stringify(line))
     })
+    // the hearth light: only while someone has read the letter and not yet placed the waystone
+    let ruin = v.ruin()
+    if (anyLit && ruin) {
+      server.runCommandSilent('particle minecraft:end_rod ' + ruin[0] + '.5 ' + (ruin[1] + 1.2) + ' ' + ruin[2] + '.5 0.15 0.6 0.15 0.005 4 force')
+    }
   } catch (err) {
     console.warn('[valley] objective loop: ' + err)
   }
-  valleyDelay(60, objectiveLoop)
+  valleyDelay(20, objectiveLoop)
 }
 
 function startObjectiveLoop() {

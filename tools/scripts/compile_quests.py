@@ -61,7 +61,11 @@ def reward_snbt(r, where, key, tables):
     typ = r['type']; parts = [f'id: "{rid}"', f'type: "{typ}"']
     if 'title' in r: parts.append(f'title: {q(r["title"])}')
     if r.get('team'): parts.append('team_reward: true')
-    if r.get('autoclaim'): parts.append(f'auto: {q(r["autoclaim"])}')
+    # Rewards pay out the moment the quest completes. The default (manual claim
+    # inside the quest book) cost Josh the Homestead Waystone on his first play:
+    # Q1 ticked on reading the letter, nothing arrived, and Q2 asked him to place
+    # a block he did not have. "enabled" = auto-claim with the toast.
+    parts.append(f'auto: {q(r.get("autoclaim", "enabled"))}')
     if typ == 'item':
         item_ok(r['item'], where); parts.append(f'item: {q(r["item"])}')
         if int(r.get('count',1)) != 1: parts.append(f'count: {int(r["count"])}')
