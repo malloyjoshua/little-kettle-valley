@@ -16,7 +16,7 @@
     },
     {
       "type": "patchouli:text",
-      "text": "Q66 runs duct on to the Works and installs $(bold)2 more cells$(). $(bold)Three cells total$() is the number that wants to be standing behind the reactor before anybody pulls a lever.$(br2)Type $(bold)/valley check power$() at any point. It prints what is going in, what is coming out, and which of the two is losing.",
+      "text": "Q66 runs duct on to the Works and installs $(bold)2 more cells$(). $(bold)Three cells total$() is the number that wants to be standing behind the reactor before anybody pulls a lever.$(br2)Type $(bold)/valley check power$() at any point. It prints what is going in, what is coming out, and which of the two is losing.$(br2)$(bold)How to run one:$() press $(bold)T$(), type the command, press enter. It half-types itself once you start.",
       "title": "The Works grid"
     }
   ]

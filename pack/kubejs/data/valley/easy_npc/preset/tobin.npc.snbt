@@ -16,7 +16,7 @@
       ActionEventSet:{
         ON_INTERACTION:[
           {
-            Cmd:"/info_message You own a pickaxe. Good. Look at this rock. No, really look.",
+            Cmd:"/valley greet tobin before @initiator",
             ConditionDataSet:{
               ConditionDataSet:[
                 {
@@ -32,7 +32,7 @@
             Type:"COMMAND"
           },
           {
-            Cmd:"/info_message Bram said good work. Out loud. I have not stopped hearing it.",
+            Cmd:"/valley greet tobin after @initiator",
             ConditionDataSet:{
               ConditionDataSet:[
                 {

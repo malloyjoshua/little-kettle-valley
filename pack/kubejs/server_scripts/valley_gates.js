@@ -269,6 +269,31 @@ ServerEvents.recipes(event => {
     C: 'minecraft:copper_ingot'
   }).id('valley:cheap/waystone')
 
+  // The first hammer. Just Hammers already ships the Stone Hammer at 3 stone +
+  // 3 sticks (data/justhammers/recipes/stone_hammer.json, read out of the 2.0.3
+  // jar), which is hour-one cheap on its own, so NOTHING is removed and NO gate
+  // item is attached here — §5 gates exist to make a thing wait for a person,
+  // and the 3x3 is a comfort tool, not a milestone. What is added is a second,
+  // parallel path in the valley's own metal, so the hammer reads as something
+  // the kettle town made: copper, same shape as the mod's, same output.
+  //
+  // Copper is already this pack's hour-one currency (bounty board, megatorch,
+  // waystone, bell, surveyor's stake all above), so this costs a player nothing
+  // they were not already smelting on day one.
+  //
+  // The upgrade ladder is left exactly as the mod ships it. Its cores start at
+  // justhammers:impact_core, which eats a NETHERITE hammer + iron and gold
+  // blocks, so 3x3x3 and up sit far past the end of the story on their own.
+  // No gate needed there either.
+  event.shaped('justhammers:stone_hammer', [
+    'CSC',
+    ' SC',
+    ' S '
+  ], {
+    C: '#forge:ingots/copper',
+    S: 'minecraft:stick'
+  }).id('valley:cheap/copper_hammer')
+
   // ===========================================================================
   // The custom items that have to be craftable, so JEI never shows a dead end.
   // Everything else (Scrip, tokens, plates, notes, deeds) is quest-granted on

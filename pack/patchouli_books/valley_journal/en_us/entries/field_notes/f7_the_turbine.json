@@ -20,7 +20,7 @@
     },
     {
       "type": "patchouli:text",
-      "text": "$(bold)/valley check turbine$() prints RPM, steam in and power out without you opening a single menu.$(br2)Smallest turbine the game will accept: $(bold)5 x 5 x 4$().$(br2)Q83 asks for a second one that meets the town's stated winter budget without going past the fuel burn Tobin signed off. $(bold)/valley check power$() is the other half of that answer.",
+      "text": "$(bold)/valley check turbine$() prints RPM, steam in and power out without you opening a single menu. (Press $(bold)T$(), type it, press enter.)$(br2)Smallest turbine the game will accept: $(bold)5 x 5 x 4$().$(br2)Q83 asks for a second one that meets the town's stated winter budget without going past the fuel burn Tobin signed off. $(bold)/valley check power$() is the other half of that answer.",
       "title": "Readouts and sizes"
     }
   ]

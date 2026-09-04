@@ -16,7 +16,7 @@
       ActionEventSet:{
         ON_INTERACTION:[
           {
-            Cmd:"/info_message I mend roofs. Heard this valley has roofs again. Here I am.",
+            Cmd:"/valley greet newcomer_corin before @initiator",
             ExecAsUser:0b,
             PermLevel:2,
             Type:"COMMAND"

@@ -16,7 +16,7 @@
       ActionEventSet:{
         ON_INTERACTION:[
           {
-            Cmd:"/info_message Saw your noticeboard from the ridge road. Is there a room?",
+            Cmd:"/valley greet newcomer_tess before @initiator",
             ExecAsUser:0b,
             PermLevel:2,
             Type:"COMMAND"

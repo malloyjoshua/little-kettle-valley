@@ -1,32 +1,42 @@
-# Status: 2026-09-03, midday
+# Status: 2026-09-04, morning
 
 ## Where it stands
-Little Kettle Valley is built, boots, and has been played through end to end by an automated harness. Everything below was verified by running the real thing, not by reading code.
+Little Kettle Valley is built, boots clean, and has been played through end to end twice more overnight — once by an automated client, once by an independent reviewer re-checking someone else's claims. The town got a full visual rebuild, a real 3x3 mining hammer was added, the story got a suspense pass, and the friend-facing installers (Windows .exe, Mac .dmg, manual .zip) all got verified for real, on a real memory budget. **The one blocking problem — the pack was never actually pushed to GitHub, so anyone downloading it tonight would have gotten a broken, half-fixed pack — is fixed by this morning's push.**
 
 ## Launching
 1. Open Prism Launcher. The instance is **Little Kettle Valley** (kettle icon). You already signed in.
-2. Click **Launch**. The pre-launch step pulls the latest pack from GitHub (a few seconds), then the game starts. About 40 seconds to the title screen.
+2. Click **Launch**. The pre-launch step pulls the latest pack from GitHub (a few seconds), then the game starts. About 35 seconds to the title screen.
 4. Singleplayer > Create New World (any name). Josie's letter, the deed, and the quest book arrive on first join. Press J for the quest book.
-5. When your wife's Air is free: install Prism there, sign in, and import the instance (see `docs/INSTALL.md`). Set memory to 3072 MB.
+5. When your wife's Air is free: see **"Handing her the DMG"** below.
+
+## What changed overnight
+- **The town got rebuilt for real.** Every building is now a real, designed structure (Towns and Towers' Swiss-village set, the Dungeons and Taverns inn, a proper ruin) placed on leveled ground, not the old placeholder boxes. Roads, lamps, market carts, the well, flower boxes — all solved by a planner script so nothing overlaps or floats. 130 automated checks on this pass, 130 pass.
+- **A second, independent pass re-checked that work** and added its own new checks the first pass didn't have — 177 total, 163 pass. The 14 that don't are all cosmetic (see "Still open" below), not game-breaking.
+- **Bram now hands you a mining hammer in the first hour** (Just Hammers mod, a real 3x3-block-per-swing tool, the same one the inspiration pack uses). Every big dig-out in the game is now a third of the swings. New quest, no changes to anything that already existed.
+- **The story got a suspense pass.** Each of the five act-endings now closes on an actual line from a character, not just "the season turns" — Marnie on the cellar door, Halden on the pier, Oda on the ridge fire, Halden reading Josie's real last page. 36 fixes applied and verified, nothing about quest order or dependencies touched.
+- **The Windows installer, Mac disk image, and manual-import zip all rebuilt and verified.** The Windows one-click installer passed a real silent-install test on a GitHub-hosted Windows machine. The Mac side was proven on this Mac at your wife's exact memory setting (3072 MB) — see the memory numbers below.
+- **An "everything works together" audit** went through all 127 mods' logs and configs looking for stuff that's individually fine but breaks in combination. Found 23 things; the two that mattered (wheat couldn't grow in the spring acts it's needed in; a common ore was quietly paying out real emeralds) are fixed and verified. The rest are cosmetic or your call — see below.
+- **Two real bugs found by the memory test, both now fixed:** the pack's mod list on GitHub was missing the new hammer mod (so your wife's client would have failed to connect), and the settings file (`pack/options.txt`) was missing one line that Minecraft needs to read it at all — without that line, every fresh install silently threw away render distance, the quest-book key, and all the keybind fixes from the audit. Proven with the file's own tests, one line, done.
 
 ## Verified tonight (see the session log for detail)
-- Server boots clean: 116 server-side jars, KubeJS 2/2 startup + 8/8 server scripts, 0 script errors, 65 recipes added / 37 gated with 0 failures, all 125 quests loaded.
-- Client boots to title in 35 s with 126 client-side jars; loads a world in 40 s; joins the server.
-- Automated playthrough (4 runs, last one clean): offline test client joined, all 125 quests completed in order, 231 command rewards and function lines executed from the console with 0 errors, all 5 finales and 12 scenes ran, all 15 residents present in the world afterwards.
-- Story read-through by three readers (non-creative partner, Tekkit veteran, continuity editor): 109 issues, 133 text fixes applied, then 16 progression blockers fixed with data changes and independently re-verified (one refuted and repaired: Lake Sand had no source).
-- Integration audit: 75 findings, 26 verified fixes applied (duplicate metals unified, Farm & Charm season tags restored, Vein Mining bound to grave key, quarry chunkloader off, Waystones inventory button on, Dynamic Lights removed as a per-tick datapack).
+- Server boots clean: 116 server-side jars, KubeJS 2/2 startup + 9/9 server scripts, 0 script errors, all 126 quests loaded.
+- Client boots to title in 35 s with 127 client-side jars; loads a world in 40 s; joins the server.
+- Automated playthrough (headless client, full replay): all 126 quests sent and acknowledged (0 refused), 321 audited commands, all 5 finales complete with 0 arrival retries giving up, 20 distinct scenes, all 15 residents present and accounted for by name, 0 real `[valley]` errors, 0 KubeJS script errors.
+- **Quest ID bug fixed and proven the hard way.** Roughly half the quest and chapter IDs were silently unaddressable — a signed/unsigned overflow bug — which made 14 of 24 auto-completing quests silently no-op and 2 of 3 reward crates unreachable. Traced to the exact line, fixed, and reproduced clean: 0 bad IDs out of 1,194, re-verified again just now before tonight's push.
+- Story read-through by three readers: 109 issues found, 133 text fixes applied, 16 progression blockers fixed and independently re-verified.
+- Memory test on this Mac at your wife's exact settings (3072 MB heap, render distance 6): 35 s to title, 30 s to join, RSS peaks at 3.85 GB and settles to 3.06 GB after 5 minutes in town, **0 full garbage collections**, worst pause 52 ms. Plenty of headroom under an 8 GB machine's ceiling — this Mac is bigger than her Air, but the game's own memory use is a property of the pack, not the host, so this transfers. Her actual time-to-title will be slower than 35 s (weaker CPU); that's expected and fine.
 
 ## Numbers
 | Thing | Count |
 |---|---|
-| Mods in pack | 126 |
-| Quests | 125 across 6 chapters (5 acts + Oda's Counter) |
+| Mods in pack | 127 |
+| Quests | 126 across 6 chapters (5 acts + Oda's Counter) |
 | Custom items | 49 (`valley:` namespace) |
 | NPC presets | 15 (8 residents, 4 Ribbits, 3 arrivals) |
-| Structure templates | 10 |
-| Datapack functions | 13 |
+| Custom structure templates | 3 (the town's buildings are now the mods' own designed structures, not stand-ins) |
+| Datapack functions | 12 |
 | Journal entries | 19 (6 journal, 8 field notes, 5 found books) |
-| Client memory | ~3.0 GB resident joined to the server, ~4.5 GB in singleplayer (integrated server), at a 3.5 GB heap. Air guidance: 3072 MB heap, play on Josh's server rather than singleplayer |
+| Client memory | ~3.0 GB resident joined to the server, ~4.5 GB in singleplayer, at a 3.5 GB heap on this Mac. Your wife's Air: 3072 MB heap, joined to your server — do not raise it, there's no shortage of headroom at that number |
 
 ## First server start
 The whitelist is on and empty, and nobody is op. Start the server, then add and op yourself (exact Minecraft username):
@@ -38,32 +48,31 @@ The whitelist is on and empty, and nobody is op. Start the server, then add and 
 ```
 Then in the game: Multiplayer > Direct Connect > `localhost`.
 
+## Handing her the DMG (exact steps)
+1. Send her `LittleKettleValley.dmg` from the [release page](https://github.com/malloyjoshua/little-kettle-valley/releases/tag/friends) (or AirDrop it) and have her open it. Three steps are drawn right on the disk image: drag Prism Launcher into Applications, open it and sign in with her Microsoft account (the one that owns Minecraft — that's the only sign-in), then drag the kettle zip onto Prism's window.
+2. First time opening Prism, macOS asks *"are you sure you want to open this?"* — she clicks **Open**. One-time, won't ask again.
+3. She clicks **Little Kettle Valley > Play**. First launch pulls ~125 mods (a few minutes); after that it's fast and self-updating — she'll never need to redownload anything.
+
+Memory is already baked into the DMG at 3072 MB — nothing for her to configure. Full written version with screenshots-in-words is `docs/INSTALL.md` if she wants it in front of her.
+
+**Before you send it:** she needs to be on your server's whitelist first (see "First server start" above) — get her exact Minecraft username before she tries to join.
+
 ## Still open (needs you)
-- **The Air test.** Not on the network tonight. Expect it to work at 3072 MB with render distance 6; if it stutters, the cut list is in `docs/integration-plan.md` and starts with Regions Unexplored.
-- **GitHub: done.** Public repo https://github.com/malloyjoshua/little-kettle-valley, pack served at https://raw.githubusercontent.com/malloyjoshua/little-kettle-valley/main/pack/pack.toml, your Prism instance and the friend zip (`dist/LittleKettleValley.zip`, also attached to the GitHub release) both update from it on every launch.
-- **playit.gg tunnel** for friends without port forwarding. Steps in `docs/RUNBOOK.md`; needs your browser sign-in to claim the agent.
+- **A quest's instructions are stale (Act IV, "Duct the Coolant Loop").** It tells the player to make the greenhouse glass out of an item and recipe that don't exist anymore ("Tinted Glass" from amethyst shards + a Cyanite Ingot). Following it builds a light-blocking room, not a greenhouse, and that hard-blocks the Act V glazing quest later. The correct wording already exists — copied verbatim off Act V's own quest — it just never got copied backward into Act IV. This is a one-file text fix plus a quest recompile; I left it for you rather than touching quest text on my own judgment call. Details and the exact wording in `docs/integration-audit-night.md` finding N1.
+- **Town polish, 14 small items from the independent re-check** (not blocking, this is the beauty pass holding itself to a stricter bar than before): the paved road doesn't quite reach the front door on 8 of the 15 buildings (off by 1–21 blocks of grass/dirt — cosmetic, not "can't get there"), the 4th market cart is an 87% template match instead of 100%, and a handful of decorations (a pumpkin, a hay bale, a few Ribbit NPCs) sit a block or two inside 2 of the market carts and the well's footprint. None of this was caught by the first check because the first check didn't look this closely. Full list in `scratch/vt_reverify.txt` section 8–12 if you want it fixed before she plays, otherwise it's a "next pass" thing.
+- **Lower-priority stuff from the "everything works together" audit** — none of it blocks play, all of it is a judgment call: two ores (galena/limonite) each drop two different metals but machines only pay for one depending on recipe order (a balance call, not a bug); a couple of Act I/III quest items are only obtainable by foraging rather than farming in-season (works today, just not via farming); Carry On can pick up and carry off reactor/turbine blocks (recoverable — just re-place it and the multiblock re-forms, but worth locking down before she builds the reactor room). Full table in `docs/integration-audit-night.md`.
+- **The Air test used this Mac, not her actual 8 GB M2 Air.** The numbers above are simulated at her exact settings and should transfer (memory use is the pack's, not the host's), but nobody has launched it on her physical machine yet.
+- **playit.gg tunnel** for friends without port forwarding, still not set up. Steps in `docs/RUNBOOK.md`; needs your browser sign-in to claim the agent.
 - **Your wife's cute picks.** Placeholder cozy set is in (Farmer's Delight, Let's Do, Handcrafted, Macaw's, plushies, Ribbits, ducks, pets). Swap in her three things when she names them.
 
 ## Branding (done)
 Chunky cream-and-copper title logo with the kettle, the "put the kettle on" tagline, an illustrated dusk panorama of the valley behind the title screen, a kettle launcher icon and server-list icon, and hand-drawn 16 px textures for all 49 valley items. Sources and build scripts in `media/`; in-game capture at `media/title_screen_in_game.png`. The Supplementaries "Amendments" popup is suppressed for every client.
 
-
-## Gameplay redteam (2026-09-03 afternoon)
-Five adversarial agents (the non-creative partner, the Tekkit veteran, a late-joining friend, the game engine on a headless server, a taste critic) attacked the shipped pack. 54 attacks, 49 kept: 7 critical, 14 high. Verdict before fixes: do not ship. All 21 critical and high items were then fixed and independently re-verified on fresh worlds, including one with the town on an island so the Works sat underwater. Highlights of what changed:
-- Act I no longer deadlocks at q12 (Bram arrives the night you first sleep).
-- Progress is shared for real (one party, recorded by its real name) and every auto-check latches per team, so a second player is never stuck.
-- The ruined Kettle farm exists at first join with a lit path to it; the cottage rebuilds around its hearthstone; the letter has four pages.
-- Finales run as re-entrant beats, forceload their region, and survive restarts, reloads, and being claimed from far away.
-- The forty lamps light (copper lamps on posts, swept by the Act IV lever). The reactor climax needs the real terminal in view.
-- Turbine bill has both bearings, the greenhouse glass passes light, scrip is capped (738 earnable against 350 of gates), the Works is excavated and sealed, the beach holds, the Lantern Float floats, the noticeboard carries the destination line.
-Still unverified without a real player: the reactor look-at rule and the two-player latches. Run `tools/scripts/playthrough.sh` when the Mac is free (it launches the game window).
-
-Next: the beauty pass. The town, the starting ruin and the Works get rebuilt from the pack's own designed structure templates (Towns and Towers, Dungeons and Taverns) in one consistent style, with staged arrival moments for discovery.
-
 ## Known rough edges
 - The 26 per-player stage flags granted by quests are milestone markers with no consumer. Harmless. Documented in `docs/integration-plan.md`.
 - Forge's update checker logs a JSON warning for Canary's remote version file at startup. Cosmetic.
 - Torchmaster logs a missing model for its invisible light block at client start. Known upstream, cosmetic.
+- Embeddium is flagged as "tainted" by a Supplementaries mixin (both mods wanted, no clean fix) — if she ever sees a fluid-rendering glitch, that's the first thing to suspect.
 
 ## If something breaks
 `docs/RUNBOOK.md` covers start, stop, backup, restore, add a friend, update, roll back. The automated playthrough is `tools/scripts/playthrough.sh` and takes about 10 minutes.

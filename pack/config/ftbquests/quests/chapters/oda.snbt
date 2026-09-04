@@ -2,7 +2,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "oda"
-	group: "B00129D2A12C0DC3"
+	group: "300129D2A12C0DC3"
 	icon: "valley:scrip"
 	id: "029B71308ACB6B43"
 	order_index: 5
@@ -10,11 +10,11 @@
 	subtitle: ["The Valley Scrip shop. Open from the moment the store reopens.", "Cozy work pays Scrip; Scrip deletes tech grind. Every buy line restocks.", "Stock arrives in tiers, and the tiers arrive on the rail line."]
 	quests: [
 		{
-			id: "E61864478A97F41E"
+			id: "661864478A97F41E"
 			title: "Read Oda's Board at the Counter"
 			subtitle: "Scrip only. Every buy line restocks."
 			icon: "valley:scrip"
-			description: ["Oda: \"Store's open. Shelves are thin and my ledger is thinner, but they're open. Cash is Scrip. I don't barter and I don't round up.\"", "", "Scrip comes from deliveries, festival baskets and closing a neighbour's story. My standing order pays eight Scrip for twenty-four wheat, once, and then that page is closed. Nothing else pays it and nothing else spends it.", "", "Every buy line below restocks. Buy a line as many times as you can pay for it."]
+			description: ["Oda: \"Store's open. Shelves are thin and my ledger is thinner, but they're open. Cash is Scrip. I don't barter and I don't round up.\"", "", "Scrip comes from deliveries, festival baskets and closing a neighbour's story. My standing order pays eight Scrip for twenty-four wheat, once, and then that page is closed. Nothing else pays it and nothing else spends it.", "", "Every buy line below restocks. Buy a line as many times as you can pay for it.", "", "One warning, and it's the only one I'll give: keep two hundred Scrip back. The town's winter debt is a hundred and twenty and the Works Deed is eighty, and both of those are mine to collect, and I will not be talked down. Spend whatever is over the two hundred on whatever you like — I sell nothing you actually need."]
 			x: 0.0d
 			y: 0.0d
 			dependencies: ["1589859EB1A28DCE"]
@@ -22,8 +22,8 @@
 			size: 1.5d
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
-			tasks: [{ id: "C7831093E5788B67", type: "checkmark", title: "Read the board and the prices under it" }]
-			rewards: [{ id: "E3897F04BEC3881B", type: "item", item: "valley:catalogue" }, { id: "A7A2E446F0A125E1", type: "item", item: "valley:scrip", count: 10 }, { id: "6AEB39C32069159D", type: "command", command: "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"yellow\"},{\"text\":\"Ten Scrip, on the house. That is the only time those three words happen in this store.\",\"color\":\"white\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "8A79A688CEB845DA", type: "toast", title: "Oda's Counter is open", description: "Scrip only. Every buy line restocks. Cheap tech first, decor when the rail comes in." }]
+			tasks: [{ id: "47831093E5788B67", type: "checkmark", title: "Read the board and the prices under it" }]
+			rewards: [{ id: "63897F04BEC3881B", type: "item", item: "valley:catalogue" }, { id: "27A2E446F0A125E1", type: "item", item: "valley:scrip", count: 10 }, { id: "49A42F43DD652389", type: "command", command: "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Ten Scrip, on the house. That is the only time those three words happen in this store.\",\"color\":\"white\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "4341257E124AED00", type: "toast", title: "Oda's Counter is open", description: "Scrip only. Every buy line restocks. Cheap tech first, decor when the rail comes in — and keep 200 Scrip back for year two. Oda means it." }]
 		}
 		{
 			id: "0FE8C79C42C61940"
@@ -33,28 +33,28 @@
 			description: ["Oda: \"One standing order, filled once. After that the wheat goes on my shelf and the Scrip comes out of your work, not my ledger.\"", "", "Twenty-four wheat across the counter, eight Scrip back, one time. Every Scrip after this comes from deliveries, festival baskets and closing a neighbour's story."]
 			x: 0.0d
 			y: 3.0d
-			dependencies: ["E61864478A97F41E"]
+			dependencies: ["661864478A97F41E"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
-			tasks: [{ id: "CDD955FF1A526E60", type: "item", item: "minecraft:wheat", count: 24L, consume_items: true }]
+			tasks: [{ id: "4DD955FF1A526E60", type: "item", item: "minecraft:wheat", count: 24L, consume_items: true }]
 			rewards: [{ id: "412DADF38F4FC498", type: "item", item: "valley:scrip", count: 8 }]
 		}
 		{
-			id: "92489253BB7C0744"
+			id: "12489253BB7C0744"
 			title: "Buy 16 Andesite Casing — 10 Scrip"
 			subtitle: "10 Scrip. Restocks."
 			icon: "create:andesite_casing"
 			description: ["Oda: \"Sixteen casings. Bram cuts them through the dead weeks when there is nothing else to do.\"", "", "Ten Scrip. That is under a bounty's pay, and it is four minutes of your life you get back."]
 			x: 3.0d
 			y: -4.4d
-			dependencies: ["E61864478A97F41E"]
+			dependencies: ["661864478A97F41E"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
 			can_repeat: true
-			tasks: [{ id: "CF7D3028DA1ADF7E", type: "item", item: "valley:scrip", count: 10L, consume_items: true }]
-			rewards: [{ id: "D229419B80B6B168", type: "item", item: "create:andesite_casing", count: 16 }]
+			tasks: [{ id: "4F7D3028DA1ADF7E", type: "item", item: "valley:scrip", count: 10L, consume_items: true }]
+			rewards: [{ id: "5229419B80B6B168", type: "item", item: "create:andesite_casing", count: 16 }]
 		}
 		{
 			id: "1BF4F8B224C18BE4"
@@ -64,12 +64,12 @@
 			description: ["Oda: \"Thirty-two. Andesite and iron nuggets, pressed. It is the least interesting thing in this valley and you will want a great deal of it.\"", "", "Eight Scrip. Deliberately cheap — nobody's evening should be a press."]
 			x: 3.0d
 			y: -2.6d
-			dependencies: ["E61864478A97F41E"]
+			dependencies: ["661864478A97F41E"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
 			can_repeat: true
-			tasks: [{ id: "E1D15834AED8554F", type: "item", item: "valley:scrip", count: 8L, consume_items: true }]
+			tasks: [{ id: "61D15834AED8554F", type: "item", item: "valley:scrip", count: 8L, consume_items: true }]
 			rewards: [{ id: "1E939117B85C6BF8", type: "item", item: "create:andesite_alloy", count: 32 }]
 		}
 		{
@@ -80,13 +80,13 @@
 			description: ["Oda: \"Sixteen cogs, eight large cogs, sixteen shafts, eight belts. I have written that on the crate lid so neither of us has to count it again.\"", "", "Six Scrip. The crate exists so a kinetic line is a design problem, not a woodcutting problem."]
 			x: 3.0d
 			y: -0.9d
-			dependencies: ["E61864478A97F41E"]
+			dependencies: ["661864478A97F41E"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
 			can_repeat: true
 			tasks: [{ id: "6FDC9E0CD930F0FF", type: "item", item: "valley:scrip", count: 6L, consume_items: true }]
-			rewards: [{ id: "F7D32FC7F2EFC868", type: "item", item: "create:cogwheel", count: 16 }, { id: "FFC353CF578D907C", type: "item", item: "create:large_cogwheel", count: 8 }, { id: "52D97E0F63BEC212", type: "item", item: "create:shaft", count: 16 }, { id: "0836FB6A92929B9A", type: "item", item: "create:belt_connector", count: 8 }]
+			rewards: [{ id: "77D32FC7F2EFC868", type: "item", item: "create:cogwheel", count: 16 }, { id: "7FC353CF578D907C", type: "item", item: "create:large_cogwheel", count: 8 }, { id: "52D97E0F63BEC212", type: "item", item: "create:shaft", count: 16 }, { id: "0836FB6A92929B9A", type: "item", item: "create:belt_connector", count: 8 }]
 		}
 		{
 			id: "24DDE7B320244522"
@@ -96,13 +96,13 @@
 			description: ["Oda: \"Five packets, eight seeds each. Cabbage, tomato, corn, beetroot, pumpkin. Marnie writes the labels because mine are unreadable.\"", "", "Four Scrip. Plant what the season allows and leave the rest in the box."]
 			x: 3.0d
 			y: 0.9d
-			dependencies: ["E61864478A97F41E"]
+			dependencies: ["661864478A97F41E"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
 			can_repeat: true
 			tasks: [{ id: "6B555A609B93D731", type: "item", item: "valley:scrip", count: 4L, consume_items: true }]
-			rewards: [{ id: "30E239A69A2AE85F", type: "item", item: "farmersdelight:cabbage_seeds", count: 8 }, { id: "1BA850CC05168465", type: "item", item: "thermal:tomato_seeds", count: 8 }, { id: "5ECBD00C78A5A28F", type: "item", item: "thermal:corn_seeds", count: 8 }, { id: "0EC752AD4750B4C0", type: "item", item: "minecraft:beetroot_seeds", count: 8 }, { id: "F3BC02F42DFD47FE", type: "item", item: "minecraft:pumpkin_seeds", count: 8 }]
+			rewards: [{ id: "30E239A69A2AE85F", type: "item", item: "farmersdelight:cabbage_seeds", count: 8 }, { id: "1BA850CC05168465", type: "item", item: "thermal:tomato_seeds", count: 8 }, { id: "5ECBD00C78A5A28F", type: "item", item: "thermal:corn_seeds", count: 8 }, { id: "0EC752AD4750B4C0", type: "item", item: "minecraft:beetroot_seeds", count: 8 }, { id: "73BC02F42DFD47FE", type: "item", item: "minecraft:pumpkin_seeds", count: 8 }]
 		}
 		{
 			id: "4BFDD97D3744144F"
@@ -112,7 +112,7 @@
 			description: ["Oda: \"Sixteen loaves, sixteen rice, eight beef. Marnie bakes it, I shelve it, you eat it standing over a millstone at two in the morning.\"", "", "Four Scrip. It is the cheapest line on the board on purpose."]
 			x: 3.0d
 			y: 2.6d
-			dependencies: ["E61864478A97F41E"]
+			dependencies: ["661864478A97F41E"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
@@ -121,20 +121,20 @@
 			rewards: [{ id: "314941A8DBACD47A", type: "item", item: "minecraft:bread", count: 16 }, { id: "79BCE2B744678B0F", type: "item", item: "farmersdelight:rice", count: 16 }, { id: "0E523255AC9FF616", type: "item", item: "minecraft:cooked_beef", count: 8 }]
 		}
 		{
-			id: "81E7588B56F0CD27"
+			id: "01E7588B56F0CD27"
 			title: "Buy the Lamp Oil Crate — 6 Scrip"
 			subtitle: "6 Scrip. Restocks."
 			icon: "minecraft:lantern"
 			description: ["Oda: \"Eight lanterns, eight candle holders, four road lamps. Josie bought this exact crate every autumn for eleven years and I never once had to ask what it was for.\"", "", "Six Scrip. Light is not decoration in this valley, it is the thing that keeps the dark out of the lane."]
 			x: 3.0d
 			y: 4.4d
-			dependencies: ["E61864478A97F41E"]
+			dependencies: ["661864478A97F41E"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
 			can_repeat: true
 			tasks: [{ id: "76ED610DDAB2D7AE", type: "item", item: "valley:scrip", count: 6L, consume_items: true }]
-			rewards: [{ id: "8775E822249EAB9C", type: "item", item: "minecraft:lantern", count: 8 }, { id: "6FDE1D999625F516", type: "item", item: "supplementaries:candle_holder", count: 8 }, { id: "D8021C13844F4179", type: "item", item: "createdeco:yellow_copper_lamp", count: 4 }]
+			rewards: [{ id: "0775E822249EAB9C", type: "item", item: "minecraft:lantern", count: 8 }, { id: "6FDE1D999625F516", type: "item", item: "supplementaries:candle_holder", count: 8 }, { id: "58021C13844F4179", type: "item", item: "createdeco:yellow_copper_lamp", count: 4 }]
 		}
 		{
 			id: "65425A40C3B60A06"
@@ -144,44 +144,44 @@
 			description: ["Oda: \"Sixteen servos in a crate. I do not know what they do. I know Bram asks for them by name and I know how many are in the crate, which is the half of it that is my job.\"", "", "Fifteen Scrip. Every Thermal machine on your bench wants two of these and none of them are interesting."]
 			x: 6.0d
 			y: -2.6d
-			dependencies: ["E61864478A97F41E", "D51AAB093CEA5743"]
+			dependencies: ["661864478A97F41E", "551AAB093CEA5743"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
 			can_repeat: true
-			tasks: [{ id: "ACE3EC039B8DF7AD", type: "item", item: "valley:scrip", count: 15L, consume_items: true }]
+			tasks: [{ id: "2CE3EC039B8DF7AD", type: "item", item: "valley:scrip", count: 15L, consume_items: true }]
 			rewards: [{ id: "07FDF0F39CF24638", type: "item", item: "thermal:redstone_servo", count: 16 }]
 		}
 		{
-			id: "81C0237EC201A046"
+			id: "01C0237EC201A046"
 			title: "Buy 2 Spare Machine Frames — 25 Scrip"
 			subtitle: "25 Scrip. Restocks."
 			icon: "thermal:machine_frame"
 			description: ["Oda: \"Two frames. Washed silica, which means Nella's boat and a fan and an afternoon, and I have already spent that afternoon on your behalf.\"", "", "Twenty-five Scrip — the most expensive line on this shelf, because it is the one that saves the most time."]
 			x: 6.0d
 			y: -0.9d
-			dependencies: ["E61864478A97F41E", "0EF7850DDAE28ADA"]
+			dependencies: ["661864478A97F41E", "0EF7850DDAE28ADA"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
 			can_repeat: true
-			tasks: [{ id: "F2D8E48459B23E7F", type: "item", item: "valley:scrip", count: 25L, consume_items: true }]
-			rewards: [{ id: "C9D078F08AB2569F", type: "item", item: "thermal:machine_frame", count: 2 }]
+			tasks: [{ id: "72D8E48459B23E7F", type: "item", item: "valley:scrip", count: 25L, consume_items: true }]
+			rewards: [{ id: "49D078F08AB2569F", type: "item", item: "thermal:machine_frame", count: 2 }]
 		}
 		{
-			id: "868B8865ECBFF4A4"
+			id: "068B8865ECBFF4A4"
 			title: "Buy 8 RF Coils — 18 Scrip"
 			subtitle: "18 Scrip. Restocks."
 			icon: "thermal:rf_coil"
 			description: ["Oda: \"Eight coils. Silver and redstone, wound. Tobin brings the silver down from the adit in sample bags and pretends it is not a delivery.\"", "", "Eighteen Scrip."]
 			x: 6.0d
 			y: 0.9d
-			dependencies: ["E61864478A97F41E"]
+			dependencies: ["661864478A97F41E"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
 			can_repeat: true
-			tasks: [{ id: "DA3289E89E72598D", type: "item", item: "valley:scrip", count: 18L, consume_items: true }]
+			tasks: [{ id: "5A3289E89E72598D", type: "item", item: "valley:scrip", count: 18L, consume_items: true }]
 			rewards: [{ id: "72CEB6D96799B8EC", type: "item", item: "thermal:rf_coil", count: 8 }]
 		}
 		{
@@ -192,29 +192,29 @@
 			description: ["Oda: \"Sixty-four duct, one cell frame. Duct is the only thing in this store I sell by the metre and I still count it by the piece.\"", "", "Twelve Scrip. Run the lane, don't craft the lane."]
 			x: 6.0d
 			y: 2.6d
-			dependencies: ["E61864478A97F41E", "D51AAB093CEA5743"]
+			dependencies: ["661864478A97F41E", "551AAB093CEA5743"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
 			can_repeat: true
-			tasks: [{ id: "A052CF59C34AAB11", type: "item", item: "valley:scrip", count: 12L, consume_items: true }]
-			rewards: [{ id: "42F26924E3EE7E46", type: "item", item: "thermal:energy_duct", count: 64 }, { id: "C9C0B43986A0E6C9", type: "item", item: "thermal:energy_cell_frame" }]
+			tasks: [{ id: "2052CF59C34AAB11", type: "item", item: "valley:scrip", count: 12L, consume_items: true }]
+			rewards: [{ id: "42F26924E3EE7E46", type: "item", item: "thermal:energy_duct", count: 64 }, { id: "49C0B43986A0E6C9", type: "item", item: "thermal:energy_cell_frame" }]
 		}
 		{
-			id: "FFA9971832975397"
+			id: "7FA9971832975397"
 			title: "Buy the Furniture Page — 12 Scrip"
 			subtitle: "12 Scrip. Restocks."
 			icon: "handcrafted:oak_table"
 			description: ["Oda: \"Page four of the catalogue, and it only exists because there is a rail line now. Table, four chairs, a couch, a cupboard, two shelves, a nightstand.\"", "", "Twelve Scrip a page. Order it as many times as you have rooms."]
 			x: 9.0d
 			y: -1.8d
-			dependencies: ["E61864478A97F41E", "20C583473F9CE279"]
+			dependencies: ["661864478A97F41E", "20C583473F9CE279"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
 			can_repeat: true
 			tasks: [{ id: "23BBE7E9363DED96", type: "item", item: "valley:scrip", count: 12L, consume_items: true }]
-			rewards: [{ id: "D47679A1141D2BC9", type: "item", item: "handcrafted:oak_table" }, { id: "8DB8C580B28BD60D", type: "item", item: "handcrafted:oak_chair", count: 4 }, { id: "87179E79082D74A3", type: "item", item: "handcrafted:oak_couch" }, { id: "9A6AF9A229437F91", type: "item", item: "handcrafted:oak_cupboard" }, { id: "E576F9F539B17E33", type: "item", item: "handcrafted:oak_shelf", count: 2 }, { id: "72AC14AB4CD3FB51", type: "item", item: "handcrafted:oak_nightstand" }]
+			rewards: [{ id: "547679A1141D2BC9", type: "item", item: "handcrafted:oak_table" }, { id: "0DB8C580B28BD60D", type: "item", item: "handcrafted:oak_chair", count: 4 }, { id: "07179E79082D74A3", type: "item", item: "handcrafted:oak_couch" }, { id: "1A6AF9A229437F91", type: "item", item: "handcrafted:oak_cupboard" }, { id: "6576F9F539B17E33", type: "item", item: "handcrafted:oak_shelf", count: 2 }, { id: "72AC14AB4CD3FB51", type: "item", item: "handcrafted:oak_nightstand" }]
 		}
 		{
 			id: "2A2F899324D89749"
@@ -224,13 +224,13 @@
 			description: ["Oda: \"Page seven. Eight windows, four curtain rods, sixteen roof, a cottage door. It came off the wagon in one crate and it goes out of here in one crate.\"", "", "Twelve Scrip. This is how a shell stops being a shell."]
 			x: 9.0d
 			y: 0.0d
-			dependencies: ["E61864478A97F41E", "20C583473F9CE279"]
+			dependencies: ["661864478A97F41E", "20C583473F9CE279"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
 			can_repeat: true
 			tasks: [{ id: "61FF28C356444E8C", type: "item", item: "valley:scrip", count: 12L, consume_items: true }]
-			rewards: [{ id: "1C0B3941CB63238E", type: "item", item: "mcwwindows:oak_four_window", count: 8 }, { id: "57E4ED6A3154E0CB", type: "item", item: "mcwwindows:oak_curtain_rod", count: 4 }, { id: "84B37539F5AD754D", type: "item", item: "mcwroofs:oak_planks_roof", count: 16 }, { id: "38F24343EDDB8335", type: "item", item: "mcwdoors:oak_cottage_door" }]
+			rewards: [{ id: "1C0B3941CB63238E", type: "item", item: "mcwwindows:oak_four_window", count: 8 }, { id: "57E4ED6A3154E0CB", type: "item", item: "mcwwindows:oak_curtain_rod", count: 4 }, { id: "04B37539F5AD754D", type: "item", item: "mcwroofs:oak_planks_roof", count: 16 }, { id: "38F24343EDDB8335", type: "item", item: "mcwdoors:oak_cottage_door" }]
 		}
 		{
 			id: "58290F8657B4D408"
@@ -240,29 +240,29 @@
 			description: ["Oda: \"Page nine. Eight flower boxes, eight planters, sixteen hedge, four saplings. Halden reads this page for pleasure, which tells you everything about Halden.\"", "", "Ten Scrip."]
 			x: 9.0d
 			y: 1.8d
-			dependencies: ["E61864478A97F41E", "20C583473F9CE279"]
+			dependencies: ["661864478A97F41E", "20C583473F9CE279"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
 			can_repeat: true
-			tasks: [{ id: "FBA711C82DDA0CCF", type: "item", item: "valley:scrip", count: 10L, consume_items: true }]
-			rewards: [{ id: "EF991BD89D7F0F9D", type: "item", item: "supplementaries:flower_box", count: 8 }, { id: "3AAAE4150FE55DF5", type: "item", item: "supplementaries:planter", count: 8 }, { id: "7750DFE0FC06E239", type: "item", item: "mcwfences:oak_hedge", count: 16 }, { id: "CFF013EFFA3458B1", type: "item", item: "minecraft:oak_sapling", count: 4 }]
+			tasks: [{ id: "7BA711C82DDA0CCF", type: "item", item: "valley:scrip", count: 10L, consume_items: true }]
+			rewards: [{ id: "6F991BD89D7F0F9D", type: "item", item: "supplementaries:flower_box", count: 8 }, { id: "3AAAE4150FE55DF5", type: "item", item: "supplementaries:planter", count: 8 }, { id: "7750DFE0FC06E239", type: "item", item: "mcwfences:oak_hedge", count: 16 }, { id: "4FF013EFFA3458B1", type: "item", item: "minecraft:oak_sapling", count: 4 }]
 		}
 		{
-			id: "EC294E8331893620"
+			id: "6C294E8331893620"
 			title: "Buy the Lighting Page — 14 Scrip"
 			subtitle: "14 Scrip. Restocks."
 			icon: "supplementaries:sconce"
 			description: ["Oda: \"Page eleven, and the wagon only started carrying it after the Supper. Twelve sconces, eight lanterns, eight soul lanterns, sixteen rope, four shelves.\"", "", "Fourteen Scrip. Forty posts on the road and none of them light the inside of a house."]
 			x: 12.0d
 			y: -1.8d
-			dependencies: ["E61864478A97F41E", "C47F0160D253CCD3"]
+			dependencies: ["661864478A97F41E", "447F0160D253CCD3"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
 			can_repeat: true
-			tasks: [{ id: "C3549F0AFD361DDF", type: "item", item: "valley:scrip", count: 14L, consume_items: true }]
-			rewards: [{ id: "2CF25D4E74BD6097", type: "item", item: "supplementaries:sconce", count: 12 }, { id: "ED003FEB4F813B7A", type: "item", item: "minecraft:lantern", count: 8 }, { id: "4D819C72F2113B5A", type: "item", item: "minecraft:soul_lantern", count: 8 }, { id: "5B615956B5C6EBCF", type: "item", item: "supplementaries:rope", count: 16 }, { id: "8EB13AC30802A5F2", type: "item", item: "supplementaries:item_shelf", count: 4 }]
+			tasks: [{ id: "43549F0AFD361DDF", type: "item", item: "valley:scrip", count: 14L, consume_items: true }]
+			rewards: [{ id: "2CF25D4E74BD6097", type: "item", item: "supplementaries:sconce", count: 12 }, { id: "6D003FEB4F813B7A", type: "item", item: "minecraft:lantern", count: 8 }, { id: "4D819C72F2113B5A", type: "item", item: "minecraft:soul_lantern", count: 8 }, { id: "5B615956B5C6EBCF", type: "item", item: "supplementaries:rope", count: 16 }, { id: "0EB13AC30802A5F2", type: "item", item: "supplementaries:item_shelf", count: 4 }]
 		}
 		{
 			id: "5B830910435FC44E"
@@ -272,29 +272,29 @@
 			description: ["Oda: \"One cow, one sheep, two crates of hens. They come up on the wagon in crates and they are counted at both ends, mine and yours.\"", "", "Twenty Scrip. Right-click a crate inside the pen, not outside it."]
 			x: 12.0d
 			y: 0.0d
-			dependencies: ["E61864478A97F41E", "C47F0160D253CCD3"]
+			dependencies: ["661864478A97F41E", "447F0160D253CCD3"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
 			can_repeat: true
 			tasks: [{ id: "529638C2175B7A38", type: "item", item: "valley:scrip", count: 20L, consume_items: true }]
-			rewards: [{ id: "6AE7BC30DA0EFB9D", type: "item", item: "valley:cow_crate" }, { id: "62A37D2C80F58FBA", type: "item", item: "valley:sheep_crate" }, { id: "17EF2CE7D685D01F", type: "item", item: "valley:hen_crate", count: 2 }, { id: "FC266AF4088BC7E2", type: "item", item: "valley:chicken_feed", count: 8 }]
+			rewards: [{ id: "6AE7BC30DA0EFB9D", type: "item", item: "valley:cow_crate" }, { id: "62A37D2C80F58FBA", type: "item", item: "valley:sheep_crate" }, { id: "17EF2CE7D685D01F", type: "item", item: "valley:hen_crate", count: 2 }, { id: "7C266AF4088BC7E2", type: "item", item: "valley:chicken_feed", count: 8 }]
 		}
 		{
-			id: "82BDF5E10E02976A"
+			id: "02BDF5E10E02976A"
 			title: "Buy the Rare Seed Case — 16 Scrip"
 			subtitle: "16 Scrip. Restocks."
 			icon: "minecraft:torchflower_seeds"
 			description: ["Oda: \"Under the counter, in a tin. Torchflower, pitcher pod, glow berries, sweet berries, coffee. Two of those five I have never seen grow and I have still sold them.\"", "", "Sixteen Scrip. Wisp brought three of the five up out of the marsh."]
 			x: 12.0d
 			y: 1.8d
-			dependencies: ["E61864478A97F41E", "C47F0160D253CCD3"]
+			dependencies: ["661864478A97F41E", "447F0160D253CCD3"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
 			can_repeat: true
 			tasks: [{ id: "1C7863DA2EA2AFB3", type: "item", item: "valley:scrip", count: 16L, consume_items: true }]
-			rewards: [{ id: "716D9E814FF3B654", type: "item", item: "minecraft:torchflower_seeds", count: 2 }, { id: "296554E684E03E3F", type: "item", item: "minecraft:pitcher_pod", count: 2 }, { id: "B96E7BB208256EA7", type: "item", item: "minecraft:glow_berries", count: 8 }, { id: "8B121B6A85D7427A", type: "item", item: "minecraft:sweet_berries", count: 8 }, { id: "EEC93BAAE1813A95", type: "item", item: "thermal:coffee_seeds", count: 4 }]
+			rewards: [{ id: "716D9E814FF3B654", type: "item", item: "minecraft:torchflower_seeds", count: 2 }, { id: "296554E684E03E3F", type: "item", item: "minecraft:pitcher_pod", count: 2 }, { id: "396E7BB208256EA7", type: "item", item: "minecraft:glow_berries", count: 8 }, { id: "0B121B6A85D7427A", type: "item", item: "minecraft:sweet_berries", count: 8 }, { id: "6EC93BAAE1813A95", type: "item", item: "thermal:coffee_seeds", count: 4 }]
 		}
 		{
 			id: "3CE051F603E1AC08"
@@ -304,29 +304,29 @@
 			description: ["Oda: \"Sixteen reactor casing, eight turbine casing. Josie's notes are what make them craftable and my wagon is what makes them arrive; do not confuse the two. The notes came home from the tower, so the line is open.\"", "", "Forty Scrip — the dearest line I keep. A vessel is a lot of identical grey blocks and none of them are the interesting part."]
 			x: 15.0d
 			y: -2.6d
-			dependencies: ["E61864478A97F41E", "B1FAD6BF27BB1BC7"]
+			dependencies: ["661864478A97F41E", "31FAD6BF27BB1BC7"]
 			shape: "rsquare"
 			size: 1.25d
 			hide_until_deps_complete: true
 			can_repeat: true
-			tasks: [{ id: "E9703AA36990AC77", type: "item", item: "valley:scrip", count: 40L, consume_items: true }]
-			rewards: [{ id: "F9B79183714C6C8C", type: "item", item: "biggerreactors:reactor_casing", count: 16 }, { id: "6B5071E47B4EF0B2", type: "item", item: "biggerreactors:turbine_casing", count: 8 }]
+			tasks: [{ id: "69703AA36990AC77", type: "item", item: "valley:scrip", count: 40L, consume_items: true }]
+			rewards: [{ id: "79B79183714C6C8C", type: "item", item: "biggerreactors:reactor_casing", count: 16 }, { id: "6B5071E47B4EF0B2", type: "item", item: "biggerreactors:turbine_casing", count: 8 }]
 		}
 		{
-			id: "E8FECEDA8D6943A7"
+			id: "68FECEDA8D6943A7"
 			title: "Buy the Reactor Internals Bundle — 35 Scrip"
 			subtitle: "35 Scrip. Restocks."
 			icon: "biggerreactors:reactor_fuel_rod"
 			description: ["Oda: \"Eight fuel rods, two control rods, eight glass, one rotor bearing, eight blades, four shafts. I read that off the crate lid every time and I still get it right.\"", "", "Thirty-five Scrip."]
 			x: 15.0d
 			y: -0.9d
-			dependencies: ["E61864478A97F41E", "68EDF19065A460B7"]
+			dependencies: ["661864478A97F41E", "68EDF19065A460B7"]
 			shape: "rsquare"
 			size: 1.25d
 			hide_until_deps_complete: true
 			can_repeat: true
-			tasks: [{ id: "9C2E7E4BC0441EC5", type: "item", item: "valley:scrip", count: 35L, consume_items: true }]
-			rewards: [{ id: "5916F556483D496E", type: "item", item: "biggerreactors:reactor_fuel_rod", count: 8 }, { id: "EC72FFF601074DB0", type: "item", item: "biggerreactors:reactor_control_rod", count: 2 }, { id: "EB604A27988978BB", type: "item", item: "biggerreactors:reactor_glass", count: 8 }, { id: "5207EA2E97648196", type: "item", item: "biggerreactors:turbine_rotor_bearing" }, { id: "9D2612DE5385B96A", type: "item", item: "biggerreactors:turbine_rotor_blade", count: 8 }, { id: "8ECC33C1524B8AC1", type: "item", item: "biggerreactors:turbine_rotor_shaft", count: 4 }]
+			tasks: [{ id: "1C2E7E4BC0441EC5", type: "item", item: "valley:scrip", count: 35L, consume_items: true }]
+			rewards: [{ id: "5916F556483D496E", type: "item", item: "biggerreactors:reactor_fuel_rod", count: 8 }, { id: "6C72FFF601074DB0", type: "item", item: "biggerreactors:reactor_control_rod", count: 2 }, { id: "6B604A27988978BB", type: "item", item: "biggerreactors:reactor_glass", count: 8 }, { id: "5207EA2E97648196", type: "item", item: "biggerreactors:turbine_rotor_bearing" }, { id: "1D2612DE5385B96A", type: "item", item: "biggerreactors:turbine_rotor_blade", count: 8 }, { id: "0ECC33C1524B8AC1", type: "item", item: "biggerreactors:turbine_rotor_shaft", count: 4 }]
 		}
 		{
 			id: "2FEE2E5D69ACBDE0"
@@ -336,13 +336,13 @@
 			description: ["Oda: \"Four cells, four components, eight processors of the calculating sort, thirty-two cable. Your machine wants all of it and none of it is a decision.\"", "", "Thirty Scrip. Buy the boring half; build the half that thinks."]
 			x: 15.0d
 			y: 0.9d
-			dependencies: ["E61864478A97F41E", "A524B0A81A85E5DB"]
+			dependencies: ["661864478A97F41E", "2524B0A81A85E5DB"]
 			shape: "rsquare"
 			size: 1.25d
 			hide_until_deps_complete: true
 			can_repeat: true
-			tasks: [{ id: "F6D5DAC40AA88B82", type: "item", item: "valley:scrip", count: 30L, consume_items: true }]
-			rewards: [{ id: "029FC421AA4D58F0", type: "item", item: "ae2:item_storage_cell_4k", count: 4 }, { id: "D2E26BAE82221EB3", type: "item", item: "ae2:cell_component_4k", count: 4 }, { id: "B145700D8AAFB52E", type: "item", item: "ae2:calculation_processor", count: 8 }, { id: "091270518A3A57A9", type: "item", item: "ae2:fluix_glass_cable", count: 32 }]
+			tasks: [{ id: "76D5DAC40AA88B82", type: "item", item: "valley:scrip", count: 30L, consume_items: true }]
+			rewards: [{ id: "029FC421AA4D58F0", type: "item", item: "ae2:item_storage_cell_4k", count: 4 }, { id: "52E26BAE82221EB3", type: "item", item: "ae2:cell_component_4k", count: 4 }, { id: "3145700D8AAFB52E", type: "item", item: "ae2:calculation_processor", count: 8 }, { id: "091270518A3A57A9", type: "item", item: "ae2:fluix_glass_cable", count: 32 }]
 		}
 		{
 			id: "50B50215551140F6"
@@ -352,13 +352,13 @@
 			description: ["Oda: \"One token, one shelf, one plushie of your choosing. Pip has spent eleven of these. I have written every one of them down.\"", "", "Ten Scrip. Spend the token on Josie's Shelf."]
 			x: 15.0d
 			y: 2.6d
-			dependencies: ["E61864478A97F41E", "78E6F9A263CA4B65"]
+			dependencies: ["661864478A97F41E", "78E6F9A263CA4B65"]
 			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: true
 			can_repeat: true
 			tasks: [{ id: "32702A2B551DEDC8", type: "item", item: "valley:scrip", count: 10L, consume_items: true }]
-			rewards: [{ id: "AE6F18B2E3D14636", type: "item", item: "valley:plushie_token" }]
+			rewards: [{ id: "2E6F18B2E3D14636", type: "item", item: "valley:plushie_token" }]
 		}
 		{
 			id: "1447A4EDBD9143CC"
@@ -368,13 +368,13 @@
 			description: ["Oda: \"The Deed you bought is the town's. This one is yours — same wording, same witnesses, my hand instead of Bram's, and a set of markers in the box with it.\"", "", "Needs the Works Deed already signed, and 150 Valley Scrip on the counter.", "", "One hundred and fifty is not a price, it is a filing fee with an opinion. Restocks, so a second pair of hands can hold their own copy."]
 			x: 18.0d
 			y: 0.0d
-			dependencies: ["E61864478A97F41E", "78E6F9A263CA4B65"]
+			dependencies: ["661864478A97F41E", "78E6F9A263CA4B65"]
 			shape: "diamond"
 			size: 1.5d
 			hide_until_deps_complete: true
 			can_repeat: true
-			tasks: [{ id: "A5C1D7BCB9276B6F", type: "stage", title: "The Works Deed is signed (Q86)", stage: "works_deed" }, { id: "2CB730E1390E06CB", type: "item", item: "valley:scrip", count: 150L, consume_items: true }]
-			rewards: [{ id: "CE3A80876FFF31EC", type: "item", item: "valley:deed_works" }, { id: "D85F44EC1487A2E4", type: "item", item: "quarryplus:marker", count: 4 }, { id: "912C3FF22D4E1A24", type: "item", item: "valley:catalogue" }, { id: "47C74AE1C72B36C9", type: "toast", title: "Filed, in duplicate", description: "Oda: 'Two copies. That is how a thing survives one of us leaving.'" }]
+			tasks: [{ id: "25C1D7BCB9276B6F", type: "stage", title: "The Works Deed is signed (Q86)", stage: "works_deed" }, { id: "2CB730E1390E06CB", type: "item", item: "valley:scrip", count: 150L, consume_items: true }]
+			rewards: [{ id: "4E3A80876FFF31EC", type: "item", item: "valley:deed_works" }, { id: "585F44EC1487A2E4", type: "item", item: "quarryplus:marker", count: 4 }, { id: "112C3FF22D4E1A24", type: "item", item: "valley:catalogue" }, { id: "47C74AE1C72B36C9", type: "toast", title: "Filed, in duplicate", description: "Oda: 'Two copies. That is how a thing survives one of us leaving.'" }]
 		}
 	]
 	title: "Oda's Counter"

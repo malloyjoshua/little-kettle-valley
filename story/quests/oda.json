@@ -22,7 +22,9 @@
         "",
         "Scrip comes from deliveries, festival baskets and closing a neighbour's story. My standing order pays eight Scrip for twenty-four wheat, once, and then that page is closed. Nothing else pays it and nothing else spends it.",
         "",
-        "Every buy line below restocks. Buy a line as many times as you can pay for it."
+        "Every buy line below restocks. Buy a line as many times as you can pay for it.",
+        "",
+        "One warning, and it's the only one I'll give: keep two hundred Scrip back. The town's winter debt is a hundred and twenty and the Works Deed is eighty, and both of those are mine to collect, and I will not be talked down. Spend whatever is over the two hundred on whatever you like — I sell nothing you actually need."
       ],
       "deps": ["q19"],
       "shape": "hexagon",
@@ -33,8 +35,8 @@
       "rewards": [
         { "type": "item", "item": "valley:catalogue", "count": 1 },
         { "type": "item", "item": "valley:scrip", "count": 10 },
-        { "type": "command", "command": "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"yellow\"},{\"text\":\"Ten Scrip, on the house. That is the only time those three words happen in this store.\",\"color\":\"white\",\"italic\":true}]" },
-        { "type": "toast", "title": "Oda's Counter is open", "description": "Scrip only. Every buy line restocks. Cheap tech first, decor when the rail comes in." }
+        { "type": "command", "command": "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Ten Scrip, on the house. That is the only time those three words happen in this store.\",\"color\":\"white\",\"italic\":true}]" },
+        { "type": "toast", "title": "Oda's Counter is open", "description": "Scrip only. Every buy line restocks. Cheap tech first, decor when the rail comes in — and keep 200 Scrip back for year two. Oda means it." }
       ],
       "x": 0.0,
       "y": 0.0

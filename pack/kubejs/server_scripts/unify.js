@@ -301,3 +301,40 @@ ServerEvents.tags('block', event => {
   event.remove('forge:ores/osmium', 'geolosys:platinum_ore')
   event.remove('forge:ores/osmium', 'geolosys:deepslate_platinum_ore')
 })
+
+// =============================================================================
+// 14. TEALLITE DE-ALIASING (integration sweep 2026-09-04).
+//
+//     Same bug class as the platinum/osmium de-alias in section 13, but this
+//     one is an outright upstream mistake rather than a duplicate-metal alias.
+//
+//     Evidence:
+//       * Geolosys-1.20.1-7.0.14.jar, data/forge/tags/items/ores/emerald.json
+//         AND data/forge/tags/blocks/ores/emerald.json both list
+//         geolosys:teallite_ore + geolosys:deepslate_teallite_ore alongside
+//         the real emerald ore, geolosys:beryl_ore.
+//       * geolosys:teallite_ore's own loot table (export/loot_tables/geolosys/
+//         blocks/teallite_ore.json) drops silk-touch self OR geolosys:tin_cluster
+//         -- and nothing else. It is a TIN ore. It yields no emerald by hand.
+//       * It is simultaneously in forge:ores/tin, so Thermal loads two matching
+//         recipes for one block and Create loads its tin crushing recipe.
+//
+//     Consequence: thermal:pulverizer forge:ores/emerald pays out
+//     minecraft:emerald at chance 2.5 (avg 2.5 emeralds) and thermal:smelter
+//     at 1.5, from a COMMON early-game tin ore. That is an emerald printer in
+//     a pack that ships villagersplus + villagertradingplus, and which of the
+//     two recipes wins is decided by recipe iteration order, so the tin path
+//     is not even reliably reachable.
+//
+//     Fix mirrors section 13 exactly: drop the bogus emerald membership on
+//     both sides. beryl_ore stays the emerald ore; teallite stays a tin ore.
+// =============================================================================
+ServerEvents.tags('item', event => {
+  event.remove('forge:ores/emerald', 'geolosys:teallite_ore')
+  event.remove('forge:ores/emerald', 'geolosys:deepslate_teallite_ore')
+})
+
+ServerEvents.tags('block', event => {
+  event.remove('forge:ores/emerald', 'geolosys:teallite_ore')
+  event.remove('forge:ores/emerald', 'geolosys:deepslate_teallite_ore')
+})

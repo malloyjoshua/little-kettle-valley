@@ -16,7 +16,7 @@
       ActionEventSet:{
         ON_INTERACTION:[
           {
-            Cmd:"/info_message I named the duck after you. Do not be weird about it.",
+            Cmd:"/valley greet pip before @initiator",
             ConditionDataSet:{
               ConditionDataSet:[
                 {
@@ -32,7 +32,7 @@
             Type:"COMMAND"
           },
           {
-            Cmd:"/info_message I have a real job now. The duck supervises. Mostly badly.",
+            Cmd:"/valley greet pip after @initiator",
             ConditionDataSet:{
               ConditionDataSet:[
                 {

@@ -16,7 +16,7 @@
       ActionEventSet:{
         ON_INTERACTION:[
           {
-            Cmd:"/info_message Warm inn. Warm soup. We stay now, I think. Yes. We stay.",
+            Cmd:"/valley greet ribbit_puddle before @initiator",
             ExecAsUser:0b,
             PermLevel:2,
             Type:"COMMAND"

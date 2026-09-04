@@ -16,7 +16,7 @@
       ActionEventSet:{
         ON_INTERACTION:[
           {
-            Cmd:"/info_message There you are. Kettle is on and I baked too much bread again.",
+            Cmd:"/valley greet marnie before @initiator",
             ConditionDataSet:{
               ConditionDataSet:[
                 {
@@ -32,7 +32,7 @@
             Type:"COMMAND"
           },
           {
-            Cmd:"/info_message Full room tonight. Sit down before I give your chair away.",
+            Cmd:"/valley greet marnie after @initiator",
             ConditionDataSet:{
               ConditionDataSet:[
                 {

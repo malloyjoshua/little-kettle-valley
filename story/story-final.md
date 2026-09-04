@@ -119,6 +119,30 @@ This is the single most important constraint in the pack, so it is written as ru
 
 Eight residents plus Josie, who is dead and does all her talking through the journal. Every NPC is Easy NPC: a name, a skin, and dialog that swaps by KubeJS stage. Each has a **three-beat arc that closes on screen**, and each arc is a *named quest chain* — which is also how Standing works (see §5).
 
+**Two things the shipped build fixed about how they talk.**
+
+*One: they have more than one line.* Each resident used to carry exactly two greetings for the whole
+sixteen-hour pack — one before their arc closed, one after — because the Easy NPC interaction ran
+`/info_message`, which renders as a screen title and so cannot hold a double quote or more than ~120
+characters. Click Marnie on day 3 and day 40 and you got the same sentence, and once you stop clicking
+people the town becomes scenery. Every resident now has a **pool of lines** (four extra for the eight
+named residents, two each for the Ribbits and the three newcomers). The NPC runs
+`/valley greet <key> <before|after> @initiator` instead; the scoreboard condition that picks
+before-arc from after-arc is unchanged, but the lines live in `story/npcs.json` under `greetings` /
+`greetings_after`, are generated into `pack/kubejs/server_scripts/valley_greetings.js`, and print as
+chat — so they can be as long as they need to be. Rotation is by world day plus a hash of the player's
+name: stable within a day, different from one day to the next, different between two players standing
+side by side. Element 0 of each pool is the headline line that resident has always had.
+
+*Two: one resident, one colour.* The finale palette in `valley_core.js` and the `tellraw` palette in the
+quest JSON disagreed for **five of nine speakers** — Marnie was gold in a finale and light purple in the
+book, Bram dark aqua vs grey, Oda yellow vs gold, Tobin gold vs yellow, Wisp light purple vs dark green
+— and in a finale Marnie and Tobin came out the same colour as each other. The **quest book wins**,
+because it is what the player sees far more often and it was internally consistent 8:1. The palette is
+now, everywhere: Marnie `light_purple` · Bram `gray` · Oda `gold` · Nella `aqua` · Halden `green` ·
+Tobin `yellow` · Wisp `dark_green` · Pip `red` · Josie `gray`. Josie and Bram share grey on purpose —
+Josie is chalk and paper and almost never speaks aloud.
+
 ### Josie Kettle — the voice in the book — **both**
 Your great-aunt. Deceased. Speaks only through the Patchouli journal, which gains a chapter at each act finale.
 **Wants:** for the valley not to end with her.
@@ -176,7 +200,7 @@ A frog-person from the reed village downstream. Short, cheerful, slightly wrong 
 ### Pip Ashcombe — Marnie's nephew, nine — **cozy**
 Runs everywhere. Names everything. Has a duckling by the end of Act I and it is the pack's mascot.
 **Wants:** a pet, then a job.
-1. *Spring* — gets the duckling and names it after you, or after a food.
+1. *Spring* — puts a duckling on your boot at Q11 and names it **Biscuit** before you can stop him. (It used to read "names it after you": FTB command rewards substitute only `@p`, `{x} {y} {z}`, `{team}`, `{quest}` and `{chapter}` — there is no player-name token, so the cutest promise in the first hour was the one line in the pack that could never render. Q11 now summons a named, persistent, AI-on duck.)
 2. *Autumn* — appoints himself the town's courier; his delivery quests are the short, sweet filler between big beats.
 3. *Winter → spring* — is the one who notices the Hearth has gone out, and the one who rings the bell at the end. Gets a plushie of his duck.
 
@@ -236,6 +260,7 @@ FTB Quests' `dependency_requirement` supports only ALL / ONE completed-or-starte
 Format: `Qn. Title | lane | task | reward | depends on`
 Lanes: **C** cozy · **T** tech · **B** both.
 **Counts:** Act I = 19 · Act II = 18 · Act III = 23 · Act IV = 23 · Act V = 16. **Total = 99.**
+*(As shipped, with the `Qna` interleave beats and Oda's Counter compiled in: **126 quests across 6 chapters** — Act I 20, Act II 18, Act III 23, Act IV 23, Act V 19, Oda's Counter 23. The extra Act I quest is **Q13a, Bram's Wide Hammer**: three long single-block mining stretches and no area tool in 127 mods, against the pack's own "no quest over 25 minutes of repetitive action" rule. It is a leaf off Q13 — nothing depends on it, so not one existing dependency edge moved.)*
 Eight beats are numbered `Qna` — they are new quests inserted into dead zones, numbered this way so no existing dependency edge had to be rewritten. Three v1 reorders are enforced by **dependency**, not renumbering: Q32 now depends on Q33, Q79 on Q84, and the Act V cozy lane runs Q76 → Q77 → Q78 → Q80 → Q79 → Q81.
 
 ---
@@ -261,6 +286,7 @@ Eight beats are numbered `Qna` — they are new quests inserted into dead zones,
 | Q11 | Pip and the Egg | C | Collect 3 eggs from the nesting box and take them to Marnie. | **Pip arrives.** You are given a **Duckling** to name and keep. Pip's courier board unlocks. **16 wool from Marnie's carding basket** — she's been carding it for nobody for four years | Q10 |
 | Q12 | The Man at the Broken Mill | T | Walk to the mill plot marked on your map and talk to Bram. | **Bram arrives.** Create wrench, goggles, **12 iron ingots and 24 andesite** | Q8 |
 | Q13 | Eight Alloys, No More | T | Make 8 Andesite Alloy from exactly what Bram gave you. | **Mechanical Press (pre-made)**, 8 cogwheels, 8 shafts, **32 wheat** — Bram's winter store, he's sick of porridge | Q12 |
+| Q13a | Bram's Wide Hammer | T | Take the Stone Hammer off the peg by Bram's bench. Three by three, one swing. | **Just Hammers `justhammers:stone_hammer`** | Q13 |
 | Q14 | Turn It By Hand | T | Build a Millstone, attach a Hand Crank, and grind 16 wheat into flour for Marnie. | Encased Fan, 3 Andesite Alloy, saw-blade parts | Q13 |
 | Q15 | The Green Boards | C | Put the 32 Green Oak Planks in the inn's oven, light it with the flint and steel, then go to bed. They'll be dry when you wake up. | The boards go straight into Bram's crate. **You** get the inn's spare tea set, the pantry key, a chair by the oven that is now understood to be yours, and **a pre-made Kitchen Counter, Sink and Oven**. Stage `seasoned` | Q8 |
 | Q16 | Water Finds a Way | T | Build 2 Water Wheels on the mill race and drive the Millstone off them. | **Mechanical Saw (pre-made)**, Basin, Mechanical Mixer, Bram's crate: 32 Andesite Alloy **and 16 wool for the sails** | Q14, Q15 |
@@ -440,10 +466,12 @@ The centrepiece of the pack.
 - `/sereneseasons setseason mid_winter` · `/time set 18000` · `/weather rain`
 - `/tp` every resident — eight plus four Ribbits — to marks outside the Works, each with one `tellraw` line. Pip rings the hand bell (`playsound`, pitch 1.4).
 - The player hands Bram the lever. **Bram pulls it** — which means: quest completion runs `/schedule function valley:act4/lever 4s`, the lever is `setblock` to `powered=true`, and Bram's line is `tellraw`. NPCs cannot interact with blocks; he is narration, and it reads perfectly.
-- **The world changes in one instant:** KubeJS iterates `persistentData.lamps[]` and emits one `setblock` per stored lamp coordinate, lighting all 39 posts down every street at once; the greenhouse heaters come on; the bathhouse starts steaming; a `setblock` relights the inn's Hearth as a lit campfire. `playsound block.beacon.activate` + `block.conduit.activate`. One long warm chord.
+- **The false start, then the world changes.** The six posts nearest the Works come up, hold for a beat and go out again — a cold coolant line. Tobin: *"Cold line. That is all that is. It is only cold."* Bram: *"Give it a second."* No fail state, no timer, no input asked for and nothing in danger; two seconds of held breath so Bram's *"Well."* lands on the far side of a silence instead of on a foregone conclusion. Beat 2's unconditional lamp backstop means a `/stop` mid-stutter still cannot leave the road dark.
+- **Then, in one instant:** KubeJS iterates `persistentData.lamps[]` and emits one `setblock` per stored lamp coordinate, lighting all 39 posts down every street at once; the greenhouse heaters come on; the bathhouse starts steaming; a `setblock` relights the inn's Hearth as a lit campfire. `playsound block.beacon.activate` + `block.conduit.activate`. One long warm chord.
 - **Greenhouse Glass recipe enabled world-wide.** The cozy player gets a Winter Seed Pack and a watering can that never empties.
 - The tech lane gets the **Works Deed** listed at Oda's counter — revealed, priced, not yet owned.
 - Every player receives a **Hearthkeeper's Lantern** (`dynamic-torches` held light) and a plushie token.
+- Oda closes the act pointing at the next one: *"There's a fire on the ridge road tonight. Three miles out, well off the tree line — somebody is walking in. Nobody has walked IN to this valley in eleven years. Put the kettle on."* Tess, Mab and Corin walk up the High Street in the Act V finale; before this line, nothing anywhere foreshadowed them.
 - Border stays at 10,000. **Journal Entry 5** — the last thing Josie wrote.
 
 ### Act V finale — **Founder's Day** *(triggered by Q91)*
@@ -451,7 +479,7 @@ The centrepiece of the pack.
 - Clear/pad/template the finished town: the town hall façade, a signpost carrying every resident's name (`oak_sign` with `front_text`, reading *LITTLE KETTLE / VALLEY / pop. 15 / est. again*), a stone bridge, the rebuilt mill roof, banners, paved square, flower beds.
 - `bossbar valley:lamps 40` · `bossbar valley:folk 15`.
 - Summon all residents **plus three new arrivals** on the road 24 blocks out, on a pre-filled path, with a `follow_player` objective so they walk the last stretch in. Visible proof the valley is alive again — and it is a short approach, not a journey, because long-distance pathing does not work.
-- Halden reads the last page of Josie's journal aloud: five `tellraw` lines, each scheduling the next 5 seconds later.
+- Halden reads the last page of Josie's journal aloud: five `tellraw` lines, each scheduling the next 5 seconds later. **The five lines are Entry 5**, the page in the book — not the Act III cellar wall. The wall's text used to be read back here word for word, six hours after the player read it and with it already permanently in her journal, which closed the pack on *"go and turn it on"*: an instruction to do the thing she did in the previous act. Line four now lands on the bell Pip hung at Q89 (*"Put a bell there, and ring it when supper's ready"*) and line five lands on Tess, Mab and Corin, already standing on the road 24 blocks away (*"when somebody new comes up the road next spring… go out and meet them. Bring bread."*).
 - Every player receives: the **Kettle Family Deed**, a **Founder's Plaque** decor block with their own name on it, the plushie set, a top-tier backpack, and a **Copper Kettle** trophy to hang over their own hearth.
 - Fireworks. `playsound ui.toast.challenge_complete`. Simple Voice Chat is the actual payoff here — twelve people standing around a table in proximity chat is the emotional beat the whole pack is built toward, and it needs no code at all.
 - `worldborder set 60000000` (overworld and Nether) with the line: *"The valley's fine now. Go see what's past the ridge — and come home for supper."*

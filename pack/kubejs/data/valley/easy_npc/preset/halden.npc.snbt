@@ -16,7 +16,7 @@
       ActionEventSet:{
         ON_INTERACTION:[
           {
-            Cmd:"/info_message Sit a while. Tea first, then whatever it is you came to ask.",
+            Cmd:"/valley greet halden before @initiator",
             ConditionDataSet:{
               ConditionDataSet:[
                 {
@@ -32,7 +32,7 @@
             Type:"COMMAND"
           },
           {
-            Cmd:"/info_message The cellar door is open and I am not carrying it alone now.",
+            Cmd:"/valley greet halden after @initiator",
             ConditionDataSet:{
               ConditionDataSet:[
                 {

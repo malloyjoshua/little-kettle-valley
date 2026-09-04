@@ -16,7 +16,7 @@
       ActionEventSet:{
         ON_INTERACTION:[
           {
-            Cmd:"/info_message Lake is in a mood. So am I. Bring a rod anyway.",
+            Cmd:"/valley greet nella before @initiator",
             ConditionDataSet:{
               ConditionDataSet:[
                 {
@@ -32,7 +32,7 @@
             Type:"COMMAND"
           },
           {
-            Cmd:"/info_message Turns out I like growing things. Do not make it strange.",
+            Cmd:"/valley greet nella after @initiator",
             ConditionDataSet:{
               ConditionDataSet:[
                 {

@@ -30,6 +30,57 @@ const POLLS = []
 
 function poll(key, need) { POLLS.push({ key: key, need: need }) }
 
+// -----------------------------------------------------------------------------
+// Q7 — the town needs room.
+//
+// The stake IS the Town Anchor: every pad, every street, every whitelisted lamp
+// post and the Works are measured off it. Nothing in the pack ever checked how
+// far it was from the homestead, and Q7's only requirement is five by five of
+// level ground — which, in the first hour, describes the yard the cottage is
+// standing in better than anywhere else in the valley. Stake it there and the
+// plaza is laid over the kitchen garden, the High Street is cut through the
+// pen, and the Works is dug under the cellar.
+//
+// town_plan.js carries the town's own footprint, anchor-relative: every pad,
+// every street verge, every lamp post, the lakefront the Act II Float levels
+// and digs, and the Works. Grown by town_clearance, that box is what the
+// hearth has to be OUTSIDE of. If it is not, the stake goes back in the
+// player's hand — a stake that stayed in the ground and did nothing would be
+// worse than the bug — and Josie says why.
+// -----------------------------------------------------------------------------
+const TOWN_BOX_FALLBACK = { x: [-48, 60], z: [-48, 60], pad: 12 }
+
+function townBox() {
+  let pl = (typeof global.valleyTownPlan !== 'undefined') ? global.valleyTownPlan : null
+  if (pl && pl.town_box && pl.town_box.x && pl.town_box.z) {
+    return {
+      x: pl.town_box.x, z: pl.town_box.z,
+      pad: (pl.town_clearance === undefined || pl.town_clearance === null) ? 12 : pl.town_clearance
+    }
+  }
+  // town_plan.js missing or old: refuse on a generous guess rather than dig
+  // the Works under somebody's cellar because the plan did not load.
+  console.warn('[valley] town_plan.js has no town_box; Q7 clearance is using the fallback square')
+  return TOWN_BOX_FALLBACK
+}
+
+// The hearth this town would be measured against: Home if the waystone is
+// down, else the Kettle ruin's hearthstone, else the player's own feet.
+function hearthXZ(v, player) {
+  let h = v.home() || v.ruin()
+  if (h) return [h[0], h[2]]
+  return [Math.floor(player.x), Math.floor(player.z)]
+}
+
+// Would a town anchored at (ax,az) be built on top of the hearth at (hx,hz)?
+function townWouldSwallow(ax, az, hx, hz) {
+  let b = townBox()
+  return hx >= ax + b.x[0] - b.pad && hx <= ax + b.x[1] + b.pad &&
+         hz >= az + b.z[0] - b.pad && hz <= az + b.z[1] + b.pad
+}
+
+
+
 function fire(player, key) {
   let v = V()
   let team = v.teamId(player)
@@ -109,6 +160,26 @@ BlockEvents.placed(event => {
   // finale, every mark, every lamp — depends on this one block placement.
   // ---------------------------------------------------------------------
   if (id === 'valley:town_anchor') {
+    // The town needs room. See townWouldSwallow() above: a stake driven in
+    // the cottage's own yard puts the plaza, the High Street and the Works
+    // on top of the homestead, and nothing used to stop it.
+    if (!v.anchor()) {
+      let hp = hearthXZ(v, player)
+      if (townWouldSwallow(b.x, b.z, hp[0], hp[1])) {
+        let srv = global.valleyServer
+        srv.runCommandSilent('setblock ' + b.x + ' ' + b.y + ' ' + b.z + ' minecraft:air')
+        srv.runCommandSilent('give ' + v.pname(player) + ' valley:town_anchor 1')
+        srv.runCommandSilent('title ' + v.pname(player) + ' actionbar ' + JSON.stringify({
+          text: 'Too close to the cottage — the town would be built on top of it.',
+          color: 'red'
+        }))
+        v.say(player, 'Josie',
+          'Not there. Fifteen houses, a square and a mill go in around that stake, and I ' +
+          'will not have them in your dooryard. Walk on up the road until the chimney is ' +
+          'small behind you, then drive it.')
+        return
+      }
+    }
     // There is exactly ONE town, so only the first stake in the world moves
     // the anchor. A second party driving a stake still gets Q7 ticked; the
     // valley does not relocate around them.
@@ -531,7 +602,13 @@ function checkStanding(server, player) {
 // -----------------------------------------------------------------------------
 const STAKE_ITEM      = 'valley:town_anchor'
 const STAKE_NORTH_MIN = 30     // blocks north of Home: past the garden
-const STAKE_NORTH_MAX = 96     // and still this valley
+// Was 96. The clearance rule below refuses any stake that would lay the town
+// over the homestead, and on the shipped plan that is everything inside about
+// seventy blocks — so a 30..96 window would have spent two thirds of itself
+// greenlighting spots Josie then hands the stake back from. The window is
+// wider now and townWouldSwallow() does the real gating, so the guide and the
+// anchor listener can never disagree.
+const STAKE_NORTH_MAX = 140    // and still this valley
 const STAKE_SIDE_MAX  = 48     // "up the road", not over the ridge
 const STAKE_PAD       = 2      // a 5x5 pad, level, two blocks of headroom
 const STAKE_NUDGE_AT  = 30     // polls (~30s) in range with no green
@@ -589,6 +666,19 @@ function stakeGuide(server, player) {
   if (Math.abs(x - home[0]) > STAKE_SIDE_MAX) return
 
   let team = v.teamId(player)
+  // The guide has to answer the same question the anchor listener will. Green
+  // sparks on a spot Josie then hands the stake back from is worse than no
+  // sparks at all — so where the town would swallow the homestead she says so
+  // instead, once, and only when the ground itself was the good news.
+  if (townWouldSwallow(x, z, home[0], home[2])) {
+    if (padIsFlat(player.level, x, y, z) && v.once('q07_tooclose', team)) {
+      v.say(player, 'Josie',
+        'Flat enough, that. Too near, though — fifteen houses and a square would ' +
+        'end up in your garden. Keep walking; you will know it when the chimney ' +
+        'is small behind you.')
+    }
+    return
+  }
   if (!padIsFlat(player.level, x, y, z)) {
     // She is in the right part of the valley and the ground keeps saying no.
     // Rather than let her walk to the world border, tell her the pad is the

@@ -16,7 +16,7 @@
       ActionEventSet:{
         ON_INTERACTION:[
           {
-            Cmd:"/info_message Do not just stand there. Hold this, and do not let it slip.",
+            Cmd:"/valley greet bram before @initiator",
             ConditionDataSet:{
               ConditionDataSet:[
                 {
@@ -32,7 +32,7 @@
             Type:"COMMAND"
           },
           {
-            Cmd:"/info_message Wheel is turning. Sixty years I waited. Come and look at it.",
+            Cmd:"/valley greet bram after @initiator",
             ConditionDataSet:{
               ConditionDataSet:[
                 {

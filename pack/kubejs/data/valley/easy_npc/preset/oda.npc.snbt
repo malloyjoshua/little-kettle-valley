@@ -16,7 +16,7 @@
       ActionEventSet:{
         ON_INTERACTION:[
           {
-            Cmd:"/info_message Shelves are thin and my ledger is thinner. What do you need.",
+            Cmd:"/valley greet oda before @initiator",
             ConditionDataSet:{
               ConditionDataSet:[
                 {
@@ -32,7 +32,7 @@
             Type:"COMMAND"
           },
           {
-            Cmd:"/info_message Books balance. Eleven years. Here, take the ledger. I mean it.",
+            Cmd:"/valley greet oda after @initiator",
             ConditionDataSet:{
               ConditionDataSet:[
                 {

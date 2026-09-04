@@ -10,7 +10,19 @@ strict = '--strict' in sys.argv
 IDS = set(json.loads(ids_path.read_text())['items'])
 errors, warns = [], []
 def hid(key, salt=''):
-    return hashlib.sha1((salt + key).encode()).hexdigest()[:16].upper()
+    # Bit 63 is cleared on purpose. FTB Quests reads every object id with
+    # QuestObjectBase.parseCodeString, which is Long.parseLong(s, 16) -- SIGNED. An id
+    # whose top hex digit is 8-F overflows, the NumberFormatException is swallowed, the
+    # id comes back as 0, and the quest file is then loaded with a FRESH RANDOM id in its
+    # place. 622 of this pack's 1193 object ids were in that half of the space, so 66 of
+    # the 126 quests had a different id every time the file was regenerated: /ftbquests
+    # could not address them, fourteen of the twenty-four KubeJS auto-completions
+    # silently did nothing, and their progress reset on every pack update.
+    # Masking only touches ids that were already unstable -- every id that worked before
+    # has its top bit clear already and comes out byte-identical -- so no live progress
+    # is lost by this change.
+    v = int(hashlib.sha1((salt + key).encode()).hexdigest()[:16], 16) & 0x7FFFFFFFFFFFFFFF
+    return '%016X' % (v or 1)
 def q(s):  # SNBT string literal
     return '"' + str(s).replace('\\', '\\\\').replace('"', '\\"').replace('\n', '\\n') + '"'
 def item_ok(item, where):

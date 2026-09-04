@@ -1,589 +1,1493 @@
 {
-  "chapter": {
-    "key": "act1",
-    "title": "Act I: The Thaw",
-    "subtitle": ["Spring, Year One", "Forty lamps. Fifteen people. One winter that nobody leaves."],
-    "icon": "minecraft:oak_sapling",
-    "group": "Story",
-    "order": 0
-  },
-  "reward_tables": [
-    {
-      "key": "cozy_crate",
-      "title": "Cozy Crate",
-      "loot_size": 1,
-      "loot_crate": { "id": "cozy_crate", "name": "Cozy Crate", "color": 16755200, "glow": false },
-      "rewards": [
-        { "item": "farmersdelight:cabbage_seeds", "count": 4, "weight": 3 },
-        { "item": "farmersdelight:tomato_seeds", "count": 4, "weight": 3 },
-        { "item": "farmersdelight:rice", "count": 4, "weight": 3 },
-        { "item": "minecraft:sweet_berries", "count": 6, "weight": 3 },
-        { "item": "minecraft:honey_bottle", "count": 2, "weight": 2 },
-        { "item": "supplementaries:flower_box", "count": 2, "weight": 2 },
-        { "item": "supplementaries:candle_holder", "count": 4, "weight": 2 },
-        { "item": "farmersdelight:canvas_rug", "count": 1, "weight": 2 },
-        { "item": "handcrafted:oak_chair", "count": 2, "weight": 2 },
-        { "item": "minecraft:cake", "count": 1, "weight": 2 },
-        { "item": "cookingforblockheads:fruit_basket", "count": 1, "weight": 1 },
-        { "item": "perfectplushies:duck_plushie", "count": 1, "weight": 1 },
-        { "item": "perfectplushies:cat_plushie", "count": 1, "weight": 1 }
-      ]
-    },
-    {
-      "key": "tech_crate",
-      "title": "Tech Crate",
-      "loot_size": 1,
-      "loot_crate": { "id": "tech_crate", "name": "Tech Crate", "color": 8421504, "glow": false },
-      "rewards": [
-        { "item": "create:andesite_alloy", "count": 8, "weight": 3 },
-        { "item": "create:cogwheel", "count": 4, "weight": 3 },
-        { "item": "create:shaft", "count": 8, "weight": 3 },
-        { "item": "minecraft:iron_ingot", "count": 6, "weight": 3 },
-        { "item": "minecraft:copper_ingot", "count": 8, "weight": 3 },
-        { "item": "minecraft:redstone", "count": 12, "weight": 2 },
-        { "item": "create:andesite_casing", "count": 4, "weight": 2 },
-        { "item": "create:belt_connector", "count": 4, "weight": 2 },
-        { "item": "thermal:redstone_servo", "count": 2, "weight": 2 },
-        { "item": "minecraft:gold_ingot", "count": 4, "weight": 1 },
-        { "item": "create:electron_tube", "count": 2, "weight": 1 },
-        { "item": "thermal:rf_coil", "count": 2, "weight": 1 }
-      ]
-    },
-    {
-      "key": "story_crate",
-      "title": "Josie's Crate",
-      "loot_size": 1,
-      "loot_crate": { "id": "story_crate", "name": "Josie's Crate", "color": 11224814, "glow": true },
-      "rewards": [
-        { "item": "minecraft:paper", "count": 8, "weight": 3 },
-        { "item": "minecraft:lantern", "count": 4, "weight": 3 },
-        { "item": "minecraft:candle", "count": 8, "weight": 2 },
-        { "item": "minecraft:bookshelf", "count": 4, "weight": 2 },
-        { "item": "minecraft:amethyst_shard", "count": 4, "weight": 2 },
-        { "item": "supplementaries:jar", "count": 2, "weight": 2 },
-        { "item": "supplementaries:antique_ink", "count": 1, "weight": 2 },
-        { "item": "handcrafted:wood_crockery_combo", "count": 1, "weight": 2 },
-        { "item": "valley:scrip", "count": 10, "weight": 2 },
-        { "item": "minecraft:emerald", "count": 3, "weight": 2 },
-        { "item": "supplementaries:globe_sepia", "count": 1, "weight": 1 },
-        { "item": "supplementaries:hourglass", "count": 1, "weight": 1 }
-      ]
-    }
+ "chapter": {
+  "key": "act1",
+  "title": "Act I: The Thaw",
+  "subtitle": [
+   "Spring, Year One",
+   "Make the old Kettle farm livable and wake the town up in time for the Thaw Fair.",
+   "Forty lamps. Fifteen people. One winter that nobody leaves."
   ],
-  "quests": [
+  "icon": "minecraft:oak_sapling",
+  "group": "Story",
+  "order": 0
+ },
+ "reward_tables": [
+  {
+   "key": "cozy_crate",
+   "title": "Cozy Crate",
+   "loot_size": 1,
+   "loot_crate": {
+    "id": "cozy_crate",
+    "name": "Cozy Crate",
+    "color": 16755200,
+    "glow": false
+   },
+   "rewards": [
     {
-      "key": "q01",
-      "title": "Read Josie's Letter",
-      "subtitle": "The last page is a map.",
-      "icon": "valley:letter",
-      "shape": "hexagon",
-      "size": 1.5,
-      "description": [
-        "Josie: \"If you're reading this I'm dead and the valley is cold. Only one of those is your problem.\"",
-        "",
-        "Take Josie's Letter out of your bag and right-click it. Read all four pages — the last one tells you where the old Kettle farm is.",
-        "",
-        "Forty lamps. Fifteen people. One winter that nobody leaves."
-      ],
-      "deps": [],
-      "tasks": [
-        { "type": "checkmark", "title": "Josie's Letter read — all four pages" }
-      ],
-      "rewards": [
-        { "type": "command", "command": "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}" },
-        { "type": "command", "command": "advancement grant @p only valley:journal/entry_1" },
-        { "type": "item", "item": "herbalbrews:copper_tea_kettle" },
-        { "type": "item", "item": "waystones:waystone" },
-        { "type": "item", "item": "minecraft:iron_shovel" },
-        { "type": "item", "item": "minecraft:iron_pickaxe" },
-        { "type": "item", "item": "minecraft:cooked_beef", "count": 16 },
-        { "type": "item", "item": "minecraft:torch", "count": 16 },
-        { "type": "item", "item": "torchmaster:megatorch" },
-        { "type": "toast", "title": "Journal Entry 1", "description": "Next: follow the lit path from where you woke up. It ends at the old Kettle farm. Put the waystone on the flat grey hearthstone by the chimney." }
-      ]
+     "item": "farmersdelight:cabbage_seeds",
+     "count": 4,
+     "weight": 3
     },
     {
-      "key": "q02",
-      "title": "Put the Waystone on the Hearthstone",
-      "subtitle": "Name it Home.",
-      "icon": "waystones:waystone",
-      "description": [
-        "Josie: \"The hearthstone is the one thing in that house I never had to fix. Start from the part that held.\"",
-        "",
-        "Follow the lit path from where you woke up to the old farm — the chimney is still standing. Place the Homestead Waystone on the flat grey hearthstone beside it, type Home in the box, click the tick.",
-        "",
-        "The roof and the walls go back up around you, with a doorway, two window holes and a wool mat where the bed goes."
-      ],
-      "deps": ["q01"],
-      "tasks": [
-        { "type": "checkmark", "title": "Homestead Waystone standing on the hearthstone, named Home" }
-      ],
-      "rewards": [
-        { "type": "item", "item": "mcwdoors:oak_cottage_door" },
-        { "type": "item", "item": "mcwwindows:oak_window", "count": 4 },
-        { "type": "item", "item": "minecraft:red_bed" },
-        { "type": "item", "item": "supplementaries:sconce" },
-        { "type": "toast", "title": "Home", "description": "Next: hang the door, put a window in each hole, the bed on the mat, the sconce by the door." }
-      ]
+     "item": "farmersdelight:tomato_seeds",
+     "count": 4,
+     "weight": 3
     },
     {
-      "key": "q03",
-      "title": "Hang the Door, Windows, Bed and Sconce",
-      "subtitle": "All four are in your bag.",
-      "icon": "handcrafted:oak_table",
-      "description": [
-        "Josie: \"A house is a box until somebody shuts a door in it. Go and shut the door.\"",
-        "",
-        "Put the Oak Cottage Door in the doorway, one Oak Window in each of the two holes, the Red Bed on the wool mat, and the Sconce on the hook by the door. Any order is right.",
-        "",
-        "The cottage becomes a home you can cook in, and the smoke from it is what brings Marnie up the hill."
-      ],
-      "deps": ["q02"],
-      "tasks": [
-        { "type": "checkmark", "title": "Door, two windows, bed and sconce placed" }
-      ],
-      "rewards": [
-        { "type": "item", "item": "handcrafted:oak_table" },
-        { "type": "item", "item": "handcrafted:oak_chair", "count": 2 },
-        { "type": "item", "item": "farmersdelight:canvas_rug" },
-        { "type": "item", "item": "supplementaries:flower_box", "count": 2 },
-        { "type": "item", "item": "farmersdelight:cooking_pot" },
-        { "type": "item", "item": "minecraft:campfire" },
-        { "type": "item", "item": "minecraft:bricks", "count": 16 },
-        { "type": "item", "item": "farmersdelight:cabbage", "count": 4 },
-        { "type": "item", "item": "minecraft:carrot", "count": 4 },
-        { "type": "item", "item": "minecraft:potato", "count": 4 },
-        { "type": "toast", "title": "Four Walls and a Door", "description": "Next: place the Megatorch inside the cottage. Then the soup." }
-      ]
+     "item": "farmersdelight:rice",
+     "count": 4,
+     "weight": 3
     },
     {
-      "key": "q04",
-      "title": "Place the Megatorch Inside the Cottage",
-      "subtitle": "One torch, one problem solved.",
-      "icon": "torchmaster:megatorch",
-      "description": [
-        "Josie: \"The dark out here has opinions. The tall torch settles them, permanently, and you never think about it again.\"",
-        "",
-        "Place the Megatorch on the cottage floor, inside the walls, where you can see it from the bed.",
-        "",
-        "Nothing hostile spawns near home from now on — not tonight, not in December."
-      ],
-      "deps": ["q03"],
-      "tasks": [
-        { "type": "checkmark", "title": "Megatorch placed inside the cottage" }
-      ],
-      "rewards": [
-        { "type": "item", "item": "torchmaster:megatorch", "count": 2 },
-        { "type": "item", "item": "torchmaster:feral_flare_lantern", "count": 2 },
-        { "type": "toast", "title": "Nothing Gets In", "description": "Next: two spare Megatorches are for the pens. Now dig out the cellar stairs." }
-      ]
+     "item": "minecraft:sweet_berries",
+     "count": 6,
+     "weight": 3
     },
     {
-      "key": "q05",
-      "title": "Dig Out the Cellar Stairs",
-      "subtitle": "About 40 marked blocks of gravel.",
-      "icon": "minecraft:iron_door",
-      "description": [
-        "Josie: \"There's a door down there I'm not going to explain yet. Dig anyway; I know you.\"",
-        "",
-        "There is a trapdoor under the ash in the old kitchen and it is glowing. Dig the gravel out of the stairs beneath it — about 40 marked blocks. The iron shovel is in your bag.",
-        "",
-        "At the bottom: a sealed iron door with no handle and four words chalked on it in her hand — Not yet. — J.K. Beside it, a Cellar Waystone and her tool chest."
-      ],
-      "deps": ["q02"],
-      "tasks": [
-        { "type": "checkmark", "title": "Stairs cleared — you are standing below the cottage floor" }
-      ],
-      "rewards": [
-        { "type": "command", "command": "/valley scene cellar", "team": true },
-        { "type": "item", "item": "waystones:waystone" },
-        { "type": "item", "item": "minecraft:iron_axe" },
-        { "type": "item", "item": "minecraft:iron_hoe" },
-        { "type": "item", "item": "minecraft:shears" },
-        { "type": "item", "item": "minecraft:torch", "count": 32 },
-        { "type": "command", "command": "advancement grant @a only valley:journal/found_1", "elevate": true, "silent": true },
-        { "type": "toast", "title": "The Door Under the House", "description": "The door stays shut until autumn. Next: hang the Copper Kettle and cook one Vegetable Soup." }
-      ]
+     "item": "minecraft:honey_bottle",
+     "count": 2,
+     "weight": 2
     },
     {
-      "key": "q06",
-      "title": "Cook One Vegetable Soup",
-      "subtitle": "Kettle on the hook, pot on the fire.",
-      "icon": "herbalbrews:copper_tea_kettle",
-      "description": [
-        "Josie: \"Kettle on the hook, soup in the pot — that is the entire ceremony. There has never been a bigger one.\"",
-        "",
-        "Put the campfire down outside your door, set the Cooking Pot on top of it — a Cooking Pot only cooks over a lit fire — and cook one Vegetable Soup. The cabbage, carrots and potatoes are in the basket; three planks at the bench make four bowls. The Copper Kettle hangs on the hook by the door whenever you want it.",
-        "",
-        "Bram's old Surveyor's Stake is in the basket with the vegetables, wrapped in a rag with your name on it — the next quest is what you do with it."
-      ],
-      "deps": ["q03"],
-      "tasks": [
-        { "type": "item", "item": "farmersdelight:cooking_pot", "count": 1 },
-        { "type": "item", "item": "farmersdelight:vegetable_soup", "count": 1 }
-      ],
-      "rewards": [
-        { "type": "item", "item": "farmersdelight:skillet" },
-        { "type": "item", "item": "farmersdelight:iron_knife" },
-        { "type": "item", "item": "farmersdelight:cabbage_seeds", "count": 8 },
-        { "type": "item", "item": "farmersdelight:tomato_seeds", "count": 8 },
-        { "type": "item", "item": "farmersdelight:rice", "count": 8 },
-        { "type": "item", "item": "valley:town_anchor" },
-        { "type": "toast", "title": "Put the Kettle On", "description": "Next: carry the Surveyor's Stake north up the road and place it where the ground sparks green." }
-      ]
+     "item": "supplementaries:flower_box",
+     "count": 2,
+     "weight": 2
     },
     {
-      "key": "q07",
-      "title": "Place the Surveyor's Stake North of Your Gate",
-      "subtitle": "Walk north. The ground tells you where.",
-      "icon": "valley:town_anchor",
-      "description": [
-        "Josie: \"Bram surveyed that flat by the road twice and never drove the stake — forty years of nearly. Drive it.\"",
-        "",
-        "Carry Bram's Surveyor's Stake north up the road from your gate. Green sparks come up around your feet the moment you are standing on ground flat enough to hold a town — place the stake in the sparks. That spot is the Town Anchor and every building in the pack is measured from it.",
-        "",
-        "A stone path is laid from your door to the anchor and the first two lamp posts go up. 2 of 40."
-      ],
-      "deps": ["q06"],
-      "tasks": [
-        { "type": "checkmark", "title": "Surveyor's Stake placed north of the gate" }
-      ],
-      "rewards": [
-        { "type": "command", "command": "/valley scene square_path", "team": true },
-        { "type": "command", "command": "bossbar set valley:lamps value 2", "team": true },
-        { "type": "toast", "title": "Lantern Road 2/40", "description": "Next: sleep one night in your bed. Somebody is going to see the smoke." }
-      ]
+     "item": "supplementaries:candle_holder",
+     "count": 4,
+     "weight": 2
     },
     {
-      "key": "q08",
-      "title": "Sleep One Night in Your Bed",
-      "subtitle": "Marnie sees the chimney.",
-      "icon": "minecraft:red_bed",
-      "description": [
-        "Marnie: \"Four years I've looked at that chimney, and last night there was smoke. I've brought bread and I am not carrying it home.\"",
-        "",
-        "Sleep one night in the Red Bed in your cottage.",
-        "",
-        "Marnie moves in, the inn shell goes up at the Town Anchor, and she leaves you her seed sack, 32 Green Oak Planks and a flint and steel."
-      ],
-      "deps": ["q07"],
-      "tasks": [
-        { "type": "checkmark", "title": "Slept one night in the cottage bed" }
-      ],
-      "rewards": [
-        { "type": "command", "command": "/valley scene inn", "team": true },
-        { "type": "command", "command": "/valley scene bram", "team": true },
-        { "type": "command", "command": "/valley scene marnie", "team": true },
-        { "type": "command", "command": "bossbar set valley:folk value 1", "team": true },
-        { "type": "item", "item": "minecraft:bread", "count": 8 },
-        { "type": "item", "item": "waystones:waystone" },
-        { "type": "item", "item": "valley:green_oak_plank", "count": 32 },
-        { "type": "item", "item": "minecraft:flint_and_steel" },
-        { "type": "item", "item": "minecraft:wheat_seeds", "count": 9 },
-        { "type": "item", "item": "minecraft:carrot", "count": 9 },
-        { "type": "item", "item": "minecraft:potato", "count": 9 },
-        { "type": "toast", "title": "Residents 1/15", "description": "Next: till the 3x9 patch behind the house. Or walk west from the stake to the mill — Bram is standing outside it now, and he needs a pair of hands." }
-      ]
+     "item": "farmersdelight:canvas_rug",
+     "count": 1,
+     "weight": 2
     },
     {
-      "key": "q09",
-      "title": "Till and Plant the 3x9 Patch",
-      "subtitle": "Wheat, carrots, potatoes.",
-      "icon": "minecraft:wheat_seeds",
-      "description": [
-        "Marnie: \"Three beds: wheat, carrots, potatoes. Anything fancier and you'll be eating it alone in July.\"",
-        "",
-        "Till the 3x9 patch behind the house — every tile is marked in path blocks — then plant the 9 carrots, 9 potatoes and 9 wheat seeds from Marnie's sack. Any order is right, but hand this in while the wheat seeds are still in your hand: the book counts them and never takes them, so those nine go in last.",
-        "",
-        "Marnie hands over the fence, the gate, the trough and three Hen Crates for the pen next to it."
-      ],
-      "deps": ["q08"],
-      "tasks": [
-        { "type": "item", "item": "minecraft:wheat_seeds", "count": 9 },
-        { "type": "checkmark", "title": "All 27 marked tiles tilled and planted" }
-      ],
-      "rewards": [
-        { "type": "item", "item": "thermal:watering_can" },
-        { "type": "item", "item": "minecraft:bone_meal", "count": 16 },
-        { "type": "item", "item": "vinery:straw_hat" },
-        { "type": "item", "item": "farm_and_charm:scarecrow" },
-        { "type": "item", "item": "minecraft:oak_fence", "count": 24 },
-        { "type": "item", "item": "minecraft:oak_fence_gate" },
-        { "type": "item", "item": "farm_and_charm:feeding_trough" },
-        { "type": "item", "item": "valley:hen_crate", "count": 3 },
-        { "type": "toast", "title": "Three Beds of Dirt", "description": "Next: fence the pen on the marked blocks and open the three Hen Crates inside it." }
-      ]
+     "item": "handcrafted:oak_chair",
+     "count": 2,
+     "weight": 2
     },
     {
-      "key": "q10",
-      "title": "Fence the Pen and Open the Three Hen Crates",
-      "subtitle": "Two hens and a rooster.",
-      "icon": "valley:hen_crate",
-      "description": [
-        "Marnie: \"Two hens and a rooster. Don't name the rooster — you'll get attached, and he is horrible.\"",
-        "",
-        "Put a fence section on each of the 23 stone footings marked out behind the house, hang the gate on the single grey slab in the middle of the side facing you, then right-click all three Hen Crates inside the finished pen. Any order is right.",
-        "",
-        "A nesting box goes down with two eggs already in it, a Megatorch goes up over the coop, and you get chicken feed — right-click a hen with it and she lays."
-      ],
-      "deps": ["q09"],
-      "tasks": [
-        { "type": "checkmark", "title": "Three chickens standing inside the finished pen" }
-      ],
-      "rewards": [
-        { "type": "command", "command": "/valley scene coop", "team": true },
-        { "type": "item", "item": "farm_and_charm:chicken_nest" },
-        { "type": "item", "item": "valley:chicken_feed", "count": 8 },
-        { "type": "item", "item": "torchmaster:megatorch" },
-        { "type": "item", "item": "minecraft:egg", "count": 3 },
-        { "type": "toast", "title": "Two Hens and a Rooster", "description": "Next: Marnie needs three eggs." }
-      ]
+     "item": "minecraft:cake",
+     "count": 1,
+     "weight": 2
     },
     {
-      "key": "q11",
-      "title": "Take Three Eggs to Marnie",
-      "subtitle": "Pip is watching the box.",
-      "icon": "minecraft:egg",
-      "description": [
-        "Pip: \"Is that an egg? Aunt Marnie says I get a duck if I'm useful, so I am being extremely useful.\"",
-        "",
-        "Collect 3 eggs from the nesting box behind your house — right-click a hen with chicken feed if you would rather not wait — and hand them in here. Marnie gets them either way; the book does the walking.",
-        "",
-        "Pip moves in, hands you a Duckling and names it after you before you can stop him. His courier board opens, and Marnie empties her carding basket of 16 wool onto the counter."
-      ],
-      "deps": ["q10"],
-      "tasks": [
-        { "type": "item", "item": "minecraft:egg", "count": 3, "consume": true }
-      ],
-      "rewards": [
-        { "type": "command", "command": "/valley scene pip", "team": true },
-        { "type": "command", "command": "bossbar set valley:folk value 2", "team": true },
-        { "type": "item", "item": "duckling:duck_spawn_egg" },
-        { "type": "item", "item": "minecraft:white_wool", "count": 16 },
-        { "type": "item", "item": "domesticationinnovation:pet_bed_yellow" },
-        { "type": "loot", "table": "cozy_crate" },
-        { "type": "toast", "title": "Residents 2/15", "description": "Next: Marnie's kitchen needs an oven, and the oven needs dry boards. Or go and meet the man at the mill." }
-      ]
+     "item": "cookingforblockheads:fruit_basket",
+     "count": 1,
+     "weight": 1
     },
     {
-      "key": "q12",
-      "title": "Talk to Bram at the Broken Mill",
-      "subtitle": "He will not accept help. He will accept 'hold this'.",
-      "icon": "valley:token_bram",
-      "description": [
-        "Bram: \"I don't need help — I need somebody to hold things. Different word, same pair of hands.\"",
-        "",
-        "Walk to the mill plot marked on your map, talk to Bram, and bring back the Millwright's Bolt he puts in your hand.",
-        "",
-        "Bram opens his labelled crates: 12 iron ingots and 24 andesite — three times what the eight alloys want, because the Millstone wants the rest."
-      ],
-      "deps": ["q08"],
-      "tasks": [
-        { "type": "item", "item": "valley:token_bram", "count": 1, "consume": true }
-      ],
-      "rewards": [
-        { "type": "item", "item": "create:wrench" },
-        { "type": "item", "item": "create:goggles" },
-        { "type": "item", "item": "minecraft:iron_ingot", "count": 12 },
-        { "type": "item", "item": "minecraft:andesite", "count": 24 },
-        { "type": "command", "command": "bossbar set valley:folk value 3", "team": true },
-        { "type": "command", "command": "advancement grant @a only valley:journal/found_2", "elevate": true, "silent": true },
-        { "type": "toast", "title": "Residents 3/15", "description": "Bram is at the mill. Next: craft 8 Andesite Alloy out of what Bram gave you. Eight. Not nine." }
-      ]
+     "item": "perfectplushies:duck_plushie",
+     "count": 1,
+     "weight": 1
     },
     {
-      "key": "q13",
-      "title": "Craft 8 Andesite Alloy",
-      "subtitle": "Eight. Not nine.",
-      "icon": "create:andesite_alloy",
-      "description": [
-        "Bram: \"One andesite, one iron nugget, pressed. Eight of them, not nine — if you're making nine you've misread something.\"",
-        "",
-        "Craft 8 Andesite Alloy — one andesite and one iron nugget each, so eight andesite and one ingot's worth of nuggets — and hold them when you hand the quest in. The rest of Bram's crate is for the Millstone.",
-        "",
-        "You get a pre-made Mechanical Press, 8 cogwheels, 8 shafts and 32 wheat — the whole bill for the Millstone and its first grind."
-      ],
-      "deps": ["q12"],
-      "tasks": [
-        { "type": "item", "item": "create:andesite_alloy", "count": 8 }
-      ],
-      "rewards": [
-        { "type": "item", "item": "create:mechanical_press" },
-        { "type": "item", "item": "create:cogwheel", "count": 8 },
-        { "type": "item", "item": "create:shaft", "count": 8 },
-        { "type": "item", "item": "minecraft:wheat", "count": 32 },
-        { "type": "xp_levels", "levels": 3 },
-        { "type": "toast", "title": "Eight Alloys, No More", "description": "Next: Millstone plus Hand Crank, and grind 16 Wheat Flour for Marnie." }
-      ]
-    },
-    {
-      "key": "q14",
-      "title": "Grind 16 Wheat Flour on a Hand-Cranked Millstone",
-      "subtitle": "Your arm first, then the river.",
-      "icon": "create:millstone",
-      "description": [
-        "Bram: \"Hand crank first. You should know exactly what the water is doing for you before it starts doing it.\"",
-        "",
-        "Build a Millstone, put a Hand Crank on top of it, and grind Bram's 32 wheat down to 16 Wheat Flour for Marnie.",
-        "",
-        "Encased Fan, 3 Andesite Alloy, casings and iron — the parts list for the Mechanical Saw in two quests' time."
-      ],
-      "deps": ["q13"],
-      "tasks": [
-        { "type": "item", "item": "create:wheat_flour", "count": 16, "consume": true }
-      ],
-      "rewards": [
-        { "type": "item", "item": "create:encased_fan" },
-        { "type": "item", "item": "create:andesite_alloy", "count": 3 },
-        { "type": "item", "item": "create:andesite_casing", "count": 4 },
-        { "type": "item", "item": "minecraft:iron_ingot", "count": 8 },
-        { "type": "loot", "table": "tech_crate" },
-        { "type": "toast", "title": "Turn It By Hand", "description": "Next: two Water Wheels — and they need Seasoned Oak Boards out of Marnie's bread oven." }
-      ]
-    },
-    {
-      "key": "q15",
-      "title": "Dry 32 Green Oak Planks in Any Furnace",
-      "subtitle": "Two minutes of heat, and they're boards.",
-      "icon": "valley:seasoned_oak_board",
-      "description": [
-        "Marnie: \"Green planks want heat and time. Josie dried every board in this valley in a furnace and was insufferable about it.\"",
-        "",
-        "Smelt the 32 Green Oak Planks in any furnace — about two minutes for the lot — and hold 32 Seasoned Oak Boards. Marnie's charcoal is in the barrel by the door.",
-        "",
-        "Bram cannot craft a Water Wheel without these boards — that gate is the furnace, and the furnace is you. You also get the inn's spare crockery, a chair by the fire, and the Counter, Sink and Oven for the kitchen."
-      ],
-      "deps": ["q08"],
-      "tasks": [
-        { "type": "item", "item": "valley:seasoned_oak_board", "count": 32 }
-      ],
-      "rewards": [
-        { "type": "command", "command": "tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Dry boards. In April. Hm.\",\"color\":\"white\",\"italic\":true}]", "team": true },
-        { "type": "stage", "stage": "seasoned" },
-        { "type": "item", "item": "handcrafted:wood_crockery_combo" },
-        { "type": "item", "item": "handcrafted:oak_chair" },
-        { "type": "item", "item": "cookingforblockheads:counter" },
-        { "type": "item", "item": "cookingforblockheads:sink" },
-        { "type": "item", "item": "cookingforblockheads:oven" },
-        { "type": "toast", "title": "Stage: seasoned", "description": "Next: fit the Counter, Sink and Oven along the inn's back wall. Bram's wheels are unblocked." }
-      ]
-    },
-    {
-      "key": "q16",
-      "title": "Build 2 Water Wheels on the Mill Race",
-      "subtitle": "The boards are dry; the race is cut.",
-      "icon": "create:water_wheel",
-      "description": [
-        "Bram: \"Race is cut, boards are dry, and I'm sixty-four. Two wheels, today.\"",
-        "",
-        "Craft 2 Water Wheels using the Seasoned Oak Boards, set them in the mill race beside the mill, and belt the Millstone off them so it turns without you.",
-        "",
-        "Mechanical Saw, Basin and Mixer, plus Bram's crate: 32 Andesite Alloy and 16 wool he has been keeping for windmill sails."
-      ],
-      "deps": ["q14", "q15"],
-      "tasks": [
-        { "type": "item", "item": "create:water_wheel", "count": 2 }
-      ],
-      "rewards": [
-        { "type": "item", "item": "create:mechanical_saw" },
-        { "type": "item", "item": "create:basin" },
-        { "type": "item", "item": "create:mechanical_mixer" },
-        { "type": "item", "item": "create:andesite_alloy", "count": 32 },
-        { "type": "item", "item": "minecraft:white_wool", "count": 16 },
-        { "type": "xp_levels", "levels": 5 },
-        { "type": "toast", "title": "Water Finds a Way", "description": "Next: cut 128 boards on the Saw and give Bram 64 for Oda's market stalls." }
-      ]
-    },
-    {
-      "key": "q17",
-      "title": "Cut 128 Boards and Give Bram 64",
-      "subtitle": "Sixty-four boards is four stalls.",
-      "icon": "create:mechanical_saw",
-      "description": [
-        "Bram: \"Oda wants four stalls for the fair. Sixty-four boards is four stalls.\"",
-        "",
-        "Cut 128 Oak Planks on the Mechanical Saw — about twenty-two oak logs off the ridge behind the mill — hold all 128, then hand Bram 64 of them for the market stalls.",
-        "",
-        "Stage market_stalls: the Thaw Fair now has somewhere to trade from, and you keep Macaw's roof kits and four planters for your own roof."
-      ],
-      "deps": ["q16"],
-      "tasks": [
-        { "type": "item", "item": "minecraft:oak_planks", "count": 128 },
-        { "type": "item", "item": "minecraft:oak_planks", "count": 64, "consume": true }
-      ],
-      "rewards": [
-        { "type": "stage", "stage": "market_stalls" },
-        { "type": "item", "item": "mcwroofs:oak_planks_roof", "count": 16 },
-        { "type": "item", "item": "mcwroofs:oak_planks_steep_roof", "count": 16 },
-        { "type": "item", "item": "mcwroofs:oak_planks_top_roof", "count": 16 },
-        { "type": "item", "item": "supplementaries:planter", "count": 4 },
-        { "type": "loot", "table": "tech_crate" },
-        { "type": "toast", "title": "Stage: market_stalls", "description": "Next: Oda's store. She wants 16 flour and 8 loaves, and the cobwebs gone." }
-      ]
-    },
-    {
-      "key": "q18",
-      "title": "Fit the Kitchen and Cook Three Dishes",
-      "subtitle": "Counter, sink, oven, back wall.",
-      "icon": "cookingforblockheads:oven",
-      "description": [
-        "Marnie: \"Counter, sink, oven, along the back wall in that order. I've had the spots chalked for four years.\"",
-        "",
-        "Hold the Kitchen Counter, Sink and Oven when you hand this in — the book counts them and never takes them — then set them on the three marked spots along the inn's back wall \u2014 three grey slabs, numbered 1, 2 and 3 on the wall above them: counter, sink, oven, in that order. Cook Bread, a Pumpkin Pie and a Vegetable Soup in that kitchen; everything is in the crate by the counter.",
-        "",
-        "You get the recipe book, the fruit basket, Marnie's cupboards — and Oda's broom off the back door, which Q19 needs."
-      ],
-      "deps": ["q15"],
-      "tasks": [
-        { "type": "item", "item": "cookingforblockheads:counter", "count": 1 },
-        { "type": "item", "item": "cookingforblockheads:sink", "count": 1 },
-        { "type": "item", "item": "cookingforblockheads:oven", "count": 1 },
-        { "type": "item", "item": "minecraft:bread", "count": 1 },
-        { "type": "item", "item": "minecraft:pumpkin_pie", "count": 1 },
-        { "type": "item", "item": "farmersdelight:vegetable_soup", "count": 1 }
-      ],
-      "rewards": [
-        { "type": "command", "command": "recipe give @p *" },
-        { "type": "item", "item": "cookingforblockheads:recipe_book" },
-        { "type": "item", "item": "cookingforblockheads:fruit_basket" },
-        { "type": "item", "item": "handcrafted:oak_cupboard" },
-        { "type": "item", "item": "handcrafted:oak_shelf" },
-        { "type": "item", "item": "handcrafted:oak_counter" },
-        { "type": "item", "item": "valley:oda_broom" },
-        { "type": "loot", "table": "cozy_crate" },
-        { "type": "toast", "title": "Marnie's Kitchen", "description": "Next: sweep Oda's store with the broom, then bring her 16 flour and 8 loaves." }
-      ]
-    },
-    {
-      "key": "q19",
-      "title": "Sweep Oda's Store and Bring Her 16 Flour and 8 Bread",
-      "subtitle": "Act I finale — The Thaw Fair.",
-      "icon": "minecraft:bread",
-      "shape": "hexagon",
-      "size": 1.5,
-      "description": [
-        "Oda: \"Eleven years of keeping the ledger of a shop with nothing in it. Bring me stock and I will open the door.\"",
-        "",
-        "Sweep the marked cobwebs out of the store with Oda's broom, then hand her 16 Wheat Flour and 8 Bread across the counter.",
-        "",
-        "Forty lamps. Fifteen people. One winter that nobody leaves.",
-        "",
-        "The Thaw Fair opens at the Town Anchor: four stalls, a long table, bunting, six lamps burning — and five people standing in a square that was a frozen field in February."
-      ],
-      "deps": ["q17", "q18"],
-      "tasks": [
-        { "type": "checkmark", "title": "Every marked cobweb swept out of the store" },
-        { "type": "item", "item": "create:wheat_flour", "count": 16, "consume": true },
-        { "type": "item", "item": "minecraft:bread", "count": 8, "consume": true }
-      ],
-      "rewards": [
-        { "type": "command", "command": "/valley finale act1" },
-        { "type": "command", "command": "advancement grant @a only valley:journal/found_3", "elevate": true, "silent": true },
-        { "type": "stage", "stage": "act2" },
-        { "type": "loot", "table": "story_crate" },
-        { "type": "item", "item": "explorerscompass:explorerscompass" },
-        { "type": "toast", "title": "The Thaw Fair", "description": "Next: Act II. Right-click Marnie's Explorer's Compass, type Ribbit in the search box and click Ribbit Village — the needle points there until you pick something else. There is also a woman fixing a beached boat at the lake and a prospector camped by the copper outcrop." }
-      ]
+     "item": "perfectplushies:cat_plushie",
+     "count": 1,
+     "weight": 1
     }
-  ]
+   ]
+  },
+  {
+   "key": "tech_crate",
+   "title": "Tech Crate",
+   "loot_size": 1,
+   "loot_crate": {
+    "id": "tech_crate",
+    "name": "Tech Crate",
+    "color": 8421504,
+    "glow": false
+   },
+   "rewards": [
+    {
+     "item": "create:andesite_alloy",
+     "count": 8,
+     "weight": 3
+    },
+    {
+     "item": "create:cogwheel",
+     "count": 4,
+     "weight": 3
+    },
+    {
+     "item": "create:shaft",
+     "count": 8,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:iron_ingot",
+     "count": 6,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:copper_ingot",
+     "count": 8,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:redstone",
+     "count": 12,
+     "weight": 2
+    },
+    {
+     "item": "create:andesite_casing",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "create:belt_connector",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "thermal:redstone_servo",
+     "count": 2,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:gold_ingot",
+     "count": 4,
+     "weight": 1
+    },
+    {
+     "item": "create:electron_tube",
+     "count": 2,
+     "weight": 1
+    },
+    {
+     "item": "thermal:rf_coil",
+     "count": 2,
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "key": "story_crate",
+   "title": "Josie's Crate",
+   "loot_size": 1,
+   "loot_crate": {
+    "id": "story_crate",
+    "name": "Josie's Crate",
+    "color": 11224814,
+    "glow": true
+   },
+   "rewards": [
+    {
+     "item": "minecraft:paper",
+     "count": 8,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:lantern",
+     "count": 4,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:candle",
+     "count": 8,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:bookshelf",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:amethyst_shard",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "supplementaries:jar",
+     "count": 2,
+     "weight": 2
+    },
+    {
+     "item": "supplementaries:antique_ink",
+     "count": 1,
+     "weight": 2
+    },
+    {
+     "item": "handcrafted:wood_crockery_combo",
+     "count": 1,
+     "weight": 2
+    },
+    {
+     "item": "valley:scrip",
+     "count": 10,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:emerald",
+     "count": 3,
+     "weight": 2
+    },
+    {
+     "item": "supplementaries:globe_sepia",
+     "count": 1,
+     "weight": 1
+    },
+    {
+     "item": "supplementaries:hourglass",
+     "count": 1,
+     "weight": 1
+    }
+   ]
+  }
+ ],
+ "quests": [
+  {
+   "key": "q01",
+   "title": "Read Josie's Letter",
+   "subtitle": "The last page is a map.",
+   "icon": "valley:letter",
+   "shape": "hexagon",
+   "size": 1.5,
+   "description": [
+    "Josie: \"If you're reading this I'm dead and the valley is cold. Only one of those is your problem.\"",
+    "",
+    "Take Josie's Letter out of your bag and right-click it. Read all four pages — the last one tells you where the old Kettle farm is.",
+    "",
+    "Forty lamps. Fifteen people. One winter that nobody leaves."
+   ],
+   "deps": [],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Josie's Letter read — all four pages"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "command",
+     "command": "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}"
+    },
+    {
+     "type": "command",
+     "command": "advancement grant @p only valley:journal/entry_1"
+    },
+    {
+     "type": "item",
+     "item": "herbalbrews:copper_tea_kettle"
+    },
+    {
+     "type": "item",
+     "item": "waystones:waystone"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:iron_shovel"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:iron_pickaxe"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:cooked_beef",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "minecraft:torch",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "torchmaster:megatorch"
+    },
+    {
+     "type": "toast",
+     "title": "Journal Entry 1",
+     "description": "Next: follow the lit path from where you woke up. It ends at the old Kettle farm. Put the waystone on the flat grey hearthstone by the chimney."
+    }
+   ]
+  },
+  {
+   "key": "q02",
+   "title": "Put the Waystone on the Hearthstone",
+   "subtitle": "Name it Home.",
+   "icon": "waystones:waystone",
+   "description": [
+    "Josie: \"The hearthstone is the one thing in that house I never had to fix. Start from the part that held.\"",
+    "",
+    "Follow the lit path from where you woke up to the old farm — the chimney is still standing. Place the Homestead Waystone on the flat grey hearthstone beside it, type Home in the box, click the tick.",
+    "",
+    "The roof and the walls go back up around you, with a doorway, two window holes and a wool mat where the bed goes."
+   ],
+   "deps": [
+    "q01"
+   ],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Homestead Waystone standing on the hearthstone, named Home"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "mcwdoors:oak_cottage_door"
+    },
+    {
+     "type": "item",
+     "item": "mcwwindows:oak_window",
+     "count": 4
+    },
+    {
+     "type": "item",
+     "item": "minecraft:red_bed"
+    },
+    {
+     "type": "item",
+     "item": "supplementaries:sconce"
+    },
+    {
+     "type": "command",
+     "command": "title @p times 10 70 20"
+    },
+    {
+     "type": "command",
+     "command": "title @p subtitle {\"text\": \"Start from the part that held.\", \"color\": \"gray\", \"italic\": true}"
+    },
+    {
+     "type": "command",
+     "command": "title @p title {\"text\": \"Home\", \"color\": \"gold\"}"
+    },
+    {
+     "type": "command",
+     "command": "execute at @p run playsound minecraft:ui.toast.challenge_complete master @p ~ ~ ~ 1 1"
+    },
+    {
+     "type": "toast",
+     "title": "Home",
+     "description": "Next: hang the door, put a window in each hole, the bed on the mat, the sconce by the door."
+    }
+   ]
+  },
+  {
+   "key": "q03",
+   "title": "Hang the Door, Windows, Bed and Sconce",
+   "subtitle": "All four are in your bag.",
+   "icon": "handcrafted:oak_table",
+   "description": [
+    "Josie: \"A house is a box until somebody shuts a door in it. Go and shut the door.\"",
+    "",
+    "Put the Oak Cottage Door in the doorway, one Oak Window in each of the two holes, the Red Bed on the wool mat, and the Sconce on the hook by the door. Any order is right.",
+    "",
+    "The cottage becomes a home you can cook in, and the smoke from it is what brings Marnie up the hill."
+   ],
+   "deps": [
+    "q02"
+   ],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Door, two windows, bed and sconce placed"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "handcrafted:oak_table"
+    },
+    {
+     "type": "item",
+     "item": "handcrafted:oak_chair",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:canvas_rug"
+    },
+    {
+     "type": "item",
+     "item": "supplementaries:flower_box",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:cooking_pot"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:campfire"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:bricks",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:cabbage",
+     "count": 4
+    },
+    {
+     "type": "item",
+     "item": "minecraft:carrot",
+     "count": 4
+    },
+    {
+     "type": "item",
+     "item": "minecraft:potato",
+     "count": 4
+    },
+    {
+     "type": "toast",
+     "title": "Four Walls and a Door",
+     "description": "Next: place the Megatorch inside the cottage. Then the soup."
+    }
+   ]
+  },
+  {
+   "key": "q04",
+   "title": "Place the Megatorch Inside the Cottage",
+   "subtitle": "One torch, one problem solved.",
+   "icon": "torchmaster:megatorch",
+   "description": [
+    "Josie: \"The dark out here has opinions. The tall torch settles them, permanently, and you never think about it again.\"",
+    "",
+    "Place the Megatorch on the cottage floor, inside the walls, where you can see it from the bed.",
+    "",
+    "Nothing hostile spawns near home from now on — not tonight, not in December."
+   ],
+   "deps": [
+    "q03"
+   ],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Megatorch placed inside the cottage"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "torchmaster:megatorch",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "torchmaster:feral_flare_lantern",
+     "count": 2
+    },
+    {
+     "type": "toast",
+     "title": "Nothing Gets In",
+     "description": "Next: two spare Megatorches are for the pens. Now dig out the cellar stairs."
+    }
+   ]
+  },
+  {
+   "key": "q05",
+   "title": "Dig Out the Cellar Stairs",
+   "subtitle": "About 40 marked blocks of gravel.",
+   "icon": "minecraft:iron_door",
+   "description": [
+    "Josie: \"There's a door down there I'm not going to explain yet. Dig anyway; I know you.\"",
+    "",
+    "There is a trapdoor under the ash in the old kitchen and it is glowing. Dig the gravel out of the stairs beneath it — about 40 marked blocks. The iron shovel is in your bag.",
+    "",
+    "At the bottom: a sealed iron door with no handle and four words chalked on it in her hand — Not yet. — J.K. Beside it, a Cellar Waystone and her tool chest."
+   ],
+   "deps": [
+    "q02"
+   ],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Stairs cleared — you are standing below the cottage floor"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "command",
+     "command": "/valley scene cellar",
+     "team": true
+    },
+    {
+     "type": "item",
+     "item": "waystones:waystone"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:iron_axe"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:iron_hoe"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:shears"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:torch",
+     "count": 32
+    },
+    {
+     "type": "command",
+     "command": "advancement grant @a only valley:journal/found_1",
+     "elevate": true,
+     "silent": true
+    },
+    {
+     "type": "command",
+     "command": "title @p times 10 70 20"
+    },
+    {
+     "type": "command",
+     "command": "title @p subtitle {\"text\": \"A sealed iron door with no handle, and her chalk on it.\", \"color\": \"gray\", \"italic\": true}"
+    },
+    {
+     "type": "command",
+     "command": "title @p title {\"text\": \"Josie's Cellar\", \"color\": \"gold\"}"
+    },
+    {
+     "type": "command",
+     "command": "execute at @p run playsound minecraft:block.bell.resonate master @p ~ ~ ~ 1 1"
+    },
+    {
+     "type": "toast",
+     "title": "The Door Under the House",
+     "description": "No handle, no hinge you can reach, no keyhole. The chalk is not old. Leave it — it is not going anywhere. Next: hang the Copper Kettle and cook one Vegetable Soup."
+    }
+   ]
+  },
+  {
+   "key": "q06",
+   "title": "Cook One Vegetable Soup",
+   "subtitle": "Kettle on the hook, pot on the fire.",
+   "icon": "herbalbrews:copper_tea_kettle",
+   "description": [
+    "Josie: \"Kettle on the hook, soup in the pot — that is the entire ceremony. There has never been a bigger one.\"",
+    "",
+    "Put the campfire down outside your door, set the Cooking Pot on top of it — a Cooking Pot only cooks over a lit fire — and cook one Vegetable Soup. The cabbage, carrots and potatoes are in the basket; three planks at the bench make four bowls. The Copper Kettle hangs on the hook by the door whenever you want it.",
+    "",
+    "Bram's old Surveyor's Stake is in the basket with the vegetables, wrapped in a rag with your name on it — the next quest is what you do with it."
+   ],
+   "deps": [
+    "q03"
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "farmersdelight:cooking_pot",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:vegetable_soup",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "farmersdelight:skillet"
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:iron_knife"
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:cabbage_seeds",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:tomato_seeds",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:rice",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "valley:town_anchor"
+    },
+    {
+     "type": "toast",
+     "title": "Put the Kettle On",
+     "description": "Next: carry the Surveyor's Stake north up the road and place it where the ground sparks green."
+    }
+   ]
+  },
+  {
+   "key": "q07",
+   "title": "Place the Surveyor's Stake North of Your Gate",
+   "subtitle": "Walk north. The ground tells you where.",
+   "icon": "valley:town_anchor",
+   "description": [
+    "Josie: \"Bram surveyed that flat by the road twice and never drove the stake — forty years of nearly. Drive it.\"",
+    "",
+    "Carry Bram's Surveyor's Stake north up the road from your gate. Green sparks come up around your feet the moment you are standing on ground flat enough to hold a town — place the stake in the sparks. That spot is the Town Anchor and every building in the pack is measured from it.",
+    "",
+    "Walk until the cottage chimney is small behind you. Fifteen houses, a square, a mill and a lakefront go in around this stake, and if it is driven in your own dooryard the town is laid on top of the farm. Stake it too close and Josie hands it straight back.",
+    "",
+    "A stone path is laid from your door to the anchor and the first two lamp posts go up. 2 of 40."
+   ],
+   "deps": [
+    "q06"
+   ],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Surveyor's Stake placed north of the gate"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "command",
+     "command": "/valley scene square_path",
+     "team": true
+    },
+    {
+     "type": "command",
+     "command": "bossbar set valley:lamps value 2",
+     "team": true
+    },
+    {
+     "type": "command",
+     "command": "title @p times 10 70 20"
+    },
+    {
+     "type": "command",
+     "command": "title @p subtitle {\"text\": \"This is where the town will be.\", \"color\": \"gray\", \"italic\": true}"
+    },
+    {
+     "type": "command",
+     "command": "title @p title {\"text\": \"The Town Anchor\", \"color\": \"gold\"}"
+    },
+    {
+     "type": "command",
+     "command": "execute at @p run playsound minecraft:block.bell.resonate master @p ~ ~ ~ 1 1"
+    },
+    {
+     "type": "toast",
+     "title": "Lantern Road 2/40",
+     "description": "Next: sleep one night in your bed. Somebody is going to see the smoke."
+    }
+   ]
+  },
+  {
+   "key": "q08",
+   "title": "Sleep One Night in Your Bed",
+   "subtitle": "Marnie sees the chimney.",
+   "icon": "minecraft:red_bed",
+   "description": [
+    "Marnie: \"Four years I've looked at that chimney, and last night there was smoke. I've brought bread and I am not carrying it home.\"",
+    "",
+    "Sleep one night in the Red Bed in your cottage.",
+    "",
+    "Marnie moves in, the inn shell goes up at the Town Anchor, and she leaves you her seed sack, 32 Green Oak Planks and a flint and steel."
+   ],
+   "deps": [
+    "q07"
+   ],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Slept one night in the cottage bed"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "command",
+     "command": "/valley scene inn",
+     "team": true
+    },
+    {
+     "type": "command",
+     "command": "/valley scene bram",
+     "team": true
+    },
+    {
+     "type": "command",
+     "command": "/valley scene marnie",
+     "team": true
+    },
+    {
+     "type": "command",
+     "command": "bossbar set valley:folk value 1",
+     "team": true
+    },
+    {
+     "type": "item",
+     "item": "minecraft:bread",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "waystones:waystone"
+    },
+    {
+     "type": "item",
+     "item": "valley:green_oak_plank",
+     "count": 32
+    },
+    {
+     "type": "item",
+     "item": "minecraft:flint_and_steel"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:wheat_seeds",
+     "count": 9
+    },
+    {
+     "type": "item",
+     "item": "minecraft:carrot",
+     "count": 9
+    },
+    {
+     "type": "item",
+     "item": "minecraft:potato",
+     "count": 9
+    },
+    {
+     "type": "toast",
+     "title": "Residents 1/15",
+     "description": "Next: till the 3x9 patch behind the house — every tile is marked. (Bram is standing outside the mill west of the stake when you're ready for him; he'll wait, he's waited sixty years.)"
+    }
+   ]
+  },
+  {
+   "key": "q09",
+   "title": "Till and Plant the 3x9 Patch",
+   "subtitle": "Wheat, carrots, potatoes.",
+   "icon": "minecraft:wheat_seeds",
+   "description": [
+    "Marnie: \"Three beds: wheat, carrots, potatoes. Anything fancier and you'll be eating it alone in July.\"",
+    "",
+    "Till the 3x9 patch behind the house — every tile is marked in path blocks — then plant the 9 carrots, 9 potatoes and 9 wheat seeds from Marnie's sack. Do the wheat last, and hand this quest in while the nine wheat seeds are still in your bag — the quest just checks you have them, it never takes them, so you plant them straight after.",
+    "",
+    "Marnie hands over the fence, the gate, the trough and three Hen Crates for the pen next to it."
+   ],
+   "deps": [
+    "q08"
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:wheat_seeds",
+     "count": 9
+    },
+    {
+     "type": "checkmark",
+     "title": "All 27 marked tiles tilled and planted"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "thermal:watering_can"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:bone_meal",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "vinery:straw_hat"
+    },
+    {
+     "type": "item",
+     "item": "farm_and_charm:scarecrow"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:oak_fence",
+     "count": 24
+    },
+    {
+     "type": "item",
+     "item": "minecraft:oak_fence_gate"
+    },
+    {
+     "type": "item",
+     "item": "farm_and_charm:feeding_trough"
+    },
+    {
+     "type": "item",
+     "item": "valley:hen_crate",
+     "count": 3
+    },
+    {
+     "type": "toast",
+     "title": "Three Beds of Dirt",
+     "description": "Next: fence the pen on the marked blocks and open the three Hen Crates inside it."
+    }
+   ]
+  },
+  {
+   "key": "q10",
+   "title": "Fence the Pen and Open the Three Hen Crates",
+   "subtitle": "Two hens and a rooster.",
+   "icon": "valley:hen_crate",
+   "description": [
+    "Marnie: \"Two hens and a rooster. Don't name the rooster — you'll get attached, and he is horrible.\"",
+    "",
+    "Put a fence section on each of the 23 stone footings marked out behind the house, hang the gate on the single grey slab in the middle of the side facing you, then right-click all three Hen Crates inside the finished pen. Any order is right.",
+    "",
+    "A nesting box goes down with two eggs already in it, a Megatorch goes up over the coop, and you get chicken feed — right-click a hen with it and she lays."
+   ],
+   "deps": [
+    "q09"
+   ],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Three chickens standing inside the finished pen"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "command",
+     "command": "/valley scene coop",
+     "team": true
+    },
+    {
+     "type": "item",
+     "item": "farm_and_charm:chicken_nest"
+    },
+    {
+     "type": "item",
+     "item": "valley:chicken_feed",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "torchmaster:megatorch"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:egg",
+     "count": 3
+    },
+    {
+     "type": "toast",
+     "title": "Two Hens and a Rooster",
+     "description": "Next: Marnie needs three eggs."
+    }
+   ]
+  },
+  {
+   "key": "q11",
+   "title": "Take Three Eggs to Marnie",
+   "subtitle": "Pip is watching the box.",
+   "icon": "minecraft:egg",
+   "description": [
+    "Pip: \"Is that an egg? Aunt Marnie says I get a duck if I'm useful, so I am being extremely useful.\"",
+    "",
+    "Collect 3 eggs from the nesting box behind your house — right-click a hen with chicken feed if you would rather not wait — and hand them in here. Marnie gets them either way; the book does the walking.",
+    "",
+    "Pip moves in, puts a duckling on your boot and names it Biscuit before you can stop him. His courier board opens, and Marnie empties her carding basket of 16 wool onto the counter."
+   ],
+   "deps": [
+    "q10"
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:egg",
+     "count": 3,
+     "consume": true
+    }
+   ],
+   "rewards": [
+    {
+     "type": "command",
+     "command": "/valley scene pip",
+     "team": true
+    },
+    {
+     "type": "command",
+     "command": "bossbar set valley:folk value 2",
+     "team": true
+    },
+    {
+     "type": "item",
+     "item": "duckling:duck_spawn_egg"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:white_wool",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "domesticationinnovation:pet_bed_yellow"
+    },
+    {
+     "type": "loot",
+     "table": "cozy_crate"
+    },
+    {
+     "type": "command",
+     "command": "execute at @p run summon duckling:duck ~ ~ ~ {CustomName:'{\"text\":\"Biscuit\",\"color\":\"gold\"}',CustomNameVisible:1b,PersistenceRequired:1b}",
+     "elevate": true,
+     "silent": true
+    },
+    {
+     "type": "toast",
+     "title": "Residents 2/15",
+     "description": "Next: Marnie's kitchen needs an oven, and the oven needs dry boards. (The man at the mill is still there when you want him.)"
+    }
+   ]
+  },
+  {
+   "key": "q12",
+   "title": "Talk to Bram at the Broken Mill",
+   "subtitle": "Walk west to the mill. He will accept 'hold this'.",
+   "icon": "valley:token_bram",
+   "description": [
+    "Bram: \"I don't need help — I need somebody to hold things. Different word, same pair of hands.\"",
+    "",
+    "Walk to the mill plot marked on your map, talk to Bram, and bring back the Millwright's Bolt he puts in your hand.",
+    "",
+    "Bram opens his labelled crates: 12 iron ingots and 24 andesite — three times what the eight alloys want, because the Millstone wants the rest."
+   ],
+   "deps": [
+    "q08"
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "valley:token_bram",
+     "count": 1,
+     "consume": true
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:wrench"
+    },
+    {
+     "type": "item",
+     "item": "create:goggles"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:iron_ingot",
+     "count": 12
+    },
+    {
+     "type": "item",
+     "item": "minecraft:andesite",
+     "count": 24
+    },
+    {
+     "type": "command",
+     "command": "bossbar set valley:folk value 3",
+     "team": true
+    },
+    {
+     "type": "command",
+     "command": "advancement grant @a only valley:journal/found_2",
+     "elevate": true,
+     "silent": true
+    },
+    {
+     "type": "toast",
+     "title": "Residents 3/15",
+     "description": "Bram is at the mill. Next: craft 8 Andesite Alloy out of what Bram gave you. Eight. Not nine."
+    }
+   ]
+  },
+  {
+   "key": "q13",
+   "title": "Craft 8 Andesite Alloy",
+   "subtitle": "One andesite plus one iron nugget, eight times. Not nine.",
+   "icon": "create:andesite_alloy",
+   "description": [
+    "Bram: \"One andesite, one iron nugget, pressed. Eight of them, not nine — if you're making nine you've misread something.\"",
+    "",
+    "Craft 8 Andesite Alloy — one andesite and one iron nugget each, so eight andesite and one ingot's worth of nuggets — and hold them when you hand the quest in. The rest of Bram's crate is for the Millstone.",
+    "",
+    "You get a pre-made Mechanical Press, 8 cogwheels, 8 shafts and 32 wheat — the whole bill for the Millstone and its first grind."
+   ],
+   "deps": [
+    "q12"
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:andesite_alloy",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:mechanical_press"
+    },
+    {
+     "type": "item",
+     "item": "create:cogwheel",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "create:shaft",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "minecraft:wheat",
+     "count": 32
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    },
+    {
+     "type": "toast",
+     "title": "Eight Alloys, No More",
+     "description": "Next: Millstone plus Hand Crank, and grind 16 Wheat Flour for Marnie."
+    }
+   ]
+  },
+  {
+   "key": "q13a",
+   "title": "Take Bram's Wide Hammer Off the Bench",
+   "subtitle": "Three by three. One swing.",
+   "icon": "justhammers:stone_hammer",
+   "description": [
+    "Bram: \"Josie hated this thing. Said it made a man lazy. She also borrowed it for eleven days once and gave it back with the handle worn smooth, so I have stopped arguing the point.\"",
+    "",
+    "Take the Stone Hammer off the peg by Bram's bench. It breaks a three-by-three face in one swing — every block in the square goes the same as the one in the middle — so aim the middle of the square at the middle of the hole you want.",
+    "",
+    "It is yours. Bram will not take it back and he will not discuss it further."
+   ],
+   "deps": [
+    "q13"
+   ],
+   "shape": "square",
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Stone Hammer off the peg and in your bag"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "justhammers:stone_hammer",
+     "count": 1
+    },
+    {
+     "type": "command",
+     "command": "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Middle of the square, middle of the hole. And do not swing it in my mill.\",\"italic\":true}]",
+     "elevate": true,
+     "silent": true
+    },
+    {
+     "type": "toast",
+     "title": "Bram's Wide Hammer",
+     "description": "Three by three, one swing. Nothing in this valley needs forty separate swings again."
+    }
+   ]
+  },
+  {
+   "key": "q14",
+   "title": "Grind 16 Wheat Flour on a Hand-Cranked Millstone",
+   "subtitle": "Your arm first, then the river.",
+   "icon": "create:millstone",
+   "description": [
+    "Bram: \"Hand crank first. You should know exactly what the water is doing for you before it starts doing it.\"",
+    "",
+    "Build a Millstone, put a Hand Crank on top of it, and grind Bram's 32 wheat down to 16 Wheat Flour for Marnie.",
+    "",
+    "Encased Fan, 3 Andesite Alloy, casings and iron — the parts list for the Mechanical Saw in two quests' time."
+   ],
+   "deps": [
+    "q13"
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:wheat_flour",
+     "count": 16,
+     "consume": true
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:encased_fan"
+    },
+    {
+     "type": "item",
+     "item": "create:andesite_alloy",
+     "count": 3
+    },
+    {
+     "type": "item",
+     "item": "create:andesite_casing",
+     "count": 4
+    },
+    {
+     "type": "item",
+     "item": "minecraft:iron_ingot",
+     "count": 8
+    },
+    {
+     "type": "loot",
+     "table": "tech_crate"
+    },
+    {
+     "type": "toast",
+     "title": "Turn It By Hand",
+     "description": "Next: two Water Wheels — and they need Seasoned Oak Boards out of Marnie's bread oven."
+    }
+   ]
+  },
+  {
+   "key": "q15",
+   "title": "Dry 32 Green Oak Planks in Any Furnace",
+   "subtitle": "Two minutes of heat, and they're boards.",
+   "icon": "valley:seasoned_oak_board",
+   "description": [
+    "Marnie: \"Green planks want heat and time. Josie dried every board in this valley in a furnace and was insufferable about it.\"",
+    "",
+    "Smelt the 32 Green Oak Planks in any furnace — about two minutes for the lot — and hold 32 Seasoned Oak Boards. Marnie's charcoal is in the barrel by the door.",
+    "",
+    "Bram cannot craft a Water Wheel without these boards — that gate is the furnace, and the furnace is you. You also get the inn's spare crockery, a chair by the fire, and the Counter, Sink and Oven for the kitchen."
+   ],
+   "deps": [
+    "q08"
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "valley:seasoned_oak_board",
+     "count": 32
+    }
+   ],
+   "rewards": [
+    {
+     "type": "command",
+     "command": "tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Dry boards. In April. Hm.\",\"color\":\"white\",\"italic\":true}]",
+     "team": true
+    },
+    {
+     "type": "stage",
+     "stage": "seasoned"
+    },
+    {
+     "type": "item",
+     "item": "handcrafted:wood_crockery_combo"
+    },
+    {
+     "type": "item",
+     "item": "handcrafted:oak_chair"
+    },
+    {
+     "type": "item",
+     "item": "cookingforblockheads:counter"
+    },
+    {
+     "type": "item",
+     "item": "cookingforblockheads:sink"
+    },
+    {
+     "type": "item",
+     "item": "cookingforblockheads:oven"
+    },
+    {
+     "type": "toast",
+     "title": "Stage: seasoned",
+     "description": "Next: fit the Counter, Sink and Oven along the inn's back wall. Bram's wheels are unblocked."
+    }
+   ]
+  },
+  {
+   "key": "q16",
+   "title": "Build 2 Water Wheels on the Mill Race",
+   "subtitle": "The boards are dry; the race is cut.",
+   "icon": "create:water_wheel",
+   "description": [
+    "Bram: \"Race is cut, boards are dry, and I'm sixty-four. Two wheels, today.\"",
+    "",
+    "Craft 2 Water Wheels using the Seasoned Oak Boards, set them in the mill race beside the mill, and belt the Millstone off them so it turns without you.",
+    "",
+    "Mechanical Saw, Basin and Mixer, plus Bram's crate: 32 Andesite Alloy and 16 wool he has been keeping for windmill sails."
+   ],
+   "deps": [
+    "q14",
+    "q15"
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:water_wheel",
+     "count": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:mechanical_saw"
+    },
+    {
+     "type": "item",
+     "item": "create:basin"
+    },
+    {
+     "type": "item",
+     "item": "create:mechanical_mixer"
+    },
+    {
+     "type": "item",
+     "item": "create:andesite_alloy",
+     "count": 32
+    },
+    {
+     "type": "item",
+     "item": "minecraft:white_wool",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 5
+    },
+    {
+     "type": "toast",
+     "title": "Water Finds a Way",
+     "description": "Next: cut 128 boards on the Saw and give Bram 64 for Oda's market stalls."
+    }
+   ]
+  },
+  {
+   "key": "q17",
+   "title": "Cut 128 Boards and Give Bram 64",
+   "subtitle": "Sixty-four boards is four stalls.",
+   "icon": "create:mechanical_saw",
+   "description": [
+    "Bram: \"Oda wants four stalls for the fair. Sixty-four boards is four stalls.\"",
+    "",
+    "Cut 128 Oak Planks on the Mechanical Saw — about twenty-two oak logs off the ridge behind the mill. Hold all 128 when you hand in: the book counts the full 128 and only takes 64 of them for Bram's stalls. You are not cutting 192.",
+    "",
+    "Stage market_stalls: the Thaw Fair now has somewhere to trade from, and you keep Macaw's roof kits and four planters for your own roof."
+   ],
+   "deps": [
+    "q16"
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:oak_planks",
+     "count": 128,
+     "title": "128 boards cut — you keep these"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:oak_planks",
+     "count": 64,
+     "consume": true,
+     "title": "64 of them go to Bram for the stalls"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "stage",
+     "stage": "market_stalls"
+    },
+    {
+     "type": "item",
+     "item": "mcwroofs:oak_planks_roof",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "mcwroofs:oak_planks_steep_roof",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "mcwroofs:oak_planks_top_roof",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "supplementaries:planter",
+     "count": 4
+    },
+    {
+     "type": "loot",
+     "table": "tech_crate"
+    },
+    {
+     "type": "toast",
+     "title": "Stage: market_stalls",
+     "description": "Next: Oda's store. She wants 16 flour and 8 loaves, and the cobwebs gone."
+    }
+   ]
+  },
+  {
+   "key": "q18",
+   "title": "Fit the Kitchen and Cook Three Dishes",
+   "subtitle": "Counter, sink, oven, back wall.",
+   "icon": "cookingforblockheads:oven",
+   "description": [
+    "Marnie: \"Counter, sink, oven, along the back wall in that order. I've had the spots chalked for four years.\"",
+    "",
+    "Have the Kitchen Counter, Sink and Oven in your bag when you hand this in — the quest checks for them and gives them straight back — then set them on the three marked spots along the inn's back wall — three grey slabs, numbered 1, 2 and 3 on the wall above them: counter, sink, oven, in that order. Cook Bread, a Pumpkin Pie and a Vegetable Soup in that kitchen; everything is in the crate by the counter.",
+    "",
+    "You get the recipe book, the fruit basket, Marnie's cupboards — and Oda's broom off the back door, which Q19 needs."
+   ],
+   "deps": [
+    "q15"
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "cookingforblockheads:counter",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "cookingforblockheads:sink",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "cookingforblockheads:oven",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:bread",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:pumpkin_pie",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:vegetable_soup",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "command",
+     "command": "recipe give @p *"
+    },
+    {
+     "type": "item",
+     "item": "cookingforblockheads:recipe_book"
+    },
+    {
+     "type": "item",
+     "item": "cookingforblockheads:fruit_basket"
+    },
+    {
+     "type": "item",
+     "item": "handcrafted:oak_cupboard"
+    },
+    {
+     "type": "item",
+     "item": "handcrafted:oak_shelf"
+    },
+    {
+     "type": "item",
+     "item": "handcrafted:oak_counter"
+    },
+    {
+     "type": "item",
+     "item": "valley:oda_broom"
+    },
+    {
+     "type": "loot",
+     "table": "cozy_crate"
+    },
+    {
+     "type": "toast",
+     "title": "Marnie's Kitchen",
+     "description": "Next: sweep Oda's store with the broom, then bring her 16 flour and 8 loaves."
+    }
+   ]
+  },
+  {
+   "key": "q19",
+   "title": "Sweep Oda's Store and Bring Her 16 Flour and 8 Bread",
+   "subtitle": "Act I finale — The Thaw Fair.",
+   "icon": "minecraft:bread",
+   "shape": "hexagon",
+   "size": 1.5,
+   "description": [
+    "Oda: \"Eleven years of keeping the ledger of a shop with nothing in it. Bring me stock and I will open the door.\"",
+    "",
+    "Sweep the marked cobwebs out of the store with Oda's broom, then hand her 16 Wheat Flour and 8 Bread across the counter.",
+    "",
+    "Forty lamps. Fifteen people. One winter that nobody leaves.",
+    "",
+    "The Thaw Fair opens at the Town Anchor: four stalls, a long table, bunting, six lamps burning — and five people standing in a square that was a frozen field in February."
+   ],
+   "deps": [
+    "q17",
+    "q18"
+   ],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Every marked cobweb swept out of the store"
+    },
+    {
+     "type": "item",
+     "item": "create:wheat_flour",
+     "count": 16,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "minecraft:bread",
+     "count": 8,
+     "consume": true
+    }
+   ],
+   "rewards": [
+    {
+     "type": "command",
+     "command": "/valley finale act1"
+    },
+    {
+     "type": "command",
+     "command": "advancement grant @a only valley:journal/found_3",
+     "elevate": true,
+     "silent": true
+    },
+    {
+     "type": "stage",
+     "stage": "act2"
+    },
+    {
+     "type": "loot",
+     "table": "story_crate"
+    },
+    {
+     "type": "item",
+     "item": "explorerscompass:explorerscompass"
+    },
+    {
+     "type": "toast",
+     "title": "The Thaw Fair",
+     "description": "Next: Act II. Right-click Marnie's Explorer's Compass, type Ribbit in the search box and click Ribbit Village — the needle points there until you pick something else. There is also a woman fixing a beached boat at the lake and a prospector camped by the copper outcrop."
+    }
+   ]
+  }
+ ]
 }

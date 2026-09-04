@@ -16,7 +16,7 @@
       ActionEventSet:{
         ON_INTERACTION:[
           {
-            Cmd:"/info_message Wisp says you are the new one. You are less tall than said.",
+            Cmd:"/valley greet ribbit_reed before @initiator",
             ExecAsUser:0b,
             PermLevel:2,
             Type:"COMMAND"

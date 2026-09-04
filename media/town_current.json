@@ -1,0 +1,227 @@
+{
+  "_read_me": "Measurement pass of everything the current pack places, before the Towns-and-Towers/Dungeons-and-Taverns re-skin. All offsets are [dx,dy,dz] from the Town Anchor (VALLEY.OFF in valley_core.js) unless marked HOME-relative. A 'mark' name is a key in VALLEY.OFF, resolved at runtime via v.mark(name) = anchor + OFF[name] (or v.home() for 'home'). Every finale/scene command list is itself written as ~ offsets from its own origin mark, resolved by valley_finales.js resolve(). Ranges below are that mark's local ~ offsets, so 'absolute anchor offset' = OFF[origin] + local range.",
+
+  "marks": {
+    "anchor": {"off": [0,0,0], "set_by": "Q7 place waystones:town_anchor listener in valley_checks.js; persisted as valley_anchor"},
+    "home":   {"note": "NOT an OFF entry — separate persistentData key valley_home, set by Q2 waystone placement on the Kettle ruin hearthstone. Everything HOME_* is relative to this, not to anchor.", "set_by": "Q2"},
+    "ruin":   {"note": "valley_ruin — the Kettle ruin hearthstone placed at first join by setup/place_ruin.mcfunction, offset from the player's actual spawn/house pick, NOT a fixed anchor offset. Home is normally set on top of it."},
+    "square": {"off": [0,1,0], "desc": "Town Square waystone, set by finaleAct1"},
+    "board":  {"off": [0,1,-5], "desc": "Oda's noticeboard, placed by finaleAct3"},
+    "inn":    {"off": [-8,1,12], "desc": "The Hearth / centre of the 9x9 inn shell built by scene 'inn' (valley:act1/inn_shell) at Q8. MOVED here from the old [-14,1,4] (which collided with the granary) — comment says this is the only mark every dependent quest addresses by name, never a literal coordinate."},
+    "mill":   {"off": [-26,0,4], "desc": "The mill / Bram's shell + race, built by scene 'bram' (valley:act1/bram_arrives) at Q12"},
+    "granary":{"off": [-14,1,-4], "desc": "granary_shell placed by finaleAct2, granary_facade + noticeboard placed by finaleAct3"},
+    "lake":   {"off": [0,1,34], "desc": "The Pier waystone; basin dug and pier placed by finaleAct2"},
+    "works":  {"off": [34,-6,-20], "desc": "The sealed underground Works chamber, 6 blocks under the surface. Dug by excavateWorks() the first time it's needed (either Q65's scene or Act IV's finale)."},
+    "greenhouse": {"off": [-20,1,14], "desc": "Greenhouse shell built by scene q60 (Act IV), glazed by scene set inside act5.json Q-chain / q64"},
+    "bathhouse":  {"off": [4,1,22], "desc": "behind the inn, clear of the mill (x -24..-16,z 2..10) and the Marnie/Pip pads (x -13..-3,z 18..20). Fixtures by scene q72's 'also' block."},
+    "echo_cave":  {"off": [34,-30,-20], "desc": "probe-only mark, BOX.echo_cave=[8,6,8], no build found placing terrain here — it is assumed to exist naturally / from world stage 'act5' content not covered in these three files"}
+  },
+
+  "box_sizes_blocks": {
+    "works": [10,6,10],
+    "echo_cave": [8,6,8],
+    "cellar": [7,4,7]
+  },
+
+  "home_relative_marks": {
+    "HOME_CELLAR_Y": -3,
+    "HOME_DEEP_Y": -6,
+    "HOME_PORCH": [3,0,0],
+    "note": "Q5 gate: flatDist(player,home)<=16 && player.y <= home.y-3. Q55 gate (only after world stage act3): flatDist<=10 && player.y <= home.y-6. Q90 (the bare 40th lamp post): must land within 2 blocks of home+HOME_PORCH; force-set lit the instant it's placed."
+  },
+
+  "lamp_road": {
+    "engine_note": "A LAMPS_* array entry is the POST's own y (the fence); the LAMP block itself is stored/placed at y+LAMP_HEAD(1). persistentData.lamps[] always stores the LAMP coordinate. Act IV's lever sweep and the /valley scene q74 sparkle both iterate v.lamps().",
+    "LAMP_TOLERANCE": 2,
+    "LAMPS_FINALE (4 posts, Act I finale, anchor-relative, LIT on placement)": [[-12,1,0],[12,1,0],[0,1,-12],[0,1,12]],
+    "LAMPS_Q07 (2 posts, Q7 reward via square_path.mcfunction, LIT)": [[-2,1,8],[2,1,16]],
+    "LAMPS_Q34 (4 posts, Q34 'mill to square', player-placed, must land within tolerance)": [[-16,1,2],[-20,1,3],[-24,1,4],[-8,1,1]],
+    "LAMPS_Q74 (17 posts, Act IV 'mill to square to lake', player-placed)": [
+      [4,1,6],[8,1,10],[12,1,14],[16,1,18],[20,1,22],[24,1,26],
+      [-4,1,8],[-8,1,12],[-12,1,16],[-16,1,20],[-20,1,24],
+      [6,1,-8],[10,1,-12],[14,1,-16],[-6,1,-8],[-10,1,-12],[-14,1,-16]
+    ],
+    "count_check": "4 + 2 + 4 + 17 = 27 whitelisted anchor-relative posts, + Wisp's 4 unlisted river posts (scene q58, never counted) + 4 reed-village-adjacent (n/a) + the Q90 home-porch post (40th) + bathhouse's 2 (scene q72 'also') + Halden-still's lantern (not a road post) = the 40 total the bossbar/board text claims. Exact 40th accounting: 4+2+4+17=27 road posts + q90's 1 = 28 counted-in-persistentData whitelisted-or-Q90 posts; scene q58 (4), q72-also (2) and bram/marnie/pip/nesting_box/cottage/square_path/cellar's incidental fence+lantern posts are cosmetic lanterns, NOT createdeco lamps, so they never enter v.lamps() at all — only LAMP_BLOCK (createdeco:yellow_copper_lamp) placements do. VERIFY against valley_checks.js before touching any of these arrays."
+  },
+
+  "act1_functions_and_scenes": {
+    "setup/place_ruin.mcfunction": {
+      "invoked": "positioned at hearthstone, first join, once per world",
+      "places": "valley:kettle_ruin (11x10x11) at local ~-5,-2,-5; yard fence/lantern dressing out to ~-9..9",
+      "sets_mark": "valley_ruin"
+    },
+    "act1/cottage.mcfunction (Q2 reward)": {
+      "invoked": "positioned at hearthstone (= home mark) the instant the Q2 waystone is placed",
+      "footprint_home_relative": "walls x/z -4..4, roof to y+5..+6, chimney -5,-1..7,-2; back yard levelled to z -6..-13",
+      "hard_marks": [
+        "Q9 farm patch: x -8..0, z -8..-6, home-relative (27 dirt_path tiles, well at -4,-1,-10)",
+        "Q10 pen: 7x7 outline x 1..7 z -12..-6 home-relative, gate slab at 4,-1,-6; nesting_box centre = home+[4,-1,-9]"
+      ]
+    },
+    "act1/square_path.mcfunction (Q7 reward, anchor-relative)": {
+      "footprint": "pad x/z -3..3; road x -1..1, z 1..24 (3 wide, 24 long, running south/+z)",
+      "places": "LAMPS_Q07 posts at [-2,1,8] and [2,1,16] (lit); two plain lantern posts at z=2"
+    },
+    "act1/cellar_door.mcfunction (scene 'cellar', Q5 reward, HOME-relative, once)": {
+      "invoked_at": "home + [0,-6,0] (fallback: ruin hearthstone, then claiming player)",
+      "footprint": "7x4x7 room, local x/z -3..3, y -1..3",
+      "why_offset_-6": "cellar ceiling lands at home.y-3 (under the cottage subfloor at home.y-2); floor at home.y-6, satisfying both Q5 (y<=home-3) and Q55 (y<=home-6)"
+    },
+    "act1/inn_shell.mcfunction (scene 'inn', Q8 reward, once)": {
+      "invoked_at": "inn mark",
+      "footprint_anchor_absolute": "x -13..-3, z 7..17 (9x9 + 1-block eave); y: floor sub at inn.y-2, walls inn.y..inn.y+3, roof deck +4, chimney to +9",
+      "hard_marks": ["Q18: 3 polished_andesite tiles at local ~-1..1,~-1,~3 (south/back wall) with signs COUNTER/SINK/OVEN above"]
+    },
+    "act1/marnie_arrives.mcfunction (scene? actually 3rd Q8 reward, player-positioned)": {
+      "footprint": "5x3 cobblestone pad local x -2..2, z 6..8, just outside the cottage's south door — NOT anchor/inn relative, runs at claiming player's feet"
+    },
+    "act1/pip_arrives.mcfunction (Q11 reward, player-positioned)": {
+      "footprint": "5x3 dirt_path pad local x -2..2, z 2..4"
+    },
+    "act1/nesting_box.mcfunction (scene 'coop', Q10 reward)": {
+      "invoked_at": "home + [4,-1,-9] (centre of the Q10 pen cottage.mcfunction marks out)"
+    },
+    "scene bram (act1/bram_arrives.mcfunction, Q12 reward, once)": {
+      "invoked_at": "mill mark",
+      "footprint_anchor_absolute": "mill house shell x -24..-16, z 2..10 (mill+[2,10]); mill plot cleared x -32..-13, z -2..13",
+      "places": "valley:mill_race template at mill+[0,0,0]; snapped axle blocks at mill+[4..7,1,4..5]; Bram NPC at mill+[11,1,2]",
+      "hard_marks": ["Q16: two Water Wheels go IN the mill race (built here, not at the finale anymore)"]
+    }
+  },
+
+  "finaleAct1 (Q19 reward, anchor + lake, once per world)": {
+    "town_square_pad": "cut around BOTH the inn and mill holes; 7 rectangles, overall anchor x/z -18..18, y 1..14 cleared, y-3..0 filled",
+    "waystone": "Town Square waystone at anchor+[0,1,0]",
+    "lit_lamp_posts_placed_here": "the 4 LAMPS_FINALE corners + re-places LAMPS_Q07's 2 (the pad clear deletes them, then puts them back) = 6 lit posts, matching the quest text 'six lamps burning'",
+    "structures_placed": [
+      "valley:market_stall x4 at anchor+[-10,1,-10], [8,1,-10], [4,1,14], [8,1,8] (5x4x3 each)",
+      "valley:long_table at anchor+[-4,1,-11] (9x2x3)"
+    ],
+    "extra_npcs_and_pads": {
+      "Nella (lake mark, boat + dock pad local x -4..4 z 4..12)": "lake+local pad",
+      "Tobin (anchor+[19..27,0..8,-21..-13], OUTSIDE the 18-radius pad)": "copper outcrop camp"
+    }
+  },
+
+  "finaleAct2 (Q37 reward, lake mark, once per world)": {
+    "lake_basin": "dug and sealed: shell local x/z ±9, y-4..-1 stone; interior air y0..8; five 1-thick water-plug walls just outside shell; 3 courses of source water top face at lake.y. Basin absolute z range = lake.z+9..lake.z+25 = 43..59 (anchor-relative), x = -9..9",
+    "pier": "valley:pier template (3x3x9) at lake+[-1,0,0]; waystone 'The Pier' at lake+[0,1,-2]",
+    "granary_shell": "valley:granary_shell (9x6x9) placed at anchor+[-14,1,-4] (granary mark)",
+    "float_props": "12 raft lanterns + lily pads scattered z 11..24 in the basin; rail posts + 6 lit candle holders on the pier deck"
+  },
+
+  "finaleAct3 (Q54(?) reward — 'The Harvest Supper', anchor, once)": {
+    "beat0": "hay/pumpkin decor at anchor±6; granary_facade (9x6x1) + noticeboard (3x4x1) placed at anchor+[-14,1,-4] and anchor+[0,1,-5]; noticeboard sign text merged via data merge block",
+    "beat1_delay120": "season->early_winter, worldborder->10000, THIS IS THE ONLY THING THAT GRANTS WORLD STAGE 'act4' — losing this delay window strands everything gated on act4/act5"
+  },
+
+  "finaleAct4 (Q71 reward — 'The Longest Night', works mark, once)": {
+    "beat0": "excavateWorks() no-op-safe dig; 11 residents tp'd into works+[±4,1,2..6]",
+    "beat1_delay80": "the lever setblock at works+[0,2,0] on a polished_andesite panel at works+[0,2,-1]; THIS IS THE LAMP SWEEP that iterates v.lamps() and relights every stored post nearest-Works-first, one per tick; also relights inn Hearth campfire and bathhouse steam particles; grants world stages 'greenhouse_warm' and 'act5'",
+    "beat2_delay200": "season->early_spring turn, backstop re-set of every lamp (LAST BEAT, latches act4)",
+    "works_chamber_shell": "sealed box works+local x -6..8,y -1..4,z -6..8 (outer walls); room interior x -5..7,y0..3,z-5..7. Q65's lanterns at [±4,3,±4], stable pad [5..7,0,5..7], horse at [6,1,6]; Q66's duct/cells at [±2,0,-4]; Q71/Act IV lever at [0,2,0]"
+  },
+
+  "finaleAct5 (Q?? reward — 'Founder's Day', anchor, once)": {
+    "pads": "town_hall pad anchor x -22..-10 z -18..-6; stone_bridge pad anchor x 13..19 z -17..-5",
+    "structures_placed": [
+      "valley:town_hall (11x7x11) at anchor+[-21,1,-17]",
+      "valley:stone_bridge (5x5x11) at anchor+[14,0,-16]",
+      "valley:mill_roof (9x5x9) at anchor+[-24,4,2] — over the mill built by scene bram"
+    ],
+    "signpost": "'LITTLE KETTLE VALLEY pop.15 est. again' at anchor+[0,1,-3] (data merge trap identical to the noticeboard — MUST setblock air first)",
+    "newcomer_path": "dirt_path anchor x -2..2, z 10..28; newcomer NPCs land at z 24..26"
+  },
+
+  "act4_scenes_q58_through_q74 (all origin-mark relative, most NOT latched — see 'once' flags)": {
+    "q58 (Wisp's river lanterns, anchor, NOT once)": "4 lit posts down the frozen river at anchor+[2,1,14],[−2,1,20],[2,1,26],[−2,1,32] — NOT on any LAMPS_* whitelist, never counted",
+    "q59 (Ribbit village moves in, anchor, NOT once)": "4 Ribbit NPCs + campfire + 1 lit post at anchor+[-13,1,5] (also not on a LAMPS_* route)",
+    "q60 (greenhouse shell + relit Hearth, greenhouse+inn 'also', NOT once)": "shell local x/z -4..4/-3..3 (abs anchor x -24..-16, z 11..17); 2 lit posts SET INTO the walls at greenhouse+[-4,1,0] and [4,1,0]; inn Hearth campfire relit at inn+[0,0,0]",
+    "q62 (Halden's still, anchor, NOT once)": "brewing stand/cupboard/cauldron at anchor+[-14..-13,1,6] — MOVED off the mill's old south-east corner post to clear the mill house (x -24..-16,z2..10), inn shell+eave (x-13..-3,z7..17), granary shell (x-14..-6,z-4..4)",
+    "q64 (greenhouse glazing, greenhouse, NOT once)": "6 window frames + cottage door at greenhouse local z=±3; 8 planters on the marked bench at greenhouse+[0,1,1] area",
+    "q65 (Works opens, works, pre=excavateWorks, NOT once but idempotent via lantern/table setblocks)": "5 hanging lanterns at works±[4,3,±4]/[0,3,0]; smithing table works+[-3,0,-3]; barrel +[3,0,-3]; stable pad works+[5..7,0,5..7]; saddled horse works+[6,1,6]",
+    "q66 (grid duct, works, pre=excavateWorks)": "2 energy cells + duct at works+[±2/±1,0,-4]; redstone lamp at works+[0,1,-4]",
+    "q70a (three beds, inn, NOT once)": "3 white beds along inn's west wall, local x=-3, z=-3..2",
+    "q71 (turbine lever pre-set, works, pre=excavateWorks)": "lever (UNPOWERED) at works+[0,2,0] on panel works+[0,2,-1]; 2 copper blocks either side; sign 'JK — 1800 RPM under load' at works+[0,3,0]",
+    "q72 (coolant loop, greenhouse + bathhouse 'also', NOT once)": "6 magma-block heaters at greenhouse±[1,3]/-2z; bathhouse: water pool local -2..2, magma block center, 2 lit posts at bathhouse±[3,1,3]/[3,2,3]",
+    "q73 (bring Bram, inn, NOT once)": "chair+table at inn+[1..2,0,1..2]",
+    "q74 (last 17 lamp posts, anchor + home, run-only — places NO blocks itself, just particles + the bare 40th post at home+HOME_PORCH)": "player places the physical LAMPS_Q74 posts; this scene is cosmetic sparkle + bossbar sync + the bare fence at home+[3,0,0]",
+    "q76 (year-two noticeboard rewrite, anchor, NOT once)": "same data-merge trap on the noticeboard sign at anchor+[1,4,-5]"
+  },
+
+  "quest_text_position_promises_that_must_stay_true": [
+    {"quest": "Q2", "text": "'the flat grey hearthstone by the chimney'", "mark": "ruin hearthstone / home"},
+    {"quest": "Q7", "text": "'Surveyor's Stake placed north of the gate'", "mark": "anchor, north of the home gate"},
+    {"quest": "Q8", "text": "'inn shell goes up at the Town Anchor'", "mark": "inn (anchor+[-8,1,12], NOT literally at [0,0,0])"},
+    {"quest": "Q9", "text": "'till the 3x9 patch behind the house'", "mark": "home + [-8..0,-1,-8..-6]"},
+    {"quest": "Q10", "text": "'23 stone footings ... behind the house'", "mark": "home + [1..7,-1,-12..-6]"},
+    {"quest": "Q11", "text": "'nesting box behind your house'", "mark": "home + [4,-1,-9]"},
+    {"quest": "Q12", "text": "'the mill plot marked on your map'", "mark": "mill"},
+    {"quest": "Q16", "text": "'set two Water Wheels in it [the race]'", "mark": "mill race, cut at Q12 not the finale"},
+    {"quest": "Q18", "text": "'three marked spots along the inn's back wall'", "mark": "inn south wall, local x -1..1,z=3"},
+    {"quest": "Q19 finale", "text": "'Fair opens at the Town Anchor: four stalls, a long table ... six lamps burning'", "mark": "anchor"},
+    {"quest": "Q21/Q27", "text": "Nella at the beached boat / Tobin at the copper outcrop", "mark": "lake / anchor+[19..27,0..8,-21..-13], both arrive with finaleAct1 not finaleAct2"},
+    {"quest": "Q34", "text": "'4 marked spots between the mill and the square'", "mark": "LAMPS_Q34"},
+    {"quest": "Q37 finale (Float)", "text": "lake festival", "mark": "lake"},
+    {"quest": "Q39", "text": "'twelve alcoves in the granary shell'", "mark": "granary"},
+    {"quest": "Q47", "text": "'Energy Duct within 12 blocks of the inn'", "mark": "inn"},
+    {"quest": "Q53", "text": "'crate beside the board' (Oda's noticeboard / order board)", "mark": "board (anchor+[0,1,-5])"},
+    {"quest": "Q54/finaleAct3", "text": "'Harvest Supper' at the long table (square) + granary facade/noticeboard", "mark": "anchor / granary / board"},
+    {"quest": "Q55", "text": "'read the cellar wall' — deeper than Q5, gated on world stage act3", "mark": "home"},
+    {"quest": "Q58", "text": "Wisp's lantern path down the frozen river", "mark": "anchor, river posts (uncounted)"},
+    {"quest": "Q59", "text": "'reed village comes in'", "mark": "anchor (Ribbit camp)"},
+    {"quest": "Q60", "text": "'greenhouse shell goes up on the square', Hearth relights", "mark": "greenhouse / inn"},
+    {"quest": "Q62", "text": "'Halden's still ... west of the square, a few steps south of the hedge garden'", "mark": "anchor+[-14..-13,1,6]"},
+    {"quest": "Q64", "text": "'glaze the greenhouse shell on the square'", "mark": "greenhouse"},
+    {"quest": "Q65", "text": "'Open the Works' — 'forty blocks of fallen adit', box check", "mark": "works"},
+    {"quest": "Q66", "text": "'duct from the mill to the Works'", "mark": "works (+ implied path from mill)"},
+    {"quest": "Q70a", "text": "'three empty houses, three beds' — actually placed inside the inn's own room", "mark": "inn west wall"},
+    {"quest": "Q71/finaleAct4", "text": "'the lever' / 'The Longest Night'", "mark": "works"},
+    {"quest": "Q72", "text": "'coolant loop ... 6 greenhouse heaters ... bathhouse tank behind the inn'", "mark": "greenhouse / bathhouse"},
+    {"quest": "Q74", "text": "'forty posts, mill to square to lake' + 'the bare fortieth post' (Q90, Josie's porch)", "mark": "LAMPS_Q74 + home+HOME_PORCH"},
+    {"quest": "Q76", "text": "'year two' noticeboard rewrite", "mark": "board"},
+    {"quest": "Q82", "text": "'Deeper and Darker' — echo cave box", "mark": "echo_cave"},
+    {"quest": "Q90", "text": "'The Last Lamp' on Josie's porch", "mark": "home+HOME_PORCH"},
+    {"quest": "finaleAct5", "text": "'Founder's Day' — town hall, stone bridge, mill roof, signpost, three newcomers on a pre-filled path", "mark": "anchor"}
+  ],
+
+  "structures_and_sizes_xyz": {
+    "kettle_ruin.nbt": [11,10,11],
+    "granary_shell.nbt": [9,6,9],
+    "granary_facade.nbt": [9,6,1],
+    "market_stall.nbt": [5,4,3],
+    "long_table.nbt": [9,2,3],
+    "mill_race.nbt": [7,3,3],
+    "mill_roof.nbt": [9,5,9],
+    "noticeboard.nbt": [3,4,1],
+    "pier.nbt": [3,3,9],
+    "stone_bridge.nbt": [5,5,11],
+    "town_hall.nbt": [11,7,11]
+  },
+
+  "procedurally_filled_no_template_yet": [
+    "cottage (Q2/home) — plank-box, home-relative, place_ruin.mcfunction + cottage.mcfunction",
+    "inn (Q8/act1) — plank-box, inn mark, inn_shell.mcfunction",
+    "mill house (Q12/act1) — plank-box, mill mark, bram_arrives.mcfunction",
+    "greenhouse (Act IV q60/q64) — plank+glass box, greenhouse mark",
+    "bathhouse (Act IV q72) — bare water pool + posts, bathhouse mark, no shell walls at all",
+    "the Works interior (Act IV q65/q66/q71 + finaleAct4) — stone-brick dug chamber, works mark, WORKS_SHELL const"
+  ],
+
+  "hard_constraints_the_redesign_must_keep": [
+    "Every quest/probe in valley_checks.js reads v.mark(<name>) or v.home()/v.anchor() at RUN TIME — so a rebuild that changes what /valley scene <key> or finaleActN place, but keeps the SAME anchor-relative OFF[] coordinates (or moves an OFF[] value and updates every consumer in lockstep across valley_core.js + valley_finales.js + valley_checks.js), preserves every probe automatically. Renaming or shrinking a mark's OFF entry without touching all three files breaks quests silently.",
+    "LAMPS_FINALE / LAMPS_Q07 / LAMPS_Q34 / LAMPS_Q74 are baked into BOTH valley_core.js (VALLEY.C) and valley_finales.js (the POST/LAMP_LIT/LAMP_DARK constants + literal command arrays) — changing lamp-post positions means editing both files identically, and the actual placed LAMP_BLOCK positions must land inside LAMP_TOLERANCE (2 blocks) of the whitelisted array, or Q34/Q74 never complete and the Act IV lever never finds them.",
+    "The Works chamber MUST stay a sealed shell before being dug out (WORKS_SHELL: walls first, floor+ceiling, THEN air+water-replace) — anchor+[34,-6,-20] is 6 blocks underground and any redesign that digs air before sealing risks flooding from any nearby aquifer/lake/river again.",
+    "The inn mark (anchor+[-8,1,12]) must stay clear of: the mill house (x -24..-16, z 2..10), the granary (x -14..-6, z -4..4), the town square paving (x >= -7 only above z 7), the bathhouse + its posts (x <= -15), the Act V town hall (z <= -7), and the Act V approach path (x -2..2). This footprint math must be redone from scratch for whatever Towns-and-Towers 'tavern' piece replaces it.",
+    "The lake basin (finaleAct2) is a DUG, SEALED basin (stone shell + 5 water-replace plugs) — not natural terrain — because the Act II 'Float' needs open, controllable water at a known absolute location for the raft-lantern/lily-pad scatter and the pier template. Any new pier/lake structure needs the same dig-and-seal treatment or a lakeside/coastal anchor can drain the basin.",
+    "The noticeboard's sign text is written via `data merge block`, never `setblock`, because a `place template` (or a hand-built equivalent) leaves an oak_sign at a position whose blockstate already matches what setblock would write — an identical setblock silently drops the NBT. Any replacement noticeboard structure must be placed FIRST, then have its sign text applied with `data merge block` as a separate step.",
+    "square_path.mcfunction's two LAMPS_Q07 posts and finaleAct1's four LAMPS_FINALE posts are the 'six lamps burning' the Q19 quest text and Oda's Act II line both count literally — a redesign of the town square must still leave exactly these six anchor-relative positions (or their v.lamps()-registered equivalents) lit from Act I onward.",
+    "HOME_CELLAR_Y (-3) and HOME_DEEP_Y (-6) are absolute vertical gates off home.y — any new cellar/cottage template must still put its cellar floor at home.y-6 or below (with a mid-landing at home.y-3) or Q5/Q55 stop firing.",
+    "HOME_PORCH ([3,0,0] off home) is where Q90's 40th lamp force-lights the instant a createdeco:yellow_copper_lamp lands within 2 blocks — a new cottage template needs a bare fence-post-sized gap at this exact offset (or the offset must be updated in valley_core.js and nowhere else, since nothing else reads it).",
+    "Q47 (energy duct) and Q70a (beds) and Q73 (chair) and Q60/Act IV's Hearth-relight and Q18's chalked spots all address the SAME `inn` mark and its local wall-relative offsets — a new inn structure must keep the Hearth roughly centred with a back wall the mill-facing/square-facing side, since Q18's three chalk spots are 'the back wall' (south) and the beds are 'the west wall'.",
+    "finaleAct4's forceload radius (FORCE_R=40) around works/anchor/inn/bathhouse must still cover every mark any new structure touches, or a finale claimed from far away will silently build nothing (runCommandSilent returns 0, logged as a warning, never surfaced to the player).",
+    "excavateWorks() is called from BOTH q65's scene and finaleAct4's beat0, and is idempotent via v.once('works_excavated') — a re-skinned Works interior must preserve this single shared latch, not add a second independent dig.",
+    "Every NPC import position (bram at mill+[11,1,2], marnie at cottage-local [0,1,7], pip at inn-local[0,1,3]→[-5,-1,4] via scene, oda/pip/marnie/bram at anchor±4 for the Fair, tobin at the outcrop then the square, nella at the lake then the Float, wisp at the lake shore, the four ribbits at anchor-relative spots then works, the three newcomers on the Act V approach path) uses a DETERMINISTIC preset UUID, so a re-import at a new coordinate MOVES the resident rather than duplicating them — any redesign that changes a building's footprint just needs to update the npc(...) coordinate in the same scene/finale function, nothing else has to change.",
+    "The Q65/Q71 lever cell (works+[0,2,0] on a wall panel at works+[0,2,-1]) is the exact block Act IV's finale later sets POWERED — a new Works layout must keep a wall at that relative offset for the lever to mount on, or it pops off as an item the next time a neighbour updates."
+  ]
+}

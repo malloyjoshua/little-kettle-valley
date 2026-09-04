@@ -16,7 +16,7 @@
       ActionEventSet:{
         ON_INTERACTION:[
           {
-            Cmd:"/info_message I carry too much. Is fine. Is what I am for, mostly.",
+            Cmd:"/valley greet ribbit_sedge before @initiator",
             ExecAsUser:0b,
             PermLevel:2,
             Type:"COMMAND"

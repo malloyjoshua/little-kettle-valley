@@ -16,7 +16,7 @@
       ActionEventSet:{
         ON_INTERACTION:[
           {
-            Cmd:"/info_message You are come! I bring basket. Eat the purple one first, yes.",
+            Cmd:"/valley greet wisp before @initiator",
             ConditionDataSet:{
               ConditionDataSet:[
                 {
@@ -32,7 +32,7 @@
             Type:"COMMAND"
           },
           {
-            Cmd:"/info_message Two villages, one place now. My people sleep warm at the inn.",
+            Cmd:"/valley greet wisp after @initiator",
             ConditionDataSet:{
               ConditionDataSet:[
                 {

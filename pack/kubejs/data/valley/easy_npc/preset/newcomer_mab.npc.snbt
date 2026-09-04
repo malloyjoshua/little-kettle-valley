@@ -16,7 +16,7 @@
       ActionEventSet:{
         ON_INTERACTION:[
           {
-            Cmd:"/info_message I left here in the bad winter. I am not leaving twice.",
+            Cmd:"/valley greet newcomer_mab before @initiator",
             ExecAsUser:0b,
             PermLevel:2,
             Type:"COMMAND"
