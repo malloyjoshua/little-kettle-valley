@@ -242,7 +242,7 @@
     "",
     "Cook 12 bowls of Vegetable Soup in the Cooking Pot and set them on the long table at the inn — one for every seat.",
     "",
-    "The Hearth relights, Marnie sits down at her own table, and the greenhouse shell goes up on the square — glazing in this payout."
+    "The Hearth relights, Marnie sits down at her own table, and the greenhouse shell goes up on the square with its glazing stacked inside."
    ],
    "deps": [
     "q59"
@@ -302,7 +302,7 @@
     {
      "type": "toast",
      "title": "The Hearth Is Lit Again",
-     "description": "Next: glaze the greenhouse shell on the square — six windows, one door, eight planters, all of them in this payout."
+     "description": "Next: glaze the greenhouse shell on the square. Six windows, one door and eight planters are already in your bag."
     },
     {
      "type": "command",
@@ -375,7 +375,7 @@
    "description": [
     "Halden, slowly: \"Eight people, eight bottles. I would go round myself, but they talk to you more than they talk to me.\"",
     "",
-    "Brew 8 Winter Tonics at Halden's still, west of the square by the hedge garden. A Flask, a Green Tea Leaf and one sugar makes two, and his hedge-gate payout left you four flasks and sixteen leaves. Hold all eight at hand-in.",
+    "Brew 8 Winter Tonics at Halden's still, west of the square by the hedge garden. A Flask, a Green Tea Leaf and one sugar makes two, and his hedge-gate crate left you four flasks and sixteen leaves. Hold all eight at hand-in.",
     "",
     "Nobody in the valley gets sick this winter, and Halden stops being the only one who checks."
    ],
@@ -498,9 +498,9 @@
    "description": [
     "Nella: \"Nothing grows in it yet. I'll sit in it anyway — it's the only quiet room in town.\"",
     "",
-    "Put one Oak Window in each of the six frames of the greenhouse shell on the square, hang the Oak Cottage Door, and set 8 Planters on the marked bench. All fifteen pieces came in Marnie's soup payout. Any order is right.",
+    "Put one Oak Window in each of the six frames of the greenhouse shell on the square, hang the Oak Cottage Door, and set 8 Planters on the marked bench. All fifteen came over in Marnie's soup crate. Any order is right.",
     "",
-    "The shell becomes a room the coolant loop can heat, and the inn's whole solstice packet comes in this payout."
+    "The shell becomes a room the coolant loop can heat, and the inn's solstice dressing — twelve of each — comes off the same wagon."
    ],
    "deps": [
     "q60"
@@ -569,7 +569,7 @@
    "description": [
     "Marnie: \"Twelve spots. The solstice is the solstice, even in a year like this one has been.\"",
     "",
-    "Dress the inn: set a Candle Holder, a Sconce and a Flower Box on each of the twelve marked copper tiles — thirty-six pieces, and all thirty-six came in the greenhouse payout. Any order is right.",
+    "Set a Candle Holder, a Sconce and a Flower Box on each of the twelve marked copper tiles in the inn — thirty-six pieces, all out of the greenhouse crate. Any order is right.",
     "",
     "Sixteen more of each in the crate, and Marnie's mulled cider goes on the hob."
    ],
@@ -626,7 +626,7 @@
     "",
     "Bake 4 Bread at the inn's oven with Pip on the stool beside you.",
     "",
-    "Pip gets his own apron, and you keep the one loaf he made himself. It is not good. It is his. Marnie's loom and 24 wool come over too."
+    "Pip gets his own apron, and you keep the one loaf he made himself. It is not good. It is his. Marnie sends her loom over with 24 wool."
    ],
    "deps": [
     "q66a"
@@ -680,7 +680,7 @@
     {
      "type": "toast",
      "title": "Pip's Own Loaf",
-     "description": "Next: shear the flock and make 3 Blankets — one per empty house. The wool, the shears and the string are in this payout."
+     "description": "Next: shear the flock and make 3 Blankets, one per empty house. Marnie's loom, the shears and 24 wool came over with the bread."
     }
    ]
   },
@@ -695,7 +695,7 @@
     "",
     "Shear the flock in the pasture until you have 24 wool, then craft 3 Blankets at any crafting table — eight wool around one string each. The wool and the string came with Pip's baking.",
     "",
-    "The three blankets go onto the three beds in the empty houses, and the spare wool in this payout stays yours."
+    "The three blankets go onto the three beds in the empty houses, and whatever wool is left over stays in your chest."
    ],
    "deps": [
     "q68a"
@@ -755,9 +755,9 @@
    "description": [
     "Bram: \"Built it, piped it, didn't furnish it. That end's not mine.\"",
     "",
-    "Set an Oak Bench, an Oak Shelf and a Lantern on each of the twelve marked spots in the bathhouse behind the inn — thirty-six pieces, and all thirty-six came in the coolant-loop payout. Any order is right.",
+    "Furnish the bathhouse behind the inn: an Oak Bench, an Oak Shelf and a Lantern to each of its twelve marked spots. Bram's coolant-loop crate left all thirty-six on the floor. Any order is right.",
     "",
-    "This payout restocks all three, twelve apiece. The bathhouse opens: his waste heat becomes a warm room people sit in."
+    "Twelve more benches, shelves and lanterns come back with it, and the bathhouse opens: Bram's waste heat becomes a room people sit in."
    ],
    "deps": [
     "q72"
@@ -897,7 +897,7 @@
     {
      "type": "toast",
      "title": "The Works Is Open",
-     "description": "Next: run Energy Duct from the mill to the Works and fit 2 Energy Cells. The compass in this payout is already set to the Wandering Merchant's Tower."
+     "description": "Next: run Energy Duct from the mill to the Works and fit 2 Energy Cells. Your new compass already points at the Wandering Merchant's Tower."
     }
    ]
   },
@@ -969,13 +969,13 @@
   {
    "key": "q67",
    "title": "Fetch the Second Kettle Plate From the Tower",
-   "subtitle": "The compass came with the Works payout.",
+   "subtitle": "The compass from the Works already points at it.",
    "icon": "valley:kettle_plate_b",
    "shape": "diamond",
    "description": [
     "Josie, in the margin: \"Second plate went out with the tower trader. He always did want it more than he could read it.\"",
     "",
-    "Take the Explorer's Compass out of the Works payout — already set to the Wandering Merchant's Tower — click the Waystone standing at its gate, and bring the Kettle Plate out of the vault chest inside.",
+    "Take the Explorer's Compass you were handed at the Works — already set to the Wandering Merchant's Tower — click the Waystone standing at its gate, and bring the Kettle Plate out of the vault chest inside.",
     "",
     "Josie's Turbine Notes come back with it: Bigger Reactors casings become craftable."
    ],
@@ -1045,7 +1045,7 @@
     "",
     "Craft 1 Molecular Assembler and 1 4k Crafting Storage and put them into the ME network at the Works.",
     "",
-    "CPU housing, four co-processors, four ME Interfaces, 32 sticks of powder — and Josie's yellorite map, which the next quest walks."
+    "The network crafts casings while you eat: CPU housing, four co-processors, four ME Interfaces, and 32 sticks of powder on Josie's map."
    ],
    "deps": [
     "q66",
@@ -1097,7 +1097,7 @@
     {
      "type": "toast",
      "title": "The Network Crafts It",
-     "description": "Next: follow Josie's yellorite map — it is in this payout — from the Works Waystone to the pocket."
+     "description": "Next: follow Josie's yellorite map, now in your bag, from the Works Waystone to the pocket."
     }
    ]
   },

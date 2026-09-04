@@ -464,7 +464,7 @@ const FINALE_MARKS = {
 }
 
 // Comfortably past each chain's last beat: act3 turns at 120, act4 at 200,
-// act5's fifth journal line at 100 + 5*100.
+// act5's sixth journal line at 100 + 6*100 = 700.
 // act1 and act2 were 60 (three seconds). The arrival beat can now spend up to
 // ARRIVE_FIRST + 7*ARRIVE_GAP = 142 ticks waiting for a chunk, and dropping
 // the forceload out from under it mid-retry would be the same bug wearing a
@@ -847,10 +847,15 @@ function finaleAct1(server, v) {
   // The act whose stated beat is "there is a door in your cellar you cannot
   // open" used to end on the rock joke. This sits inside the arrival beat's
   // second callback, which can run as late as tick 142 (ARRIVE_FIRST + 7 *
-  // ARRIVE_GAP); 142 + 80 = 222 against FINALE_RELEASE.act1 = 240, and it is a
-  // tellraw, so even overrunning the forceload costs nothing.
-  v.delay(80, s2 => v.sayAll('Marnie',
-    "That door in her cellar. You've found it, then. Everybody who has ever lived in that house has found it. Nobody has ever seen it open."))
+  // ARRIVE_GAP); 142 + 80 = 222, and the second half lands at 262, against
+  // FINALE_RELEASE.act1 = 240. Both are tellraws, so overrunning the forceload
+  // costs nothing. Two lines, not one: §4 caps a chat line at 120 characters,
+  // and the pair is what a /schedule between two lines from one speaker is for.
+  v.delay(80, s2 => {
+    v.sayAll('Marnie', "That door in her cellar. You've found it, then.")
+    v.delay(40, s3 => v.sayAll('Marnie',
+      "Everybody who has ever lived in that house has found it. Nobody has ever seen it open."))
+  })
   v.addWorldStage('act2')
   endAct(v, 'act1')
   })
@@ -1049,9 +1054,14 @@ function finaleAct2(server, v) {
     // "I bought a book about turbines", so she reads the page and then hears
     // the one person alive who was there flinch at it. Q54 pays it in Act III.
     // Pure tellraw, so endAct dropping the forceload on the next line is
-    // irrelevant.
-    v.delay(80, s2 => v.sayAll('Halden',
-      "Josie stood on this pier the last summer she had and told me she'd bought a book about turbines. I laughed at her. I would very much like that back."))
+    // irrelevant. Split at the laugh: the setup is one 120-capped line, and the
+    // cost lands on its own two seconds later with nothing else in the chat.
+    v.delay(80, s2 => {
+      v.sayAll('Halden',
+        "Josie stood on this pier the last summer she had and told me she'd bought a book about turbines.")
+      v.delay(40, s3 => v.sayAll('Halden',
+        'I laughed at her. I would very much like that back.'))
+    })
     v.addWorldStage('act3')
     endAct(v, 'act2')
   })
@@ -1303,10 +1313,16 @@ function finaleAct4(server, v) {
     // Act V's premise is that people start arriving on their own, and its
     // finale walks Tess, Mab and Corin up the High Street with nothing in Act
     // IV pointing at them. Warm, not ominous: Oda names it as a traveller in
-    // the same breath and ends on the kettle. Beat 2 fires at tick 200, so this
-    // is 260 against FINALE_RELEASE.act4 = 300 — and it is a tellraw anyway.
-    v.delay(60, s2 => v.sayAll('Oda',
-      "There's a fire on the ridge road tonight. Three miles out, well off the tree line — somebody is walking in. Nobody has walked IN to this valley in eleven years. Put the kettle on."))
+    // the same breath and ends on the kettle. Beat 2 fires at tick 200, so the
+    // sighting is at 260 and the kettle at 300, against FINALE_RELEASE.act4 =
+    // 300 — and both are tellraws anyway. The act-end line is the second one,
+    // alone, because that is the sentence the player carries into Act V.
+    v.delay(60, s2 => {
+      v.sayAll('Oda',
+        "There's a fire on the ridge road tonight — three miles out, well off the tree line, and somebody is walking in.")
+      v.delay(40, s3 => v.sayAll('Oda',
+        'Nobody has walked IN to this valley in eleven years. Put the kettle on.'))
+    })
     endAct(v, 'act4')
   })
 }
@@ -1372,23 +1388,34 @@ function finaleAct5(server, v) {
       tpTo('ribbit_puddle', stand(v, 22))
   ]))
 
-  // Halden reads the last page of Josie's journal: five lines, each five
-  // seconds after the last. (§7: `function valley:act5/read1` .. read5.)
+  // Halden reads the last page of Josie's journal: six lines, each five
+  // seconds after the last. (§7: `function valley:act5/read1` .. read6.)
   //
-  // These five lines ARE Entry 5 (journal/entry_5_the_last_page.json). What
+  // These six lines ARE Entry 5 (journal/entry_5_the_last_page.json). What
   // used to be here was the Act III cellar wall read back word for word — text
   // the player read six hours earlier and which is already permanently in the
   // journal — and it closed the pack on "go and turn it on", an instruction to
-  // do the thing she did in the previous act. Five lines in, five lines out,
-  // so every beat(v,'act5', 1+i) index and the 1 + page.length final latch are
-  // byte-identical. Line 4 lands on the bell Pip hung at q89; line 5 lands on
-  // Tess, Mab and Corin, already standing on the road 24 blocks away.
+  // do the thing she did in the previous act.
+  //
+  // The array drives everything: line i fires at 100 + i*100 under
+  // beat(v,'act5', 1+i), and the final latch below is 1 + page.length at
+  // 100 + page.length*100. Six lines therefore end at tick 700, inside
+  // FINALE_RELEASE.act5 = 720. Do not add a seventh without moving that
+  // release, which is a beat-timing change and not a writing one.
+  //
+  // Line 4 lands on the bell Pip hung at q89; line 5 lands on Tess, Mab and
+  // Corin, already standing on the road 24 blocks away; line 6 is the P.S.,
+  // which is the payoff §5 row 1 names — the fortieth post is on Josie's own
+  // porch, and this is the moment the town hears her ask for it. Every line is
+  // inside the 120-character chat cap, which is why the book's longer clauses
+  // are not all here: the journal keeps them, this is the reading.
   let page = [
     "Last one. The writing's gone shaky, so I'll be brief, which Marnie will tell you is a first.",
-    "If the lights are on out there — if you're reading this warm, in the dark half of the year — then it worked, and it was not me who did it, and that is exactly right. I only ever got this valley to hold on. You got it to stay.",
+    "If the lights are on out there, it worked and it wasn't me. I only ever got this valley to hold on. You got it to stay.",
     "So: the wheel goes counter-clockwise, the third lamp post leans and always has, and Marnie takes her tea far too strong.",
     "Don't turn this into a monument. Don't put my name on the square. Put a bell there, and ring it when supper's ready.",
-    "And when somebody new comes up the road next spring — and they will, they always do when there's smoke — go out and meet them. Bring bread. Pretend you were passing."
+    "Somebody always comes up the road when there's smoke. Go and meet the next one. Bring bread. Pretend you were passing.",
+    "There's a lamp post on my porch with nothing on it. I'd like to be on the line."
   ]
   page.forEach((line, i) => {
     v.delay(100 + i * 100, s => {
@@ -1627,7 +1654,7 @@ const SCENES = {
   // re-imports the same UUID and therefore just moves him.
   q59: {
     origin: 'anchor',
-    who: ['Wisp', 'The reeds is all ice now, and we are eleven with no roof. Can we be your neighbours nearer?'],
+    who: ['Wisp', 'The reeds is all ice now, and we are four with no roof. Can we be your neighbours nearer?'],
     // On the square's own paving. The camp used to stand at anchor x -13..-10,
     // which is outside the plaza and therefore on raw terrain - four Ribbits
     // and a campfire in a hedge - and then at x -10..-8, which a market cart
@@ -1704,7 +1731,7 @@ const SCENES = {
   // Q64 — the cold frame. Six windows, a door, eight planters on the bench.
   q64: {
     origin: 'anchor',
-    who: ['Nella', "Nothing grows in it yet. I'll sit in it anyway - it's the only quiet room in town."],
+    who: ['Nella', "Nothing grows in it yet. I'll sit in it anyway — it's the only quiet room in town."],
     // Six windows into the six openings the shell left, the cottage door, the
     // glass roof and the planters on the bench. All computed against the shell
     // the plan actually built, so a window can never land in a wall.
@@ -1720,7 +1747,7 @@ const SCENES = {
     // the Works is six blocks down in natural stone and cobblestone does not
     // generate. Everything below this line decorates a room that now exists.
     pre: excavateWorks,
-    who: ['Tobin', 'Forty blocks of fallen adit, I paced it twice, and behind forty blocks is the entire works, and I have not slept.'],
+    who: ['Tobin', 'Forty blocks of fallen adit. I paced it twice. Behind it is the entire works, and I have not slept.'],
     // The five hanging lanterns moved off works + [+-4, 3, +-4]: x = +-4 is
     // now the bunker hall's own east wall, and a lantern setblock there would
     // punch a hole through it. The plan picks ceiling cells inside the room
@@ -1793,7 +1820,7 @@ const SCENES = {
     // wall a `face=wall` lever hangs on: without it the lever has no support
     // and pops off as an item the first time a neighbour updates.
     pre: excavateWorks,
-    who: ['Bram', "Crate's got what it's got - blades, coils, casing. Eighteen hundred RPM under load, and hold it there."],
+    who: ['Bram', "Crate's got what it's got — blades, coils, casing. Eighteen hundred RPM under load, and hold it there."],
     cmds: [
       'setblock ~0 ~1 ~0 minecraft:polished_andesite',
       'setblock ~0 ~2 ~-1 minecraft:polished_andesite',
@@ -2132,9 +2159,8 @@ function anchorSetCmd(source, x, y, z, force) {
     } else if (townWouldSwallow(x, z, h[0], h[2])) {
       msg(source, Text.red('Too close to the cottage — the town would be built on top of it.'))
       v.sayAll('Josie',
-        'Not there. Fifteen houses, a square and a mill go in around that stake, and I ' +
-        'will not have them in your dooryard. Walk on up the road until the chimney is ' +
-        'small behind you, then drive it.')
+        'Not there. Fifteen houses go in around that stake, not in your dooryard — ' +
+        'walk until the chimney is small behind you.')
       msg(source, Text.gray('Home is at ' + h.join(' ') + '. ' +
         '/valley anchor set ' + x + ' ' + y + ' ' + z + ' force sets it anyway.'))
       return 0

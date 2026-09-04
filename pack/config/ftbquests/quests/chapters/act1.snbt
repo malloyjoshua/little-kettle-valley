@@ -204,7 +204,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "1D4FF67AA7FE56D2", type: "checkmark", title: "Stone Hammer off the peg and in your bag" }]
-			rewards: [{ id: "7AB11217DCF84DEA", type: "item", auto: "enabled", item: "justhammers:stone_hammer" }, { id: "3C5244D7C84B9F19", type: "command", auto: "enabled", command: "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Middle of the square, middle of the hole. And do not swing it in my mill.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "28E20B4C4F99B835", type: "toast", title: "Bram's Wide Hammer", auto: "enabled", description: "Three by three, one swing. Nothing in this valley needs forty separate swings again." }]
+			rewards: [{ id: "7AB11217DCF84DEA", type: "item", auto: "enabled", item: "justhammers:stone_hammer" }, { id: "3C5244D7C84B9F19", type: "command", auto: "enabled", command: "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Middle of the square, middle of the hole. And do not swing it in my mill.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "7B1DDA1B97F1A0DE", type: "toast", title: "Bram's Wide Hammer", auto: "enabled", description: "Next: the Millstone and Hand Crank, and 16 flour for Marnie. The peg by Bram's bench is empty now and stays empty." }]
 		}
 		{
 			id: "7EFC0D973670E744"

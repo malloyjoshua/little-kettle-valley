@@ -14,7 +14,7 @@
 			title: "Sleep, Then Walk the Square With Marnie"
 			subtitle: "Year two, and the noticeboard is longer."
 			icon: "minecraft:oak_sapling"
-			description: ["Marnie: \"Snow's still on the ridge and the square's still standing. Come on — I want you to see it in daylight.\"", "", "Sleep one night in your own bed after the Longest Night, then walk the square with Marnie.", "", "Year two opens: Nella's cold frame, Oda's counter and the square's thirty tiles. The packet for those tiles is in this payout."]
+			description: ["Marnie: \"Snow's still on the ridge and the square's still standing. Come on — I want you to see it in daylight.\"", "", "Sleep one night in your own bed after the Longest Night, then walk the square with Marnie.", "", "Year two opens on Nella's cold frame, Oda's counter and thirty bare tiles in the square, with Marnie's packet for them in your arms."]
 			x: 0.0d
 			y: -0.8d
 			dependencies: ["78E6F9A263CA4B65"]
@@ -23,7 +23,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "2FDFDD57A230B3B4", type: "checkmark", title: "A night slept and the square walked with Marnie" }]
-			rewards: [{ id: "1E02C5F93CC2131B", type: "item", auto: "enabled", item: "thermal:tomato_seeds", count: 8 }, { id: "72506352F7F2FF57", type: "item", auto: "enabled", item: "thermal:strawberry_seeds", count: 8 }, { id: "6CDCE0A74FCAF290", type: "item", auto: "enabled", item: "thermal:bell_pepper_seeds", count: 8 }, { id: "369617DB91B83057", type: "item", auto: "enabled", item: "thermal:corn_seeds", count: 8 }, { id: "57855711D290CD6C", type: "item", auto: "enabled", item: "farmersdelight:cabbage_seeds", count: 8 }, { id: "18604BD7B6A8970A", type: "item", auto: "enabled", item: "supplementaries:flower_box", count: 8 }, { id: "219C5BF3688EBD49", type: "item", auto: "enabled", item: "supplementaries:candle_holder", count: 8 }, { id: "7D784E76B396CA0F", type: "item", auto: "enabled", item: "minecraft:lantern", count: 6 }, { id: "0028C63F4632C425", type: "item", auto: "enabled", item: "handcrafted:oak_bench", count: 4 }, { id: "6F0B3CBFD8EF047D", type: "item", auto: "enabled", item: "supplementaries:planter", count: 4 }, { id: "1418D59DA2CB87F4", type: "item", auto: "enabled", item: "ae2:quartz_glass", count: 16 }, { id: "208D2D9EF13425B0", type: "item", auto: "enabled", item: "minecraft:glowstone_dust", count: 16 }, { id: "15BF84879691A661", type: "stage", auto: "enabled", stage: "year_two" }, { id: "6635CCEDD5B623E6", type: "command", auto: "enabled", command: "/valley scene q76", elevate_perms: true, silent: true }, { id: "5DE104CABF325AA6", type: "command", auto: "enabled", command: "/tellraw @a [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"The noticeboard's rewritten. Year two, and it's a longer list than last spring.\",\"color\":\"white\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "1AC1648C8CD5F78E", type: "toast", title: "Year Two, Longer List", auto: "enabled", description: "Next: glaze Nella's cold frame with 16 Vibrant Quartz Glass — the quartz and the glowstone are in this payout — and dress the square's thirty tiles." }]
+			rewards: [{ id: "1E02C5F93CC2131B", type: "item", auto: "enabled", item: "thermal:tomato_seeds", count: 8 }, { id: "72506352F7F2FF57", type: "item", auto: "enabled", item: "thermal:strawberry_seeds", count: 8 }, { id: "6CDCE0A74FCAF290", type: "item", auto: "enabled", item: "thermal:bell_pepper_seeds", count: 8 }, { id: "369617DB91B83057", type: "item", auto: "enabled", item: "thermal:corn_seeds", count: 8 }, { id: "57855711D290CD6C", type: "item", auto: "enabled", item: "farmersdelight:cabbage_seeds", count: 8 }, { id: "18604BD7B6A8970A", type: "item", auto: "enabled", item: "supplementaries:flower_box", count: 8 }, { id: "219C5BF3688EBD49", type: "item", auto: "enabled", item: "supplementaries:candle_holder", count: 8 }, { id: "7D784E76B396CA0F", type: "item", auto: "enabled", item: "minecraft:lantern", count: 6 }, { id: "0028C63F4632C425", type: "item", auto: "enabled", item: "handcrafted:oak_bench", count: 4 }, { id: "6F0B3CBFD8EF047D", type: "item", auto: "enabled", item: "supplementaries:planter", count: 4 }, { id: "1418D59DA2CB87F4", type: "item", auto: "enabled", item: "ae2:quartz_glass", count: 16 }, { id: "208D2D9EF13425B0", type: "item", auto: "enabled", item: "minecraft:glowstone_dust", count: 16 }, { id: "15BF84879691A661", type: "stage", auto: "enabled", stage: "year_two" }, { id: "6635CCEDD5B623E6", type: "command", auto: "enabled", command: "/valley scene q76", elevate_perms: true, silent: true }, { id: "5DE104CABF325AA6", type: "command", auto: "enabled", command: "/tellraw @a [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"The noticeboard's rewritten. Year two, and it's a longer list than last spring.\",\"color\":\"white\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "12F233DF06C5A82D", type: "toast", title: "Year Two, Longer List", auto: "enabled", description: "Next: glaze Nella's cold frame with 16 Vibrant Quartz Glass, then dress the square's thirty tiles. The quartz and glowstone came up with Marnie." }]
 		}
 		{
 			id: "17BC7CABEC8874AB"
@@ -44,9 +44,9 @@
 		{
 			id: "6AEB1A84451F29C0"
 			title: "Dress the Square's 30 Copper Tiles"
-			subtitle: "Everything for it came in Marnie's packet."
+			subtitle: "The square stops looking like a building site."
 			icon: "supplementaries:flower_box"
-			description: ["Oda: \"Thirty tiles, thirty things. I have a preferred order — ignore me.\"", "", "Place one item on each of the 30 marked copper tiles in the square. Everything came in Marnie's packet: 8 Flower Boxes, 8 Candle Holders, 6 Lanterns, 4 Oak Benches, 4 Planters. Any order is right.", "", "Oda's full catalogue goes free at her counter, and the square is finished."]
+			description: ["Oda: \"Thirty tiles, thirty things. I have a preferred order — ignore me.\"", "", "Place one item on each of the 30 marked copper tiles in the square — 8 Flower Boxes, 8 Candle Holders, 6 Lanterns, 4 Oak Benches and 4 Planters, all of it out of Marnie's packet. Any order is right.", "", "Oda's full catalogue goes free at her counter, and the square is finished."]
 			x: 2.0d
 			y: -0.8d
 			dependencies: ["60D1AF5CC6C6414F"]
@@ -117,7 +117,7 @@
 			title: "Cut the Rig Pad and Run the Power Lane"
 			subtitle: "Legal to build. Not yet legal to run."
 			icon: "quarryplus:flex_marker"
-			description: ["Tobin: \"The site's surveyed, so the pad is mine to cut. The rig isn't mine to switch on until the town says so. Different problems.\"", "", "Level the 9x9 pad on the site the deep survey picked and run Energy Duct from the reactor grid out to it, then set the Flexible Marker on the corner stake and type the box — a side of 64 is well inside this pack's 256 cap.", "", "The pad, the marker and the power lane are the whole rig except the Deed. The Flexible Marker and the spare Markers are in this payout."]
+			description: ["Tobin: \"The site's surveyed, so the pad is mine to cut. The rig isn't mine to switch on until the town says so. Different problems.\"", "", "Level the 9x9 pad on the site the deep survey picked and run Energy Duct from the reactor grid out to it, then set the Flexible Marker on the corner stake and type the box — a side of 64 is well inside this pack's 256 cap.", "", "Pad cut and duct run: that is the whole rig but the Deed. The Flexible Marker types the box and four spare Markers hold its corners."]
 			x: 10.0d
 			y: -0.8d
 			dependencies: ["06824CC3F51032B9"]
@@ -141,14 +141,14 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "4EE8488EAEB0E5FC", type: "item", item: "farmersdelight:roast_chicken", count: 1L, consume_items: true }, { id: "67DDCDF66D49A934", type: "item", item: "farmersdelight:beef_stew", count: 1L, consume_items: true }, { id: "1075B930EFE03820", type: "item", item: "farmersdelight:cabbage_rolls", count: 1L, consume_items: true }, { id: "3A9B76BD30D2799C", type: "item", item: "farmersdelight:fish_stew", count: 1L, consume_items: true }, { id: "2E8173278F63B1D0", type: "item", item: "farmersdelight:mushroom_rice", count: 1L, consume_items: true }, { id: "36AA9F85303F0CD5", type: "item", item: "farmersdelight:bacon_and_eggs", count: 1L, consume_items: true }, { id: "55002073D609CA45", type: "item", item: "farmersdelight:fruit_salad", count: 1L, consume_items: true }, { id: "284B0EF5E83156A7", type: "item", item: "farmersdelight:sweet_berry_cheesecake", count: 1L, consume_items: true }]
-			rewards: [{ id: "5A213E54F68CB439", type: "item", auto: "enabled", item: "valley:feast_crate" }, { id: "4940B8750B74BBF2", type: "item", auto: "enabled", item: "handcrafted:blue_plate", count: 8 }, { id: "300D7320AEC45EE7", type: "item", auto: "enabled", item: "mcwfurnitures:oak_table", count: 4 }, { id: "06A5BA7CD0455143", type: "command", auto: "enabled", command: "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"You cooked for eight people who all showed up. Josie managed that twice.\",\"color\":\"white\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "1AADE1D644ED638D", type: "item", auto: "enabled", item: "explorerscompass:explorerscompass" }, { id: "584AADB36CE1947D", type: "toast", title: "Feast Crate stored", auto: "enabled", description: "Next: the boat. The compass in this payout is already set to the Cairn Chapel and the Drowned Lighthouse." }]
+			rewards: [{ id: "5A213E54F68CB439", type: "item", auto: "enabled", item: "valley:feast_crate" }, { id: "4940B8750B74BBF2", type: "item", auto: "enabled", item: "handcrafted:blue_plate", count: 8 }, { id: "300D7320AEC45EE7", type: "item", auto: "enabled", item: "mcwfurnitures:oak_table", count: 4 }, { id: "06A5BA7CD0455143", type: "command", auto: "enabled", command: "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"You cooked for eight people who all showed up. Josie managed that twice.\",\"color\":\"white\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "1AADE1D644ED638D", type: "item", auto: "enabled", item: "explorerscompass:explorerscompass" }, { id: "04DC0A18CF76D022", type: "toast", title: "Feast Crate stored", auto: "enabled", description: "Next: the boat. Your new compass is already set to the Cairn Chapel and the Drowned Lighthouse." }]
 		}
 		{
 			id: "07661584296B8B70"
 			title: "Sail to the Cairn and the Drowned Lighthouse"
 			subtitle: "Out past the ridge."
 			icon: "artifacts:cross_necklace"
-			description: ["Pip: \"The chapel's called the Cairn and the lighthouse is called Drowned and I named the boat Biscuit!\"", "", "Take the boat out with Nella and Pip, following the compass from the last payout to the Cairn Chapel and the Drowned Lighthouse. A waystone stands at each and the chest is under the beacon beam. Bring back the Necklace and the Snorkel.", "", "You keep the Warding Lamp — you'll want it in the cave under the Works."]
+			description: ["Pip: \"The chapel's called the Cairn and the lighthouse is called Drowned and I named the boat Biscuit!\"", "", "Take the boat out with Nella and Pip, following your compass to the Cairn Chapel and the Drowned Lighthouse. A waystone stands at each and the chest is under the beacon beam. Bring back the Necklace and the Snorkel.", "", "You keep the Warding Lamp — you'll want it in the cave under the Works."]
 			x: 6.0d
 			y: -0.8d
 			dependencies: ["01FC364C89D2C630"]
@@ -192,7 +192,7 @@
 			title: "Standing: Trusted"
 			subtitle: "Six of eight neighbours' stories closed."
 			icon: "minecraft:emerald"
-			description: ["Oda: \"I don't keep a book of who likes you. I keep a book of who you've finished a thing for. Six is the number.\"", "", "Standing is simply how many of the eight named residents' stories your team has finished: Wisp, Marnie, Halden, Pip, Bram, Tobin, Nella, Oda. At six, the valley considers you one of its own and Oda will sell you the Works Deed.", "", "You don't have to do anything here. It ticks itself when the sixth neighbour's story closes, and Oda will not be talked into rounding up."]
+			description: ["Oda: \"I don't keep a book of who likes you. I keep a book of who you've finished a thing for. Six is the number.\"", "", "Finish six of the eight neighbours' story chains, in any order — each closes on its last hand-in. At six, Oda counts you a local and puts the Works Deed on her counter at 80 Scrip.", "", "You don't have to do anything here. It ticks itself when the sixth neighbour's story closes, and Oda will not be talked into rounding up."]
 			x: 2.0d
 			y: 2.2d
 			dependencies: ["60D1AF5CC6C6414F"]

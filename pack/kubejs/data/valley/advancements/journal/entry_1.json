@@ -2,7 +2,7 @@
   "parent": "valley:journal/root",
   "display": {
     "icon": { "item": "minecraft:writable_book" },
-    "title": { "text": "Journal: The Porch", "color": "gold" },
+    "title": { "text": "Journal: Found on the Mantle", "color": "gold" },
     "description": { "text": "Do not look at the whole valley. Look at the porch.", "color": "gray" },
     "frame": "task",
     "show_toast": true,

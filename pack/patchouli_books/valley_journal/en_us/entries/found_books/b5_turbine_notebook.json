@@ -11,7 +11,7 @@
     },
     {
       "type": "patchouli:text",
-      "text": "$(bold)p.2$() -- steam is the whole trick. too much and you cook the coils. too little and the blades stall and you have built a very expensive kettle.$(br2)$(bold)p.3$() -- so the number is $(bold)eighteen hundred$(). under load. not idle. idle is a lie the machine tells you."
+      "text": "$(bold)p.2$() -- steam is the trick. too much and you cook the coils. too little and the blades stall and you have an expensive kettle.$(br2)$(bold)p.3$() -- the number is $(bold)eighteen hundred$(). under load. not idle. idle is a lie the machine tells you."
     },
     {
       "type": "patchouli:text",

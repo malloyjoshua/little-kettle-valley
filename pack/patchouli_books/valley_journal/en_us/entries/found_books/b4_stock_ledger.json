@@ -6,12 +6,12 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "$(italic)A stock book from the granary. Every entry in the same small precise hand. The initials inside the front cover have been scratched out with a knife -- carefully, so as not to tear the page.$()",
+      "text": "$(italic)A stock book from the granary. Twenty-two years of entries, every one in the same small precise hand. The initials inside the front cover have been scratched out with a knife -- carefully, so as not to tear the page.$()",
       "title": "Found in the granary"
     },
     {
       "type": "patchouli:text",
-      "text": "Year 9 -- wheat 340, flour 180, salt 40, oil 12, apples 900$(br)Year 10 -- wheat 210, flour 95, salt 40, oil 6, apples 400$(br)Year 11 -- wheat 60, flour 0, salt 40, oil 0, apples 0$(br)Year 12 -- (blank)$(br)Year 13 -- (blank)$(br)Year 14 -- (blank)$(br)Years 15 to 22 -- (blank, every line)"
+      "text": "Yr 9 -- wheat 340, flour 180, salt 40, oil 12, apples 900$(br)Yr 10 -- wheat 210, flour 95, salt 40, oil 6, apples 400$(br)Yr 11 -- wheat 60, flour 0, salt 40, oil 0, apples 0$(br)Yr 12 -- (blank)$(br)Yrs 13 to 22 -- (blank, every line)"
     },
     {
       "type": "patchouli:text",

@@ -6,16 +6,16 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "If you're reading this you got the letter, and the letter lied a little. The house is not $(italic)mostly standing$(). The house has a chimney and opinions.$(br2)Here is the only advice I'll give you all at once, so don't skip it: $(bold)do not look at the whole valley.$()",
+      "text": "If you're reading this you got the letter, and it lied a little. The house is not $(italic)mostly standing$(). It has a chimney and opinions.$(br2)The only advice I'll give you all at once, so don't skip it: $(bold)do not look at the whole valley.$()",
       "title": "Entry One"
     },
     {
       "type": "patchouli:text",
-      "text": "It will flatten you. I looked at the whole valley once, in about my sixtieth year, and I sat down on the step and did not get up for a day and a half.$(br2)Look at the porch. It is eleven feet of porch and it has weeds on it. Pull the weeds. Then look up and see whether you feel like looking at anything bigger."
+      "text": "It will flatten you. I did it once, in my sixtieth year, and sat on the step for a day and a half.$(br2)Look at the porch. Eleven feet of porch, weeds on it. Pull the weeds. Then look up and see if you want anything bigger."
     },
     {
       "type": "patchouli:text",
-      "text": "That's it. That's the whole trick. I have used it on a broken wheel, a dead orchard and one genuinely terrible winter, and it has not failed me yet.$(br2)The kettle's copper. It's older than me. Put it on.$(br2)$(italic)-- J.K.$()"
+      "text": "That's the whole trick. I have used it on a broken wheel, a dead orchard and one genuinely terrible winter.$(br2)$(bold)The valley only ever needed one person to start.$()$(br2)The kettle's copper. It's older than me. Put it on.$(br)$(italic)-- J.K.$()"
     }
   ]
 }

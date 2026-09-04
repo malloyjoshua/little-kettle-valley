@@ -67,7 +67,7 @@
     {
       "key": "oda_casings",
       "title": "Buy 16 Andesite Casing — 10 Scrip",
-      "subtitle": "Restocks. Bram cuts them in the dead weeks.",
+      "subtitle": "Cut at the mill through the dead weeks.",
       "icon": "create:andesite_casing",
       "description": [
         "Oda: \"Sixteen casings. Bram cuts them through the dead weeks when there is nothing else to do.\"",
@@ -91,7 +91,7 @@
     {
       "key": "oda_alloy",
       "title": "Buy 32 Andesite Alloy — 8 Scrip",
-      "subtitle": "Restocks. Andesite and iron nuggets, pressed.",
+      "subtitle": "Andesite and iron nuggets, pressed flat.",
       "icon": "create:andesite_alloy",
       "description": [
         "Oda: \"Thirty-two. Andesite and iron nuggets, pressed. The least interesting thing in this valley, and you will want a great deal of it.\"",
@@ -115,7 +115,7 @@
     {
       "key": "oda_gearing",
       "title": "Buy the Gearing Crate — 6 Scrip",
-      "subtitle": "Restocks. Sixteen cogs and eight belts, crated.",
+      "subtitle": "Enough cog and belt for a whole lane.",
       "icon": "create:cogwheel",
       "description": [
         "Oda: \"Sixteen cogs, eight large cogs, sixteen shafts, eight belts. I wrote that on the crate lid so neither of us counts it again.\"",
@@ -142,7 +142,7 @@
     {
       "key": "oda_seedbox",
       "title": "Buy the Seed Box — 4 Scrip",
-      "subtitle": "Restocks. Five packets, labelled by Marnie.",
+      "subtitle": "Five packets, and Marnie wrote the labels.",
       "icon": "farmersdelight:cabbage_seeds",
       "description": [
         "Oda: \"Five packets, eight seeds each. Cabbage, tomato, corn, beetroot, pumpkin. Marnie writes the labels because mine are unreadable.\"",
@@ -170,7 +170,7 @@
     {
       "key": "oda_pantry",
       "title": "Buy the Pantry Basket — 4 Scrip",
-      "subtitle": "Restocks. Sixteen loaves, and Marnie baked them.",
+      "subtitle": "Supper for the nights you forget to cook.",
       "icon": "minecraft:bread",
       "description": [
         "Oda: \"Sixteen loaves, sixteen rice, eight beef. Marnie bakes it, I shelve it, you eat it standing over a millstone at two in the morning.\"",
@@ -196,7 +196,7 @@
     {
       "key": "oda_lampoil",
       "title": "Buy the Lamp Oil Crate — 6 Scrip",
-      "subtitle": "Restocks. The crate Josie bought every autumn.",
+      "subtitle": "The line you buy in autumn, not January.",
       "icon": "minecraft:lantern",
       "description": [
         "Oda: \"Eight lanterns, eight candle holders, four road lamps. Josie bought this exact crate every autumn and I never had to ask what for.\"",
@@ -222,7 +222,7 @@
     {
       "key": "oda_servos",
       "title": "Buy a Crate of 16 Redstone Servos — 15 Scrip",
-      "subtitle": "Restocks. Bram asks for these by name.",
+      "subtitle": "Bram asks for these by name.",
       "icon": "thermal:redstone_servo",
       "description": [
         "Oda: \"Sixteen servos in a crate. I do not know what they do. I know Bram asks for them by name and I know how many are in the crate.\"",
@@ -246,7 +246,7 @@
     {
       "key": "oda_frames",
       "title": "Buy 2 Spare Machine Frames — 25 Scrip",
-      "subtitle": "Restocks. Somebody else's afternoon at the fan.",
+      "subtitle": "Somebody else's afternoon at the fan.",
       "icon": "thermal:machine_frame",
       "description": [
         "Oda: \"Two frames. Washed silica, which means Nella's boat and a fan and an afternoon, and I have already spent that afternoon.\"",
@@ -270,7 +270,7 @@
     {
       "key": "oda_coils",
       "title": "Buy 8 RF Coils — 18 Scrip",
-      "subtitle": "Restocks. Silver and redstone, wound.",
+      "subtitle": "Four of these and a frame make a cell.",
       "icon": "thermal:rf_coil",
       "description": [
         "Oda: \"Eight coils. Silver and redstone, wound. Josie ordered a dozen, collected eight, and the other four are still on my books.\"",
@@ -294,7 +294,7 @@
     {
       "key": "oda_fluxduct",
       "title": "Buy 64 Duct and a Cell Frame — 12 Scrip",
-      "subtitle": "Restocks. Sold by the metre, counted by the piece.",
+      "subtitle": "Carries the dynamo's power down the lane.",
       "icon": "thermal:energy_duct",
       "description": [
         "Oda: \"Sixty-four duct, one cell frame. Duct is the only thing in this store I sell by the metre and I still count it by the piece.\"",
@@ -319,7 +319,7 @@
     {
       "key": "oda_cat_furniture",
       "title": "Buy the Furniture Page — 12 Scrip",
-      "subtitle": "Restocks. Page four, since the rail came in.",
+      "subtitle": "Page four, new since the rail came in.",
       "icon": "handcrafted:oak_table",
       "description": [
         "Oda: \"Page four, and it only exists because there is a rail line now. Table, four chairs, a couch, a cupboard, two shelves, a nightstand.\"",
@@ -348,7 +348,7 @@
     {
       "key": "oda_cat_windows",
       "title": "Buy the Windows and Roofing Page — 12 Scrip",
-      "subtitle": "Restocks. Page seven, one crate in and out.",
+      "subtitle": "Page seven. Eight windows and a door.",
       "icon": "mcwwindows:oak_four_window",
       "description": [
         "Oda: \"Page seven. Eight windows, four curtain rods, sixteen roof, a cottage door. It comes off the wagon in one crate and goes out in one.\"",
@@ -375,7 +375,7 @@
     {
       "key": "oda_cat_garden",
       "title": "Buy the Garden Page — 10 Scrip",
-      "subtitle": "Restocks. Page nine — Halden's favourite page.",
+      "subtitle": "Page nine, and Halden reads it for pleasure.",
       "icon": "supplementaries:flower_box",
       "description": [
         "Oda: \"Page nine. Eight flower boxes, eight planters, sixteen hedge, four saplings. Halden reads this page for pleasure, which is Halden.\"",
@@ -402,7 +402,7 @@
     {
       "key": "oda_cat_lights",
       "title": "Buy the Lighting Page — 14 Scrip",
-      "subtitle": "Restocks. Page eleven, carried since the Supper.",
+      "subtitle": "Page eleven, first asked for at the Supper.",
       "icon": "supplementaries:sconce",
       "description": [
         "Oda: \"Page eleven. Twelve sconces, eight lanterns, eight soul lanterns, sixteen rope, four shelves. It has only come up since the Supper.\"",
@@ -430,7 +430,7 @@
     {
       "key": "oda_livestock",
       "title": "Buy the Livestock Order — 20 Scrip",
-      "subtitle": "Restocks. Counted at both ends of the wagon.",
+      "subtitle": "Counted at both ends of the wagon.",
       "icon": "valley:cow_crate",
       "description": [
         "Oda: \"One cow, one sheep, two crates of hens. They come up on the wagon in crates and they are counted at both ends, mine and yours.\"",
@@ -457,7 +457,7 @@
     {
       "key": "oda_rare_seeds",
       "title": "Buy the Rare Seed Case — 16 Scrip",
-      "subtitle": "Restocks. Kept under the counter, in a tin.",
+      "subtitle": "Kept under the counter, in a tin.",
       "icon": "minecraft:torchflower_seeds",
       "description": [
         "Oda: \"In a tin under the counter. Torchflower, pitcher pod, glow berries, sweet berries, coffee. Two of these I sell and never saw grow.\"",
@@ -485,7 +485,7 @@
     {
       "key": "oda_reactor_casings",
       "title": "Buy a Reactor Casing Bundle — 40 Scrip",
-      "subtitle": "Restocks. Sixteen reactor, eight turbine.",
+      "subtitle": "The internals bundle comes after this one.",
       "icon": "biggerreactors:reactor_casing",
       "description": [
         "Oda: \"Sixteen reactor casing, eight turbine casing. Her notes make them craftable; my wagon brings them. They came home from the tower.\"",
@@ -510,7 +510,7 @@
     {
       "key": "oda_reactor_internals",
       "title": "Buy the Reactor Internals Bundle — 35 Scrip",
-      "subtitle": "Restocks. Read off the crate lid every time.",
+      "subtitle": "Everything the vessel holds, rods included.",
       "icon": "biggerreactors:reactor_fuel_rod",
       "description": [
         "Oda: \"Eight fuel rods, two control rods, eight glass, one rotor bearing, eight blades, four shafts. I read that off the lid every time.\"",
@@ -539,7 +539,7 @@
     {
       "key": "oda_ae_bundle",
       "title": "Buy the Storage Bundle — 30 Scrip",
-      "subtitle": "Restocks. The half of it that isn't a decision.",
+      "subtitle": "The storage net's dull half, crated.",
       "icon": "ae2:item_storage_cell_4k",
       "description": [
         "Oda: \"Four cells, four components, eight processors of the calculating sort, thirty-two cable. None of it is a decision.\"",
@@ -566,7 +566,7 @@
     {
       "key": "oda_plushie",
       "title": "Buy a Plushie Token — 10 Scrip",
-      "subtitle": "Restocks. Pip has spent eleven of these.",
+      "subtitle": "Pip has spent eleven of these.",
       "icon": "valley:plushie_token",
       "description": [
         "Oda: \"One token, one shelf, one plushie of your choosing. Pip has spent eleven of these. I have written every one of them down.\"",
@@ -597,7 +597,7 @@
         "",
         "Needs the Works Deed already signed, and 150 Valley Scrip on the counter.",
         "",
-        "One hundred and fifty is not a price, it is a filing fee with an opinion. Restocks, so a second pair of hands can hold their own copy."
+        "One hundred and fifty is not a price, it is a filing fee with an opinion. Buy it again and a second pair of hands has their own."
       ],
       "deps": ["oda_open", "q75"],
       "shape": "diamond",
@@ -612,7 +612,7 @@
         { "type": "item", "item": "valley:deed_works", "count": 1 },
         { "type": "item", "item": "quarryplus:marker", "count": 4 },
         { "type": "item", "item": "valley:catalogue", "count": 1 },
-        { "type": "toast", "title": "Filed, in duplicate", "description": "Oda: 'Two copies. That is how a thing survives one of us leaving.'" }
+        { "type": "toast", "title": "Filed, in duplicate", "description": "Next: box your own site with the four Markers in the crate. Two copies of the Deed is how a thing survives one of us leaving." }
       ],
       "x": 18.0,
       "y": 0.0

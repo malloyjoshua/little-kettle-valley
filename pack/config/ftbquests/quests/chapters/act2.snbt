@@ -62,7 +62,7 @@
 			title: "Bring Halden 24 Flowers for the Hedge Garden"
 			subtitle: "Poppies, dandelions, cornflowers — eight of each."
 			icon: "minecraft:poppy"
-			description: ["Halden: \"Nothing in a hedge garden is urgent. That is more or less the entire argument for having one.\"", "", "Plant Wisp's poppy, dandelion and cornflower in the three flower boxes on your window ledge, then bone-meal the grass on the flat by the Town Anchor — that ground is plains, and plains grows all three — until you have 8 of each. Bring all 24 to Halden on the south slope.", "", "Halden opens the hedge garden to the town, the spring above it starts running, and the trellis and grape starts for the slope come with him."]
+			description: ["Halden: \"Nothing in a hedge garden is urgent. That is more or less the entire argument for having one.\"", "", "Plant Wisp's poppy, dandelion and cornflower in the three boxes on your window ledge, then bone-meal the plains grass on the flat by the Town Anchor — it grows all three — until you have 8 of each. Bring the 24 to Halden on the south slope.", "", "Halden opens the hedge garden to the town, the spring above it starts running, and the trellis and grape starts for the slope come with him."]
 			x: 2.0d
 			y: -0.8d
 			dependencies: ["1589859EB1A28DCE", "35951AD29E0D22D4"]

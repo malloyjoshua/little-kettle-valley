@@ -156,14 +156,14 @@
 			title: "Salt Eight Fillets into the Granary"
 			subtitle: "Nella is on the pier before the lake turns."
 			icon: "aquaculture:fish_fillet_cooked"
-			description: ["Nella: \"Eight fillets, salted, straight into the granary drawers. Ice fishing works too, but this is the easy way round.\"", "", "Catch fish off the pier, cure 8 Cooked Fish Fillets from them, and put all eight in the granary drawers.", "", "Fish in the granary and a salt barrel on the pier — and Marnie's crate of twelve bowls, twelve bricks, twelve iron, twelve copper."]
+			description: ["Nella: \"Eight fillets, salted, straight into the granary drawers. Ice fishing works too, but this is the easy way round.\"", "", "Catch fish off the pier, cure 8 Cooked Fish Fillets from them, and put all eight in the granary drawers.", "", "Fish in the granary, a salt barrel on the pier, and twelve each of bowls, bricks, iron and copper from Marnie for the long table."]
 			x: 16.0d
 			y: 0.0d
 			dependencies: ["5B08E1A0810FCBFF"]
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "59484E6AC63373AB", type: "item", item: "aquaculture:fish_fillet_cooked", count: 8L, consume_items: true }]
-			rewards: [{ id: "11437763F7807ECF", type: "item", auto: "enabled", item: "minecraft:barrel" }, { id: "3CF13659AE3D8261", type: "item", auto: "enabled", item: "aquaculture:oak_fish_mount", count: 2 }, { id: "23909F2647A0998F", type: "item", auto: "enabled", item: "aquaculture:iron_fishing_rod" }, { id: "40F5585D089A6AE7", type: "item", auto: "enabled", item: "minecraft:bowl", count: 12 }, { id: "7EF936AD2D142A95", type: "item", auto: "enabled", item: "minecraft:brick", count: 12 }, { id: "3CB2A06F2D953E53", type: "item", auto: "enabled", item: "minecraft:iron_ingot", count: 12 }, { id: "1390954985D35C7B", type: "item", auto: "enabled", item: "minecraft:copper_ingot", count: 12 }, { id: "7766FF2D21A8BC9D", type: "item", auto: "enabled", item: "valley:scrip", count: 15 }, { id: "31FC09C65F9BFB1F", type: "command", auto: "enabled", command: "/tellraw @p [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"Eight. Fine. That's the lake settled.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "31C3A527F9BAE531", type: "toast", title: "Fish in the granary", auto: "enabled", description: "Next: the long table. Twelve Place Settings from the crate in this payout, and the centrepiece, once the cellar is open." }]
+			rewards: [{ id: "11437763F7807ECF", type: "item", auto: "enabled", item: "minecraft:barrel" }, { id: "3CF13659AE3D8261", type: "item", auto: "enabled", item: "aquaculture:oak_fish_mount", count: 2 }, { id: "23909F2647A0998F", type: "item", auto: "enabled", item: "aquaculture:iron_fishing_rod" }, { id: "40F5585D089A6AE7", type: "item", auto: "enabled", item: "minecraft:bowl", count: 12 }, { id: "7EF936AD2D142A95", type: "item", auto: "enabled", item: "minecraft:brick", count: 12 }, { id: "3CB2A06F2D953E53", type: "item", auto: "enabled", item: "minecraft:iron_ingot", count: 12 }, { id: "1390954985D35C7B", type: "item", auto: "enabled", item: "minecraft:copper_ingot", count: 12 }, { id: "7766FF2D21A8BC9D", type: "item", auto: "enabled", item: "valley:scrip", count: 15 }, { id: "31FC09C65F9BFB1F", type: "command", auto: "enabled", command: "/tellraw @p [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"Eight. Fine. That's the lake settled.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "61361420E93AB8F0", type: "toast", title: "Fish in the granary", auto: "enabled", description: "Next: the long table. Twelve Place Settings come out of Marnie's bowls and bricks, and the centrepiece once the cellar is open." }]
 		}
 		{
 			id: "34538B89B64CC7D7"
@@ -186,7 +186,7 @@
 			title: "Alloy Sixteen Bronze, Sixteen Electrum"
 			subtitle: "Build the Induction Smelter first."
 			icon: "thermal:machine_smelter"
-			description: ["Bram: \"Two inputs, more back than you put in. Three copper and one tin is four bronze. That's the whole machine.\"", "", "Build a Thermal Induction Smelter in the mill workshop and run Tobin's raw ore through until you have 16 Bronze Ingots and 16 Electrum Ingots. The smelter takes them; 12 copper and 4 tin is the bronze, 8 gold and 8 silver is the electrum.", "", "It pays out the Centrifugal Separator, 64 Energy Duct and 2 spare Machine Frames — the entire bill for the energy cell and the rail line."]
+			description: ["Bram: \"Two inputs, more back than you put in. Three copper and one tin is four bronze. That's the whole machine.\"", "", "Build a Thermal Induction Smelter in the mill workshop and run Tobin's raw ore through until you have 16 Bronze Ingots and 16 Electrum Ingots. The smelter takes them; 12 copper and 4 tin is the bronze, 8 gold and 8 silver is the electrum.", "", "The Centrifugal Separator goes on your bench, and 64 Energy Duct with 2 spare Machine Frames covers the energy cell and the rail line."]
 			x: 2.0d
 			y: 1.5d
 			dependencies: ["34538B89B64CC7D7"]
@@ -200,7 +200,7 @@
 			title: "Run Energy Duct to the Inn"
 			subtitle: "Marnie gets a fridge out of it."
 			icon: "thermal:energy_cell"
-			description: ["Bram: \"Cell on the wall, duct to the inn, and Marnie gets her fridge. That's the whole job — don't overthink it.\"", "", "Charge a Thermal Energy Cell off your dynamos, then run Energy Duct from the mill until the line ends within 12 blocks of the inn. The Cell Frame is twelve Scrip on Oda's board: frame, four RF Coils and a bucket of redstone is the cell.", "", "The Works Power Tap comes off the line — four in this payout, one for every Fridge, Sink and Milk Jar. One of each is already made."]
+			description: ["Bram: \"Cell on the wall, duct to the inn, and Marnie gets her fridge. That's the whole job — don't overthink it.\"", "", "Charge a Thermal Energy Cell off your dynamos, then run Energy Duct from the mill until the line ends within 12 blocks of the inn. The Cell Frame is twelve Scrip on Oda's board: frame, four RF Coils and a bucket of redstone is the cell.", "", "The Fridge, Sink and Milk Jar arrive made, and four Works Power Taps put one of each on the line the day the duct reaches the inn."]
 			x: 6.0d
 			y: 0.0d
 			dependencies: ["76EEF65327004696", "2340A46B5E7C8359"]
@@ -242,7 +242,7 @@
 			title: "Grow Thirty-Two Certus in Spring Water"
 			subtitle: "Josie's jar starts the first batch."
 			icon: "ae2:certus_quartz_crystal"
-			description: ["Halden: \"She kept that jar on my shelf for four years and told me I'd know when. I know when.\"", "", "Plant Certus Quartz Seeds in Halden's Spring Water and grow 32 Certus Quartz Crystals. The 16 from Josie's jar seed the first batch immediately, and the four Growth Accelerators in this payout turn every batch after it into overnight work.", "", "Halden's compass leads to a sky-stone meteorite: the four presses and the nether quartz are in the chest inside, so the Nether stays shut."]
+			description: ["Halden: \"She kept that jar on my shelf for four years and told me I'd know when. I know when.\"", "", "Plant Certus Quartz Seeds in Halden's Spring Water and grow 32 Certus Quartz Crystals. The 16 from Josie's jar seed the first batch, and four Growth Accelerators off his shelf turn every batch after it into overnight work.", "", "Halden's compass leads to a sky-stone meteorite: the four presses and the nether quartz are in the chest inside, so the Nether stays shut."]
 			x: 8.0d
 			y: 0.0d
 			dependencies: ["12F011564E219F52", "12CF0601171AFE5B"]
@@ -270,7 +270,7 @@
 			title: "Bus the Granary onto the Network"
 			subtitle: "Twelve drawers on one screen."
 			icon: "ae2:wireless_terminal"
-			description: ["Oda: \"If I can see all twelve drawers from the counter, I will stop walking down there four times a day. Do it.\"", "", "Put a Storage Bus on the granary's drawer controller, link it to the mill network, and hold a Wireless Terminal. It reads nothing until an ME Wireless Access Point is on the mill wall — the receiver and the Charger are in this payout.", "", "Two wireless terminals come back — one for you, one to hand your partner — and Oda's ledger updates itself in the book from here on."]
+			description: ["Oda: \"If I can see all twelve drawers from the counter, I will stop walking down there four times a day. Do it.\"", "", "Put a Storage Bus on the granary's drawer controller, link it to the mill network, and hold a Wireless Terminal. It reads nothing until an ME Wireless Access Point is on the mill wall; the receiver and Charger come with it.", "", "Two wireless terminals come back — one for you, one to hand your partner — and Oda's ledger updates itself in the book from here on."]
 			x: 12.0d
 			y: 0.8d
 			dependencies: ["2524B0A81A85E5DB", "76C4B9946F943E38"]

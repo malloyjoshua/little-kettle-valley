@@ -6,12 +6,12 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "I forgot how loud five people are.$(br2)We had the Fair today, first one in -- I want to say nine years, but Oda would correct me and she'd be right, she always is, she keeps the book.",
+      "text": "I forgot how loud five people are.$(br2)We had the Fair today, first one in -- I want to say nine years, but Oda would correct me, and she'd be right. She keeps the book.$(br2)I set out one trestle at eight. By noon there were four.",
       "title": "Entry Two"
     },
     {
       "type": "patchouli:text",
-      "text": "Four stalls, and one of them was a plank on two barrels, and Pip sold flowers he had picked out of my own garden and charged me for them.$(br2)Bram got the wheel turning at noon. He stood there with his hands on his hips and said $(italic)well$(). That is the most emotional I have ever seen that man."
+      "text": "One stall was a plank on two barrels. Pip sold flowers from my own garden and charged me for them.$(br2)Bram got the wheel turning. He put his hands on his hips and said $(italic)well$(). That is the most emotional I have ever seen that man."
     },
     {
       "type": "patchouli:text",

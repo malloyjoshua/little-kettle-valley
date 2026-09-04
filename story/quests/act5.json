@@ -22,7 +22,7 @@
     "",
     "Sleep one night in your own bed after the Longest Night, then walk the square with Marnie.",
     "",
-    "Year two opens: Nella's cold frame, Oda's counter and the square's thirty tiles. The packet for those tiles is in this payout."
+    "Year two opens on Nella's cold frame, Oda's counter and thirty bare tiles in the square, with Marnie's packet for them in your arms."
    ],
    "deps": [
     "q75"
@@ -113,7 +113,7 @@
     {
      "type": "toast",
      "title": "Year Two, Longer List",
-     "description": "Next: glaze Nella's cold frame with 16 Vibrant Quartz Glass — the quartz and the glowstone are in this payout — and dress the square's thirty tiles."
+     "description": "Next: glaze Nella's cold frame with 16 Vibrant Quartz Glass, then dress the square's thirty tiles. The quartz and glowstone came up with Marnie."
     }
    ]
   },
@@ -220,12 +220,12 @@
   {
    "key": "q78",
    "title": "Dress the Square's 30 Copper Tiles",
-   "subtitle": "Everything for it came in Marnie's packet.",
+   "subtitle": "The square stops looking like a building site.",
    "icon": "supplementaries:flower_box",
    "description": [
     "Oda: \"Thirty tiles, thirty things. I have a preferred order — ignore me.\"",
     "",
-    "Place one item on each of the 30 marked copper tiles in the square. Everything came in Marnie's packet: 8 Flower Boxes, 8 Candle Holders, 6 Lanterns, 4 Oak Benches, 4 Planters. Any order is right.",
+    "Place one item on each of the 30 marked copper tiles in the square — 8 Flower Boxes, 8 Candle Holders, 6 Lanterns, 4 Oak Benches and 4 Planters, all of it out of Marnie's packet. Any order is right.",
     "",
     "Oda's full catalogue goes free at her counter, and the square is finished."
    ],
@@ -525,7 +525,7 @@
     "",
     "Level the 9x9 pad on the site the deep survey picked and run Energy Duct from the reactor grid out to it, then set the Flexible Marker on the corner stake and type the box — a side of 64 is well inside this pack's 256 cap.",
     "",
-    "The pad, the marker and the power lane are the whole rig except the Deed. The Flexible Marker and the spare Markers are in this payout."
+    "Pad cut and duct run: that is the whole rig but the Deed. The Flexible Marker types the box and four spare Markers hold its corners."
    ],
    "deps": [
     "q82"
@@ -669,7 +669,7 @@
     {
      "type": "toast",
      "title": "Feast Crate stored",
-     "description": "Next: the boat. The compass in this payout is already set to the Cairn Chapel and the Drowned Lighthouse."
+     "description": "Next: the boat. Your new compass is already set to the Cairn Chapel and the Drowned Lighthouse."
     }
    ]
   },
@@ -681,7 +681,7 @@
    "description": [
     "Pip: \"The chapel's called the Cairn and the lighthouse is called Drowned and I named the boat Biscuit!\"",
     "",
-    "Take the boat out with Nella and Pip, following the compass from the last payout to the Cairn Chapel and the Drowned Lighthouse. A waystone stands at each and the chest is under the beacon beam. Bring back the Necklace and the Snorkel.",
+    "Take the boat out with Nella and Pip, following your compass to the Cairn Chapel and the Drowned Lighthouse. A waystone stands at each and the chest is under the beacon beam. Bring back the Necklace and the Snorkel.",
     "",
     "You keep the Warding Lamp — you'll want it in the cave under the Works."
    ],
@@ -872,7 +872,7 @@
    "description": [
     "Oda: \"I don't keep a book of who likes you. I keep a book of who you've finished a thing for. Six is the number.\"",
     "",
-    "Standing is simply how many of the eight named residents' stories your team has finished: Wisp, Marnie, Halden, Pip, Bram, Tobin, Nella, Oda. At six, the valley considers you one of its own and Oda will sell you the Works Deed.",
+    "Finish six of the eight neighbours' story chains, in any order — each closes on its last hand-in. At six, Oda counts you a local and puts the Works Deed on her counter at 80 Scrip.",
     "",
     "You don't have to do anything here. It ticks itself when the sixth neighbour's story closes, and Oda will not be talked into rounding up."
    ],

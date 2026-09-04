@@ -669,7 +669,7 @@
     "",
     "Catch fish off the pier, cure 8 Cooked Fish Fillets from them, and put all eight in the granary drawers.",
     "",
-    "Fish in the granary and a salt barrel on the pier — and Marnie's crate of twelve bowls, twelve bricks, twelve iron, twelve copper."
+    "Fish in the granary, a salt barrel on the pier, and twelve each of bowls, bricks, iron and copper from Marnie for the long table."
    ],
    "deps": [
     "q51a"
@@ -732,7 +732,7 @@
     {
      "type": "toast",
      "title": "Fish in the granary",
-     "description": "Next: the long table. Twelve Place Settings from the crate in this payout, and the centrepiece, once the cellar is open."
+     "description": "Next: the long table. Twelve Place Settings come out of Marnie's bowls and bricks, and the centrepiece once the cellar is open."
     }
    ]
   },
@@ -833,7 +833,7 @@
     "",
     "Build a Thermal Induction Smelter in the mill workshop and run Tobin's raw ore through until you have 16 Bronze Ingots and 16 Electrum Ingots. The smelter takes them; 12 copper and 4 tin is the bronze, 8 gold and 8 silver is the electrum.",
     "",
-    "It pays out the Centrifugal Separator, 64 Energy Duct and 2 spare Machine Frames — the entire bill for the energy cell and the rail line."
+    "The Centrifugal Separator goes on your bench, and 64 Energy Duct with 2 spare Machine Frames covers the energy cell and the rail line."
    ],
    "deps": [
     "q45"
@@ -894,7 +894,7 @@
     "",
     "Charge a Thermal Energy Cell off your dynamos, then run Energy Duct from the mill until the line ends within 12 blocks of the inn. The Cell Frame is twelve Scrip on Oda's board: frame, four RF Coils and a bucket of redstone is the cell.",
     "",
-    "The Works Power Tap comes off the line — four in this payout, one for every Fridge, Sink and Milk Jar. One of each is already made."
+    "The Fridge, Sink and Milk Jar arrive made, and four Works Power Taps put one of each on the line the day the duct reaches the inn."
    ],
    "deps": [
     "q46",
@@ -1070,7 +1070,7 @@
    "description": [
     "Halden: \"She kept that jar on my shelf for four years and told me I'd know when. I know when.\"",
     "",
-    "Plant Certus Quartz Seeds in Halden's Spring Water and grow 32 Certus Quartz Crystals. The 16 from Josie's jar seed the first batch immediately, and the four Growth Accelerators in this payout turn every batch after it into overnight work.",
+    "Plant Certus Quartz Seeds in Halden's Spring Water and grow 32 Certus Quartz Crystals. The 16 from Josie's jar seed the first batch, and four Growth Accelerators off his shelf turn every batch after it into overnight work.",
     "",
     "Halden's compass leads to a sky-stone meteorite: the four presses and the nether quartz are in the chest inside, so the Nether stays shut."
    ],
@@ -1195,7 +1195,7 @@
    "description": [
     "Oda: \"If I can see all twelve drawers from the counter, I will stop walking down there four times a day. Do it.\"",
     "",
-    "Put a Storage Bus on the granary's drawer controller, link it to the mill network, and hold a Wireless Terminal. It reads nothing until an ME Wireless Access Point is on the mill wall — the receiver and the Charger are in this payout.",
+    "Put a Storage Bus on the granary's drawer controller, link it to the mill network, and hold a Wireless Terminal. It reads nothing until an ME Wireless Access Point is on the mill wall; the receiver and Charger come with it.",
     "",
     "Two wireless terminals come back — one for you, one to hand your partner — and Oda's ledger updates itself in the book from here on."
    ],

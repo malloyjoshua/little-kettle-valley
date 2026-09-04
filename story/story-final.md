@@ -612,7 +612,9 @@ Patchouli, five chapters, one per act finale, plus the cellar wall in Act III. S
 >
 > Look at the porch. It is eleven feet of porch and it has weeds on it. Pull the weeds. Then look up and see whether you feel like looking at anything bigger.
 >
-> That's it. That's the whole trick. I have used it on a broken wheel, a dead orchard and one genuinely terrible winter, and it has not failed me yet.
+> That's the whole trick. I have used it on a broken wheel, a dead orchard and one genuinely terrible winter.
+>
+> **The valley only ever needed one person to start.**
 >
 > The kettle's copper. It's older than me. Put it on.
 

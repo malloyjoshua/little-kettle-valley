@@ -11,11 +11,11 @@
     },
     {
       "type": "patchouli:text",
-      "text": "Everyone came. Wisp brought the whole reed village and they sang something in frog that I believe was about soup. Halden cried and said it was the smoke.$(br2)A thing I've noticed about summer here: it gives you more than you can hold. Fish, fruit, light, hours."
+      "text": "Everyone came. Wisp brought the whole reed village and they sang something in frog that I believe was about soup. Halden cried and said it was the smoke.$(br2)Summer here gives you more than you can hold. Fish, fruit, light, hours."
     },
     {
       "type": "patchouli:text",
-      "text": "And every single year we let most of it rot, because we had nowhere to put it.$(br2)That is not a farming problem. That is an engineering problem, and I have been calling it a farming problem for thirty years because I was frightened of the other kind.$(br2)I'm going to stop doing that. I bought a book about turbines."
+      "text": "And every year we let most of it rot. Nowhere to put it.$(br2)That is not a farming problem. It is an engineering problem. I called it farming for thirty years because the other kind frightened me.$(br2)I bought a book about turbines."
     }
   ],
   "advancement": "valley:journal/entry_3"
