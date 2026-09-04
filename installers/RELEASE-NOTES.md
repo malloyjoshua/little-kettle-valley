@@ -9,6 +9,42 @@ directory — the point is to record what friends actually get, not what a build
 
 ---
 
+## 2026-09-04 — Final polish: town residuals, quest text, Air render distance
+
+CI run: <https://github.com/malloyjoshua/little-kettle-valley/actions/runs/33851790986> (`863edad`)
+
+| Asset | Size (bytes) | sha256 |
+| --- | ---: | --- |
+| `LittleKettleValley-Setup.exe` | 56,798,712 | `f22bfff57aad0425d707c990a37ec80256b8de87b91b2032219e147e690e13c4` |
+| `LittleKettleValley.dmg` | 47,152,808 | `698d54c19e99a680cae6ef603708fffd23ab8b310d034a27dabc1e6d9056afe0` |
+| `LittleKettleValley.zip` | 92,386 | `f93819761f5e3402b0add88c0f0e9fb2de6771b667c1dd32194f71e115c855c6` |
+| `Little Kettle Valley - Install Guide.pdf` | 87,179 | `ba04a7e96c2935adde83d6fc43368dc64d256770d1d23814463a02cb91f8571b` |
+
+**What changed:** the source commit, and with it the `.exe` and `.dmg` (both now built from
+`863edad` — town residual fixes, quest text edits for spring/summer crop timing, and the
+`renderDistance`/`simulationDistance` defaults baked into the instance). `LittleKettleValley.zip`
+is byte-identical to the last entry (`f9381976…`, unchanged size) — `pack/index.toml` was already
+current and nothing under `dist/CozyTech` changed the zip's contents this round. The PDF is a
+fresh `dist/v4/…` build; still not tracked in git (`dist/v*/` stays gitignored), so this entry is
+the only record of `ba04a7e9…` anywhere but the release itself.
+
+**Provenance checks that passed:**
+
+- `tools/scripts/release.sh` ran end-to-end: zip rebuild (unchanged), packwiz index refresh (no
+  diff), local `.dmg` rebuild, the `installers.yml` workflow triggered and watched to completion
+  (`run 33851790986`, job `Windows one-click installer` succeeded in 1m57s including its own
+  silent-install/config-rewrite/bundled-JRE/packwiz-bootstrap smoke test), then all four assets
+  uploaded to the `friends` release with `--clobber`.
+- Hashes above are from `gh release download friends --dir <tmp> --clobber && shasum -a 256 *`,
+  i.e. what the release actually serves — not a local build directory.
+- `raw.githubusercontent.com/malloyjoshua/little-kettle-valley/main/pack/index.toml` was pulled
+  and diffed against the repo's `pack/index.toml` at `HEAD` (`863edad`): byte-identical
+  (`31686ece…` both sides).
+- `git status` was clean after the run — the release added no further commits (index and zip were
+  already current from the pre-release commit).
+
+---
+
 ## 2026-09-04 — Windows installer sizes the heap from the machine's RAM
 
 CI run: <https://github.com/malloyjoshua/little-kettle-valley/actions/runs/33832227984> (`32422a1`)
