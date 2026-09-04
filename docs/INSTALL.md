@@ -42,6 +42,8 @@ The first launch downloads about 125 mods and takes a few minutes. After that it
 
 ## Join the server
 
+**Server address:** `cynthia-mfc.tun.ply.gg` (Multiplayer > Add Server, paste that as the address; no port needed). If a launcher insists on a port, use `cynthia-mfc.tun.ply.gg:35925`. The server is up when Josh's Mac is running it.
+
 **Multiplayer** > **Add Server**, address from Josh. Your name has to be on the whitelist first, so send Josh your exact Minecraft username before you try to connect.
 
 ## If it won't start

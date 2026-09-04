@@ -35,7 +35,8 @@ case "${1:-status}" in
     "$CLI" claim url --name little-kettle-valley "$CODE"
     echo "Waiting for approval..."
     umask 077
-    "$CLI" claim exchange --wait 0 "$CODE" > "$SECRET.tmp" && mv "$SECRET.tmp" "$SECRET"
+    "$CLI" claim exchange --wait 0 "$CODE" | tee "$SECRET.raw" | grep -E '^[0-9a-fA-F]{32,}$' | tail -1 > "$SECRET.tmp"
+    [ -s "$SECRET.tmp" ] && mv "$SECRET.tmp" "$SECRET" || { echo "no secret in the exchange output (see $SECRET.raw)"; exit 1; }
     echo "secret saved to $SECRET"; "$0" start
     ;;
   log) tail -n 40 "$LOG" ;;
