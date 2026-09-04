@@ -1,0 +1,92 @@
+name: installers
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "installer-*"
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    name: Windows one-click installer
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Cache downloads (Prism portable + Temurin JRE)
+        uses: actions/cache@v4
+        with:
+          path: installers/windows/build/cache
+          key: win-installer-downloads-${{ hashFiles('installers/windows/stage.py') }}
+          restore-keys: win-installer-downloads-
+
+      - name: Stage payload
+        id: stage
+        run: python installers/windows/stage.py
+
+      - name: Locate ISCC
+        id: iscc
+        shell: pwsh
+        run: |
+          $candidates = @(
+            (Join-Path ${env:ProgramFiles(x86)} 'Inno Setup 6\ISCC.exe'),
+            (Join-Path $env:ProgramFiles 'Inno Setup 6\ISCC.exe')
+          )
+          $iscc = $candidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+          if (-not $iscc) {
+            $cmd = Get-Command iscc.exe -ErrorAction SilentlyContinue
+            if ($cmd) { $iscc = $cmd.Source }
+          }
+          if (-not $iscc) {
+            Write-Host "Inno Setup not found on the runner; installing via Chocolatey"
+            choco install innosetup -y --no-progress
+            $iscc = $candidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+          }
+          if (-not $iscc) { throw "ISCC.exe not found" }
+          Write-Host "ISCC: $iscc  (version $((Get-Item $iscc).VersionInfo.ProductVersion))"
+          "iscc=$iscc" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+
+      - name: Compile installer
+        shell: pwsh
+        run: |
+          & "${{ steps.iscc.outputs.iscc }}" /Qp "installers\windows\LittleKettleValley.iss"
+          if ($LASTEXITCODE -ne 0) { throw "ISCC failed with $LASTEXITCODE" }
+
+      - name: Describe artifact
+        id: describe
+        shell: pwsh
+        run: |
+          $exe = "installers\windows\build\out\LittleKettleValley-Setup.exe"
+          if (-not (Test-Path $exe)) { throw "installer not produced at $exe" }
+          $item = Get-Item $exe
+          $hash = (Get-FileHash $exe -Algorithm SHA256).Hash.ToLower()
+          Write-Host "size   : $($item.Length) bytes ($([math]::Round($item.Length/1MB,1)) MiB)"
+          Write-Host "sha256 : $hash"
+          "size=$($item.Length)" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          "sha256=$hash" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          "## Windows installer`n`n- size: $($item.Length) bytes`n- sha256: ``$hash``" |
+            Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: LittleKettleValley-Setup
+          path: installers/windows/build/out/LittleKettleValley-Setup.exe
+          if-no-files-found: error
+
+      - name: Attach to the "friends" release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: pwsh
+        run: |
+          gh release upload friends "installers\windows\build\out\LittleKettleValley-Setup.exe" --clobber
+          gh release view friends --json assets --jq '.assets[] | "\(.name)  \(.size)  \(.url)"'
