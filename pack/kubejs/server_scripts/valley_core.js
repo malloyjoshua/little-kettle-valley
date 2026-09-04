@@ -844,10 +844,10 @@ function placeRuin(server, player) {
 // the real book screen on the first click: four pages, arrows, no mod involved
 // and no NBT key we have to guess right.
 const LETTER_PAGES = [
-  "If you're reading this I'm dead and the valley is cold. Only one of those is your problem.\n\nThe farm is yours. So is the mess.",
-  "Fifteen people stayed. Marnie keeps an inn with no guests. Bram keeps a mill with a snapped axle. Oda has kept the ledger of an empty shop for eleven years.\n\nThat is not stubbornness. That is a town waiting.",
-  "Forty lamp posts stand along that road and not one of them is lit. That is the whole job. Nobody is going to thank you for it until they do.\n\nForty lamps. Fifteen people. One winter that nobody leaves.",
-  "The map, then. Follow the lit path from where you woke up. It ends at a chimney with three walls still standing.\n\nPut the waystone on the flat grey hearthstone and name it Home. Start from the part that held.\n\n\u2014 Josie Kettle"
+  "I wrote three of these and posted them all. Whichever of you is reading it: I'm dead, the valley is cold, and the farm is yours.\n\nSo is the kettle. So is the mess.",
+  "A few of us stayed. Marnie keeps an inn with no guests. Bram keeps a mill with a snapped axle. Oda opens a shop nobody walks into and writes down the takings anyway.\n\nThey are not stubborn. They are waiting. Don't tell them I said so.",
+  "Forty lamp posts stand along the road and not one is lit. I lit them once. Then I put them out, on purpose.\n\nThere is a door in the cellar. Leave it shut until somebody can read my handwriting. It is not a riddle. It is a lock.",
+  "The map, then. Follow the lit path from where you woke. It ends at a chimney with three walls standing.\n\nPut the waystone on the flat grey hearthstone and name it Home. Start from the part that held.\n\nPut the kettle on. \u2014 Josie"
 ]
 
 // Built fresh per player: an ItemStack handed to two people is one stack.
@@ -870,6 +870,8 @@ function josieLetter() {
     return Item.of(VALLEY.ITEM.letter)
   }
 }
+
+global.valley.letter = josieLetter
 
 function valleyFirstJoin(server, player, name) {
   // The letter, the deed and the kettle. Q1's task is READING the letter, which
@@ -904,22 +906,20 @@ function valleyFirstJoin(server, player, name) {
   }
   let ruinPos = global.valley.ruin()
 
-  // The premise, then the destination line, verbatim (writer-brief rule 3).
+  // Three short lines. The premise lives in the letter itself now; chat only
+  // says what to do (writer-brief rule 3 keeps the destination line verbatim).
   let lines = [
-    [{ text: 'You inherited the old Kettle farm from a great-aunt you barely remember — ', color: 'white' },
-     { text: 'Josie Kettle', color: 'gold' },
-     { text: ', who kept the lights on in this valley long after everyone else stopped trying.', color: 'white' }],
-    [{ text: 'A chimney, three walls, a bed frame, and a copper kettle over a cold hearth. Outside: an inn with no innkeeper, a mill with a snapped axle, a store with the shutters down, and forty dark lamp posts.', color: 'white' }]
+    [{ text: 'A letter from ', color: 'white' }, { text: 'Josie Kettle', color: 'gold' },
+     { text: ' is in your bag. Read all four pages.', color: 'white' }]
   ]
   if (ruinPos) {
     lines.push([
-      { text: 'The lit path at your feet runs ' + (where || 'north') + ' to it. Follow the lanterns to the gate — the farm is at ', color: 'white' },
+      { text: 'The lit path at your feet runs ' + (where || 'north') + ' to the farm. Follow the lanterns to the gate \u2014 it is at ', color: 'white' },
       { text: ruinPos[0] + ' ' + ruinPos[1] + ' ' + ruinPos[2], color: 'gold' },
       { text: '.', color: 'white' }
     ])
   }
-  lines.push([{ text: 'Forty lamps. Fifteen people. One winter that nobody leaves.', color: 'gold', bold: true }])
-  lines.push([{ text: 'Open your Quest Book. There is exactly one thing to do.', color: 'white' }])
+  lines.push([{ text: 'Press J for the Quest Book. There is exactly one thing to do.', color: 'gray', italic: true }])
   lines.forEach((l, i) => {
     valleyDelay(20 + i * 20, s => s.runCommandSilent('tellraw ' + name + ' ' + JSON.stringify(l)))
   })

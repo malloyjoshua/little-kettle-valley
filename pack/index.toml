@@ -610,11 +610,11 @@ hash = "a6a59033d1f8e552bafce80179dd12655554db3f984f01af2b0947100c652f07"
 
 [[files]]
 file = "kubejs/server_scripts/valley_core.js"
-hash = "c3034cadca5555c6f7f2a7c68a66c9efdad4ffea4e45ea98bc863c32e866f05f"
+hash = "6c2d9d9aa058ffd033ccbd771bde4fce8a49f0e1dbe3ebde481e1f1bb8bc3149"
 
 [[files]]
 file = "kubejs/server_scripts/valley_finales.js"
-hash = "df1be90b65c403727f6d6fe912682143d9c8779e4aa6dc1d7414e7e3e883af35"
+hash = "4d6c34d72a189734c15f9e7d0f7d0b353998f00b64f1512e42e17f6c15eb5003"
 
 [[files]]
 file = "kubejs/server_scripts/valley_gates.js"

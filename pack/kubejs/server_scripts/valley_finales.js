@@ -2181,6 +2181,14 @@ ServerEvents.commandRegistry(event => {
           '25,000 FE/t sustained at 60 mB/t of fuel or under.',
           'Tobin: 25,000 FE/t across both turbines, 60 mB/t of fuel or under. Reactor Terminal, top two rows.')))
         .then(Commands.literal('standing').executes(ctx => standingReport(ctx.source))))
+      // --- /valley letter: a fresh copy of Josie's letter for whoever asks ----
+      .then(Commands.literal('letter').executes(ctx => {
+        let pl = ctx.source.player
+        if (!pl) { ctx.source.sendFailure(Component.literal('Only a player can be handed a letter.')); return 0 }
+        pl.give(global.valley.letter())
+        ctx.source.sendSuccess(Component.literal('Josie\'s letter is in your bag.'), false)
+        return 1
+      }))
 
       // --- /valley greet <key> <before|after> <player> ---------------------
       // Run by every resident's ON_INTERACTION (see story/npcs.json). Easy NPC
