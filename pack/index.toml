@@ -18,7 +18,7 @@ hash = "010fe6528ce51f263871b86a0bc5741c0207d1aeb5a2b628282ae498fed7872b"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act1.snbt"
-hash = "e16ea9efe1d11892061b57176c2be34d78d7bdcabe82876bd1c74e931e5f4eab"
+hash = "c81c064a344c53d9d1f08a13ca6b2649db4fb47beff85cea608f0e438a0929b5"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act2.snbt"
@@ -26,15 +26,15 @@ hash = "131e8e813cb7baf9c3a0d0d4d17e10fcba7c7148889f9e4b466b7bc54ced670c"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act3.snbt"
-hash = "341aa77b66572068b89a7a102afbfcd331d8b95a50e04d568522bdf88ede7d1d"
+hash = "02abd28ca1794acadf11384325e708dacada54f0ae072ac6ba1e44627a554109"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act4.snbt"
-hash = "81a27b08bb1385d8e5a998de73e925ccc7193e8489e7ec1f2aafb530394bedd8"
+hash = "6ed3a4f4def97c97454b737d2f0f1de52043103c45c6ad7240974f15d529514b"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act5.snbt"
-hash = "3cb13900cb9538003353a8cebc096c1e07ba1be81a9fadaa39c78d34d3559a7c"
+hash = "660a56e8ca383b2cd76dda4dd30a40024b1c365640773ccfe7a6c25cfac12b9e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/oda.snbt"
@@ -598,7 +598,7 @@ hash = "2d9e5260eb6dd9ce4158c7bf06dd250757281063451aad04b5e8fef344d4316b"
 
 [[files]]
 file = "kubejs/server_scripts/town_plan.js"
-hash = "b3b906be5c8622bad62d650ec9ad4334bcc27a511508370a5e9081c3a4f35eee"
+hash = "cfbbf6dbdf6f902a4ee68ebfc337b7836ec5765b890c91cba5c88234e3311301"
 
 [[files]]
 file = "kubejs/server_scripts/unify.js"
@@ -614,7 +614,7 @@ hash = "c3034cadca5555c6f7f2a7c68a66c9efdad4ffea4e45ea98bc863c32e866f05f"
 
 [[files]]
 file = "kubejs/server_scripts/valley_finales.js"
-hash = "bcfbe31d4476263953b07ce0e3c7ed0c2a1b8dd4a7db8c590952a096572e1d67"
+hash = "df1be90b65c403727f6d6fe912682143d9c8779e4aa6dc1d7414e7e3e883af35"
 
 [[files]]
 file = "kubejs/server_scripts/valley_gates.js"
@@ -1266,6 +1266,7 @@ metafile = true
 [[files]]
 file = "options.txt"
 hash = "f0d377e17d51e5033479f4603ffeac6d92717ef2b8b2e180e16e577b36d083ac"
+preserve = true
 
 [[files]]
 file = "patchouli_books/valley_journal/book.json"

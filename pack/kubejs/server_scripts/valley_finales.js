@@ -625,7 +625,17 @@ function groupOrigin(v, name) {
   return v.mark(name)
 }
 
-function runGroup(server, v, key) {
+// A resident teleport: the one kind of command in a group or a scene that
+// silently does nothing when its target is in a chunk the server has been told
+// to load and has not loaded yet.
+function isNpcTp(c) {
+  return typeof c === 'string' && c.indexOf('tp @e[tag=npc_') === 0
+}
+
+// `arrive`, when given, is an array a caller collects deferred segments in:
+// the group's resident teleports are pulled out and handed back instead of
+// being run here, so the caller can retry them the way a finale does.
+function runGroup(server, v, key, arrive) {
   let pl = plan()
   if (!pl || !pl.groups || !pl.groups[key]) {
     console.warn('[valley] town plan has no group "' + key + '" - nothing built')
@@ -641,8 +651,16 @@ function runGroup(server, v, key) {
   let x0 = origin[0] + b[0] - 16, z0 = origin[2] + b[1] - 16
   let x1 = origin[0] + b[2] + 16, z1 = origin[2] + b[3] + 16
   server.runCommandSilent('forceload add ' + x0 + ' ' + z0 + ' ' + x1 + ' ' + z1)
+  let cmds = g.cmds
+  if (arrive) {
+    let later = cmds.filter(isNpcTp)
+    if (later.length) {
+      cmds = cmds.filter(c => !isNpcTp(c))
+      arrive.push({ origin: origin, cmds: later })
+    }
+  }
   try {
-    runSeg(server, origin, g.cmds)
+    runSeg(server, origin, cmds)
   } finally {
     v.delay(60, srv => srv.runCommandSilent('forceload remove ' + x0 + ' ' + z0 + ' ' + x1 + ' ' + z1))
   }
@@ -680,6 +698,42 @@ function wstand(i) {
 function npcAt(name, p) { return npc(name, '~' + p[0], '~' + p[1], '~' + p[2]) }
 
 function tpTo(tag, p) { return 'tp @e[tag=npc_' + tag + ',limit=1] ' + at(p) }
+
+// -----------------------------------------------------------------------------
+// The three scenes that stand ON the square: Q59's Ribbit camp, Q62's still and
+// the Act III harvest.
+//
+// Their coordinates used to be typed into this file, next to a comment that
+// described the square as it was two rewrites ago ("the four market carts (the
+// +-11..+-7 corners)"). The planner then pulled the square's furniture inward
+// and solved the carts to new cells - and the hand-typed scenes did not move
+// with them. Cart 2 came to rest on x -10..-6, z 3..7, which is where the camp
+// was: four Ribbits stood inside the fisher's cart, Sedge in its oak fence with
+// a lit lantern in his head, and a lit campfire burned under its wooden canopy.
+// Two of the four harvest props landed in carts as well.
+//
+// So the planner solves these cells too, against the well, the four carts, the
+// supper table, the flower boxes, the bench garden, the streets and every
+// whitelisted lamp post, and exports them as square.scenes. Nothing in this
+// file knows where the carts are any more, which is the point.
+// -----------------------------------------------------------------------------
+const SQ_SCENE_FALLBACK = {
+  ribbit_camp: { stands: [[-8, 1, 4], [-8, 1, 6], [-10, 1, 4], [-10, 1, 6]],
+                 campfire: [-9, 1, 5], post: [-11, 1, 5] },
+  still: { cupboard: [-9, 1, 7], brewing_stand: [-8, 1, 7], cauldron: [-7, 1, 7],
+           post: [-8, 1, 6] },
+  harvest: { hay: [[-6, 1, -6], [6, 1, -6]], pumpkins: [[-6, 1, 6], [6, 1, 6]] }
+}
+
+function sqScene(key) {
+  let pl = plan()
+  let sc = (pl && pl.square && pl.square.scenes) ? pl.square.scenes[key] : null
+  if (sc) return sc
+  console.warn('[valley] town_plan.js carries no square.scenes.' + key +
+               ' - re-run tools/scripts/plan_town.py. Falling back to the ' +
+               'pre-solve cells, which may be under a market cart.')
+  return SQ_SCENE_FALLBACK[key]
+}
 
 // =============================================================================
 // The five chains. Each is a list of segments; a segment names its origin mark
@@ -1004,6 +1058,7 @@ function finaleAct2(server, v) {
 }
 
 function finaleAct3(server, v) {
+  let HARVEST = sqScene('harvest')
   if (beat(v, 'act3', 0)) {
   // Oda's store and the bell tower open on the square, and the Supper table
   // is real Handcrafted furniture rather than a nine-block plank template.
@@ -1014,10 +1069,14 @@ function finaleAct3(server, v) {
     'season set mid_autumn',
     'time set 13000',
     'weather clear',
-    'setblock ~-6 ~1 ~-6 minecraft:hay_block',
-    'setblock ~6 ~1 ~-6 minecraft:hay_block',
-    'setblock ~-6 ~1 ~6 minecraft:carved_pumpkin[facing=south]',
-    'setblock ~6 ~1 ~6 minecraft:carved_pumpkin[facing=south]',
+    // The harvest itself: two bales and two lanterns-in-all-but-name, on the
+    // four cells the planner solved for them (square.scenes.harvest). They
+    // used to be the four (+-6, +-6) corners, and two of those corners are
+    // inside market carts now.
+    'setblock ' + at(HARVEST.hay[0]) + ' minecraft:hay_block',
+    'setblock ' + at(HARVEST.hay[1]) + ' minecraft:hay_block',
+    'setblock ' + at(HARVEST.pumpkins[0]) + ' minecraft:carved_pumpkin[facing=south]',
+    'setblock ' + at(HARVEST.pumpkins[1]) + ' minecraft:carved_pumpkin[facing=south]',
     'place template valley:noticeboard ~0 ~1 ~-5',
     // The board template carries an oak_sign at its local [1,3,0]; writing it
     // here is the only place in the pack the destination line is actually
@@ -1569,22 +1628,25 @@ const SCENES = {
   q59: {
     origin: 'anchor',
     who: ['Wisp', 'The reeds is all ice now, and we are eleven with no roof. Can we be your neighbours nearer?'],
-    cmds: [
-      // On the square's own paving, west of the well. The old camp stood at
-      // anchor x -13..-10, which is outside the plaza and therefore on raw
-      // terrain: four Ribbits and a campfire in a hedge.
-      'easy_npc preset import data valley:easy_npc/preset/ribbit_reed.npc.snbt ~-8 ~1 ~4',
-      'easy_npc preset import data valley:easy_npc/preset/ribbit_sedge.npc.snbt ~-8 ~1 ~6',
-      'easy_npc preset import data valley:easy_npc/preset/ribbit_mudlark.npc.snbt ~-10 ~1 ~4',
-      'easy_npc preset import data valley:easy_npc/preset/ribbit_puddle.npc.snbt ~-10 ~1 ~6',
-      'setblock ~-9 ~1 ~5 minecraft:campfire[lit=true]',
-      'setblock ~-11 ~1 ~5 ' + POST,
-      'setblock ~-11 ~2 ~5 ' + LAMP_LIT,
+    // On the square's own paving. The camp used to stand at anchor x -13..-10,
+    // which is outside the plaza and therefore on raw terrain - four Ribbits
+    // and a campfire in a hedge - and then at x -10..-8, which a market cart
+    // was solved on top of. The cells come from square.scenes.ribbit_camp now:
+    // four stands, a fire between them and the lamp post at the end.
+    cmds: function () {
+      let c = sqScene('ribbit_camp')
+      let out = []
+      let who = ['ribbit_reed', 'ribbit_sedge', 'ribbit_mudlark', 'ribbit_puddle']
+      who.forEach((n, i) => out.push(npcAt(n, c.stands[i % c.stands.length])))
+      out.push('setblock ' + at(c.campfire) + ' minecraft:campfire[lit=true]')
+      out.push('setblock ' + at(c.post) + ' ' + POST)
+      out.push('setblock ' + at([c.post[0], c.post[1] + 1, c.post[2]]) + ' ' + LAMP_LIT)
       // Eight named + four Ribbits = twelve. The last three are the Act V
       // arrivals, and the bar does not count the player.
-      'bossbar set valley:folk value 12',
-      'playsound minecraft:entity.frog.long_jump master @a ~0 ~1 ~0 1 1'
-    ]
+      out.push('bossbar set valley:folk value 12')
+      out.push('playsound minecraft:entity.frog.long_jump master @a ~0 ~1 ~0 1 1')
+      return out
+    }
   },
 
   // Q60 — soup for a full room. The Hearth relights, and the greenhouse SHELL
@@ -1614,25 +1676,29 @@ const SCENES = {
     origin: 'anchor',
     who: ['Halden', 'Eight people, eight bottles. I would go round myself, but they talk to you more than they talk to me.'],
     // THE STILL USED TO BE INSIDE BRAM'S MILL, and then on raw terrain west of
-    // the old square. It stands on the square's own paving now: the plan's
-    // plaza is anchor x/z +-12 and nothing else is placed inside it except the
-    // well (x 2..7, z -3..2), the four market carts (the +-11..+-7 corners),
-    // the Supper table (x -4..4, z -11..-9), the noticeboard, the signpost and
-    // the road out of the south side (x -1..1). anchor + [-9..-7, 1, 6..7] is
-    // clear of all six, and of every whitelisted lamp post.
-    cmds: [
-      'setblock ~-9 ~1 ~7 handcrafted:oak_cupboard',
-      'setblock ~-8 ~1 ~7 minecraft:brewing_stand',
-      'setblock ~-7 ~1 ~7 minecraft:water_cauldron[level=3]',
-      // The lantern used to sit directly on top of the brewing stand, which
-      // has no sturdy top face to hang a lantern from. It stands on its own
-      // fence post instead, the same post-and-light the rest of the pack uses.
-      'setblock ~-8 ~1 ~6 minecraft:oak_fence',
-      'setblock ~-8 ~2 ~6 minecraft:lantern[hanging=false]',
-      'effect give @a minecraft:regeneration 20 0 true',
-      'particle minecraft:happy_villager ~0 ~2 ~0 6 2 6 0.01 120 force @a',
-      'playsound minecraft:block.brewing_stand.brew master @a ~0 ~1 ~0 2 1'
-    ]
+    // the old square. It stands on the square's own paving now - but not on
+    // paving this file picks. The comment that used to live here described a
+    // square that no longer exists ("the well (x 2..7, z -3..2), the four
+    // market carts (the +-11..+-7 corners)"): both were re-solved inward, the
+    // still's three cells ended up inside the fisher's cart, and nothing in
+    // this file could have known. square.scenes.still is solved against the
+    // square as it actually is, every time the planner runs.
+    cmds: function () {
+      let c = sqScene('still')
+      return [
+        'setblock ' + at(c.cupboard) + ' handcrafted:oak_cupboard',
+        'setblock ' + at(c.brewing_stand) + ' minecraft:brewing_stand',
+        'setblock ' + at(c.cauldron) + ' minecraft:water_cauldron[level=3]',
+        // The lantern used to sit directly on top of the brewing stand, which
+        // has no sturdy top face to hang a lantern from. It stands on its own
+        // fence post instead, the same post-and-light the rest of the pack uses.
+        'setblock ' + at(c.post) + ' minecraft:oak_fence',
+        'setblock ' + at([c.post[0], c.post[1] + 1, c.post[2]]) + ' minecraft:lantern[hanging=false]',
+        'effect give @a minecraft:regeneration 20 0 true',
+        'particle minecraft:happy_villager ~0 ~2 ~0 6 2 6 0.01 120 force @a',
+        'playsound minecraft:block.brewing_stand.brew master @a ~0 ~1 ~0 2 1'
+      ]
+    }
   },
 
   // Q64 — the cold frame. Six windows, a door, eight planters on the bench.
@@ -1820,6 +1886,49 @@ function sceneOrigin(v, scene, source) {
   return null
 }
 
+// Run a scene segment now, except for the resident teleports, which are handed
+// to `pending` for the arrival loop.
+function runSegSplit(server, origin, cmds, pending) {
+  let now = [], later = []
+  cmds.forEach(c => { (isNpcTp(c) ? later : now).push(c) })
+  runSeg(server, origin, now)
+  if (later.length) pending.push({ origin: origin, cmds: later })
+}
+
+// The finales' arrival beat, for scenes. Same shape as arrival(): try, count
+// the teleports that reported no effect, and go round again a second later up
+// to ARRIVE_TRIES times. Two differences, both because a scene is not an act:
+// there is no world-level latch to take (runScene has already taken the
+// scene's own once() latch, and a re-run of a scene re-runs these teleports
+// harmlessly - a tp is a tp), and the loop holds the forceload itself, since
+// runGroup drops its own after sixty ticks.
+function sceneArrival(v, key, regions, segs) {
+  let tries = 0
+  let step = s => {
+    tries++
+    forceload(s, regions, 'add')
+    let missed = 0
+    segs.forEach(seg => { missed += runSegArrive(s, seg.origin, seg.cmds) })
+    if (missed > 0 && tries < ARRIVE_TRIES) {
+      console.info('[valley] scene ' + key + ' arrival: ' + missed +
+                   ' resident(s) not in a loaded chunk yet; going round again (' +
+                   tries + '/' + (ARRIVE_TRIES - 1) + ')')
+      v.delay(ARRIVE_GAP, step)
+      return
+    }
+    if (missed > 0) {
+      console.warn('[valley] scene ' + key + ' arrival gave up with ' + missed +
+                   ' resident(s) unmoved. /valley scene ' + key + ' replays it.')
+    }
+    // The six-second hold a scene has always taken, counted from the last
+    // attempt rather than from the scene: letting the chunks go two ticks
+    // after the people arrive would be a shorter hold than the code this
+    // replaces, not a longer one.
+    v.delay(120, srv => forceload(srv, regions, 'remove'))
+  }
+  v.delay(ARRIVE_FIRST, step)
+}
+
 function runScene(source, key) {
   let v = global.valley
   if (!v) { msg(source, Text.red('[valley] core script not loaded.')); return 0 }
@@ -1868,17 +1977,29 @@ function runScene(source, key) {
   if (scene.home) { let h = v.home(); if (h) sr.push(h) }
   sr = sr.filter(p => p)
   forceload(server, sr, 'add')
-  v.delay(120, s => forceload(s, sr, 'remove'))
 
+  // Resident teleports are collected here rather than run in this tick. See
+  // sceneArrival(): the forceload above is asynchronous, so a `tp @e[tag=npc_*]`
+  // issued now matches nothing and returns 0, and a scene - unlike a finale -
+  // had no retry. Measured: SCENES.q73 builds act4_bram_chair, whose group ends
+  // in `tp @e[tag=npc_bram,limit=1] ~23 ~1 ~-7`, and on a replay from the
+  // console that teleport returned 0 and Bram never sat down.
+  let pending = []
   try {
     // A scene may need the ground prepared before its own commands land.
     if (scene.pre) scene.pre(server, v)
     // Town-plan groups first: they build the room the cmds below dress.
-    if (scene.groups) scene.groups.forEach(g => runGroup(server, v, g))
-    if (scene.cmds) runSeg(server, origin, scene.cmds)
+    if (scene.groups) scene.groups.forEach(g => runGroup(server, v, g, pending))
+    // `cmds` may be a function: the three scenes that stand on the square read
+    // their cells out of the town plan at run time rather than carrying a copy.
+    let cl = (typeof scene.cmds === 'function') ? scene.cmds(v) : scene.cmds
+    if (cl) runSegSplit(server, origin, cl, pending)
     if (scene.also) {
       let o2 = originPos(v, scene.also.origin)
-      if (o2) runSeg(server, o2, scene.also.cmds)
+      if (o2) {
+        let al = (typeof scene.also.cmds === 'function') ? scene.also.cmds(v) : scene.also.cmds
+        if (al) runSegSplit(server, o2, al, pending)
+      }
     }
     if (scene.run) scene.run(server, v)
     if (scene.who) v.sayAll(scene.who[0], scene.who[1])
@@ -1886,7 +2007,18 @@ function runScene(source, key) {
     // A scene is set dressing. It must never take a reward down with it.
     console.error('[valley] scene ' + key + ' failed: ' + err)
     msg(source, Text.gray('[valley] scene ' + key + ' hit a snag; see the log.'))
+    v.delay(120, s => forceload(s, sr, 'remove'))
     return 0
+  }
+  if (pending.length) {
+    // The arrival loop owns the forceload from here: it can spend up to
+    // ARRIVE_FIRST + 7*ARRIVE_GAP ticks waiting for a chunk, which is longer
+    // than the 120 a scene used to hold for, and runGroup lets its own
+    // forceload go after 60.
+    pending.forEach(seg => { if (seg.origin) sr.push(seg.origin) })
+    sceneArrival(v, key, sr, pending)
+  } else {
+    v.delay(120, s => forceload(s, sr, 'remove'))
   }
   console.info('[valley] scene ' + key + ' played')
   return 1
@@ -1958,6 +2090,58 @@ function runFinale(source, act, force) {
   // catches a forced re-run whose beats were all done already, and it is a
   // no-op when endAct got there first.
   v.delay(FINALE_RELEASE[act] || 60, s => forceRelease(s, act))
+  return 1
+}
+
+// -----------------------------------------------------------------------------
+// /valley anchor set — the SAME clearance rule the Surveyor's Stake obeys.
+//
+// The refusal used to live in one place only: BlockEvents.placed in
+// valley_checks.js, behind `if (!player || !player.isPlayer()) return`. So the
+// rule covered the block a player puts down and nothing else, and the command
+// path — the one an op uses, the one a headless test can reach, and the one
+// `scratch/verify_run.sh` drives the whole town from — set the anchor
+// unconditionally. Proved live: with Home at -780 92 -783,
+// `/valley anchor set -770 92 -773` (fourteen blocks away) answered
+// "Town Anchor set to -770 92 -773" and the town was then laid over the
+// cottage.
+//
+// townWouldSwallow() and townBox() live in valley_checks.js, which KubeJS
+// loads first ('c' sorts before 'f') into the same scope; the typeof guard is
+// for the case where that file failed to load, where refusing every anchor
+// would be worse than the bug.
+//
+// `force` is the op override, and it says so in the refusal.
+// -----------------------------------------------------------------------------
+function anchorHearth() {
+  let v = global.valley
+  if (!v) return null
+  // The team's home mark, else the Kettle ruin's hearthstone — the same two
+  // points, in the same order, that hearthXZ() uses for the stake.
+  return v.home() || v.ruin()
+}
+
+function anchorSetCmd(source, x, y, z, force) {
+  let v = global.valley
+  if (!v) { msg(source, Text.red('[valley] core script not loaded.')); return 0 }
+  let h = anchorHearth()
+  if (!force && h) {
+    if (typeof townWouldSwallow !== 'function') {
+      console.warn('[valley] valley_checks.js is not loaded, so /valley anchor set ' +
+                   'cannot check the town clearance. Setting it anyway.')
+    } else if (townWouldSwallow(x, z, h[0], h[2])) {
+      msg(source, Text.red('Too close to the cottage — the town would be built on top of it.'))
+      v.sayAll('Josie',
+        'Not there. Fifteen houses, a square and a mill go in around that stake, and I ' +
+        'will not have them in your dooryard. Walk on up the road until the chimney is ' +
+        'small behind you, then drive it.')
+      msg(source, Text.gray('Home is at ' + h.join(' ') + '. ' +
+        '/valley anchor set ' + x + ' ' + y + ' ' + z + ' force sets it anyway.'))
+      return 0
+    }
+  }
+  v.setAnchor(x, y, z)
+  msg(source, Text.gold('Town Anchor set to ' + x + ' ' + y + ' ' + z + (force ? ' (forced)' : '')))
   return 1
 }
 
@@ -2043,13 +2227,16 @@ ServerEvents.commandRegistry(event => {
           .executes(ctx => runScene(ctx.source, event.arguments.WORD.getResult(ctx, 'key')))))
 
       // --- /valley anchor -------------------------------------------------
+      // `set` obeys the same clearance rule as the stake; `set ... force` is
+      // the op override. See anchorSetCmd().
       .then(Commands.literal('anchor').then(Commands.literal('set').requires(src => src.hasPermission(2))
-        .then(Commands.argument('x', Arguments.INTEGER.create(event)).then(Commands.argument('y', Arguments.INTEGER.create(event)).then(Commands.argument('z', Arguments.INTEGER.create(event)).executes(ctx => {
-          let x = Arguments.INTEGER.getResult(ctx, 'x'), y = Arguments.INTEGER.getResult(ctx, 'y'), z = Arguments.INTEGER.getResult(ctx, 'z')
-          global.valley.setAnchor(x, y, z)
-          msg(ctx.source, Text.gold('Town Anchor set to ' + x + ' ' + y + ' ' + z))
-          return 1
-        }))))))
+        .then(Commands.argument('x', Arguments.INTEGER.create(event)).then(Commands.argument('y', Arguments.INTEGER.create(event)).then(Commands.argument('z', Arguments.INTEGER.create(event))
+          .executes(ctx => anchorSetCmd(ctx.source,
+            Arguments.INTEGER.getResult(ctx, 'x'), Arguments.INTEGER.getResult(ctx, 'y'),
+            Arguments.INTEGER.getResult(ctx, 'z'), false))
+          .then(Commands.literal('force').executes(ctx => anchorSetCmd(ctx.source,
+            Arguments.INTEGER.getResult(ctx, 'x'), Arguments.INTEGER.getResult(ctx, 'y'),
+            Arguments.INTEGER.getResult(ctx, 'z'), true))))))))
       .then(Commands.literal('home').then(Commands.literal('set').requires(src => src.hasPermission(2))
         .then(Commands.argument('x', Arguments.INTEGER.create(event)).then(Commands.argument('y', Arguments.INTEGER.create(event)).then(Commands.argument('z', Arguments.INTEGER.create(event)).executes(ctx => {
           let x = Arguments.INTEGER.getResult(ctx, 'x'), y = Arguments.INTEGER.getResult(ctx, 'y'), z = Arguments.INTEGER.getResult(ctx, 'z')

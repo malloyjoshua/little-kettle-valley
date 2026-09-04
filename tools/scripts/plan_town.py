@@ -143,22 +143,95 @@ class Placed(object):
     def find(self, pred):
         return [(lp, b) for lp, b in sorted(self.grid.items()) if pred(b)]
 
+    # Blocks you can stand in or walk through: they do not stop a doorway from
+    # being a way out.  A door's own two halves are in here because the cell a
+    # door stands in IS the cell you walk through.
+    WALK_THROUGH = ('door', 'carpet', 'torch', 'sign', 'button', 'pressure_plate',
+                    'banner', 'flower', 'grass', 'fern', 'sapling', 'bush', 'snow',
+                    'ladder', 'rail', 'vine', 'candle', 'chain', 'light', 'jigsaw',
+                    'void', 'lantern', 'string', 'lily', 'wheat', 'seagrass')
+
+    def _blocked_cols(self, y):
+        """anchor-relative (dx,dz) columns this template WALLS OFF at y..y+1."""
+        out = set()
+        for lp, b in self.grid.items():
+            a = self.abs(lp)
+            if a[1] != y and a[1] != y + 1:
+                continue
+            if b[0] in AIRY or any(k in b[0] for k in Placed.WALK_THROUGH):
+                continue
+            out.add((a[0], a[2]))
+        return out
+
+    def door_out(self, d, blocked=None):
+        """(steps, direction, first cell OUTSIDE the footprint) for a door.
+
+        A vanilla door's `facing` is the way it SWINGS, not the way out: a door
+        in a west wall placed from the yard reads facing=east, and Towns and
+        Towers' templates use both conventions. apron_cmds() used to trust it,
+        walked three steps INTO the house, and then ran its L-leg back out
+        through the far wall - which is why eight of eleven front doors ended
+        up with a dotted line of cobble laid through the building instead of a
+        path to the road.
+
+        So the way out is measured instead: step from the door cell in each of
+        the four directions and keep the ones that leave the footprint without
+        passing through a column the template has a wall in. An interior door
+        (five of the tavern's six) has no such direction and returns None.
+        """
+        if blocked is None:
+            blocked = self._blocked_cols(d['pos'][1])
+        best = None
+        for dirn in _DIRS:
+            sx, sz = _STEP[dirn]
+            x, z = d['pos'][0], d['pos'][2]
+            n, ok = 0, False
+            while True:
+                x += sx
+                z += sz
+                n += 1
+                if not (self.x0 <= x <= self.x1 and self.z0 <= z <= self.z1):
+                    ok = True
+                    break
+                if (x, z) in blocked or n > 48:
+                    break
+            if ok and (best is None or (n, dirn) < (best[0], best[1])):
+                best = (n, dirn, (x, z))
+        return best
+
     def doors(self):
         out = []
         for lp, b in self.find(lambda b: b[0].endswith('_door') and b[1].get('half') == 'lower'):
             a = self.abs(lp)
             out.append({'pos': list(a), 'facing': rot_dir(b[1].get('facing', 'north'), self.r),
                         'block': b[0], 'local': list(lp)})
-        # The FRONT door is the ground-level one whose outward side points at the
-        # town: a tavern has six doors and five of them are bedrooms.
         gy = min([d['pos'][1] for d in out], default=0)
         out = [d for d in out if d['pos'][1] <= gy + 1]
+        cache = {}
+        for d in out:
+            y = d['pos'][1]
+            if y not in cache:
+                cache[y] = self._blocked_cols(y)
+            b = self.door_out(d, cache[y])
+            d['outward'] = b[1] if b else None
+            d['exit'] = list(b[2]) if b else None
+            d['steps_out'] = b[0] if b else None
 
-        def outward(d):
-            sx, sz = _STEP[d['facing']]
-            x, z = d['pos'][0] + sx * 4, d['pos'][2] + sz * 4
-            return x * x + z * z
-        out.sort(key=lambda d: (outward(d), d['pos']))
+        # The FRONT door is a door you can actually walk out of, and of those,
+        # the one whose doorstep is nearest the paving the town already has.
+        # Sorting on "the facing points at the anchor" gave the tavern an
+        # upstairs bedroom door as its front, and the apron then had nothing to
+        # connect: the planned door was not reachable from the street at all.
+        def rank(d):
+            if not d['exit']:
+                return (1, 10 ** 6, 0, tuple(d['pos']))
+            if street_cells:
+                near = min((d['exit'][0] - c[0]) ** 2 + (d['exit'][1] - c[1]) ** 2
+                           for c in street_cells)
+            else:
+                near = d['exit'][0] ** 2 + d['exit'][1] ** 2
+            return (0, near, d['steps_out'], tuple(d['pos']))
+        out.sort(key=rank)
         return out
 
     FRAGILE = ('carpet', 'sign', 'torch', 'button', 'pressure_plate', 'rail', 'ladder',
@@ -559,57 +632,231 @@ def note_walls(p):
         WALL_CELLS.add((a[0], a[2]))
 
 
+# Everything an apron may NOT pave or route through, and the cells it may
+# always finish on. Built once, the first time an apron is laid: by then every
+# building, every custom shell and every piece of the square's own furniture
+# has been solved, which is the whole reason the old L-leg could not see them.
+APRON_BLOCK = set()
+APRON_PAVED = set()          # every cell the aprons actually pave
+_APRON_READY = []
+
+
+def square_furniture_cells():
+    """The square's solved furniture: the well, the four carts, the flower
+    boxes, the bench garden, the supper table and the three scene props."""
+    out = set()
+    out |= set(rect_cells(WELL_X, WELL_Z, WELL_X + 5, WELL_Z + 5))
+    for (cx, cz) in CART_POS:
+        out |= set(rect_cells(cx, cz, cx + 4, cz + 4))
+    for (fx, fz) in FLOWER_POS:
+        out.add((fx, fz))
+        out.add((fx + 1, fz))
+    for b in SQ_BENCH:
+        out.add((b[0], b[1]))
+    for c in SQ_PLANTER + SQ_POST:
+        out.add(c)
+    out |= set(rect_cells(SUPPER['x'][0] - 1, SUPPER['z'][0] - 1,
+                          SUPPER['x'][1] + 1, SUPPER['z'][1] + 1))
+    out |= set(SCENE_CELLS)
+    out |= set(rect_cells(-2, -7, 2, -2))          # signpost + noticeboard
+    out |= set(rect_cells(-1, -1, 1, 1))           # the Town Square waystone
+    return out
+
+
+def apron_setup():
+    if _APRON_READY:
+        return
+    _APRON_READY.append(True)
+    # Every placed template's own wall columns, for ALL buildings, not just the
+    # ones emitted so far: an apron laid in Act I must already know where the
+    # Act V town hall is going to stand.
+    for _p in P.values():
+        note_walls(_p)
+    for _p in P.values():
+        APRON_BLOCK.update(rect_cells(_p.x0, _p.z0, _p.x1, _p.z1))
+    for _r in CX.values():
+        APRON_BLOCK.update(rect_cells(_r[0], _r[1], _r[2], _r[3]))
+    APRON_BLOCK.update(WALL_CELLS)
+    APRON_BLOCK.update(square_furniture_cells())
+    APRON_BLOCK.update(PIER_CELLS)
+    for _route, _posts in LAMPS.items():
+        for _q in _posts:
+            APRON_BLOCK.add((_q[0], _q[2]))
+    # The reservations, except the plaza itself - the plaza IS the destination.
+    for _n, _x0, _z0, _x1, _z1 in RESERVED:
+        if _n == 'plaza':
+            continue
+        APRON_BLOCK.update(rect_cells(_x0, _z0, _x1, _z1))
+
+
+def apron_free(c):
+    """Paving already planned is always walkable; everything else has to be
+    clear of buildings, furniture, lamp posts and reservations."""
+    return c in street_cells or c not in APRON_BLOCK
+
+
+def apron_route(start):
+    """Shortest 4-connected path from `start` to the nearest planned paving.
+
+    A real grid path, not an L. The L took the perpendicular leg first and hoped
+    - which works in an empty field and walks through the granary otherwise."""
+    if start in street_cells:
+        return [start]
+    seen = {start: None}
+    q = collections.deque([start])
+    while q:
+        c = q.popleft()
+        for dx, dz in ((0, -1), (0, 1), (-1, 0), (1, 0)):
+            nc = (c[0] + dx, c[1] + dz)
+            if nc in seen or max(abs(nc[0]), abs(nc[1])) > 140:
+                continue
+            if not apron_free(nc):
+                continue
+            seen[nc] = c
+            if nc in street_cells:
+                path = [nc]
+                while path[-1] != start:
+                    path.append(seen[path[-1]])
+                path.reverse()
+                return path
+            q.append(nc)
+    return None
+
+
+def apron_widen(path):
+    """A 3-wide corridor: every path cell plus its two neighbours PERPENDICULAR
+    to the direction of travel there, so a corner widens both ways."""
+    out = []
+    for i, c in enumerate(path):
+        steps = set()
+        if i + 1 < len(path):
+            steps.add((path[i + 1][0] - c[0], path[i + 1][1] - c[1]))
+        if i:
+            steps.add((c[0] - path[i - 1][0], c[1] - path[i - 1][1]))
+        if not steps:
+            steps.add((1, 0))
+        for (sx, _sz) in sorted(steps):
+            px, pz = (0, 1) if sx else (1, 0)
+            for k in (-1, 0, 1):
+                cc = (c[0] + px * k, c[1] + pz * k)
+                if cc not in out:
+                    out.append(cc)
+    return out
+
+
 def apron_cmds(door, name, lamp=True):
     """A cobbled apron from the door to the nearest paving, plus a lantern.
 
-    Three blocks of stoop straight out of the door, then an L to the nearest
-    street or plaza cell. The L takes the PERPENDICULAR leg first, so a door in
-    an east or west wall steps clear of the building's own z-band before it
-    runs off along x - the other way round drove the apron straight through the
-    house and took its wall, its floor and its front door with it. Wall columns
-    are skipped outright as a second guard."""
-    dx, dy, dz = door['pos']
-    sx, sz = _STEP[door['facing']]
-    out, path = [], []
-    x, z = dx, dz
-    for i in range(3):
-        x += sx; z += sz
-        path.append((x, z))
-        if (x, z) in street_cells:
-            break
-    if (x, z) not in street_cells and street_cells:
-        tx, tz = min(street_cells, key=lambda c: (c[0] - x) ** 2 + (c[1] - z) ** 2)
+    Walk OUT of the door - along the direction that actually leaves the
+    footprint (Placed.door_out), not the door's swing - to the first cell
+    outside the building, then take a breadth-first grid path from there to the
+    nearest street or plaza cell, over ground that is not inside a footprint,
+    not the square's furniture, not a lamp post and not a reservation. The
+    corridor is paved three wide, dug and cleared exactly like a street so it
+    is level ground you can walk rather than a slab lying on a hillside.
 
-        def leg_x(x0, z0):
-            step = 1 if tx > x0 else -1
-            return [(cx, z0) for cx in range(x0, tx + step, step)]
-
-        def leg_z(x0, z0):
-            step = 1 if tz > z0 else -1
-            return [(x0, cz) for cz in range(z0, tz + step, step)]
-
-        if sx:                    # door in an east/west wall: sidestep first
-            path += leg_z(x, z) + leg_x(x, tz)
-        else:
-            path += leg_x(x, z) + leg_z(tx, z)
-    seen = []
-    for (cx, cz) in path:
-        for k in (-1, 0, 1):
-            c = (cx + (1 if sz else 0) * k, cz + (1 if sx else 0) * k)
-            if c not in seen:
-                seen.append(c)
-    for i, (cx, cz) in enumerate(seen):
-        if (cx, cz) in WALL_CELLS:
+    Cells INSIDE the footprint - a set-back door's own stoop - are paved at
+    dy0 and never cleared above: the building is standing there.
+    """
+    apron_setup()
+    out = []
+    b = None
+    if door.get('outward'):
+        b = (door.get('steps_out') or 1, door['outward'], tuple(door['exit']))
+    elif name in P:
+        b = P[name].door_out(door)
+    else:
+        # A custom shell (the bathhouse) whose doorway is cut in its own wall
+        # by the group above: the caller knows which way it faces and the cell
+        # one step that way is already outside the rectangle.
+        _sx, _sz = _STEP[door['facing']]
+        b = (1, door['facing'], (door['pos'][0] + _sx, door['pos'][2] + _sz))
+    if not b:
+        print('  WARNING: %s has no way out of its front door; no apron' % name)
+        return out
+    steps, dirn, exit_cell = b
+    sx, sz = _STEP[dirn]
+    stoop, x, z = [], door['pos'][0], door['pos'][2]
+    for _i in range(steps):
+        x += sx
+        z += sz
+        stoop.append((x, z))
+    inside = set(stoop[:-1])                       # the set-back part, if any
+    route = apron_route(exit_cell)
+    if route is None:
+        print('  WARNING: no apron route from %s door to any paving' % name)
+        route = [exit_cell]
+    path = stoop[:-1] + route
+    cells = apron_widen(path)
+    for i, (cx, cz) in enumerate(cells):
+        if (cx, cz) in inside:
+            # The set-back part of the doorway - the church, the town hall and
+            # the tavern all have one. Lay the stoop and NOTHING else: no air
+            # clear and no dig, because the building is standing here. The
+            # WALL_CELLS guard is deliberately not applied to these cells; it
+            # counts any block at dy1..3, which includes the eave over a porch,
+            # and skipping the stoop is how the doorway ended up with paving
+            # that started three blocks away from it.
+            out.append(setb(cx, 0, cz, 'minecraft:cobblestone'))
+            APRON_PAVED.add((cx, cz))
             continue
-        out.append(setb(cx, 1, cz, 'minecraft:air'))
+        if (cx, cz) in street_cells or (cx, cz) in PROTECTED:
+            continue
+        if (cx, cz) in WALL_CELLS or (cx, cz) in APRON_BLOCK:
+            continue
+        out.append(fill(cx, 1, cz, cx, 6, cz, 'minecraft:air'))
+        out.append(fill(cx, -ROAD_DEEP, cz, cx, -1, cz, 'minecraft:dirt'))
         out.append(setb(cx, 0, cz, 'minecraft:cobblestone' if i % 3 else 'minecraft:gravel'))
-    if lamp and path:
-        lx, lz = path[0][0] + (1 if sz else 0), path[0][1] + (1 if sx else 0)
-        if (lx, lz) not in WALL_CELLS:
+        APRON_PAVED.add((cx, cz))
+    if lamp:
+        # Beside the doorstep and OFF the corridor: a fence post standing in a
+        # three-wide path is a three-wide path you cannot walk down the middle
+        # of, and section (8) of the harness reads it as unwalkable ground.
+        px, pz = (0, 1) if sx else (1, 0)
+        for k in (2, -2):
+            lx, lz = exit_cell[0] + px * k, exit_cell[1] + pz * k
+            if (lx, lz) in WALL_CELLS or (lx, lz) in street_cells:
+                continue
+            if (lx, lz) in APRON_BLOCK or (lx, lz) in PROTECTED:
+                continue
+            if (lx, lz) in APRON_PAVED:
+                continue
+            out.append(fill(lx, 1, lz, lx, 4, lz, 'minecraft:air'))
             out.append(setb(lx, 0, lz, 'minecraft:cobblestone'))
             out.append(setb(lx, 1, lz, POST))
             out.append(setb(lx, 2, lz, 'minecraft:lantern[hanging=false]'))
+            break
     return out
+
+
+def assert_doors_reach_plaza():
+    """Every planned front door has a paved route to the plaza. BFS over the
+    PAVING ONLY - streets, plaza and aprons - so a door that is one block of
+    grass short of the road fails here rather than in the world."""
+    paved = set(street_cells) | APRON_PAVED
+    seen = {(0, 0)}
+    q = collections.deque([(0, 0)])
+    while q:
+        c = q.popleft()
+        for dx, dz in ((0, -1), (0, 1), (-1, 0), (1, 0)):
+            nc = (c[0] + dx, c[1] + dz)
+            if nc in seen or nc not in paved:
+                continue
+            seen.add(nc)
+            q.append(nc)
+    bad = []
+    for nm, pp in sorted(P.items()):
+        ds = pp.doors()
+        if not ds:
+            continue
+        d = ds[0]
+        nb = [(d['pos'][0] + a, d['pos'][2] + c) for a, c in ((1, 0), (-1, 0), (0, 1), (0, -1))]
+        if not any(c in seen for c in nb):
+            bad.append('%s door %s (outward %s)' % (nm, d['pos'], d['outward']))
+    if bad:
+        raise SystemExit('doors with no paved route to the plaza: ' + '; '.join(bad))
+    print('  aprons: %d paved cells, all %d planned doors reach the plaza over paving'
+          % (len(APRON_PAVED), len([n for n in P if P[n].doors()])))
 
 
 # Cells whose AIR COLUMN is untouchable. A street or a lamp pad may pave the
@@ -795,11 +1042,39 @@ CART_POS = [sq_fit(5, 5, c) for c in ((4, -4), (8, -9), (-10, 3), (6, 3))]
 FLOWER_POS = [sq_fit(2, 1, c) for c in
               ((-6, 0), (5, 1), (-6, 2), (9, -3), (-4, -7), (3, -7), (-5, 5), (4, 2))]
 
+# --- the three scenes that stand on the square, solved like everything else --
+# valley_finales.js used to hand-type these. Q59's Ribbit camp went in at
+# anchor x -10..-8, z 4..6, Q62's still at x -9..-7, z 6..7, and finaleAct3's
+# hay and pumpkins at the four (+-6, +-6) corners - all of them written when
+# the well and the carts were out at the kerb. Pulling the furniture inward
+# moved a market cart onto x -10..-6, z 3..7, and the scenes did not move with
+# it: four Ribbits ended up standing in the fisher's cart, Sedge inside its
+# oak fence with a lit lantern in his head, and a lit campfire under its wooden
+# canopy. They are solved against every occupant of the square here instead,
+# exported in the plan, and read back by the scenes at run time - so the next
+# person who nudges a cart cannot put a camp fire under it.
+RIBBIT_CAMP_MIN = sq_fit(5, 3, (-11, 4))
+RIBBIT_STANDS = [[RIBBIT_CAMP_MIN[0] + 1, 1, RIBBIT_CAMP_MIN[1]],
+                 [RIBBIT_CAMP_MIN[0] + 1, 1, RIBBIT_CAMP_MIN[1] + 2],
+                 [RIBBIT_CAMP_MIN[0] + 3, 1, RIBBIT_CAMP_MIN[1]],
+                 [RIBBIT_CAMP_MIN[0] + 3, 1, RIBBIT_CAMP_MIN[1] + 2]]
+RIBBIT_FIRE = [RIBBIT_CAMP_MIN[0] + 2, 1, RIBBIT_CAMP_MIN[1] + 1]
+RIBBIT_POST = [RIBBIT_CAMP_MIN[0], 1, RIBBIT_CAMP_MIN[1] + 1]
+STILL_MIN = sq_fit(3, 2, (-9, 8))
+STILL = {'cupboard': [STILL_MIN[0], 1, STILL_MIN[1] + 1],
+         'brewing_stand': [STILL_MIN[0] + 1, 1, STILL_MIN[1] + 1],
+         'cauldron': [STILL_MIN[0] + 2, 1, STILL_MIN[1] + 1],
+         'post': [STILL_MIN[0] + 1, 1, STILL_MIN[1]]}
+HARVEST_HAY = [[c[0], 1, c[1]] for c in (sq_fit(1, 1, (-6, -6)), sq_fit(1, 1, (6, -6)))]
+HARVEST_PUMPKIN = [[c[0], 1, c[1]] for c in (sq_fit(1, 1, (-6, 6)), sq_fit(1, 1, (6, 6)))]
+SCENE_CELLS = ([(c[0], c[2]) for c in RIBBIT_STANDS] +
+               [(RIBBIT_FIRE[0], RIBBIT_FIRE[2]), (RIBBIT_POST[0], RIBBIT_POST[2])] +
+               [(c[0], c[2]) for c in STILL.values()] +
+               [(c[0], c[2]) for c in HARVEST_HAY + HARVEST_PUMPKIN])
+
 # --- where a resident can stand on the square without being inside the well,
 #     a market cart, the supper table, the road or the noticeboard ------------
 _blocked = set(_sq_blocked)
-for (_fx, _fz) in [(-6, -6), (6, -6), (-6, 6), (6, 6)]:
-    _blocked.add((_fx, _fz))                          # finaleAct3's hay and pumpkins
 _cand = [c for c in rect_cells(-8, -8, 8, 8)
          if c not in _blocked and 3 <= max(abs(c[0]), abs(c[1])) <= 8]
 _cand.sort(key=lambda c: (math.atan2(c[1], c[0]), max(abs(c[0]), abs(c[1]))))
@@ -837,7 +1112,7 @@ _seat_blocked.add((-6, -10)); _seat_blocked.add((6, -10))   # the table's lanter
 _seat_blocked |= set(rect_cells(-2, 1, 2, PLAZA))       # the road out of the square
 _seat_blocked |= set(rect_cells(-2, -7, 2, -2))         # signpost + noticeboard
 _seat_blocked |= set(rect_cells(-1, -1, 1, 1))          # the waystone
-_seat_blocked |= {(-6, -6), (6, -6), (-6, 6), (6, 6)}   # finaleAct3's hay and pumpkins
+_seat_blocked |= set(SCENE_CELLS)                      # camp, still, hay and pumpkins
 
 _seat_x = [0, -1, 1, -2, 2, -3, 3, -4, 4, -5, 5, -6, 6, -7, 7]
 _seat_cand = []
@@ -1695,6 +1970,11 @@ sp_lines = [
 # =============================================================================
 # 11. Sanity checks
 # =============================================================================
+# The aprons connect. Asserted over the PAVING the plan actually emits, so a
+# door that is one block of grass short of the road stops the generator here
+# rather than shipping.
+assert_doors_reach_plaza()
+
 errors = []
 allb = {}
 for n, p in P.items():
@@ -2057,6 +2337,15 @@ plan = {
         'supper_table': {'x': [-4, 4], 'z': [-11, -9]},
         'stands': PLAZA_STANDS[:24],
         'supper_seats': SUPPER_SEATS,
+        # The cells the three square scenes stand on, solved against every
+        # occupant above. valley_finales.js reads these rather than carrying
+        # its own copy of where the carts used to be.
+        'scenes': {
+            'ribbit_camp': {'stands': RIBBIT_STANDS, 'campfire': RIBBIT_FIRE,
+                            'post': RIBBIT_POST},
+            'still': STILL,
+            'harvest': {'hay': HARVEST_HAY, 'pumpkins': HARVEST_PUMPKIN},
+        },
     },
     'streets': [{'name': n, 'centre': [list(p) for p in pts], 'width': 2 * ROAD_BRUSH + 1}
                 for n, pts in STREETS],
