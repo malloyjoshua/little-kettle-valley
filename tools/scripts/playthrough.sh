@@ -12,7 +12,7 @@ cp "$SRV/server.properties" "$OUT/server.properties.bak"
 restore() { cp "$OUT/server.properties.bak" "$SRV/server.properties"; grep -q '^online-mode=true' "$SRV/server.properties" && echo "online-mode restored to true"; }
 trap restore EXIT
 echo "== sync pack -> server + client"; ( cd "$ROOT/pack" && "$ROOT/tools/packwiz" refresh >/dev/null 2>&1 )
-( cd "$SRV" && "$JAVA" -jar "$ROOT/tools/packwiz-installer-bootstrap.jar" -g -s server "$ROOT/pack/pack.toml" 2>&1 | tail -1 )
+"$ROOT/tools/scripts/sync_server.sh"
 ( cd "$GD" && "$JAVA" -jar packwiz-installer-bootstrap.jar -g -s client "$ROOT/pack/pack.toml" 2>&1 | tail -1 )
 sed -i '' 's/^online-mode=true/online-mode=false/' "$SRV/server.properties"
 rm -rf "$SRV/world"
