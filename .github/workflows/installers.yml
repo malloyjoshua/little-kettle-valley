@@ -161,6 +161,23 @@ jobs:
           Write-Host "uninstall ok: launcher removed, player data kept"
           Remove-Item $dir -Recurse -Force -ErrorAction SilentlyContinue
 
+          # Windows allows '#' in a user name, and Prism's old-format INI parser treats an
+          # unescaped '#' as a comment. Prove the escaping in BundledJavaPath() handles it.
+          $hashDir = "D:\lkv#hash"
+          Start-Process -FilePath $exe -Wait -ArgumentList @(
+            '/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', "/DIR=$hashDir"
+          )
+          $cfg = Get-Content "$hashDir\instances\Little Kettle Valley\instance.cfg" -Raw
+          $wantEscaped = 'JavaPath=' + "$hashDir\jre\bin\javaw.exe".Replace('\','/').Replace('#','\#')
+          Write-Host ($cfg -split "`n" | Where-Object { $_ -like 'JavaPath=*' })
+          if ($cfg -notmatch [regex]::Escape($wantEscaped)) { throw "'#' in the install path was not escaped" }
+          if (-not (Test-Path "$hashDir\jre\bin\javaw.exe")) { throw "JRE missing in the '#' install" }
+          $u = Get-ChildItem $hashDir -Filter 'unins*.exe' | Select-Object -First 1
+          Start-Process -FilePath $u.FullName -Wait -ArgumentList @('/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART')
+          Start-Sleep -Seconds 5
+          Remove-Item $hashDir -Recurse -Force -ErrorAction SilentlyContinue
+          Write-Host "'#' install path ok"
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:

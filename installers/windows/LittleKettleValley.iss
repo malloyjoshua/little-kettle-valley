@@ -89,6 +89,10 @@ var
 begin
   P := ExpandConstant('{app}') + '\jre\bin\javaw.exe';
   StringChangeEx(P, '\', '/', True);
+  { parseOldFileFormat() also truncates a value at the first unescaped '#' (it treats it as a
+    comment) and unescape() turns '\#' back into '#'. Windows does allow '#' in a user name, so
+    escape it rather than silently handing Prism a truncated path. }
+  StringChangeEx(P, '#', '\#', True);
   Result := P;
 end;
 
