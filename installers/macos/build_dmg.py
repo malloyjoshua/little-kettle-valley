@@ -101,7 +101,7 @@ ICON_LOCATIONS = {
 STEPS = [
     # (badge centre, title, subtitle)
     ((76, 210), "Drag Prism Launcher into Applications",
-     "Drop it on the folder, then close this window."),
+     "Drop it on the folder. Leave this window open for step 3."),
     ((76, 452), "Open Prism Launcher, sign in with Microsoft",
      "It fetches Java by itself. Let it — that's normal."),
     ((76, 522), "Drag the kettle zip onto Prism's window",
