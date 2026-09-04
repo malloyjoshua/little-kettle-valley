@@ -14,6 +14,15 @@ rm -f dist/LittleKettleValley.zip
 # The Windows installer is built on a GitHub runner, which has no dist/CozyTech -- stage.py falls
 # back to this committed zip. So the zip has to be on main BEFORE the workflow is triggered, or the
 # .exe gets built around the previous instance.
+echo "==> Refreshing the packwiz index (a stale index aborts every friend's launch mid-install)"
+( cd "$ROOT/pack" && "$ROOT/tools/packwiz" refresh >/dev/null )
+git add pack/index.toml pack/pack.toml
+if git diff --cached --quiet -- pack/index.toml pack/pack.toml; then
+  echo "    index current"
+else
+  git commit -m "Refresh packwiz index for the release" -- pack/index.toml pack/pack.toml
+  echo "    index committed"
+fi
 echo "==> Committing dist/LittleKettleValley.zip (the Windows CI build reads it from main)"
 git add dist/LittleKettleValley.zip
 if git diff --cached --quiet -- dist/LittleKettleValley.zip; then
