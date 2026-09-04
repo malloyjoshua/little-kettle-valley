@@ -14,11 +14,11 @@
  "reward_tables": [
   {
    "key": "cozy_crate",
-   "title": "Cozy Crate",
+   "title": "Marnie's Basket",
    "loot_size": 1,
    "loot_crate": {
     "id": "cozy_crate",
-    "name": "Cozy Crate",
+    "name": "Marnie's Basket",
     "color": 16755200,
     "glow": false
    },
@@ -92,11 +92,11 @@
   },
   {
    "key": "tech_crate",
-   "title": "Tech Crate",
+   "title": "Bram's Spares",
    "loot_size": 1,
    "loot_crate": {
     "id": "tech_crate",
-    "name": "Tech Crate",
+    "name": "Bram's Spares",
     "color": 8421504,
     "glow": false
    },
@@ -300,7 +300,7 @@
     },
     {
      "type": "toast",
-     "title": "Journal Entry 1",
+     "title": "Found on the Mantle",
      "description": "Next: follow the lit path from where you woke up. It ends at the old Kettle farm. Put the waystone on the flat grey hearthstone by the chimney."
     }
    ]
@@ -445,7 +445,7 @@
   {
    "key": "q04",
    "title": "Place the Megatorch Inside the Cottage",
-   "subtitle": "One torch, one problem solved.",
+   "subtitle": "One torch. It never goes out.",
    "icon": "torchmaster:megatorch",
    "description": [
     "Josie: \"The dark out here has opinions. The tall torch settles them, permanently, and you never think about it again.\"",
@@ -491,7 +491,7 @@
     "",
     "There is a trapdoor under the ash in the old kitchen and it is glowing. Dig the gravel out of the stairs beneath it — about 40 marked blocks. The iron shovel is in your bag.",
     "",
-    "At the bottom: a sealed iron door with no handle and four words chalked on it in her hand — Not yet. — J.K. Beside it, a Cellar Waystone and her tool chest."
+    "At the bottom: a sealed iron door, no handle, four words in her chalk — Not yet. — J.K. Beside it, a Cellar Waystone and her tool chest."
    ],
    "deps": [
     "q02"
@@ -541,7 +541,7 @@
     },
     {
      "type": "command",
-     "command": "title @p subtitle {\"text\": \"A sealed iron door with no handle, and her chalk on it.\", \"color\": \"gray\", \"italic\": true}"
+     "command": "title @p subtitle {\"text\": \"No handle. Her chalk still on it.\", \"color\": \"gray\", \"italic\": true}"
     },
     {
      "type": "command",
@@ -554,7 +554,7 @@
     {
      "type": "toast",
      "title": "The Door Under the House",
-     "description": "No handle, no hinge you can reach, no keyhole. The chalk is not old. Leave it — it is not going anywhere. Next: hang the Copper Kettle and cook one Vegetable Soup."
+     "description": "Next: hang the Copper Kettle and cook one Vegetable Soup. The door has no handle and no keyhole, and the chalk on it is not old."
     }
    ]
   },
@@ -566,9 +566,9 @@
    "description": [
     "Josie: \"Kettle on the hook, soup in the pot — that is the entire ceremony. There has never been a bigger one.\"",
     "",
-    "Put the campfire down outside your door, set the Cooking Pot on top of it — a Cooking Pot only cooks over a lit fire — and cook one Vegetable Soup. The cabbage, carrots and potatoes are in the basket; three planks at the bench make four bowls. The Copper Kettle hangs on the hook by the door whenever you want it.",
+    "Put the campfire outside your door, hang the Copper Kettle on the hook above it, and cook one Vegetable Soup in the Cooking Pot — a pot only cooks over lit fire. Cabbage, carrots and potatoes are in the basket; three planks make four bowls.",
     "",
-    "Bram's old Surveyor's Stake is in the basket with the vegetables, wrapped in a rag with your name on it — the next quest is what you do with it."
+    "Bram's old Surveyor's Stake is in the vegetable basket, wrapped in a rag with a chalk K on it — the next quest is what you do with it."
    ],
    "deps": [
     "q03"
@@ -628,9 +628,9 @@
    "description": [
     "Josie: \"Bram surveyed that flat by the road twice and never drove the stake — forty years of nearly. Drive it.\"",
     "",
-    "Carry Bram's Surveyor's Stake north up the road from your gate. Green sparks come up around your feet the moment you are standing on ground flat enough to hold a town — place the stake in the sparks. That spot is the Town Anchor and every building in the pack is measured from it.",
+    "Carry Bram's Surveyor's Stake north up the road. Green sparks come up round your feet the moment the ground is flat enough to hold a town — drive the stake in the sparks. Every building in the valley is measured from that spot.",
     "",
-    "Walk until the cottage chimney is small behind you. Fifteen houses, a square, a mill and a lakefront go in around this stake, and if it is driven in your own dooryard the town is laid on top of the farm. Stake it too close and Josie hands it straight back.",
+    "Walk until the cottage chimney is small behind you. Stake it in your own dooryard and the square and the mill land on top of the farm.",
     "",
     "A stone path is laid from your door to the anchor and the first two lamp posts go up. 2 of 40."
    ],
@@ -755,7 +755,7 @@
     {
      "type": "toast",
      "title": "Residents 1/15",
-     "description": "Next: till the 3x9 patch behind the house — every tile is marked. (Bram is standing outside the mill west of the stake when you're ready for him; he'll wait, he's waited sixty years.)"
+     "description": "Next: till the 3x9 patch behind the house — every tile is marked. Bram is outside the mill west of the stake; he has waited sixty years, he can wait a week."
     }
    ]
   },
@@ -767,7 +767,7 @@
    "description": [
     "Marnie: \"Three beds: wheat, carrots, potatoes. Anything fancier and you'll be eating it alone in July.\"",
     "",
-    "Till the 3x9 patch behind the house — every tile is marked in path blocks — then plant the 9 carrots, 9 potatoes and 9 wheat seeds from Marnie's sack. Do the wheat last, and hand this quest in while the nine wheat seeds are still in your bag — the quest just checks you have them, it never takes them, so you plant them straight after.",
+    "Till the 3x9 patch behind the house — every tile is marked in path blocks — then plant the 9 carrots, 9 potatoes and 9 wheat seeds from Marnie's sack. Do the wheat last: hand in holding the nine seeds, which the book counts and never takes.",
     "",
     "Marnie hands over the fence, the gate, the trough and three Hen Crates for the pen next to it."
    ],
@@ -838,7 +838,7 @@
     "",
     "Put a fence section on each of the 23 stone footings marked out behind the house, hang the gate on the single grey slab in the middle of the side facing you, then right-click all three Hen Crates inside the finished pen. Any order is right.",
     "",
-    "A nesting box goes down with two eggs already in it, a Megatorch goes up over the coop, and you get chicken feed — right-click a hen with it and she lays."
+    "A nesting box goes down with two eggs in it, a Megatorch goes up over the coop, and chicken feed makes a hen lay when you right-click her."
    ],
    "deps": [
     "q09"
@@ -890,7 +890,7 @@
     "",
     "Collect 3 eggs from the nesting box behind your house — right-click a hen with chicken feed if you would rather not wait — and hand them in here. Marnie gets them either way; the book does the walking.",
     "",
-    "Pip moves in, puts a duckling on your boot and names it Biscuit before you can stop him. His courier board opens, and Marnie empties her carding basket of 16 wool onto the counter."
+    "Pip puts a duckling on your boot, names it Biscuit, and opens his courier board. Marnie tips 16 carded wool onto the counter."
    ],
    "deps": [
     "q10"
@@ -954,7 +954,7 @@
     "",
     "Walk to the mill plot marked on your map, talk to Bram, and bring back the Millwright's Bolt he puts in your hand.",
     "",
-    "Bram opens his labelled crates: 12 iron ingots and 24 andesite — three times what the eight alloys want, because the Millstone wants the rest."
+    "Bram opens his labelled crates: 12 iron ingots and 24 andesite — three times what eight alloys want, because the Millstone wants the rest."
    ],
    "deps": [
     "q08"
@@ -1000,14 +1000,14 @@
     {
      "type": "toast",
      "title": "Residents 3/15",
-     "description": "Bram is at the mill. Next: craft 8 Andesite Alloy out of what Bram gave you. Eight. Not nine."
+     "description": "Next: craft 8 Andesite Alloy out of what Bram gave you. Eight, not nine — the rest of the crate is the Millstone's."
     }
    ]
   },
   {
    "key": "q13",
    "title": "Craft 8 Andesite Alloy",
-   "subtitle": "One andesite plus one iron nugget, eight times. Not nine.",
+   "subtitle": "One andesite, one iron nugget. Eight, not nine.",
    "icon": "create:andesite_alloy",
    "description": [
     "Bram: \"One andesite, one iron nugget, pressed. Eight of them, not nine — if you're making nine you've misread something.\"",
@@ -1063,7 +1063,7 @@
    "subtitle": "Three by three. One swing.",
    "icon": "justhammers:stone_hammer",
    "description": [
-    "Bram: \"Josie hated this thing. Said it made a man lazy. She also borrowed it for eleven days once and gave it back with the handle worn smooth, so I have stopped arguing the point.\"",
+    "Bram: \"Josie said this thing made a man lazy. Then she borrowed it for eleven days and gave it back with the handle worn smooth.\"",
     "",
     "Take the Stone Hammer off the peg by Bram's bench. It breaks a three-by-three face in one swing — every block in the square goes the same as the one in the middle — so aim the middle of the square at the middle of the hole you want.",
     "",
@@ -1100,7 +1100,7 @@
   },
   {
    "key": "q14",
-   "title": "Grind 16 Wheat Flour on a Hand-Cranked Millstone",
+   "title": "Mill 16 Flour on a Hand-Cranked Millstone",
    "subtitle": "Your arm first, then the river.",
    "icon": "create:millstone",
    "description": [
@@ -1162,7 +1162,7 @@
     "",
     "Smelt the 32 Green Oak Planks in any furnace — about two minutes for the lot — and hold 32 Seasoned Oak Boards. Marnie's charcoal is in the barrel by the door.",
     "",
-    "Bram cannot craft a Water Wheel without these boards — that gate is the furnace, and the furnace is you. You also get the inn's spare crockery, a chair by the fire, and the Counter, Sink and Oven for the kitchen."
+    "Bram cannot build a Water Wheel until these dry, and the furnace is you. Also the inn's crockery, your chair by the oven, the kitchen kit."
    ],
    "deps": [
     "q08"
@@ -1206,7 +1206,7 @@
     },
     {
      "type": "toast",
-     "title": "Stage: seasoned",
+     "title": "Dry Boards, in April",
      "description": "Next: fit the Counter, Sink and Oven along the inn's back wall. Bram's wheels are unblocked."
     }
    ]
@@ -1329,7 +1329,7 @@
     },
     {
      "type": "toast",
-     "title": "Stage: market_stalls",
+     "title": "Four Stalls for the Fair",
      "description": "Next: Oda's store. She wants 16 flour and 8 loaves, and the cobwebs gone."
     }
    ]
@@ -1337,12 +1337,12 @@
   {
    "key": "q18",
    "title": "Fit the Kitchen and Cook Three Dishes",
-   "subtitle": "Counter, sink, oven, back wall.",
+   "subtitle": "Counter, sink, oven. The pumpkin is wild.",
    "icon": "cookingforblockheads:oven",
    "description": [
     "Marnie: \"Counter, sink, oven, along the back wall in that order. I've had the spots chalked for four years.\"",
     "",
-    "Have the Kitchen Counter, Sink and Oven in your bag when you hand this in — the quest checks for them and gives them straight back — then set them on the three marked spots along the inn's back wall — three grey slabs, numbered 1, 2 and 3 on the wall above them: counter, sink, oven, in that order. Cook Bread, a Pumpkin Pie and a Vegetable Soup in that kitchen; everything is in the crate by the counter. The one thing the crate cannot hold is the pumpkin — pumpkins are an autumn crop and will not grow in spring, so walk the grass and the taiga edges and pick a wild one. Oda's Seed Box sells the seeds, but save them for Act III.",
+    "Hold the Counter, Sink and Oven at hand-in; the book gives them back. Set them on the inn's three grey slabs, 1, 2, 3: counter, sink, oven. Cook Bread, Pumpkin Pie and Vegetable Soup. The crate holds all but the pumpkin, which is wild.",
     "",
     "You get the recipe book, the fruit basket, Marnie's cupboards — and Oda's broom off the back door, which Q19 needs."
    ],
@@ -1423,7 +1423,7 @@
   },
   {
    "key": "q19",
-   "title": "Sweep Oda's Store and Bring Her 16 Flour and 8 Bread",
+   "title": "Sweep Oda's Store, Bring 16 Flour and 8 Bread",
    "subtitle": "Act I finale — The Thaw Fair.",
    "icon": "minecraft:bread",
    "shape": "hexagon",
@@ -1435,7 +1435,7 @@
     "",
     "Forty lamps. Fifteen people. One winter that nobody leaves.",
     "",
-    "The Thaw Fair opens at the Town Anchor: four stalls, a long table, bunting, six lamps burning — and five people standing in a square that was a frozen field in February."
+    "The Thaw Fair opens at the Town Anchor: four stalls, a long table, six lamps burning, and five people in a field that froze in February."
    ],
    "deps": [
     "q17",
@@ -1485,7 +1485,7 @@
     {
      "type": "toast",
      "title": "The Thaw Fair",
-     "description": "Next: Act II. Right-click Marnie's Explorer's Compass, type Ribbit in the search box and click Ribbit Village — the needle points there until you pick something else. There is also a woman fixing a beached boat at the lake and a prospector camped by the copper outcrop."
+     "description": "Next: type Ribbit into Marnie's compass and follow the needle. Also a woman fixing a beached boat at the lake, and a prospector at the copper outcrop."
     }
    ]
   }

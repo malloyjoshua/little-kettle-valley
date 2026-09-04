@@ -19,5 +19,5 @@ setblock ~-2 ~1 ~2 minecraft:oak_fence
 setblock ~2 ~1 ~2 minecraft:oak_fence
 setblock ~-2 ~2 ~2 minecraft:lantern[hanging=false]
 setblock ~2 ~2 ~2 minecraft:lantern[hanging=false]
-tellraw @a[distance=..64] [{"text":"Josie: ","color":"gray"},{"text":"\"Bram surveyed that flat twice and never drove the stake. You drove it. That is the whole difference.\"","color":"white","italic":true}]
+tellraw @a[distance=..64] [{"text":"Josie: ","color":"gray"},{"text":"\"Stake's in. Bram will tell you he chose the spot. Let him.\"","color":"white","italic":true}]
 playsound minecraft:block.stone.place master @a[distance=..64] ~ ~ ~ 1 0.8

@@ -1,0 +1,546 @@
+[
+  {
+    "id": "S0343",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q38].description[4]",
+    "old": "It opens the winter checklist, the granary blueprint, and both lanes of autumn work.",
+    "new": "The winter checklist and the granary blueprint go into your book, and Oda leaves the ledger open on the counter.",
+    "why": "Line 5 must show what the player sees; 'both lanes of autumn work' is a menu abstraction. Same facts, ends on the open ledger."
+  },
+  {
+    "id": "S0359",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q40].description[2]",
+    "old": "Plant 4 Pumpkin Seeds, 4 Beetroot Seeds, 4 Oat Seeds and 4 Barley Seeds in the four marked beds behind the inn, and hand in with four of each in your bag. The quest checks them and never takes them, so they go in the ground straight after. Oda's Seed Box is four Scrip for the pumpkin and beetroot; the Oat Seeds are Bakery's and the Barley Seeds are Thermal's, spelled exactly like that. Any order is right. Nothing has to sprout for this: the quest only checks the seeds are in your bag. It is still summer when Marnie hands it over, so the beds sit until the season turns — pumpkin and beetroot take once autumn lands, the oats grow whenever, and the barley is a spring crop that will wait in the ground until the thaw.",
+    "new": "Plant 4 Pumpkin Seeds, 4 Beetroot Seeds, 4 Oat Seeds and 4 Barley Seeds in the four marked beds behind the inn, then hand in with four of each. Oat Seeds are Bakery's, Barley Seeds are Thermal's. Nothing has to sprout and nothing is taken.",
+    "why": "Fit: 722 > 240. Keeps every gating fact the player cannot get elsewhere (four seeds x4, marked beds, hand-in-holding, Bakery/Thermal disambiguation, nothing has to sprout, nothing is taken). Drops the Seed Box price (already the whole of oda_seedbox) and the season lecture, which moves to line 5."
+  },
+  {
+    "id": "S0360",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q40].description[4]",
+    "old": "It pays out the larder crate — eggs, sugar, milk, meat, apples and twelve empty jars — which is everything the preserving work needs.",
+    "new": "The larder crate comes back — eggs, sugar, milk, meat, apples, twelve empty jars — and the beds sit until the season turns.",
+    "why": "Carries the season fact displaced from line 3 and ends on the beds instead of on a restatement. Item list unchanged."
+  },
+  {
+    "id": "S0366",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q41].description[2]",
+    "old": "Follow Halden to the spring above the hedge garden and pour out the 3 bottles Q23 left you, then fill them there. He tops you up to six.",
+    "new": "Follow Halden up to the spring above the hedge garden, pour out the 3 bottles he sent you home with in the summer, and fill them there. He tops you up to six.",
+    "why": "Q23 means nothing to a non-gamer. Q23 is Halden's hedge-garden quest and its reward is 3 valley:spring_water, so 'he sent you home with in the summer' is exact. Count (3) and 'tops you up to six' unchanged."
+  },
+  {
+    "id": "S0367",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q41].description[4]",
+    "old": "Spring Water is what grows certus quartz, which is the tech lane's next gate — and Josie's jar of sixteen crystals has been on Halden's shelf for four years.",
+    "new": "Spring Water is what grows certus quartz — and Josie's jar of sixteen crystals has been on Halden's shelf for four years.",
+    "why": "Fit + banned register ('gate'). The four-years plant is preserved verbatim and now carries the line's ending."
+  },
+  {
+    "id": "S0370",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q41].rewards[6].command",
+    "old": "Halden: Snow never sat on that slope either. She used to walk up there in February in her shirtsleeves and tell me it was good circulation. I let her tell me that for thirty years.",
+    "new": "Halden: She walked that slope in February in her shirtsleeves and called it good circulation, and snow never sat on it.",
+    "why": "Fit: 180 > 120. Keeps both load-bearing facts — she walked the slope in February in shirtsleeves, and snow never sat on it (the warm-ground plant for the Works) — and keeps the joke. Speaker prefix 'Halden: ' stays its own tellraw component."
+  },
+  {
+    "id": "S0377",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q42].description[4]",
+    "old": "Sweet berries are a spring and winter crop, so the bushes will not be fruiting now: pick wild ones off taiga bushes, or buy the Rare Seed Case at Oda's counter — sixteen Scrip and eight berries come with it. Anything you stockpiled in Act II keeps in the granary.",
+    "new": "Sweet berries are not fruiting now: pick wild ones off taiga bushes, or buy Oda's Rare Seed Case — sixteen Scrip, eight berries in the tin.",
+    "why": "Fit: 263 > 140. Keeps both sourcing routes and the Rare Seed Case price (16 Scrip, 8 berries). Drops 'sweet berries are a spring and winter crop' (the player only needs 'not fruiting now') and the Act II stockpile note."
+  },
+  {
+    "id": "S0378",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q42].description[6]",
+    "old": "Twelve jars. Oda's count says that is four days off the hundred and twelve. Bram left a fridge blueprint on that counter too, and he says he is working on the power, which from Bram is a promise.",
+    "new": "Twelve jars: four days off the hundred and twelve. Bram left a fridge blueprint on the counter, and 'working on it' from Bram is a promise.",
+    "why": "Fit only. Keeps the ledger arithmetic and Bram's promise joke, which is canon."
+  },
+  {
+    "id": "S0400",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q44].description[4]",
+    "old": "Thirty-two cured meat into the granary — ninety-one days short now, and Oda has stopped saying the number out loud. The Nether stays shut until this act ends; you don't need it.",
+    "new": "Thirty-two cured meat into the granary — ninety-one days covered, twenty-one short, and Oda has stopped saying the number out loud.",
+    "why": "Continuity: Oda's ledger runs 112 needed / 81 covered (31 short) -> 12 jars = 4 days -> 85 -> the hams take it to 91 COVERED, 21 short. As written the town is getting hungrier as you fill the granary. Number 91 kept, sense corrected. Drops the Nether reassurance, which S0475 also carries."
+  },
+  {
+    "id": "S0406",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q48a].subtitle",
+    "old": "Everything is in the packet.",
+    "new": "Eight marked spots, four in each room.",
+    "why": "Subtitle must add a fact the title and the line above do not have. 'Eight marked spots, four in each room' is the fact; the packet is already Marnie's line."
+  },
+  {
+    "id": "S0410",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q48a].tasks[0].title",
+    "old": "Both rooms furnished: bed, rug, lantern and chest on every marked spot.",
+    "new": "Bed, rug, lantern and chest on all eight marked spots.",
+    "why": "Fit: 71 > 60. Noun phrase naming the finished state; all four items and the eight spots kept."
+  },
+  {
+    "id": "S0412",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q48a].rewards[5].toast.description",
+    "old": "There is a letter in your bag from the first person who wants one of these rooms. Read it. Next: Wisp is downstream at the marsh beds — 12 rice, all ripe on the same day.",
+    "new": "Next: Wisp is downstream at the marsh beds — 12 rice, ripe on the same day. There is a letter in your bag from the first person who wants a room.",
+    "why": "Fit + shape. 'Next:' first, letter second, three clauses, 12 rice kept."
+  },
+  {
+    "id": "S0415",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q51a].description[0]",
+    "old": "Wisp: \"Downstream is many rice and they are ready all on the same day, which is rude of them, but good for us!\"",
+    "new": "Wisp: \"Downstream is many rice and they are ready all on the same day, which is rude of them, but good for us.\"",
+    "why": "Wisp's syntax and the joke are untouched; only the exclamation goes."
+  },
+  {
+    "id": "S0421",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q54a].subtitle",
+    "old": "Eight Cooked Fish Fillets into the granary drawers.",
+    "new": "Nella is on the pier before the lake turns.",
+    "why": "Subtitle rule: never restate the title's verb. Replaced with the fact the title lacks — Nella, the pier, and the lake turning."
+  },
+  {
+    "id": "S0424",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q54a].description[4]",
+    "old": "That's fish in the granary and a salt barrel on the pier — and Marnie's crate of twelve bowls, twelve bricks, twelve iron and twelve copper, which is the twelve place settings the long table wants.",
+    "new": "Fish in the granary and a salt barrel on the pier — and Marnie's crate of twelve bowls, twelve bricks, twelve iron, twelve copper.",
+    "why": "Fit only. All four counts of twelve kept; the 'twelve place settings' gloss is already in the toast below it (S0427)."
+  },
+  {
+    "id": "S0432",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q45].description[4]",
+    "old": "The chest holds Josie's Kettle Plate, and the seam pays out raw: 48 copper, 16 tin, 16 gold, 16 silver. Hold on to the plate — Halden is the one who can read it, and that quest opens once the bakery line is done.",
+    "new": "Josie's Kettle Plate is in the chest at the back; keep it, Halden reads that hand. The seam pays raw: 48 copper, 16 tin, 16 gold, 16 silver.",
+    "why": "Fit: 212 > 140. Keeps the Plate, the keep-it instruction, Halden as the reader, and all four ore counts. Drops 'that quest opens once the bakery line is done' (the dependency does that job)."
+  },
+  {
+    "id": "S0435",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q45].rewards[9].command",
+    "old": "Forty blocks of fallen rock, and something behind it.",
+    "new": "Forty blocks of rock. Something behind.",
+    "why": "Fit. Two noun phrases, full stops only, the hook intact."
+  },
+  {
+    "id": "S0441",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q46].description[0]",
+    "old": "Bram: \"Smelter takes two inputs and gives you back more than you put in. Three copper and one tin makes four bronze; one gold and one silver makes two electrum. That's the whole machine.\"",
+    "new": "Bram: \"Two inputs, more back than you put in. Three copper and one tin is four bronze. That's the whole machine.\"",
+    "why": "Fit + duplication. One ratio kept as flavour, the full recipe stays in the instruction line."
+  },
+  {
+    "id": "S0442",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q46].description[2]",
+    "old": "Build a Thermal Induction Smelter in the mill workshop and run Tobin's raw ore through it until you have 16 Bronze Ingots and 16 Electrum Ingots. The smelter takes them; 12 copper and 4 tin is the bronze, 8 gold and 8 silver is the electrum.",
+    "new": "Build a Thermal Induction Smelter in the mill workshop and run Tobin's raw ore through until you have 16 Bronze Ingots and 16 Electrum Ingots. The smelter takes them; 12 copper and 4 tin is the bronze, 8 gold and 8 silver is the electrum.",
+    "why": "One-word trim. Every item name, count and ratio identical."
+  },
+  {
+    "id": "S0445",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q46].rewards[4].toast.description",
+    "old": "Next: charge a Thermal Energy Cell off the dynamos and run Energy Duct to the inn. While Marnie's preserving line finishes, Oda sells Machine Frames at 25 Scrip and the granary drawers still are not bussed.",
+    "new": "Next: charge a Thermal Energy Cell and run Energy Duct to the inn. Oda sells Machine Frames at 25 Scrip, and the granary drawers are still not bussed.",
+    "why": "Fit. Three clauses, each a new fact; the 25 Scrip price and the un-bussed drawers both kept."
+  },
+  {
+    "id": "S0447",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q47].subtitle",
+    "old": "Cell on the wall, duct to Marnie's kitchen.",
+    "new": "Marnie gets a fridge out of it.",
+    "why": "Subtitle and character line said the same words. The subtitle now carries the consequence Bram will not say out loud."
+  },
+  {
+    "id": "S0449",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q47].description[2]",
+    "old": "Charge a Thermal Energy Cell off your dynamos, then run Energy Duct from the mill until the line ends within 12 blocks of the inn. Bram has the coils; the Cell Frame is twelve Scrip on Oda's board and she will not be talked down — frame, four RF Coils and a bucket of redstone is the cell.",
+    "new": "Charge a Thermal Energy Cell off your dynamos, then run Energy Duct from the mill until the line ends within 12 blocks of the inn. The Cell Frame is twelve Scrip on Oda's board: frame, four RF Coils and a bucket of redstone is the cell.",
+    "why": "Fit: 289 > 240. Keeps the 12-block rule, the twelve-Scrip Cell Frame and the full cell recipe. Drops 'Bram has the coils' and 'she will not be talked down' (Oda's own board says the second one)."
+  },
+  {
+    "id": "S0450",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q47].description[4]",
+    "old": "That is what the Works Power Tap is for: four of them come off the line in this payout, and one goes into every Fridge, Sink and Milk Jar you ever build. One of each is already made.",
+    "new": "The Works Power Tap comes off the line — four in this payout, one for every Fridge, Sink and Milk Jar. One of each is already made.",
+    "why": "Fit only. Four taps, the three appliances and 'one of each is already made' all kept."
+  },
+  {
+    "id": "S0457",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q48].description[0]",
+    "old": "Bram: \"Station at the mill, track to the square, and sixty-four track and the station are in the packet. Don't curve it more than you have to.\"",
+    "new": "Bram: \"Station at the mill, track to the square, both in the packet. Don't curve it more than you have to.\"",
+    "why": "Fit. 'both in the packet' replaces the restated 64."
+  },
+  {
+    "id": "S0467",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q49].description[4]",
+    "old": "It opens Oda's catalogue tier three — the full decor list, seeds and animals, all buyable with Valley Scrip.",
+    "new": "Oda's catalogue opens all the way: the full decor list, seeds and animals, every line paid in Valley Scrip.",
+    "why": "Banned register. Same unlock stated in shop language, not menu language."
+  },
+  {
+    "id": "S0469",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q49].rewards[2].toast.title",
+    "old": "Oda's counter, tier three",
+    "new": "Oda's shelves fill up",
+    "why": "Fit + banned register. Toast titles are the one place a non-gamer reads fastest; 'shelves fill up' is the thing she will see."
+  },
+  {
+    "id": "S0475",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q50].description[4]",
+    "old": "Thirty-two certus is exactly the drive, two cells and terminal the next quest asks for. Halden's compass points at a sky-stone meteorite: dig it out and take the four presses from the chest inside — silicon, logic, calculation, engineering. Nothing on this lane crafts without them, and the nether quartz for fluix is in the same chest, so the Nether stays shut.",
+    "new": "Halden hands you a compass that leads to a sky-stone meteorite; the four presses and the nether quartz are in the chest inside it.",
+    "why": "Fit: 362 > 140. Keeps the meteorite, the four presses and the nether quartz in the chest (which is what keeps the Nether shut). Drops the press names and the certus-to-parts arithmetic, both restated by the next quest's own text."
+  },
+  {
+    "id": "S0483",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q51].description[4]",
+    "old": "It pays out four more cells and the full bus set, which is what busses the granary onto the network.",
+    "new": "Four more cells and the full bus set come back — the granary is twelve drawers and one screen away.",
+    "why": "Same reward, but the line closes on the image the player is walking toward instead of on the quest name."
+  },
+  {
+    "id": "S0489",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q52].description[2]",
+    "old": "Put a Storage Bus on the granary's drawer controller, link it to the mill network, and hold a Wireless Terminal. It reads nothing until there is an ME Wireless Access Point on the mill wall — the receiver for one is in this payout, and the Charger beside it is what keeps the terminal alive.",
+    "new": "Put a Storage Bus on the granary's drawer controller, link it to the mill network, and hold a Wireless Terminal. It reads nothing until an ME Wireless Access Point is on the mill wall — the receiver and the Charger are in this payout.",
+    "why": "Fit only. Storage Bus, controller, network link, Wireless Terminal, Access Point, receiver and Charger all kept."
+  },
+  {
+    "id": "S0495",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q53].subtitle",
+    "old": "Crate beside Oda's board, export bus pointed at it.",
+    "new": "Export bus pointed at a crate by the board.",
+    "why": "Fit + restatement. The subtitle now names the mechanism, the title names the act."
+  },
+  {
+    "id": "S0498",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q53].description[4]",
+    "old": "Every delivery and every \"bring X to Y\" quest from here on is already filled when you walk up to it.",
+    "new": "From here on the crate is already full when somebody walks up to it, including you.",
+    "why": "Wiki voice with algebra in it. Same promise as a picture of somebody walking up to a full crate."
+  },
+  {
+    "id": "S0499",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q53].tasks[0].title",
+    "old": "Delivery Crate placed beside the board and fed by the export bus.",
+    "new": "Crate beside the board, export bus feeding it.",
+    "why": "Fit. Noun phrase, both objects named."
+  },
+  {
+    "id": "S0501",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q53].rewards[5].command",
+    "old": "Eleven years of ledger, and a crate beside it.",
+    "new": "Eleven years of ledger, one full crate.",
+    "why": "Fit. The eleven-years number is load-bearing and stays."
+  },
+  {
+    "id": "S0507",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q54].description[0]",
+    "old": "Halden: \"I have been able to read that hand for four years. I have been finding reasons not to for four years. Give it here before I find another one.\"",
+    "new": "Halden: \"I have been able to read that hand for four years. I have been finding reasons not to. Give it here before I find another one.\"",
+    "why": "Fit only. The doubling ('four years... four years') is the line's whole engine, so the second instance is what survives the cut in shortened form."
+  },
+  {
+    "id": "S0509",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q54].description[4]",
+    "old": "The iron door under your farmhouse turns a quarter and stops. Journal Part Two opens, and the Bigger Reactors recipes appear — casings still need Josie's Turbine Notes.",
+    "new": "The door turns a quarter and stops. Journal Part Two opens and the reactor recipes appear — the casings still want Josie's Turbine Notes.",
+    "why": "Fit. Door quarter-turn, Journal Part Two, recipes and the withheld Turbine Notes all kept; ends on the withheld thing."
+  },
+  {
+    "id": "S0515",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q55].description[0]",
+    "old": "Halden, at the top of the stairs, not coming down: \"She wrote it all on that wall. I carried the chalk up for her and I went home. I have never read the bottom half and I am not going to read it over your shoulder now.\"",
+    "new": "Halden, from the top of the stairs: \"I carried the chalk up for her and went home. I am not reading the bottom half over your shoulder.\"",
+    "why": "Fit: 219 > 140. Keeps the stage direction (he does not come down), the chalk, and the refusal. Drops one of the two 'four years' repetitions, which S0507 already carries two quests earlier."
+  },
+  {
+    "id": "S0517",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q55].description[4]",
+    "old": "The cellar waystone is yours for the walk back, her chalk copies itself into the journal, and her original reactor blueprint is rolled in the tube by the stairs — with the Works Pick, Efficiency V, for the forty blocks of fallen adit Tobin is stood in front of.",
+    "new": "Her chalk copies itself into the journal, the cellar waystone is yours, and the Works Pick is in the tube by the stairs with her blueprint.",
+    "why": "Fit: 261 > 140. Keeps the chalk-into-journal, the waystone, the Works Pick and the blueprint. Drops 'Efficiency V' (a stat) and the forty-blocks note, which the toast below (S0524) already carries."
+  },
+  {
+    "id": "S0520",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q55].rewards[6].command",
+    "old": "Josie, on the wall: If there's more than one set of footprints on my cellar stairs, then I was right to wait. Go and turn it on.",
+    "new": "Josie, on the wall: More than one set of footprints on these stairs, so I was right to wait. Go and turn it on.",
+    "why": "Fit. Canon (story-final.md line 507) is 'more than one set of footprints on my cellar stairs, then I was right to wait... go and turn it on' — 'these stairs' keeps the image while the player is standing on them, and 'so' does the work 'then' was doing. The speaker prefix 'Josie, on the wall: ' stays its own tellraw component; replace only the italic text component."
+  },
+  {
+    "id": "S0521",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q55].rewards[9].command",
+    "old": "Josie wrote it down. She waited for two of you.",
+    "new": "She waited for two of you.",
+    "why": "Fit. 'She waited for two of you' is the reveal; 'Josie wrote it down' is what the card above it already says."
+  },
+  {
+    "id": "S0523",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q55].rewards[12].toast.title",
+    "old": "The Works was a power plant",
+    "new": "It was a power plant",
+    "why": "Fit. Past tense kept — the whole point is that it already was one."
+  },
+  {
+    "id": "S0524",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q55].rewards[12].toast.description",
+    "old": "Next: the long table in the square — twelve place settings and the centrepiece. That's the Harvest Supper. And Tobin is stood at the collapsed adit with a shovel and a theory: the Works opens from there.",
+    "new": "Next: the long table in the square, twelve settings and the centrepiece. Tobin is at the collapsed adit with a shovel and a theory about where the Works opens.",
+    "why": "Fit. Both next steps kept, Tobin's shovel-and-a-theory kept."
+  },
+  {
+    "id": "S0526",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q56].subtitle",
+    "old": "Act III finale — twelve settings and one centrepiece.",
+    "new": "Act III finale — the Harvest Supper.",
+    "why": "Fit + consistency: Q19, Q37, Q75 and Q91 all read 'Act N finale — <the event>'. This one described the task instead of naming the Harvest Supper."
+  },
+  {
+    "id": "S0530",
+    "file": "story/quests/act3.json",
+    "locator": "quests[q56].description[6]",
+    "old": "Sit down. The granary's full, the lamps are lit down the road, and there are three empty chairs at this table because Marnie set it for the year we are going to have.",
+    "new": "Sit down. The granary is full, the road is lit, and three chairs are empty because Marnie set the table for the year we are going to have.",
+    "why": "Fit only. The three empty chairs (the Tess/Mab/Corin plant) and the 'year we are going to have' ending are untouched."
+  },
+  {
+    "id": "S0903",
+    "file": "story/quests/oda.json",
+    "locator": "chapter[oda].subtitle[1]",
+    "old": "Cozy work pays Scrip; Scrip deletes tech grind. Every buy line restocks.",
+    "new": "Cozy work pays Scrip, and Scrip buys the dull half of the tech. Every buy line restocks.",
+    "why": "Chapter subtitles are read by the non-gamer first. Same trade stated in shop terms."
+  },
+  {
+    "id": "S0904",
+    "file": "story/quests/oda.json",
+    "locator": "chapter[oda].subtitle[2]",
+    "old": "Stock arrives in tiers, and the tiers arrive on the rail line.",
+    "new": "Stock widens as the wagon comes further up the line.",
+    "why": "Same fact — the wagon reaching further widens the shelf — without the menu word."
+  },
+  {
+    "id": "S0910",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_open].description[6]",
+    "old": "One warning, and it's the only one I'll give: keep two hundred Scrip back. The town's winter debt is a hundred and twenty and the Works Deed is eighty, and both of those are mine to collect, and I will not be talked down. Spend whatever is over the two hundred on whatever you like — I sell nothing you actually need.",
+    "new": "One warning: keep two hundred Scrip back. The winter debt is a hundred and twenty, the Works Deed is eighty, and I do not get talked down.",
+    "why": "Fit: 317 > 140. Both numbers she must not spend (120 winter debt, 80 Works Deed) and the 200 total are kept verbatim. Drops 'I sell nothing you actually need', which the prices already say."
+  },
+  {
+    "id": "S0914",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_open].rewards[3].toast.description",
+    "old": "Scrip only. Every buy line restocks. Cheap tech first, decor when the rail comes in — and keep 200 Scrip back for year two. Oda means it.",
+    "new": "Next: buy the cheap tech now, the decor when the rail comes in — and keep 200 Scrip back for year two. Oda means it.",
+    "why": "Format. Unlike S1006 this toast genuinely has a next step, so it takes the standard shape. 200-Scrip warning kept."
+  },
+  {
+    "id": "S0925",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_alloy].description[0]",
+    "old": "Oda: \"Thirty-two. Andesite and iron nuggets, pressed. It is the least interesting thing in this valley and you will want a great deal of it.\"",
+    "new": "Oda: \"Thirty-two. Andesite and iron nuggets, pressed. The least interesting thing in this valley, and you will want a great deal of it.\"",
+    "why": "One-word trim, count and joke intact."
+  },
+  {
+    "id": "S0929",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_gearing].description[0]",
+    "old": "Oda: \"Sixteen cogs, eight large cogs, sixteen shafts, eight belts. I have written that on the crate lid so neither of us has to count it again.\"",
+    "new": "Oda: \"Sixteen cogs, eight large cogs, sixteen shafts, eight belts. I wrote that on the crate lid so neither of us counts it again.\"",
+    "why": "Fit only. Every count on the crate lid kept."
+  },
+  {
+    "id": "S0941",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_lampoil].description[0]",
+    "old": "Oda: \"Eight lanterns, eight candle holders, four road lamps. Josie bought this exact crate every autumn for eleven years and I never once had to ask what it was for.\"",
+    "new": "Oda: \"Eight lanterns, eight holders, four road lamps. Josie bought this exact crate every autumn for eleven years and I never once asked.\"",
+    "why": "Fit only. 'Eleven years' and the never-asked beat both kept — this is a Josie plant, not flavour."
+  },
+  {
+    "id": "S0942",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_lampoil].description[2]",
+    "old": "Six Scrip. Light is not decoration in this valley, it is the thing that keeps the dark out of the lane.",
+    "new": "Six Scrip. The lane between the mill and the square is dark for nine months of the year.",
+    "why": "The rule bans explaining the theme. A dark lane for nine months of the year makes the same argument and can be looked at."
+  },
+  {
+    "id": "S0945",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_servos].description[0]",
+    "old": "Oda: \"Sixteen servos in a crate. I do not know what they do. I know Bram asks for them by name and I know how many are in the crate, which is the half of it that is my job.\"",
+    "new": "Oda: \"Sixteen servos in a crate. I do not know what they do; I know Bram asks for them by name and I know how many are in the crate.\"",
+    "why": "Fit only. 'The half of it that is my job' is trimmed to the same joke in fewer words."
+  },
+  {
+    "id": "S0949",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_frames].description[0]",
+    "old": "Oda: \"Two frames. Washed silica, which means Nella's boat and a fan and an afternoon, and I have already spent that afternoon on your behalf.\"",
+    "new": "Oda: \"Two frames. Washed silica, which means Nella's boat and a fan and an afternoon, and I have spent that afternoon for you.\"",
+    "why": "Fit only."
+  },
+  {
+    "id": "S0954",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_coils].description[2]",
+    "old": "Eighteen Scrip.",
+    "new": "Eighteen Scrip. Tobin's silver goes in one end of this store and comes out of the other as coil.",
+    "why": "Line 5 has to do work. Ties the coils back to Tobin's silver from Q45, which is where they actually come from."
+  },
+  {
+    "id": "S0955",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_fluxduct].title",
+    "old": "Buy 64 Energy Duct and a Cell Frame — 12 Scrip",
+    "new": "Buy 64 Duct and a Cell Frame — 12 Scrip",
+    "why": "Fit. 'Duct' is Oda's own shorthand two lines down, so the count survives instead of the word."
+  },
+  {
+    "id": "S0961",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_cat_furniture].description[0]",
+    "old": "Oda: \"Page four of the catalogue, and it only exists because there is a rail line now. Table, four chairs, a couch, a cupboard, two shelves, a nightstand.\"",
+    "new": "Oda: \"Page four, and it only exists because there is a rail line now. Table, four chairs, a couch, a cupboard, two shelves, a nightstand.\"",
+    "why": "Fit only. Full contents list kept."
+  },
+  {
+    "id": "S0965",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_cat_windows].description[0]",
+    "old": "Oda: \"Page seven. Eight windows, four curtain rods, sixteen roof, a cottage door. It came off the wagon in one crate and it goes out of here in one crate.\"",
+    "new": "Oda: \"Page seven. Eight windows, four curtain rods, sixteen roof, a cottage door. It comes off the wagon in one crate and goes out in one.\"",
+    "why": "Fit only. Full contents list kept."
+  },
+  {
+    "id": "S0969",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_cat_garden].description[0]",
+    "old": "Oda: \"Page nine. Eight flower boxes, eight planters, sixteen hedge, four saplings. Halden reads this page for pleasure, which tells you everything about Halden.\"",
+    "new": "Oda: \"Page nine. Eight flower boxes, eight planters, sixteen hedge, four saplings. Halden reads this page for pleasure, which is Halden.\"",
+    "why": "Fit only. The Halden joke is the ending and stays the ending."
+  },
+  {
+    "id": "S0970",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_cat_garden].description[2]",
+    "old": "Ten Scrip.",
+    "new": "Ten Scrip. Nothing on this page does anything, and the square looks wrong without it.",
+    "why": "Gives the line a reason to exist and an argument for buying decor that is not 'it is nice'."
+  },
+  {
+    "id": "S0973",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_cat_lights].description[0]",
+    "old": "Oda: \"Page eleven, and the wagon only started carrying it after the Supper. Twelve sconces, eight lanterns, eight soul lanterns, sixteen rope, four shelves.\"",
+    "new": "Oda: \"Page eleven. Twelve sconces, eight lanterns, eight soul lanterns, sixteen rope, four shelves. It has only come up since the Supper.\"",
+    "why": "Fit only. Contents and the after-the-Supper fact kept."
+  },
+  {
+    "id": "S0981",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_rare_seeds].description[0]",
+    "old": "Oda: \"Under the counter, in a tin. Torchflower, pitcher pod, glow berries, sweet berries, coffee. Two of those five I have never seen grow and I have still sold them.\"",
+    "new": "Oda: \"In a tin under the counter. Torchflower, pitcher pod, glow berries, sweet berries, coffee. Two of these I sell and never saw grow.\"",
+    "why": "Fit only. Five seeds and the joke kept."
+  },
+  {
+    "id": "S0985",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_reactor_casings].description[0]",
+    "old": "Oda: \"Sixteen reactor casing, eight turbine casing. Josie's notes are what make them craftable and my wagon is what makes them arrive; do not confuse the two. The notes came home from the tower, so the line is open.\"",
+    "new": "Oda: \"Sixteen reactor casing, eight turbine casing. Her notes make them craftable; my wagon brings them. They came home from the tower.\"",
+    "why": "Fit: 216 > 140. Keeps the notes/wagon contrast and the tower (which is the gate on this line). Drops 'do not confuse the two', an underline the contrast did not need."
+  },
+  {
+    "id": "S0989",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_reactor_internals].description[0]",
+    "old": "Oda: \"Eight fuel rods, two control rods, eight glass, one rotor bearing, eight blades, four shafts. I read that off the crate lid every time and I still get it right.\"",
+    "new": "Oda: \"Eight fuel rods, two control rods, eight glass, one rotor bearing, eight blades, four shafts. I read that off the lid every time.\"",
+    "why": "Fit only. Six counts off the crate lid kept."
+  },
+  {
+    "id": "S0990",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_reactor_internals].description[2]",
+    "old": "Thirty-five Scrip.",
+    "new": "Thirty-five Scrip. Bram checked the list twice and then checked my arithmetic.",
+    "why": "Puts a person in the line; Bram is the one who wants these parts."
+  },
+  {
+    "id": "S0993",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_ae_bundle].description[0]",
+    "old": "Oda: \"Four cells, four components, eight processors of the calculating sort, thirty-two cable. Your machine wants all of it and none of it is a decision.\"",
+    "new": "Oda: \"Four cells, four components, eight processors of the calculating sort, thirty-two cable. None of it is a decision.\"",
+    "why": "Fit only. Ends on the turn ('none of it is a decision')."
+  },
+  {
+    "id": "S0999",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_works_deed].title",
+    "old": "Buy a Filed Copy of the Works Deed — 150 Scrip",
+    "new": "Buy a Filed Copy of the Deed — 150 Scrip",
+    "why": "Fit. 'the Deed' is unambiguous — the line above it names the Works Deed."
+  },
+  {
+    "id": "S1001",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_works_deed].description[0]",
+    "old": "Oda: \"The Deed you bought is the town's. This one is yours — same wording, same witnesses, my hand instead of Bram's, and a set of markers in the box with it.\"",
+    "new": "Oda: \"The Deed you bought is the town's. This one is yours — same wording, same witnesses, my hand instead of Bram's, markers in the box.\"",
+    "why": "Fit only."
+  },
+  {
+    "id": "S1004",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_works_deed].tasks[0].title",
+    "old": "The Works Deed is signed (Q86)",
+    "new": "The Works Deed is signed.",
+    "why": "The dependency already gates this; the number is developer shorthand leaking into the book."
+  }
+]

@@ -7,14 +7,14 @@
 	id: "029B71308ACB6B43"
 	order_index: 5
 	quest_links: [ ]
-	subtitle: ["The Valley Scrip shop. Open from the moment the store reopens.", "Cozy work pays Scrip; Scrip deletes tech grind. Every buy line restocks.", "Stock arrives in tiers, and the tiers arrive on the rail line."]
+	subtitle: ["The Valley Scrip shop. Open from the moment the store reopens.", "Cozy work pays Scrip; Scrip buys the dull half.", "Stock widens as the wagon comes up the line."]
 	quests: [
 		{
 			id: "661864478A97F41E"
 			title: "Read Oda's Board at the Counter"
 			subtitle: "Scrip only. Every buy line restocks."
 			icon: "valley:scrip"
-			description: ["Oda: \"Store's open. Shelves are thin and my ledger is thinner, but they're open. Cash is Scrip. I don't barter and I don't round up.\"", "", "Scrip comes from deliveries, festival baskets and closing a neighbour's story. My standing order pays eight Scrip for twenty-four wheat, once, and then that page is closed. Nothing else pays it and nothing else spends it.", "", "Every buy line below restocks. Buy a line as many times as you can pay for it.", "", "One warning, and it's the only one I'll give: keep two hundred Scrip back. The town's winter debt is a hundred and twenty and the Works Deed is eighty, and both of those are mine to collect, and I will not be talked down. Spend whatever is over the two hundred on whatever you like — I sell nothing you actually need."]
+			description: ["Oda: \"Store's open. Shelves are thin and my ledger is thinner, but they're open. Cash is Scrip. I don't barter and I don't round up.\"", "", "Buy anything on this board with Valley Scrip. Scrip comes from deliveries, festival baskets and closing a neighbour's story — her standing order pays eight for twenty-four wheat, once, and then that page is closed.", "", "Every buy line below restocks. Buy a line as many times as you can pay for it.", "", "One warning: keep two hundred Scrip back. The winter debt is a hundred and twenty, the Works Deed is eighty, and I do not get talked down."]
 			x: 0.0d
 			y: 0.0d
 			dependencies: ["1589859EB1A28DCE"]
@@ -23,14 +23,14 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "47831093E5788B67", type: "checkmark", title: "Read the board and the prices under it" }]
-			rewards: [{ id: "63897F04BEC3881B", type: "item", item: "valley:catalogue" }, { id: "27A2E446F0A125E1", type: "item", item: "valley:scrip", count: 10 }, { id: "49A42F43DD652389", type: "command", command: "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Ten Scrip, on the house. That is the only time those three words happen in this store.\",\"color\":\"white\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "4341257E124AED00", type: "toast", title: "Oda's Counter is open", description: "Scrip only. Every buy line restocks. Cheap tech first, decor when the rail comes in — and keep 200 Scrip back for year two. Oda means it." }]
+			rewards: [{ id: "63897F04BEC3881B", type: "item", item: "valley:catalogue" }, { id: "27A2E446F0A125E1", type: "item", item: "valley:scrip", count: 10 }, { id: "49A42F43DD652389", type: "command", command: "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Ten Scrip, on the house. That is the only time those three words happen in this store.\",\"color\":\"white\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "445FD32D55DD1C5A", type: "toast", title: "Oda's Counter is open", description: "Next: buy the cheap tech now, the decor when the rail comes in — and keep 200 Scrip back for year two. Oda means it." }]
 		}
 		{
 			id: "0FE8C79C42C61940"
 			title: "Fill a Standing Order — 24 Wheat for 8 Scrip"
 			subtitle: "8 Scrip. Once."
 			icon: "minecraft:wheat"
-			description: ["Oda: \"One standing order, filled once. After that the wheat goes on my shelf and the Scrip comes out of your work, not my ledger.\"", "", "Twenty-four wheat across the counter, eight Scrip back, one time. Every Scrip after this comes from deliveries, festival baskets and closing a neighbour's story."]
+			description: ["Oda: \"One standing order, filled once. After that the wheat goes on my shelf and the Scrip comes out of your work, not my ledger.\"", "", "Put twenty-four wheat across the counter for eight Scrip, once. Every Scrip after this comes from deliveries, festival baskets and closing a neighbour's story."]
 			x: 0.0d
 			y: 3.0d
 			dependencies: ["661864478A97F41E"]
@@ -43,7 +43,7 @@
 		{
 			id: "12489253BB7C0744"
 			title: "Buy 16 Andesite Casing — 10 Scrip"
-			subtitle: "10 Scrip. Restocks."
+			subtitle: "Restocks. Bram cuts them in the dead weeks."
 			icon: "create:andesite_casing"
 			description: ["Oda: \"Sixteen casings. Bram cuts them through the dead weeks when there is nothing else to do.\"", "", "Ten Scrip. That is under a bounty's pay, and it is four minutes of your life you get back."]
 			x: 3.0d
@@ -59,9 +59,9 @@
 		{
 			id: "1BF4F8B224C18BE4"
 			title: "Buy 32 Andesite Alloy — 8 Scrip"
-			subtitle: "8 Scrip. Restocks."
+			subtitle: "Restocks. Andesite and iron nuggets, pressed."
 			icon: "create:andesite_alloy"
-			description: ["Oda: \"Thirty-two. Andesite and iron nuggets, pressed. It is the least interesting thing in this valley and you will want a great deal of it.\"", "", "Eight Scrip. Deliberately cheap — nobody's evening should be a press."]
+			description: ["Oda: \"Thirty-two. Andesite and iron nuggets, pressed. The least interesting thing in this valley, and you will want a great deal of it.\"", "", "Eight Scrip. Deliberately cheap — nobody's evening should be a press."]
 			x: 3.0d
 			y: -2.6d
 			dependencies: ["661864478A97F41E"]
@@ -75,9 +75,9 @@
 		{
 			id: "2CBED0C4BB8AD0AC"
 			title: "Buy the Gearing Crate — 6 Scrip"
-			subtitle: "6 Scrip. Restocks."
+			subtitle: "Restocks. Sixteen cogs and eight belts, crated."
 			icon: "create:cogwheel"
-			description: ["Oda: \"Sixteen cogs, eight large cogs, sixteen shafts, eight belts. I have written that on the crate lid so neither of us has to count it again.\"", "", "Six Scrip. The crate exists so a kinetic line is a design problem, not a woodcutting problem."]
+			description: ["Oda: \"Sixteen cogs, eight large cogs, sixteen shafts, eight belts. I wrote that on the crate lid so neither of us counts it again.\"", "", "Six Scrip. The crate exists so a kinetic line is a design problem, not a woodcutting problem."]
 			x: 3.0d
 			y: -0.9d
 			dependencies: ["661864478A97F41E"]
@@ -91,7 +91,7 @@
 		{
 			id: "24DDE7B320244522"
 			title: "Buy the Seed Box — 4 Scrip"
-			subtitle: "4 Scrip. Restocks."
+			subtitle: "Restocks. Five packets, labelled by Marnie."
 			icon: "farmersdelight:cabbage_seeds"
 			description: ["Oda: \"Five packets, eight seeds each. Cabbage, tomato, corn, beetroot, pumpkin. Marnie writes the labels because mine are unreadable.\"", "", "Four Scrip. Plant what the season allows and leave the rest in the box."]
 			x: 3.0d
@@ -107,7 +107,7 @@
 		{
 			id: "4BFDD97D3744144F"
 			title: "Buy the Pantry Basket — 4 Scrip"
-			subtitle: "4 Scrip. Restocks."
+			subtitle: "Restocks. Sixteen loaves, and Marnie baked them."
 			icon: "minecraft:bread"
 			description: ["Oda: \"Sixteen loaves, sixteen rice, eight beef. Marnie bakes it, I shelve it, you eat it standing over a millstone at two in the morning.\"", "", "Four Scrip. It is the cheapest line on the board on purpose."]
 			x: 3.0d
@@ -123,9 +123,9 @@
 		{
 			id: "01E7588B56F0CD27"
 			title: "Buy the Lamp Oil Crate — 6 Scrip"
-			subtitle: "6 Scrip. Restocks."
+			subtitle: "Restocks. The crate Josie bought every autumn."
 			icon: "minecraft:lantern"
-			description: ["Oda: \"Eight lanterns, eight candle holders, four road lamps. Josie bought this exact crate every autumn for eleven years and I never once had to ask what it was for.\"", "", "Six Scrip. Light is not decoration in this valley, it is the thing that keeps the dark out of the lane."]
+			description: ["Oda: \"Eight lanterns, eight candle holders, four road lamps. Josie bought this exact crate every autumn and I never had to ask what for.\"", "", "Six Scrip. Nobody in this valley calls a lamp decoration."]
 			x: 3.0d
 			y: 4.4d
 			dependencies: ["661864478A97F41E"]
@@ -139,9 +139,9 @@
 		{
 			id: "65425A40C3B60A06"
 			title: "Buy a Crate of 16 Redstone Servos — 15 Scrip"
-			subtitle: "15 Scrip. Restocks."
+			subtitle: "Restocks. Bram asks for these by name."
 			icon: "thermal:redstone_servo"
-			description: ["Oda: \"Sixteen servos in a crate. I do not know what they do. I know Bram asks for them by name and I know how many are in the crate, which is the half of it that is my job.\"", "", "Fifteen Scrip. Every Thermal machine on your bench wants two of these and none of them are interesting."]
+			description: ["Oda: \"Sixteen servos in a crate. I do not know what they do. I know Bram asks for them by name and I know how many are in the crate.\"", "", "Fifteen Scrip. Every Thermal machine on your bench wants two of these and none of them are interesting."]
 			x: 6.0d
 			y: -2.6d
 			dependencies: ["661864478A97F41E", "551AAB093CEA5743"]
@@ -155,9 +155,9 @@
 		{
 			id: "01C0237EC201A046"
 			title: "Buy 2 Spare Machine Frames — 25 Scrip"
-			subtitle: "25 Scrip. Restocks."
+			subtitle: "Restocks. Somebody else's afternoon at the fan."
 			icon: "thermal:machine_frame"
-			description: ["Oda: \"Two frames. Washed silica, which means Nella's boat and a fan and an afternoon, and I have already spent that afternoon on your behalf.\"", "", "Twenty-five Scrip — the most expensive line on this shelf, because it is the one that saves the most time."]
+			description: ["Oda: \"Two frames. Washed silica, which means Nella's boat and a fan and an afternoon, and I have already spent that afternoon.\"", "", "Twenty-five Scrip — the most expensive line on this shelf, because it is the one that saves the most time."]
 			x: 6.0d
 			y: -0.9d
 			dependencies: ["661864478A97F41E", "0EF7850DDAE28ADA"]
@@ -171,9 +171,9 @@
 		{
 			id: "068B8865ECBFF4A4"
 			title: "Buy 8 RF Coils — 18 Scrip"
-			subtitle: "18 Scrip. Restocks."
+			subtitle: "Restocks. Silver and redstone, wound."
 			icon: "thermal:rf_coil"
-			description: ["Oda: \"Eight coils. Silver and redstone, wound. Tobin brings the silver down from the adit in sample bags and pretends it is not a delivery.\"", "", "Eighteen Scrip."]
+			description: ["Oda: \"Eight coils. Silver and redstone, wound. Josie ordered a dozen, collected eight, and the other four are still on my books.\"", "", "Eighteen Scrip. Tobin's silver goes in one end of this store and comes out of the other as coil."]
 			x: 6.0d
 			y: 0.9d
 			dependencies: ["661864478A97F41E"]
@@ -186,8 +186,8 @@
 		}
 		{
 			id: "0FA1DF8B014F923B"
-			title: "Buy 64 Energy Duct and a Cell Frame — 12 Scrip"
-			subtitle: "12 Scrip. Restocks."
+			title: "Buy 64 Duct and a Cell Frame — 12 Scrip"
+			subtitle: "Restocks. Sold by the metre, counted by the piece."
 			icon: "thermal:energy_duct"
 			description: ["Oda: \"Sixty-four duct, one cell frame. Duct is the only thing in this store I sell by the metre and I still count it by the piece.\"", "", "Twelve Scrip. Run the lane, don't craft the lane."]
 			x: 6.0d
@@ -203,9 +203,9 @@
 		{
 			id: "7FA9971832975397"
 			title: "Buy the Furniture Page — 12 Scrip"
-			subtitle: "12 Scrip. Restocks."
+			subtitle: "Restocks. Page four, since the rail came in."
 			icon: "handcrafted:oak_table"
-			description: ["Oda: \"Page four of the catalogue, and it only exists because there is a rail line now. Table, four chairs, a couch, a cupboard, two shelves, a nightstand.\"", "", "Twelve Scrip a page. Order it as many times as you have rooms."]
+			description: ["Oda: \"Page four, and it only exists because there is a rail line now. Table, four chairs, a couch, a cupboard, two shelves, a nightstand.\"", "", "Twelve Scrip a page. Order it as many times as you have rooms."]
 			x: 9.0d
 			y: -1.8d
 			dependencies: ["661864478A97F41E", "20C583473F9CE279"]
@@ -219,9 +219,9 @@
 		{
 			id: "2A2F899324D89749"
 			title: "Buy the Windows and Roofing Page — 12 Scrip"
-			subtitle: "12 Scrip. Restocks."
+			subtitle: "Restocks. Page seven, one crate in and out."
 			icon: "mcwwindows:oak_four_window"
-			description: ["Oda: \"Page seven. Eight windows, four curtain rods, sixteen roof, a cottage door. It came off the wagon in one crate and it goes out of here in one crate.\"", "", "Twelve Scrip. This is how a shell stops being a shell."]
+			description: ["Oda: \"Page seven. Eight windows, four curtain rods, sixteen roof, a cottage door. It comes off the wagon in one crate and goes out in one.\"", "", "Twelve Scrip. This is how a shell stops being a shell."]
 			x: 9.0d
 			y: 0.0d
 			dependencies: ["661864478A97F41E", "20C583473F9CE279"]
@@ -235,9 +235,9 @@
 		{
 			id: "58290F8657B4D408"
 			title: "Buy the Garden Page — 10 Scrip"
-			subtitle: "10 Scrip. Restocks."
+			subtitle: "Restocks. Page nine — Halden's favourite page."
 			icon: "supplementaries:flower_box"
-			description: ["Oda: \"Page nine. Eight flower boxes, eight planters, sixteen hedge, four saplings. Halden reads this page for pleasure, which tells you everything about Halden.\"", "", "Ten Scrip."]
+			description: ["Oda: \"Page nine. Eight flower boxes, eight planters, sixteen hedge, four saplings. Halden reads this page for pleasure, which is Halden.\"", "", "Ten Scrip. Nothing on this page does anything, and the square looks wrong without it."]
 			x: 9.0d
 			y: 1.8d
 			dependencies: ["661864478A97F41E", "20C583473F9CE279"]
@@ -251,9 +251,9 @@
 		{
 			id: "6C294E8331893620"
 			title: "Buy the Lighting Page — 14 Scrip"
-			subtitle: "14 Scrip. Restocks."
+			subtitle: "Restocks. Page eleven, carried since the Supper."
 			icon: "supplementaries:sconce"
-			description: ["Oda: \"Page eleven, and the wagon only started carrying it after the Supper. Twelve sconces, eight lanterns, eight soul lanterns, sixteen rope, four shelves.\"", "", "Fourteen Scrip. Forty posts on the road and none of them light the inside of a house."]
+			description: ["Oda: \"Page eleven. Twelve sconces, eight lanterns, eight soul lanterns, sixteen rope, four shelves. It has only come up since the Supper.\"", "", "Fourteen Scrip. Forty posts on the road and none of them light the inside of a house."]
 			x: 12.0d
 			y: -1.8d
 			dependencies: ["661864478A97F41E", "447F0160D253CCD3"]
@@ -267,7 +267,7 @@
 		{
 			id: "5B830910435FC44E"
 			title: "Buy the Livestock Order — 20 Scrip"
-			subtitle: "20 Scrip. Restocks."
+			subtitle: "Restocks. Counted at both ends of the wagon."
 			icon: "valley:cow_crate"
 			description: ["Oda: \"One cow, one sheep, two crates of hens. They come up on the wagon in crates and they are counted at both ends, mine and yours.\"", "", "Twenty Scrip. Right-click a crate inside the pen, not outside it."]
 			x: 12.0d
@@ -283,9 +283,9 @@
 		{
 			id: "02BDF5E10E02976A"
 			title: "Buy the Rare Seed Case — 16 Scrip"
-			subtitle: "16 Scrip. Restocks."
+			subtitle: "Restocks. Kept under the counter, in a tin."
 			icon: "minecraft:torchflower_seeds"
-			description: ["Oda: \"Under the counter, in a tin. Torchflower, pitcher pod, glow berries, sweet berries, coffee. Two of those five I have never seen grow and I have still sold them.\"", "", "Sixteen Scrip. Wisp brought three of the five up out of the marsh."]
+			description: ["Oda: \"In a tin under the counter. Torchflower, pitcher pod, glow berries, sweet berries, coffee. Two of these I sell and never saw grow.\"", "", "Sixteen Scrip. Wisp brought three of the five up out of the marsh."]
 			x: 12.0d
 			y: 1.8d
 			dependencies: ["661864478A97F41E", "447F0160D253CCD3"]
@@ -299,9 +299,9 @@
 		{
 			id: "3CE051F603E1AC08"
 			title: "Buy a Reactor Casing Bundle — 40 Scrip"
-			subtitle: "40 Scrip. Restocks."
+			subtitle: "Restocks. Sixteen reactor, eight turbine."
 			icon: "biggerreactors:reactor_casing"
-			description: ["Oda: \"Sixteen reactor casing, eight turbine casing. Josie's notes are what make them craftable and my wagon is what makes them arrive; do not confuse the two. The notes came home from the tower, so the line is open.\"", "", "Forty Scrip — the dearest line I keep. A vessel is a lot of identical grey blocks and none of them are the interesting part."]
+			description: ["Oda: \"Sixteen reactor casing, eight turbine casing. Her notes make them craftable; my wagon brings them. They came home from the tower.\"", "", "Forty Scrip — the dearest line I keep. A vessel is a lot of identical grey blocks and none of them are the interesting part."]
 			x: 15.0d
 			y: -2.6d
 			dependencies: ["661864478A97F41E", "31FAD6BF27BB1BC7"]
@@ -315,9 +315,9 @@
 		{
 			id: "68FECEDA8D6943A7"
 			title: "Buy the Reactor Internals Bundle — 35 Scrip"
-			subtitle: "35 Scrip. Restocks."
+			subtitle: "Restocks. Read off the crate lid every time."
 			icon: "biggerreactors:reactor_fuel_rod"
-			description: ["Oda: \"Eight fuel rods, two control rods, eight glass, one rotor bearing, eight blades, four shafts. I read that off the crate lid every time and I still get it right.\"", "", "Thirty-five Scrip."]
+			description: ["Oda: \"Eight fuel rods, two control rods, eight glass, one rotor bearing, eight blades, four shafts. I read that off the lid every time.\"", "", "Thirty-five Scrip. Bram checked the list twice and then checked my arithmetic."]
 			x: 15.0d
 			y: -0.9d
 			dependencies: ["661864478A97F41E", "68EDF19065A460B7"]
@@ -331,9 +331,9 @@
 		{
 			id: "2FEE2E5D69ACBDE0"
 			title: "Buy the Storage Bundle — 30 Scrip"
-			subtitle: "30 Scrip. Restocks."
+			subtitle: "Restocks. The half of it that isn't a decision."
 			icon: "ae2:item_storage_cell_4k"
-			description: ["Oda: \"Four cells, four components, eight processors of the calculating sort, thirty-two cable. Your machine wants all of it and none of it is a decision.\"", "", "Thirty Scrip. Buy the boring half; build the half that thinks."]
+			description: ["Oda: \"Four cells, four components, eight processors of the calculating sort, thirty-two cable. None of it is a decision.\"", "", "Thirty Scrip. Buy the boring half; build the half that thinks."]
 			x: 15.0d
 			y: 0.9d
 			dependencies: ["661864478A97F41E", "2524B0A81A85E5DB"]
@@ -347,7 +347,7 @@
 		{
 			id: "50B50215551140F6"
 			title: "Buy a Plushie Token — 10 Scrip"
-			subtitle: "10 Scrip. Restocks."
+			subtitle: "Restocks. Pip has spent eleven of these."
 			icon: "valley:plushie_token"
 			description: ["Oda: \"One token, one shelf, one plushie of your choosing. Pip has spent eleven of these. I have written every one of them down.\"", "", "Ten Scrip. Spend the token on Josie's Shelf."]
 			x: 15.0d
@@ -362,10 +362,10 @@
 		}
 		{
 			id: "1447A4EDBD9143CC"
-			title: "Buy a Filed Copy of the Works Deed — 150 Scrip"
+			title: "Buy Your Own Copy of the Deed — 150 Scrip"
 			subtitle: "150 Scrip, and the Deed already signed."
 			icon: "valley:deed_works"
-			description: ["Oda: \"The Deed you bought is the town's. This one is yours — same wording, same witnesses, my hand instead of Bram's, and a set of markers in the box with it.\"", "", "Needs the Works Deed already signed, and 150 Valley Scrip on the counter.", "", "One hundred and fifty is not a price, it is a filing fee with an opinion. Restocks, so a second pair of hands can hold their own copy."]
+			description: ["Oda: \"The Deed you bought is the town's. This one is yours — same wording, same witnesses, my hand instead of Bram's, markers in the box.\"", "", "Needs the Works Deed already signed, and 150 Valley Scrip on the counter.", "", "One hundred and fifty is not a price, it is a filing fee with an opinion. Restocks, so a second pair of hands can hold their own copy."]
 			x: 18.0d
 			y: 0.0d
 			dependencies: ["661864478A97F41E", "78E6F9A263CA4B65"]
@@ -373,7 +373,7 @@
 			size: 1.5d
 			hide_until_deps_complete: true
 			can_repeat: true
-			tasks: [{ id: "25C1D7BCB9276B6F", type: "stage", title: "The Works Deed is signed (Q86)", stage: "works_deed" }, { id: "2CB730E1390E06CB", type: "item", item: "valley:scrip", count: 150L, consume_items: true }]
+			tasks: [{ id: "700E67CED021D163", type: "stage", title: "The town's Works Deed already signed", stage: "works_deed" }, { id: "2CB730E1390E06CB", type: "item", item: "valley:scrip", count: 150L, consume_items: true }]
 			rewards: [{ id: "4E3A80876FFF31EC", type: "item", item: "valley:deed_works" }, { id: "585F44EC1487A2E4", type: "item", item: "quarryplus:marker", count: 4 }, { id: "112C3FF22D4E1A24", type: "item", item: "valley:catalogue" }, { id: "47C74AE1C72B36C9", type: "toast", title: "Filed, in duplicate", description: "Oda: 'Two copies. That is how a thing survives one of us leaving.'" }]
 		}
 	]

@@ -3,7 +3,7 @@
 	id: "0DE4DD16406B3CCD"
 	loot_size: 1
 	order_index: 0
-	title: "Tech Crate"
+	title: "Bram's Spares"
 	use_title: true
 	rewards: [
 		{ item: "create:andesite_alloy", count: 8, weight: 3.0f }
@@ -19,5 +19,5 @@
 		{ item: "create:electron_tube", count: 2, weight: 1.0f }
 		{ item: "thermal:rf_coil", count: 2, weight: 1.0f }
 	]
-	loot_crate: { string_id: "tech_crate", item_name: "Tech Crate", color: 8421504, glow: false, drops: { passive: 0, monster: 0, boss: 0 } }
+	loot_crate: { string_id: "tech_crate", item_name: "Bram's Spares", color: 8421504, glow: false, drops: { passive: 0, monster: 0, boss: 0 } }
 }

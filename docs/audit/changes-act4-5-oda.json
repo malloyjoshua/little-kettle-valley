@@ -1,0 +1,1338 @@
+[
+  {
+    "id": "S0541",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q57].description[2]",
+    "old": "Sleep one night in your own bed, then walk down the hill to the inn. Everyone in the valley is already inside it. Marnie banked that fire the way she has banked it every night for thirty years, and it went out anyway, and not one person in that room can tell you why.",
+    "new": "Sleep one night in your own bed, then walk down the hill to the inn. Everyone is already inside it. Marnie banked that fire the way she has every night for thirty years, and it went out anyway, and nobody can tell you why.",
+    "why": "Over the 240 cap for an instruction line (267). Trimmed the repetitions, kept the instruction verb-first and the closing 'nobody can tell you why'."
+  },
+  {
+    "id": "S0543",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q57].tasks[0].title",
+    "old": "Sleep one night, then walk into the inn",
+    "new": "A night slept, and the whole valley already inside the inn",
+    "why": "Task text is an order, not a noun phrase describing the finished state (rubric §4)."
+  },
+  {
+    "id": "S0546",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q58].title",
+    "old": "Take 16 Firewood Bundles to Each of the Four Stacks",
+    "new": "Fill the Four Firewood Stacks, 16 Each",
+    "why": "Title 51 > 45. Same imperative, same object, same count, six characters under."
+  },
+  {
+    "id": "S0557",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q59].title",
+    "old": "Walk the Frozen River and Bring the Ribbits Home",
+    "new": "Walk the Frozen River, Bring the Ribbits Home",
+    "why": "Title 48 > 45."
+  },
+  {
+    "id": "S0561",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q59].description[4]",
+    "old": "Four Ribbits move into town for good, Wisp's arc closes, and Nella hands you her Ice Auger.",
+    "new": "Four Ribbits move into town for good, Wisp stops being a visitor, and Nella hands you her Ice Auger.",
+    "why": "'Wisp's arc closes' is designer vocabulary in the line that is supposed to say what the player will SEE. Replaced with the visible fact."
+  },
+  {
+    "id": "S0565",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q59].rewards[12].toast.title",
+    "old": "The Reed Village Comes In",
+    "new": "Four Ribbits, Moved In",
+    "why": "Toast title 25 > 24, and it named the place rather than the change."
+  },
+  {
+    "id": "S0571",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q60].description[4]",
+    "old": "The Hearth relights, Marnie's arc closes, the greenhouse shell goes up on the square — and the six windows, the cottage door and the eight planters that glaze it are in this payout.",
+    "new": "The Hearth relights, Marnie sits down at her own table, and the greenhouse shell goes up on the square — glazing in this payout.",
+    "why": "181 > 140 and 'Marnie's arc closes' is meta. The image (Marnie sitting down) is the thing that actually happens."
+  },
+  {
+    "id": "S0574",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q61].title",
+    "old": "Cut the Ice and Catch 4 Muskellunge and 4 Rainbow Trout",
+    "new": "Cut the Ice for Muskellunge and Rainbow Trout",
+    "why": "Title 55 > 45. Counts stay in the subtitle, description and task, which is where the player checks them."
+  },
+  {
+    "id": "S0577",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q61].description[2]",
+    "old": "Cut a hole in the lake ice with Nella's Ice Auger, then catch 4 Muskellunge and 4 Rainbow Trout through it. Muskellunge and rainbow trout both want the deep cold water out past the pier, not the shallows — cut the hole where the ice is dark, not white. Nella's tackle box has the good bait, and a worm on the hook shortens every one of these.",
+    "new": "Cut a hole in the lake ice with Nella's Ice Auger, then catch 4 Muskellunge and 4 Rainbow Trout through it. Both want the deep cold out past the pier — cut where the ice is dark, not white, and put a worm on the hook.",
+    "why": "342 > 240. Every fact kept (auger, counts, deep water past the pier, dark ice, worm); the restatement of the species names cut."
+  },
+  {
+    "id": "S0579",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q61].rewards[4].toast.title",
+    "old": "Two Trophies on the Inn Wall",
+    "new": "Two on the Inn Wall",
+    "why": "Toast title 28 > 24."
+  },
+  {
+    "id": "S0584",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q62].description[2]",
+    "old": "Brew 8 Winter Tonics at Halden's still — the brewing stand, cupboard and cauldron on the west side of the square, a few steps south of where he stands by the hedge garden. A Flask, a Green Tea Leaf and one sugar makes two, and Halden's payout at the hedge gate left you four flasks and sixteen leaves — then hold all eight when you hand this in and Halden does the rounds off your count — though he'd rather you walked them round yourself, and so would they. A plain glass bottle works too; it just makes one.",
+    "new": "Brew 8 Winter Tonics at Halden's still, west of the square by the hedge garden. A Flask, a Green Tea Leaf and one sugar makes two, and his hedge-gate payout left you four flasks and sixteen leaves. Hold all eight at hand-in.",
+    "why": "509 > 240 — the worst Fit failure in the slice, and the back half was a paragraph of parenthetical hedging. Recipe, location, materials and hand-in condition all preserved."
+  },
+  {
+    "id": "S0585",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q62].description[4]",
+    "old": "Halden's arc closes, and nobody in the valley gets sick this winter.",
+    "new": "Nobody in the valley gets sick this winter, and Halden stops being the only one who checks.",
+    "why": "'Halden's arc closes' is meta; his arc closing in-fiction is that he is no longer the only one carrying it (canon §4)."
+  },
+  {
+    "id": "S0586",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q62].rewards[5].toast.title",
+    "old": "Nobody Gets Sick This Winter",
+    "new": "Halden's Rounds Walked",
+    "why": "Toast title 28 > 24, and the old one stated the outcome instead of showing it."
+  },
+  {
+    "id": "S0592",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q63].description[4]",
+    "old": "Pip's arc closes, the duckling finishes growing up, and the Duck Plushie is yours to keep.",
+    "new": "Pip keeps the satchel, the duckling finishes growing up, and the Duck Plushie is yours.",
+    "why": "'Pip's arc closes' is meta in the line that says what the player will see."
+  },
+  {
+    "id": "S0595",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q64].title",
+    "old": "Glaze the Greenhouse Shell: 6 Windows, a Door, 8 Planters",
+    "new": "Glaze the Greenhouse Shell and Hang Its Door",
+    "why": "Title 57 > 45 and contained a colon, which §4 forbids in quest titles."
+  },
+  {
+    "id": "S0596",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q64].subtitle",
+    "old": "6 Oak Windows, 1 Oak Cottage Door, 8 Planters on the marked bench.",
+    "new": "6 windows, a door, 8 planters on the bench.",
+    "why": "Subtitle 66 > 50."
+  },
+  {
+    "id": "S0599",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q64].description[4]",
+    "old": "This payout is the spare set and the whole solstice packet — twelve Candle Holders, twelve Sconces and twelve Flower Boxes for the inn's twelve tiles. The shell becomes a room the reactor's coolant loop can heat.",
+    "new": "The shell becomes a room the coolant loop can heat, and the inn's whole solstice packet comes in this payout.",
+    "why": "212 > 140. The itemised solstice list is repeated verbatim in Q66a's own description, so it is redundant here."
+  },
+  {
+    "id": "S0603",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q66a].title",
+    "old": "Dress the Inn's Twelve Marked Tiles for the Solstice",
+    "new": "Dress the Inn's Twelve Tiles for the Solstice",
+    "why": "Title 52 > 45."
+  },
+  {
+    "id": "S0604",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q66a].subtitle",
+    "old": "One Candle Holder, one Sconce and one Flower Box on each of 12 marked tiles.",
+    "new": "A candle holder, a sconce and a flower box each.",
+    "why": "Subtitle 76 > 50."
+  },
+  {
+    "id": "S0607",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q66a].description[4]",
+    "old": "This payout restocks all three, sixteen apiece — and Marnie's mulled cider.",
+    "new": "Sixteen more of each in the crate, and Marnie's mulled cider goes on the hob.",
+    "why": "The payoff line described a restock, which is no image at all in the slot reserved for one. Same facts, one thing to look at."
+  },
+  {
+    "id": "S0615",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q68a].description[4]",
+    "old": "Pip gets his own apron, and you keep the one loaf he made himself. It is not good. It is his. Marnie's loom, shears, 24 wool and her string basket come over with it.",
+    "new": "Pip gets his own apron, and you keep the one loaf he made himself. It is not good. It is his.",
+    "why": "165 > 140. The loom and wool are named in Q70a's own instruction line, so cutting them here loses nothing and saves the joke's landing."
+  },
+  {
+    "id": "S0624",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q70a].rewards[6].toast.description",
+    "old": "Three beds made and nobody in them yet. The greenhouse is glazed, planted and stone cold until somebody pulls that lever. While you wait: cut the ice with Nella's auger, brew Halden's eight tonics, run Pip's five parcels.",
+    "new": "Next: cut the ice, brew Halden's eight tonics, run Pip's five parcels. Three beds made, and the greenhouse stays cold until somebody pulls that lever.",
+    "why": "221 > 160 and did not open with 'Next:' — the one thing a toast body is for."
+  },
+  {
+    "id": "S0625",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q72a].title",
+    "old": "Set a Bench, a Shelf and a Lantern on Each Bathhouse Spot",
+    "new": "Furnish the Bathhouse's Twelve Marked Spots",
+    "why": "Title 57 > 45."
+  },
+  {
+    "id": "S0634",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q65].subtitle",
+    "old": "Mine the 40 marked blocks of fall, then place the Waystone inside.",
+    "new": "Forty marked blocks of fall, then the Waystone.",
+    "why": "Subtitle 66 > 50."
+  },
+  {
+    "id": "S0639",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q65].rewards[9].command",
+    "old": "Bram: She told me the boiler cracked. I went home and I believed her, because she was Josie and I was thirty. Four years I have known it was a lie and I have not said it out loud until now. Right. Where do you want the duct.",
+    "new": "Bram: Four years I have known the cracked boiler was a lie, and I have not said it out loud until now.",
+    "why": "Chat line 224 > 120 and four sentences where §4 allows one. The admission is the load-bearing half; 'where do you want the duct' is Bram's usual move and he makes it elsewhere."
+  },
+  {
+    "id": "S0640",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q65].rewards[10].command",
+    "old": "Tobin: That is the vent. That is my early grass. She left the adit breathing for eleven years so the works would not damp out, and it has been warming that hillside the entire time, and I want everyone to know I noticed it in July.",
+    "new": "Tobin: She left the adit breathing eleven years so the works would not damp out, and I noticed the warm grass in July.",
+    "why": "Chat line 231 > 120, four sentences. Keeps the deduction, the eleven years and his need for credit."
+  },
+  {
+    "id": "S0641",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q65].rewards[12].command",
+    "old": "Behind forty blocks of adit: the entire works.",
+    "new": "Forty blocks of fall, the works behind.",
+    "why": "Title-card subtitle 46 > 40 and carried a colon (§4: no punctuation beyond a full stop)."
+  },
+  {
+    "id": "S0645",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q66].title",
+    "old": "Run Energy Duct to the Works and Fit 2 Energy Cells",
+    "new": "Duct the Mill to the Works, Fit 2 Cells",
+    "why": "Title 51 > 45."
+  },
+  {
+    "id": "S0646",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q66].subtitle",
+    "old": "Duct from mill to Works, then 2 Thermal Energy Cells.",
+    "new": "Then two Thermal Energy Cells at the Works end.",
+    "why": "Subtitle 53 > 50, and it restated the title's verb instead of adding a fact."
+  },
+  {
+    "id": "S0649",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q66].description[4]",
+    "old": "The Works has power — which is what everything from here to the reactor runs on. It still is not yours: Josie left it to whoever the valley trusts, and the valley counts that in people. Six of eight, when you get there.",
+    "new": "The Works has power, and everything from here to the reactor runs on it. It is still not yours: Josie left it to whoever the valley trusts.",
+    "why": "219 > 140. The 'six of eight' arithmetic is Q86's own quest text and lands harder there."
+  },
+  {
+    "id": "S0653",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q67].title",
+    "old": "Bring the Second Kettle Plate Back From the Merchant's Tower",
+    "new": "Fetch the Second Kettle Plate From the Tower",
+    "why": "Title 60 > 45."
+  },
+  {
+    "id": "S0658",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q67].tasks[0].title",
+    "old": "Reached the Wandering Merchant's Tower and opened the vault chest",
+    "new": "Vault chest open at the Wandering Merchant's Tower",
+    "why": "Task text 65 > 60 and phrased as a past-tense order rather than a finished state."
+  },
+  {
+    "id": "S0659",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q67].rewards[6].command",
+    "old": "The second Kettle plate was never lost. It was sold.",
+    "new": "Never lost. Sold.",
+    "why": "Title-card subtitle 52 > 40. The compression is the point of the reveal."
+  },
+  {
+    "id": "S0663",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q68].title",
+    "old": "Build a Molecular Assembler and a 4k Crafting Storage",
+    "new": "Build a Molecular Assembler and 4k Storage",
+    "why": "Title 53 > 45."
+  },
+  {
+    "id": "S0665",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q68].description[0]",
+    "old": "Tobin: \"You can keep making casings by hand, or the network can while you eat. I recommend the network, strongly, for reasons I have listed.\"",
+    "new": "Tobin: \"You can keep making casings by hand, or the network can while you eat. I recommend the network, strongly, and I have listed why.\"",
+    "why": "141 > 140."
+  },
+  {
+    "id": "S0667",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q68].description[4]",
+    "old": "CPU housing, four co-processors, four ME Interfaces, thirty-two sticks of powder for the pocket — and Josie's yellorite map, which the next quest walks.",
+    "new": "CPU housing, four co-processors, four ME Interfaces — and Josie's yellorite map, which the next quest walks.",
+    "why": "152 > 140. The 'thirty-two sticks of powder for the pocket' is an item-reward detail the player reads off the payout."
+  },
+  {
+    "id": "S0668",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q68].rewards[7].toast.title",
+    "old": "The Network Crafts For You",
+    "new": "The Network Crafts It",
+    "why": "Toast title 26 > 24."
+  },
+  {
+    "id": "S0670",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q69].title",
+    "old": "Bring Back 64 Uranium Ingots From Josie's Pocket",
+    "new": "Mine 64 Uranium From Josie's Pocket",
+    "why": "Title 48 > 45."
+  },
+  {
+    "id": "S0673",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q69].description[2]",
+    "old": "Follow Josie's yellorite map from the Works Waystone to the pocket and mine 64 uranium ore. Every block drops a Uranium Cluster and a cluster smelts one for one into a Uranium Ingot, so 64 in the hole is 64 in your bag. \"Yellorium\", in Josie's shorthand: enough for the vessel, the terminal and the first burn.",
+    "new": "Follow Josie's yellorite map from the Works Waystone to the pocket and mine 64 uranium ore. Every block drops a cluster and every cluster smelts one for one, so 64 in the hole is 64 in your bag. \"Yellorium\" is her shorthand for it.",
+    "why": "310 > 240. All three facts kept: route, the one-for-one smelt, and Josie's word for it."
+  },
+  {
+    "id": "S0678",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q70].subtitle",
+    "old": "64 Casings, 1 Terminal, 8 Fuel Rods, 4 Control Rods, 1 Access Port, 2 Coolant Ports.",
+    "new": "Four rod columns, two tall, on the marked pad.",
+    "why": "Subtitle 84 > 50 and it was a parts list, which is line 3's job, not the subtitle's."
+  },
+  {
+    "id": "S0679",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q70].description[0]",
+    "old": "Bram: \"Shell, terminal, fuel rods, control rods, an access port and two coolant ports — build it square. Her drawing's on the wall behind you.\"",
+    "new": "Bram: \"Shell, terminal, fuel rods, control rods, access port, two coolant ports — build it square. Her drawing's on the wall behind you.\"",
+    "why": "143 > 140."
+  },
+  {
+    "id": "S0680",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q70].description[2]",
+    "old": "Gather 64 Reactor Casings, 1 Reactor Terminal, 8 Reactor Fuel Rods, 4 Reactor Control Rods, 1 Reactor Access Port and 2 Reactor Coolant Ports, then assemble the vessel on the marked pad in the Works — four rod columns two rods tall, and one coolant port on each long face, water in one side and steam out the other. Without the pair it runs passive and the turbine never sees steam.",
+    "new": "Assemble the vessel on the Works pad: 64 Reactor Casings, 1 Terminal, 8 Fuel Rods, 4 Control Rods, 1 Access Port, 2 Coolant Ports. Four rod columns two rods tall, a coolant port on each long face. Without the pair it runs passive.",
+    "why": "382 > 240. Every item, count and geometry fact preserved; the 'water in one side, steam out the other' gloss is what 'a port on each long face' already says."
+  },
+  {
+    "id": "S0681",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q70].description[4]",
+    "old": "Computer port, redstone port, four more pages of Josie's Turbine Notes — and Bram's turbine crate, which is the entire bill for the next quest: 64 Turbine Casing, 16 Turbine Glass, 2 Rotor Bearings, one at each end, 6 Shafts, 16 Blades, 2 Fluid Ports, 16 copper blocks for the coil ring and the Turbine Terminal to read it on.",
+    "new": "Computer port, redstone port, four more pages of Josie's notes — and Bram's turbine crate, which is the whole bill for the next quest.",
+    "why": "326 > 140. The crate's contents are itemised again in Q71's instruction line; printing the bill twice is the definition of wiki voice."
+  },
+  {
+    "id": "S0686",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q71].subtitle",
+    "old": "Hold 1,800 RPM under load, then run /valley check turbine.",
+    "new": "Hold it there, then run /valley check turbine.",
+    "why": "Subtitle 58 > 50; command string unchanged."
+  },
+  {
+    "id": "S0688",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q71].description[2]",
+    "old": "Build the turbine out of Bram's crate — 64 Turbine Casing, 16 Turbine Glass, 2 Rotor Bearings, one at each end, 6 Rotor Shafts, 16 Rotor Blades, 2 Fluid Ports and 16 copper blocks for the coil ring, all of it in the vessel payout. Hold 1,800 RPM under load without going over, then stand at the Turbine Terminal that came with it, press T to open the chat box, type /valley check turbine and hit enter. It reads the terminal for you and ticks this quest — you never have to open a machine menu.",
+    "new": "Build the turbine out of Bram's crate: 64 Turbine Casing, 16 Turbine Glass, 2 Rotor Bearings one at each end, 6 Shafts, 16 Blades, 2 Fluid Ports and 16 copper blocks for the coil ring. Hold 1,800 RPM under load without going over.",
+    "why": "494 > 240. Every part, count and the RPM figure kept; the paragraph explaining how to open a chat box moves to the subtitle and the task, which both carry /valley check turbine unchanged."
+  },
+  {
+    "id": "S0690",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q71].tasks[0].title",
+    "old": "Turbine holds 1,800 RPM under load — confirm with /valley check turbine",
+    "new": "Turbine holding 1,800 RPM — /valley check turbine",
+    "why": "Task text 71 > 60; command string unchanged."
+  },
+  {
+    "id": "S0693",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q72].title",
+    "old": "Duct the Coolant Loop to the Greenhouse and the Bathhouse",
+    "new": "Duct the Coolant Loop to the Town",
+    "why": "Title 57 > 45, and 'to the town' is Josie's rule, which is the point of the quest."
+  },
+  {
+    "id": "S0697",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q72].description[4]",
+    "old": "The valley's greenhouse glazing — Vibrant Quartz Glass: 2 glowstone dust, 2 Quartz Glass and 1 Cyanite Ingot makes two panes — becomes craftable world-wide. It passes daylight and glows on its own, which is the whole point: a frame glazed with it grows out of season and never needs a lantern. The twelve benches, twelve shelves and twelve lanterns the bare bathhouse wants are in this payout.",
+    "new": "Six heaters and the bathhouse tank come up warm, and Vibrant Quartz Glass goes craftable: glass that lights itself.",
+    "why": "393 > 140 — a recipe card in the payoff slot. The recipe is repeated in Q77's own description, where the player needs it."
+  },
+  {
+    "id": "S0700",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q72].rewards[8].toast.title",
+    "old": "Vibrant Quartz Glass Unlocked",
+    "new": "Glass That Lights Itself",
+    "why": "Toast title 29 > 24 and 'Unlocked' is on §3's banned gaming-register list."
+  },
+  {
+    "id": "S0703",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q73].subtitle",
+    "old": "Take Bram's token from the mill and give him 1 Hot Cocoa.",
+    "new": "He will say no. Take the cocoa anyway.",
+    "why": "Subtitle 57 > 50."
+  },
+  {
+    "id": "S0706",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q73].description[4]",
+    "old": "Bram's arc closes, his father's wrench is yours, and the lever quest opens.",
+    "new": "Bram puts his tools down, his father's wrench is yours, and the lever is his to pull.",
+    "why": "'Bram's arc closes' and 'the lever quest opens' are both designer vocabulary in the payoff line."
+  },
+  {
+    "id": "S0709",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q74].title",
+    "old": "Place the Last 17 Lamp Posts, Mill to Square to Lake",
+    "new": "Place the Last 17 Lamp Posts",
+    "why": "Title 52 > 45; the route is in the instruction line and the task."
+  },
+  {
+    "id": "S0717",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q75].title",
+    "old": "Verify the Three Readings, Then Hand Bram the Lever",
+    "new": "Read the Three Numbers, Hand Bram the Lever",
+    "why": "Title 51 > 45."
+  },
+  {
+    "id": "S0720",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q75].description[2]",
+    "old": "Open the Reactor Terminal in the Works and read all three off its screen — fuel level, coolant flow, control-rod insertion — then tell Tobin the numbers are good and hand Bram the lever. This one is Tobin's signature, not a command: you tick it yourself. /valley check turbine belongs to the Turbine Terminal back in Q71, and /valley check power to the Reactor Terminal in Act V, once there are two turbines on it.",
+    "new": "Open the Reactor Terminal in the Works and read all three off its screen — fuel level, coolant flow, control-rod insertion — then tell Tobin the numbers are good and hand Bram the lever. No command for this one: you tick it yourself.",
+    "why": "414 > 240, and the back half was a cross-reference table explaining which /valley command belongs to which other quest — pure wiki voice in the act's last instruction."
+  },
+  {
+    "id": "S0723",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q75].tasks[0].title",
+    "old": "Fuel, coolant flow and control rods verified on the Reactor Terminal",
+    "new": "Fuel, coolant and rods read off the terminal",
+    "why": "Task text 68 > 60."
+  },
+  {
+    "id": "S0726",
+    "file": "story/quests/act4.json",
+    "locator": "quests[q75].rewards[10].toast.description",
+    "old": "100 Scrip, the Hearthkeeper's Lantern and a Plushie Token. Next: sleep one night, then walk the square with Marnie. And Tobin wants a second turbine off the same reactor without moving the fuel line.",
+    "new": "Next: sleep one night, then walk the square with Marnie. Tobin wants a second turbine off the same reactor without moving the fuel line.",
+    "why": "199 > 160 and did not open with 'Next:'. The Scrip and the lantern are item rewards the player already sees."
+  },
+  {
+    "id": "S0731",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q76].title",
+    "old": "Sleep One Night, Then Walk the Square With Marnie",
+    "new": "Sleep, Then Walk the Square With Marnie",
+    "why": "Title 49 > 45."
+  },
+  {
+    "id": "S0732",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q76].subtitle",
+    "old": "Sleep one night, then meet Marnie in the square. Year two.",
+    "new": "Year two, and the noticeboard is longer.",
+    "why": "Subtitle 58 > 50 and it restated the title's verbs instead of adding a fact."
+  },
+  {
+    "id": "S0735",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q76].description[4]",
+    "old": "Opens year two: Nella's cold frame, Oda's counter, and the thirty tiles of the square. The dressing packet for those tiles is in this quest's rewards.",
+    "new": "Year two opens: Nella's cold frame, Oda's counter and the square's thirty tiles. The packet for those tiles is in this payout.",
+    "why": "150 > 140."
+  },
+  {
+    "id": "S0736",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q76].tasks[0].title",
+    "old": "Slept one night after the Longest Night, then walked the square with Marnie",
+    "new": "A night slept and the square walked with Marnie",
+    "why": "Task text 75 > 60."
+  },
+  {
+    "id": "S0738",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q76].rewards[15].toast.title",
+    "old": "Year two",
+    "new": "Year Two, Longer List",
+    "why": "'Year two' has no concrete noun in it and is the only lower-case toast title in the act. Points at the rewritten noticeboard instead."
+  },
+  {
+    "id": "S0739",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q76].rewards[15].toast.description",
+    "old": "Next: glaze Nella's cold frame with 16 Vibrant Quartz Glass — the quartz glass and the glowstone are in this payout — and the square's thirty marked copper tiles.",
+    "new": "Next: glaze Nella's cold frame with 16 Vibrant Quartz Glass — the quartz and the glowstone are in this payout — and dress the square's thirty tiles.",
+    "why": "162 > 160."
+  },
+  {
+    "id": "S0740",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q77].title",
+    "old": "Glaze the Cold Frame and Grow Four Crops Out of Season",
+    "new": "Glaze the Cold Frame and Grow Four Crops",
+    "why": "Title 54 > 45."
+  },
+  {
+    "id": "S0741",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q77].subtitle",
+    "old": "Nella's chain closes.",
+    "new": "Four crops with snow still on the ridge.",
+    "why": "'Nella's chain closes' is designer vocabulary, states no world fact, and gives the player no picture."
+  },
+  {
+    "id": "S0742",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q77].description[0]",
+    "old": "Nella: \"Glass, and I grew a tomato before the snow was off the ridge. I'm not making a speech about it.\"",
+    "new": "Nella: \"Glass, and I'll have a tomato up before the snow's off the ridge. I'm not making a speech about it.\"",
+    "why": "Continuity: the old line has Nella already having grown the tomato, which pre-empts the Winter Tomato payoff the quest is built to deliver (canon §5, Act V). Same voice, correct tense."
+  },
+  {
+    "id": "S0743",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q77].description[2]",
+    "old": "Glaze Nella's cold frame with 16 panes and grow her something out of season.",
+    "new": "Glaze Nella's cold frame with 16 Vibrant Quartz Glass, then grow a Tomato, a Strawberry, a Bell Pepper and a Corn under it.",
+    "why": "The instruction line said 'grow her something out of season' — 'something' scores 0 on Picture and §4 requires every item named in line 3."
+  },
+  {
+    "id": "S0744",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q77].description[4]",
+    "old": "The glass is Vibrant Quartz Glass — 2 glowstone dust, 2 Quartz Glass and 1 Cyanite Ingot makes two panes, so eight crafts gets you the sixteen. The glowstone and the quartz glass came with Marnie's walk round the square; the cyanite comes out of the reactor.",
+    "new": "The glass is 2 glowstone dust, 2 Quartz Glass and 1 Cyanite Ingot for two panes — eight crafts. The dust and the glass came with Marnie.",
+    "why": "258 > 140."
+  },
+  {
+    "id": "S0745",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q77].description[6]",
+    "old": "It glows on its own, so nothing under that frame ever needs a lantern. Then grow a Tomato, a Strawberry, a Bell Pepper and a Corn, and hold all four at once.",
+    "new": "It glows on its own, so nothing under that frame ever needs a lantern. Hold all four crops at once when you hand this in.",
+    "why": "157 > 140; the crop list moved to the instruction line where it belongs."
+  },
+  {
+    "id": "S0746",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q77].description[8]",
+    "old": "Nella takes the gardener's job and her chain closes. Marnie eats the first tomato standing in the doorway and says nothing about it.",
+    "new": "Nella takes the gardener's job. Marnie eats the first tomato standing in the doorway and says nothing about it.",
+    "why": "'her chain closes' is meta and sits directly in front of the best image in the act."
+  },
+  {
+    "id": "S0749",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q77].rewards[8].toast.title",
+    "old": "Nella's chain closes",
+    "new": "The Gardener's Job",
+    "why": "Toast title was designer vocabulary ('chain closes') rather than a thing that happened."
+  },
+  {
+    "id": "S0751",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q78].title",
+    "old": "Put One Item on Each of the 30 Marked Copper Tiles",
+    "new": "Dress the Square's 30 Copper Tiles",
+    "why": "Title 50 > 45."
+  },
+  {
+    "id": "S0752",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q78].subtitle",
+    "old": "Thirty tiles, thirty things. Any order is right.",
+    "new": "Everything for it came in Marnie's packet.",
+    "why": "With the shorter title, the old subtitle restated the title's own count; this adds the fact the player actually needs."
+  },
+  {
+    "id": "S0756",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q78].tasks[0].title",
+    "old": "All 30 marked copper tiles in the square have something on them",
+    "new": "Something on each of the 30 marked copper tiles",
+    "why": "Task text 63 > 60."
+  },
+  {
+    "id": "S0760",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q80].title",
+    "old": "Catch Three Named Fish and Hang Three Mounts on the Inn Wall",
+    "new": "Catch Three Named Fish for the Inn Wall",
+    "why": "Title 60 > 45."
+  },
+  {
+    "id": "S0761",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q80].subtitle",
+    "old": "The Fishing Derby.",
+    "new": "Bluegill and perch by day, catfish after dark.",
+    "why": "'The Fishing Derby.' is a label, not a fact the title lacks — no picture, nothing withheld."
+  },
+  {
+    "id": "S0763",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q80].description[2]",
+    "old": "Catch one Bluegill, one Perch and one Catfish off the pier — bluegill and perch in daylight, catfish after dark on a worm, and the box in your bag holds thirty-two. Then hang three of your Oak Fish Mounts on the inn wall; Nella shipped two at the salting and two more at the ice. If you've fished an hour and he still hasn't come up, he's in the deep water off the reeds, not off the pier.",
+    "new": "Catch one Bluegill, one Perch and one Catfish off the pier — the first two in daylight, the catfish after dark on a worm — then hang three Oak Fish Mounts on the inn wall. If he won't come up, he is in the deep water off the reeds.",
+    "why": "389 > 240. Species, counts, times of day, bait and the fallback spot all kept."
+  },
+  {
+    "id": "S0764",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q80].description[4]",
+    "old": "Pays 50 Valley Scrip toward the town's winter debt.",
+    "new": "Fifty Scrip toward the winter debt, and three fish looking down at the long table.",
+    "why": "Payoff line was a payment notice with no image — the one line in the quest that could be in any game."
+  },
+  {
+    "id": "S0771",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q83].description[2]",
+    "old": "Build a second turbine off the reactor you already have, then stand at the reactor terminal, press T to open the chat box and type /valley check power. It prints two numbers and ticks this quest for you when they're right: 25,000 or more coming out of the two turbines together, and 60 or less going in as fuel. Steam is free; fuel is the budget. Tobin's signed figures are on the Turbine page in your journal — eighteen hundred under load, and the burn he wrote under it.",
+    "new": "Build a second turbine off the reactor you already have, then stand at the reactor terminal, press T and type /valley check power. It ticks this quest when both turbines make 25,000 or more on 60 or less fuel.",
+    "why": "472 > 240. Both numbers, the command string and the terminal are unchanged; the 'steam is free' essay is Tobin's journal page."
+  },
+  {
+    "id": "S0772",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q83].description[4]",
+    "old": "Stage big_power. The quarry runs off this and nothing else does.",
+    "new": "Enough power to sink a quarry, and nothing else in the valley needs this much.",
+    "why": "'Stage big_power' prints a raw stage id at the player — wiki voice, and §3 bans that register."
+  },
+  {
+    "id": "S0773",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q83].tasks[0].title",
+    "old": "Both turbines together making 25,000+ on 60 or less fuel (/valley check power)",
+    "new": "Both turbines at 25,000+ on 60 or less fuel",
+    "why": "Task text 78 > 60."
+  },
+  {
+    "id": "S0775",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q83].rewards[6].toast.title",
+    "old": "Stage: big_power",
+    "new": "Power for a Quarry",
+    "why": "Toast title was a raw stage id."
+  },
+  {
+    "id": "S0777",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q84].title",
+    "old": "Hold 2 16k Crafting Storage, 2 Access Points and 4 Wireless Boosters",
+    "new": "Build the Network Out Across the Town",
+    "why": "Title 68 > 45 — the longest title in the slice, and it was a parts list."
+  },
+  {
+    "id": "S0778",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q84].subtitle",
+    "old": "Everything, everywhere.",
+    "new": "2 Access Points, 4 Boosters, mill to lake.",
+    "why": "'Everything, everywhere.' names nothing and would fit any game in the genre."
+  },
+  {
+    "id": "S0781",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q84].description[4]",
+    "old": "Every player gets a wireless terminal, an export subnet keeps Marnie's pantry stocked, and the Delivery Crate fills itself for the eight dinners.",
+    "new": "Every player gets a wireless terminal, and the Delivery Crate starts filling itself for the eight dinners.",
+    "why": "145 > 140; the pantry subnet is Q84a's own payoff line."
+  },
+  {
+    "id": "S0782",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q84].rewards[5].toast.title",
+    "old": "The town is on the network",
+    "new": "Wireless to the Mill",
+    "why": "Toast title 26 > 24; also lands Bram's line from the same quest."
+  },
+  {
+    "id": "S0784",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q84a].title",
+    "old": "Encode 8 Patterns and Put a Level Emitter on Marnie's Pantry",
+    "new": "Encode 8 Patterns and Wire Marnie's Pantry",
+    "why": "Title 60 > 45."
+  },
+  {
+    "id": "S0791",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q84a].rewards[4].toast.description",
+    "old": "Next: the network is done until Tobin's site is cut — and that opens the moment you come back up the echo cave. Go and be useless somewhere warm; the bathhouse is open.",
+    "new": "Next: nothing, until Tobin's site is cut — and that opens the moment you come back up the echo cave. Go and be useless somewhere warm; the bathhouse is open.",
+    "why": "168 > 160 and did not open with 'Next:'."
+  },
+  {
+    "id": "S0792",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q86a].title",
+    "old": "Cut the Rig Pad and Run the Power Lane to Tobin's Site",
+    "new": "Cut the Rig Pad and Run the Power Lane",
+    "why": "Title 54 > 45."
+  },
+  {
+    "id": "S0794",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q86a].description[0]",
+    "old": "Tobin: \"The site's surveyed, so the pad is mine to cut. The rig isn't mine to switch on until the town says so. Those are different problems.\"",
+    "new": "Tobin: \"The site's surveyed, so the pad is mine to cut. The rig isn't mine to switch on until the town says so. Different problems.\"",
+    "why": "142 > 140."
+  },
+  {
+    "id": "S0801",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q79].title",
+    "old": "Cook and Deliver Each Resident's Favourite Dish",
+    "new": "Cook Each Resident's Favourite Dish",
+    "why": "Title 47 > 45."
+  },
+  {
+    "id": "S0804",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q79].description[2]",
+    "old": "Cook and hand over one of each: Roast Chicken for Marnie, Beef Stew for Bram, Cabbage Rolls for Oda, Fish Stew for Nella, Mushroom Rice for Halden, Bacon and Eggs for Tobin, Fruit Salad for Wisp, Sweet Berry Cheesecake for Pip. Hold all eight plates when you hand this in — Marnie sends them round the table herself. Walking them out one at a time is the better evening, though.",
+    "new": "Cook one each: Roast Chicken for Marnie, Beef Stew for Bram, Cabbage Rolls for Oda, Fish Stew for Nella, Mushroom Rice for Halden, Bacon and Eggs for Tobin, Fruit Salad for Wisp, Sweet Berry Cheesecake for Pip. Hold all eight at hand-in.",
+    "why": "378 > 240. All eight dishes and all eight names kept, plus the hand-in condition."
+  },
+  {
+    "id": "S0809",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q81].title",
+    "old": "Sail to the Cairn Chapel and the Drowned Lighthouse",
+    "new": "Sail to the Cairn and the Drowned Lighthouse",
+    "why": "Title 51 > 45; both load-bearing names kept."
+  },
+  {
+    "id": "S0812",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q81].description[2]",
+    "old": "Take the boat out with Nella and Pip, following the Explorer's Compass from the last payout to the Cairn Chapel and then the Drowned Lighthouse. A waystone stands at each and the chest is under the beacon beam. Bring back the Cross Necklace from the chapel and the Snorkel from the lighthouse.",
+    "new": "Take the boat out with Nella and Pip, following the compass from the last payout to the Cairn Chapel and the Drowned Lighthouse. A waystone stands at each and the chest is under the beacon beam. Bring back the Necklace and the Snorkel.",
+    "why": "293 > 240."
+  },
+  {
+    "id": "S0814",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q81].rewards[5].command",
+    "old": "And the Drowned Lighthouse, past the ridge.",
+    "new": "And the Drowned Lighthouse past it.",
+    "why": "Title-card subtitle 43 > 40."
+  },
+  {
+    "id": "S0818",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q82].title",
+    "old": "Follow Tobin's Lanterns Down and Bring Back 1 Echo Shard",
+    "new": "Bring Back One Echo Shard",
+    "why": "Title 56 > 45; Tobin's lanterns are in the subtitle and the instruction."
+  },
+  {
+    "id": "S0819",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q82].subtitle",
+    "old": "Down Tobin's lanterns for one Echo Shard. Deeper and darker.",
+    "new": "Down Tobin's lantern line, under the Works.",
+    "why": "Subtitle 60 > 50."
+  },
+  {
+    "id": "S0822",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q82].description[4]",
+    "old": "The deep survey data is what sites the quarry.",
+    "new": "Tobin reads the echo off the shard and puts a stake in the ground where the quarry goes.",
+    "why": "'The deep survey data is what sites the quarry' is a design note in wiki voice, not something the player watches happen."
+  },
+  {
+    "id": "S0824",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q82].rewards[4].command",
+    "old": "Tobin's lanterns go down further than anyone dug.",
+    "new": "Further down than anyone ever dug.",
+    "why": "Title-card subtitle 49 > 40."
+  },
+  {
+    "id": "S0829",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q85].subtitle",
+    "old": "Oda's chain closes.",
+    "new": "Eleven years of red ink, cleared.",
+    "why": "'Oda's chain closes' is designer vocabulary and adds no fact the title lacks."
+  },
+  {
+    "id": "S0832",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q85].description[4]",
+    "old": "The books balance for the first time since Josie. Oda's chain closes and 25 Scrip comes straight back to you.",
+    "new": "The books balance for the first time since Josie, and 25 Scrip comes straight back across the counter.",
+    "why": "'Oda's chain closes' is designer vocabulary in the payoff line — the balancing books already are the closing."
+  },
+  {
+    "id": "S0839",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q86_standing].description[4]",
+    "old": "You don't have to do anything for this one. It ticks itself the moment the sixth neighbour's story closes — Oda keeps the count, and she is not going to be talked into rounding it up.",
+    "new": "You don't have to do anything here. It ticks itself when the sixth neighbour's story closes, and Oda will not be talked into rounding up.",
+    "why": "183 > 140."
+  },
+  {
+    "id": "S0842",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q86_standing].rewards[0].toast.description",
+    "old": "Six of eight neighbours' stories are closed. Oda will sell you the Works Deed. (Press T and type /valley check standing if you want to see her count.)",
+    "new": "Next: 80 Scrip at Oda's counter buys the Works Deed. (Press T and type /valley check standing to see her count.)",
+    "why": "Toast body did not open with 'Next:'; command string unchanged."
+  },
+  {
+    "id": "S0843",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q86].title",
+    "old": "Buy the Works Deed: 80 Valley Scrip and Standing: Trusted",
+    "new": "Buy the Works Deed at Oda's Counter",
+    "why": "Title 57 > 45; the price and the Standing condition are in the subtitle and the instruction line."
+  },
+  {
+    "id": "S0844",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q86].subtitle",
+    "old": "Six of eight chains closed.",
+    "new": "80 Scrip, and six of eight stories closed.",
+    "why": "'chains' is designer vocabulary; the price is the fact the shortened title now lacks."
+  },
+  {
+    "id": "S0847",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q86].description[4]",
+    "old": "Wisp's people came in off the ice · Marnie sat down at her own table · Halden's rounds · Pip's satchel · Bram's cocoa · Tobin's signature on the readings · Nella's tomato · Oda's ledger. Run /valley check standing for the count.",
+    "new": "Eight stories, six needed: Wisp, Marnie, Halden, Pip, Bram, Tobin, Nella, Oda. Run /valley check standing for where you are.",
+    "why": "228 > 140 — an eight-item recap in the slot reserved for what the player will see. Command string unchanged."
+  },
+  {
+    "id": "S0850",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q86].rewards[3].command",
+    "old": "Halden: Go and read her wall again some time. A machine one person can run is a hostage — that was the whole of it. There are eight names on this deed and not one of them is hers. She would have been unbearable about it.",
+    "new": "Halden: A machine one person can run is a hostage — and there are eight names on this deed, not one of them hers.",
+    "why": "Chat line 220 > 120 and four sentences. Keeps the cellar-wall quote and the deed's real payoff."
+  },
+  {
+    "id": "S0851",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q86].rewards[4].command",
+    "old": "Oda: Filed, witnessed and in ink. If every one of us walked out of this valley tomorrow the lights would still be on in it on Thursday. That is the first time that has ever been true.",
+    "new": "Oda: If every one of us walked out tomorrow the lights would still be on Thursday, and that has never been true before.",
+    "why": "Chat line 183 > 120."
+  },
+  {
+    "id": "S0855",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q87].subtitle",
+    "old": "Tobin's arc closes.",
+    "new": "Flat against the marker, facing in.",
+    "why": "'Tobin's arc closes' is designer vocabulary; this is the fact that stops the player mis-placing the rig."
+  },
+  {
+    "id": "S0858",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q87].description[4]",
+    "old": "The shaft sinks and the quarry runs. It is the biggest thing Tobin has ever been responsible for, and his arc closes here.",
+    "new": "The shaft sinks and the quarry runs. It is the biggest thing Tobin has ever been responsible for and he checks the gauge four times.",
+    "why": "'his arc closes here' is meta, and the old line explained his state instead of showing it (§3, explaining the feeling)."
+  },
+  {
+    "id": "S0859",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q87].tasks[1].title",
+    "old": "Quarry set against the marker and running off the reactor lane",
+    "new": "Quarry running off the reactor lane",
+    "why": "Task text 62 > 60."
+  },
+  {
+    "id": "S0861",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q87].rewards[4].toast.title",
+    "old": "Tobin's arc closes",
+    "new": "The Shaft Sinks",
+    "why": "Toast title was designer vocabulary, and it double-books Tobin's closing with Q75's."
+  },
+  {
+    "id": "S0863",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q88].title",
+    "old": "Deliver 1,024 Cobblestone From Network Stock to the Granary",
+    "new": "Deliver 1,024 Cobblestone to the Granary",
+    "why": "Title 59 > 45."
+  },
+  {
+    "id": "S0866",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q88].description[2]",
+    "old": "Pattern the quarry's output so cobble goes to the granary, ore goes to the Pulverizer and the rest goes to the void, then let one full cycle land: 1,024 cobblestone out of network stock into the granary. Bram wants to see the sorting work before he calls it a public works, and the quarry keeps running afterwards.",
+    "new": "Pattern the quarry's output — cobble to the granary, ore to the Pulverizer, the rest to the void — then let one full cycle land: 1,024 cobblestone out of network stock into the granary. The quarry keeps running afterwards.",
+    "why": "314 > 240; every routing rule and the count preserved."
+  },
+  {
+    "id": "S0867",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q88].description[4]",
+    "old": "Stage town_provides: Oda's shelves restock themselves from your network from now on, permanently.",
+    "new": "Oda's shelves restock themselves off your network from now on, and she will check that they did.",
+    "why": "'Stage town_provides:' prints a raw stage id at the player."
+  },
+  {
+    "id": "S0869",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q88].rewards[3].toast.title",
+    "old": "Stage: town_provides",
+    "new": "Shelves Fill Themselves",
+    "why": "Toast title was a raw stage id."
+  },
+  {
+    "id": "S0871",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q89].title",
+    "old": "Hang the Quarry-Copper Bell on the Marked Post",
+    "new": "Hang the Copper Bell on the Marked Post",
+    "why": "Title 46 > 45."
+  },
+  {
+    "id": "S0872",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q89].subtitle",
+    "old": "Cast one copper bell and hang it. Pip named it Big Copper.",
+    "new": "Pip has already named it Big Copper.",
+    "why": "Subtitle 58 > 50; the casting instruction is line 3's job."
+  },
+  {
+    "id": "S0875",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q89].description[4]",
+    "old": "Every resident comes out for it. Pip has been the courier since December; from today he is also the bell-ringer, and nobody is getting that rope off him.",
+    "new": "Every resident comes out for it. Pip has been the courier since December; from today he has the bell rope and nobody is getting it off him.",
+    "why": "153 > 140."
+  },
+  {
+    "id": "S0878",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q89].rewards[2].command",
+    "old": "Oda: Eleven. Eleven days she ran it. Eleven years I kept the book of a shop with nothing in it. Eleven feet of porch, she used to say, and never look at more than that at once. I have stopped believing that is a coincidence and I have stopped needing it not to be.",
+    "new": "Oda: Eleven days she ran it, eleven years I kept an empty shop's book, and I have stopped calling that a coincidence.",
+    "why": "Chat line 264 > 120 and five sentences where §4 allows one. The triple and the refusal are kept; 'eleven feet of porch' is the clause that had to go."
+  },
+  {
+    "id": "S0881",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q90].title",
+    "old": "Put the Fortieth Lamp on the Bare Post at Josie's Porch",
+    "new": "Put the Fortieth Lamp on the Bare Post",
+    "why": "Title 55 > 45; Josie's porch is in the instruction line and the task."
+  },
+  {
+    "id": "S0889",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q90].rewards[6].command",
+    "old": "The fortieth post. It has been bare since she left.",
+    "new": "Bare since she left.",
+    "why": "Title-card subtitle 51 > 40."
+  },
+  {
+    "id": "S0893",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q91].title",
+    "old": "Set the Eight Feast Dishes on the Long Table and Bank the Hearth",
+    "new": "Set the Eight Dishes and Bank the Hearth",
+    "why": "Title 64 > 45."
+  },
+  {
+    "id": "S0896",
+    "file": "story/quests/act5.json",
+    "locator": "quests[q91].description[2]",
+    "old": "Take the eight dishes out of the Feast Crate, set them on the long table in the inn, and bank the Hearth for the night the way Josie's last page describes — the trick a woman whose name she had forgotten taught her in ninety seconds, in the rain, because Josie looked cold. Bank it like that and it holds till morning. It has not gone out since.",
+    "new": "Take the eight dishes out of the Feast Crate, set them on the long table in the inn, and bank the Hearth the way Josie's last page describes — the trick a woman whose name she'd forgotten taught her in the rain, because Josie looked cold.",
+    "why": "345 > 240. The instruction, the crate, the table and the borrowed trick all kept; 'it has not gone out since' is Journal Entry 5's own last line."
+  },
+  {
+    "id": "S0908",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_open].description[2]",
+    "old": "Scrip comes from deliveries, festival baskets and closing a neighbour's story. My standing order pays eight Scrip for twenty-four wheat, once, and then that page is closed. Nothing else pays it and nothing else spends it.",
+    "new": "Buy anything on this board with Valley Scrip. Scrip comes from deliveries, festival baskets and closing a neighbour's story — her standing order pays eight for twenty-four wheat, once, and then that page is closed.",
+    "why": "Line 3 must be the instruction, verb first. It was Oda still talking, unquoted, so the point of view slides between line 1 and line 3."
+  },
+  {
+    "id": "S0910",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_open].description[6]",
+    "old": "One warning, and it's the only one I'll give: keep two hundred Scrip back. The town's winter debt is a hundred and twenty and the Works Deed is eighty, and both of those are mine to collect, and I will not be talked down. Spend whatever is over the two hundred on whatever you like — I sell nothing you actually need.",
+    "new": "Keep two hundred Scrip back: the winter debt is a hundred and twenty and the Works Deed is eighty, and Oda will not be talked down.",
+    "why": "317 > 140."
+  },
+  {
+    "id": "S0918",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_standing_order].description[2]",
+    "old": "Twenty-four wheat across the counter, eight Scrip back, one time. Every Scrip after this comes from deliveries, festival baskets and closing a neighbour's story.",
+    "new": "Put twenty-four wheat across the counter for eight Scrip, once. Every Scrip after this comes from deliveries, festival baskets and closing a neighbour's story.",
+    "why": "Line 3 was not an instruction; verb-first now, same numbers."
+  },
+  {
+    "id": "S0920",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_casings].subtitle",
+    "old": "10 Scrip. Restocks.",
+    "new": "Restocks. Bram cuts them in the dead weeks.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the casings instead."
+  },
+  {
+    "id": "S0924",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_alloy].subtitle",
+    "old": "8 Scrip. Restocks.",
+    "new": "Restocks. Andesite and iron nuggets, pressed.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the alloy instead."
+  },
+  {
+    "id": "S0928",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_gearing].subtitle",
+    "old": "6 Scrip. Restocks.",
+    "new": "Restocks. Sixteen cogs and eight belts, crated.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the gearing instead."
+  },
+  {
+    "id": "S0932",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_seedbox].subtitle",
+    "old": "4 Scrip. Restocks.",
+    "new": "Restocks. Five packets, labelled by Marnie.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the seed box instead."
+  },
+  {
+    "id": "S0936",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_pantry].subtitle",
+    "old": "4 Scrip. Restocks.",
+    "new": "Restocks. Sixteen loaves, and Marnie baked them.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the pantry basket instead."
+  },
+  {
+    "id": "S0940",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_lampoil].subtitle",
+    "old": "6 Scrip. Restocks.",
+    "new": "Restocks. The crate Josie bought every autumn.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the lamp oil instead."
+  },
+  {
+    "id": "S0944",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_servos].subtitle",
+    "old": "15 Scrip. Restocks.",
+    "new": "Restocks. Bram asks for these by name.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the servos instead."
+  },
+  {
+    "id": "S0948",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_frames].subtitle",
+    "old": "25 Scrip. Restocks.",
+    "new": "Restocks. Somebody else's afternoon at the fan.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the frames instead."
+  },
+  {
+    "id": "S0952",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_coils].subtitle",
+    "old": "18 Scrip. Restocks.",
+    "new": "Restocks. Silver and redstone, wound.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the coils instead."
+  },
+  {
+    "id": "S0956",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_fluxduct].subtitle",
+    "old": "12 Scrip. Restocks.",
+    "new": "Restocks. Sold by the metre, counted by the piece.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the duct instead."
+  },
+  {
+    "id": "S0960",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_cat_furniture].subtitle",
+    "old": "12 Scrip. Restocks.",
+    "new": "Restocks. Page four, since the rail came in.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the furniture page instead."
+  },
+  {
+    "id": "S0964",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_cat_windows].subtitle",
+    "old": "12 Scrip. Restocks.",
+    "new": "Restocks. Page seven, one crate in and out.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the windows page instead."
+  },
+  {
+    "id": "S0968",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_cat_garden].subtitle",
+    "old": "10 Scrip. Restocks.",
+    "new": "Restocks. Page nine — Halden's favourite page.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the garden page instead."
+  },
+  {
+    "id": "S0972",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_cat_lights].subtitle",
+    "old": "14 Scrip. Restocks.",
+    "new": "Restocks. Page eleven, carried since the Supper.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the lighting page instead."
+  },
+  {
+    "id": "S0976",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_livestock].subtitle",
+    "old": "20 Scrip. Restocks.",
+    "new": "Restocks. Counted at both ends of the wagon.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the livestock instead."
+  },
+  {
+    "id": "S0980",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_rare_seeds].subtitle",
+    "old": "16 Scrip. Restocks.",
+    "new": "Restocks. Kept under the counter, in a tin.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the rare seeds instead."
+  },
+  {
+    "id": "S0984",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_reactor_casings].subtitle",
+    "old": "40 Scrip. Restocks.",
+    "new": "Restocks. Sixteen reactor, eight turbine.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the reactor casings instead."
+  },
+  {
+    "id": "S0988",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_reactor_internals].subtitle",
+    "old": "35 Scrip. Restocks.",
+    "new": "Restocks. Read off the crate lid every time.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the reactor internals instead."
+  },
+  {
+    "id": "S0992",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_ae_bundle].subtitle",
+    "old": "30 Scrip. Restocks.",
+    "new": "Restocks. The half of it that isn't a decision.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the storage bundle instead."
+  },
+  {
+    "id": "S0996",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_plushie].subtitle",
+    "old": "10 Scrip. Restocks.",
+    "new": "Restocks. Pip has spent eleven of these.",
+    "why": "Twenty shop subtitles are the same sentence with a different number in it, and the price is already in the title, so the subtitle names nothing the player cannot see. This one carries a fact about the plushie token instead."
+  },
+  {
+    "id": "S0925",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_alloy].description[0]",
+    "old": "Oda: \"Thirty-two. Andesite and iron nuggets, pressed. It is the least interesting thing in this valley and you will want a great deal of it.\"",
+    "new": "Oda: \"Thirty-two. Andesite and iron nuggets, pressed. The least interesting thing in this valley and you will want a great deal of it.\"",
+    "why": "141 > 140."
+  },
+  {
+    "id": "S0929",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_gearing].description[0]",
+    "old": "Oda: \"Sixteen cogs, eight large cogs, sixteen shafts, eight belts. I have written that on the crate lid so neither of us has to count it again.\"",
+    "new": "Oda: \"Sixteen cogs, eight large cogs, sixteen shafts, eight belts. It is written on the crate lid so neither of us counts it again.\"",
+    "why": "144 > 140."
+  },
+  {
+    "id": "S0941",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_lampoil].description[0]",
+    "old": "Oda: \"Eight lanterns, eight candle holders, four road lamps. Josie bought this exact crate every autumn for eleven years and I never once had to ask what it was for.\"",
+    "new": "Oda: \"Eight lanterns, eight candle holders, four road lamps. Josie bought this exact crate every autumn and I never had to ask what for.\"",
+    "why": "Continuity plus 166 > 140: the old line has Josie buying from this shop 'every autumn for eleven years', but Oda's own eleven years are the years the wagon stopped coming and the shelves were empty (canon §2, and her Q89 line). The crate stays as the plant; the eleven years go."
+  },
+  {
+    "id": "S0945",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_servos].description[0]",
+    "old": "Oda: \"Sixteen servos in a crate. I do not know what they do. I know Bram asks for them by name and I know how many are in the crate, which is the half of it that is my job.\"",
+    "new": "Oda: \"Sixteen servos in a crate. I do not know what they do. I know Bram asks for them by name and I know how many are in the crate.\"",
+    "why": "173 > 140."
+  },
+  {
+    "id": "S0949",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_frames].description[0]",
+    "old": "Oda: \"Two frames. Washed silica, which means Nella's boat and a fan and an afternoon, and I have already spent that afternoon on your behalf.\"",
+    "new": "Oda: \"Two frames. Washed silica, which means Nella's boat and a fan and an afternoon, and I have already spent that afternoon.\"",
+    "why": "142 > 140."
+  },
+  {
+    "id": "S0953",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_coils].description[0]",
+    "old": "Oda: \"Eight coils. Silver and redstone, wound. Tobin brings the silver down from the adit in sample bags and pretends it is not a delivery.\"",
+    "new": "Oda: \"Eight coils. Silver and redstone, wound. Josie ordered a dozen, collected eight, and the other four are still on my books.\"",
+    "why": "Continuity: this line is available from Q19 in Act I, but it credits Tobin (who does not arrive until summer) with carrying silver out of the adit (which stays collapsed until Q65, Act IV). Rewritten onto Josie and Oda's ledger, which are both true in Act I."
+  },
+  {
+    "id": "S0954",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_coils].description[2]",
+    "old": "Eighteen Scrip.",
+    "new": "Eighteen Scrip. Wound wire is somebody's evening; it does not have to be yours.",
+    "why": "Bare price line — no noun to see, nothing withheld, no reason to read it. Three of the twenty-three shop lines were left like this while the rest got a second clause."
+  },
+  {
+    "id": "S0955",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_fluxduct].title",
+    "old": "Buy 64 Energy Duct and a Cell Frame — 12 Scrip",
+    "new": "Buy 64 Duct and a Cell Frame — 12 Scrip",
+    "why": "Title 46 > 45; price kept, since every other line on the board carries its price in the title."
+  },
+  {
+    "id": "S0961",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_cat_furniture].description[0]",
+    "old": "Oda: \"Page four of the catalogue, and it only exists because there is a rail line now. Table, four chairs, a couch, a cupboard, two shelves, a nightstand.\"",
+    "new": "Oda: \"Page four of the catalogue, and it exists because there is a rail line. Table, four chairs, a couch, a cupboard, two shelves.\"",
+    "why": "155 > 140."
+  },
+  {
+    "id": "S0965",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_cat_windows].description[0]",
+    "old": "Oda: \"Page seven. Eight windows, four curtain rods, sixteen roof, a cottage door. It came off the wagon in one crate and it goes out of here in one crate.\"",
+    "new": "Oda: \"Page seven. Eight windows, four curtain rods, sixteen roof, a cottage door. It came off the wagon in one crate and leaves in one.\"",
+    "why": "155 > 140."
+  },
+  {
+    "id": "S0969",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_cat_garden].description[0]",
+    "old": "Oda: \"Page nine. Eight flower boxes, eight planters, sixteen hedge, four saplings. Halden reads this page for pleasure, which tells you everything about Halden.\"",
+    "new": "Oda: \"Page nine. Eight flower boxes, eight planters, sixteen hedge, four saplings. Halden reads this page for pleasure.\"",
+    "why": "161 > 140."
+  },
+  {
+    "id": "S0970",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_cat_garden].description[2]",
+    "old": "Ten Scrip.",
+    "new": "Ten Scrip. Halden will ask where you got the hedge and then tell you what to do with it.",
+    "why": "Bare price line — nothing to see and nothing withheld."
+  },
+  {
+    "id": "S0973",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_cat_lights].description[0]",
+    "old": "Oda: \"Page eleven, and the wagon only started carrying it after the Supper. Twelve sconces, eight lanterns, eight soul lanterns, sixteen rope, four shelves.\"",
+    "new": "Oda: \"Page eleven, which the wagon only carried after the Supper. Twelve sconces, eight lanterns, eight soul lanterns, sixteen rope.\"",
+    "why": "157 > 140."
+  },
+  {
+    "id": "S0981",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_rare_seeds].description[0]",
+    "old": "Oda: \"Under the counter, in a tin. Torchflower, pitcher pod, glow berries, sweet berries, coffee. Two of those five I have never seen grow and I have still sold them.\"",
+    "new": "Oda: \"Under the counter, in a tin. Torchflower, pitcher pod, glow berries, sweet berries, coffee. Two of the five I have never seen grow.\"",
+    "why": "167 > 140."
+  },
+  {
+    "id": "S0985",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_reactor_casings].description[0]",
+    "old": "Oda: \"Sixteen reactor casing, eight turbine casing. Josie's notes are what make them craftable and my wagon is what makes them arrive; do not confuse the two. The notes came home from the tower, so the line is open.\"",
+    "new": "Oda: \"Sixteen reactor casing, eight turbine casing. Josie's notes make them craftable, my wagon makes them arrive; don't confuse the two.\"",
+    "why": "216 > 140. The 'notes came home from the tower' clause is the dependency talking, and the quest is already gated on Q67."
+  },
+  {
+    "id": "S0989",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_reactor_internals].description[0]",
+    "old": "Oda: \"Eight fuel rods, two control rods, eight glass, one rotor bearing, eight blades, four shafts. I read that off the crate lid every time and I still get it right.\"",
+    "new": "Oda: \"Eight fuel rods, two control rods, eight glass, one rotor bearing, eight blades, four shafts. I read that off the lid every time.\"",
+    "why": "167 > 140."
+  },
+  {
+    "id": "S0990",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_reactor_internals].description[2]",
+    "old": "Thirty-five Scrip.",
+    "new": "Thirty-five Scrip. Every one of these is a part you would otherwise make twice.",
+    "why": "Bare price line — no image, no gap, nothing to make the player read the next one."
+  },
+  {
+    "id": "S0993",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_ae_bundle].description[0]",
+    "old": "Oda: \"Four cells, four components, eight processors of the calculating sort, thirty-two cable. Your machine wants all of it and none of it is a decision.\"",
+    "new": "Oda: \"Four cells, four components, eight processors of the calculating sort, thirty-two cable. None of it is a decision.\"",
+    "why": "154 > 140."
+  },
+  {
+    "id": "S0999",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_works_deed].title",
+    "old": "Buy a Filed Copy of the Works Deed — 150 Scrip",
+    "new": "Buy Your Own Copy of the Works Deed",
+    "why": "Title 46 > 45; the 150 Scrip is in the subtitle and the instruction line."
+  },
+  {
+    "id": "S1001",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_works_deed].description[0]",
+    "old": "Oda: \"The Deed you bought is the town's. This one is yours — same wording, same witnesses, my hand instead of Bram's, and a set of markers in the box with it.\"",
+    "new": "Oda: \"The Deed you bought is the town's. This one is yours — same wording, my hand instead of Bram's, and markers in the box with it.\"",
+    "why": "159 > 140."
+  },
+  {
+    "id": "S1004",
+    "file": "story/quests/oda.json",
+    "locator": "quests[oda_works_deed].tasks[0].title",
+    "old": "The Works Deed is signed (Q86)",
+    "new": "The town's Works Deed already signed",
+    "why": "Task text printed a quest id ('(Q86)') at the player — wiki voice in the one line she reads to know what she is waiting on."
+  }
+]

@@ -2,7 +2,7 @@
   "parent": "valley:journal/root",
   "display": {
     "icon": { "item": "minecraft:writable_book" },
-    "title": { "text": "Field Note: Oda's Old Stock Ledger", "color": "gold" },
+    "title": { "text": "Found: Oda's Old Stock Ledger", "color": "gold" },
     "description": { "text": "She keeps the book. She always has.", "color": "gray" },
     "frame": "task",
     "show_toast": true,

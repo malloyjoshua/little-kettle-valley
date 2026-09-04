@@ -14,7 +14,7 @@
 			title: "Trade With the Frog Folk in the Reeds"
 			subtitle: "Marnie's compass is already set to it."
 			icon: "ribbits:red_toadstool"
-			description: ["Marnie: \"Four minutes past the reeds. Wisp already walked over and set the waystone, so you only walk it once.\"", "", "Take Marnie's Explorer's Compass — it is already set to the Ribbit village — follow it, and bring back 4 Red Toadstools. The merchant frog sells them at the stall by the boardwalk, and they also grow in the planters along it.", "", "This is how you meet Wisp. Their flower starts and bone meal are what Halden's hedge garden is planted from."]
+			description: ["Marnie: \"Four minutes past the reeds. Wisp already walked over and set the waystone, so you only walk it once.\"", "", "Take Marnie's Explorer's Compass — it is already set to the Ribbit village — follow it, and bring back 4 Red Toadstools. The merchant frog sells them at the stall by the boardwalk, and they also grow in the planters along it.", "", "Wisp hands over the flower starts and the bone meal that Halden's hedge garden gets planted from."]
 			x: 0.0d
 			y: -2.2d
 			dependencies: ["1589859EB1A28DCE"]
@@ -23,12 +23,12 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "6F4803C940217F99", type: "item", item: "ribbits:red_toadstool", count: 4L }]
-			rewards: [{ id: "7098E464CE23A50C", type: "item", item: "sophisticatedbackpacks:backpack" }, { id: "62F3E601DA41D5C1", type: "item", item: "ribbits:brown_toadstool", count: 8 }, { id: "68777481F5FF6327", type: "item", item: "ribbits:umbrella_leaf", count: 8 }, { id: "69383E12C4B078A3", type: "item", item: "minecraft:poppy" }, { id: "16AFBED6CDD3FC04", type: "item", item: "minecraft:dandelion" }, { id: "364D8D1C0AC5A4DC", type: "item", item: "minecraft:cornflower" }, { id: "33DC192138A6862D", type: "item", item: "vinery:flower_box", count: 3 }, { id: "7C071752A883F2CC", type: "item", item: "minecraft:bone_meal", count: 32 }, { id: "2884CCD416E0AD3C", type: "item", item: "waystones:waystone" }, { id: "233AD72CCFCFEEE6", type: "loot", table_id: 6428311738069300697L }, { id: "5B19DF0B129E0EDC", type: "command", command: "/tellraw @a [{\"text\":\"Wisp: \",\"color\":\"dark_green\"},{\"text\":\"You come back soon, yes? I keep the good toadstools for the walking-friend.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "3A1F8F211A0305BC", type: "command", command: "title @p times 10 70 20", elevate_perms: true, silent: true }, { id: "6102EA0E2BC3779A", type: "command", command: "title @p subtitle {\"text\": \"Eleven Ribbits, and no roof between them and winter.\", \"color\": \"gray\", \"italic\": true}", elevate_perms: true, silent: true }, { id: "0A27ACC672BB24B2", type: "command", command: "title @p title {\"text\": \"The Reed Village\", \"color\": \"gold\"}", elevate_perms: true, silent: true }, { id: "3D40852949FCB59B", type: "command", command: "execute at @p run playsound minecraft:ui.toast.challenge_complete master @p ~ ~ ~ 1 1", elevate_perms: true, silent: true }, { id: "398E086B38FEEF5B", type: "toast", title: "Wisp is a friend of the valley", description: "Next: Halden wants 8 poppies, 8 dandelions and 8 cornflowers." }]
+			rewards: [{ id: "7098E464CE23A50C", type: "item", item: "sophisticatedbackpacks:backpack" }, { id: "62F3E601DA41D5C1", type: "item", item: "ribbits:brown_toadstool", count: 8 }, { id: "68777481F5FF6327", type: "item", item: "ribbits:umbrella_leaf", count: 8 }, { id: "69383E12C4B078A3", type: "item", item: "minecraft:poppy" }, { id: "16AFBED6CDD3FC04", type: "item", item: "minecraft:dandelion" }, { id: "364D8D1C0AC5A4DC", type: "item", item: "minecraft:cornflower" }, { id: "33DC192138A6862D", type: "item", item: "vinery:flower_box", count: 3 }, { id: "7C071752A883F2CC", type: "item", item: "minecraft:bone_meal", count: 32 }, { id: "2884CCD416E0AD3C", type: "item", item: "waystones:waystone" }, { id: "233AD72CCFCFEEE6", type: "loot", table_id: 6428311738069300697L }, { id: "5B19DF0B129E0EDC", type: "command", command: "/tellraw @a [{\"text\":\"Wisp: \",\"color\":\"dark_green\"},{\"text\":\"You come back soon, yes? I keep the good toadstools for the walking-friend.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "3A1F8F211A0305BC", type: "command", command: "title @p times 10 70 20", elevate_perms: true, silent: true }, { id: "55EC7E8520F8D277", type: "command", command: "title @p subtitle {\"text\": \"Eleven Ribbits and no roof for winter.\", \"color\": \"gray\", \"italic\": true}", elevate_perms: true, silent: true }, { id: "0A27ACC672BB24B2", type: "command", command: "title @p title {\"text\": \"The Reed Village\", \"color\": \"gold\"}", elevate_perms: true, silent: true }, { id: "3D40852949FCB59B", type: "command", command: "execute at @p run playsound minecraft:ui.toast.challenge_complete master @p ~ ~ ~ 1 1", elevate_perms: true, silent: true }, { id: "34E03E3159943597", type: "toast", title: "A Friend in the Reeds", description: "Next: Halden wants 8 poppies, 8 dandelions and 8 cornflowers." }]
 		}
 		{
 			id: "3A4D2C8BF6E503C2"
 			title: "Talk to the Woman Fixing the Beached Boat"
-			subtitle: "Follow the marker down to the lake."
+			subtitle: "Four years on the same boat."
 			icon: "minecraft:oak_boat"
 			description: ["Nella: \"It doesn't need fixing, and I know that. I'm fixing it anyway.\"", "", "Follow the marker down to the lake and right-click Nella Brightwater. She hands you her token — turn it in here.", "", "Nella stays at the lake for good, and the pasture outline goes in behind the barn with its fence kit and animal crates."]
 			x: 0.0d
@@ -39,14 +39,14 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "0493B6B0804297EF", type: "item", item: "valley:token_nella", count: 1L, consume_items: true }]
-			rewards: [{ id: "67385BDAC3A55BBA", type: "item", item: "aquaculture:iron_fishing_rod" }, { id: "76BC6BE72E231A75", type: "item", item: "aquaculture:tackle_box" }, { id: "00D3860443ECA200", type: "item", item: "waystones:waystone" }, { id: "17F003C49CF5BEF5", type: "item", item: "minecraft:oak_fence", count: 48 }, { id: "428BB14855C0FA0D", type: "item", item: "minecraft:oak_fence_gate", count: 2 }, { id: "78A6CB22CB6B5982", type: "item", item: "valley:cow_crate", count: 2 }, { id: "47299DA79267171D", type: "item", item: "valley:sheep_crate", count: 2 }, { id: "5CF80D4BDC431733", type: "command", command: "/tellraw @a [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"Lake's yours too, then. Don't fall in on your first day.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "2354C7D569B0FEB4", type: "command", command: "/bossbar set valley:folk value 6", elevate_perms: true, silent: true }, { id: "34834FA4034EBC0A", type: "command", command: "title @p times 10 70 20", elevate_perms: true, silent: true }, { id: "10E47EDE6AF66918", type: "command", command: "title @p subtitle {\"text\": \"Nella has been fixing it for four years.\", \"color\": \"gray\", \"italic\": true}", elevate_perms: true, silent: true }, { id: "5E3D21E51F136530", type: "command", command: "title @p title {\"text\": \"The Beached Boat\", \"color\": \"gold\"}", elevate_perms: true, silent: true }, { id: "793E1EF5B6D9B5F3", type: "command", command: "execute at @p run playsound minecraft:ui.toast.challenge_complete master @p ~ ~ ~ 1 1", elevate_perms: true, silent: true }, { id: "3A8794C67D40E350", type: "toast", title: "Nella lives at the lake now", description: "Next: catch 10 fish and cook one in the Skillet." }]
+			rewards: [{ id: "67385BDAC3A55BBA", type: "item", item: "aquaculture:iron_fishing_rod" }, { id: "76BC6BE72E231A75", type: "item", item: "aquaculture:tackle_box" }, { id: "00D3860443ECA200", type: "item", item: "waystones:waystone" }, { id: "17F003C49CF5BEF5", type: "item", item: "minecraft:oak_fence", count: 48 }, { id: "428BB14855C0FA0D", type: "item", item: "minecraft:oak_fence_gate", count: 2 }, { id: "78A6CB22CB6B5982", type: "item", item: "valley:cow_crate", count: 2 }, { id: "47299DA79267171D", type: "item", item: "valley:sheep_crate", count: 2 }, { id: "5CF80D4BDC431733", type: "command", command: "/tellraw @a [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"Lake's yours too, then. Don't fall in on your first day.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "2354C7D569B0FEB4", type: "command", command: "/bossbar set valley:folk value 6", elevate_perms: true, silent: true }, { id: "34834FA4034EBC0A", type: "command", command: "title @p times 10 70 20", elevate_perms: true, silent: true }, { id: "10E47EDE6AF66918", type: "command", command: "title @p subtitle {\"text\": \"Nella has been fixing it for four years.\", \"color\": \"gray\", \"italic\": true}", elevate_perms: true, silent: true }, { id: "5E3D21E51F136530", type: "command", command: "title @p title {\"text\": \"The Beached Boat\", \"color\": \"gold\"}", elevate_perms: true, silent: true }, { id: "793E1EF5B6D9B5F3", type: "command", command: "execute at @p run playsound minecraft:ui.toast.challenge_complete master @p ~ ~ ~ 1 1", elevate_perms: true, silent: true }, { id: "10823DA29A821A08", type: "toast", title: "Nella Stays at the Lake", description: "Next: catch 10 fish and cook one in the Skillet." }]
 		}
 		{
 			id: "3A57AC61B313C9F8"
 			title: "Catch 10 Fish and Cook One in the Skillet"
 			subtitle: "Any ten fish, then one cooked cod."
 			icon: "aquaculture:fish_fillet_cooked"
-			description: ["Nella: \"Ten, any ten. The lake isn't fussy and neither am I.\"", "", "Cast Nella's Iron Rod from the shore until you have caught ten fish — any ten, she isn't fussy — then cook one cod on a Farmer's Delight Skillet and hand the cooked cod in.", "", "The ten aren't counted for you, so this one is on the honour system: when you've had ten on the hook, tick the box. Nella would tell you to round down and she would be lying about it too.", "", "The Dredge Net comes out of this, and the dredge is where the sand for the workshop's first machine comes from."]
+			description: ["Nella: \"Ten, any ten. The lake isn't fussy and neither am I.\"", "", "Cast Nella's Iron Rod from the shore until you have caught ten fish — any ten, she isn't fussy — then cook one cod on a Farmer's Delight Skillet and hand the cooked cod in.", "", "Nothing counts the ten for you: tick the box when you have had ten on the hook. Nella would tell you to round down and she'd be lying too.", "", "The Dredge Net comes out of this, and the dredge is where the sand for the workshop's first machine comes from."]
 			x: 2.0d
 			y: -2.2d
 			dependencies: ["3A4D2C8BF6E503C2"]
@@ -59,8 +59,8 @@
 		}
 		{
 			id: "2F56F12A0B4EDB5F"
-			title: "Bring Halden 8 Poppies, 8 Dandelions and 8 Cornflowers"
-			subtitle: "Eight of each, to Halden on the south slope."
+			title: "Bring Halden 24 Flowers for the Hedge Garden"
+			subtitle: "Poppies, dandelions, cornflowers — eight of each."
 			icon: "minecraft:poppy"
 			description: ["Halden: \"Nothing in a hedge garden is urgent. That is more or less the entire argument for having one.\"", "", "Plant Wisp's poppy, dandelion and cornflower in the three flower boxes on your window ledge, then bone-meal the grass on the flat by the Town Anchor — that ground is plains, and plains grows all three — until you have 8 of each. Bring all 24 to Halden on the south slope.", "", "Halden opens the hedge garden to the town, the spring above it starts running, and the trellis and grape starts for the slope come with him."]
 			x: 2.0d
@@ -71,14 +71,14 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "69363D6F122AAE85", type: "item", item: "minecraft:poppy", count: 8L, consume_items: true }, { id: "3DA52AE5817F9372", type: "item", item: "minecraft:dandelion", count: 8L, consume_items: true }, { id: "658A3CDDCD086371", type: "item", item: "minecraft:cornflower", count: 8L, consume_items: true }]
-			rewards: [{ id: "7510F68DEC5BB351", type: "item", item: "herbalbrews:copper_tea_kettle" }, { id: "090B5925FE196589", type: "item", item: "herbalbrews:flask", count: 4 }, { id: "7CB8B05698DB5B9D", type: "item", item: "herbalbrews:green_tea_leaf", count: 16 }, { id: "14A043BBE0686DD7", type: "item", item: "vinery:oak_lattice", count: 8 }, { id: "3931613F8F9786BB", type: "item", item: "vinery:red_grape_seeds", count: 4 }, { id: "5ACC29758EA40925", type: "item", item: "thermal:watering_can" }, { id: "6145515C5F0504D0", type: "item", item: "valley:spring_water", count: 3 }, { id: "5218BDE16E361C46", type: "command", command: "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"Josie planted the first hedge here. I only ever kept it trimmed. That can change now.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "5F46ED7013EA1E2C", type: "command", command: "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"You found the door under her kitchen, then. Yes. I know what it says on it and I know who wrote it. That is all you are getting out of me on a summer afternoon.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "502A1A11D002467C", type: "toast", title: "Halden opens the hedge garden", description: "Next: put the trellis up on the south terrace and plant the 4 grape starts." }]
+			rewards: [{ id: "7510F68DEC5BB351", type: "item", item: "herbalbrews:copper_tea_kettle" }, { id: "090B5925FE196589", type: "item", item: "herbalbrews:flask", count: 4 }, { id: "7CB8B05698DB5B9D", type: "item", item: "herbalbrews:green_tea_leaf", count: 16 }, { id: "14A043BBE0686DD7", type: "item", item: "vinery:oak_lattice", count: 8 }, { id: "3931613F8F9786BB", type: "item", item: "vinery:red_grape_seeds", count: 4 }, { id: "5ACC29758EA40925", type: "item", item: "thermal:watering_can" }, { id: "6145515C5F0504D0", type: "item", item: "valley:spring_water", count: 3 }, { id: "5218BDE16E361C46", type: "command", command: "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"Josie planted the first hedge here. I only ever kept it trimmed. That can change now.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "25BAFAC62D0590A4", type: "command", command: "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"You found the door under her kitchen, then. I know what it says and who wrote it. Not on a summer afternoon.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "36FB1A0EA7763B20", type: "toast", title: "The Hedge Garden Opens", description: "Next: put the trellis up on the south terrace and plant the 4 grape starts." }]
 		}
 		{
 			id: "77EC3A54BCC44DBD"
 			title: "Put Up the Trellis and Plant 4 Grape Starts"
 			subtitle: "8 lattice panels, 4 grape starts, two waterings."
 			icon: "vinery:red_grape_seeds"
-			description: ["Halden: \"South slope, morning sun, out of the wind. Josie argued with me about this spot for nine years.\"", "", "Place the 8 lattice panels on the marked terrace behind the hedge, plant the 4 grape starts along the base, and water them twice with the watering can. Hand in one Red Grape when they fruit.", "", "The press and the fermentation barrel open the wine line, which is what Act III's harvest table drinks."]
+			description: ["Halden: \"South slope, morning sun, out of the wind. Josie argued with me about this spot for nine years.\"", "", "Place the 8 lattice panels on the marked terrace behind the hedge, plant the 4 grape starts along the base, and water them twice with the watering can. Hand in one Red Grape when they fruit.", "", "The press and the barrel come with them, and the Harvest Supper drinks what this trellis makes."]
 			x: 4.0d
 			y: -1.5d
 			dependencies: ["2F56F12A0B4EDB5F"]
@@ -86,12 +86,12 @@
 			size: 1.0d
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
-			tasks: [{ id: "7A4016CB07CBAEAA", type: "item", item: "vinery:red_grape", count: 1L }, { id: "61E1523B452D81BD", type: "checkmark", title: "The trellis is on the terrace, 4 starts planted, watered twice" }]
-			rewards: [{ id: "1C17FB799C4C3A5E", type: "item", item: "vinery:red_grape_seeds", count: 12 }, { id: "7E100C3E35257492", type: "item", item: "vinery:apple_press" }, { id: "5A6B3D603AAC2302", type: "item", item: "vinery:fermentation_barrel" }, { id: "13117F0195C53612", type: "item", item: "vinery:oak_wine_rack_small", count: 2 }, { id: "6329E3A65CFE47A0", type: "stage", stage: "vinery" }, { id: "2522D025C4C77C5C", type: "command", command: "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"She was right about the slope. Don't tell her.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "37301C932EAB5D92", type: "toast", title: "The south slope is planted", description: "Next: fence the pasture and let out 2 cows and 2 sheep." }]
+			tasks: [{ id: "7A4016CB07CBAEAA", type: "item", item: "vinery:red_grape", count: 1L }, { id: "2BE354523F126CF9", type: "checkmark", title: "Trellis up, 4 starts planted, watered twice" }]
+			rewards: [{ id: "1C17FB799C4C3A5E", type: "item", item: "vinery:red_grape_seeds", count: 12 }, { id: "7E100C3E35257492", type: "item", item: "vinery:apple_press" }, { id: "5A6B3D603AAC2302", type: "item", item: "vinery:fermentation_barrel" }, { id: "13117F0195C53612", type: "item", item: "vinery:oak_wine_rack_small", count: 2 }, { id: "6329E3A65CFE47A0", type: "stage", stage: "vinery" }, { id: "2522D025C4C77C5C", type: "command", command: "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"She was right about the slope. Don't tell her.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "4F209E5BFAB3EA21", type: "toast", title: "South Slope Planted", description: "Next: fence the pasture and let out 2 cows and 2 sheep." }]
 		}
 		{
 			id: "6EE968EEDB15F561"
-			title: "Fence the Pasture and Let Out 2 Cows and 2 Sheep"
+			title: "Fence the Pasture, Let Out 2 Cows and 2 Sheep"
 			subtitle: "Every fence block behind the barn is marked."
 			icon: "minecraft:oak_fence"
 			description: ["Pip: \"I already named the sheep, both of them. One is Cloud and one is Also Cloud.\"", "", "Put one oak fence section on every marked block behind the barn, hang the two gates on the marked gaps, then right-click both Cow Crates and both Sheep Crates inside the fence. Any order is right.", "", "Wool and milk start here, and the wool is what Oda's third notice wants at the end of the act."]
@@ -102,15 +102,15 @@
 			size: 1.0d
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
-			tasks: [{ id: "50DBB462A4809BE8", type: "checkmark", title: "2 cows and 2 sheep are standing inside the fenced pasture behind the barn" }]
-			rewards: [{ id: "1B95DE0CF3248A31", type: "item", item: "cookingforblockheads:milk_jar" }, { id: "610D258E02D894DE", type: "item", item: "minecraft:shears" }, { id: "0A54BE3D913256DF", type: "item", item: "minecraft:white_wool", count: 16 }, { id: "17C66CE6906C691E", type: "item", item: "waystones:waystone" }, { id: "154613C10981E8BD", type: "item", item: "perfectplushies:white_rabbit_plushie" }, { id: "3DB824890E343DE2", type: "item", item: "torchmaster:megatorch" }, { id: "21DFFC544210FA00", type: "command", command: "/tellraw @a [{\"text\":\"Pip: \",\"color\":\"red\"},{\"text\":\"THE PASTURE IS OPEN. I am telling everyone. I am telling the duck first.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "0AAB257461CD4330", type: "toast", title: "Cloud and Also Cloud are home", description: "Next: help fit out Wisp's stilt house over the shallows." }]
+			tasks: [{ id: "6EE40B59D02264B7", type: "checkmark", title: "2 cows and 2 sheep inside the fenced pasture" }]
+			rewards: [{ id: "1B95DE0CF3248A31", type: "item", item: "cookingforblockheads:milk_jar" }, { id: "610D258E02D894DE", type: "item", item: "minecraft:shears" }, { id: "0A54BE3D913256DF", type: "item", item: "minecraft:white_wool", count: 16 }, { id: "17C66CE6906C691E", type: "item", item: "waystones:waystone" }, { id: "154613C10981E8BD", type: "item", item: "perfectplushies:white_rabbit_plushie" }, { id: "3DB824890E343DE2", type: "item", item: "torchmaster:megatorch" }, { id: "21DFFC544210FA00", type: "command", command: "/tellraw @a [{\"text\":\"Pip: \",\"color\":\"red\"},{\"text\":\"THE PASTURE IS OPEN. I am telling everyone. I am telling the duck first.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "4DEFB6CF3CC85374", type: "toast", title: "Cloud and Also Cloud", description: "Next: help fit out Wisp's stilt house over the shallows." }]
 		}
 		{
 			id: "548374093E410737"
-			title: "Pull the Dredge Net Eight Times From Nella's Boat"
+			title: "Pull Nella's Dredge Net Eight Times"
 			subtitle: "Eight pulls off Nella's boat — 128 Lake Sand."
 			icon: "valley:lake_sand"
-			description: ["Nella: \"Sit down, hold the rope, don't help. You never get in the water on my boat.\"", "", "Sit in Nella's boat over the shallows — or wade in from the shore — and use the Dredge Net eight times. Each pull brings up 16 Lake Sand; hand in 128. The quest checks the count and hands all 128 straight back for Bram.", "", "Lake Sand is the only source of Washed Silica, and Washed Silica is the only way to a Thermal Machine Frame — Bram cannot start the workshop without it."]
+			description: ["Nella: \"Sit down, hold the rope, don't help. You never get in the water on my boat.\"", "", "Sit in Nella's boat over the shallows — or wade in from the shore — and use the Dredge Net eight times. Each pull brings up 16 Lake Sand; hand in 128. The quest checks the count and hands all 128 straight back for Bram.", "", "Lake Sand is the only source of Washed Silica, and Washed Silica is the only road to a Thermal Machine Frame. Bram's workshop waits on it."]
 			x: 4.0d
 			y: 0.0d
 			dependencies: ["3A57AC61B313C9F8"]
@@ -119,12 +119,12 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "65D25211ADC661C0", type: "item", item: "valley:lake_sand", count: 128L, consume_items: true }]
-			rewards: [{ id: "7F59A38F62B20432", type: "item", item: "valley:lake_sand", count: 128 }, { id: "104120323C701DE8", type: "item", item: "minecraft:oak_boat" }, { id: "1B6DD24BC22D3C24", type: "stage", stage: "dredged" }, { id: "6DA3FC585E1CB005", type: "command", command: "/tellraw @a [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"A hundred and twenty-eight. Take it to Bram before he asks me twice.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "0C1BAD6A27A20A89", type: "toast", title: "128 Lake Sand on the pier", description: "Next: 64 Washed Silica on the bench — eight Lake Sand and a bucket of water make four, and 128 sand is exactly the 64." }]
+			rewards: [{ id: "7F59A38F62B20432", type: "item", item: "valley:lake_sand", count: 128 }, { id: "104120323C701DE8", type: "item", item: "minecraft:oak_boat" }, { id: "1B6DD24BC22D3C24", type: "stage", stage: "dredged" }, { id: "6DA3FC585E1CB005", type: "command", command: "/tellraw @a [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"A hundred and twenty-eight. Take it to Bram before he asks me twice.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "4BF3AF03E89224B8", type: "toast", title: "128 Sand on the Pier", description: "Next: 64 Washed Silica on the bench — eight Lake Sand and a bucket of water make four, and 128 sand is exactly the 64." }]
 		}
 		{
 			id: "7E63CE8E345DA2FC"
-			title: "Talk to the Prospector Camped by the Copper Outcrop"
-			subtitle: "He is camped by the copper outcrop."
+			title: "Talk to the Prospector at the Copper Outcrop"
+			subtitle: "Nobody has read his survey."
 			icon: "geolosys:prospectors_pick"
 			description: ["Tobin: \"You're the Kettle one — right, okay. The seam doesn't stop at the outcrop, it turns, and nobody believes me.\"", "", "Walk up to the copper outcrop on the hillside and right-click Tobin Gale. He hands you his token — turn it in here.", "", "Tobin moves into the valley with his pick and three survey maps already marked. He is right about all of it."]
 			x: 0.0d
@@ -135,14 +135,14 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "44ADCAD9E9842A90", type: "item", item: "valley:token_tobin", count: 1L, consume_items: true }]
-			rewards: [{ id: "581233B34E3D423F", type: "item", item: "geolosys:prospectors_pick" }, { id: "1F3C09F56ED47961", type: "item", item: "minecraft:filled_map", count: 3 }, { id: "43752D3DA64B9FD1", type: "command", command: "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Six spots. I marked them. I marked them twice actually, sorry, the second set is in pink.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "33B50BD4DFF20B30", type: "command", command: "/bossbar set valley:folk value 7", elevate_perms: true, silent: true }, { id: "67AF12CBFD555009", type: "command", command: "title @p times 10 70 20", elevate_perms: true, silent: true }, { id: "2CEB1F55CC0574A2", type: "command", command: "title @p subtitle {\"text\": \"Tobin paced it twice and has not slept.\", \"color\": \"gray\", \"italic\": true}", elevate_perms: true, silent: true }, { id: "42058FAC8C2F7DFF", type: "command", command: "title @p title {\"text\": \"The Copper Outcrop\", \"color\": \"gold\"}", elevate_perms: true, silent: true }, { id: "27DBA50D7CB1D466", type: "command", command: "execute at @p run playsound minecraft:ui.toast.challenge_complete master @p ~ ~ ~ 1 1", elevate_perms: true, silent: true }, { id: "704423C43827CC90", type: "toast", title: "Tobin has a camp and an audience", description: "Next: strike all 6 of Tobin's marked spots with the prospector's pick." }]
+			rewards: [{ id: "581233B34E3D423F", type: "item", item: "geolosys:prospectors_pick" }, { id: "1F3C09F56ED47961", type: "item", item: "minecraft:filled_map", count: 3 }, { id: "43752D3DA64B9FD1", type: "command", command: "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Six spots. I marked them. I marked them twice actually, sorry, the second set is in pink.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "33B50BD4DFF20B30", type: "command", command: "/bossbar set valley:folk value 7", elevate_perms: true, silent: true }, { id: "67AF12CBFD555009", type: "command", command: "title @p times 10 70 20", elevate_perms: true, silent: true }, { id: "2CEB1F55CC0574A2", type: "command", command: "title @p subtitle {\"text\": \"Tobin paced it twice and has not slept.\", \"color\": \"gray\", \"italic\": true}", elevate_perms: true, silent: true }, { id: "42058FAC8C2F7DFF", type: "command", command: "title @p title {\"text\": \"The Copper Outcrop\", \"color\": \"gold\"}", elevate_perms: true, silent: true }, { id: "27DBA50D7CB1D466", type: "command", command: "execute at @p run playsound minecraft:ui.toast.challenge_complete master @p ~ ~ ~ 1 1", elevate_perms: true, silent: true }, { id: "5C179BC62C3C02B9", type: "toast", title: "Tobin Has an Audience", description: "Next: strike all 6 of Tobin's marked spots with the prospector's pick." }]
 		}
 		{
 			id: "044F10540A7996F8"
 			title: "Use Tobin's Pick on All 6 Marked Spots"
-			subtitle: "Six spots on Tobin's survey maps."
+			subtitle: "He marked them twice, in two colours."
 			icon: "geolosys:prospectors_pick"
-			description: ["Tobin: \"Hit the sample, read the sample. If it says copper it means copper is under you, not near you — under you.\"", "", "Take the prospector's pick to the 6 spots on Tobin's survey maps and right-click each one. The sixth reading is the copper cluster.", "", "The copper and tin deposits get pinned to your maps, and the Adit Pick — Efficiency IV, out of Josie's tool chest — comes with sixteen sticks of powder. Tin is what the first Machine Frame is short of."]
+			description: ["Tobin: \"Hit the sample, read the sample. If it says copper it means copper is under you, not near you — under you.\"", "", "Take the prospector's pick to the 6 spots on Tobin's survey maps and right-click each one. The sixth reading is the copper cluster.", "", "Copper and tin get pinned to your maps, and Josie's tool chest gives up the Adit Pick and sixteen sticks of powder. The frame wants tin."]
 			x: 2.0d
 			y: 2.2d
 			dependencies: ["7E63CE8E345DA2FC"]
@@ -150,12 +150,12 @@
 			size: 1.0d
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
-			tasks: [{ id: "004187DE23D401CB", type: "checkmark", title: "All 6 of Tobin's marked spots have been struck with the prospector's pick" }]
-			rewards: [{ id: "585C38EC44FDB88F", type: "item", item: "minecraft:copper_ingot", count: 32 }, { id: "734E4D2DCCBEDEDD", type: "item", item: "minecraft:raw_iron", count: 32 }, { id: "295662ED423EBE62", type: "item", item: "minecraft:filled_map", count: 2 }, { id: "57389D7F73851C68", type: "item", item: "minecraft:enchanted_book" }, { id: "5250BA5B327016EF", type: "command", command: "give @p minecraft:diamond_pickaxe{Enchantments:[{id:\"minecraft:efficiency\",lvl:4}],display:{Name:'{\"text\":\"The Adit Pick\",\"italic\":false,\"color\":\"gold\"}'}} 1", elevate_perms: true, silent: true }, { id: "259415E3A1590801", type: "item", item: "minecraft:tnt", count: 16 }, { id: "2338B8892B7E90DB", type: "command", command: "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Copper here, tin two ridges over. I said that in April. Anyway. Anyway!\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "71B900AD7624A1FD", type: "command", command: "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"One more thing and then I will stop. The grass on that slope comes up three weeks before anything else in the valley. Every year. I do not have a rock that explains it and it is bothering me.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "28A307D640CFEEAF", type: "toast", title: "Copper and tin are on your maps", description: "Next: Bram wants a Windmill Bearing and 8 sails on the mill roof." }]
+			tasks: [{ id: "6824CD971786261B", type: "checkmark", title: "All 6 marked spots struck with the prospector's pick" }]
+			rewards: [{ id: "585C38EC44FDB88F", type: "item", item: "minecraft:copper_ingot", count: 32 }, { id: "734E4D2DCCBEDEDD", type: "item", item: "minecraft:raw_iron", count: 32 }, { id: "295662ED423EBE62", type: "item", item: "minecraft:filled_map", count: 2 }, { id: "57389D7F73851C68", type: "item", item: "minecraft:enchanted_book" }, { id: "5250BA5B327016EF", type: "command", command: "give @p minecraft:diamond_pickaxe{Enchantments:[{id:\"minecraft:efficiency\",lvl:4}],display:{Name:'{\"text\":\"The Adit Pick\",\"italic\":false,\"color\":\"gold\"}'}} 1", elevate_perms: true, silent: true }, { id: "259415E3A1590801", type: "item", item: "minecraft:tnt", count: 16 }, { id: "2338B8892B7E90DB", type: "command", command: "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Copper here, tin two ridges over. I said that in April. Anyway. Anyway!\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "66E6381EA4D8A69C", type: "command", command: "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Grass on that slope comes up three weeks early every year and I do not have a rock that explains it.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "7BB0190B9C44A64C", type: "toast", title: "Copper and Tin, Pinned", description: "Next: Bram wants a Windmill Bearing and 8 sails on the mill roof." }]
 		}
 		{
 			id: "3388A47895FF18C1"
-			title: "Build a Windmill Bearing and 8 Sails on the Mill Roof"
+			title: "Put a Bearing and 8 Sails on the Mill Roof"
 			subtitle: "The 16 wool is in Bram's crate by the door."
 			icon: "create:windmill_bearing"
 			description: ["Bram: \"Stream drops every August, and the wheel stops with it. Wind doesn't drop — put it on the roof.\"", "", "Craft one Windmill Bearing and 8 White Sails and hold them to hand in, then set the bearing in the marked roof slot and the eight sails on its shaft. The 16 wool is in Bram's crate by the mill door.", "", "A second Encased Fan comes with the gear kit — one stays belted to the mill, one goes down to the sand."]
@@ -167,14 +167,14 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "41FB94F08EC2717C", type: "item", item: "create:windmill_bearing", count: 1L }, { id: "18C34D2773518A3D", type: "item", item: "create:white_sail", count: 8L }]
-			rewards: [{ id: "2023AF33E676C5A1", type: "item", item: "create:gearbox", count: 6 }, { id: "2E638CF4AEDC5E10", type: "item", item: "create:clutch" }, { id: "387A6719CFB7DE8B", type: "item", item: "create:gearshift" }, { id: "64672B03FD7B5EFA", type: "item", item: "create:mechanical_crafter", count: 3 }, { id: "58720FE089824B51", type: "item", item: "create:encased_fan" }, { id: "0AAB86BEA39DFF88", type: "command", command: "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Turns in a breeze. Good. Now it's a workshop, not a mill.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "54A09825E5D4AA48", type: "toast", title: "The mill runs on wind now", description: "Next: wash Nella's 128 Lake Sand into 64 Washed Silica under the fan." }]
+			rewards: [{ id: "2023AF33E676C5A1", type: "item", item: "create:gearbox", count: 6 }, { id: "2E638CF4AEDC5E10", type: "item", item: "create:clutch" }, { id: "387A6719CFB7DE8B", type: "item", item: "create:gearshift" }, { id: "64672B03FD7B5EFA", type: "item", item: "create:mechanical_crafter", count: 3 }, { id: "58720FE089824B51", type: "item", item: "create:encased_fan" }, { id: "0AAB86BEA39DFF88", type: "command", command: "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Turns in a breeze. Good. Now it's a workshop, not a mill.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "56556F8DB17DE163", type: "toast", title: "The Mill Runs on Wind", description: "Next: wash Nella's 128 Lake Sand into 64 Washed Silica under the fan." }]
 		}
 		{
 			id: "0EF7850DDAE28ADA"
 			title: "Wash Lake Sand Into 64 Washed Silica"
-			subtitle: "Fan over running water, sand underneath."
+			subtitle: "128 sand makes exactly 64."
 			icon: "valley:washed_silica"
-			description: ["Bram: \"Fan over running water, sand on the belt underneath. Wash it twice if it still looks like a beach.\"", "", "Take Nella's 128 Lake Sand to any crafting bench. Eight sand plus a bucket of water makes four Washed Silica — do that sixteen times and you have the 64 this quest wants. The 128 she put on the pier is exactly enough: nothing left over, nothing short.", "", "If you'd rather build than craft: an Encased Fan blowing down through running water washes it one-for-one and asks for no buckets at all. Same result, more fun.", "", "Washed Silica is the gate item on the Thermal Machine Frame — press U on the frame in JEI and the silica is sitting in the grid where the tin used to be."]
+			description: ["Bram: \"Fan over running water, sand on the belt underneath. Wash it twice if it still looks like a beach.\"", "", "Take Nella's 128 Lake Sand to any crafting bench. Eight sand plus a bucket of water makes four Washed Silica — sixteen times gives you the 64 this quest wants. The 128 on the pier is exactly enough: nothing left over, nothing short.", "", "If you would rather build than craft: an Encased Fan blowing down through running water washes it one-for-one, with no buckets at all.", "", "Washed Silica is what a Thermal Machine Frame is made of now — press U on the frame in JEI and the silica sits where the tin used to."]
 			x: 6.0d
 			y: -0.8d
 			dependencies: ["548374093E410737", "3388A47895FF18C1"]
@@ -183,14 +183,14 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "2D62E20E01BD0B8E", type: "item", item: "valley:washed_silica", count: 64L }]
-			rewards: [{ id: "0F970ED927FE03E4", type: "item", item: "valley:washed_silica", count: 64 }, { id: "090162B1476B5177", type: "item", item: "create:deployer", count: 2 }, { id: "23BA4D9500CA9963", type: "stage", stage: "washed_silica" }, { id: "1AE3709B95636981", type: "stage", stage: "silica" }, { id: "0A9761EFDAC5FBC7", type: "command", command: "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"That's the stuff Josie kept writing about. I never worked out where she got it.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "39B55A2DB41B6CCB", type: "toast", title: "64 Washed Silica, and 64 More", description: "Next: craft your first Thermal Machine Frame from Josie's schematic." }]
+			rewards: [{ id: "0F970ED927FE03E4", type: "item", item: "valley:washed_silica", count: 64 }, { id: "090162B1476B5177", type: "item", item: "create:deployer", count: 2 }, { id: "23BA4D9500CA9963", type: "stage", stage: "washed_silica" }, { id: "1AE3709B95636981", type: "stage", stage: "silica" }, { id: "0A9761EFDAC5FBC7", type: "command", command: "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"That's the stuff Josie kept writing about. I never worked out where she got it.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "00D9F4D3DFDF01A8", type: "toast", title: "64 Silica, and 64 More", description: "Next: craft your first Thermal Machine Frame from Josie's schematic." }]
 		}
 		{
 			id: "4D0BC5F83B1DC875"
 			title: "Craft Your First Thermal Machine Frame"
 			subtitle: "Washed Silica plus tin from Tobin's deposit."
 			icon: "thermal:machine_frame"
-			description: ["Bram: \"Her drawing, her handwriting, and I couldn't make it work in thirty years. You have the sand, so try.\"", "", "Take Bram's crate of Josie's papers and craft one Thermal Machine Frame — Washed Silica plus tin from the deposit Tobin pinned on your map. Hold it to hand it in.", "", "Every Thermal machine is that frame with an RF Coil under it — silver and redstone, wound. Bram has been winding them since March and the eight in this payout are his; when they run out, Oda's board sells eight more for 18 Scrip. The Stirling Dynamo here is the workshop's first real power."]
+			description: ["Bram: \"Her drawing, her handwriting, and I couldn't make it work in thirty years. You have the sand, so try.\"", "", "Take Bram's crate of Josie's papers and craft one Thermal Machine Frame — Washed Silica plus tin from the deposit Tobin pinned on your map. Hold it to hand it in.", "", "Every Thermal machine is that frame with a coil under it. Bram wound these eight himself; the Stirling Dynamo is the first real power."]
 			x: 8.0d
 			y: 0.0d
 			dependencies: ["0EF7850DDAE28ADA"]
@@ -203,10 +203,10 @@
 		}
 		{
 			id: "282F62B57B1409F1"
-			title: "Fit the Workshop With 6 Drawers, a Controller and 3 Barrels"
-			subtitle: "Along the long wall of the mill's back room."
+			title: "Fit the Workshop With Drawers and Barrels"
+			subtitle: "Six drawers, a controller, three barrels."
 			icon: "storagedrawers:controller"
-			description: ["Bram: \"Bench first, machines after. A man who can't find his tin ends up mining it twice.\"", "", "Craft and hold 6 Oak Full Drawers, 1 Drawer Controller and 3 Sophisticated Barrels, and put them along the long wall of the mill's back room.", "", "This lands before the Pulverizer on purpose: the storage is what makes the ore trip short instead of endless."]
+			description: ["Bram: \"Bench first, machines after. A man who can't find his tin ends up mining it twice.\"", "", "Craft and hold 6 Oak Full Drawers, 1 Drawer Controller and 3 Sophisticated Barrels, and put them along the long wall of the mill's back room.", "", "Six drawers and a controller are what turn the ore trip into one walk instead of six."]
 			x: 10.0d
 			y: 0.0d
 			dependencies: ["4D0BC5F83B1DC875"]
@@ -215,12 +215,12 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "37233C88D6DF4CA8", type: "item", item: "storagedrawers:oak_full_drawers_2", count: 6L }, { id: "155C7E9C222BB3AB", type: "item", item: "storagedrawers:controller", count: 1L }, { id: "7166E2061FE2498D", type: "item", item: "sophisticatedstorage:barrel", count: 3L }]
-			rewards: [{ id: "329ED93FD41A8694", type: "item", item: "storagedrawers:iron_storage_upgrade", count: 6 }, { id: "5AF2327D98A23BA2", type: "item", item: "storagedrawers:remote_upgrade" }, { id: "3C61CFC3B1470C4B", type: "item", item: "storagedrawers:drawer_key" }, { id: "3224EFC13A85E52D", type: "item", item: "sophisticatedbackpacks:iron_backpack" }, { id: "095D69FF0360C307", type: "toast", title: "The long bench is stocked", description: "Next: build a Thermal Pulverizer and run 32 iron ore through it." }]
+			rewards: [{ id: "329ED93FD41A8694", type: "item", item: "storagedrawers:iron_storage_upgrade", count: 6 }, { id: "5AF2327D98A23BA2", type: "item", item: "storagedrawers:remote_upgrade" }, { id: "3C61CFC3B1470C4B", type: "item", item: "storagedrawers:drawer_key" }, { id: "3224EFC13A85E52D", type: "item", item: "sophisticatedbackpacks:iron_backpack" }, { id: "2EDC13CF337A7ACA", type: "toast", title: "The Long Bench", description: "Next: build a Thermal Pulverizer and run 32 iron ore through it." }]
 		}
 		{
 			id: "0A3D4A65F565887A"
-			title: "Build a Pulverizer and Run 32 Iron Ore Through It"
-			subtitle: "Two dust out of one ore."
+			title: "Run 32 Iron Ore Through a Pulverizer"
+			subtitle: "The Stirling Dynamo burns charcoal."
 			icon: "thermal:machine_pulverizer"
 			description: ["Bram: \"Two dust out of one ore. That's not a trick, that's just knowing what a hammer is for.\"", "", "Build a Thermal Pulverizer on the Machine Frame and put the Stirling Dynamo against its input face — it burns what the bread oven burns, and a stack of charcoal runs it all evening. Run 32 iron ore through and hand in 32 Iron Dust.", "", "Ore is doubled from here on, and the second dynamo is what lights the first two lamp posts on the road."]
 			x: 12.0d
@@ -235,10 +235,10 @@
 		}
 		{
 			id: "1A3D337EA9ABA565"
-			title: "Place 4 Lamp Posts and Run Energy Duct to Two of Them"
+			title: "Place 4 Lamp Posts and Light Two of Them"
 			subtitle: "Four marked spots, mill to square."
 			icon: "minecraft:lantern"
-			description: ["Oda: \"Six lamps lit, thirty-four dark. I count them every night whether I mean to or not.\"", "", "Put one lamp post on each of the 4 marked spots between the mill and the square, then run Energy Duct from the Stirling Dynamo at the mill to the nearest two — the furnace eats power, the dynamo makes it, so wire from the dynamo's output face. Any order is right. Every post and every length of duct is in the crate at the mill door. (The Redstone Furnace from Bram's payout is not the power source — it eats power. Leave it out of this line entirely.)", "", "Lamps 10 of 40. Nothing hostile spawns anywhere along the lit road, for good."]
+			description: ["Oda: \"Six lamps lit, thirty-four dark. I count them every night whether I mean to or not.\"", "", "Put a lamp post on each of the 4 marked spots, mill to square, then run Energy Duct from the Stirling Dynamo's output face to the nearest two. Posts and duct are in the crate at the mill door. The Redstone Furnace eats power — leave it out.", "", "Lamps 10 of 40. Nothing hostile spawns anywhere along the lit road, for good."]
 			x: 14.0d
 			y: 0.0d
 			dependencies: ["0A3D4A65F565887A", "1589859EB1A28DCE"]
@@ -246,15 +246,15 @@
 			size: 1.5d
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
-			tasks: [{ id: "5EACCAA1813EFC1F", type: "checkmark", title: "4 lamp posts on the 4 marked spots, and 2 of them lit off the Stirling Dynamo" }]
-			rewards: [{ id: "73B8B0D985E0514C", type: "command", command: "/bossbar set valley:lamps value 10", elevate_perms: true, silent: true }, { id: "0D52683821CC832F", type: "item", item: "torchmaster:megatorch", count: 2 }, { id: "574210CC69B5386C", type: "item", item: "thermal:energy_duct", count: 32 }, { id: "15123C912121D9C7", type: "command", command: "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Ten. Write it in the ledger. I want it in ink.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "3C5ACC587A9D2B9F", type: "command", command: "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Third one leans. I straightened it the year the mill went and again four years after that and it leans. Josie would not let me dig it out. Leave it now.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "6975EA0D7E44E730", type: "toast", title: "Lamps 10 / 40", description: "Next: Wisp's stilt house over the shallows. Every spot on the decking is marked." }]
+			tasks: [{ id: "0E94EFA603472ADF", type: "checkmark", title: "4 posts on their marks, 2 of them lit off the dynamo" }]
+			rewards: [{ id: "73B8B0D985E0514C", type: "command", command: "/bossbar set valley:lamps value 10", elevate_perms: true, silent: true }, { id: "0D52683821CC832F", type: "item", item: "torchmaster:megatorch", count: 2 }, { id: "574210CC69B5386C", type: "item", item: "thermal:energy_duct", count: 32 }, { id: "15123C912121D9C7", type: "command", command: "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Ten. Write it in the ledger. I want it in ink.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "0C3168C093B4AA19", type: "command", command: "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Third one leans. I straightened it twice and Josie would not let me dig it out. Leave it now.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "6975EA0D7E44E730", type: "toast", title: "Lamps 10 / 40", description: "Next: Wisp's stilt house over the shallows. Every spot on the decking is marked." }]
 		}
 		{
 			id: "1ED9ED8AB90E92EB"
 			title: "Fit Out Wisp's Stilt House Over the Shallows"
 			subtitle: "Every spot on the decking is marked."
 			icon: "ribbits:swamp_lantern"
-			description: ["Wisp: \"Two places is too many places for one person. I would like to be in the one place, with you lot. Please can I?\"", "", "The platform is already out over the shallows and every spot is marked. From the crate on the decking: put a mossy oak post on each of the 6 marks, the bed on the wool mat, the door in the doorway, a window in each of the 2 holes, and the 3 swamp lanterns on the hooks. Any order is right.", "", "Wisp moves into town, marsh trade opens, and Oda's stockroom sends over all 48 sheets of paper and the torches for the lanterns."]
+			description: ["Wisp: \"Two places is too many places for one person. I would like to be in the one place, with you lot. Please can I?\"", "", "The platform is out over the shallows, every spot marked. From the crate on the decking: a mossy oak post on each of the 6 marks, the bed on the wool mat, the door in the doorway, a window in each hole, the 3 swamp lanterns on the hooks.", "", "Wisp moves into town, marsh trade opens, and Oda's stockroom sends over all 48 sheets of paper and the torches for the lanterns."]
 			x: 4.0d
 			y: 1.5d
 			dependencies: ["35951AD29E0D22D4", "6EE968EEDB15F561"]
@@ -262,15 +262,15 @@
 			size: 1.5d
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
-			tasks: [{ id: "6DCFBDB43F35C0D9", type: "checkmark", title: "6 posts, the bed, the door, 2 windows and 3 lanterns are on their marks" }]
-			rewards: [{ id: "5CC94215216B60FA", type: "item", item: "minecraft:paper", count: 48 }, { id: "24015E56E679FAF5", type: "item", item: "minecraft:torch", count: 24 }, { id: "54D4BCCBBD4D2ED9", type: "item", item: "perfectplushies:frog_plushie" }, { id: "106B95E988F66CB5", type: "item", item: "ribbits:swamp_lantern", count: 4 }, { id: "7B682F8A295C3876", type: "command", command: "/tellraw @a [{\"text\":\"Wisp: \",\"color\":\"dark_green\"},{\"text\":\"Now the marsh and the town is one place. I always said it was one place.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "5933CAB86C7C3458", type: "command", command: "/bossbar set valley:folk value 8", elevate_perms: true, silent: true }, { id: "39452818C696B537", type: "command", command: "title @p times 10 70 20", elevate_perms: true, silent: true }, { id: "3DD91B155B710DAD", type: "command", command: "title @p subtitle {\"text\": \"Over the shallows, on four good legs at last.\", \"color\": \"gray\", \"italic\": true}", elevate_perms: true, silent: true }, { id: "064F35E3BB2180E4", type: "command", command: "title @p title {\"text\": \"Wisp's Stilt House\", \"color\": \"gold\"}", elevate_perms: true, silent: true }, { id: "261D3896CE50E517", type: "command", command: "execute at @p run playsound minecraft:ui.toast.challenge_complete master @p ~ ~ ~ 1 1", elevate_perms: true, silent: true }, { id: "6B6BCAE6DB3CD406", type: "toast", title: "Wisp lives here now", description: "Next: craft 24 paper lanterns with Marnie and Pip." }]
+			tasks: [{ id: "4DFE4E46EC968D25", type: "checkmark", title: "6 posts, bed, door, 2 windows and 3 lanterns on their marks" }]
+			rewards: [{ id: "5CC94215216B60FA", type: "item", item: "minecraft:paper", count: 48 }, { id: "24015E56E679FAF5", type: "item", item: "minecraft:torch", count: 24 }, { id: "54D4BCCBBD4D2ED9", type: "item", item: "perfectplushies:frog_plushie" }, { id: "106B95E988F66CB5", type: "item", item: "ribbits:swamp_lantern", count: 4 }, { id: "7B682F8A295C3876", type: "command", command: "/tellraw @a [{\"text\":\"Wisp: \",\"color\":\"dark_green\"},{\"text\":\"Now the marsh and the town is one place. I always said it was one place.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "5933CAB86C7C3458", type: "command", command: "/bossbar set valley:folk value 8", elevate_perms: true, silent: true }, { id: "39452818C696B537", type: "command", command: "title @p times 10 70 20", elevate_perms: true, silent: true }, { id: "214FAAFEA6500D3E", type: "command", command: "title @p subtitle {\"text\": \"Over the shallows, on four good legs.\", \"color\": \"gray\", \"italic\": true}", elevate_perms: true, silent: true }, { id: "064F35E3BB2180E4", type: "command", command: "title @p title {\"text\": \"Wisp's Stilt House\", \"color\": \"gold\"}", elevate_perms: true, silent: true }, { id: "261D3896CE50E517", type: "command", command: "execute at @p run playsound minecraft:ui.toast.challenge_complete master @p ~ ~ ~ 1 1", elevate_perms: true, silent: true }, { id: "6B6BCAE6DB3CD406", type: "toast", title: "Wisp lives here now", description: "Next: craft 24 paper lanterns with Marnie and Pip." }]
 		}
 		{
 			id: "0FBAFCADF3329BD5"
 			title: "Craft 24 Paper Lanterns With Marnie and Pip"
 			subtitle: "Eight paper around one torch, six times."
 			icon: "valley:paper_lantern"
-			description: ["Marnie: \"Nella says nobody will come, and Nella has made forty of these. Draw your own conclusions, love.\"", "", "Eight paper around one torch makes four Paper Lanterns — six batches for twenty-four, so 48 paper and 6 torches. Wisp's payout put all 48 sheets and 24 torches in your bag; you need nothing else. Any crafting table will do.", "", "These are the lanterns that go on the water at the Float. The festival clothes and 20 Valley Scrip come with them."]
+			description: ["Marnie: \"Nella says nobody will come, and Nella has made forty of these. Draw your own conclusions, love.\"", "", "Eight paper around one torch makes four Paper Lanterns — six batches for twenty-four, so 48 paper and 6 torches. Oda's stockroom already put all 48 sheets and 24 torches in your bag. Any crafting table will do.", "", "These are the lanterns that go on the water at the Float. The festival clothes and 20 Valley Scrip come with them."]
 			x: 6.0d
 			y: 0.8d
 			dependencies: ["1ED9ED8AB90E92EB"]
@@ -279,14 +279,14 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "7E8737F0EC11620A", type: "item", item: "valley:paper_lantern", count: 24L }]
-			rewards: [{ id: "4FC25B18B318CD32", type: "item", item: "valley:paper_lantern", count: 12 }, { id: "4BF447B43155DE2F", type: "item", item: "vinery:winemaker_apron" }, { id: "3FC031B715F411E1", type: "item", item: "valley:scrip", count: 20 }, { id: "20D2B114F69D511A", type: "loot", table_id: 6428311738069300697L }, { id: "35EFD5660249057B", type: "command", command: "/tellraw @a [{\"text\":\"Pip: \",\"color\":\"red\"},{\"text\":\"I made TWO HUNDRED. Marnie says twenty-four. I made two hundred.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "006626432831A0CA", type: "command", command: "/tellraw @a [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"Josie had the road lit like this once. Middle of a February, out of nowhere. I carried soup up the lane and it was warm the whole way. Eleven nights of it. Then it stopped, and she said the boiler had cracked, and I never asked her one question about it. Pass me the string, love.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "576B5D527F8EB536", type: "toast", title: "24 lanterns, and Pip's two hundred", description: "Next: fill Oda's three notices — 24 wheat, 8 cooked fish, 8 wool." }]
+			rewards: [{ id: "4FC25B18B318CD32", type: "item", item: "valley:paper_lantern", count: 12 }, { id: "4BF447B43155DE2F", type: "item", item: "vinery:winemaker_apron" }, { id: "3FC031B715F411E1", type: "item", item: "valley:scrip", count: 20 }, { id: "20D2B114F69D511A", type: "loot", table_id: 6428311738069300697L }, { id: "35EFD5660249057B", type: "command", command: "/tellraw @a [{\"text\":\"Pip: \",\"color\":\"red\"},{\"text\":\"I made TWO HUNDRED. Marnie says twenty-four. I made two hundred.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "7DAD4073750B04C5", type: "command", command: "/tellraw @a [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"Josie lit this road one February — eleven nights, soup warm the whole way up the lane — and I never asked why.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "3A0A76B6EDDD4BF3", type: "toast", title: "Pip's Two Hundred", description: "Next: fill Oda's three notices — 24 wheat, 8 cooked fish, 8 wool." }]
 		}
 		{
 			id: "551AAB093CEA5743"
-			title: "Fill Oda's Three Notices: 24 Wheat, 8 Cooked Fish, 8 Wool"
-			subtitle: "Act II finale — the Midsummer Lantern Float."
+			title: "Fill Oda's Three Notices — Wheat, Fish, Wool"
+			subtitle: "Act II finale — the Lantern Float."
 			icon: "bountiful:bountyboard"
-			description: ["Oda: \"Three notices on the board and all three get filled the same week. That has not happened since Josie.\"", "", "Take 24 wheat off your fields, 8 cooked cod off Nella's lake and 8 white wool off Cloud and Also Cloud, and hand all three notices in at the board outside the store.", "", "Forty lamps. Fifteen people. One winter that nobody leaves.", "", "Then everybody walks down to the water and puts the lanterns on it — and for the first summer in eleven years, this valley is a place people come back to instead of a place people leave."]
+			description: ["Oda: \"Three notices on the board and all three get filled the same week. That has not happened since Josie.\"", "", "Take 24 wheat off your fields, 8 cooked cod off Nella's lake and 8 white wool off Cloud and Also Cloud, and hand all three notices in at the board outside the store.", "", "Forty lamps. Fifteen people. One winter that nobody leaves.", "", "Then everybody walks down to the water and sets the lanterns on it, and Nella stands at the end of the pier counting the people who came."]
 			x: 12.0d
 			y: 0.8d
 			dependencies: ["282F62B57B1409F1", "0FBAFCADF3329BD5"]
@@ -295,7 +295,7 @@
 			hide_until_deps_complete: true
 			hide_details_until_startable: true
 			tasks: [{ id: "5370A8E613B43996", type: "item", item: "minecraft:wheat", count: 24L, consume_items: true }, { id: "7915A8E01A9DCE8A", type: "item", item: "minecraft:cooked_cod", count: 8L, consume_items: true }, { id: "76F55B9FFE69BBE5", type: "item", item: "minecraft:white_wool", count: 8L, consume_items: true }]
-			rewards: [{ id: "39DE0EE4741656EB", type: "command", command: "/valley finale act2", elevate_perms: true, silent: true }, { id: "0247B72EE0C80501", type: "stage", stage: "act3" }, { id: "3AD5D273AAE250ED", type: "item", item: "bountiful:decree" }, { id: "165855870832F434", type: "loot", table_id: 1574160642622613271L }, { id: "28385AC5F803BCFA", type: "toast", title: "The Midsummer Lantern Float", description: "Next: Oda opens the ledger and counts the town's stores for winter." }]
+			rewards: [{ id: "39DE0EE4741656EB", type: "command", command: "/valley finale act2", elevate_perms: true, silent: true }, { id: "0247B72EE0C80501", type: "stage", stage: "act3" }, { id: "3AD5D273AAE250ED", type: "item", item: "bountiful:decree" }, { id: "165855870832F434", type: "loot", table_id: 1574160642622613271L }, { id: "0C1C6369FB262802", type: "toast", title: "The Lantern Float", description: "Next: Oda opens the ledger and counts the town's stores for winter." }]
 		}
 	]
 	title: "Act II: The Long Days"

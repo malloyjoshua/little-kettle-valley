@@ -174,9 +174,7 @@ BlockEvents.placed(event => {
           color: 'red'
         }))
         v.say(player, 'Josie',
-          'Not there. Fifteen houses, a square and a mill go in around that stake, and I ' +
-          'will not have them in your dooryard. Walk on up the road until the chimney is ' +
-          'small behind you, then drive it.')
+          'Not there — a square and a mill go in around that stake. Walk up until the chimney is small behind you, then drive it.')
         return
       }
     }
@@ -673,9 +671,7 @@ function stakeGuide(server, player) {
   if (townWouldSwallow(x, z, home[0], home[2])) {
     if (padIsFlat(player.level, x, y, z) && v.once('q07_tooclose', team)) {
       v.say(player, 'Josie',
-        'Flat enough, that. Too near, though — fifteen houses and a square would ' +
-        'end up in your garden. Keep walking; you will know it when the chimney ' +
-        'is small behind you.')
+        'Flat enough, that. Too near, though — the square would end up in your garden. Keep walking until the chimney is small.')
     }
     return
   }
@@ -686,7 +682,7 @@ function stakeGuide(server, player) {
     stakeSearching[team] = (stakeSearching[team] || 0) + 1
     if (stakeSearching[team] === STAKE_NUDGE_AT && v.once('q07_nudge', team)) {
       v.say(player, 'Josie',
-        'Nothing flat up here? Then flatten a five-by-five and stake that. Level is the whole requirement.')
+        'Nothing flat up here? Then flatten a five-by-five yourself and stake that. Level is all it has to be.')
     }
     return
   }

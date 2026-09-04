@@ -374,27 +374,27 @@ BUILDINGS = [
     # name, template, rotation, preferred min corner (dx,dz), margin, act, y_base,
     # arrival title, arrival subtitle
     ('inn',        'nova_structures:tavern/tavern_house_spruce',                   1, (15, -9), 2, 'act1', 0,
-     'The Hearth',        'Marnie keeps the fire in the middle of the room.'),
+     'The Hearth',        'Marnie keeps the fire in the middle.'),
     ('mill',       'kaisyn:village/sunflower_plains_farm/side/sunflower_plains_windmill_1', 1, (-46, -4), 2, 'act1', 0,
-     'The Broken Mill',   'Sixty years of looking at a snapped axle.'),
+     'The Broken Mill',   'Sixty years looking at a snapped axle.'),
     ('marnie_house', 'kaisyn:village/meadow_swiss/houses/meadow_small_house_2',    0, (16, -25), 2, 'act1', 0,
-     "Marnie's Cottage",  'Four years she watched that chimney for smoke.'),
+     "Marnie's Cottage",  'Four years of watching a cold chimney.'),
     ('pip_house',  'kaisyn:village/meadow_swiss/houses/meadow_small_house_1',      0, (29, -25), 2, 'act1', 0,
      "Pip's Place",       'He is being extremely useful.'),
     ('granary',    'kaisyn:village/exclusives/rustic/houses/rustic_barn_professions_1', 0, (-36, 18), 2, 'act2', 1,
-     'The Granary',       'Twelve alcoves, and a winter to fill them.'),
+     'The Granary',       'Twelve alcoves, one winter to fill them.'),
     ('garden',     'kaisyn:village/exclusives/classic/houses/classic_small_farm_1', 0, (-12, -40), 2, 'act2', 0,
-     'The Hedge Garden',  "Halden's rows, and the only quiet corner in town."),
+     'The Hedge Garden',  "Halden's rows. The quiet corner of town."),
     ('store',      'kaisyn:village/meadow_swiss/houses/meadow_butcher_and_mason_1', 0, (6, -36), 2, 'act3', 0,
-     "Oda's Store",       'Eleven years of ledger for an empty shop.'),
+     "Oda's Store",       'Eleven years of ledger, no stock.'),
     ('church',     'kaisyn:village/exclusives/classic/houses/classic_church_1',    0, (-5, -24), 2, 'act3', 0,
      'The Bell Tower',    'Pip gets to ring it. Marnie said.'),
     ('town_hall',  'kaisyn:village/meadow_swiss/houses/meadow_large_house_1',      0, (-30, -28), 2, 'act5', 0,
-     'The Town Hall',     'Fifteen people, and somewhere to argue in the warm.'),
+     'The Town Hall',     'Fifteen people, arguing in the warm.'),
     ('newcomer_tess',  'kaisyn:village/meadow_swiss/houses/meadow_medium_house_2', 0, (20, 30), 2, 'act5', 0,
      "Tess's House",      'Empty until spring. Not empty now.'),
     ('newcomer_mab',   'kaisyn:village/meadow_swiss/houses/meadow_medium_house_3', 0, (-30, 34), 2, 'act5', 0,
-     "Mab's House",       'Three beds were made before they got here.'),
+     "Mab's House",       'Beds made before they got here.'),
     ('newcomer_corin', 'kaisyn:village/meadow_swiss/houses/meadow_medium_house_4', 0, (50, -24), 2, 'act5', 0,
      "Corin's House",     'The last of the three empty houses.'),
 ]
@@ -404,7 +404,7 @@ BUILDINGS = [
 CUSTOM = [
     # name, width, depth, preferred min corner, act, label, blurb
     ('greenhouse', 13, 9, (-27, -10), 'act4', 'The Greenhouse', 'Warm glass in February.'),
-    ('bathhouse',   9, 9, (23, 12),   'act4', 'The Bathhouse',  'Waste heat goes to the town, not the sky.'),
+    ('bathhouse',   9, 9, (23, 12),   'act4', 'The Bathhouse',  'Waste heat, into the town not the sky.'),
 ]
 
 MARKET_CARTS = [
@@ -1470,7 +1470,7 @@ for (bx, bz) in SQ_POST:
     sq.append(setb(bx, 1, bz, POST))
     sq.append(setb(bx, 2, bz, 'minecraft:lantern[hanging=false]'))
 sq.append('setblock ~0 ~1 ~0 waystones:waystone{WaystoneName:"Town Square"}')
-sq += arrival('The Town Square', 'A well, four lamps and somewhere to stand.',
+sq += arrival('The Town Square', 'A well, four lamps, somewhere to stand.',
               'minecraft:block.bell.resonate')
 group('act1_square', 'anchor', sq)
 probe('square_waystone', [0, 1, 0], 'waystones:waystone')
@@ -1780,7 +1780,7 @@ tob += [
     setb(tx0 + 5, 2, tz1, 'minecraft:lantern[hanging=false]'),
     npc('tobin', [tx0 + 4, 1, tz1 - 1]),
 ]
-tob += arrival('The Copper Outcrop', 'Tobin found a rock. It is a separate conversation.')
+tob += arrival('The Copper Outcrop', 'Tobin\'s rock. A separate conversation.')
 group('act1_tobin', 'anchor', tob)
 probe('tobin_ore', [tx0 + 3, 2, tz0 + 3], 'minecraft:copper_ore')
 META['tobin_camp'] = {'act': 'act1', 'label': 'The Copper Outcrop', 'blurb': 'Tobin found a rock.'}
@@ -1848,11 +1848,11 @@ ruin_lines = [
     'setblock ~6 ~1 ~7 minecraft:oak_fence',
     '# the gate, so the end of the lit path is unmistakably the place',
     'setblock ~0 ~1 ~8 minecraft:oak_fence',
-    'setblock ~0 ~2 ~8 minecraft:oak_sign[rotation=8]{front_text:{messages:[\'{"text":"KETTLE FARM"}\',\'{"text":""}\',\'{"text":"J. Kettle"}\',\'{"text":"est. long ago"}\'],color:"gray"}}',
+    'setblock ~0 ~2 ~8 minecraft:oak_sign[rotation=8]{front_text:{messages:[\'{"text":"KETTLE FARM"}\',\'{"text":""}\',\'{"text":"J. Kettle"}\',\'{"text":"mind the weeds"}\'],color:"gray"}}',
     'setblock ~-1 ~1 ~8 minecraft:lantern[hanging=false]',
     'setblock ~1 ~1 ~8 minecraft:lantern[hanging=false]',
     'title @a times 10 70 20',
-    'title @a subtitle {"text":"Three walls, a chimney and a cold hearth.","color":"gray","italic":true}',
+    'title @a subtitle {"text":"Three walls, a chimney, a cold hearth.","color":"gray","italic":true}',
     'title @a title {"text":"The Old Kettle Farm","color":"gold"}',
     'execute at @a run playsound minecraft:block.bell.resonate master @a ~ ~ ~ 1 0.9',
 ]
@@ -1934,9 +1934,9 @@ cot_lines += [
     'fill ~7 ~-1 ~-11 ~7 ~-1 ~-7 minecraft:cobblestone',
     'setblock ~4 ~-1 ~-6 minecraft:polished_andesite',
     'setblock ~-4 ~0 ~-5 minecraft:oak_sign[rotation=8]{front_text:{messages:[\'{"text":"3 x 9"}\',\'{"text":"wheat"}\',\'{"text":"carrots"}\',\'{"text":"potatoes"}\'],color:"gray"}}',
-    'setblock ~4 ~0 ~-5 minecraft:oak_sign[rotation=8]{front_text:{messages:[\'{"text":"THE PEN"}\',\'{"text":"fence the stone"}\',\'{"text":"gate on the grey"}\',\'{"text":""}\'],color:"gray"}}',
+    'setblock ~4 ~0 ~-5 minecraft:oak_sign[rotation=8]{front_text:{messages:[\'{"text":"THE PEN"}\',\'{"text":"fence the stone"}\',\'{"text":"gate on grey"}\',\'{"text":""}\'],color:"gray"}}',
     '',
-    'tellraw @a[distance=..64] [{"text":"Josie: ","color":"gray"},{"text":"\\"Four walls and a door. That is a house. What you do next makes it a home.\\"","color":"white","italic":true}]',
+    'tellraw @a[distance=..64] [{"text":"Josie: ","color":"gray"},{"text":"\\"Four walls and a door. The mat is where my bed was; that corner stays warm until about four in the morning.\\"","color":"white","italic":true}]',
     'playsound minecraft:block.wood.place master @a[distance=..64] ~ ~ ~ 1 0.9',
 ]
 
@@ -1963,7 +1963,7 @@ sp_lines = [
     'setblock ~2 ~1 ~2 minecraft:oak_fence',
     'setblock ~-2 ~2 ~2 minecraft:lantern[hanging=false]',
     'setblock ~2 ~2 ~2 minecraft:lantern[hanging=false]',
-    'tellraw @a[distance=..64] [{"text":"Josie: ","color":"gray"},{"text":"\\"Bram surveyed that flat twice and never drove the stake. You drove it. That is the whole difference.\\"","color":"white","italic":true}]',
+    'tellraw @a[distance=..64] [{"text":"Josie: ","color":"gray"},{"text":"\\"Stake\'s in. Bram will tell you he chose the spot. Let him.\\"","color":"white","italic":true}]',
     'playsound minecraft:block.stone.place master @a[distance=..64] ~ ~ ~ 1 0.8',
 ]
 

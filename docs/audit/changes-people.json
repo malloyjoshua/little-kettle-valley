@@ -1,0 +1,290 @@
+[
+  {
+    "id": "S1013",
+    "file": "story/npcs.json",
+    "locator": "npcs[marnie].greetings_after[1]",
+    "old": "Sit down. You've got that look people get when they've been carrying something heavy up a hill.",
+    "new": "I called it my inn this morning. Out loud, to Oda. I did not correct myself.",
+    "why": "Identical to her before-line; after her arc closes she stops calling the inn Josie's place, and that is the fact the line should carry."
+  },
+  {
+    "id": "S1014",
+    "file": "story/npcs.json",
+    "locator": "npcs[marnie].greetings_after[2]",
+    "old": "I put a loaf by for you. Don't tell Pip, he counts them.",
+    "new": "I put a loaf by for you. Same as you put one by for me in February, only mine is better.",
+    "why": "Identical to her before-line; echoes the same object and lands her Act IV beat, being fed by you, without naming the feeling."
+  },
+  {
+    "id": "S1015",
+    "file": "story/npcs.json",
+    "locator": "npcs[marnie].greetings_after[3]",
+    "old": "The Hearth's been lit in this room for thirty years. Some of those years it was the only thing that was.",
+    "new": "The Hearth is lit, the oven is lit and the rooms upstairs are lit. Three fires. I keep counting them.",
+    "why": "Identical to her before-line; same cadence and the same hearth, but the count has changed from one fire to three."
+  },
+  {
+    "id": "S1016",
+    "file": "story/npcs.json",
+    "locator": "npcs[marnie].greetings_after[4]",
+    "old": "Eat something. I'm not asking.",
+    "new": "Eat something. I cooked for fifteen tonight and there is still too much, which is the right amount.",
+    "why": "Identical to her before-line; keeps the imperative and swaps in the population count the bossbar is showing."
+  },
+  {
+    "id": "S1035",
+    "file": "story/npcs.json",
+    "locator": "npcs[nella].greetings_after[1]",
+    "old": "Fish aren't biting. Sit down anyway.",
+    "new": "Fish aren't biting. Doesn't matter — the tomatoes are.",
+    "why": "Identical to her before-line; same shrug, new fact, and it points at the greenhouse her arc ends in."
+  },
+  {
+    "id": "S1036",
+    "file": "story/npcs.json",
+    "locator": "npcs[nella].greetings_after[2]",
+    "old": "Quiet down here. That's not a complaint.",
+    "new": "Boat's mended. Took one afternoon. I had been calling it a week's work since before you came.",
+    "why": "Identical to her before-line; answers the beached boat her before-pool keeps refusing to talk about."
+  },
+  {
+    "id": "S1037",
+    "file": "story/npcs.json",
+    "locator": "npcs[nella].greetings_after[3]",
+    "old": "Good spot's past the reeds. Don't tell everyone.",
+    "new": "Good spot's past the reeds. Tell people. I have decided I don't mind a crowd.",
+    "why": "Identical to her before-line; inverts the secret into an invitation, which is the whole point of the docks being rebuilt."
+  },
+  {
+    "id": "S1044",
+    "file": "story/npcs.json",
+    "locator": "npcs[halden].greetings_after[1]",
+    "old": "Kettle's on. Everything else can wait ten minutes; it always could.",
+    "new": "Kettle's on. The book is open on the table and there are two chairs at it now.",
+    "why": "Identical to his before-line; keeps the kettle and the ten-minute patience, changes the fact that he is no longer working alone."
+  },
+  {
+    "id": "S1045",
+    "file": "story/npcs.json",
+    "locator": "npcs[halden].greetings_after[2]",
+    "old": "The hedge doesn't need me. That's rather why I like it.",
+    "new": "Josie asked me to stay. Four years I told people it was the hedge.",
+    "why": "Identical to his before-line; his arc is admitting exactly this, and the hedge stays in the sentence as the cover story."
+  },
+  {
+    "id": "S1046",
+    "file": "story/npcs.json",
+    "locator": "npcs[halden].greetings_after[3]",
+    "old": "Josie planted the first row of that. I only ever kept it trimmed.",
+    "new": "Josie planted the first row. I have planted the second, which took me rather longer than it should have.",
+    "why": "Identical to his before-line; same row of hedge, same dry self-deprecation, and he has finally added to it instead of trimming it."
+  },
+  {
+    "id": "S1047",
+    "file": "story/npcs.json",
+    "locator": "npcs[halden].greetings_after[4]",
+    "old": "Green tea, or the strong one? The strong one is a decision.",
+    "new": "Green tea, or the strong one? Nobody has been ill since November, so have the strong one.",
+    "why": "Identical to his before-line; keeps the joke and quietly reports the cold snap nobody got sick in."
+  },
+  {
+    "id": "S1049",
+    "file": "story/npcs.json",
+    "locator": "npcs[tobin].greetings[1]",
+    "old": "Look at this rock. No — properly look at it. Sorry. Sorry.",
+    "new": "This one has quartz all through it. Nobody in this valley cares about quartz. I care enormously.",
+    "why": "Repeats element 0's 'Look at this rock. No, really look' joke, so two of Tobin's four before-lines are the same beat; new line keeps the obsession and adds a mineral and a confession."
+  },
+  {
+    "id": "S1053",
+    "file": "story/npcs.json",
+    "locator": "npcs[tobin].greetings_after[1]",
+    "old": "Look at this rock. No — properly look at it. Sorry. Sorry.",
+    "new": "Look at this rock. It is the same rock. I keep it in my pocket now, which Bram says is normal.",
+    "why": "Identical to his before-line; same rock, same apology-shaped energy, and Bram's approval is the changed fact."
+  },
+  {
+    "id": "S1054",
+    "file": "story/npcs.json",
+    "locator": "npcs[tobin].greetings_after[2]",
+    "old": "I've marked it twice. The second set's in pink. Ignore the pink.",
+    "new": "The pink marks were right. Nobody has said so out loud, and I am being very calm about it.",
+    "why": "Identical to his before-line; the pink marks he told you to ignore turned out to be the seam."
+  },
+  {
+    "id": "S1056",
+    "file": "story/npcs.json",
+    "locator": "npcs[tobin].greetings_after[4]",
+    "old": "I haven't slept, but that's not new information.",
+    "new": "I haven't slept. The rig comes up the road when the road dries, and the road is drying.",
+    "why": "Identical to his before-line; keeps the joke's shape and hangs it on the quarry rig he is now responsible for."
+  },
+  {
+    "id": "S1061",
+    "file": "story/npcs.json",
+    "locator": "npcs[wisp].greetings[4]",
+    "old": "Eat the purple one first. Always the purple one first.",
+    "new": "I found a red one. I did not eat it. I am learning to not eat first.",
+    "why": "Repeats element 0's 'Eat the purple one first' verbatim; new line keeps Wisp's slightly-wrong grammar and changes the fact (he is learning restraint)."
+  },
+  {
+    "id": "S1063",
+    "file": "story/npcs.json",
+    "locator": "npcs[wisp].greetings_after[1]",
+    "old": "You walk far today? Sit. I keep the good toadstools.",
+    "new": "You walk far today? Sit. I keep the good toadstools in the inn now, in a cupboard with a door.",
+    "why": "Identical to his before-line; same welcome, and the marsh has become a town with jobs and signs in it."
+  },
+  {
+    "id": "S1064",
+    "file": "story/npcs.json",
+    "locator": "npcs[wisp].greetings_after[2]",
+    "old": "Marsh is quiet, town is loud. Both is good. Different good.",
+    "new": "Marsh is quiet, town is loud. I sleep in the loud one now. Is strange. I like.",
+    "why": "Identical to his before-line; the two-places-one-place choice is made instead of admired."
+  },
+  {
+    "id": "S1065",
+    "file": "story/npcs.json",
+    "locator": "npcs[wisp].greetings_after[3]",
+    "old": "My people ask about you. I say: is the one who came and asked.",
+    "new": "My people do not ask about you now. They ask you. Is better, I think.",
+    "why": "Identical to his before-line; the villages are one place, so the go-between is out of a job."
+  },
+  {
+    "id": "S1066",
+    "file": "story/npcs.json",
+    "locator": "npcs[wisp].greetings_after[4]",
+    "old": "Eat the purple one first. Always the purple one first.",
+    "new": "Purple one grows in the warm glass house in winter now. I did not know it could do that.",
+    "why": "Identical to his before-line; the purple mushroom is kept and the greenhouse is the changed fact."
+  },
+  {
+    "id": "S1067",
+    "file": "story/npcs.json",
+    "locator": "npcs[pip].greetings[0]",
+    "old": "I named the duck after you. Do not be weird about it.",
+    "new": "The duck is called Biscuit. I decided it in about one second and I am not changing it.",
+    "why": "Contradicts canon: Q11 summons a duck named Biscuit and the quest text says Pip names it Biscuit; this line still says he named it after the player, which the design doc records as the one line that could never render."
+  },
+  {
+    "id": "S1073",
+    "file": "story/npcs.json",
+    "locator": "npcs[pip].greetings_after[1]",
+    "old": "The duck went in the water bucket. On purpose, I think. It's fine.",
+    "new": "Biscuit went in the water trough in front of everybody at supper. She meant to. I saw her decide.",
+    "why": "Identical to his before-line; same duck, same joke, and it uses her canon name and a full room."
+  },
+  {
+    "id": "S1074",
+    "file": "story/npcs.json",
+    "locator": "npcs[pip].greetings_after[2]",
+    "old": "I'm allowed in the mill now if I don't touch anything. I touch nothing.",
+    "new": "I'm allowed to touch things in the mill now. Bram showed me which ones. I remember all of them.",
+    "why": "Identical to his before-line; exactly inverts the fact, which is what a closed arc is supposed to do."
+  },
+  {
+    "id": "S1075",
+    "file": "story/npcs.json",
+    "locator": "npcs[pip].greetings_after[3]",
+    "old": "Aunt Marnie says I ask too many questions. How many is too many?",
+    "new": "Aunt Marnie says I still ask too many questions. I asked her how many. She is thinking about it.",
+    "why": "Identical to his before-line; keeps the question and gives it an answer that is still pending."
+  },
+  {
+    "id": "S1076",
+    "file": "story/npcs.json",
+    "locator": "npcs[pip].greetings_after[4]",
+    "old": "My satchel has a real buckle. Not a pretend one. A real one.",
+    "new": "I'm the one who rings the bell. Nobody else rings it. That was the deal and everybody heard it.",
+    "why": "Identical to his before-line; lands the bell Josie asked for in Entry 5 and Pip casts at Q89 — the promise map's last row."
+  },
+  {
+    "id": "S1086",
+    "file": "story/npcs.json",
+    "locator": "npcs[ribbit_puddle].greetings[0]",
+    "old": "Warm inn. Warm soup. We stay now, I think. Yes. We stay.",
+    "new": "Floor is warm and soup is hot. We stay now, I think. Yes. We stay.",
+    "why": "Opens with 'Warm inn. Warm soup.' word for word from Wisp's Q58 scene line, so two frog-folk say the same sentence; the repetition and the meaning are kept, the phrasing is not."
+  },
+  {
+    "id": "S1373",
+    "file": "pack/kubejs/server_scripts/valley_core.js",
+    "locator": "line 958 ItemEvents.rightClicked hen/cow/sheep crate, v.say(player,'Marnie',...)",
+    "old": "There you are. Mind the gate.",
+    "new": "Mind the gate. Those two would walk to the lake if you let them.",
+    "why": "'There you are. Mind the gate.' opens with the same three words as her headline greeting and 'the gate' is the only thing in it; new line keeps the instruction and adds a picture and a hen with an opinion."
+  },
+  {
+    "id": "S1374",
+    "file": "pack/kubejs/server_scripts/valley_core.js",
+    "locator": "line 976 nesting box no-hen-nearby, v.say(player,'Marnie',...)",
+    "old": "No hen close enough. Stand in the pen.",
+    "new": "She won't lay from over there. Stand in the pen with her.",
+    "why": "Error-state line written as a notice, not a person — 'No hen close enough' has no verb and nothing withheld; same instruction, in Marnie's mouth."
+  },
+  {
+    "id": "S1382",
+    "file": "pack/kubejs/server_scripts/valley_checks.js",
+    "locator": "line 176 v.say(player,'Josie',...) (stake too close)",
+    "old": "Not there. Fifteen houses, a square and a mill go in around that stake, and I will not have them in your dooryard. Walk on up the road until the chimney is small behind you, then drive it.",
+    "new": "Not there — a square and a mill go in around that stake. Walk up until the chimney is small behind you, then drive it.",
+    "why": "188 chars against the 120-char chat cap, and 'fifteen houses' contradicts the counter: fifteen is the population, not the building count. Instruction and landmark preserved."
+  },
+  {
+    "id": "S1392",
+    "file": "pack/kubejs/server_scripts/valley_checks.js",
+    "locator": "line 675 v.say(player,'Josie',...) (Q7 stake too close, flat pad)",
+    "old": "Flat enough, that. Too near, though — fifteen houses and a square would end up in your garden. Keep walking; you will know it when the chimney is small behind you.",
+    "new": "Flat enough, that. Too near, though — the square would end up in your garden. Keep walking until the chimney is small.",
+    "why": "163 chars against the 120-char cap, and repeats the same 'fifteen houses' miscount as the other too-close line. Same beat, same landmark, inside cap."
+  },
+  {
+    "id": "S1393",
+    "file": "pack/kubejs/server_scripts/valley_checks.js",
+    "locator": "line 688 v.say(player,'Josie',...) (Q7 stake, nudge after searching)",
+    "old": "Nothing flat up here? Then flatten a five-by-five and stake that. Level is the whole requirement.",
+    "new": "Nothing flat up here? Then flatten a five-by-five yourself and stake that. Level is all it has to be.",
+    "why": "'Level is the whole requirement' is spec-sheet register in a dead woman's mouth; the instruction is unchanged and the last clause is now speech."
+  },
+  {
+    "id": "S1429",
+    "file": "pack/kubejs/server_scripts/valley_finales.js",
+    "locator": "SCENES.q70a.who -- /valley scene q70a reward, v.sayAll('Marnie', ...)",
+    "old": "Three empty houses, three beds, three blankets. People arrive in spring, and beds should be made before they get here.",
+    "new": "Three empty houses, three beds, three blankets. I want them turned down before anybody gets to the top of the road.",
+    "why": "Second sentence explains the rule instead of showing it ('beds should be made before they get here'); new close is an image and it still foreshadows Tess, Mab and Corin."
+  },
+  {
+    "id": "S1430",
+    "file": "pack/kubejs/server_scripts/valley_finales.js",
+    "locator": "SCENES.q76.who -- /valley scene q76 reward, v.sayAll('Oda', ...)",
+    "old": "Year two on the board, and it is a longer list than last spring. I have written the bottom four lines out exactly as they were.",
+    "new": "Year two on the board. Longer list than last spring, and the bottom four lines are still in Josie's hand.",
+    "why": "127 chars against the 120-char cap and 'exactly as they were' withholds something the player cannot name; naming the handwriting makes it a picture and a hook."
+  },
+  {
+    "id": "S1436",
+    "file": "pack/kubejs/server_scripts/valley_finales.js",
+    "locator": "standingCmd() v.say(player,'Oda', ...) (chain closed)",
+    "old": "{Name}'s story is closed. That's {n} of eight in my book.",
+    "new": "{Name}'s account is closed. That's {n} of eight in my book.",
+    "why": "'Story is closed' is author-voice about the player's progress; 'account' is Oda's own noun and keeps both placeholders and the identical sentence shape."
+  },
+  {
+    "id": "S1477",
+    "file": "pack/kubejs/data/valley/functions/act1/cottage.mcfunction",
+    "locator": "line 55 tellraw",
+    "old": "Josie: \"Four walls and a door. That is a house. What you do next makes it a home.\"",
+    "new": "Josie: \"Four walls and a door. The mat is where my bed was; that corner stays warm until about four in the morning.\"",
+    "why": "'That is a house. What you do next makes it a home' is the banned it's-not-X-it's-Y summary and would fit any game; replaced with a fact about the marked mat, so it confirms Q3's instruction instead of competing with it."
+  },
+  {
+    "id": "S1482",
+    "file": "pack/kubejs/data/valley/functions/act1/square_path.mcfunction",
+    "locator": "line 22 tellraw",
+    "old": "Josie: \"Bram surveyed that flat twice and never drove the stake. You drove it. That is the whole difference.\"",
+    "new": "Josie: \"Stake's in. Bram will tell you he chose the spot. Let him.\"",
+    "why": "Repeats the Bram-surveyed-it-twice fact the green-light line said seconds earlier, then summarises the theme ('that is the whole difference'); new line is the same beat with a joke and no restatement."
+  }
+]

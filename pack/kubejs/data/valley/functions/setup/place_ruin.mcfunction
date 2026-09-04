@@ -22,10 +22,10 @@ setblock ~-8 ~1 ~-7 minecraft:mossy_cobblestone
 setblock ~6 ~1 ~7 minecraft:oak_fence
 # the gate, so the end of the lit path is unmistakably the place
 setblock ~0 ~1 ~8 minecraft:oak_fence
-setblock ~0 ~2 ~8 minecraft:oak_sign[rotation=8]{front_text:{messages:['{"text":"KETTLE FARM"}','{"text":""}','{"text":"J. Kettle"}','{"text":"est. long ago"}'],color:"gray"}}
+setblock ~0 ~2 ~8 minecraft:oak_sign[rotation=8]{front_text:{messages:['{"text":"KETTLE FARM"}','{"text":""}','{"text":"J. Kettle"}','{"text":"mind the weeds"}'],color:"gray"}}
 setblock ~-1 ~1 ~8 minecraft:lantern[hanging=false]
 setblock ~1 ~1 ~8 minecraft:lantern[hanging=false]
 title @a times 10 70 20
-title @a subtitle {"text":"Three walls, a chimney and a cold hearth.","color":"gray","italic":true}
+title @a subtitle {"text":"Three walls, a chimney, a cold hearth.","color":"gray","italic":true}
 title @a title {"text":"The Old Kettle Farm","color":"gold"}
 execute at @a run playsound minecraft:block.bell.resonate master @a ~ ~ ~ 1 0.9

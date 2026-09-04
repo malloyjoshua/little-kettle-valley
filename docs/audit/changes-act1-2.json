@@ -1,0 +1,786 @@
+[
+  {
+    "id": "S0011",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q01].rewards[9].toast.title",
+    "old": "Journal Entry 1",
+    "new": "Entry One: The Porch",
+    "why": "Names the reward with a filing label instead of a thing you can see. The entry is called The Porch and 'eleven feet of porch' is Josie's whole method — put the image in the toast so the callback in Act V has something to land on."
+  },
+  {
+    "id": "S0032",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q04].subtitle",
+    "old": "One torch, one problem solved.",
+    "new": "One torch. It never goes out.",
+    "why": "Subtitle rule: one clause carrying a fact the title does not have. 'One problem solved' states an outcome in the abstract. A Megatorch never burns out — that is the fact, and it is what stops her worrying about the dark again."
+  },
+  {
+    "id": "S0043",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q05].description[4]",
+    "old": "At the bottom: a sealed iron door with no handle and four words chalked on it in her hand — Not yet. — J.K. Beside it, a Cellar Waystone and her tool chest.",
+    "new": "At the bottom: a sealed iron door, no handle, four words in her chalk — Not yet. — J.K. Beside it, a Cellar Waystone and her tool chest.",
+    "why": "Payoff line capped at 140; this is 156. Trimmed 'four words chalked on it in her hand' to 'four words in her chalk' — same image, her hand still in it."
+  },
+  {
+    "id": "S0045",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q05].rewards[8].command",
+    "old": "A sealed iron door with no handle, and her chalk on it.",
+    "new": "No handle. Her chalk still on it.",
+    "why": "Title-card subtitle cap is 40. Cut to the two facts that matter on screen for two seconds: no handle, and the chalk is hers."
+  },
+  {
+    "id": "S0048",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q05].rewards[11].toast.description",
+    "old": "No handle, no hinge you can reach, no keyhole. The chalk is not old. Leave it — it is not going anywhere. Next: hang the Copper Kettle and cook one Vegetable Soup.",
+    "new": "Next: hang the Copper Kettle and cook one Vegetable Soup. The door has no handle and no keyhole, and the chalk on it is not old.",
+    "why": "Reward-toast rule: body starts 'Next:' and holds at most three short clauses. This buried the instruction behind three clauses of door description. Reordered; the chalk-is-not-old hook now closes the toast instead of being stranded mid-body."
+  },
+  {
+    "id": "S0052",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q06].description[2]",
+    "old": "Put the campfire down outside your door, set the Cooking Pot on top of it — a Cooking Pot only cooks over a lit fire — and cook one Vegetable Soup. The cabbage, carrots and potatoes are in the basket; three planks at the bench make four bowls. The Copper Kettle hangs on the hook by the door whenever you want it.",
+    "new": "Put the campfire outside your door, hang the Copper Kettle on the hook above it, and cook one Vegetable Soup in the Cooking Pot — a pot only cooks over lit fire. Cabbage, carrots and potatoes are in the basket; three planks make four bowls.",
+    "why": "Compressed without dropping a fact: campfire outside, kettle on the hook (the letter's promise), pot only cooks over lit fire, the three vegetables, three planks make four bowls."
+  },
+  {
+    "id": "S0053",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q06].description[4]",
+    "old": "Bram's old Surveyor's Stake is in the basket with the vegetables, wrapped in a rag with your name on it — the next quest is what you do with it.",
+    "new": "Bram's old Surveyor's Stake is in the vegetable basket, wrapped in a rag with a chalk K on it — the next quest is what you do with it.",
+    "why": "Josie posted three letters to relatives she did not name and died four years ago; Marnie has not arrived and Bram has not been met. A rag pre-labelled with the player's name cannot exist in this fiction, and FTB has no player-name token if it were ever rendered. Her chalk K keeps the object and removes the impossibility. Also brings the line under the 140 cap."
+  },
+  {
+    "id": "S0059",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q07].description[2]",
+    "old": "Carry Bram's Surveyor's Stake north up the road from your gate. Green sparks come up around your feet the moment you are standing on ground flat enough to hold a town — place the stake in the sparks. That spot is the Town Anchor and every building in the pack is measured from it.",
+    "new": "Carry Bram's Surveyor's Stake north up the road. Green sparks come up round your feet the moment the ground is flat enough to hold a town — drive the stake in the sparks. Every building in the valley is measured from that spot.",
+    "why": "'the pack' is out-of-world register in the one line that sets up the most consequential placement in the game. 'the valley' says the same thing from inside the story, and the trim brings it to cap."
+  },
+  {
+    "id": "S0060",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q07].description[4]",
+    "old": "Walk until the cottage chimney is small behind you. Fifteen houses, a square, a mill and a lakefront go in around this stake, and if it is driven in your own dooryard the town is laid on top of the farm. Stake it too close and Josie hands it straight back.",
+    "new": "Walk until the cottage chimney is small behind you. Stake it in your own dooryard and the square and the mill land on top of the farm.",
+    "why": "Fifteen is the people counter — eight residents, four Ribbits, three arrivals. Spending the number on houses blunts the spine line the pack opens and closes on. Cut to the two things this line has to do: walk far enough, and here is what happens if you do not."
+  },
+  {
+    "id": "S0074",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q08].rewards[11].toast.description",
+    "old": "Next: till the 3x9 patch behind the house — every tile is marked. (Bram is standing outside the mill west of the stake when you're ready for him; he'll wait, he's waited sixty years.)",
+    "new": "Next: till the 3x9 patch behind the house — every tile is marked. Bram is outside the mill west of the stake; he has waited sixty years, he can wait a week.",
+    "why": "Trimmed the parenthetical into the line. 'He has waited sixty years, he can wait a week' keeps the joke and the reassurance she needs — Bram is not a missable window."
+  },
+  {
+    "id": "S0078",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q09].description[2]",
+    "old": "Till the 3x9 patch behind the house — every tile is marked in path blocks — then plant the 9 carrots, 9 potatoes and 9 wheat seeds from Marnie's sack. Do the wheat last, and hand this quest in while the nine wheat seeds are still in your bag — the quest just checks you have them, it never takes them, so you plant them straight after.",
+    "new": "Till the 3x9 patch behind the house — every tile is marked in path blocks — then plant the 9 carrots, 9 potatoes and 9 wheat seeds from Marnie's sack. Do the wheat last: hand in holding the nine seeds, which the book counts and never takes.",
+    "why": "The hand-in-holding-the-seeds explanation is load-bearing anti-stuck text; compressed to a colon clause. No fact lost."
+  },
+  {
+    "id": "S0087",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q10].description[4]",
+    "old": "A nesting box goes down with two eggs already in it, a Megatorch goes up over the coop, and you get chicken feed — right-click a hen with it and she lays.",
+    "new": "A nesting box goes down with two eggs in it, a Megatorch goes up over the coop, and chicken feed makes a hen lay when you right-click her.",
+    "why": "Fourteen characters of connective tissue removed; every object stays."
+  },
+  {
+    "id": "S0095",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q11].description[4]",
+    "old": "Pip moves in, puts a duckling on your boot and names it Biscuit before you can stop him. His courier board opens, and Marnie empties her carding basket of 16 wool onto the counter.",
+    "new": "Pip puts a duckling on your boot, names it Biscuit, and opens his courier board. Marnie tips four years of carded wool onto the counter.",
+    "why": "The duckling on the boot is the promise the whole Pip line pays off in Act V; it stays first. Marnie's four years of carding is the fact that makes the wool mean something, so it stays too. The connective words go."
+  },
+  {
+    "id": "S0103",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q12].description[4]",
+    "old": "Bram opens his labelled crates: 12 iron ingots and 24 andesite — three times what the eight alloys want, because the Millstone wants the rest.",
+    "new": "Bram opens his labelled crates: 12 iron ingots and 24 andesite — three times what eight alloys want, because the Millstone wants the rest.",
+    "why": "Two characters. 'what eight alloys want' for 'what the eight alloys want'."
+  },
+  {
+    "id": "S0105",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q12].rewards[6].toast.description",
+    "old": "Bram is at the mill. Next: craft 8 Andesite Alloy out of what Bram gave you. Eight. Not nine.",
+    "new": "Next: craft 8 Andesite Alloy out of what Bram gave you. Eight, not nine — the rest of the crate is the Millstone's.",
+    "why": "Reward-toast rule: the body starts 'Next:'. 'Bram is at the mill' displaced the instruction; the crate fact carries the same reassurance in the tail."
+  },
+  {
+    "id": "S0107",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q13].subtitle",
+    "old": "One andesite plus one iron nugget, eight times. Not nine.",
+    "new": "One andesite, one iron nugget. Eight, not nine.",
+    "why": "Same two facts, seven characters shorter. 'Not nine' survives — it is the joke Bram repeats in the description."
+  },
+  {
+    "id": "S0115",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q13a].description[0]",
+    "old": "Bram: \"Josie hated this thing. Said it made a man lazy. She also borrowed it for eleven days once and gave it back with the handle worn smooth, so I have stopped arguing the point.\"",
+    "new": "Bram: \"Josie said this thing made a man lazy. Then she borrowed it for eleven days and gave it back with the handle worn smooth.\"",
+    "why": "The eleven days are the Act III reveal, hidden inside a joke about a hammer. Kept both, dropped 'Josie hated this thing' (the next sentence says it better) and 'so I have stopped arguing the point'."
+  },
+  {
+    "id": "S0122",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q14].title",
+    "old": "Grind 16 Wheat Flour on a Hand-Cranked Millstone",
+    "new": "Grind 16 Flour on a Hand-Cranked Millstone",
+    "why": "'16 Flour' for '16 Wheat Flour' — the wheat is named in the subtitle and the instruction."
+  },
+  {
+    "id": "S0133",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q15].description[4]",
+    "old": "Bram cannot craft a Water Wheel without these boards — that gate is the furnace, and the furnace is you. You also get the inn's spare crockery, a chair by the fire, and the Counter, Sink and Oven for the kitchen.",
+    "new": "Bram cannot build a Water Wheel until these dry, and the furnace is you. Also the inn's crockery, your chair by the oven, the kitchen kit.",
+    "why": "'the furnace is you' is plant 2 for the valley-needed-one-person promise and must survive. 'gate' does not — it is the word for how the recipe was authored, not for what she is doing."
+  },
+  {
+    "id": "S0135",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q15].rewards[7].toast.title",
+    "old": "Stage: seasoned",
+    "new": "Dry Boards, in April",
+    "why": "Banned gaming register, and worse: it is a developer id. Replaced with the beat's own name, which also echoes Bram's tellraw fired by the same quest."
+  },
+  {
+    "id": "S0151",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q17].rewards[6].toast.title",
+    "old": "Stage: market_stalls",
+    "new": "Four Stalls for the Fair",
+    "why": "Same as S0135. 'Four Stalls for the Fair' is the fact the stage represents and points at the finale."
+  },
+  {
+    "id": "S0156",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q18].description[2]",
+    "old": "Have the Kitchen Counter, Sink and Oven in your bag when you hand this in — the quest checks for them and gives them straight back — then set them on the three marked spots along the inn's back wall — three grey slabs, numbered 1, 2 and 3 on the wall above them: counter, sink, oven, in that order. Cook Bread, a Pumpkin Pie and a Vegetable Soup in that kitchen; everything is in the crate by the counter. The one thing the crate cannot hold is the pumpkin — pumpkins are an autumn crop and will not grow in spring, so walk the grass and the taiga edges and pick a wild one. Oda's Seed Box sells the seeds, but save them for Act III.",
+    "new": "Have the Counter, Sink and Oven in your bag when you hand in — the book gives them straight back — then set them on the three grey slabs along the inn's back wall, numbered 1, 2 and 3: counter, sink, oven. Cook Bread, Pumpkin Pie and Vegetable Soup there. The crate by the counter holds everything but the pumpkin, which is an autumn crop, so pick a wild one off the grass or a taiga edge.",
+    "why": "Compressed to 389 with no fact lost, and the forward-reference to 'Act III' cut (act numbers are out-of-world in an instruction). Still over cap: the residue is genuinely load-bearing anti-stuck information — the give-back mechanic, the numbered slabs and the pumpkin-is-an-autumn-crop warning. Recommend a structural fix (move the pumpkin note to description[4]) rather than more cutting."
+  },
+  {
+    "id": "S0160",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q19].title",
+    "old": "Sweep Oda's Store and Bring Her 16 Flour and 8 Bread",
+    "new": "Sweep Oda's Store, Bring 16 Flour and 8 Bread",
+    "why": "Comma for 'and'; both objects still named."
+  },
+  {
+    "id": "S0165",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q19].description[6]",
+    "old": "The Thaw Fair opens at the Town Anchor: four stalls, a long table, bunting, six lamps burning — and five people standing in a square that was a frozen field in February.",
+    "new": "The Thaw Fair opens at the Town Anchor: four stalls, a long table, six lamps burning, and five people in a field that froze in February.",
+    "why": "The February image is the whole point of the line and stays last. 'that froze in February' for 'that was a frozen field in February'."
+  },
+  {
+    "id": "S0168",
+    "file": "story/quests/act1.json",
+    "locator": "quests[q19].rewards[5].toast.description",
+    "old": "Next: Act II. Right-click Marnie's Explorer's Compass, type Ribbit in the search box and click Ribbit Village — the needle points there until you pick something else. There is also a woman fixing a beached boat at the lake and a prospector camped by the copper outcrop.",
+    "new": "Next: follow Marnie's compass to the Ribbit village. There is also a woman fixing a beached boat at the lake, and a prospector camped by the copper outcrop.",
+    "why": "The 'type Ribbit in the search box and click Ribbit Village' step is menu instruction, not a next step; the compass arrives pre-set and the quest text says so again. Three clauses, three destinations, one breath."
+  },
+  {
+    "id": "S0177",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q20].description[4]",
+    "old": "This is how you meet Wisp. Their flower starts and bone meal are what Halden's hedge garden is planted from.",
+    "new": "Wisp hands over the flower starts and the bone meal that Halden's hedge garden gets planted from.",
+    "why": "Quest narrator has no opinions and never tells the player what a beat is for. Same information, stated as what Wisp hands over and what it becomes."
+  },
+  {
+    "id": "S0179",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q20].rewards[12].command",
+    "old": "Eleven Ribbits, and no roof between them and winter.",
+    "new": "Eleven Ribbits and no roof for winter.",
+    "why": "Eleven Ribbits and the missing roof both survive."
+  },
+  {
+    "id": "S0181",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q20].rewards[15].toast.title",
+    "old": "Wisp is a friend of the valley",
+    "new": "A Friend in the Reeds",
+    "why": "Act I's toast titles are beat names (Home, Nothing Gets In, The Door Under the House). Act II drifts into status sentences. This restores the pattern and fits the cap."
+  },
+  {
+    "id": "S0184",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q21].subtitle",
+    "old": "Follow the marker down to the lake.",
+    "new": "The boat does not need fixing.",
+    "why": "The subtitle must add a fact. The joke of this quest — the boat does not need fixing — is in Nella's line and in the title card, and belongs here where it makes her worth walking to."
+  },
+  {
+    "id": "S0191",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q21].rewards[13].toast.title",
+    "old": "Nella lives at the lake now",
+    "new": "Nella Stays at the Lake",
+    "why": "Same fact as a name."
+  },
+  {
+    "id": "S0197",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q22].description[4]",
+    "old": "The ten aren't counted for you, so this one is on the honour system: when you've had ten on the hook, tick the box. Nella would tell you to round down and she would be lying about it too.",
+    "new": "Nothing counts the ten for you: tick the box when you have had ten on the hook. Nella would tell you to round down and she'd be lying too.",
+    "why": "'Nella would tell you to round down and she'd be lying too' is the best line in Q22 and survives intact."
+  },
+  {
+    "id": "S0202",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q23].title",
+    "old": "Bring Halden 8 Poppies, 8 Dandelions and 8 Cornflowers",
+    "new": "Bring Halden 24 Flowers for the Hedge Garden",
+    "why": "Counts move into the subtitle, which is where §4 wants the second fact; the title keeps the imperative and the real object."
+  },
+  {
+    "id": "S0203",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q23].subtitle",
+    "old": "Eight of each, to Halden on the south slope.",
+    "new": "Poppies, dandelions, cornflowers — eight of each.",
+    "why": "With the counts moved out of the title, the subtitle now carries them and stops being an echo."
+  },
+  {
+    "id": "S0208",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q23].rewards[8].command",
+    "old": "Halden: You found the door under her kitchen, then. Yes. I know what it says on it and I know who wrote it. That is all you are getting out of me on a summer afternoon.",
+    "new": "Halden: You found the door under her kitchen, then. I know what it says and who wrote it. Not on a summer afternoon.",
+    "why": "The line itself is the best withheld-information beat in Act II. Trimmed to cap. Separate structural finding: rewards[7] and rewards[8] are both Halden with no /schedule between them, which §4 forbids — that needs a code change, not a text change.  APPLY NOTE: the speaker prefix is tellraw component 0 and the quoted body is component 1 — replace only the body text (everything after the first ': '), leave the colour and italic keys as they are."
+  },
+  {
+    "id": "S0209",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q23].rewards[9].toast.title",
+    "old": "Halden opens the hedge garden",
+    "new": "The Hedge Garden Opens",
+    "why": "Name, not sentence."
+  },
+  {
+    "id": "S0215",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q24].description[4]",
+    "old": "The press and the fermentation barrel open the wine line, which is what Act III's harvest table drinks.",
+    "new": "The press and the barrel come with them, and the Harvest Supper drinks what this trellis makes.",
+    "why": "Same fact, said from inside the valley: the Harvest Supper drinks what this trellis makes. The player does not need the act number to want that."
+  },
+  {
+    "id": "S0216",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q24].tasks[1].title",
+    "old": "The trellis is on the terrace, 4 starts planted, watered twice",
+    "new": "Trellis up, 4 starts planted, watered twice",
+    "why": "Task text is a noun phrase describing the finished state. 'Trellis up, 4 starts planted, watered twice.'"
+  },
+  {
+    "id": "S0218",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q24].rewards[6].toast.title",
+    "old": "The south slope is planted",
+    "new": "South Slope Planted",
+    "why": "Name."
+  },
+  {
+    "id": "S0220",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q25].title",
+    "old": "Fence the Pasture and Let Out 2 Cows and 2 Sheep",
+    "new": "Fence the Pasture, Let Out 2 Cows and 2 Sheep",
+    "why": "Comma for 'and'."
+  },
+  {
+    "id": "S0225",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q25].tasks[0].title",
+    "old": "2 cows and 2 sheep are standing inside the fenced pasture behind the barn",
+    "new": "2 cows and 2 sheep inside the fenced pasture",
+    "why": "Noun phrase, finished state, under cap."
+  },
+  {
+    "id": "S0227",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q25].rewards[7].toast.title",
+    "old": "Cloud and Also Cloud are home",
+    "new": "Cloud and Also Cloud",
+    "why": "Cloud and Also Cloud carry the whole line; 'are home' is the part that does not."
+  },
+  {
+    "id": "S0229",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q26].title",
+    "old": "Pull the Dredge Net Eight Times From Nella's Boat",
+    "new": "Pull Nella's Dredge Net Eight Times",
+    "why": "'Pull Nella's Dredge Net Eight Times' — the boat is in the subtitle and in Nella's line."
+  },
+  {
+    "id": "S0233",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q26].description[4]",
+    "old": "Lake Sand is the only source of Washed Silica, and Washed Silica is the only way to a Thermal Machine Frame — Bram cannot start the workshop without it.",
+    "new": "Lake Sand is the only source of Washed Silica, and Washed Silica is the only road to a Thermal Machine Frame. Bram's workshop waits on it.",
+    "why": "Same chain, one clause shorter, and Bram's name lands the stake."
+  },
+  {
+    "id": "S0235",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q26].rewards[4].toast.title",
+    "old": "128 Lake Sand on the pier",
+    "new": "128 Sand on the Pier",
+    "why": "One word."
+  },
+  {
+    "id": "S0237",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q27].title",
+    "old": "Talk to the Prospector Camped by the Copper Outcrop",
+    "new": "Talk to the Prospector at the Copper Outcrop",
+    "why": "'at' for 'Camped by'; the camp is in the subtitle."
+  },
+  {
+    "id": "S0238",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q27].subtitle",
+    "old": "He is camped by the copper outcrop.",
+    "new": "Nobody has read his survey.",
+    "why": "Title already says 'Camped by the Copper Outcrop'. The subtitle must add a fact; the fact that matters about Tobin is that he is right and nobody has read him."
+  },
+  {
+    "id": "S0245",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q27].rewards[8].toast.title",
+    "old": "Tobin has a camp and an audience",
+    "new": "Tobin Has an Audience",
+    "why": "Keeps the good half ('an audience' is the whole of what Tobin wants) and drops the inventory half."
+  },
+  {
+    "id": "S0248",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q28].subtitle",
+    "old": "Six spots on Tobin's survey maps.",
+    "new": "He marked them twice, in two colours.",
+    "why": "Replaced with the fact that characterises him — he marked them twice, in two colours — which sets up his tellraw without repeating it word for word."
+  },
+  {
+    "id": "S0251",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q28].description[4]",
+    "old": "The copper and tin deposits get pinned to your maps, and the Adit Pick — Efficiency IV, out of Josie's tool chest — comes with sixteen sticks of powder. Tin is what the first Machine Frame is short of.",
+    "new": "Copper and tin get pinned to your maps, and Josie's tool chest gives up the Adit Pick and sixteen sticks of powder. The frame wants tin.",
+    "why": "All four facts kept: the map pins, the Adit Pick, its provenance, the powder, and what the frame is short of."
+  },
+  {
+    "id": "S0252",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q28].tasks[0].title",
+    "old": "All 6 of Tobin's marked spots have been struck with the prospector's pick",
+    "new": "All 6 marked spots struck with the prospector's pick",
+    "why": "Noun phrase, finished state."
+  },
+  {
+    "id": "S0255",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q28].rewards[7].command",
+    "old": "Tobin: One more thing and then I will stop. The grass on that slope comes up three weeks before anything else in the valley. Every year. I do not have a rock that explains it and it is bothering me.",
+    "new": "Tobin: Grass on that slope comes up three weeks early every year and I do not have a rock that explains it.",
+    "why": "This is the geothermal plant — the slope thaws three weeks early and there is no rock that explains it — and the payoff is the Works under the hill. Kept the number, the frequency and the admission. Same structural finding as S0208: rewards[6] and rewards[7] are both Tobin with no /schedule.  APPLY NOTE: the speaker prefix is tellraw component 0 and the quoted body is component 1 — replace only the body text (everything after the first ': '), leave the colour and italic keys as they are."
+  },
+  {
+    "id": "S0256",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q28].rewards[8].toast.title",
+    "old": "Copper and tin are on your maps",
+    "new": "Copper and Tin, Pinned",
+    "why": "Name."
+  },
+  {
+    "id": "S0258",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q29].title",
+    "old": "Build a Windmill Bearing and 8 Sails on the Mill Roof",
+    "new": "Put a Windmill Bearing on the Mill Roof",
+    "why": "Sails move to the subtitle."
+  },
+  {
+    "id": "S0259",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q29].subtitle",
+    "old": "The 16 wool is in Bram's crate by the door.",
+    "new": "Eight sails, and the stream can drop all it likes.",
+    "why": "Duplicating the instruction wastes the one protected line in the quest. Replaced with the sails count the title gave up plus the reason the roof matters, phrased so it does not repeat Bram's line either."
+  },
+  {
+    "id": "S0264",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q29].rewards[6].toast.title",
+    "old": "The mill runs on wind now",
+    "new": "The Mill Runs on Wind",
+    "why": "Name."
+  },
+  {
+    "id": "S0267",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q30].subtitle",
+    "old": "Fan over running water, sand underneath.",
+    "new": "128 sand makes exactly 64.",
+    "why": "'Fan over running water, sand underneath' is the opening of Bram's quoted line in the same quest. Replaced with the arithmetic fact the player actually needs and nothing else says."
+  },
+  {
+    "id": "S0269",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q30].description[2]",
+    "old": "Take Nella's 128 Lake Sand to any crafting bench. Eight sand plus a bucket of water makes four Washed Silica — do that sixteen times and you have the 64 this quest wants. The 128 she put on the pier is exactly enough: nothing left over, nothing short.",
+    "new": "Take Nella's 128 Lake Sand to any crafting bench. Eight sand plus a bucket of water makes four Washed Silica — sixteen times gives you the 64 this quest wants. The 128 on the pier is exactly enough: nothing left over, nothing short.",
+    "why": "Eleven characters of connective tissue."
+  },
+  {
+    "id": "S0270",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q30].description[4]",
+    "old": "If you'd rather build than craft: an Encased Fan blowing down through running water washes it one-for-one and asks for no buckets at all. Same result, more fun.",
+    "new": "If you would rather build than craft: an Encased Fan blowing down through running water washes it one-for-one, with no buckets at all.",
+    "why": "The narrator does not rate the options. The fan route sells itself on 'no buckets at all'."
+  },
+  {
+    "id": "S0271",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q30].description[6]",
+    "old": "Washed Silica is the gate item on the Thermal Machine Frame — press U on the frame in JEI and the silica is sitting in the grid where the tin used to be.",
+    "new": "Washed Silica is what a Thermal Machine Frame is made of now — press U on the frame in JEI and the silica sits where the tin used to.",
+    "why": "'is what a Thermal Machine Frame is made of now' says the same thing in world. The JEI keystroke stays — it is real help."
+  },
+  {
+    "id": "S0273",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q30].rewards[5].toast.title",
+    "old": "64 Washed Silica, and 64 More",
+    "new": "64 Silica, and 64 More",
+    "why": "'Silica' for 'Washed Silica'; the full name is in the title and the instruction."
+  },
+  {
+    "id": "S0279",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q31].description[4]",
+    "old": "Every Thermal machine is that frame with an RF Coil under it — silver and redstone, wound. Bram has been winding them since March and the eight in this payout are his; when they run out, Oda's board sells eight more for 18 Scrip. The Stirling Dynamo here is the workshop's first real power.",
+    "new": "Every Thermal machine is that frame with a coil under it. Bram wound these eight himself; the Stirling Dynamo is the first real power.",
+    "why": "Kept the coil fact (why every Thermal machine needs one), Bram's authorship of the eight, and the dynamo. NOTE: the '18 Scrip for eight more from Oda's board' price is dropped for length — if that price is the only place it appears, put it on Oda's Counter quest instead of restoring it here."
+  },
+  {
+    "id": "S0282",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q33].title",
+    "old": "Fit the Workshop With 6 Drawers, a Controller and 3 Barrels",
+    "new": "Fit the Workshop With Drawers and Barrels",
+    "why": "Counts move to the subtitle, which is empty of facts anyway."
+  },
+  {
+    "id": "S0283",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q33].subtitle",
+    "old": "Along the long wall of the mill's back room.",
+    "new": "Six drawers, a controller, three barrels.",
+    "why": "Now carries the counts the title gave up."
+  },
+  {
+    "id": "S0286",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q33].description[4]",
+    "old": "This lands before the Pulverizer on purpose: the storage is what makes the ore trip short instead of endless.",
+    "new": "Six drawers and a controller are what turn the ore trip into one walk instead of six.",
+    "why": "'This lands before the Pulverizer on purpose' addresses the player about the design. Stated as a fact about drawers and ore trips instead."
+  },
+  {
+    "id": "S0287",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q33].rewards[4].toast.title",
+    "old": "The long bench is stocked",
+    "new": "The Long Bench",
+    "why": "Name, and it matches Bram's word for the room."
+  },
+  {
+    "id": "S0289",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q32].title",
+    "old": "Build a Pulverizer and Run 32 Iron Ore Through It",
+    "new": "Run 32 Iron Ore Through a Pulverizer",
+    "why": "One imperative, the real object, the count."
+  },
+  {
+    "id": "S0290",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q32].subtitle",
+    "old": "Two dust out of one ore.",
+    "new": "The Stirling Dynamo burns charcoal.",
+    "why": "Second verbatim subtitle/character-line collision in Act II (see S0267). Replaced with the fuel fact, which is the one thing the instruction assumes and never says twice."
+  },
+  {
+    "id": "S0297",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q34].title",
+    "old": "Place 4 Lamp Posts and Run Energy Duct to Two of Them",
+    "new": "Place 4 Lamp Posts and Light Two of Them",
+    "why": "'Light Two of Them' is what the duct is for and is shorter."
+  },
+  {
+    "id": "S0300",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q34].description[2]",
+    "old": "Put one lamp post on each of the 4 marked spots between the mill and the square, then run Energy Duct from the Stirling Dynamo at the mill to the nearest two — the furnace eats power, the dynamo makes it, so wire from the dynamo's output face. Any order is right. Every post and every length of duct is in the crate at the mill door. (The Redstone Furnace from Bram's payout is not the power source — it eats power. Leave it out of this line entirely.)",
+    "new": "Put a lamp post on each of the 4 marked spots, mill to square, then run Energy Duct from the Stirling Dynamo's output face to the nearest two. Posts and duct are in the crate at the mill door. The Redstone Furnace eats power — leave it out.",
+    "why": "All four load-bearing facts kept: the marked spots, the dynamo output face, where the crate is, and the Redstone-Furnace warning. Only the restatements go."
+  },
+  {
+    "id": "S0302",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q34].tasks[0].title",
+    "old": "4 lamp posts on the 4 marked spots, and 2 of them lit off the Stirling Dynamo",
+    "new": "4 posts on their marks, 2 of them lit off the dynamo",
+    "why": "Noun phrase, finished state."
+  },
+  {
+    "id": "S0304",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q34].rewards[4].command",
+    "old": "Bram: Third one leans. I straightened it the year the mill went and again four years after that and it leans. Josie would not let me dig it out. Leave it now.",
+    "new": "Bram: Third one leans. I straightened it twice and Josie would not let me dig it out. Leave it now.",
+    "why": "The leaning third post and Josie refusing to let him dig it out is a plant — something of hers runs under that ground. Both survive; the two dates compress to 'twice'.  APPLY NOTE: the speaker prefix is tellraw component 0 and the quoted body is component 1 — replace only the body text (everything after the first ': '), leave the colour and italic keys as they are."
+  },
+  {
+    "id": "S0310",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q35].description[2]",
+    "old": "The platform is already out over the shallows and every spot is marked. From the crate on the decking: put a mossy oak post on each of the 6 marks, the bed on the wool mat, the door in the doorway, a window in each of the 2 holes, and the 3 swamp lanterns on the hooks. Any order is right.",
+    "new": "The platform is out over the shallows, every spot marked. From the crate on the decking: a mossy oak post on each of the 6 marks, the bed on the wool mat, the door in the doorway, a window in each hole, the 3 swamp lanterns on the hooks.",
+    "why": "Every marked object kept; the opening sentence loses six words."
+  },
+  {
+    "id": "S0312",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q35].tasks[0].title",
+    "old": "6 posts, the bed, the door, 2 windows and 3 lanterns are on their marks",
+    "new": "6 posts, bed, door, 2 windows and 3 lanterns on their marks",
+    "why": "Noun phrase, finished state."
+  },
+  {
+    "id": "S0314",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q35].rewards[7].command",
+    "old": "Over the shallows, on four good legs at last.",
+    "new": "Over the shallows, on four good legs.",
+    "why": "'at last' is the part that was doing least."
+  },
+  {
+    "id": "S0321",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q36].description[2]",
+    "old": "Eight paper around one torch makes four Paper Lanterns — six batches for twenty-four, so 48 paper and 6 torches. Wisp's payout put all 48 sheets and 24 torches in your bag; you need nothing else. Any crafting table will do.",
+    "new": "Eight paper around one torch makes four Paper Lanterns — six batches for twenty-four, so 48 paper and 6 torches. Oda's stockroom already put all 48 sheets and 24 torches in your bag. Any crafting table will do.",
+    "why": "S0311 (the quest immediately before) says Oda's stockroom sends the 48 sheets and the torches. Q36 calling it 'Wisp's payout' contradicts it two minutes later. Oda supplies, Wisp's quest triggers it."
+  },
+  {
+    "id": "S0324",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q36].rewards[5].command",
+    "old": "Marnie: Josie had the road lit like this once. Middle of a February, out of nowhere. I carried soup up the lane and it was warm the whole way. Eleven nights of it. Then it stopped, and she said the boiler had cracked, and I never asked her one question about it. Pass me the string, love.",
+    "new": "Marnie: Josie lit this road one February — eleven nights, soup warm the whole way up the lane — and I never asked why.",
+    "why": "This is the plant for 'I lit them once. Then I put them out, on purpose.' Kept February, eleven nights, the warm soup up the lane and 'I never asked'. Dropped the boiler lie (the cellar wall pays it off directly) and 'Pass me the string, love'. If Josh would rather keep the full line, the correct fix is a /schedule splitting it into two Marnie tellraws — which is a code change, and the current form also breaks the no-two-lines-from-one-speaker rule.  APPLY NOTE: the speaker prefix is tellraw component 0 and the quoted body is component 1 — replace only the body text (everything after the first ': '), leave the colour and italic keys as they are."
+  },
+  {
+    "id": "S0325",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q36].rewards[6].toast.title",
+    "old": "24 lanterns, and Pip's two hundred",
+    "new": "Pip's Two Hundred",
+    "why": "Pip's two hundred is the joke; twenty-four is in the title and the body."
+  },
+  {
+    "id": "S0327",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q37].title",
+    "old": "Fill Oda's Three Notices: 24 Wheat, 8 Cooked Fish, 8 Wool",
+    "new": "Fill Oda's Three Notices — Wheat, Fish, Wool",
+    "why": "Em dash, three nouns, counts stay in the instruction."
+  },
+  {
+    "id": "S0332",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q37].description[6]",
+    "old": "Then everybody walks down to the water and puts the lanterns on it — and for the first summer in eleven years, this valley is a place people come back to instead of a place people leave.",
+    "new": "Then everybody walks down to the water and sets the lanterns on it, and Nella stands at the end of the pier counting the people who came.",
+    "why": "'a place people come back to instead of a place people leave' is the banned it's-not-X-it's-Y shape and it tells the player what the act meant. Act-end lines must be a question she is already holding. Nella spent the whole act certain nobody would come; putting her at the end of the pier counting heads pays that off and asks the next question without stating it."
+  },
+  {
+    "id": "S0333",
+    "file": "story/quests/act2.json",
+    "locator": "quests[q37].rewards[4].toast.title",
+    "old": "The Midsummer Lantern Float",
+    "new": "The Lantern Float",
+    "why": "The finale title card (valley_finales.js) says 'The Lantern Float'. Matching them is free."
+  },
+  {
+    "id": "S1365",
+    "file": "pack/kubejs/server_scripts/valley_core.js",
+    "locator": "LETTER_PAGES[1]",
+    "old": "A few of us stayed. Marnie keeps an inn with no guests. Bram keeps a mill with a snapped axle. Oda opens a shop nobody walks into and writes down the takings anyway.\n\nThey are not stubborn. They are waiting. Don't tell them I said so.",
+    "new": "A few of us stayed. Marnie keeps an inn with no guests. Bram keeps a mill with a snapped axle. Oda opens a shop nobody walks into and writes the takings down.\n\nThey are not stubborn. They are waiting. Don't tell them I said so.",
+    "why": "Four characters; the anaphora of the three shopkeepers is untouched."
+  },
+  {
+    "id": "S1485",
+    "file": "pack/kubejs/data/valley/functions/setup/place_ruin.mcfunction",
+    "locator": "line 29 title subtitle",
+    "old": "Three walls, a chimney and a cold hearth.",
+    "new": "Three walls, a chimney, a cold hearth.",
+    "why": "One 'and'."
+  },
+  {
+    "id": "S1493",
+    "file": "pack/kubejs/data/valley/functions/act5/read5.mcfunction",
+    "locator": "line 7 tellraw (closing line, after read5)",
+    "old": "The valley's fine now. Go see what's past the ridge - and come home for supper.",
+    "new": "The valley's fine now. Go see what's past the ridge — and come home for supper.",
+    "why": "Same sentence, two punctuations, in two places the player can reach. Matched to valley_finales.js. Text-only change; the orphan-function caveat in the corpus still applies."
+  },
+  {
+    "id": "S1494",
+    "file": "pack/kubejs/server_scripts/town_plan.js",
+    "locator": "line 80 title subtitle",
+    "old": "Marnie keeps the fire in the middle of the room.",
+    "new": "Marnie keeps the fire in the middle.",
+    "why": "'in the middle' carries it; 'of the room' is inferable from a fireplace."
+  },
+  {
+    "id": "S1496",
+    "file": "pack/kubejs/server_scripts/town_plan.js",
+    "locator": "line 372 title subtitle",
+    "old": "Sixty years of looking at a snapped axle.",
+    "new": "Sixty years looking at a snapped axle.",
+    "why": "'Sixty years looking' for 'Sixty years of looking'."
+  },
+  {
+    "id": "S1498",
+    "file": "pack/kubejs/server_scripts/town_plan.js",
+    "locator": "line 423 title subtitle",
+    "old": "Four years she watched that chimney for smoke.",
+    "new": "Four years of watching a cold chimney.",
+    "why": "Rebuilt round the cold chimney so the card still names what she was watching."
+  },
+  {
+    "id": "S1502",
+    "file": "pack/kubejs/server_scripts/town_plan.js",
+    "locator": "line 579 title subtitle",
+    "old": "A well, four lamps and somewhere to stand.",
+    "new": "A well, four lamps, somewhere to stand.",
+    "why": "Comma for 'and'."
+  },
+  {
+    "id": "S1504",
+    "file": "pack/kubejs/server_scripts/town_plan.js",
+    "locator": "line 4707 title subtitle",
+    "old": "Twelve alcoves, and a winter to fill them.",
+    "new": "Twelve alcoves, one winter to fill them.",
+    "why": "'one winter' for 'and a winter' — and it counts, which suits a granary."
+  },
+  {
+    "id": "S1506",
+    "file": "pack/kubejs/server_scripts/town_plan.js",
+    "locator": "line 4721 title subtitle",
+    "old": "Halden's rows, and the only quiet corner in town.",
+    "new": "Halden's rows. The quiet corner of town.",
+    "why": "Halden stays; 'only' goes."
+  },
+  {
+    "id": "S1508",
+    "file": "pack/kubejs/server_scripts/town_plan.js",
+    "locator": "line 4780 title subtitle",
+    "old": "Eleven years of ledger for an empty shop.",
+    "new": "Eleven years of ledger, no stock.",
+    "why": "'no stock' is blunter than 'for an empty shop' and eight characters shorter."
+  },
+  {
+    "id": "S1514",
+    "file": "pack/kubejs/server_scripts/town_plan.js",
+    "locator": "line 5074 title subtitle",
+    "old": "Waste heat goes to the town, not the sky.",
+    "new": "Waste heat, into the town not the sky.",
+    "why": "Same contrast, no verb."
+  },
+  {
+    "id": "S1516",
+    "file": "pack/kubejs/server_scripts/town_plan.js",
+    "locator": "line 5137 title subtitle",
+    "old": "Tobin found a rock. It is a separate conversation.",
+    "new": "Tobin's rock. A separate conversation.",
+    "why": "Tobin keeps the rock and the deadpan."
+  },
+  {
+    "id": "S1518",
+    "file": "pack/kubejs/server_scripts/town_plan.js",
+    "locator": "line 5374 title subtitle",
+    "old": "Fifteen people, and somewhere to argue in the warm.",
+    "new": "Fifteen people, arguing in the warm.",
+    "why": "Fifteen stays — it is the spine number."
+  },
+  {
+    "id": "S1522",
+    "file": "pack/kubejs/server_scripts/town_plan.js",
+    "locator": "line 5665 title subtitle",
+    "old": "Three beds were made before they got here.",
+    "new": "Beds made before they got here.",
+    "why": "'Beds made before they got here' is the whole line."
+  },
+  {
+    "id": "S1534",
+    "file": "story/quests/act1.json",
+    "locator": "reward_tables[cozy_crate].title",
+    "old": "Cozy Crate",
+    "new": "Marnie's Basket",
+    "why": "§3 bans names that are not load-bearing. First cozy crate lands at Q11, by which point Marnie has been on the hill for two quests, so her basket is safe everywhere the table is used (acts I-V). LOW PRIORITY — cosmetic, and the paired locator means title and loot_crate.name must be edited together."
+  },
+  {
+    "id": "S1535",
+    "file": "story/quests/act1.json",
+    "locator": "reward_tables[cozy_crate].loot_crate.name",
+    "old": "Cozy Crate",
+    "new": "Marnie's Basket",
+    "why": "Paired locator; see S1534."
+  },
+  {
+    "id": "S1536",
+    "file": "story/quests/act1.json",
+    "locator": "reward_tables[tech_crate].title",
+    "old": "Tech Crate",
+    "new": "Bram's Spares",
+    "why": "First tech crate lands at Q14, two quests after Bram arrives, so it is safe everywhere the table is used. LOW PRIORITY — cosmetic, paired locator."
+  },
+  {
+    "id": "S1537",
+    "file": "story/quests/act1.json",
+    "locator": "reward_tables[tech_crate].loot_crate.name",
+    "old": "Tech Crate",
+    "new": "Bram's Spares",
+    "why": "Paired locator; see S1536."
+  }
+]

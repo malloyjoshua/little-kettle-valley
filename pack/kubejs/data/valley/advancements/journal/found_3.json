@@ -2,8 +2,8 @@
   "parent": "valley:journal/root",
   "display": {
     "icon": { "item": "minecraft:writable_book" },
-    "title": { "text": "Field Note: The Weathered Notice", "color": "gold" },
-    "description": { "text": "Nine years of Fair notices, one board.", "color": "gray" },
+    "title": { "text": "Found: The Weathered Notice", "color": "gold" },
+    "description": { "text": "Posted year eleven. No replies. Left up.", "color": "gray" },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false,

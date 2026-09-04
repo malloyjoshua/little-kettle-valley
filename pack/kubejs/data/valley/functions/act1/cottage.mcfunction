@@ -50,7 +50,7 @@ fill ~1 ~-1 ~-11 ~1 ~-1 ~-7 minecraft:cobblestone
 fill ~7 ~-1 ~-11 ~7 ~-1 ~-7 minecraft:cobblestone
 setblock ~4 ~-1 ~-6 minecraft:polished_andesite
 setblock ~-4 ~0 ~-5 minecraft:oak_sign[rotation=8]{front_text:{messages:['{"text":"3 x 9"}','{"text":"wheat"}','{"text":"carrots"}','{"text":"potatoes"}'],color:"gray"}}
-setblock ~4 ~0 ~-5 minecraft:oak_sign[rotation=8]{front_text:{messages:['{"text":"THE PEN"}','{"text":"fence the stone"}','{"text":"gate on the grey"}','{"text":""}'],color:"gray"}}
+setblock ~4 ~0 ~-5 minecraft:oak_sign[rotation=8]{front_text:{messages:['{"text":"THE PEN"}','{"text":"fence the stone"}','{"text":"gate on grey"}','{"text":""}'],color:"gray"}}
 
-tellraw @a[distance=..64] [{"text":"Josie: ","color":"gray"},{"text":"\"Four walls and a door. That is a house. What you do next makes it a home.\"","color":"white","italic":true}]
+tellraw @a[distance=..64] [{"text":"Josie: ","color":"gray"},{"text":"\"Four walls and a door. The mat is where my bed was; that corner stays warm until about four in the morning.\"","color":"white","italic":true}]
 playsound minecraft:block.wood.place master @a[distance=..64] ~ ~ ~ 1 0.9

@@ -2,8 +2,8 @@
   "parent": "valley:journal/root",
   "display": {
     "icon": { "item": "minecraft:writable_book" },
-    "title": { "text": "Field Note: The Ledger Page", "color": "gold" },
-    "description": { "text": "Found at the bottom of the cellar stairs.", "color": "gray" },
+    "title": { "text": "Found: The Ledger Page", "color": "gold" },
+    "description": { "text": "Eleven days, and no page after it.", "color": "gray" },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false,

@@ -4,4 +4,4 @@ tellraw @a [{"text":"Halden: ","color":"green"},{"text":"\"If there is more than
 playsound minecraft:item.book.put master @a ~ ~ ~ 1 1
 worldborder set 59999968
 execute in minecraft:the_nether run worldborder set 59999968
-tellraw @a {"text":"The valley's fine now. Go see what's past the ridge - and come home for supper.","color":"gold","italic":true}
+tellraw @a {"text":"The valley's fine now. Go see what's past the ridge — and come home for supper.","color":"gold","italic":true}

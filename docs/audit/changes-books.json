@@ -1,0 +1,122 @@
+[
+ {
+  "id": "S1101",
+  "file": "pack/patchouli_books/valley_journal/en_us/categories/field_notes.json",
+  "locator": "category.name",
+  "old": "Field Notes",
+  "new": "Bram's Numbers",
+  "why": "'Field Notes' is a label that would work unchanged in any modpack, which SS3 bans by name. Its two sibling chapters are 'Josie's Hand' and 'Things You Found'; this one is the only chapter with no owner on it. The category description already says Bram copied the figures out and 'does not believe in guessing', so the name now sets that line up instead of repeating it. Grepped: no other file references the string 'Field Notes'."
+ },
+ {
+  "id": "S1140",
+  "file": "pack/patchouli_books/valley_journal/en_us/entries/field_notes/f5_the_network.json",
+  "locator": "entry.name",
+  "old": "The Network",
+  "new": "One Screen, Everything On It",
+  "why": "'The Network' is mod jargon on the shelf next to 'The Vessel' and 'The Turbine', which are at least objects a resident points at. Bram's own line opens page 0 of this entry - 'One screen with everything on it. Oda will cry.' - so the entry name is now the promise its first page makes. Grepped: no other file references the entry name."
+ },
+ {
+  "id": "S1179",
+  "file": "pack/patchouli_books/valley_journal/en_us/entries/found_books/b1_ledger_page.json",
+  "locator": "entry.pages[0].text",
+  "old": "$(italic)Loose paper, folded twice, wedged behind a stone in the cellar. Josie's hand, faster than usual.$()$(br2)Nov 28 -- lit. 31 out. Greenhouse 61.$(br)Nov 29 -- held. Bread.$(br)Nov 30 -- held.$(br)Dec 1 -- held. Marnie brought soup up, said the lane looked like a fair.",
+  "new": "$(italic)Loose paper, folded twice, wedged behind a stone in the cellar. Josie's hand, faster than usual.$()$(br2)Feb 1 -- lit. 31 out. Greenhouse 61.$(br)Feb 2 -- held. Bread.$(br)Feb 3 -- held.$(br)Feb 4 -- held. Marnie brought soup up, said the lane looked like a fair.",
+  "why": "CONTINUITY. The cellar wall (canon, story-final.md SS7) puts the eleven days in February: 'I stood in the lane at ten o'clock at night in February and every lamp on the road was lit.' The ledger dated them Nov 28 - Dec 8, so the pack's central reveal contradicts the paper that proves it, and Entry 4's 'people leave in February' loses its hook. Re-dated Feb 1 - Feb 4 here; day count, line count, entry wording, greenhouse figure and lamp count all unchanged."
+ },
+ {
+  "id": "S1180",
+  "file": "pack/patchouli_books/valley_journal/en_us/entries/found_books/b1_ledger_page.json",
+  "locator": "entry.pages[1].text",
+  "old": "Dec 2 -- held.$(br)Dec 3 -- held.$(br)Dec 4 -- held.$(br)Dec 5 -- held.$(br)Dec 6 -- held.$(br)Dec 7 -- held. 40/40.$(br)Dec 8 -- held.$(br2)$(bold)Eleven days.$()$(br2)$(italic)There is no explanation anywhere on the page, and there is no page after it.$()",
+  "new": "Feb 5 -- held.$(br)Feb 6 -- held.$(br)Feb 7 -- held.$(br)Feb 8 -- held.$(br)Feb 9 -- held.$(br)Feb 10 -- held. 40/40.$(br)Feb 11 -- held.$(br2)$(bold)Eleven days.$()$(br2)$(italic)There is no explanation anywhere on the page, and there is no page after it.$()",
+  "why": "CONTINUITY, second half of the same page. Feb 1 to Feb 11 is still exactly eleven days, 40/40 still lands on the tenth, and 'Eleven days.' is untouched. Must ship with S1179 or the page breaks in the middle."
+ },
+ {
+  "id": "S1201",
+  "file": "pack/patchouli_books/valley_journal/en_us/entries/found_books/b5_turbine_notebook.json",
+  "locator": "entry.pages[3].text",
+  "old": "Halden thinks she posted it. She did not trust herself to keep the only copy of anything that mattered.$(br2)The tower trader has page four. He always did want it more than he could read it -- the waystone is already standing at his gate and the chest under the beam is yours to open.$(br2)You are not searching. You are collecting.",
+  "new": "Halden thinks she posted it. She did not trust herself to keep the only copy of anything that mattered.$(br2)The tower trader has page four, and always did want it more than he could read it. His waystone is standing at the gate. The chest is the one under the beam of light.",
+  "why": "'You are not searching. You are collecting.' is the design document talking to the player from inside a found book - a second-person instruction about how to feel, banned in SS3. Cut. Every wayfinding fact survives (tower trader, page four, waystone already standing, chest under the beacon beam) and the page now closes on the beam instead of on a reassurance. 324 visible chars down to 265; still over the 230 cap, which needs a page split."
+ },
+ {
+  "id": "S1250",
+  "file": "pack/kubejs/data/valley/advancements/journal/found_1.json",
+  "locator": "display.title.text",
+  "old": "Field Note: The Ledger Page",
+  "new": "Found: The Ledger Page",
+  "why": "The five 'Field Note:' advancements unlock entries in the 'Things You Found' category, not the Field Notes chapter - the toast sends the player to the wrong tab of her own book. 'Found:' matches the category she will actually open. No other file references these titles."
+ },
+ {
+  "id": "S1251",
+  "file": "pack/kubejs/data/valley/advancements/journal/found_1.json",
+  "locator": "display.description.text",
+  "old": "Found at the bottom of the cellar stairs.",
+  "new": "Eleven days, and no page after it.",
+  "why": "'Found at the bottom of the cellar stairs' is a location, not a fact, and it contradicts the page itself - the book says the paper was wedged behind a stone. Replaced with the hook the page actually ends on, which plants Q55 two acts early and gives the toast something to withhold."
+ },
+ {
+  "id": "S1252",
+  "file": "pack/kubejs/data/valley/advancements/journal/found_2.json",
+  "locator": "display.title.text",
+  "old": "Field Note: The Crate Label",
+  "new": "Found: The Crate Label",
+  "why": "Same wrong-chapter prefix as S1250."
+ },
+ {
+  "id": "S1253",
+  "file": "pack/kubejs/data/valley/advancements/journal/found_2.json",
+  "locator": "display.description.text",
+  "old": "Bram labels everything. Twice.",
+  "new": "The hand is not his. He kept it anyway.",
+  "why": "'Bram labels everything. Twice.' contradicts the entire point of the label: 'The hand is not his -- rounder, older, pressed harder into the wood', signed 'for Bram, when he is tall enough'. It is his father's, and Entry 5 confirms Bram's father was in the valley teaching Josie to read a wheel. The joke also spends the reveal before the player opens the page."
+ },
+ {
+  "id": "S1254",
+  "file": "pack/kubejs/data/valley/advancements/journal/found_3.json",
+  "locator": "display.title.text",
+  "old": "Field Note: The Weathered Notice",
+  "new": "Found: The Weathered Notice",
+  "why": "Same wrong-chapter prefix as S1250."
+ },
+ {
+  "id": "S1255",
+  "file": "pack/kubejs/data/valley/advancements/journal/found_3.json",
+  "locator": "display.description.text",
+  "old": "Nine years of Fair notices, one board.",
+  "new": "Posted year eleven. No replies. Left up.",
+  "why": "'Nine years of Fair notices, one board' describes a document that is not in the pack. The notice is one hiring bill - WANTED, ANY HANDS - with Oda's note underneath: 'posted yr 11, spring / no replies / left up'. Uses the paper's own words and keeps the year-11 count that Oda's ledger and her Act V 'first time in eleven years' both hang on."
+ },
+ {
+  "id": "S1256",
+  "file": "pack/kubejs/data/valley/advancements/journal/found_4.json",
+  "locator": "display.title.text",
+  "old": "Field Note: Oda's Old Stock Ledger",
+  "new": "Found: Oda's Old Stock Ledger",
+  "why": "Same wrong-chapter prefix as S1250."
+ },
+ {
+  "id": "S1258",
+  "file": "pack/kubejs/data/valley/advancements/journal/found_5.json",
+  "locator": "display.title.text",
+  "old": "Field Note: The Turbine Notebook",
+  "new": "Found: The Turbine Notebook",
+  "why": "Same wrong-chapter prefix as S1250."
+ },
+ {
+  "id": "S1479",
+  "file": "pack/kubejs/data/valley/functions/act1/cottage.mcfunction",
+  "locator": "line 53 oak_sign (pen)",
+  "old": "THE PEN|fence the stone|gate on the grey|",
+  "new": "THE PEN|fence the stone|gate on grey|",
+  "why": "Line 3 is 16 characters against the 15-character signpost cap in SS4, so it clips in game. 'the grey' also asks the player to work out which grey; 'grey' alone matches how the cottage's other markers are named. Line 1, line 4 (empty), colour and coordinates unchanged."
+ },
+ {
+  "id": "S1487",
+  "file": "pack/kubejs/data/valley/functions/setup/place_ruin.mcfunction",
+  "locator": "line 25 oak_sign (farm gate)",
+  "old": "KETTLE FARM||J. Kettle|est. long ago",
+  "new": "KETTLE FARM||J. Kettle|mind the weeds",
+  "why": "'est. long ago' is filler on the one sign the player reads before she reads anything else. Josie never dates a thing she cannot count; she names an object. 'mind the weeds' is 14 characters, still in her hand, and plants Entry 1's whole method - 'Look at the porch. It is eleven feet of porch and it has weeds on it. Pull the weeds' - on the gate she walks through to get there. Line 2 stays empty, colour stays gray."
+ }
+]

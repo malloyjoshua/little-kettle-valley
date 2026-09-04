@@ -16,10 +16,10 @@ global.valleyGreetings = {
     ],
     after: [
       "Full room tonight. Sit down before I give your chair away.",
-      "Sit down. You've got that look people get when they've been carrying something heavy up a hill.",
-      "I put a loaf by for you. Don't tell Pip, he counts them.",
-      "The Hearth's been lit in this room for thirty years. Some of those years it was the only thing that was.",
-      "Eat something. I'm not asking."
+      "I called it my inn this morning. Out loud, to Oda. I did not correct myself.",
+      "I put a loaf by for you. Same as you put one by for me in February, only mine is better.",
+      "The Hearth is lit, the oven is lit and the rooms upstairs are lit. Three fires. I keep counting them.",
+      "Eat something. I cooked for fifteen tonight and there is still too much, which is the right amount."
     ]
   },
   "bram": {
@@ -59,9 +59,9 @@ global.valleyGreetings = {
     ],
     after: [
       "Turns out I like growing things. Do not make it strange.",
-      "Fish aren't biting. Sit down anyway.",
-      "Quiet down here. That's not a complaint.",
-      "Good spot's past the reeds. Don't tell everyone."
+      "Fish aren't biting. Doesn't matter — the tomatoes are.",
+      "Boat's mended. Took one afternoon. I had been calling it a week's work since before you came.",
+      "Good spot's past the reeds. Tell people. I have decided I don't mind a crowd."
     ]
   },
   "halden": {
@@ -75,26 +75,26 @@ global.valleyGreetings = {
     ],
     after: [
       "The cellar door is open and I am not carrying it alone now.",
-      "Kettle's on. Everything else can wait ten minutes; it always could.",
-      "The hedge doesn't need me. That's rather why I like it.",
-      "Josie planted the first row of that. I only ever kept it trimmed.",
-      "Green tea, or the strong one? The strong one is a decision."
+      "Kettle's on. The book is open on the table and there are two chairs at it now.",
+      "I read her shorthand out loud. Four years I let people think it was the hedge keeping me here.",
+      "Josie planted the first row. I have planted the second, which took me rather longer than it should have.",
+      "Green tea, or the strong one? Nobody has been ill since November, so have the strong one."
     ]
   },
   "tobin": {
     name: "Tobin",
     before: [
       "You own a pickaxe. Good. Look at this rock. No, really look.",
-      "Look at this rock. No — properly look at it. Sorry. Sorry.",
+      "This one has quartz all through it. Nobody in this valley cares about quartz. I care enormously.",
       "I've marked it twice. The second set's in pink. Ignore the pink.",
       "I haven't slept, but that's not new information."
     ],
     after: [
       "Bram said good work. Out loud. I have not stopped hearing it.",
-      "Look at this rock. No — properly look at it. Sorry. Sorry.",
-      "I've marked it twice. The second set's in pink. Ignore the pink.",
+      "Look at this rock. It is the same rock. I keep it in my pocket now, which Bram says is normal.",
+      "The pink marks were right. Nobody has said so out loud, and I am being very calm about it.",
       "Nobody believed me about the seam and now there's a mine, so.",
-      "I haven't slept, but that's not new information."
+      "I haven't slept. The rig comes up the road when the road dries, and the road is drying."
     ]
   },
   "wisp": {
@@ -104,20 +104,20 @@ global.valleyGreetings = {
       "You walk far today? Sit. I keep the good toadstools.",
       "Marsh is quiet, town is loud. Both is good. Different good.",
       "My people ask about you. I say: is the one who came and asked.",
-      "Eat the purple one first. Always the purple one first."
+      "I found a red one. I did not eat it. I am learning to not eat first."
     ],
     after: [
       "Two villages, one place now. My people sleep warm at the inn.",
-      "You walk far today? Sit. I keep the good toadstools.",
-      "Marsh is quiet, town is loud. Both is good. Different good.",
-      "My people ask about you. I say: is the one who came and asked.",
-      "Eat the purple one first. Always the purple one first."
+      "You walk far today? Sit. I keep the good toadstools in the inn now, in a cupboard with a door.",
+      "Marsh is quiet, town is loud. I sleep in the loud one now. Is strange. I like.",
+      "My people do not ask about you now. They ask you. Is better, I think.",
+      "Purple one grows in the warm glass house in winter now. I did not know it could do that."
     ]
   },
   "pip": {
     name: "Pip",
     before: [
-      "I named the duck after you. Do not be weird about it.",
+      "The duck is called Biscuit. I decided it in about one second and I am not changing it.",
       "The duck went in the water bucket. On purpose, I think. It's fine.",
       "I'm allowed in the mill now if I don't touch anything. I touch nothing.",
       "Aunt Marnie says I ask too many questions. How many is too many?",
@@ -125,10 +125,10 @@ global.valleyGreetings = {
     ],
     after: [
       "I have a real job now. The duck supervises. Mostly badly.",
-      "The duck went in the water bucket. On purpose, I think. It's fine.",
-      "I'm allowed in the mill now if I don't touch anything. I touch nothing.",
-      "Aunt Marnie says I ask too many questions. How many is too many?",
-      "My satchel has a real buckle. Not a pretend one. A real one."
+      "Biscuit went in the water trough in front of everybody at supper. She meant to. I saw her decide.",
+      "I'm allowed to touch things in the mill now. Bram showed me which ones. I remember all of them.",
+      "Aunt Marnie says I still ask too many questions. I asked her how many. She is thinking about it.",
+      "I'm the one who rings the bell. Nobody else rings it. That was the deal and everybody heard it."
     ]
   },
   "ribbit_reed": {
@@ -158,7 +158,7 @@ global.valleyGreetings = {
   "ribbit_puddle": {
     name: "Puddle",
     before: [
-      "Warm inn. Warm soup. We stay now, I think. Yes. We stay.",
+      "Floor is warm and soup is hot. We stay now, I think. Yes. We stay.",
       "Soup again tonight. I checked. I check every night.",
       "We stay. I say it out loud so it stays true."
     ]

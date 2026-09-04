@@ -3,7 +3,7 @@
 	id: "5935F377951835D9"
 	loot_size: 1
 	order_index: 0
-	title: "Cozy Crate"
+	title: "Marnie's Basket"
 	use_title: true
 	rewards: [
 		{ item: "farmersdelight:cabbage_seeds", count: 4, weight: 3.0f }
@@ -20,5 +20,5 @@
 		{ item: "perfectplushies:duck_plushie", weight: 1.0f }
 		{ item: "perfectplushies:cat_plushie", weight: 1.0f }
 	]
-	loot_crate: { string_id: "cozy_crate", item_name: "Cozy Crate", color: 16755200, glow: false, drops: { passive: 0, monster: 0, boss: 0 } }
+	loot_crate: { string_id: "cozy_crate", item_name: "Marnie's Basket", color: 16755200, glow: false, drops: { passive: 0, monster: 0, boss: 0 } }
 }

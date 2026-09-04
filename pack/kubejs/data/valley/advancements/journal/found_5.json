@@ -2,7 +2,7 @@
   "parent": "valley:journal/root",
   "display": {
     "icon": { "item": "minecraft:writable_book" },
-    "title": { "text": "Field Note: The Turbine Notebook", "color": "gold" },
+    "title": { "text": "Found: The Turbine Notebook", "color": "gold" },
     "description": { "text": "She bought a book about turbines.", "color": "gray" },
     "frame": "task",
     "show_toast": true,

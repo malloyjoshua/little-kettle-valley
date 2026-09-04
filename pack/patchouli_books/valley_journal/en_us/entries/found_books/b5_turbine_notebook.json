@@ -19,7 +19,7 @@
     },
     {
       "type": "patchouli:text",
-      "text": "Halden thinks she posted it. She did not trust herself to keep the only copy of anything that mattered.$(br2)The tower trader has page four. He always did want it more than he could read it -- the waystone is already standing at his gate and the chest under the beam is yours to open.$(br2)You are not searching. You are collecting."
+      "text": "Halden thinks she posted it. She never trusted herself with the only copy of anything.$(br2)The tower trader has page four and wanted it more than he could read. His waystone stands at the gate. The chest is under the beam."
     }
   ],
   "advancement": "valley:journal/found_5"
