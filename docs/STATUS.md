@@ -28,6 +28,11 @@ JoinWorldOnLaunch=Little Kettle Valley
 - **Auto step-up** over one-block edges, no mod needed. **Regions Unexplored** removed so the famous seed looks as advertised and the Air breathes; the structure mods that make exploring good are untouched.
 - **Traps closed:** the kettle, the apple press and the chicken nest all drop back into your hand; three quests no longer consume the thing they told you to place; `/valley keepsake` hands back any of 23 story items.
 
+
+## Structures (2026-09-05 midday)
+Josh: "the structures are a little bland." Rebuilt with the mods' richest pieces and two designed buildings: a 37-block meadow tower with a real bell for the church (the only piece in 2,505 templates with both a bell and a door), a quartz fountain at the centre of a ringed square with benches on a trestle instead of chair rows, richer chalets for Marnie and Pip, a fisher's house and a covered boat slip on the lake beside the pier, a real mill race with a head basin, footbridge and wheel pit, a glass barrel-vault greenhouse on copper ribs, a copper-roofed bathhouse with cauldron tubs, hanging name signs at every named door, window boxes, five fenced plots and pens, eight trees and an orchard behind the farm. Every street lantern is gone; the valley is dark until the story lights it. Verified headless twice on fresh copies (5 finales, 21 scenes, every door the story opens now actually opens: that was a real bug, doors written one half at a time snap shut), all probes pass, world repackaged and released.
+Still soft: Oda's store and the hedge garden sit 40 blocks north as outliers; the twelve lantern rafts on the lake ship lit; the full client playthrough on this world is pending a window when the Mac is free.
+
 ## Numbers
 | Thing | Count |
 |---|---|
