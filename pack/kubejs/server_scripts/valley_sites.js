@@ -137,16 +137,22 @@ global.valleySites = {
    -29
   ],
   "marnie_house": [
-   -286,
-   -71,
-   -274,
-   -59
+   -284,
+   -80,
+   -270,
+   -66
   ],
   "pip_house": [
-   -273,
-   -71,
-   -261,
-   -59
+   -269,
+   -82,
+   -257,
+   -66
+  ],
+  "church": [
+   -311,
+   -80,
+   -293,
+   -62
   ],
   "granary": [
    -340,
@@ -156,33 +162,33 @@ global.valleySites = {
   ],
   "garden": [
    -316,
-   -86,
+   -93,
    -303,
-   -74
+   -81
   ],
   "store": [
    -298,
-   -89,
+   -97,
    -284,
-   -73
+   -81
   ],
-  "church": [
-   -309,
-   -70,
-   -296,
-   -60
+  "boathouse": [
+   -286,
+   -13,
+   -272,
+   2
   ],
   "town_hall": [
-   -349,
+   -352,
    -80,
-   -329,
+   -332,
    -64
   ],
   "newcomer_tess": [
-   -284,
-   -13,
-   -269,
-   3
+   -271,
+   -16,
+   -256,
+   0
   ],
   "newcomer_mab": [
    -334,
@@ -191,15 +197,15 @@ global.valleySites = {
    3
   ],
   "newcomer_corin": [
-   -254,
-   -70,
-   -239,
-   -55
+   -258,
+   -50,
+   -243,
+   -35
   ],
   "greenhouse": [
-   -334,
+   -337,
    -61,
-   -322,
+   -325,
    -53
   ],
   "bathhouse": [
@@ -209,10 +215,10 @@ global.valleySites = {
    -22
   ],
   "tobin_camp": [
-   -274,
-   -82,
-   -266,
-   -74
+   -264,
+   -94,
+   -256,
+   -86
   ],
   "plaza": [
    -314,
@@ -297,72 +303,106 @@ global.valleySites = {
    "door_facing": "east"
   },
   "marnie_house": {
-   "template": "kaisyn:village/meadow_swiss/houses/meadow_small_house_2",
+   "template": "kaisyn:village/meadow_swiss/houses/meadow_medium_house_5",
    "rotation": "none",
    "act": "act1",
    "label": "Marnie's Cottage",
    "level": 65,
    "origin": [
-    -284,
+    -282,
     65,
-    -69
+    -78
    ],
    "footprint": {
     "x": [
-     -284,
-     -276
+     -282,
+     -272
     ],
     "z": [
-     -69,
-     -61
+     -78,
+     -68
     ]
    },
    "pad": [
-    -286,
-    -71,
-    -274,
-    -59
+    -284,
+    -80,
+    -270,
+    -66
    ],
    "door": [
-    -282,
+    -280,
     66,
-    -65
+    -73
    ],
    "door_facing": "west"
   },
   "pip_house": {
-   "template": "kaisyn:village/meadow_swiss/houses/meadow_small_house_1",
+   "template": "kaisyn:village/meadow_swiss/houses/meadow_medium_house_1",
    "rotation": "none",
    "act": "act1",
    "label": "Pip's Place",
    "level": 67,
    "origin": [
-    -271,
+    -267,
     67,
-    -69
+    -80
    ],
    "footprint": {
     "x": [
-     -271,
-     -263
+     -267,
+     -259
     ],
     "z": [
-     -69,
-     -61
+     -80,
+     -68
     ]
    },
    "pad": [
-    -273,
-    -71,
-    -261,
-    -59
+    -269,
+    -82,
+    -257,
+    -66
    ],
    "door": [
-    -269,
+    -265,
     68,
-    -65
+    -74
    ],
    "door_facing": "west"
+  },
+  "church": {
+   "template": "kaisyn:outpost/towers/meadow/base_plate",
+   "rotation": "none",
+   "act": "act3",
+   "label": "The Bell Tower",
+   "level": 66,
+   "origin": [
+    -308,
+    60,
+    -77
+   ],
+   "footprint": {
+    "x": [
+     -308,
+     -296
+    ],
+    "z": [
+     -77,
+     -65
+    ]
+   },
+   "pad": [
+    -311,
+    -80,
+    -293,
+    -62
+   ],
+   "door": [
+    -302,
+    66,
+    -68
+   ],
+   "door_facing": "north"
   },
   "granary": {
    "template": "kaisyn:village/exclusives/rustic/houses/rustic_barn_professions_1",
@@ -403,11 +443,11 @@ global.valleySites = {
    "rotation": "none",
    "act": "act2",
    "label": "The Hedge Garden",
-   "level": 63,
+   "level": 64,
    "origin": [
     -314,
-    63,
-    -84
+    64,
+    -91
    ],
    "footprint": {
     "x": [
@@ -415,15 +455,15 @@ global.valleySites = {
      -305
     ],
     "z": [
-     -84,
-     -76
+     -91,
+     -83
     ]
    },
    "pad": [
     -316,
-    -86,
+    -93,
     -303,
-    -74
+    -81
    ]
   },
   "store": {
@@ -435,7 +475,7 @@ global.valleySites = {
    "origin": [
     -296,
     65,
-    -87
+    -95
    ],
    "footprint": {
     "x": [
@@ -443,56 +483,56 @@ global.valleySites = {
      -286
     ],
     "z": [
-     -87,
-     -75
+     -95,
+     -83
     ]
    },
    "pad": [
     -298,
-    -89,
+    -97,
     -284,
-    -73
+    -81
    ],
    "door": [
     -290,
     66,
-    -79
+    -87
    ],
    "door_facing": "south"
   },
-  "church": {
-   "template": "kaisyn:village/exclusives/classic/houses/classic_church_1",
+  "boathouse": {
+   "template": "kaisyn:village/meadow_swiss/houses/meadow_fisher_1",
    "rotation": "none",
-   "act": "act3",
-   "label": "The Bell Tower",
-   "level": 68,
+   "act": "act2",
+   "label": "The Boathouse",
+   "level": 69,
    "origin": [
-    -307,
-    68,
-    -68
+    -284,
+    69,
+    -11
    ],
    "footprint": {
     "x": [
-     -307,
-     -298
+     -284,
+     -274
     ],
     "z": [
-     -68,
-     -62
+     -11,
+     0
     ]
    },
    "pad": [
-    -309,
-    -70,
-    -296,
-    -60
+    -286,
+    -13,
+    -272,
+    2
    ],
    "door": [
-    -306,
-    69,
-    -65
+    -282,
+    70,
+    -7
    ],
-   "door_facing": "east"
+   "door_facing": "west"
   },
   "town_hall": {
    "template": "kaisyn:village/meadow_swiss/houses/meadow_large_house_1",
@@ -501,14 +541,14 @@ global.valleySites = {
    "label": "The Town Hall",
    "level": 63,
    "origin": [
-    -347,
+    -350,
     63,
     -78
    ],
    "footprint": {
     "x": [
-     -347,
-     -331
+     -350,
+     -334
     ],
     "z": [
      -78,
@@ -516,13 +556,13 @@ global.valleySites = {
     ]
    },
    "pad": [
-    -349,
+    -352,
     -80,
-    -329,
+    -332,
     -64
    ],
    "door": [
-    -343,
+    -346,
     64,
     -72
    ],
@@ -533,32 +573,32 @@ global.valleySites = {
    "rotation": "none",
    "act": "act5",
    "label": "Tess's House",
-   "level": 69,
+   "level": 67,
    "origin": [
-    -282,
-    69,
-    -11
+    -269,
+    67,
+    -14
    ],
    "footprint": {
     "x": [
-     -282,
-     -271
+     -269,
+     -258
     ],
     "z": [
-     -11,
-     1
+     -14,
+     -2
     ]
    },
    "pad": [
-    -284,
-    -13,
-    -269,
-    3
+    -271,
+    -16,
+    -256,
+    0
    ],
    "door": [
-    -278,
-    70,
-    -7
+    -265,
+    68,
+    -10
    ],
    "door_facing": "west"
   },
@@ -601,32 +641,32 @@ global.valleySites = {
    "rotation": "none",
    "act": "act5",
    "label": "Corin's House",
-   "level": 66,
+   "level": 65,
    "origin": [
-    -252,
-    66,
-    -68
+    -256,
+    65,
+    -48
    ],
    "footprint": {
     "x": [
-     -252,
-     -241
+     -256,
+     -245
     ],
     "z": [
-     -68,
-     -57
+     -48,
+     -37
     ]
    },
    "pad": [
-    -254,
-    -70,
-    -239,
-    -55
+    -258,
+    -50,
+    -243,
+    -35
    ],
    "door": [
-    -250,
-    67,
-    -64
+    -254,
+    66,
+    -44
    ],
    "door_facing": "west"
   },
@@ -637,8 +677,8 @@ global.valleySites = {
    "level": 65,
    "footprint": {
     "x": [
-     -334,
-     -322
+     -337,
+     -325
     ],
     "z": [
      -61,
@@ -669,12 +709,12 @@ global.valleySites = {
    "level": 66,
    "footprint": {
     "x": [
-     -274,
-     -266
+     -264,
+     -256
     ],
     "z": [
-     -82,
-     -74
+     -94,
+     -86
     ]
    }
   }
@@ -691,14 +731,19 @@ global.valleySites = {
    -39
   ],
   "marnie_house": [
-   -282,
+   -280,
    66,
-   -65
+   -73
   ],
   "pip_house": [
-   -269,
+   -265,
    68,
-   -65
+   -74
+  ],
+  "church": [
+   -302,
+   66,
+   -68
   ],
   "granary": [
    -337,
@@ -708,22 +753,22 @@ global.valleySites = {
   "store": [
    -290,
    66,
-   -79
+   -87
   ],
-  "church": [
-   -306,
-   69,
-   -65
+  "boathouse": [
+   -282,
+   70,
+   -7
   ],
   "town_hall": [
-   -343,
+   -346,
    64,
    -72
   ],
   "newcomer_tess": [
-   -278,
-   70,
-   -7
+   -265,
+   68,
+   -10
   ],
   "newcomer_mab": [
    -330,
@@ -731,9 +776,9 @@ global.valleySites = {
    -6
   ],
   "newcomer_corin": [
-   -250,
-   67,
-   -64
+   -254,
+   66,
+   -44
   ],
   "cottage": [
    -321,
@@ -2378,49 +2423,64 @@ global.valleySites = {
     -61
    ],
    [
-    -289,
+    -288,
     68,
     -62
    ],
    [
-    -289,
+    -288,
     67,
     -63
    ],
    [
-    -289,
+    -287,
     67,
     -64
    ],
    [
-    -289,
+    -287,
     67,
     -65
    ],
    [
-    -289,
+    -287,
     67,
     -66
    ],
    [
-    -290,
+    -287,
     67,
     -67
    ],
    [
-    -290,
+    -287,
     67,
     -68
    ],
    [
-    -291,
+    -287,
     67,
     -69
    ],
    [
-    -292,
-    67,
+    -288,
+    66,
     -70
+   ],
+   [
+    -288,
+    66,
+    -71
+   ],
+   [
+    -289,
+    66,
+    -72
+   ],
+   [
+    -290,
+    66,
+    -73
    ]
   ],
   "north_west_lane": [
@@ -2460,27 +2520,27 @@ global.valleySites = {
     -62
    ],
    [
-    -316,
-    69,
-    -63
-   ],
-   [
-    -316,
-    68,
-    -64
-   ],
-   [
     -317,
-    68,
-    -65
+    69,
+    -62
    ],
    [
     -318,
     68,
-    -66
+    -63
    ],
    [
     -319,
+    68,
+    -64
+   ],
+   [
+    -320,
+    68,
+    -65
+   ],
+   [
+    -320,
     68,
     -66
    ],
@@ -2502,7 +2562,7 @@ global.valleySites = {
    [
     -323,
     67,
-    -69
+    -70
    ],
    [
     -324,
@@ -2512,12 +2572,27 @@ global.valleySites = {
    [
     -325,
     66,
-    -70
+    -71
    ],
    [
     -326,
     66,
-    -71
+    -72
+   ],
+   [
+    -327,
+    66,
+    -72
+   ],
+   [
+    -328,
+    65,
+    -73
+   ],
+   [
+    -329,
+    65,
+    -74
    ]
   ],
   "east_lane": [
@@ -2691,117 +2766,182 @@ global.valleySites = {
    [
     -257,
     66,
+    -56
+   ],
+   [
+    -256,
+    66,
+    -57
+   ],
+   [
+    -255,
+    66,
     -58
    ],
    [
-    -257,
+    -254,
     66,
     -59
    ],
    [
-    -257,
+    -253,
     66,
     -60
    ],
    [
-    -257,
+    -252,
     66,
     -61
    ],
    [
-    -257,
+    -251,
+    66,
+    -61
+   ],
+   [
+    -250,
     66,
     -62
    ],
    [
-    -257,
+    -249,
     66,
     -63
    ],
    [
-    -257,
+    -248,
     66,
     -64
    ],
    [
-    -257,
+    -247,
     66,
     -65
    ],
    [
-    -257,
+    -246,
     66,
     -66
    ],
    [
-    -257,
+    -246,
     66,
     -67
    ],
    [
-    -257,
-    66,
+    -246,
+    65,
     -68
    ],
    [
-    -257,
-    66,
+    -246,
+    65,
     -69
    ],
    [
-    -257,
-    66,
+    -246,
+    65,
     -70
    ],
    [
-    -257,
-    66,
+    -246,
+    65,
     -71
    ],
    [
-    -257,
+    -246,
     66,
     -72
    ],
    [
-    -257,
+    -246,
     66,
     -73
    ],
    [
-    -257,
-    67,
+    -246,
+    66,
     -74
    ],
    [
-    -258,
-    67,
+    -246,
+    66,
     -75
    ],
    [
-    -258,
+    -246,
     67,
     -76
    ],
    [
-    -259,
+    -246,
     67,
     -77
    ],
    [
-    -260,
-    68,
+    -246,
+    67,
     -78
    ],
    [
-    -260,
-    68,
+    -246,
+    67,
     -79
    ],
    [
-    -261,
+    -246,
     68,
     -80
+   ],
+   [
+    -246,
+    68,
+    -81
+   ],
+   [
+    -246,
+    68,
+    -82
+   ],
+   [
+    -246,
+    68,
+    -83
+   ],
+   [
+    -246,
+    69,
+    -84
+   ],
+   [
+    -247,
+    69,
+    -85
+   ],
+   [
+    -247,
+    69,
+    -86
+   ],
+   [
+    -248,
+    69,
+    -87
+   ],
+   [
+    -249,
+    70,
+    -88
+   ],
+   [
+    -249,
+    70,
+    -89
+   ],
+   [
+    -250,
+    70,
+    -90
    ]
   ]
  },
@@ -2909,7 +3049,7 @@ global.valleySites = {
    -64
   ],
   "greenhouse": [
-   -328,
+   -331,
    66,
    -57
   ],
@@ -2936,14 +3076,19 @@ global.valleySites = {
    -39
   ],
   "marnie_house": [
-   -282,
+   -280,
    66,
-   -65
+   -73
   ],
   "pip_house": [
-   -269,
+   -265,
    68,
-   -65
+   -74
+  ],
+  "church": [
+   -302,
+   66,
+   -68
   ],
   "granary": [
    -337,
@@ -2953,22 +3098,22 @@ global.valleySites = {
   "store": [
    -290,
    66,
-   -79
+   -87
   ],
-  "church": [
-   -306,
-   69,
-   -65
+  "boathouse": [
+   -282,
+   70,
+   -7
   ],
   "town_hall": [
-   -343,
+   -346,
    64,
    -72
   ],
   "newcomer_tess": [
-   -278,
-   70,
-   -7
+   -265,
+   68,
+   -10
   ],
   "newcomer_mab": [
    -330,
@@ -2976,16 +3121,16 @@ global.valleySites = {
    -6
   ],
   "newcomer_corin": [
-   -250,
-   67,
-   -64
+   -254,
+   66,
+   -44
   ]
  },
  "npc_stands": [
   {
    "group": "act1_mill",
    "pos": [
-    -327,
+    -326,
     68,
     -42
    ]
@@ -2993,17 +3138,17 @@ global.valleySites = {
   {
    "group": "act1_marnie",
    "pos": [
-    -284,
+    -282,
     66,
-    -65
+    -73
    ]
   },
   {
    "group": "act1_pip",
    "pos": [
-    -271,
+    -267,
     68,
-    -65
+    -74
    ]
   },
   {
@@ -3011,15 +3156,15 @@ global.valleySites = {
    "pos": [
     -296,
     66,
-    -82
+    -90
    ]
   },
   {
    "group": "act1_tobin",
    "pos": [
-    -270,
+    -260,
     67,
-    -75
+    -87
    ]
   }
  ],
@@ -3076,6 +3221,12 @@ global.valleySites = {
   -318,
   64,
   13
+ ],
+ "fountain": [
+  -296,
+  -41,
+  -292,
+  -37
  ],
  "stake_socket": [
   -302,

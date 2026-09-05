@@ -347,7 +347,7 @@ const VB_BUILD_ORDER = [
   'day1_road', 'day1_cottage', 'day1_signpost',
   'act1_inn', 'act1_mill', 'act1_marnie', 'act1_pip',
   'act1_square', 'act1_streets', 'act1_lamp_pads', 'act1_tobin',
-  'act2_granary', 'act2_garden',
+  'act2_granary', 'act2_garden', 'act2_boathouse',
   'act3_store', 'act3_church', 'act3_table',
   'act4_greenhouse_shell', 'act4_greenhouse_glaze', 'act4_greenhouse_heat',
   'act4_bathhouse',
@@ -359,6 +359,9 @@ const VB_BUILD_ORDER = [
   // (Q65 mines it), the noticeboard and the Surveyor's Stake socket on the square.
   'day1_cellar', 'day1_adit', 'day1_board', 'day1_lakefront', 'day1_wisp_posts',
   'day1_lamps',
+  // ...and the planting LAST: eight trees, five fenced plots and the orchard behind the
+  // farm stand on ground every other group has finished moving.
+  'day1_planting',
 ]
 
 // A command that dresses, announces or populates rather than builds.

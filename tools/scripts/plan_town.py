@@ -112,6 +112,22 @@ def origin_offset(size, r):
 
 _STEP = {'north': (0, -1), 'south': (0, 1), 'east': (1, 0), 'west': (-1, 0)}
 
+# Cells a template ships that the town has to open, keyed by template id and given in the
+# template's own LOCAL coordinates: {(x, y, z): the block that replaces it}.
+#
+# The meadow watchtower's two ground-floor doors each open into a small fenced forecourt
+# that its own builder closed off with a fence at the far end -- fine for an outpost
+# standing alone on a hill, and the reason `Placed.door_out` reported that the tallest
+# building in the valley had no way out of either door and got no apron at all. The two
+# closing rails become garden gates, standing open. They are taken out of the grid the
+# door analysis reads AND replaced in the world, so the plan and the build agree.
+TEMPLATE_OPEN = {
+    'kaisyn:outpost/towers/meadow/base_plate': {
+        (6, 6, 1): 'minecraft:oak_fence_gate[facing=north,open=true]',
+        (6, 6, 11): 'minecraft:oak_fence_gate[facing=south,open=true]',
+    },
+}
+
 
 class Placed(object):
     """A template pinned to an anchor-relative min corner."""
@@ -120,7 +136,11 @@ class Placed(object):
         self.name, self.tid, self.r = name, tid, r
         t = template(tid)
         self.size = t['size']
-        self.grid = t['blocks']
+        self.open_local = TEMPLATE_OPEN.get(tid, {})
+        if self.open_local:
+            self.grid = {k: v for k, v in t['blocks'].items() if k not in self.open_local}
+        else:
+            self.grid = t['blocks']
         self.y_base = y_base
         self.margin = margin
         self.fw, self.fd = footprint(self.size, r)
@@ -209,6 +229,15 @@ class Placed(object):
             a = self.abs(lp)
             out.append({'pos': list(a), 'facing': rot_dir(b[1].get('facing', 'north'), self.r),
                         'block': b[0], 'local': list(lp)})
+        # A door BELOW the pad's top course is a door under the ground. The bell tower is
+        # a 37-block outpost piece whose walkable floor is at local y6 -- it is placed with
+        # y_base 6 so its threshold lands on the doorstep, which buries the service door
+        # its rock plinth carries at local y4. Sorting on the lowest door found put the
+        # front door two blocks under the lawn and the apron then paved a trench to it.
+        # Doors at dy < 0 are dropped first; the ground-floor filter runs on what is left.
+        above = [d for d in out if d['pos'][1] >= 0]
+        if above:
+            out = above
         gy = min([d['pos'][1] for d in out], default=0)
         out = [d for d in out if d['pos'][1] <= gy + 1]
         cache = {}
@@ -307,9 +336,18 @@ STREETS = [
     # own bench rows are in there, and so was the only ground a market cart
     # could stand on. The square pays for its own paving; the lane does not
     # need to reach in and take it.
-    ('north_east_lane',  [(8, -12), (10, -14), (13, -17), (13, -22), (10, -26)]),
-    ('north_west_lane',  [(-8, -12), (-10, -14), (-13, -17), (-15, -21),
-                          (-19, -24), (-24, -27)]),
+    #
+    # 2026-09-05: both lanes are swung four blocks further out between z -16 and z -29.
+    # They used to converge on +-13,-17 and pinch the north cluster to a corridor eleven
+    # columns wide at its narrowest -- which is why the tallest piece in any installed jar
+    # could not be put where the town's bell tower belongs: a 13x13 tower with its two-block
+    # margin needs seventeen. Both routes still leave the plaza at +-8,-12 and still end
+    # where they ended, and every whitelisted lamp post on them (+-10,-12 and +-14,-16)
+    # still stands on the widened verge -- checked, not assumed: `lamps` in nature_check.py
+    # walks all forty.
+    ('north_east_lane',  [(8, -12), (12, -16), (15, -20), (15, -25), (12, -29)]),
+    ('north_west_lane',  [(-8, -12), (-12, -16), (-17, -20), (-19, -24),
+                          (-23, -27), (-27, -30)]),
     # East Lane. Marnie's cottage had a road; Pip's house, four plots further
     # east, was eighteen blocks from the nearest paving and the newcomer's
     # house at the far end was twenty-nine, which is a house in a field. This
@@ -321,7 +359,10 @@ STREETS = [
     # The cart track up to Tobin's copper outcrop, off the east end of the East
     # Lane. Gravel and cobble like every other road, because the town works
     # that rock all winter.
-    ('outcrop_road',     [(45, -14), (45, -30), (41, -36)]),
+    # 2026-09-05: swung out to x 58. It used to run at x 45, four columns off the east
+    # end of the town, and with Marnie and Pip in real houses instead of the two 9x9
+    # sheds there was no plot left between the North East Lane and this cart track.
+    ('outcrop_road',     [(45, -12), (56, -22), (56, -40), (52, -46)]),
 ]
 ROAD_BRUSH = 1                   # 1 -> three blocks wide (plus a gravel verge)
 ROAD_CLEAR = 2                   # keep-clear half width for the solver
@@ -382,9 +423,15 @@ BUILDINGS = [
      'The Hearth',        'Marnie keeps the fire in the middle.'),
     ('mill',       'kaisyn:village/sunflower_plains_farm/side/sunflower_plains_windmill_1', 1, (-46, -4), 2, 'act1', 0,
      'The Broken Mill',   'Sixty years looking at a snapped axle.'),
-    ('marnie_house', 'kaisyn:village/meadow_swiss/houses/meadow_small_house_2',    0, (16, -25), 2, 'act1', 0,
+    # Marnie and Pip used to have the two 9x9 `meadow_small_house` boxes - the plainest
+    # pieces in the whole set, a gable and two windows each, and the two buildings a
+    # player meets FIRST. medium_house_5 carries a balcony (its second door is at local
+    # y5) and a stone-brick plinth; medium_house_1 is the long-plan chalet with twelve
+    # panes of window and a porch. Same neighbourhood, same palette, +2 and +4 blocks of
+    # footprint, and both read as somebody's home rather than as a shed.
+    ('marnie_house', 'kaisyn:village/meadow_swiss/houses/meadow_medium_house_5',   0, (20, -34), 2, 'act1', 0,
      "Marnie's Cottage",  'Four years of watching a cold chimney.'),
-    ('pip_house',  'kaisyn:village/meadow_swiss/houses/meadow_small_house_1',      0, (29, -25), 2, 'act1', 0,
+    ('pip_house',  'kaisyn:village/meadow_swiss/houses/meadow_medium_house_1',     0, (35, -36), 2, 'act1', 0,
      "Pip's Place",       'He is being extremely useful.'),
     ('granary',    'kaisyn:village/exclusives/rustic/houses/rustic_barn_professions_1', 0, (-36, 18), 2, 'act2', 1,
      'The Granary',       'Twelve alcoves, one winter to fill them.'),
@@ -392,15 +439,27 @@ BUILDINGS = [
      'The Hedge Garden',  "Halden's rows. The quiet corner of town."),
     ('store',      'kaisyn:village/meadow_swiss/houses/meadow_butcher_and_mason_1', 0, (6, -36), 2, 'act3', 0,
      "Oda's Store",       'Eleven years of ledger, no stock.'),
-    ('church',     'kaisyn:village/exclusives/classic/houses/classic_church_1',    0, (-5, -24), 2, 'act3', 0,
+    # THE BELL TOWER. classic_church_1 is a 10x12x7 cobblestone box with a ladder in it,
+    # no bell, no glass and no roof - "the crudest thing in the town, and it is called The
+    # Bell Tower" (media/look/NOTES.md item 5). Towns and Towers' meadow watchtower is the
+    # tallest piece in any installed jar that has BOTH a real bell block and a door: 37
+    # courses, a mossy-cobble plinth, a jettied timber body, a stone belfry with the bell
+    # at local y27 and a flag over it. y_base 6 buries the plinth's ragged lower six
+    # courses in the pad, which is what puts the door on the doorstep; what is left
+    # standing is 31 blocks, and the bell ends up 21 blocks over the square.
+    ('church',     'kaisyn:outpost/towers/meadow/base_plate',                      0, (-6, -31), 3, 'act3', 6,
      'The Bell Tower',    'Pip gets to ring it. Marnie said.'),
+    # The Boathouse. meadow_fisher_1 is the meadow set's own dock building - a chalet with
+    # a jetty off its south side - and it stands on the east shore looking at the pier.
+    ('boathouse',  'kaisyn:village/meadow_swiss/houses/meadow_fisher_1',           0, (18, 29), 2, 'act2', 0,
+     'The Boathouse',     'Nella wants her nets under a roof.'),
     ('town_hall',  'kaisyn:village/meadow_swiss/houses/meadow_large_house_1',      0, (-30, -28), 2, 'act5', 0,
      'The Town Hall',     'Fifteen people, arguing in the warm.'),
     ('newcomer_tess',  'kaisyn:village/meadow_swiss/houses/meadow_medium_house_2', 0, (20, 30), 2, 'act5', 0,
      "Tess's House",      'Empty until spring. Not empty now.'),
     ('newcomer_mab',   'kaisyn:village/meadow_swiss/houses/meadow_medium_house_3', 0, (-30, 34), 2, 'act5', 0,
      "Mab's House",       'Beds made before they got here.'),
-    ('newcomer_corin', 'kaisyn:village/meadow_swiss/houses/meadow_medium_house_4', 0, (50, -24), 2, 'act5', 0,
+    ('newcomer_corin', 'kaisyn:village/meadow_swiss/houses/meadow_medium_house_4', 0, (46, -4), 2, 'act5', 0,
      "Corin's House",     'The last of the three empty houses.'),
 ]
 
@@ -424,6 +483,10 @@ MARKET_CARTS = [
     # every template id this file emits exists in the installed jars.
     'nova_structures:tavern/tavern_event_trader_car_cartographer',
 ]
+# The meadow set's own town centre. Its 11x11 box is 68 cells of cyan_concrete street
+# marker and 15 jigsaws round ONE real thing: a 5x5 smooth-quartz basin with a
+# four-block jet standing in it. That real thing is the fountain on the square.
+FOUNTAIN_TID = 'kaisyn:village/meadow_swiss/town_centers/meadow_meeting_point_1'
 WELL_TOP = 'kaisyn:village/exclusives/classic/town_centers/classic_meeting_point_1/well_top'
 WELL_BOTTOM = 'kaisyn:village/exclusives/classic/town_centers/classic_meeting_point_1/well_bottom'
 RUIN = 'nova_structures:wild_ruin/wild_ruin_23'
@@ -628,6 +691,75 @@ def marker_cleanup(p):
     return out
 
 
+# DARK SQUARE FIX, the general case. The valley is dark by design: outside a building the
+# only light in it is the forty copper lamp posts, and they ship `lit=false`. A structure
+# template does not know that. The meadow watchtower alone carries twelve lanterns, eight
+# torches and two campfires, and it is a 31-block landmark standing over the square -- lit,
+# it is a lighthouse, and Act I's payoff (six posts come on) has nothing to be a payoff
+# against. douse() blows out every light a template carries, in place, and ONLY the ones it
+# actually carries: the fills are generated from the piece's own palette, so there are no
+# dead commands and nothing outside the piece is touched.
+#
+# It is deliberately NOT applied to the houses. A lit window with a chair behind it is the
+# warmest thing in the pack (media/look/NOTES.md, shot 11) and it is INSIDE a building,
+# which is where the rule says light is allowed.
+DOUSE = {
+    'minecraft:torch': 'minecraft:air',
+    'minecraft:wall_torch': 'minecraft:air',
+    'minecraft:soul_torch': 'minecraft:air',
+    'minecraft:soul_wall_torch': 'minecraft:air',
+    'minecraft:lantern': 'minecraft:air',
+    'minecraft:soul_lantern': 'minecraft:air',
+    'minecraft:glowstone': 'minecraft:bone_block',
+    'minecraft:shroomlight': 'minecraft:bone_block',
+    'minecraft:sea_lantern': 'minecraft:smooth_quartz',
+    'minecraft:jack_o_lantern': 'minecraft:carved_pumpkin',
+    'minecraft:campfire': 'minecraft:campfire[lit=false]',
+    'minecraft:soul_campfire': 'minecraft:soul_campfire[lit=false]',
+    'minecraft:redstone_lamp': 'minecraft:redstone_lamp[lit=false]',
+}
+_CANDLES = ['minecraft:candle'] + ['minecraft:%s_candle' % c for c in (
+    'white', 'orange', 'magenta', 'light_blue', 'yellow', 'lime', 'pink', 'gray',
+    'light_gray', 'cyan', 'purple', 'blue', 'brown', 'green', 'red', 'black')]
+
+
+def douse(p, box=None):
+    """Every light this template ships, blown out where it stands."""
+    if box is None:
+        box = (p.x0, p.y0, p.z0, p.x1, p.y1, p.z1)
+    have = set(b[0] for b in p.grid.values())
+    out = []
+    for src in sorted(have & set(DOUSE)):
+        out.append(fill(box[0], box[1], box[2], box[3], box[4], box[5],
+                        DOUSE[src], ' replace ' + src))
+    # A candle keeps its count: `candle[lit=true]` as a filter matches all four counts, so
+    # one fill per count, and only for the counts the piece actually has.
+    for src in sorted(have & set(_CANDLES)):
+        counts = sorted(set(int(b[1].get('candles', '1')) for b in p.grid.values()
+                            if b[0] == src and b[1].get('lit') == 'true'))
+        for n in counts:
+            out.append(fill(box[0], box[1], box[2], box[3], box[4], box[5],
+                            '%s[candles=%d,lit=false]' % (src, n),
+                            ' replace %s[candles=%d,lit=true]' % (src, n)))
+    return out
+
+
+def ring(x0, y0, z0, x1, y1, z1, block):
+    """The four walls of a box, and nothing inside it.
+
+    NOT `fill ... hollow`. Vanilla's hollow flag fills the whole outer SHELL -- including
+    the top and bottom faces -- so on a box one or two blocks tall the "shell" is the
+    entire box, and the building comes out solid. That is exactly what happened to the
+    rebuilt greenhouse and bathhouse on their first build: both of them shipped as a solid
+    block of stone with a roof on it, and the section through the bathhouse showed no
+    interior at all. Four explicit wall fills cannot do that at any height.
+    """
+    return [fill(x0, y0, z0, x1, y1, z0, block),
+            fill(x0, y0, z1, x1, y1, z1, block),
+            fill(x0, y0, z0 + 1, x0, y1, z1 - 1, block),
+            fill(x1, y0, z0 + 1, x1, y1, z1 - 1, block)]
+
+
 def build_cmds(p, top='minecraft:grass_block'):
     # The LEVELLED rectangle stops ONE COLUMN INSIDE the site's registry box. That last ring
     # -- and the two beyond it -- is the feathered edge: sometimes the terrace, sometimes the
@@ -637,6 +769,12 @@ def build_cmds(p, top='minecraft:grass_block'):
     px0, pz0, px1, pz1 = p.pad()
     out = pad_cmds(px0 + 1, pz0 + 1, px1 - 1, pz1 - 1, p.size[1] + 6, top)
     out.append('place template %s %s %s %s %s' % (p.tid, t(p.ox), t(p.oy), t(p.oz), ROTS[p.r]))
+    # TEMPLATE_OPEN: the cells the plan took out of the grid it reasons over have to come
+    # out of the world too, or the front door the apron was routed to is still behind a
+    # fence. Written immediately after the place, before anything else stands on them.
+    for _lp, _blk in sorted(p.open_local.items()):
+        _a = p.abs(_lp)
+        out.append(setb(_a[0], _a[1], _a[2], _blk))
     out += marker_cleanup(p)
     # Anything the template wrote as air at ground level goes back to ground,
     # so the pad never reads as a trench around the building. `@padfix` rather
@@ -698,6 +836,9 @@ def square_furniture_cells():
     out |= set(rect_cells(SUPPER['x'][0] - 1, SUPPER['z'][0] - 1,
                           SUPPER['x'][1] + 1, SUPPER['z'][1] + 1))
     out |= set(SCENE_CELLS)
+    out |= set(rect_cells(FOUNTAIN[0], FOUNTAIN[1], FOUNTAIN[0] + 4, FOUNTAIN[1] + 4))
+    for (bx, bz) in SQ_TREE + SQ_BED:
+        out |= set(rect_cells(bx, bz, bx + 2, bz + 2))
     out |= set(rect_cells(-2, -7, 2, -2))          # signpost + noticeboard
     out |= set(rect_cells(-1, -1, 1, 1))           # the Town Square waystone
     return out
@@ -786,7 +927,7 @@ def apron_widen(path):
     return out
 
 
-def apron_cmds(door, name, lamp=True):
+def apron_cmds(door, name, lamp=True, sign=None):
     """A cobbled apron from the door to the nearest paving, plus a lantern.
 
     Walk OUT of the door - along the direction that actually leaves the
@@ -871,9 +1012,19 @@ def apron_cmds(door, name, lamp=True):
         APRON_PAVED.add((cx, cz))
         LEVEL.setdefault((cx, cz), ay)
     if lamp:
-        # Beside the doorstep and OFF the corridor: a fence post standing in a
-        # three-wide path is a three-wide path you cannot walk down the middle
-        # of, and section (8) of the harness reads it as unwalkable ground.
+        # THE DOORPOST. Beside the doorstep and OFF the corridor: a fence post standing in
+        # a three-wide path is a three-wide path you cannot walk down the middle of, and
+        # section (8) of the harness reads it as unwalkable ground.
+        #
+        # It used to carry a LIT minecraft:lantern -- one at every front door in the
+        # valley, thirteen of them, every one of them a light source standing outdoors in
+        # a town whose entire story is that nothing outdoors is lit until she lights it
+        # (media/look/NOTES.md item 10: the unlit valley is not dark). The lantern is gone.
+        # What hangs off the post instead is the building's NAME, on a proper gibbet: post,
+        # post, an arm out over the doorstep and a hanging sign under the arm. Every
+        # building in the town is named at its own door now, which is the other half of the
+        # same fix -- there was nothing anywhere to tell you what you were standing in
+        # front of.
         px, pz = (0, 1) if sx else (1, 0)
         for k in (2, -2):
             lx, lz = exit_cell[0] + px * k, exit_cell[1] + pz * k
@@ -887,7 +1038,19 @@ def apron_cmds(door, name, lamp=True):
             out.append(fill(lx, ly + 1, lz, lx, ly + 4, lz, 'minecraft:air'))
             out.append(setb(lx, ly, lz, 'minecraft:cobblestone'))
             out.append(setb(lx, ly + 1, lz, POST))
-            out.append(setb(lx, ly + 2, lz, 'minecraft:lantern[hanging=false]'))
+            out.append(setb(lx, ly + 2, lz, POST))
+            if sign:
+                # the arm reaches back toward the door, and the sign hangs under it
+                ax, az = lx - px * (1 if k > 0 else -1), lz - pz * (1 if k > 0 else -1)
+                out.append(setb(lx, ly + 3, lz, POST))
+                out.append(setb(ax, ly + 3, az, POST))
+                out.append('setblock %s %s %s minecraft:oak_hanging_sign'
+                           '[attached=false,rotation=%d,waterlogged=false]'
+                           '{front_text:{messages:[%s],color:"gray"},is_waxed:1b}'
+                           % (t(ax), t(ly + 2), t(az), 4 if pz else 0,
+                              ','.join(json.dumps(json.dumps({'text': m})) for m in sign)))
+            else:
+                out.append(setb(lx, ly + 3, lz, POST))
             LEVEL.setdefault((lx, lz), ly)
             break
     return out
@@ -967,6 +1130,9 @@ def street_cmds(pts):
     return out
 
 
+LAMP_PAD_SAMPLE = []
+
+
 def lamp_pad_cmds():
     """A levelled, cleared 3x3 under every whitelisted lamp post that no street
     and not the plaza already paves. Q34 and Q74 ask the player to PLACE these
@@ -991,6 +1157,11 @@ def lamp_pad_cmds():
                     out.append(fill(c[0], y - ROAD_DEEP, c[1], c[0], y - 1, c[1],
                                     'minecraft:dirt'))
                     out.append(setb(c[0], y, c[1], 'minecraft:gravel'))
+                    # A cell of gravel this actually laid that is NOT a post's own cell:
+                    # day1_lamps sets cobblestone under every post, so the old probe --
+                    # which read the post's own column -- has never been able to pass.
+                    if (dx, dz) != (0, 0) and not LAMP_PAD_SAMPLE:
+                        LAMP_PAD_SAMPLE.append((c[0], y, c[1]))
     return out
 
 
@@ -1338,7 +1509,12 @@ seed_occupancy()
 P = {}
 META = {}
 CX = {}
-EARLY = ('inn', 'mill', 'marnie_house', 'pip_house')
+# The bell tower is solved with the Act I pieces even though it goes up in Act III:
+# it is the tallest thing in the valley and the only piece with a bell, and a landmark
+# that gets whatever corner is left over after eleven houses is not a landmark. It
+# claims the ground between the two north lanes first and the north cluster arranges
+# itself around it.
+EARLY = ('inn', 'mill', 'marnie_house', 'pip_house', 'church')
 for name, tid, r, want, margin, act, ybase, label, blurb in BUILDINGS:
     if name not in EARLY:
         continue
@@ -1579,9 +1755,18 @@ if os.environ.get('PLAN_DEBUG_SQUARE'):
 # so a want that lands on a street verge or the bench garden simply steps to
 # the nearest free patch instead of failing.
 WELL_X, WELL_Z = sq_fit(6, 6, (-10, -6))        # well_top min corner (6x6)
-CART_POS = [sq_fit(5, 5, c) for c in ((4, -4), (8, -9), (-10, 3), (6, 3))]
-FLOWER_POS = [sq_fit(2, 1, c) for c in
-              ((-6, 0), (5, 1), (-6, 2), (9, -3), (-4, -7), (3, -7), (-5, 5), (4, 2))]
+# THE FOUNTAIN. Solved before the carts so it gets the middle of the east half rather than
+# whatever is left. It is the meadow set's OWN town-centre piece: a quartz basin five
+# across with a four-block jet in it. Its 11x11 bounding box is otherwise nothing but
+# cyan_concrete street markers and jigsaws, which is why the piece is placed offset -- the
+# only blocks it really has are the 5x5x4 fountain, and this is where they land.
+# Three market carts, not four, and the fountain in the quarter the fourth used to stand
+# in. A dying town of eleven people does not run four market stalls, and the square is a
+# 25x25 that already carries a well, a waystone, a noticeboard, a signpost, a supper table,
+# a bench garden and the road out of the south side: something had to give for the town to
+# get a centrepiece, and a fourth trader's cart is the thing it can spare.
+CART_POS = [sq_fit(5, 5, c) for c in ((4, -4), (8, -9), (-10, 3))]
+FOUNTAIN = sq_fit(5, 5, (6, 3))
 
 # --- the three scenes that stand on the square, solved like everything else --
 # valley_finales.js used to hand-type these. Q59's Ribbit camp went in at
@@ -1612,6 +1797,19 @@ SCENE_CELLS = ([(c[0], c[2]) for c in RIBBIT_STANDS] +
                [(RIBBIT_FIRE[0], RIBBIT_FIRE[2]), (RIBBIT_POST[0], RIBBIT_POST[2])] +
                [(c[0], c[2]) for c in STILL.values()] +
                [(c[0], c[2]) for c in HARVEST_HAY + HARVEST_PUMPKIN])
+
+# Two trees and a flower bed, so there is something alive on the square. Three-block beds:
+# a stone-brick wall kerb round a soil middle, exactly like a planted bed in a real square,
+# and never in a road, a cart, the well or the bench garden because sq_fit spirals off
+# anything already claimed. Solved AFTER the carts: a market cart that cannot stand where
+# the town wants it is a fault, a tree that stands a block off its preferred corner is not.
+SQ_TREE = [sq_fit(3, 3, c) for c in ((-11, -9), (-11, 8))]
+SQ_BED = [sq_fit(3, 3, c) for c in ((9, -3),)]
+# The window boxes on their kerb posts, cut from eight to four. Eight of them, plus the
+# well, four carts, the bench garden, the supper table and now a fountain and three planted
+# beds, is a square you cannot cross without walking round something -- and the square's
+# own complaint in media/look/NOTES.md is that it is furnished like a waiting room.
+FLOWER_POS = [sq_fit(2, 1, c) for c in ((-6, 0), (5, 1), (-4, -7), (4, 2))]
 
 # --- where a resident can stand on the square without being inside the well,
 #     a market cart, the supper table, the road or the noticeboard ------------
@@ -1654,6 +1852,9 @@ _seat_blocked |= set(rect_cells(-2, 1, 2, PLAZA))       # the road out of the sq
 _seat_blocked |= set(rect_cells(-2, -7, 2, -2))         # signpost + noticeboard
 _seat_blocked |= set(rect_cells(-1, -1, 1, 1))          # the waystone
 _seat_blocked |= set(SCENE_CELLS)                      # camp, still, hay and pumpkins
+_seat_blocked |= set(rect_cells(FOUNTAIN[0], FOUNTAIN[1], FOUNTAIN[0] + 4, FOUNTAIN[1] + 4))
+for _bb in SQ_TREE + SQ_BED:
+    _seat_blocked |= set(rect_cells(_bb[0], _bb[1], _bb[0] + 2, _bb[1] + 2))
 
 _seat_x = [0, -1, 1, -2, 2, -3, 3, -4, 4, -5, 5, -6, 6, -7, 7]
 _seat_cand = []
@@ -1842,6 +2043,73 @@ def arrival(label, blurb, sound='minecraft:ui.toast.challenge_complete'):
     ]
 
 
+# The three houses Act V opens are DELIBERATELY unnamed: they are the empty houses, and a
+# house with somebody's name already on the door is not empty.
+UNNAMED = ('newcomer_tess', 'newcomer_mab', 'newcomer_corin')
+
+
+def door_sign_lines(name):
+    """The building's own label, wrapped to fit a hanging sign (four lines, ~11 wide)."""
+    if name in UNNAMED or name not in META:
+        return None
+    words, lines, cur = META[name]['label'].split(), [], ''
+    for w in words:
+        if cur and len(cur) + 1 + len(w) > 11:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = (cur + ' ' + w).strip()
+    if cur:
+        lines.append(cur)
+    return lines[:4]
+
+
+def window_boxes(p, want=6):
+    """A flower box on the sill of up to `want` of this template's own windows.
+
+    Read off the piece, never guessed: a candidate is a glass pane (or a Macaw window) in
+    an exterior wall with a SOLID course under it and open air on the outside, which is
+    exactly where a window box hangs. The box goes in that air cell, at the level of the
+    course under the pane, facing out -- supported by the wall behind it, so it cannot pop
+    the first time a neighbour updates. Windows on the ground course are skipped: a box at
+    knee height beside a front door is something to trip over.
+
+    kaisyn's meadow chalets already carry boxes on their south faces; this dresses the
+    faces they left bare, and stops after `want` so a house does not read as a florist.
+    """
+    ag = {}
+    for lp, b in p.grid.items():
+        ag[tuple(p.abs(lp))] = b
+    panes = []
+    for a, b in sorted(ag.items()):
+        if 'glass_pane' not in b[0] and 'window' not in b[0]:
+            continue
+        if not (3 <= a[1] <= 8):
+            continue                          # ground-floor sills trip people; a belfry
+        panes.append(a)                       # window twenty blocks up is not a window box
+    out, used = [], set()
+    for (x, y, z) in panes:
+        if len(out) >= want:
+            break
+        for dirn, (dx, dz) in sorted(_STEP.items()):
+            ox, oz = x + dx, z + dz
+            if (ox, oz) in used:
+                continue
+            if not _solid(ag, (x, y - 1, z)):
+                continue
+            # open air outside: the template's own grid carries explicit air cells, so
+            # "not in the dict" is not the test -- `_air` is
+            if not all(_air(ag, (ox, y + k, oz)) for k in (-1, 0, 1)):
+                continue
+            if (ox, oz) in APRON_PAVED or (ox, oz) in street_cells:
+                continue
+            used.add((ox, oz))
+            out.append(setb(ox, y - 1, oz,
+                            'supplementaries:flower_box[face=wall,facing=%s]' % dirn))
+            break
+    return out
+
+
 def building_group(key, name, dressing=None, npc_at=None, top='minecraft:grass_block'):
     """The pad, the template and everything standing on it, lifted onto the building's own
     level -- and the apron, which is NOT lifted, because the apron is the ramp between that
@@ -1850,13 +2118,14 @@ def building_group(key, name, dressing=None, npc_at=None, top='minecraft:grass_b
     note_walls(p)
     dy = PAD_DY.get(name, 0)
     body = build_cmds(p, top)
+    body += window_boxes(p)
     if dressing:
         body += dressing
     if npc_at:
         body += npc_at
     cmds = shift_y(body, dy)
     for d in p.doors()[:1]:
-        cmds += apron_cmds(d, name)
+        cmds += apron_cmds(d, name, sign=door_sign_lines(name))
     cmds += arrival(META[name]['label'], META[name]['blurb'])
     group(key, 'anchor', cmds)
     for pr in p.probes():
@@ -1910,43 +2179,76 @@ mill_yard = OFF['mill']
 # there is inside the street the Act I finale cuts eleven quests later - which
 # is exactly what happened to the race the first time: `fill x 1..6 z air`
 # emptied the channel and the paving took the water with it.
-race = [mill_yard[0] - 1, 0, mill_yard[2] - 6]
-_yx0, _yz0 = mill_yard[0] - 2, mill_yard[2] - 7
-_yx1, _yz1 = mill_yard[0] + 6, mill_yard[2] - 3
+#
+# THE RACE, rebuilt 2026-09-05. It used to be `place template valley:mill_race` -- a 7x3x3
+# trough with SEVEN water cells in it, which media/look/NOTES.md item 8 correctly calls a
+# seven-block puddle: "no race, no wheel, no flow". This is a real one:
+#
+#   a head basin at the east end of the yard, three across and full to the brim
+#   a stone-lined channel three wide and ten long, kerbed both sides, running west
+#   a plank footbridge over the middle of it, with rails
+#   a WHEEL PIT at the mill's own east wall, cut three blocks deeper, so the channel
+#     pours into it -- that fall is the flow, and it is where Q16 sets the two Water
+#     Wheels; the pit is walled on all four sides and floored, so it cannot drain into
+#     the mill's pad
+MX, MZ = mill_yard[0], mill_yard[2]
+RACE_X0, RACE_X1 = MX - 2, MX + 5          # the channel, west (pit) to east (head)
+RACE_Z0, RACE_Z1 = MZ - 7, MZ - 5          # three wide
+PIT_X0, PIT_X1 = MX - 2, MX
+BRIDGE_X = MX + 1
+_yx0, _yz0 = MX - 2, MZ - 8
+_yx1, _yz1 = MX + 6, MZ - 3
 dress_mill = [
     fill(_yx0, 1, _yz0, _yx1, 8, _yz1, 'minecraft:air'),
     fill(_yx0, -6, _yz0, _yx1, -1, _yz1, 'minecraft:dirt'),
     fill(_yx0, 0, _yz0, _yx1, 0, _yz1, 'minecraft:cobblestone'),
-    # the race Q16 sets two Water Wheels in
-    'place template valley:mill_race %s %s %s' % (t(race[0]), t(race[1]), t(race[2])),
-    # The template is an open-ended trough. Capped at both ends AND walled down
-    # both long sides: the yard around it is open ground now, so an unwalled
-    # channel simply empties itself across the mill plot and down Mill Lane.
-    fill(race[0] - 1, 1, race[2], race[0] + 7, 1, race[2], 'minecraft:stone_bricks'),
-    fill(race[0] - 1, 1, race[2] + 2, race[0] + 7, 1, race[2] + 2, 'minecraft:stone_bricks'),
-    setb(race[0] - 1, 1, race[2] + 1, 'minecraft:stone_bricks'),
-    setb(race[0] + 7, 1, race[2] + 1, 'minecraft:stone_bricks'),
-    fill(race[0] - 1, 1, race[2] - 1, race[0] + 7, 5, race[2] + 3, 'minecraft:air',
-         ' replace minecraft:water'),
-    fill(race[0], 1, race[2] + 1, race[0] + 6, 1, race[2] + 1, 'minecraft:water[level=0]'),
+    # the channel: a stone-brick invert one block down, walls to either side, and the
+    # water standing in it flush with the yard
+    fill(RACE_X0, -1, RACE_Z0, RACE_X1 + 1, -1, RACE_Z1, 'minecraft:stone_bricks'),
+    fill(RACE_X0, 0, RACE_Z0 - 1, RACE_X1 + 1, 0, RACE_Z0 - 1, 'minecraft:stone_bricks'),
+    fill(RACE_X0, 0, RACE_Z1 + 1, RACE_X1 + 1, 0, RACE_Z1 + 1, 'minecraft:stone_bricks'),
+    setb(RACE_X1 + 1, 0, RACE_Z0, 'minecraft:stone_bricks'),
+    setb(RACE_X1 + 1, 0, RACE_Z0 + 1, 'minecraft:stone_bricks'),
+    setb(RACE_X1 + 1, 0, RACE_Z1, 'minecraft:stone_bricks'),
+    # the wheel pit, three deeper, sealed on every face that is not the channel
+    fill(PIT_X0 - 1, -4, RACE_Z0 - 1, PIT_X1, -1, RACE_Z1 + 1, 'minecraft:stone_bricks'),
+    fill(PIT_X0, -3, RACE_Z0, PIT_X1, 0, RACE_Z1, 'minecraft:air'),
+    fill(PIT_X0, -3, RACE_Z0, PIT_X1, -1, RACE_Z1, 'minecraft:water[level=0]'),
+    # the channel's own water, laid last so the walls are already standing
+    fill(PIT_X1 + 1, 0, RACE_Z0, RACE_X1, 0, RACE_Z1, 'minecraft:water[level=0]'),
+    # the footbridge over it
+    fill(BRIDGE_X, 1, RACE_Z0 - 1, BRIDGE_X + 1, 1, RACE_Z1 + 1, 'minecraft:oak_planks'),
+    fill(BRIDGE_X, 2, RACE_Z0 - 1, BRIDGE_X + 1, 2, RACE_Z0 - 1, 'minecraft:oak_fence'),
+    fill(BRIDGE_X, 2, RACE_Z1 + 1, BRIDGE_X + 1, 2, RACE_Z1 + 1, 'minecraft:oak_fence'),
     # the snapped axle, on the stones where it fell
-    setb(mill_yard[0] + 1, 1, mill_yard[2] - 7, 'minecraft:stripped_oak_log[axis=x]'),
-    setb(mill_yard[0] + 2, 1, mill_yard[2] - 7, 'minecraft:stripped_oak_log[axis=x]'),
-    setb(mill_yard[0] + 3, 1, mill_yard[2] - 7, 'minecraft:oak_log[axis=x]'),
-    setb(mill_yard[0] + 4, 1, mill_yard[2] - 7, 'minecraft:stripped_oak_log[axis=z]'),
-    # Bram's labelled crates
-    setb(mill_yard[0] + 5, 1, mill_yard[2] - 7, 'minecraft:barrel[facing=up]'),
-    setb(mill_yard[0] + 5, 1, mill_yard[2] - 4, 'handcrafted:oak_table'),
-    setb(mill_yard[0] + 6, 1, mill_yard[2] - 4, 'minecraft:crafting_table'),
-    setb(mill_yard[0] + 6, 1, mill_yard[2] - 3, POST),
-    setb(mill_yard[0] + 6, 2, mill_yard[2] - 3,
+    setb(MX + 1, 1, MZ - 8, 'minecraft:stripped_oak_log[axis=x]'),
+    setb(MX + 2, 1, MZ - 8, 'minecraft:stripped_oak_log[axis=x]'),
+    setb(MX + 3, 1, MZ - 8, 'minecraft:oak_log[axis=x]'),
+    setb(MX + 4, 1, MZ - 8, 'minecraft:stripped_oak_log[axis=z]'),
+    # Bram's labelled crates, all of them on the SOUTH kerb now: the two that used to
+    # stand at z = MZ-4 are in the channel since it went from one water cell wide to three
+    setb(MX + 5, 1, MZ - 8, 'minecraft:barrel[facing=up]'),
+    setb(MX + 4, 1, MZ - 3, 'handcrafted:oak_table'),
+    setb(MX + 5, 1, MZ - 3, 'minecraft:crafting_table'),
+    setb(MX + 6, 1, MZ - 3, POST),
+    setb(MX + 6, 2, MZ - 3,
          'minecraft:oak_sign[rotation=12]{front_text:{messages:[\'{"text":"THE MILL"}\','
          '\'{"text":""}\',\'{"text":"B. Tolliver"}\',\'{"text":"millwright"}\'],color:"gray"}}'),
-    npc('bram', [mill_yard[0] + 2, 1, mill_yard[2] - 3]),
+    npc('bram', [MX + 3, 1, MZ - 3]),
 ]
 MILL_YARD = (_yx0, _yz0, _yx1, _yz1)
+# NO APRON MAY CROSS THE RACE. An apron paves at dy0 and clears dy1..6 over every cell it
+# takes, so a route across an open water channel is a cobbled lid on the channel -- which
+# is exactly what the first build of this did: seven cells of the mill's own front path
+# were laid straight over the wheel pit and the head of the race, and `pad_material` caught
+# it as "pad edge cobblestone vs surround grass_block". The channel, its two kerbs and the
+# pit are hard-blocked here, before act1_mill lays its own apron, so the path goes round.
+apron_setup()
+MILL_RACE_CELLS = set(rect_cells(RACE_X0 - 1, RACE_Z0 - 1, RACE_X1 + 1, RACE_Z1 + 1))
+APRON_BLOCK.update(MILL_RACE_CELLS)
+PROTECTED.update(MILL_RACE_CELLS)
 building_group('act1_mill', 'mill', dressing=dress_mill)
-probe('mill_race_water', [race[0] + 3, 1, race[2] + 1], 'minecraft:water',
+probe('mill_race_water', [MX + 3, 0, MZ - 6], 'minecraft:water',
       dy=PAD_DY.get('mill', 0))
 
 # --- Marnie and Pip ----------------------------------------------------------
@@ -1991,13 +2293,117 @@ sq += [
     fill(-PLAZA, -PAD_DEEP, -PLAZA, PLAZA, -2, PLAZA, 'minecraft:dirt'),
     fill(-PLAZA, -1, -PLAZA, PLAZA, -1, PLAZA, 'minecraft:stone'),
     fill(-PLAZA, 0, -PLAZA, PLAZA, 0, PLAZA, 'minecraft:cobblestone'),
-    fill(-7, 0, -7, 7, 0, 7, 'minecraft:stone_bricks'),
-    fill(-4, 0, -4, 4, 0, 4, 'minecraft:polished_andesite'),
 ]
-# a gravel kerb ring, so the plaza reads as a paved square and not a slab
-for k in (PLAZA - 1, -(PLAZA - 1)):
-    sq.append(fill(-(PLAZA - 1), 0, k, PLAZA - 1, 0, k, 'minecraft:gravel'))
-    sq.append(fill(k, 0, -(PLAZA - 1), k, 0, PLAZA - 1, 'minecraft:gravel'))
+
+# ---------------------------------------------------------------------------
+# THE PAVING. It used to be three concentric squares -- cobblestone, then a
+# 15x15 of stone_bricks, then a 9x9 of polished_andesite, then a one-block
+# gravel kerb -- and from inside the square that is what media/look/NOTES.md
+# calls "one unbroken grid of pale tiles": four flat rectangles, every joint
+# dead straight, every cell the same block as the ninety around it.
+#
+# This is laid the way a town lays a square: RINGS, not rectangles, so the
+# geometry is round and the eye has a centre to find; four spokes running out
+# to the four corner lamp posts; and a deterministic weathering scatter --
+# mossy and cracked brick in the middle, gravel and coarse dirt at the kerb --
+# off cell_hash(), so it is reproducible to the block and still reads as stone
+# that has been walked on for sixty years. Only the cells that differ from the
+# cobblestone base above are written.
+# ---------------------------------------------------------------------------
+PAVE = {}
+for _px in range(-PLAZA, PLAZA + 1):
+    for _pz in range(-PLAZA, PLAZA + 1):
+        _r = math.hypot(_px, _pz)
+        _h = cell_hash(_px, _pz)
+        # a spoke is a cell within half a block of one of the two diagonals
+        _spoke = abs(abs(_px) - abs(_pz)) <= 1 and 4.0 <= _r <= 11.0
+        if _r < 2.6:                                  # the waystone dais
+            _b = 'minecraft:polished_andesite'
+        elif _r < 3.6:                                # its kerb ring
+            _b = 'minecraft:chiseled_stone_bricks' if _h < 55 else 'minecraft:stone_bricks'
+        elif _spoke:
+            _b = 'minecraft:polished_andesite' if _h < 70 else 'minecraft:andesite'
+        elif _r < 8.2:                                # the swept middle
+            _b = ('minecraft:mossy_stone_bricks' if _h < 20 else
+                  'minecraft:cracked_stone_bricks' if _h < 30 else
+                  'minecraft:cobblestone' if _h < 38 else 'minecraft:stone_bricks')
+        elif _r < 11.4:                               # the working half
+            _b = ('minecraft:mossy_cobblestone' if _h < 22 else
+                  'minecraft:gravel' if _h < 34 else
+                  'minecraft:andesite' if _h < 42 else
+                  'minecraft:stone_bricks' if _h < 50 else 'minecraft:cobblestone')
+        else:                                         # the kerb, dissolving out
+            _b = ('minecraft:coarse_dirt' if _h < 22 else
+                  'minecraft:cobblestone' if _h < 34 else 'minecraft:gravel')
+        if _b != 'minecraft:cobblestone':
+            PAVE[(_px, _pz)] = _b
+for (_px, _pz), _b in sorted(PAVE.items()):
+    sq.append(setb(_px, 0, _pz, _b))
+
+# ---------------------------------------------------------------------------
+# THE FOUNTAIN. kaisyn's own meadow_swiss town centre, placed so its 5x5 quartz
+# basin lands on the solved patch: the piece's real content is local x3..7,
+# y1..4, z3..7 and everything else in its 11x11 box is street marker. The
+# markers are cleared straight afterwards (marker_cleanup only runs for
+# BUILDINGS, and this is furniture on the square), and its bell comes out --
+# there is exactly one bell in this valley and it hangs in the tower.
+# ---------------------------------------------------------------------------
+FOUNTAIN_BOX = [FOUNTAIN[0], FOUNTAIN[1], FOUNTAIN[0] + 4, FOUNTAIN[1] + 4]
+_fo = (FOUNTAIN[0] - 3, FOUNTAIN[1] - 3)
+sq += [
+    'place template %s %s %s %s' % (FOUNTAIN_TID, t(_fo[0]), t(0), t(_fo[1])),
+    fill(_fo[0], 0, _fo[1], _fo[0] + 10, 4, _fo[1] + 10, 'minecraft:air',
+         ' replace minecraft:jigsaw'),
+    fill(_fo[0], 0, _fo[1], _fo[0] + 10, 4, _fo[1] + 10, 'minecraft:air',
+         ' replace minecraft:cyan_concrete'),
+    fill(FOUNTAIN_BOX[0], 1, FOUNTAIN_BOX[1], FOUNTAIN_BOX[2], 4, FOUNTAIN_BOX[3],
+         'minecraft:smooth_quartz_slab[type=top]', ' replace minecraft:bell'),
+]
+# the paving the markers took back out, and the basin's own floor
+for _px in range(_fo[0], _fo[0] + 11):
+    for _pz in range(_fo[1], _fo[1] + 11):
+        if max(abs(_px), abs(_pz)) <= PLAZA:
+            sq.append(setb(_px, 0, _pz, PAVE.get((_px, _pz), 'minecraft:cobblestone')))
+probe('square_fountain', [FOUNTAIN[0] + 2, 4, FOUNTAIN[1] + 2], 'minecraft:water')
+
+# ---------------------------------------------------------------------------
+# Two trees and two flower beds. A square with nothing growing on it is a car
+# park; these are the only living things between the four corner lamp posts.
+# Each is a 3x3: a stone-brick wall kerb round eight sides, soil in the middle,
+# and either a birch that clears the awnings or a bed of the same flowers the
+# window boxes carry.
+# ---------------------------------------------------------------------------
+for _bi, (_bx, _bz) in enumerate(SQ_TREE + SQ_BED):
+    _cx, _cz = _bx + 1, _bz + 1
+    for _dx in (-1, 0, 1):
+        for _dz in (-1, 0, 1):
+            if (_dx, _dz) == (0, 0):
+                continue
+            # a tree gets a full eight-block guard; a flower bed only four corner posts,
+            # so the flowers in it are visible from the paving rather than behind a kerb
+            if _bi < 2 or (_dx and _dz):
+                sq.append(setb(_cx + _dx, 1, _cz + _dz, 'minecraft:stone_brick_wall'))
+    sq.append(setb(_cx, 1, _cz, 'minecraft:podzol' if _bi < 2 else 'minecraft:grass_block'))
+    if _bi < 2:
+        # a birch: five of trunk, then a 5x5 crown at 6..7 and a cap at 8. It starts at
+        # dy2, so the crown's lowest leaf is four blocks over the tallest market cart.
+        for _ty in range(2, 7):
+            sq.append(setb(_cx, _ty, _cz, 'minecraft:birch_log[axis=y]'))
+        for _ty, _rad in ((6, 2), (7, 2), (8, 1)):
+            for _dx in range(-_rad, _rad + 1):
+                for _dz in range(-_rad, _rad + 1):
+                    if _dx == 0 and _dz == 0 and _ty < 8:
+                        continue
+                    if abs(_dx) == _rad and abs(_dz) == _rad:
+                        continue
+                    sq.append(setb(_cx + _dx, _ty, _cz + _dz,
+                                   'minecraft:birch_leaves[persistent=true]'))
+    else:
+        for _dx, _dz, _fl in ((0, 0, 'minecraft:peony'), (-1, 0, 'minecraft:red_tulip'),
+                              (1, 0, 'minecraft:oxeye_daisy'), (0, -1, 'minecraft:cornflower'),
+                              (0, 1, 'minecraft:allium')):
+            sq.append(setb(_cx + _dx, 1, _cz + _dz, 'minecraft:grass_block'))
+            sq.append(setb(_cx + _dx, 2, _cz + _dz, _fl))
 # the well: shaft first, then the wellhead on top of it
 sq += [
     'place template %s %s %s %s' % (WELL_BOTTOM, t(WELL_X + 1), t(-10), t(WELL_Z + 1)),
@@ -2075,11 +2481,8 @@ probe('high_street', [0, lev(0, 20), 20], 'minecraft:cobblestone')
 probe('mill_lane', [-20, lev(-20, 5), 5], 'minecraft:cobblestone')
 # One of the whitelisted post sites that neither a street nor the plaza paves:
 # proof that lamp_pad_cmds() levelled the raw hillside under it.
-_padcell = next((pst for pst in LAMPS['q34'] + LAMPS['q74']
-                 if (pst[0], pst[2]) not in street_cells), None)
-if _padcell:
-    probe('lamp_pad', [_padcell[0], lev(_padcell[0], _padcell[2]), _padcell[2]],
-          'minecraft:gravel')
+if LAMP_PAD_SAMPLE:
+    probe('lamp_pad', list(LAMP_PAD_SAMPLE[0]), 'minecraft:gravel')
 
 # --- Act II: the granary and the hedge garden -------------------------------
 gp = P['granary']
@@ -2095,9 +2498,25 @@ if alcoves:
         % (t(gp.x0 - 1), t(1), t(gp.z0 - 1)))
 building_group('act2_granary', 'granary', dressing=dress_gran)
 if alcoves:
+    # ...on the granary's OWN terrace. This probe (and church_bell below) were written
+    # before the town was terraced and never got the `dy=` every other probe carries, so
+    # both of them have been reading three blocks above the block they name since the day
+    # the pads got their own levels: the shipped world scored 44/47, not 47/47.
     probe('granary_alcove', [alcoves[0][0], alcoves[0][1] - 1, alcoves[0][2]],
-          'minecraft:polished_andesite')
+          'minecraft:polished_andesite', dy=PAD_DY.get('granary', 0))
 building_group('act2_garden', 'garden', top='minecraft:grass_block')
+
+# The Boathouse, on the east shore looking at the pier. Nella's nets, her spare oars and a
+# boat on the shingle; the covered slip out over the water is part of day1_lakefront.
+boat_p = P['boathouse']
+_bd = boat_p.doors()[0]
+_bsx, _bsz = _STEP[_bd['facing']]
+dress_boat = [
+    setb(boat_p.x0 + 1, 1, boat_p.z1 - 1, 'minecraft:barrel[facing=up]'),
+    setb(boat_p.x1 - 1, 1, boat_p.z1 - 1, 'handcrafted:oak_table'),
+    setb(boat_p.x0 + 2, 1, boat_p.z1 - 1, 'minecraft:composter'),
+]
+building_group('act2_boathouse', 'boathouse', dressing=dress_boat)
 
 # --- Act III: the store, the bell tower, the supper table -------------------
 store = P['store']
@@ -2106,116 +2525,214 @@ dress_store = [npc('oda', list(store_stand[0]))] if store_stand else []
 building_group('act3_store', 'store', dressing=dress_store)
 
 church = P['church']
-top_solid = max(lp[1] for lp, b in church.grid.items() if _solid(church.grid, lp))
-bell_local = None
-for lp, b in sorted(church.grid.items()):
-    if lp[1] == top_solid - 1 and _solid(church.grid, lp):
-        bell_local = lp
-        break
-bell = church.abs((bell_local[0], bell_local[1] + 1, bell_local[2])) if bell_local else None
-dress_church = []
-if bell:
-    dress_church.append(setb(bell[0], bell[1], bell[2],
-                             'minecraft:bell[attachment=floor,facing=south]'))
+# The bell. classic_church_1 had none, so this used to stack one on the highest solid
+# block it could find - which on a piece with a flagpole is the top of the flagpole. The
+# watchtower ships a real bell in its belfry, hung the way the mod's own builder hung it,
+# so it is READ rather than added: the registry's bell position is the template's, and
+# Act III's quest rings a bell that is part of the building instead of an ornament resting
+# on its roof. The fallback is kept for any future piece that has no bell of its own.
+bell, dress_church = None, []
+_bell_own = [lp for lp, b in sorted(church.grid.items()) if b[0] == 'minecraft:bell']
+if _bell_own:
+    bell = church.abs(_bell_own[0])
+else:
+    top_solid = max(lp[1] for lp, b in church.grid.items() if _solid(church.grid, lp))
+    bell_local = None
+    for lp, b in sorted(church.grid.items()):
+        if lp[1] == top_solid - 1 and _solid(church.grid, lp):
+            bell_local = lp
+            break
+    if bell_local:
+        bell = church.abs((bell_local[0], bell_local[1] + 1, bell_local[2]))
+        dress_church.append(setb(bell[0], bell[1], bell[2],
+                                 'minecraft:bell[attachment=floor,facing=south]'))
+dress_church += douse(church)
 building_group('act3_church', 'church', dressing=dress_church)
 if bell:
-    probe('church_bell', bell, 'minecraft:bell')
+    probe('church_bell', bell, 'minecraft:bell', dy=PAD_DY.get('church', 0))
+    print('  bell tower: %s, %d courses, bell at dy %+d (%d over the plaza)'
+          % (church.tid.split('/')[-1], church.size[1], bell[1],
+             bell[1] + PAD_DY.get('church', 0)))
 
-# the Harvest Supper table: real furniture on the square, not a template box
+# The Harvest Supper table: real furniture on the square, not a template box.
+#
+# It used to be nine tables between two ranks of NINE INDIVIDUAL CHAIRS each -- eighteen
+# `handcrafted:oak_chair` in two dead-straight lines down the middle of the square, which
+# is the single thing media/look/NOTES.md item 3 names when it calls the square "furnished
+# like a waiting room". The chairs are gone. What stands here now is a trestle: seven
+# tables with a CONTINUOUS BENCH down each side -- handcrafted's benches join up into one
+# long seat rather than reading as fourteen separate objects -- and one chair at each end,
+# for whoever is carving. Eleven people still sit down at it; `SUPPER_SEATS` above solves
+# where they stand, and it is unchanged.
 tbl = []
-for x in range(-4, 5):
+for x in range(-3, 4):
     tbl.append(setb(x, 1, -10, 'handcrafted:oak_table'))
-    tbl.append(setb(x, 1, -11, 'handcrafted:oak_chair[facing=south]'))
-    tbl.append(setb(x, 1, -9, 'handcrafted:oak_chair[facing=north]'))
+    tbl.append(setb(x, 1, -11, 'handcrafted:oak_bench[facing=south]'))
+    tbl.append(setb(x, 1, -9, 'handcrafted:oak_bench[facing=north]'))
+tbl.append(setb(-4, 1, -10, 'handcrafted:oak_chair[facing=east]'))
+tbl.append(setb(4, 1, -10, 'handcrafted:oak_chair[facing=west]'))
 # DARK SQUARE FIX (2026-09-05): the three candle holders were lit=true and the two
 # table ends carried a post with a LIT lantern on it. The supper table keeps its candle
 # holders -- unlit -- and loses the two lantern posts, so nothing on this square emits
 # light until finaleAct1 lights the first six copper lamps.
-for x in (-4, 0, 4):
+for x in (-2, 0, 2):
     tbl.append(setb(x, 2, -10, 'supplementaries:candle_holder[lit=false,face=floor,facing=north,candles=3]'))
 group('act3_table', 'anchor', tbl)
 probe('supper_table', [0, 1, -10], 'handcrafted:oak_table')
 
 # --- Act IV: the greenhouse ---------------------------------------------------
+# REBUILT 2026-09-05. What stood here was a spruce-plank box with panes stuck on it at four
+# different heights (media/look/NOTES.md item 6: "a blank wall with glass stuck on it"),
+# and no template in any installed jar is a greenhouse, so this is a real parametric
+# building instead:
+#
+#   dy0   a stone-brick raft, with the beds and the walkway cut into it
+#   dy1   the BASE COURSE -- stone brick all round, the thing every glasshouse stands on
+#   dy2-4 the frame: stone-brick corner piers, copper-bar mullions every third column,
+#         and glass between them (the glass is in the GLAZE group, because Q64 is the
+#         player glazing six empty frames herself and the shell has to ship empty)
+#   dy5-8 an ARCH, not a gable: the roof height falls as a cosine off the ridge, so the
+#         span reads as a barrel vault of glass with copper eaves, and both end walls are
+#         arched glass gables
+#   the chimney for Q72's heaters, up the east end and three courses over the ridge
+#
+# Everything is computed off the solved rectangle, so the building follows the site.
 gx0, gz0, gx1, gz1 = gh
 gm = OFF['greenhouse']
-shell = pad_cmds(gx0 - 2, gz0 - 2, gx1 + 2, gz1 + 2, 10)
-shell += [
-    fill(gx0, 0, gz0, gx1, 0, gz1, 'minecraft:stone_bricks'),
-    fill(gx0 + 1, 0, gz0 + 1, gx1 - 1, 0, gz1 - 1, 'minecraft:podzol'),
-    fill(gx0, 1, gz0, gx1, 3, gz1, 'minecraft:spruce_planks', ' hollow'),
-    fill(gx0 + 1, 1, gz0 + 1, gx1 - 1, 3, gz1 - 1, 'minecraft:air'),
-]
-for cx, cz in ((gx0, gz0), (gx1, gz0), (gx0, gz1), (gx1, gz1)):
-    shell.append(fill(cx, 1, cz, cx, 3, cz, 'minecraft:spruce_log[axis=y]'))
-GH_WINDOWS = []
-for x in range(gx0 + 2, gx1 - 1, 3):
-    GH_WINDOWS.append((x, gz0)); GH_WINDOWS.append((x, gz1))
-for (wx, wz) in GH_WINDOWS:
-    shell.append(fill(wx, 2, wz, wx + 1, 3, wz, 'minecraft:air'))
+GH_ZC = (gz0 + gz1) // 2
+GH_EAVE, GH_RISE = 5, 3
+GH_MULLION = [gx0 + 3, gx0 + 6, gx0 + 9]
 GH_DOOR = (gx0 + (gx1 - gx0) // 2, gz1)
-shell.append(fill(GH_DOOR[0], 1, GH_DOOR[1], GH_DOOR[0], 2, GH_DOOR[1], 'minecraft:air'))
-# The roof line. It used to be one flat course of fence at y 4, glazed flat at y 4, and
-# from anywhere outside the valley it read as a pale blue slab lying in a field -- a glass
-# box, not a greenhouse. It is a gable now: the ridge runs along x down the middle of the
-# span, the pitch falls one block per two blocks of depth to the eaves, the risers between
-# courses are closed so there are no holes to see sky through, and the two ends are filled
-# in as proper gable walls in the same spruce as the rest of the shell.
+
+
 def _gh_ry(z):
-    d = min(z - gz0, gz1 - z)
-    return 4 + (d + 1) // 2
+    """The arch: eaves at the two long walls, ridge down the middle."""
+    half = max(1.0, (gz1 - gz0) / 2.0)
+    return GH_EAVE + int(round(GH_RISE * math.cos(math.pi / 2 * abs(z - GH_ZC) / half)))
 
 
+shell = pad_cmds(gx0 - 2, gz0 - 2, gx1 + 2, gz1 + 2, 14)
+shell += [
+    # the raft and the plinth
+    fill(gx0, 0, gz0, gx1, 0, gz1, 'minecraft:stone_bricks'),
+    fill(gx0, 1, gz0, gx1, 3, gz1, 'minecraft:air'),
+]
+shell += ring(gx0, 1, gz0, gx1, 1, gz1, 'minecraft:stone_bricks')
+# the beds, the walkway and the potting bench, cut into the raft
+for _z in range(gz0 + 1, gz1):
+    if _z == GH_ZC or _z == gz1 - 1:
+        continue                                   # walkway
+    if _z == gz0 + 1:
+        continue                                   # the bench sits on the raft
+    shell.append(fill(gx0 + 1, 0, _z, gx1 - 1, 0, _z, 'minecraft:podzol'))
+shell += [
+    fill(gx0 + 1, 1, gz0 + 1, gx1 - 1, 1, gz0 + 1, 'minecraft:spruce_slab[type=top]'),
+    setb(gx0 + 1, 1, gz1 - 1, 'farmersdelight:organic_compost'),
+    setb(gx1 - 1, 1, gz1 - 1, 'handcrafted:oak_table'),
+]
+# the frame: four stone piers, copper-bar mullions, an open frame everywhere else
+for _cx, _cz in ((gx0, gz0), (gx1, gz0), (gx0, gz1), (gx1, gz1)):
+    shell.append(fill(_cx, 2, _cz, _cx, 4, _cz, 'minecraft:stone_bricks'))
+GH_FRAME = []
+for _mx in GH_MULLION:
+    GH_FRAME += [(_mx, gz0), (_mx, gz1)]
+GH_FRAME += [(gx0, GH_ZC), (gx1, GH_ZC)]
+for (_fx, _fz) in GH_FRAME:
+    shell.append(fill(_fx, 2, _fz, _fx, 4, _fz, 'createdeco:copper_bars'))
+# the arch's ribs and its copper eaves. The glass between them is the glaze.
 GH_ROOF, GH_GABLE = [], []
 _prev = None
 for _z in range(gz0, gz1 + 1):
     _ry = _gh_ry(_z)
     GH_ROOF.append((_ry, _z))
     if _prev is not None and _ry > _prev:
-        GH_ROOF.append((_ry - 1, _z))
+        GH_ROOF.append((_ry - 1, _z))               # close the riser
     _prev = _ry
-    for _y in range(4, _ry):
+    for _y in range(GH_EAVE, _ry):
         GH_GABLE += [(gx0, _y, _z), (gx1, _y, _z)]
-
-for (_ry, _z) in GH_ROOF:
-    shell.append(fill(gx0, _ry, _z, gx1, _ry, _z, 'minecraft:spruce_fence'))
-for (_gx, _gy, _gz) in GH_GABLE:
-    shell.append(setb(_gx, _gy, _gz, 'minecraft:spruce_planks'))
 shell += [
-    fill(gx0 + 1, 1, gm[2], gx1 - 1, 1, gm[2], 'minecraft:spruce_slab[type=top]'),
-    setb(gx0, 2, gm[2], LAMP_LIT),
-    setb(gx1, 2, gm[2], LAMP_LIT),
+    fill(gx0, GH_EAVE, gz0, gx1, GH_EAVE, gz0,
+         'minecraft:waxed_exposed_cut_copper_stairs[facing=north]'),
+    fill(gx0, GH_EAVE, gz1, gx1, GH_EAVE, gz1,
+         'minecraft:waxed_exposed_cut_copper_stairs[facing=south]'),
+]
+for _mx in [gx0] + GH_MULLION + [gx1]:
+    for (_ry, _z) in GH_ROOF:
+        if _z in (gz0, gz1):
+            continue
+        shell.append(setb(_mx, _ry, _z, 'createdeco:copper_bars'))
+# the doorway, left empty for Q64
+shell.append(fill(GH_DOOR[0], 1, GH_DOOR[1], GH_DOOR[0], 3, GH_DOOR[1], 'minecraft:air'))
+# the chimney for the heaters: up the east gable, three courses over the ridge
+GH_FLUE = (gx1, gz0 + 2)
+shell += [
+    fill(GH_FLUE[0], 1, GH_FLUE[1], GH_FLUE[0], 10, GH_FLUE[1], 'minecraft:stone_bricks'),
+    fill(GH_FLUE[0], 8, GH_FLUE[1], GH_FLUE[0], 10, GH_FLUE[1], 'minecraft:bricks'),
+    setb(GH_FLUE[0], 11, GH_FLUE[1], 'minecraft:brick_slab'),
+    # DARK SQUARE FIX: these two used to be LAMP_LIT, i.e. two lit copper lamps standing
+    # outside a building in a valley whose whole story is that nothing outside is lit.
+    setb(gx0, 2, gm[2], LAMP_DARK),
+    setb(gx1, 2, gm[2], LAMP_DARK),
 ]
 shell += arrival(META['greenhouse']['label'], META['greenhouse']['blurb'])
 GH_DY = PAD_DY.get('greenhouse', 0)
-group('act4_greenhouse_shell', 'anchor', shift_y(shell, GH_DY))
-probe('greenhouse_wall', [gx0, 1, gz0 + 1], 'minecraft:spruce_planks', dy=GH_DY)
+shell = shift_y(shell, GH_DY)
+# ...and a way in. The greenhouse is the one building in the valley that never had an
+# apron: its door opened onto the raw skirt of its own pad.
+shell += apron_cmds({'pos': [GH_DOOR[0], 1 + GH_DY, GH_DOOR[1]], 'facing': 'south'},
+                    'greenhouse', sign=door_sign_lines('greenhouse'))
+group('act4_greenhouse_shell', 'anchor', shell)
+probe('greenhouse_wall', [gx0, 1, gz0 + 1], 'minecraft:stone_bricks', dy=GH_DY)
 
 glaze = []
-for (wx, wz) in GH_WINDOWS:
-    glaze.append(fill(wx, 2, wz, wx + 1, 3, wz, 'mcwwindows:spruce_window'))
+# the walls: every frame bay that is not a pier, a mullion or the doorway
+for _z in (gz0, gz1):
+    for _x in range(gx0 + 1, gx1):
+        if (_x, _z) in GH_FRAME or (_x, _z) == GH_DOOR:
+            continue
+        glaze.append(fill(_x, 2, _z, _x, 4, _z, 'minecraft:glass_pane'))
+for _x in (gx0, gx1):
+    for _z in range(gz0 + 1, gz1):
+        if (_x, _z) in GH_FRAME or (_x, _z) == GH_FLUE:
+            continue
+        glaze.append(fill(_x, 2, _z, _x, 4, _z, 'minecraft:glass_pane'))
+# the arched gable ends, in pane so the ribs read through them
+for (_gx2, _gy, _gz2) in GH_GABLE:
+    if (_gx2, _gz2) == GH_FLUE:
+        continue
+    glaze.append(setb(_gx2, _gy, _gz2, 'minecraft:glass_pane'))
+# the vault
+for (_ry, _z) in GH_ROOF:
+    for _x in range(gx0, gx1 + 1):
+        if _x in [gx0] + GH_MULLION + [gx1] and _z not in (gz0, gz1):
+            continue
+        if _z in (gz0, gz1):
+            continue
+        if (_x, _z) == GH_FLUE:
+            continue
+        glaze.append(setb(_x, _ry, _z, 'minecraft:glass'))
 glaze += [
     'setblock %s %s %s mcwdoors:oak_cottage_door[half=lower,facing=north,hinge=left,open=false]'
     % (t(GH_DOOR[0]), t(1), t(GH_DOOR[1])),
     'setblock %s %s %s mcwdoors:oak_cottage_door[half=upper,facing=north,hinge=left,open=false]'
     % (t(GH_DOOR[0]), t(2), t(GH_DOOR[1])),
 ]
-for (_ry, _z) in GH_ROOF:
-    glaze.append(fill(gx0, _ry, _z, gx1, _ry, _z, 'minecraft:glass'))
-glaze += [
-    # the eaves, so the roof has a line instead of an edge
-    fill(gx0, 4, gz0, gx1, 4, gz0, 'minecraft:spruce_stairs[facing=north]'),
-    fill(gx0, 4, gz1, gx1, 4, gz1, 'minecraft:spruce_stairs[facing=south]'),
-]
-for x in range(gx0 + 2, gx1 - 1, 2):
-    glaze.append(setb(x, 2, gm[2], 'minecraft:flower_pot'))
-glaze += [
-    setb(gx0 + 2, 1, gm[2] - 2, 'farmersdelight:organic_compost'),
-    setb(gx1 - 2, 1, gm[2] - 2, 'handcrafted:oak_table'),
-    'playsound minecraft:block.glass.place master @a ~0 ~1 ~0 2 1',
-]
+# eight planters on the marked bench (Q64 hands these over), and what is growing in the beds
+for _x in range(gx0 + 2, gx1 - 1, 2):
+    glaze.append(setb(_x, 2, gz0 + 1, 'minecraft:flower_pot'))
+for _z in range(gz0 + 1, gz1):
+    if _z in (GH_ZC, gz1 - 1, gz0 + 1):
+        continue
+    for _x in range(gx0 + 1, gx1):
+        _h = cell_hash(_x, _z)
+        glaze.append(setb(_x, 1, _z,
+                          'minecraft:sweet_berry_bush[age=2]' if _h < 22 else
+                          'minecraft:fern' if _h < 50 else
+                          'minecraft:grass' if _h < 72 else 'minecraft:air'))
+glaze.append('playsound minecraft:block.glass.place master @a ~0 ~1 ~0 2 1')
 group('act4_greenhouse_glaze', 'anchor', shift_y(glaze, GH_DY))
-probe('greenhouse_glass', [gm[0], _gh_ry(gm[2]), gm[2]], 'minecraft:glass', dy=GH_DY)
+# one column OFF the centre: the centre line of the vault is a copper rib
+probe('greenhouse_glass', [gm[0] + 1, _gh_ry(GH_ZC), GH_ZC], 'minecraft:glass', dy=GH_DY)
 
 heat = []
 for x in range(gx0 + 2, gx1 - 1, 2):
@@ -2224,39 +2741,79 @@ heat.append(fill(gx0 + 1, 0, gz1 - 1, gx1 - 1, 0, gz1 - 1, 'thermal:fluid_duct')
 group('act4_greenhouse_heat', 'anchor', shift_y(heat, GH_DY))
 
 # --- Act IV: the bathhouse ----------------------------------------------------
+# REBUILT 2026-09-05. It was a stone box with a flat spruce lid and a puddle in it. This is
+# a bathhouse: stone brick to the sill, spruce boarding above it, four sunk cauldron tubs
+# round a warm tank, benches along two walls, and a COPPER HIP ROOF -- five stepped rings
+# of waxed exposed cut copper, which is the one roof in the valley with a colour in it --
+# with a stone flue up the north-west corner for the steam. Nothing in it is lit: the tank
+# is warm because Q72 plumbs the Works' waste heat into it, and that is a story beat, not
+# a light source.
 bx0, bz0, bx1, bz1 = bh
 bm = OFF['bathhouse']
-bath = pad_cmds(bx0 - 2, bz0 - 2, bx1 + 2, bz1 + 2, 10)
+BH_DOOR = (bm[0], bz0)
+bath = pad_cmds(bx0 - 2, bz0 - 2, bx1 + 2, bz1 + 2, 14)
 bath += [
     fill(bx0, 0, bz0, bx1, 0, bz1, 'minecraft:stone_bricks'),
-    fill(bx0, 1, bz0, bx1, 3, bz1, 'minecraft:stone_bricks', ' hollow'),
-    fill(bx0 + 1, 1, bz0 + 1, bx1 - 1, 3, bz1 - 1, 'minecraft:air'),
-    fill(bx0 + 1, 4, bz0 + 1, bx1 - 1, 4, bz1 - 1, 'minecraft:spruce_planks'),
-    fill(bx0, 4, bz0, bx1, 4, bz0, 'minecraft:spruce_stairs[facing=north]'),
-    fill(bx0, 4, bz1, bx1, 4, bz1, 'minecraft:spruce_stairs[facing=south]'),
-    fill(bx0, 4, bz0 + 1, bx0, 4, bz1 - 1, 'minecraft:spruce_stairs[facing=west]'),
-    fill(bx1, 4, bz0 + 1, bx1, 4, bz1 - 1, 'minecraft:spruce_stairs[facing=east]'),
-    # the door, facing the town
-    fill(bm[0], 1, bz0, bm[0], 2, bz0, 'minecraft:air'),
-    # two window bands
+    fill(bx0, 1, bz0, bx1, 3, bz1, 'minecraft:air'),
+]
+# stone to the sill, spruce boarding above it
+bath += ring(bx0, 1, bz0, bx1, 1, bz1, 'minecraft:stone_bricks')
+bath += ring(bx0, 2, bz0, bx1, 3, bz1, 'minecraft:spruce_planks')
+for _cx, _cz in ((bx0, bz0), (bx1, bz0), (bx0, bz1), (bx1, bz1)):
+    bath.append(fill(_cx, 1, _cz, _cx, 3, _cz, 'minecraft:stripped_spruce_log[axis=y]'))
+bath += [
+    # the doorway, facing the town
+    fill(BH_DOOR[0], 1, BH_DOOR[1], BH_DOOR[0], 2, BH_DOOR[1], 'minecraft:air'),
+    # two window bands, in the boarding rather than punched through the stone
     fill(bx0, 2, bz0 + 2, bx0, 2, bz1 - 2, 'minecraft:glass_pane'),
     fill(bx1, 2, bz0 + 2, bx1, 2, bz1 - 2, 'minecraft:glass_pane'),
-    # the tank
+    fill(bx0 + 2, 2, bz1, bx1 - 2, 2, bz1, 'minecraft:glass_pane'),
+]
+# the copper hip roof: five stepped rings, each a solid course with a stair skin, so there
+# is no diagonal gap to see sky through.
+BH_RINGS = min((bx1 - bx0) // 2, (bz1 - bz0) // 2) + 1
+for _k in range(BH_RINGS):
+    _y = 4 + _k
+    _a, _b, _c, _d = bx0 + _k, bz0 + _k, bx1 - _k, bz1 - _k
+    bath.append(fill(_a, _y, _b, _c, _y, _d, 'minecraft:waxed_exposed_cut_copper'))
+    if _a < _c:
+        bath.append(fill(_a, _y, _b, _c, _y, _b,
+                         'minecraft:waxed_exposed_cut_copper_stairs[facing=north]'))
+        bath.append(fill(_a, _y, _d, _c, _y, _d,
+                         'minecraft:waxed_exposed_cut_copper_stairs[facing=south]'))
+        bath.append(fill(_a, _y, _b + 1, _a, _y, _d - 1,
+                         'minecraft:waxed_exposed_cut_copper_stairs[facing=west]'))
+        bath.append(fill(_c, _y, _b + 1, _c, _y, _d - 1,
+                         'minecraft:waxed_exposed_cut_copper_stairs[facing=east]'))
+    else:
+        bath.append(setb(_a, _y, _b, 'minecraft:waxed_exposed_cut_copper_slab'))
+# the flue, up the north-west corner and clear of the ridge
+BH_FLUE = (bx0 + 1, bz0 + 1)
+bath += [
+    fill(BH_FLUE[0], 1, BH_FLUE[1], BH_FLUE[0], 4 + BH_RINGS + 1, BH_FLUE[1],
+         'minecraft:stone_bricks'),
+    setb(BH_FLUE[0], 4 + BH_RINGS + 2, BH_FLUE[1], 'minecraft:stone_brick_slab'),
+    # the tank: sunk into the raft, rimmed in stone brick, warm since Q72
     fill(bx0 + 2, 0, bz0 + 2, bx1 - 2, 0, bz1 - 2, 'minecraft:water[level=0]'),
     setb(bm[0], -1, bm[2], 'minecraft:magma_block'),
-    setb(bx0 + 1, 1, bz0 + 1, 'minecraft:cauldron'),
-    setb(bx1 - 1, 1, bz1 - 1, 'handcrafted:oak_bench'),
-    setb(bx0 + 1, 1, bz1 - 1, POST), setb(bx0 + 1, 2, bz1 - 1, LAMP_LIT),
-    setb(bx1 - 1, 1, bz0 + 1, POST), setb(bx1 - 1, 2, bz0 + 1, LAMP_LIT),
-    'particle minecraft:cloud %s %s %s 2 1 2 0.02 200 force @a' % (t(bm[0]), t(bm[1] + 2), t(bm[2])),
+]
+# four cauldron tubs in the corners, two benches, two unlit lamps
+for _tx, _tz in ((bx0 + 1, bz1 - 1), (bx1 - 1, bz0 + 1), (bx1 - 1, bz1 - 1)):
+    bath.append(setb(_tx, 1, _tz, 'minecraft:water_cauldron[level=3]'))
+bath += [
+    setb(bx0 + 1, 1, bm[2], 'handcrafted:spruce_bench[facing=east]'),
+    setb(bx1 - 1, 1, bm[2], 'handcrafted:spruce_bench[facing=west]'),
+    setb(bx0 + 2, 2, bz0, LAMP_DARK),
+    setb(bx1 - 2, 2, bz0, LAMP_DARK),
     'playsound minecraft:block.bubble_column.upwards_ambient master @a ~0 ~1 ~0 2 0.8',
 ]
 BH_DY = PAD_DY.get('bathhouse', 0)
 bath = shift_y(bath, BH_DY)
-bath += apron_cmds({'pos': [bm[0], 1 + BH_DY, bz0], 'facing': 'north'}, 'bathhouse')
+bath += apron_cmds({'pos': [BH_DOOR[0], 1 + BH_DY, BH_DOOR[1]], 'facing': 'north'}, 'bathhouse',
+                   sign=door_sign_lines('bathhouse'))
 bath += arrival(META['bathhouse']['label'], META['bathhouse']['blurb'])
 group('act4_bathhouse', 'anchor', bath)
-probe('bathhouse_wall', [bx0, 2, bz0 + 1], 'minecraft:stone_bricks', dy=BH_DY)
+probe('bathhouse_wall', [bx0, 2, bz0 + 1], 'minecraft:spruce_planks', dy=BH_DY)
 probe('bathhouse_water', [bm[0], 0, bm[2] + 1], 'minecraft:water', dy=BH_DY)
 
 # --- Act IV: the Works interior, bunker pieces inside the sealed shell -------
@@ -2370,7 +2927,7 @@ if len(free) >= 2:
 group('act4_bram_chair', 'anchor', shift_y(chair, PAD_DY.get('inn', 0)))
 
 # --- Tobin's copper outcrop --------------------------------------------------
-TOB = solve_custom('tobin_camp', 9, 9, (28, -38))
+TOB = solve_custom('tobin_camp', 9, 9, (38, -50))
 tx0, tz0, tx1, tz1 = TOB
 PAD_DY['tobin_camp'] = median_dy(tx0, tz0, tx1, tz1)
 flat(tx0 - 2, tz0 - 2, tx1 + 2, tz1 + 2, PAD_DY['tobin_camp'], 'tobin_camp')
@@ -2743,7 +3300,7 @@ for _tid in sorted(TEMPLATE_IDS):
 RUN_ORDER = [
     'act1_inn', 'act1_mill', 'act1_marnie', 'act1_pip',            # Act I scenes
     'act1_square', 'act1_streets', 'act1_lamp_pads', 'act1_tobin',  # finaleAct1
-    'act2_granary', 'act2_garden',                                  # finaleAct2
+    'act2_granary', 'act2_garden', 'act2_boathouse',                # finaleAct2
     'act3_store', 'act3_church', 'act3_table',                      # finaleAct3
     'act4_greenhouse_shell',                                        # scene q60
     'act4_greenhouse_glaze',                                        # scene q64
@@ -3912,17 +4469,88 @@ if SITE:
         'setblock ~11 ~0 ~6 minecraft:oak_fence',
         'setblock ~11 ~1 ~6 minecraft:lantern[hanging=false]',
     ]
+    # =====================================================================
+    # THE BOAT SLIP -- a spruce shed on piles over the water, beside the pier.
+    #
+    # The brief for the lakefront was "a boathouse", and there are two of them: the
+    # meadow set's own fisher chalet stands on the shore (act2_boathouse) and this is
+    # the covered slip it works out of -- four courses of pile driven into the basin
+    # floor, a U of decking round an open bay, a spruce gable over it and a boat
+    # floating in the bay with its bow to the lake. It is lake-mark-relative like
+    # everything else here, it is west of the pier and east of the lantern road's own
+    # kerb, and it is written AFTER the basin, so the water is already standing when
+    # the piles go into it.
+    # =====================================================================
+    SLIP = (2, 6, 11, 17)                       # x0, x1, z0, z1, lake-relative
+    _sxc = (SLIP[0] + SLIP[1]) // 2
+    DAY1_LAKE.append('# 7. the covered boat slip, west of the pier')
+    for _px, _pz in [(SLIP[0], _z) for _z in range(SLIP[2], SLIP[3] + 1)] + \
+                    [(SLIP[1], _z) for _z in range(SLIP[2], SLIP[3] + 1)] + \
+                    [(_x, SLIP[2]) for _x in range(SLIP[0] + 1, SLIP[1])]:
+        DAY1_LAKE.append('fill ~%d ~-3 ~%d ~%d ~-1 ~%d minecraft:spruce_log[axis=y]'
+                         % (_px, _pz, _px, _pz))
+        DAY1_LAKE.append('setblock ~%d ~0 ~%d minecraft:spruce_planks' % (_px, _pz))
+    # the bay: the water the boat sits in, kept clear of deck
+    DAY1_LAKE.append('fill ~%d ~0 ~%d ~%d ~5 ~%d minecraft:air'
+                     % (SLIP[0] + 1, SLIP[2] + 1, SLIP[1] - 1, SLIP[3]))
+    # the back wall, the two side walls and the open front
+    DAY1_LAKE.append('fill ~%d ~1 ~%d ~%d ~2 ~%d minecraft:spruce_planks'
+                     % (SLIP[0], SLIP[2], SLIP[1], SLIP[2]))
+    for _wx in (SLIP[0], SLIP[1]):
+        DAY1_LAKE.append('fill ~%d ~1 ~%d ~%d ~1 ~%d minecraft:spruce_planks'
+                         % (_wx, SLIP[2] + 1, _wx, SLIP[3] - 1))
+        DAY1_LAKE.append('fill ~%d ~2 ~%d ~%d ~2 ~%d minecraft:spruce_fence'
+                         % (_wx, SLIP[2] + 1, _wx, SLIP[3] - 1))
+        DAY1_LAKE.append('fill ~%d ~1 ~%d ~%d ~2 ~%d minecraft:stripped_spruce_log[axis=y]'
+                         % (_wx, SLIP[3], _wx, SLIP[3]))
+    # a spruce gable, ridge running down the slip
+    for _dx in range(-(SLIP[1] - _sxc), SLIP[1] - _sxc + 1):
+        _ry = 5 - abs(_dx)
+        _blk = ('minecraft:spruce_slab[type=bottom]' if _dx == 0 else
+                'minecraft:spruce_stairs[facing=%s]' % ('west' if _dx < 0 else 'east'))
+        DAY1_LAKE.append('fill ~%d ~%d ~%d ~%d ~%d ~%d %s'
+                         % (_sxc + _dx, _ry, SLIP[2], _sxc + _dx, _ry, SLIP[3], _blk))
+        if _dx:
+            DAY1_LAKE.append('fill ~%d ~%d ~%d ~%d ~%d ~%d minecraft:spruce_planks'
+                             % (_sxc + _dx, _ry + 1, SLIP[2], _sxc + _dx, _ry + 1, SLIP[2]))
+    # her nets, her oars, and the boat itself
+    DAY1_LAKE += [
+        'setblock ~%d ~1 ~%d minecraft:barrel[facing=up]' % (SLIP[0] + 1, SLIP[2]),
+        'setblock ~%d ~1 ~%d minecraft:stripped_spruce_log[axis=x]' % (SLIP[1] - 1, SLIP[2]),
+        # ...and the boat in the bay. Built, not summoned: valley_build filters `summon`
+        # out of a day-one build, so a boat entity here would simply never exist. Four
+        # waterlogged pieces sitting in the water surface read as a hull from the pier.
+        'setblock ~%d ~-1 ~%d minecraft:oak_stairs[facing=north,half=top,waterlogged=true]'
+        % (_sxc, SLIP[3] - 4),
+        'setblock ~%d ~-1 ~%d minecraft:oak_slab[type=top,waterlogged=true]'
+        % (_sxc, SLIP[3] - 3),
+        'setblock ~%d ~-1 ~%d minecraft:oak_slab[type=top,waterlogged=true]'
+        % (_sxc, SLIP[3] - 2),
+        'setblock ~%d ~-1 ~%d minecraft:oak_stairs[facing=south,half=top,waterlogged=true]'
+        % (_sxc, SLIP[3] - 1),
+    ]
+    SLIP_CELLS = set((x, z) for x in range(SLIP[0], SLIP[1] + 1)
+                     for z in range(SLIP[2], SLIP[3] + 1))
+
     # the twelve rafts: a lantern on a waterlogged TOP slab, whose upper face IS the block
     # boundary, so it sits flush with the water and still supports the lantern.
+    # Anything the slip is standing on is dropped: a lantern raft under a boathouse floor
+    # is a lantern in a joist.
     for _rx, _rz in ((3, 13), (7, 12), (11, 14), (15, 12), (2, 18), (6, 17), (10, 19),
                      (14, 17), (4, 22), (9, 23), (13, 21), (16, 23)):
+        if (_rx, _rz) in SLIP_CELLS:
+            continue
         DAY1_LAKE.append('setblock ~%d ~-1 ~%d minecraft:oak_slab[type=top,waterlogged=true]'
                          % (_rx, _rz))
         DAY1_LAKE.append('setblock ~%d ~0 ~%d minecraft:lantern[hanging=false]' % (_rx, _rz))
     for _gx, _gz in ((3, 15), (16, 19), (8, 21)):
+        if (_gx, _gz) in SLIP_CELLS:
+            continue
         DAY1_LAKE.append('setblock ~%d ~0 ~%d ribbits:giant_lilypad' % (_gx, _gz))
     for _lx2, _lz2 in ((5, 11), (9, 11), (13, 11), (3, 13), (16, 14), (4, 16), (12, 16),
                        (8, 15), (15, 20), (2, 21), (11, 24), (6, 24)):
+        if (_lx2, _lz2) in SLIP_CELLS:
+            continue
         DAY1_LAKE.append('setblock ~%d ~0 ~%d minecraft:lily_pad' % (_lx2, _lz2))
     for _cz in (8, 10, 12):
         for _cx in (7, 9):
@@ -4220,13 +4848,226 @@ if SITE:
     print('  skirt: %d columns graded back to the land, %d commands, inside day1_road'
           % (len(SKIRT), len(GRADE_CMDS)))
 
+    # =========================================================================
+    # 11.7  THE PLANTING.  Trees, gardens, pens and the orchard.
+    #
+    # media/look/NOTES.md says the valley reads as a machine's output from the air: "the
+    # buildings sit apart from each other on lawns". A town is not a set of buildings on
+    # mown grass -- it is buildings with STUFF ROUND THEM: a tree that was there before the
+    # house, a fence somebody put up, a run of vegetables, a pen with birds in it. None of
+    # that can be a template (no installed jar has a standalone garden that is not a whole
+    # villager plot), so it is solved here, against everything the plan already knows:
+    #
+    #   * never on a built column -- LEVEL holds every pad, street, plaza, apron and road
+    #     column the plan pinned, and this refuses all of them
+    #   * never on ground the solver reserved -- `occupied` is every pad plus its margin,
+    #     every street with its keep-clear, every lamp post and every reservation
+    #   * never within three columns of a front door, so nothing here can block a doorway
+    #   * only on ground the plan did not regrade steeply, and never in water
+    #
+    # It runs LAST, after the skirt has walked the ground back to the land, so a tree is
+    # planted on the height the finished world actually has under it.
+    # =========================================================================
+    def _ground(x, z):
+        """The finished ground at an anchor-relative column: the skirt's level where it
+        moved one, the design surface everywhere else."""
+        return SKIRT.get((x, z), lev(x, z))
+
+    DOOR_CELLS = set()
+    for _n5, _p5 in P.items():
+        for _d5 in _p5.doors()[:1]:
+            for _ddx in range(-3, 4):
+                for _ddz in range(-3, 4):
+                    DOOR_CELLS.add((_d5['pos'][0] + _ddx, _d5['pos'][2] + _ddz))
+
+    def plant_free(x, z, flat=1):
+        if (x, z) in LEVEL or (x, z) in occupied or (x, z) in APRON_PAVED:
+            return False
+        if (x, z) in street_cells or (x, z) in PROTECTED or (x, z) in DOOR_CELLS:
+            return False
+        if (x, z) in PIER_CELLS or wet(x, z):
+            return False
+        g = _ground(x, z)
+        for dx in (-1, 0, 1):
+            for dz in (-1, 0, 1):
+                if wet(x + dx, z + dz):
+                    return False
+                if abs(_ground(x + dx, z + dz) - g) > flat:
+                    return False
+        return True
+
+    PLANT_CMDS = ['# the planting: trees, gardens, pens and the orchard. GENERATED.']
+    PLANTED = set()
+
+    def _claim(cells):
+        for c in cells:
+            PLANTED.add(c)
+
+    def tree_at(x, z, kind=None):
+        """One small tree, anchor-relative, standing on the finished ground."""
+        y = _ground(x, z)
+        h = cell_hash(x, z)
+        wood = kind or ('oak' if h < 40 else 'birch' if h < 75 else 'spruce')
+        trunk = 4 + (h % 3)
+        out = ['fill %s %s %s %s %s %s minecraft:air'
+               % (t(x - 2), t(y + 1), t(z - 2), t(x + 2), t(y + trunk + 3), t(z + 2)),
+               setb(x, y, z, 'minecraft:dirt')]
+        for _ty in range(1, trunk + 1):
+            out.append(setb(x, y + _ty, z, 'minecraft:%s_log[axis=y]' % wood))
+        _leaf = 'minecraft:%s_leaves[persistent=true]' % wood
+        if wood == 'spruce':
+            _shape = [(trunk - 2, 2), (trunk - 1, 1), (trunk, 1), (trunk + 1, 0), (trunk + 2, 0)]
+        else:
+            _shape = [(trunk - 1, 2), (trunk, 2), (trunk + 1, 1), (trunk + 2, 0)]
+        for _dy, _rad in _shape:
+            for _dx in range(-_rad, _rad + 1):
+                for _dz in range(-_rad, _rad + 1):
+                    if _rad and abs(_dx) == _rad and abs(_dz) == _rad:
+                        continue
+                    if _dx == 0 and _dz == 0 and _dy <= trunk:
+                        continue
+                    out.append(setb(x + _dx, y + _dy, z + _dz, _leaf))
+        return out
+
+    # ---- eight trees, near the buildings, never in front of a door ----------------
+    TREE_SPOTS = []
+    for _n5, _p5 in sorted(P.items()):
+        if len(TREE_SPOTS) >= 8:
+            break
+        _pd5 = _p5.pad()
+        _ring = []
+        for _rx in range(_pd5[0] - 4, _pd5[2] + 5):
+            for _rz in range(_pd5[1] - 4, _pd5[3] + 5):
+                if _pd5[0] - 1 <= _rx <= _pd5[2] + 1 and _pd5[1] - 1 <= _rz <= _pd5[3] + 1:
+                    continue
+                _ring.append((_rx, _rz))
+        _ring.sort(key=lambda c: (cell_hash(c[0], c[1]), c))
+        for _c5 in _ring:
+            if not plant_free(*_c5):
+                continue
+            if any(max(abs(_c5[0] - q[0]), abs(_c5[1] - q[1])) < 7 for q in TREE_SPOTS):
+                continue
+            if any(max(abs(_c5[0] - q[0]), abs(_c5[1] - q[1])) <= 2 for q in PLANTED):
+                continue
+            TREE_SPOTS.append(_c5)
+            _claim([(_c5[0] + a, _c5[1] + b) for a in (-2, -1, 0, 1, 2)
+                    for b in (-2, -1, 0, 1, 2)])
+            break
+    for _c5 in TREE_SPOTS:
+        PLANT_CMDS += tree_at(*_c5)
+
+    # ---- five fenced plots: three gardens, a hen run and a stock pen --------------
+    # Each is a rectangle of free ground beside its building, fenced with a gate facing the
+    # building's own side, and filled with what the story says is in it. The hens are canon
+    # -- Q10's pen at the farm is the player's -- so this is the TOWN's flock, at Oda's.
+    YARD_PLOTS = [
+        ('granary',    7, 5, 'pen'),
+        ('store',      6, 5, 'hens'),
+        ('marnie_house', 6, 5, 'garden'),
+        ('town_hall',  7, 5, 'garden'),
+        ('boathouse',  5, 5, 'garden'),
+    ]
+    YARDS = []
+    for _yn, _yw, _yd, _ykind in YARD_PLOTS:
+        if _yn not in P:
+            continue
+        _pd5 = P[_yn].pad()
+        _best = None
+        for _sx in range(_pd5[0] - _yw - 3, _pd5[2] + 5):
+            for _sz in range(_pd5[1] - _yd - 3, _pd5[3] + 5):
+                _cells = [(a, b) for a in range(_sx, _sx + _yw) for b in range(_sz, _sz + _yd)]
+                if any(c in PLANTED for c in _cells):
+                    continue
+                if not all(plant_free(a, b) for a, b in _cells):
+                    continue
+                _d5 = ((_sx + _yw // 2) - (_pd5[0] + _pd5[2]) // 2,
+                       (_sz + _yd // 2) - (_pd5[1] + _pd5[3]) // 2)
+                _score = _d5[0] * _d5[0] + _d5[1] * _d5[1]
+                if _best is None or _score < _best[0]:
+                    _best = (_score, _sx, _sz, _cells)
+        if _best is None:
+            print('  no room for the %s at %s' % (_ykind, _yn))
+            continue
+        _, _sx, _sz, _cells = _best
+        _claim(_cells)
+        YARDS.append((_yn, _ykind, _sx, _sz, _yw, _yd))
+        _y5 = _ground(_sx + _yw // 2, _sz + _yd // 2)
+        _gate = (_sx + _yw // 2, _sz)
+        PLANT_CMDS.append(fill(_sx, _y5 + 1, _sz, _sx + _yw - 1, _y5 + 3, _sz + _yd - 1,
+                               'minecraft:air'))
+        for (_a, _b) in _cells:
+            _edge = _a in (_sx, _sx + _yw - 1) or _b in (_sz, _sz + _yd - 1)
+            _yy = _ground(_a, _b)
+            if _edge:
+                if (_a, _b) == _gate:
+                    PLANT_CMDS.append(setb(_a, _yy + 1, _b,
+                                           'minecraft:oak_fence_gate[facing=north,open=false]'))
+                else:
+                    PLANT_CMDS.append(setb(_a, _yy + 1, _b, 'minecraft:oak_fence'))
+                continue
+            _h5 = cell_hash(_a, _b)
+            if _ykind == 'garden':
+                PLANT_CMDS.append(setb(_a, _yy, _b, 'minecraft:farmland[moisture=7]'))
+                PLANT_CMDS.append(setb(_a, _yy + 1, _b,
+                                       'minecraft:carrots[age=7]' if _h5 < 33 else
+                                       'minecraft:potatoes[age=7]' if _h5 < 66 else
+                                       'minecraft:beetroots[age=3]'))
+            elif _ykind == 'hens':
+                PLANT_CMDS.append(setb(_a, _yy, _b,
+                                       'minecraft:coarse_dirt' if _h5 < 50 else
+                                       'minecraft:grass_block'))
+                if _h5 < 18:
+                    PLANT_CMDS.append(setb(_a, _yy + 1, _b, 'minecraft:hay_block'))
+            else:
+                PLANT_CMDS.append(setb(_a, _yy, _b, 'minecraft:grass_block'))
+                if _h5 < 22:
+                    PLANT_CMDS.append(setb(_a, _yy + 1, _b, 'minecraft:grass'))
+        if _ykind == 'hens':
+            # A coop in the corner of the run. The BIRDS are not summoned here: valley_build
+            # deliberately filters `summon` out of a day-one build ("no residents on day
+            # one"), so a summon in this group would be a line that never runs, and the one
+            # thing the shipped world does not need is more entities baked into its region
+            # files (media/look/NOTES.md item 12: 73 hostiles were saved into it).
+            PLANT_CMDS += [
+                fill(_sx + 1, _y5 + 1, _sz + 1, _sx + 2, _y5 + 2, _sz + 2,
+                     'minecraft:spruce_planks'),
+                fill(_sx + 1, _y5 + 1, _sz + 1, _sx + 1, _y5 + 1, _sz + 1, 'minecraft:air'),
+                fill(_sx + 1, _y5 + 3, _sz + 1, _sx + 2, _y5 + 3, _sz + 2,
+                     'minecraft:spruce_slab'),
+                setb(_sx + 2, _y5 + 1, _sz + 3, 'minecraft:hay_block'),
+                setb(_sx + 3, _y5 + 1, _sz + 2, 'minecraft:composter'),
+            ]
+    print('  planting: %d trees, %d fenced plots (%s)'
+          % (len(TREE_SPOTS), len(YARDS), ', '.join('%s/%s' % (y[0], y[1]) for y in YARDS)))
+
+    # ---- the orchard behind the farm ---------------------------------------------
+    # Home-relative, north of the cottage and clear of the yard, the gate and the road.
+    ORCHARD = []
+    _cot_ox = HEARTH_W[0] - ANCHOR_W[0]
+    _cot_oz = HEARTH_W[2] - ANCHOR_W[2]
+    for _ox5 in range(-13, 9, 3):
+        for _oz5 in range(-24, -11, 3):
+            if len(ORCHARD) >= 7:
+                break
+            _c5 = (_cot_ox + _ox5, _cot_oz + _oz5)
+            if not plant_free(_c5[0], _c5[1], flat=2):
+                continue
+            if any(max(abs(_c5[0] - q[0]), abs(_c5[1] - q[1])) <= 2 for q in PLANTED):
+                continue
+            _claim([(_c5[0] + a, _c5[1] + b) for a in (-2, -1, 0, 1, 2)
+                    for b in (-2, -1, 0, 1, 2)])
+            ORCHARD.append(_c5)
+            PLANT_CMDS += tree_at(_c5[0], _c5[1], kind='oak')
+    print('  orchard: %d trees behind the farm' % len(ORCHARD))
+    group('day1_planting', 'anchor', PLANT_CMDS)
+
     RUN_ORDER[:0] = ['day1_road', 'day1_cottage', 'day1_signpost']
     # The cellar, the adit, the noticeboard and the stake socket all go in AFTER the
     # buildings they sit under or on: the cellar is cut out from under the cottage, the
     # adit pierces the Works shell act4_works seals, and the board and the socket stand on
     # the square act1_square paves.
     RUN_ORDER += ['day1_cellar', 'day1_adit', 'day1_board', 'day1_lakefront',
-                  'day1_wisp_posts', 'day1_lamps']
+                  'day1_wisp_posts', 'day1_lamps', 'day1_planting']
 
     # =========================================================================
     # valley_sites.json -- THE fixed registry.
@@ -4429,6 +5270,11 @@ if SITE:
         'blocks': CELLAR_STEPS * 4,
     }
     SITES_JSON['cellar_door'] = SITES_JSON['cellar']['door']
+    # The fountain's own footprint, in world coordinates. `plaza_dry` in
+    # scratch/nature_check.py reads it and skips those five columns: the square is
+    # meant to be dry everywhere else, and this is the one place it is meant to be wet.
+    SITES_JSON['fountain'] = [ANCHOR_W[0] + FOUNTAIN_BOX[0], ANCHOR_W[2] + FOUNTAIN_BOX[1],
+                              ANCHOR_W[0] + FOUNTAIN_BOX[2], ANCHOR_W[2] + FOUNTAIN_BOX[3]]
     SITES_JSON['stake_socket'] = [ANCHOR_W[0], ANCHOR_W[1] + 1, ANCHOR_W[2] - 2]
     SITES_JSON['lakefront'] = {
         'pier_waystone': W([8, 0, 4], W(OFF['lake'], ANCHOR_W)),
