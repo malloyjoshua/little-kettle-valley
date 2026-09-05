@@ -1,0 +1,202 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "kt_reactor"
+	group: "4CAA113E262FC122"
+	icon: "biggerreactors:reactor_casing"
+	id: "4C5C058B22CB2064"
+	order_index: 5
+	quest_links: [ ]
+	subtitle: ["A 3x3x3 box that runs on uranium, then a turbine to double it.", "Every build quest here names the exact block count."]
+	hide_quest_until_deps_complete: false
+	hide_quest_details_until_startable: false
+	quests: [
+		{
+			id: "5C66A62156C14667"
+			title: "Smelt Sixteen Uranium Ingots"
+			subtitle: "Autunite ore, deep down, drops clusters."
+			icon: "biggerreactors:uranium_ingot"
+			description: ["Autunite is the uranium ore in this pack. Break it for Uranium Clusters and smelt each cluster into an ingot.", "Sixteen ingots runs a small reactor for a long time."]
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.5d
+			hide_details_until_startable: false
+			tasks: [{ id: "263FF4B81C1DBA78", type: "item", item: "biggerreactors:uranium_ingot", count: 16L }]
+			rewards: [{ id: "17223FA0928FCA23", type: "item", auto: "no_toast", item: "biggerreactors:uranium_ingot", count: 16 }, { id: "0F19C43082919D96", type: "item", auto: "no_toast", item: "minecraft:coal", count: 32 }, { id: "5B47F4DAA8A52D7C", type: "xp_levels", auto: "no_toast", xp_levels: 5 }]
+		}
+		{
+			id: "106453DE9DEE3FF4"
+			title: "Smelt Sixteen Graphite Ingots"
+			subtitle: "Coal in a furnace comes out graphite."
+			icon: "biggerreactors:graphite_ingot"
+			description: ["Graphite is plain coal smelted once. It is in the casing, the fuel rod and the control rod.", "The Redstone Furnace does a stack of it in a couple of minutes."]
+			x: 2.0d
+			y: 0.0d
+			dependencies: ["5C66A62156C14667"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "03652B28413B3C24", type: "item", item: "biggerreactors:graphite_ingot", count: 16L }]
+			rewards: [{ id: "392C50D6AC478555", type: "item", auto: "no_toast", item: "biggerreactors:graphite_ingot", count: 32 }, { id: "688D4586B4BB24AE", type: "item", auto: "no_toast", item: "minecraft:iron_ingot", count: 32 }, { id: "528CE952AF0E019A", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "20316DB4AF709D38"
+			title: "Craft Twenty-Two Reactor Casings"
+			subtitle: "A 3x3x3 shell is 26, less four ports."
+			icon: "biggerreactors:reactor_casing"
+			description: ["A 3x3x3 reactor is 27 blocks: 26 shell, one hollow inside. Four of the shell are terminal, access port, power tap and control rod.", "The other 22 are plain casing."]
+			x: 4.0d
+			y: 0.0d
+			dependencies: ["106453DE9DEE3FF4"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "2064F58B2977ED88", type: "item", item: "biggerreactors:reactor_casing", count: 22L }]
+			rewards: [{ id: "5E57DAA642BC7739", type: "item", auto: "no_toast", item: "biggerreactors:reactor_casing", count: 16 }, { id: "535982AEA327EA6B", type: "item", auto: "no_toast", item: "biggerreactors:reactor_glass", count: 8 }, { id: "4086DC806766E728", type: "xp_levels", auto: "no_toast", xp_levels: 5 }]
+		}
+		{
+			id: "5B559902F9B870BC"
+			title: "Craft a Reactor Fuel Rod"
+			subtitle: "One rod fills a 3x3x3 inside."
+			icon: "biggerreactors:reactor_fuel_rod"
+			description: ["Fuel rods go inside the shell, in a column that runs the full inside height. In a 3x3x3 the inside is one block, so one rod.", "A gap anywhere in the column stops the box forming."]
+			x: 6.0d
+			y: -3.0d
+			dependencies: ["20316DB4AF709D38"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "26645E1B88362A8E", type: "item", item: "biggerreactors:reactor_fuel_rod", count: 1L }]
+			rewards: [{ id: "4501FA85ACCAF927", type: "item", auto: "no_toast", item: "biggerreactors:reactor_fuel_rod", count: 3 }, { id: "054D4BA0377C69C9", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "21E6673F74A9D9C7"
+			title: "Craft a Reactor Control Rod"
+			subtitle: "It sits on the lid, over the fuel rod."
+			icon: "biggerreactors:reactor_control_rod"
+			description: ["Every fuel rod column must be capped by a control rod on the top face, directly above it, or the reactor will not assemble.", "One column, one control rod."]
+			x: 6.0d
+			y: -1.5d
+			dependencies: ["20316DB4AF709D38"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "02FDED1921B8FEA3", type: "item", item: "biggerreactors:reactor_control_rod", count: 1L }]
+			rewards: [{ id: "20C1F966337405DE", type: "item", auto: "no_toast", item: "biggerreactors:reactor_control_rod", count: 3 }, { id: "279021D92590745E", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "7B2ACF0F41DE1897"
+			title: "Craft a Reactor Access Port"
+			subtitle: "Fuel goes in here, waste comes out."
+			icon: "biggerreactors:reactor_access_port"
+			description: ["The Access Port is the only way in and out for uranium and the cyanite it becomes. Put it in the shell at a height you can reach.", "A hopper or a duct can feed it."]
+			x: 6.0d
+			y: 0.0d
+			dependencies: ["20316DB4AF709D38"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "614FF100577F7231", type: "item", item: "biggerreactors:reactor_access_port", count: 1L }]
+			rewards: [{ id: "3B42F3CA2F2321DA", type: "item", auto: "no_toast", item: "biggerreactors:reactor_access_port" }, { id: "28B6B698EB92E811", type: "item", auto: "no_toast", item: "minecraft:hopper", count: 2 }, { id: "47424DB69A698B14", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "32D3175F5395FAC8"
+			title: "Craft a Reactor Power Tap"
+			subtitle: "Power taps and coolant ports never mix."
+			icon: "biggerreactors:reactor_power_tap"
+			description: ["A Power Tap makes the reactor passively cooled: it burns fuel and pushes FE straight out into a duct.", "A reactor may have taps or coolant ports, never both."]
+			x: 6.0d
+			y: 1.5d
+			dependencies: ["20316DB4AF709D38"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "37E84E850894D96F", type: "item", item: "biggerreactors:reactor_power_tap", count: 1L }]
+			rewards: [{ id: "11B576EA8B2205A9", type: "item", auto: "no_toast", item: "biggerreactors:reactor_power_tap" }, { id: "06207CD70AFD83D1", type: "item", auto: "no_toast", item: "thermal:energy_duct", count: 16 }, { id: "04439CD02BC58B92", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "6266B52B7463857C"
+			title: "Craft a Reactor Terminal"
+			subtitle: "Without one, the box will not form."
+			icon: "biggerreactors:reactor_terminal"
+			description: ["The Terminal is the screen and the on switch. Right-click it to set the control rod depth, which is the throttle.", "At least one is required in every reactor."]
+			x: 6.0d
+			y: 3.0d
+			dependencies: ["20316DB4AF709D38"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "2BF9CC64EA513B20", type: "item", item: "biggerreactors:reactor_terminal", count: 1L }]
+			rewards: [{ id: "52F633D575FB4438", type: "item", auto: "no_toast", item: "biggerreactors:reactor_terminal" }, { id: "32E63CA40D476D6E", type: "item", auto: "no_toast", item: "biggerreactors:wrench" }, { id: "7CD64D3F37FF941D", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "212ABBB029E3B948"
+			title: "Build and Start a 3x3x3 Reactor"
+			subtitle: "22 casing, 4 ports, 1 rod inside."
+			icon: "biggerreactors:reactor_terminal"
+			description: ["Build a hollow 3x3x3: one Fuel Rod in the middle, a Control Rod on the lid directly above it, and a Terminal, an Access Port and a Power Tap anywhere in the 26-block shell. The other 22 are plain casing.", "Feed uranium into the port, then pull the control rod down at the terminal."]
+			x: 8.0d
+			y: 0.0d
+			dependencies: ["5B559902F9B870BC", "21E6673F74A9D9C7", "7B2ACF0F41DE1897", "32D3175F5395FAC8", "6266B52B7463857C"]
+			shape: "gear"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "68B3B88AF873F7CB", type: "checkmark", title: "Reactor assembled and making power." }]
+			rewards: [{ id: "673196C5367B64F3", type: "item", auto: "no_toast", item: "biggerreactors:reactor_casing", count: 32 }, { id: "2192EB5FD7616995", type: "item", auto: "no_toast", item: "biggerreactors:uranium_ingot", count: 32 }, { id: "3ADA9CBD3CEC1B66", type: "xp_levels", auto: "no_toast", xp_levels: 10 }]
+		}
+		{
+			id: "11D4085F862B42D4"
+			title: "Craft Two Reactor Coolant Ports"
+			subtitle: "Swap the tap out. Steam instead of FE."
+			icon: "biggerreactors:reactor_coolant_port"
+			description: ["To drive a turbine the reactor has to make steam, not power. Take the Power Tap out and put a Coolant Port on each of two opposite faces.", "Water in one, steam out the other."]
+			x: 10.0d
+			y: 0.0d
+			dependencies: ["212ABBB029E3B948"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "7128EC4BDE3A7847", type: "item", item: "biggerreactors:reactor_coolant_port", count: 2L }]
+			rewards: [{ id: "10C0FDA4625B9482", type: "item", auto: "no_toast", item: "thermal:fluid_duct", count: 16 }, { id: "20BC1F6E86A1AE49", type: "item", auto: "no_toast", item: "minecraft:water_bucket", count: 2 }, { id: "558EC47E6A91443C", type: "xp_levels", auto: "no_toast", xp_levels: 5 }]
+		}
+		{
+			id: "53FE2EBB09FBA504"
+			title: "Craft the Turbine Frame Parts"
+			subtitle: "76 casing, 2 bearings, 4 ports and taps."
+			icon: "biggerreactors:turbine_casing"
+			description: ["The smallest turbine is 5x5x4: 82 frame blocks around a 3x3x2 inside. Six are special, so 76 are plain casing.", "Two Rotor Bearings, one Terminal, two Fluid Ports, one Power Tap."]
+			x: 12.0d
+			y: 0.0d
+			dependencies: ["11D4085F862B42D4"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "3A7BE8D65D66B415", type: "item", item: "biggerreactors:turbine_casing", count: 76L }, { id: "31EA4D53BF293E67", type: "item", item: "biggerreactors:turbine_rotor_bearing", count: 2L }, { id: "4194C68BC7DE3036", type: "item", item: "biggerreactors:turbine_terminal", count: 1L }, { id: "43BF6BB1A64154EE", type: "item", item: "biggerreactors:turbine_fluid_port", count: 2L }, { id: "68FBFEE63BEAD514", type: "item", item: "biggerreactors:turbine_power_tap", count: 1L }]
+			rewards: [{ id: "28F134AABBBBE569", type: "item", auto: "no_toast", item: "biggerreactors:turbine_glass", count: 16 }, { id: "572D378F703E7223", type: "item", auto: "no_toast", item: "minecraft:copper_block", count: 8 }, { id: "0A880451AEABAC6E", type: "xp_levels", auto: "no_toast", xp_levels: 8 }]
+		}
+		{
+			id: "3243A8211EB8CB76"
+			title: "Craft the Rotor, Blades and Coil"
+			subtitle: "Two shafts, four blades, four coil blocks."
+			icon: "biggerreactors:turbine_rotor_blade"
+			description: ["The rotor fills the inside height: blades on some levels, coil blocks on others.", "In a 5x5x4 that is two shafts, four blades on the lower, four copper blocks round the upper."]
+			x: 14.0d
+			y: 0.0d
+			dependencies: ["53FE2EBB09FBA504"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "1158EC7CCFD35555", type: "item", item: "biggerreactors:turbine_rotor_shaft", count: 2L }, { id: "2125F7CB9722495C", type: "item", item: "biggerreactors:turbine_rotor_blade", count: 4L }, { id: "4F43815CE645F773", type: "item", item: "minecraft:copper_block", count: 4L }]
+			rewards: [{ id: "635FCF70573D261B", type: "item", auto: "no_toast", item: "biggerreactors:turbine_rotor_blade", count: 8 }, { id: "7CDCD14B6BB09E22", type: "item", auto: "no_toast", item: "minecraft:copper_block", count: 8 }, { id: "52E1987376F557CB", type: "xp_levels", auto: "no_toast", xp_levels: 6 }]
+		}
+		{
+			id: "38A5C158AB8D43B2"
+			title: "Build a 5x5x4 Turbine and Spin It"
+			subtitle: "Bearings top and bottom, blades below coil."
+			icon: "biggerreactors:turbine_terminal"
+			description: ["Frame it 5x5x4. A Rotor Bearing in the centre of the top face and one in the centre of the bottom, two Rotor Shafts between them, four blades on the lower shaft and four copper blocks round the upper.", "Pipe the reactor's steam into a fluid port and open the flow at the terminal."]
+			x: 16.0d
+			y: 0.0d
+			dependencies: ["3243A8211EB8CB76"]
+			shape: "gear"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "0F733115F2C72979", type: "checkmark", title: "Turbine assembled and turning under steam." }]
+			rewards: [{ id: "45D93EC87732B10C", type: "item", auto: "no_toast", item: "biggerreactors:turbine_casing", count: 32 }, { id: "443DE2B9CF5DCC5C", type: "item", auto: "no_toast", item: "thermal:energy_cell", count: 2 }, { id: "7AC8430042430F3D", type: "xp_levels", auto: "no_toast", xp_levels: 12 }, { id: "3FB930A437385201", type: "toast", title: "The turbine is turning", auto: "enabled", description: "Next: The Quarry. With this much power, QuarryPlus digs faster than you can spend the ore." }]
+		}
+	]
+	title: "The Reactor"
+}

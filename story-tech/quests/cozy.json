@@ -1,0 +1,215 @@
+{
+  "chapter": {
+    "key": "kt_cozy",
+    "title": "Cozy",
+    "subtitle": [
+      "Cooking, crops, animals and furniture. All of it optional.",
+      "Nothing here blocks anything on the main line."
+    ],
+    "icon": "farmersdelight:cooking_pot",
+    "group": "Side Quests",
+    "order": 7
+  },
+  "quests": [
+    {
+      "key": "kt_cz_pot",
+      "title": "Craft a Cooking Pot",
+      "subtitle": "Set it on any heat source and it works.",
+      "icon": "farmersdelight:cooking_pot",
+      "description": [
+        "The Cooking Pot turns raw crops and meat into stews that heal more and last longer than anything vanilla makes.",
+        "It needs a campfire or a stove under it."
+      ],
+      "deps": [],
+      "optional": true,
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "shape": "hexagon",
+      "size": 1.5,
+      "tasks": [{ "type": "item", "item": "farmersdelight:cooking_pot", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "minecraft:bowl", "count": 16, "autoclaim": "no_toast" },
+        { "type": "item", "item": "farmersdelight:tomato_seeds", "count": 8, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 2 }
+      ]
+    },
+    {
+      "key": "kt_cz_skillet",
+      "title": "Craft a Skillet",
+      "subtitle": "Cook while you hold it. No block needed.",
+      "icon": "farmersdelight:skillet",
+      "description": [
+        "The Skillet fries one item at a time in your hand, over any fire, and can be swung as a weapon while it is hot.",
+        "It is the fastest breakfast in the pack."
+      ],
+      "deps": ["kt_cz_pot"],
+      "optional": true,
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "farmersdelight:skillet", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "farmersdelight:bacon", "count": 8, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 2 }
+      ]
+    },
+    {
+      "key": "kt_cz_board",
+      "title": "Set Up a Cutting Board and Knife",
+      "subtitle": "One log gives six planks on the board.",
+      "icon": "farmersdelight:cutting_board",
+      "description": [
+        "Put an item on the Cutting Board and right-click it with a knife. It slices meat, strips logs and gets more out of most crops.",
+        "The Iron Knife is the one worth keeping."
+      ],
+      "deps": ["kt_cz_skillet"],
+      "optional": true,
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [
+        { "type": "item", "item": "farmersdelight:cutting_board", "count": 1 },
+        { "type": "item", "item": "farmersdelight:iron_knife", "count": 1 }
+      ],
+      "rewards": [
+        { "type": "item", "item": "farmersdelight:golden_knife", "count": 1, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 2 }
+      ]
+    },
+    {
+      "key": "kt_cz_stove",
+      "title": "Build a Stove",
+      "subtitle": "Six things frying at once, on display.",
+      "icon": "farmersdelight:stove",
+      "description": [
+        "The Stove cooks six items on its top face without a menu, and it feeds a Cooking Pot standing on it.",
+        "It also keeps a kitchen lit."
+      ],
+      "deps": ["kt_cz_board"],
+      "optional": true,
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "farmersdelight:stove", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "farmersdelight:oak_cabinet", "count": 2, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:charcoal", "count": 32, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 }
+      ]
+    },
+    {
+      "key": "kt_cz_crops",
+      "title": "Grow Sixteen of Three New Crops",
+      "subtitle": "Tomatoes, onions and cabbages.",
+      "icon": "farmersdelight:tomato",
+      "description": [
+        "Farmer's Delight adds tomatoes, onions, cabbages and rice. Wild patches of all four grow in the world; take one and plant it.",
+        "Rich Soil under a crop makes it grow faster."
+      ],
+      "deps": ["kt_cz_pot"],
+      "optional": true,
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [
+        { "type": "item", "item": "farmersdelight:tomato", "count": 16 },
+        { "type": "item", "item": "farmersdelight:onion", "count": 16 },
+        { "type": "item", "item": "farmersdelight:cabbage", "count": 16 }
+      ],
+      "rewards": [
+        { "type": "item", "item": "farmersdelight:rich_soil", "count": 16, "autoclaim": "no_toast" },
+        { "type": "item", "item": "farmersdelight:organic_compost", "count": 8, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 }
+      ]
+    },
+    {
+      "key": "kt_cz_meal",
+      "title": "Cook Four Bowls of Vegetable Soup",
+      "subtitle": "Eat from a bowl and you get it back.",
+      "icon": "farmersdelight:vegetable_soup",
+      "description": [
+        "Carrot, potato, beetroot and cabbage in the Cooking Pot with a bowl in the container slot.",
+        "Meals eaten off a plate or out of a pot give a small bonus that plain food does not."
+      ],
+      "deps": ["kt_cz_crops"],
+      "optional": true,
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "farmersdelight:vegetable_soup", "count": 4 }],
+      "rewards": [
+        { "type": "item", "item": "farmersdelight:apple_pie", "count": 1, "autoclaim": "no_toast" },
+        { "type": "item", "item": "farmersdelight:honey_glazed_ham", "count": 2, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 }
+      ]
+    },
+    {
+      "key": "kt_cz_animals",
+      "title": "Keep Cows, Sheep and Chickens",
+      "subtitle": "Leather, wool and eggs, on their own.",
+      "icon": "minecraft:leather",
+      "description": [
+        "Fence a pen, lead a breeding pair of each in, and feed them wheat or seeds.",
+        "Leather for backpacks, wool for beds, eggs for cake. All three run out otherwise."
+      ],
+      "deps": ["kt_cz_crops"],
+      "optional": true,
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [
+        { "type": "item", "item": "minecraft:leather", "count": 8 },
+        { "type": "item", "item": "minecraft:white_wool", "count": 16 },
+        { "type": "item", "item": "minecraft:egg", "count": 16 }
+      ],
+      "rewards": [
+        { "type": "item", "item": "minecraft:lead", "count": 4, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:hay_block", "count": 8, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 }
+      ]
+    },
+    {
+      "key": "kt_cz_furniture",
+      "title": "Furnish One Room With Handcrafted",
+      "subtitle": "A bed, a table and two chairs.",
+      "icon": "handcrafted:oak_fancy_bed",
+      "description": [
+        "Handcrafted furniture sits, holds things and lines up with itself. Build a Fancy Bed, a Table and two Chairs.",
+        "Chairs and tables can be dyed and stacked into benches."
+      ],
+      "deps": ["kt_cz_pot"],
+      "optional": true,
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [
+        { "type": "item", "item": "handcrafted:oak_fancy_bed", "count": 1 },
+        { "type": "item", "item": "handcrafted:oak_table", "count": 1 },
+        { "type": "item", "item": "handcrafted:oak_chair", "count": 2 }
+      ],
+      "rewards": [
+        { "type": "item", "item": "handcrafted:oak_shelf", "count": 4, "autoclaim": "no_toast" },
+        { "type": "item", "item": "handcrafted:wood_crockery_combo", "count": 1, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 }
+      ]
+    },
+    {
+      "key": "kt_cz_letsdo",
+      "title": "Set Up a Press, a Bakery and a Kettle",
+      "subtitle": "Three Let's Do stations, three drinks.",
+      "icon": "vinery:apple_press",
+      "description": [
+        "The Apple Press makes juice and wine, the Baker Station makes bread and cake, the Tea Kettle makes tea from leaves you dry.",
+        "All three run without power."
+      ],
+      "deps": ["kt_cz_furniture", "kt_cz_stove"],
+      "optional": true,
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [
+        { "type": "item", "item": "vinery:apple_press", "count": 1 },
+        { "type": "item", "item": "bakery:baker_station", "count": 1 },
+        { "type": "item", "item": "herbalbrews:tea_kettle", "count": 1 }
+      ],
+      "rewards": [
+        { "type": "item", "item": "vinery:basket", "count": 1, "autoclaim": "no_toast" },
+        { "type": "item", "item": "bakery:bread", "count": 8, "autoclaim": "no_toast" },
+        { "type": "item", "item": "herbalbrews:green_tea", "count": 4, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 4 }
+      ]
+    }
+  ]
+}

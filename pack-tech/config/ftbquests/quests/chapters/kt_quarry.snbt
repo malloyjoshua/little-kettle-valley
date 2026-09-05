@@ -1,0 +1,100 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "kt_quarry"
+	group: "4CAA113E262FC122"
+	icon: "quarryplus:quarry"
+	id: "66239E733640C548"
+	order_index: 6
+	quest_links: [ ]
+	subtitle: ["Draw a box with markers, point a machine at it, walk away.", "It keeps digging while you are logged out."]
+	hide_quest_until_deps_complete: false
+	hide_quest_details_until_startable: false
+	quests: [
+		{
+			id: "439994DC988ACF21"
+			title: "Build a Workbench Plus"
+			subtitle: "QuarryPlus machines are assembled on it."
+			icon: "quarryplus:workbench"
+			description: ["The Workbench Plus takes ingredients over time instead of all at once. Drop the parts in and it fills a bar.", "Nothing else in this chapter crafts without it."]
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.5d
+			hide_details_until_startable: false
+			tasks: [{ id: "4D9F0A57467BB025", type: "item", item: "quarryplus:workbench", count: 1L }]
+			rewards: [{ id: "7AA7C6466C7058A7", type: "item", auto: "no_toast", item: "minecraft:diamond", count: 8 }, { id: "4E3148FA52D00AB0", type: "item", auto: "no_toast", item: "minecraft:gold_ingot", count: 32 }, { id: "3C2A9EA15CB78360", type: "xp_levels", auto: "no_toast", xp_levels: 5 }]
+		}
+		{
+			id: "6EE1304D2EAFB2E5"
+			title: "Craft Four Flexible Markers"
+			subtitle: "One marker can define the whole box."
+			icon: "quarryplus:flex_marker"
+			description: ["Put a Flexible Marker down and right-click it to type the exact size of the pit you want.", "Plain Markers work too: three at three corners and the rectangle between them is the box."]
+			x: 2.0d
+			y: 0.0d
+			dependencies: ["439994DC988ACF21"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "2DE1B0441B2374B1", type: "item", item: "quarryplus:flex_marker", count: 4L }]
+			rewards: [{ id: "5899F6CD11D7B102", type: "item", auto: "no_toast", item: "quarryplus:marker", count: 8 }, { id: "15AE25DE5730AC8D", type: "item", auto: "no_toast", item: "quarryplus:y_setter" }, { id: "22F5F78B8741D0FE", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "7757D1323FA6660D"
+			title: "Build a Quarry"
+			subtitle: "It builds its own frame from the marker."
+			icon: "quarryplus:quarry"
+			description: ["Set the Quarry flat against the marker, facing into the box. It raises the frame itself, then digs down to bedrock.", "Attach a chest or an ME interface to catch the output."]
+			x: 4.0d
+			y: 0.0d
+			dependencies: ["6EE1304D2EAFB2E5"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "577DB87A557E0798", type: "item", item: "quarryplus:quarry", count: 1L }]
+			rewards: [{ id: "1F3D757FBB0BF66D", type: "item", auto: "no_toast", item: "quarryplus:frame", count: 32 }, { id: "6D47681065D6B5E8", type: "item", auto: "no_toast", item: "minecraft:chest", count: 4 }, { id: "6659569FD74D3E38", type: "xp_levels", auto: "no_toast", xp_levels: 6 }]
+		}
+		{
+			id: "69BF2F4E41999945"
+			title: "Wire the Quarry to Your Power"
+			subtitle: "It idles quietly until it has FE."
+			icon: "thermal:energy_duct"
+			description: ["Run an energy duct from the reactor, the turbine or an energy cell into the back of the quarry.", "The more power it gets, the faster it digs."]
+			x: 6.0d
+			y: 0.0d
+			dependencies: ["7757D1323FA6660D"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "47C41E0E6EF74F95", type: "checkmark", title: "Quarry powered and digging." }]
+			rewards: [{ id: "7171C14BCECAB55F", type: "item", auto: "no_toast", item: "thermal:energy_duct", count: 32 }, { id: "4F39B972B9B8ECE2", type: "item", auto: "no_toast", item: "thermal:energy_cell" }, { id: "243E736A62A50FA6", type: "xp_levels", auto: "no_toast", xp_levels: 5 }]
+		}
+		{
+			id: "105BF557705DF6E0"
+			title: "Build an Advanced Pump"
+			subtitle: "Drains water and lava out of the pit."
+			icon: "quarryplus:adv_pump"
+			description: ["Set the Advanced Pump on the quarry so it clears the fluids the dig runs into, instead of the quarry stopping at every aquifer.", "It also fills tanks with the lava it takes."]
+			x: 8.0d
+			y: -0.8d
+			dependencies: ["69BF2F4E41999945"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "297D565AE1FED005", type: "item", item: "quarryplus:adv_pump", count: 1L }]
+			rewards: [{ id: "49E555C1BFB23235", type: "item", auto: "no_toast", item: "thermal:fluid_cell" }, { id: "5BB1A9432B2975B3", type: "item", auto: "no_toast", item: "thermal:fluid_duct", count: 16 }, { id: "390DAE802EC2D173", type: "xp_levels", auto: "no_toast", xp_levels: 5 }]
+		}
+		{
+			id: "7D82B64BF81FC84D"
+			title: "Build a Chunk Destroyer"
+			subtitle: "Clears whole chunks and fills behind it."
+			icon: "quarryplus:adv_quarry"
+			description: ["The Chunk Destroyer needs no frame and works the area chunk by chunk, replacing what it takes so you are not left with a hole.", "It wants a lot more power than the plain quarry."]
+			x: 8.0d
+			y: 0.8d
+			dependencies: ["69BF2F4E41999945"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "5F65E0608EA0EE9D", type: "item", item: "quarryplus:adv_quarry", count: 1L }]
+			rewards: [{ id: "198DA35C52B9F78B", type: "item", auto: "no_toast", item: "quarryplus:filter_module" }, { id: "0043E1DE784713D1", type: "item", auto: "no_toast", item: "quarryplus:exp_module" }, { id: "2414343F0FB0FC5B", type: "xp_levels", auto: "no_toast", xp_levels: 8 }, { id: "086517953CAE239D", type: "toast", title: "The quarry is running", auto: "enabled", description: "That is the main line finished. The Side Quests tab has Cozy and Explore whenever you want them." }]
+		}
+	]
+	title: "The Quarry"
+}

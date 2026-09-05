@@ -1,0 +1,128 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "kt_start"
+	group: "4CAA113E262FC122"
+	icon: "justhammers:stone_hammer"
+	id: "12B679210EE355DF"
+	order_index: 1
+	quest_links: [ ]
+	subtitle: ["Eight short jobs. An hour, give or take.", "A hammer, a bag, a bed, a warm meal and a way home."]
+	hide_quest_until_deps_complete: false
+	hide_quest_details_until_startable: false
+	quests: [
+		{
+			id: "0D3710CB767E3D7B"
+			title: "Open the Quest Book"
+			subtitle: "It is in your bag, or press J."
+			icon: "ftbquests:book"
+			description: ["Right-click the book in your inventory, or press J anywhere.", "The chapter list runs down the left edge. That is the whole interface."]
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.5d
+			hide_details_until_startable: false
+			tasks: [{ id: "18CB028EFD2ED195", type: "checkmark", title: "Book open." }]
+			rewards: [{ id: "11B8D093C3B0ABA9", type: "item", auto: "no_toast", item: "minecraft:copper_ingot", count: 8 }, { id: "786CB991987F893C", type: "item", auto: "no_toast", item: "minecraft:stick", count: 8 }, { id: "1C51888517F51B2E", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "1E5AFB00024D3E11"
+			title: "Craft the Wide Hammer"
+			subtitle: "Copper and sticks, not diamonds."
+			icon: "justhammers:stone_hammer"
+			description: ["Make a Wide Hammer. It breaks a 3x3 face in one swing and never needs an upgrade to be useful.", "The copper and sticks for it are already in your bag."]
+			x: 2.0d
+			y: 0.0d
+			dependencies: ["0D3710CB767E3D7B"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "2ED2F80E7A6910E0", type: "item", item: "justhammers:stone_hammer", count: 1L }]
+			rewards: [{ id: "250B4BFD3FE92F80", type: "item", auto: "no_toast", item: "minecraft:leather", count: 4 }, { id: "562102845DD1FB3B", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "0AA50D7F13D02301"
+			title: "Craft a Backpack"
+			subtitle: "Twenty-seven slots that follow you."
+			icon: "sophisticatedbackpacks:backpack"
+			description: ["Leather and string make a Backpack. Wear it in the back slot and right-click it anywhere to open it.", "The leather is already yours."]
+			x: 4.0d
+			y: -0.8d
+			dependencies: ["1E5AFB00024D3E11"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "10982AB031474925", type: "item", item: "sophisticatedbackpacks:backpack", count: 1L }]
+			rewards: [{ id: "58940FAE09FD5E72", type: "item", auto: "no_toast", item: "sophisticatedbackpacks:pickup_upgrade" }, { id: "467ACAB07A57525C", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "583969EA0DA190D1"
+			title: "Sleep One Night in a Bed"
+			subtitle: "Three wool, three planks, one dawn."
+			icon: "minecraft:white_bed"
+			description: ["Build a bed, put it down under a roof and sleep. Your spawn point moves to it.", "Three wool of one colour and three planks is the whole recipe."]
+			x: 4.0d
+			y: 0.8d
+			dependencies: ["1E5AFB00024D3E11"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "07ED75F6937DF6AC", type: "advancement", advancement: "minecraft:adventure/sleep_in_bed", criterion: "" }]
+			rewards: [{ id: "4493C8C5E32AF474", type: "item", auto: "no_toast", item: "minecraft:wheat", count: 24 }, { id: "26AB133BC9A01591", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "29907ECDC5B89EA9"
+			title: "Bake Eight Loaves of Bread"
+			subtitle: "Three wheat each, no furnace needed."
+			icon: "minecraft:bread"
+			description: ["Bake eight loaves so hunger stops being a reason to stop working.", "The wheat is in your bag. Bread stacks, keeps, and never spoils."]
+			x: 6.0d
+			y: -1.5d
+			dependencies: ["583969EA0DA190D1"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "03D05F3E926B0620", type: "item", item: "minecraft:bread", count: 8L }]
+			rewards: [{ id: "297B5831E0993D96", type: "item", auto: "no_toast", item: "farmersdelight:hamburger", count: 4 }, { id: "2CD75E3952F7F0FC", type: "item", auto: "no_toast", item: "minecraft:stone_bricks", count: 8 }, { id: "7F2B98EA3FC9A7ED", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "07D8F83C15901F40"
+			title: "Place a Waystone at Home"
+			subtitle: "Name it, and it is on your map forever."
+			icon: "waystones:waystone"
+			description: ["Set a Waystone by your base and right-click to name it. Every Waystone you find afterwards can send you back to it.", "Stone bricks and a copper ingot."]
+			x: 6.0d
+			y: 0.0d
+			dependencies: ["583969EA0DA190D1"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "757A5DC405F939DF", type: "item", item: "waystones:waystone", count: 1L }]
+			rewards: [{ id: "6F7505A3F5450E07", type: "item", auto: "no_toast", item: "waystones:waystone" }, { id: "13C2B506EB004AF3", type: "item", auto: "no_toast", item: "minecraft:copper_block", count: 2 }, { id: "753E62B0A6A5BBF3", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "0D6F553A75F63531"
+			title: "Raise a Megatorch"
+			subtitle: "No mobs spawn for 64 blocks around it."
+			icon: "torchmaster:megatorch"
+			description: ["Stand a Megatorch in the middle of your base. Nothing hostile spawns inside its radius, lit or not.", "Torches, logs and copper. The copper blocks are already yours."]
+			x: 8.0d
+			y: 0.0d
+			dependencies: ["07D8F83C15901F40"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "20D17DE6B5BB5689", type: "item", item: "torchmaster:megatorch", count: 1L }]
+			rewards: [{ id: "0F85CCB2DFF250D0", type: "item", auto: "no_toast", item: "minecraft:oak_planks", count: 32 }, { id: "69C2F3882E58C5EC", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "587C72641B6DD125"
+			title: "Put Up a Chest or a Drawer"
+			subtitle: "Drawers hold 32 stacks of one thing."
+			icon: "minecraft:chest"
+			description: ["Make a chest to start. Storage Drawers are the better answer once you are mining: one item each, 32 stacks deep, labelled on the front.", "Planks are in your bag."]
+			x: 6.0d
+			y: 1.5d
+			dependencies: ["0AA50D7F13D02301"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "0D1C4CA9A19F1925", type: "item", item: "minecraft:chest", count: 1L }]
+			rewards: [{ id: "2CA7F603FFA300F6", type: "item", auto: "no_toast", item: "storagedrawers:oak_full_drawers_2", count: 4 }, { id: "5874D6EC945F486F", type: "item", auto: "no_toast", item: "create:andesite_alloy", count: 8 }, { id: "5B2B69C4EB3B4A62", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "15EFAA2EE49417EA", type: "toast", title: "Start Here is done", auto: "enabled", description: "Next: the Create chapter. Andesite alloy is already in your bag, so quest one is a formality." }]
+		}
+	]
+	title: "Start Here"
+}

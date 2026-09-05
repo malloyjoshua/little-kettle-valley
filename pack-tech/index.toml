@@ -13,6 +13,46 @@ file = "config/fallingtree.json"
 hash = "922a0a06c316eb1f0aba285f5bc59f4421b51b6f861661f3cdab38bbd44e4927"
 
 [[files]]
+file = "config/ftbquests/quests/chapter_groups.snbt"
+hash = "451de4fffb9ddf493c246394c3abe0ac61b28d8d8b888382475bc6eaafa1f94c"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/kt_ae2.snbt"
+hash = "7de6434a2aaef4662a813feaeda2f8874892573a67e035746b350c7346d157b8"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/kt_cozy.snbt"
+hash = "407ee23d00b2bf85f7911c94059019d9498b83941ee24bf5afa78102561dcea0"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/kt_create.snbt"
+hash = "e30cf76c6e97571c3ef994e931bb6d023cc010579c2e1806ee63a510852e271b"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/kt_explore.snbt"
+hash = "6f374449dbe201ff42248402628a78cc01801e692ca35a0bde8a6a3d9a97e4c2"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/kt_quarry.snbt"
+hash = "473d88113a9c760ccc4a70b795ce51526f30c450bf3bfc728f0723dab45e0706"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/kt_reactor.snbt"
+hash = "0129cb67d05447a03eb914fd92a1cd4edadc084233d2e522213bee3b55613460"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/kt_readme.snbt"
+hash = "7fb8651944f5adc020272fef82a76f5a8e27636dc84fa1e5c9acac7244260efb"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/kt_start.snbt"
+hash = "83a08d1e0cc66ddd03f665512c432c857cbd0193b8e7c1e6423ebb9c850e5b0c"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/kt_thermal.snbt"
+hash = "bf7da3ff1578ce4435660eaa8a2fdf520da48799aefc834b51fa4a96a9663218"
+
+[[files]]
 file = "config/ftbquests/quests/data.snbt"
 hash = "e92860d29e415fa02dfd8f86b2f60886d35fb9a098c25aec40bc78df22c53816"
 
@@ -23,6 +63,10 @@ hash = "d357a0fa1cf5f3016b7cde3f34fec95354dcd01a2186f545530cc6f3077d1b5c"
 [[files]]
 file = "config/geolosys-common.toml"
 hash = "e807e83cd74d789d4cfecdb2413167351426d808265cefa2dd4a5fa14bb0a853"
+
+[[files]]
+file = "config/inventoryprofilesnext/inventoryprofiles.json"
+hash = "0f0735e8548ba6db2931d7fb7cc5a14259ae11041fc42cd41b17949edb946147"
 
 [[files]]
 file = "config/lootr-common.toml"
@@ -57,6 +101,10 @@ file = "config/thermal-common.toml"
 hash = "f6ce2b44ed3dc8b0dcba15874b209bc8aea325c829ff2f3b4a9420365bfe60c9"
 
 [[files]]
+file = "config/toastcontrol-client.toml"
+hash = "8895cb77e65d29c57e84901aa4caae8ec426f829ee8b243aa38423386af0b0df"
+
+[[files]]
 file = "config/torchmaster.toml"
 hash = "968522483c909cd663b133543c10aae4c5b5d7dca693ef2bf611c8a55278a51c"
 
@@ -67,6 +115,10 @@ hash = "c493a98b3c92e0f7439306ea7fccc127d9f14aa3dfae7ad6264eccbcb49a14c8"
 [[files]]
 file = "config/veinmining-server.toml"
 hash = "a5480658fa21b490e4721d03ba48b9df7235ae6e8a036c8a3b6685d18cc4a1b9"
+
+[[files]]
+file = "config/voicechat/voicechat-client.properties"
+hash = "84c64de63675fc757caeb5e7d0b6cc6ba7f72558b4c7f78095b18cec06cabd68"
 
 [[files]]
 file = "config/voicechat/voicechat-server.properties"
@@ -175,6 +227,10 @@ hash = "c24ac34612f8317811252804ea5b2b0500cd47fcaaa225a3b06eb7c9eb2c19e0"
 [[files]]
 file = "kubejs/server_scripts/seasons_tags.js"
 hash = "55e027d28c0295fd8e1a4bdb44b54f1fc424dee74c7b78a95ceecf4b504568cf"
+
+[[files]]
+file = "kubejs/server_scripts/tech_join.js"
+hash = "2fb3143fe2dff5dd26d1c283b08ef8f9bc6c84e3e68e5a1bb6367c988e89e93e"
 
 [[files]]
 file = "kubejs/server_scripts/tech_recipes.js"
@@ -464,8 +520,8 @@ hash = "dcedae8889f7d16757a0c77287ea7accad6afa1f2e41fab0ca5cc8159ad0d237"
 metafile = true
 
 [[files]]
-file = "mods/inventory-sorter-configurable.pw.toml"
-hash = "15737439a8dbfff1c2bd5e89b89e31681faf8d0629edfa9b890021b7cec8367e"
+file = "mods/inventory-profiles-next.pw.toml"
+hash = "e87e55d35c6a335f35329b1356c8c40589f6b955b4933614f03d6c8b747f1476"
 metafile = true
 
 [[files]]
@@ -526,6 +582,11 @@ metafile = true
 [[files]]
 file = "mods/lets-do-vinery.pw.toml"
 hash = "94255c24694569e26337079e3ff81165b4e914ab427d4dab0e1d78b65325ba9f"
+metafile = true
+
+[[files]]
+file = "mods/libipn.pw.toml"
+hash = "5a98133891a72e041e37bc235e86d495e488387f1628fc1377e6b5169dfbb8bd"
 metafile = true
 
 [[files]]
@@ -610,7 +671,7 @@ metafile = true
 
 [[files]]
 file = "mods/placebo.pw.toml"
-hash = "969078b157cd783f7c38ac33407abc4f532c244c973d52810d559f02be06db90"
+hash = "a7c85edeb3d4d72c656e869018c39004a471262de0ff21f545a2c20734618661"
 metafile = true
 
 [[files]]
@@ -825,5 +886,5 @@ metafile = true
 
 [[files]]
 file = "options.txt"
-hash = "f0d377e17d51e5033479f4603ffeac6d92717ef2b8b2e180e16e577b36d083ac"
+hash = "ccb9369a04f2f4f95d0312fd69deb669cd983606b420dd45924986e4b4a4fe9c"
 preserve = true

@@ -1,0 +1,121 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "kt_explore"
+	group: "03DBE7D3196FAA34"
+	icon: "explorerscompass:explorerscompass"
+	id: "654153DAE8BFE78E"
+	order_index: 8
+	quest_links: [ ]
+	subtitle: ["Seven places and one habit worth picking up. All optional.", "A structure quest ticks the moment you stand inside the building."]
+	hide_quest_until_deps_complete: false
+	hide_quest_details_until_startable: false
+	quests: [
+		{
+			id: "46E55E5ED03AA1D8"
+			title: "Craft an Explorer's Compass"
+			subtitle: "Pick a structure, it points at the nearest."
+			icon: "explorerscompass:explorerscompass"
+			description: ["Right-click the Explorer's Compass to open a searchable list of every structure the pack generates, then choose one.", "It walks you to it. Nature's Compass does the same for biomes."]
+			x: 0.0d
+			y: 0.0d
+			optional: true
+			shape: "hexagon"
+			size: 1.5d
+			hide_details_until_startable: false
+			tasks: [{ id: "5D84403CB1049713", type: "item", item: "explorerscompass:explorerscompass", count: 1L }]
+			rewards: [{ id: "56BF938F8529B13E", type: "item", auto: "no_toast", item: "naturescompass:naturescompass" }, { id: "548E7EF24433FB11", type: "item", auto: "no_toast", item: "minecraft:cooked_beef", count: 16 }, { id: "3C27486F52F186AA", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "2E984498EADA6F09"
+			title: "Stand Inside a Village"
+			subtitle: "Towns and Towers rebuilt every one."
+			icon: "minecraft:emerald"
+			description: ["Villages in this pack are rebuilt by Towns and Towers, so the plains, taiga and desert ones look nothing like vanilla.", "Trade with the librarians while you are there."]
+			x: 2.0d
+			y: -1.5d
+			dependencies: ["46E55E5ED03AA1D8"]
+			optional: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "40A9938BB3CA03C0", type: "structure", structure: "#minecraft:village" }]
+			rewards: [{ id: "130B02930C555B0A", type: "item", auto: "no_toast", item: "minecraft:emerald", count: 8 }, { id: "46E9BCF9453B328B", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "4FB7B80DB38810C6"
+			title: "Climb a Firewatch Tower"
+			subtitle: "A wooden lookout above the treeline."
+			icon: "minecraft:spyglass"
+			description: ["Firewatch Towers come from Dungeons and Taverns and sit in forests, taiga and jungle.", "Set the Explorer's Compass to one and follow it. The chest at the top is worth the ladder."]
+			x: 2.0d
+			y: 0.0d
+			dependencies: ["46E55E5ED03AA1D8"]
+			optional: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "5041AEF636D0B839", type: "structure", structure: "#nova_structures:firewatch_tower" }]
+			rewards: [{ id: "3D5CF27471DAF06F", type: "item", auto: "no_toast", item: "minecraft:iron_ingot", count: 16 }, { id: "582BFE29B724D1A3", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "6490554D6DF64A3D"
+			title: "Walk Into a Ruined Town"
+			subtitle: "An abandoned street, still standing."
+			icon: "minecraft:cobblestone"
+			description: ["The Ruined Town is the biggest thing Dungeons and Taverns builds: a whole abandoned settlement with houses, a well and a tavern.", "Bring a torch and something to fight with."]
+			x: 4.0d
+			y: -1.5d
+			dependencies: ["4FB7B80DB38810C6"]
+			optional: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "1643965AF7FC1867", type: "structure", structure: "#nova_structures:ruin_town" }]
+			rewards: [{ id: "0BE13254CE2EBEC3", type: "item", auto: "no_toast", item: "minecraft:golden_apple", count: 2 }, { id: "32C373129A2D8B94", type: "xp_levels", auto: "no_toast", xp_levels: 5 }]
+		}
+		{
+			id: "1402078959A8EB40"
+			title: "Take a Pillager Outpost"
+			subtitle: "The banner at the top is the trophy."
+			icon: "minecraft:white_banner"
+			description: ["Towns and Towers rebuilds outposts too, so the layout will not be the one you remember.", "Clearing one drops the ominous banner and stops the patrols nearby."]
+			x: 4.0d
+			y: 0.0d
+			dependencies: ["2E984498EADA6F09"]
+			optional: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "23418C811E0B02C0", type: "structure", structure: "#minecraft:pillager_outpost" }]
+			rewards: [{ id: "7EDB60E87F35FC37", type: "item", auto: "no_toast", item: "minecraft:iron_block", count: 2 }, { id: "0C80CA311AC1833B", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "79BB08FD6C977EC7"
+			title: "Trace an Ore Sample to Its Deposit"
+			subtitle: "Surface samples sit over buried veins."
+			icon: "geolosys:prospectors_pick"
+			description: ["Geolosys puts ore in big buried pockets and marks each one with a small sample block on the surface.", "Find a sample, then use the Prospector's Pick to see how deep the pocket runs."]
+			x: 2.0d
+			y: 1.5d
+			dependencies: ["46E55E5ED03AA1D8"]
+			optional: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "7572BE8E4A9F291D", type: "item", item: "geolosys:prospectors_pick", count: 1L }, { id: "245A8AFBA03C49C8", type: "checkmark", title: "Sample followed down to the deposit." }]
+			rewards: [{ id: "16B62E2FC2216C26", type: "item", auto: "no_toast", item: "geolosys:copper_cluster", count: 16 }, { id: "006F81B5964DB821", type: "item", auto: "no_toast", item: "geolosys:iron_cluster", count: 16 }, { id: "35822866E286506C", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "5AEA33683914A91C"
+			title: "Take Sixty-Four Blocks in One Vein"
+			subtitle: "Hold the grave key while the block breaks."
+			icon: "minecraft:diamond_pickaxe"
+			description: ["Hold the grave key, above Tab, and break one ore or one log. Everything connected to it comes with it, up to 64 blocks.", "It costs tool durability and a little hunger, nothing else."]
+			x: 4.0d
+			y: 1.5d
+			dependencies: ["79BB08FD6C977EC7"]
+			optional: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "485DF9A71697B413", type: "checkmark", title: "A full vein taken in one swing." }]
+			rewards: [{ id: "4CCE49A7800BF50B", type: "item", auto: "no_toast", item: "justhammers:iron_hammer" }, { id: "3278E77502DD0437", type: "item", auto: "no_toast", item: "minecraft:experience_bottle", count: 16 }, { id: "4DD65F0D86DDD40D", type: "xp_levels", auto: "no_toast", xp_levels: 5 }]
+		}
+	]
+	title: "Explore"
+}

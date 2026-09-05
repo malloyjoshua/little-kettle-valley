@@ -1,0 +1,277 @@
+{
+  "chapter": {
+    "key": "kt_explore",
+    "title": "Explore",
+    "subtitle": [
+      "Seven places and one habit worth picking up. All optional.",
+      "A structure quest ticks the moment you stand inside the building."
+    ],
+    "icon": "explorerscompass:explorerscompass",
+    "group": "Side Quests",
+    "order": 8
+  },
+  "quests": [
+    {
+      "key": "kt_ex_compass",
+      "title": "Craft an Explorer's Compass",
+      "subtitle": "Pick a structure, it points at the nearest.",
+      "icon": "explorerscompass:explorerscompass",
+      "description": [
+        "Right-click the Explorer's Compass to open a searchable list of every structure the pack generates, then choose one.",
+        "It walks you to it. Nature's Compass does the same for biomes."
+      ],
+      "deps": [],
+      "optional": true,
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "shape": "hexagon",
+      "size": 1.5,
+      "tasks": [
+        {
+          "type": "item",
+          "item": "explorerscompass:explorerscompass",
+          "count": 1
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": "naturescompass:naturescompass",
+          "count": 1,
+          "autoclaim": "no_toast"
+        },
+        {
+          "type": "item",
+          "item": "minecraft:cooked_beef",
+          "count": 16,
+          "autoclaim": "no_toast"
+        },
+        {
+          "type": "xp_levels",
+          "levels": 3
+        }
+      ]
+    },
+    {
+      "key": "kt_ex_village",
+      "title": "Stand Inside a Village",
+      "subtitle": "Towns and Towers rebuilt every one.",
+      "icon": "minecraft:emerald",
+      "description": [
+        "Villages in this pack are rebuilt by Towns and Towers, so the plains, taiga and desert ones look nothing like vanilla.",
+        "Trade with the librarians while you are there."
+      ],
+      "deps": [
+        "kt_ex_compass"
+      ],
+      "optional": true,
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [
+        {
+          "type": "structure",
+          "structure": "#minecraft:village"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": "minecraft:emerald",
+          "count": 8,
+          "autoclaim": "no_toast"
+        },
+        {
+          "type": "xp_levels",
+          "levels": 3
+        }
+      ]
+    },
+    {
+      "key": "kt_ex_tower",
+      "title": "Climb a Firewatch Tower",
+      "subtitle": "A wooden lookout above the treeline.",
+      "icon": "minecraft:spyglass",
+      "description": [
+        "Firewatch Towers come from Dungeons and Taverns and sit in forests, taiga and jungle.",
+        "Set the Explorer's Compass to one and follow it. The chest at the top is worth the ladder."
+      ],
+      "deps": [
+        "kt_ex_compass"
+      ],
+      "optional": true,
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [
+        {
+          "type": "structure",
+          "structure": "#nova_structures:firewatch_tower"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": "minecraft:iron_ingot",
+          "count": 16,
+          "autoclaim": "no_toast"
+        },
+        {
+          "type": "xp_levels",
+          "levels": 4
+        }
+      ]
+    },
+    {
+      "key": "kt_ex_town",
+      "title": "Walk Into a Ruined Town",
+      "subtitle": "An abandoned street, still standing.",
+      "icon": "minecraft:cobblestone",
+      "description": [
+        "The Ruined Town is the biggest thing Dungeons and Taverns builds: a whole abandoned settlement with houses, a well and a tavern.",
+        "Bring a torch and something to fight with."
+      ],
+      "deps": [
+        "kt_ex_tower"
+      ],
+      "optional": true,
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [
+        {
+          "type": "structure",
+          "structure": "#nova_structures:ruin_town"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": "minecraft:golden_apple",
+          "count": 2,
+          "autoclaim": "no_toast"
+        },
+        {
+          "type": "xp_levels",
+          "levels": 5
+        }
+      ]
+    },
+    {
+      "key": "kt_ex_outpost",
+      "title": "Take a Pillager Outpost",
+      "subtitle": "The banner at the top is the trophy.",
+      "icon": "minecraft:white_banner",
+      "description": [
+        "Towns and Towers rebuilds outposts too, so the layout will not be the one you remember.",
+        "Clearing one drops the ominous banner and stops the patrols nearby."
+      ],
+      "deps": [
+        "kt_ex_village"
+      ],
+      "optional": true,
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [
+        {
+          "type": "structure",
+          "structure": "#minecraft:pillager_outpost"
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": "minecraft:iron_block",
+          "count": 2,
+          "autoclaim": "no_toast"
+        },
+        {
+          "type": "xp_levels",
+          "levels": 4
+        }
+      ]
+    },
+    {
+      "key": "kt_ex_geolosys",
+      "title": "Trace an Ore Sample to Its Deposit",
+      "subtitle": "Surface samples sit over buried veins.",
+      "icon": "geolosys:prospectors_pick",
+      "description": [
+        "Geolosys puts ore in big buried pockets and marks each one with a small sample block on the surface.",
+        "Find a sample, then use the Prospector's Pick to see how deep the pocket runs."
+      ],
+      "deps": [
+        "kt_ex_compass"
+      ],
+      "optional": true,
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [
+        {
+          "type": "item",
+          "item": "geolosys:prospectors_pick",
+          "count": 1
+        },
+        {
+          "type": "checkmark",
+          "title": "Sample followed down to the deposit."
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": "geolosys:copper_cluster",
+          "count": 16,
+          "autoclaim": "no_toast"
+        },
+        {
+          "type": "item",
+          "item": "geolosys:iron_cluster",
+          "count": 16,
+          "autoclaim": "no_toast"
+        },
+        {
+          "type": "xp_levels",
+          "levels": 4
+        }
+      ]
+    },
+    {
+      "key": "kt_ex_vein",
+      "title": "Take Sixty-Four Blocks in One Vein",
+      "subtitle": "Hold the grave key while the block breaks.",
+      "icon": "minecraft:diamond_pickaxe",
+      "description": [
+        "Hold the grave key, above Tab, and break one ore or one log. Everything connected to it comes with it, up to 64 blocks.",
+        "It costs tool durability and a little hunger, nothing else."
+      ],
+      "deps": [
+        "kt_ex_geolosys"
+      ],
+      "optional": true,
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [
+        {
+          "type": "checkmark",
+          "title": "A full vein taken in one swing."
+        }
+      ],
+      "rewards": [
+        {
+          "type": "item",
+          "item": "justhammers:iron_hammer",
+          "count": 1,
+          "autoclaim": "no_toast"
+        },
+        {
+          "type": "item",
+          "item": "minecraft:experience_bottle",
+          "count": 16,
+          "autoclaim": "no_toast"
+        },
+        {
+          "type": "xp_levels",
+          "levels": 5
+        }
+      ]
+    }
+  ]
+}

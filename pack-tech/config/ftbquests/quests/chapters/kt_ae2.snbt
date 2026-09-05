@@ -1,0 +1,212 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "kt_ae2"
+	group: "4CAA113E262FC122"
+	icon: "ae2:controller"
+	id: "45349804D99BF6F8"
+	order_index: 4
+	quest_links: [ ]
+	subtitle: ["One terminal that holds and sorts everything you own.", "Certus quartz, four stamped presses, then a network."]
+	hide_quest_until_deps_complete: false
+	hide_quest_details_until_startable: false
+	quests: [
+		{
+			id: "4EB0C3ED435AB57C"
+			title: "Mine Eight Certus Quartz Crystals"
+			subtitle: "Pale blue clusters in overworld stone."
+			icon: "ae2:certus_quartz_crystal"
+			description: ["Certus quartz grows in small blue buds in ordinary stone, most often near caves and water.", "Every part of this chapter is built from it, so take more than eight."]
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.5d
+			hide_details_until_startable: false
+			tasks: [{ id: "4A76C8EBA177984C", type: "item", item: "ae2:certus_quartz_crystal", count: 8L }]
+			rewards: [{ id: "1322C33729C289C5", type: "item", auto: "no_toast", item: "ae2:certus_quartz_crystal", count: 16 }, { id: "11CEBB7C2A33F595", type: "item", auto: "no_toast", item: "minecraft:quartz", count: 16 }, { id: "1AC76B09A4723C3C", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "460A7AC717B7A73E"
+			title: "Smelt Eight Silicon"
+			subtitle: "Grind certus to dust, then cook the dust."
+			icon: "ae2:silicon"
+			description: ["Put certus quartz through a Millstone or a Pulverizer for dust, then smelt the dust into silicon.", "Silicon is the base of every processor you are about to print."]
+			x: 2.0d
+			y: -0.8d
+			dependencies: ["4EB0C3ED435AB57C"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "093821E81552736D", type: "item", item: "ae2:silicon", count: 8L }]
+			rewards: [{ id: "53D557F9AC46FDBE", type: "item", auto: "no_toast", item: "ae2:silicon", count: 16 }, { id: "08E750141E253972", type: "item", auto: "no_toast", item: "minecraft:iron_ingot", count: 16 }, { id: "5F78057A1CF83658", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "7C75E207185C702B"
+			title: "Build a Charger and Give It Power"
+			subtitle: "It turns certus into charged certus."
+			icon: "ae2:charger"
+			description: ["The Charger takes any FE from a Thermal duct. Drop a crystal on its face and wait.", "Charged certus is the ingredient nothing else can substitute."]
+			x: 2.0d
+			y: 0.8d
+			dependencies: ["4EB0C3ED435AB57C"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "10D21A2F09ADA5F7", type: "item", item: "ae2:charger", count: 1L }]
+			rewards: [{ id: "50A8C267A4BFDEF4", type: "item", auto: "no_toast", item: "ae2:certus_quartz_dust", count: 16 }, { id: "700D02276BA1EE13", type: "item", auto: "no_toast", item: "thermal:energy_duct", count: 8 }, { id: "6A2DB2FE5F1BCF07", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "7EE7AE7DE7D9E513"
+			title: "Charge Eight Certus Crystals"
+			subtitle: "One at a time, on the charger's face."
+			icon: "ae2:charged_certus_quartz_crystal"
+			description: ["Right-click crystals onto the Charger, or drop a hopper above it and let it work while you do something else.", "Eight is enough for the fluix you need."]
+			x: 4.0d
+			y: 0.0d
+			dependencies: ["7C75E207185C702B"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "79671613C95E065E", type: "item", item: "ae2:charged_certus_quartz_crystal", count: 8L }]
+			rewards: [{ id: "3291A8832186C77A", type: "item", auto: "no_toast", item: "minecraft:redstone", count: 32 }, { id: "14245A14F1F68B18", type: "item", auto: "no_toast", item: "minecraft:quartz", count: 16 }, { id: "5ECA43CA14D4281A", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "595BC9782E5B64C3"
+			title: "Grow Sixteen Fluix Crystals"
+			subtitle: "Throw the three ingredients into water."
+			icon: "ae2:fluix_crystal"
+			description: ["Drop charged certus, redstone and nether quartz into a pool of water and they fuse on their own.", "Fluix is in every cable, every cell and the controller."]
+			x: 6.0d
+			y: 0.0d
+			dependencies: ["7EE7AE7DE7D9E513"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "1AEE7A50D49738BD", type: "item", item: "ae2:fluix_crystal", count: 16L }]
+			rewards: [{ id: "67800D82499B9694", type: "item", auto: "no_toast", item: "ae2:fluix_crystal", count: 16 }, { id: "3154B939CDEB8B0E", type: "item", auto: "no_toast", item: "ae2:fluix_glass_cable", count: 16 }, { id: "1CA56D442B6DDE6D", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "642032119EC4603A"
+			title: "Build an Inscriber"
+			subtitle: "It stamps circuits, one press at a time."
+			icon: "ae2:inscriber"
+			description: ["The Inscriber takes a press on top, a press underneath and material in the middle.", "It does nothing until you have the presses, and those are not crafted."]
+			x: 8.0d
+			y: 0.0d
+			dependencies: ["460A7AC717B7A73E", "595BC9782E5B64C3"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "70BCF0746D250C94", type: "item", item: "ae2:inscriber", count: 1L }]
+			rewards: [{ id: "50D52279B8463D1E", type: "item", auto: "no_toast", item: "ae2:meteorite_compass" }, { id: "7288D278DD1CFEB4", type: "item", auto: "no_toast", item: "minecraft:iron_pickaxe" }, { id: "6A6296137E8787B5", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "38BAD3CBAFEA7F5A"
+			title: "Find the Four Inscriber Presses"
+			subtitle: "They only come out of meteorites."
+			icon: "ae2:logic_processor_press"
+			description: ["Hold the Meteorite Compass and walk until it points down, then dig. The sky stone chest under the crater holds one press each.", "Four craters, four presses."]
+			x: 10.0d
+			y: 0.0d
+			dependencies: ["642032119EC4603A"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "59ECE2691AE831AE", type: "item", item: "ae2:silicon_press", count: 1L }, { id: "4A5078BA6210AD95", type: "item", item: "ae2:logic_processor_press", count: 1L }, { id: "5B26C9BA2CC6D579", type: "item", item: "ae2:calculation_processor_press", count: 1L }, { id: "7064DFE813F8EA4D", type: "item", item: "ae2:engineering_processor_press", count: 1L }]
+			rewards: [{ id: "322AF5DA69299C4E", type: "item", auto: "no_toast", item: "ae2:silicon", count: 32 }, { id: "577D554D7A31F84D", type: "item", auto: "no_toast", item: "minecraft:gold_ingot", count: 16 }, { id: "5D308F6242E9559B", type: "item", auto: "no_toast", item: "minecraft:diamond", count: 4 }, { id: "21A69C231A562711", type: "xp_levels", auto: "no_toast", xp_levels: 6 }]
+		}
+		{
+			id: "244310C24B27DAEB"
+			title: "Print Eight of Each Processor"
+			subtitle: "Print, then press the print onto redstone."
+			icon: "ae2:logic_processor"
+			description: ["Each processor is two passes: stamp the printed circuit and the printed silicon, then inscribe them together with redstone.", "A belt into the inscriber does this for you."]
+			x: 12.0d
+			y: 0.0d
+			dependencies: ["38BAD3CBAFEA7F5A"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "185A475F43B0C360", type: "item", item: "ae2:logic_processor", count: 8L }, { id: "39EF2D1AB808177D", type: "item", item: "ae2:calculation_processor", count: 8L }, { id: "6F40F3B3E653CA5A", type: "item", item: "ae2:engineering_processor", count: 8L }]
+			rewards: [{ id: "72E6BEB6F794A98E", type: "item", auto: "no_toast", item: "ae2:logic_processor", count: 8 }, { id: "4B004742E6C5D2B4", type: "item", auto: "no_toast", item: "ae2:calculation_processor", count: 8 }, { id: "3768123BF56658C0", type: "item", auto: "no_toast", item: "ae2:engineering_processor", count: 8 }, { id: "2442163FA42B4222", type: "xp_levels", auto: "no_toast", xp_levels: 6 }]
+		}
+		{
+			id: "65DA2F84D89E3788"
+			title: "Build an ME Controller"
+			subtitle: "One block. Everything hangs off it."
+			icon: "ae2:controller"
+			description: ["The Controller is the middle of the network. Cables run out of its faces and every device on those cables joins one system.", "One is plenty for a first build."]
+			x: 14.0d
+			y: 0.0d
+			dependencies: ["244310C24B27DAEB"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "72FC89ED48056F60", type: "item", item: "ae2:controller", count: 1L }]
+			rewards: [{ id: "43FFBB6849BC6950", type: "item", auto: "no_toast", item: "ae2:fluix_smart_cable", count: 16 }, { id: "5E462A94E544D7E5", type: "item", auto: "no_toast", item: "ae2:network_tool" }, { id: "01B65C4331DEC197", type: "xp_levels", auto: "no_toast", xp_levels: 5 }]
+		}
+		{
+			id: "61BC8611F94ED445"
+			title: "Feed the Network Power"
+			subtitle: "An acceptor turns FE into AE."
+			icon: "ae2:energy_acceptor"
+			description: ["Put an Energy Acceptor on the network and run a Thermal energy duct into it. An Energy Cell beside it covers the spikes.", "A network with no power stores nothing."]
+			x: 16.0d
+			y: 0.0d
+			dependencies: ["65DA2F84D89E3788"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "448083669A07984D", type: "item", item: "ae2:energy_acceptor", count: 1L }, { id: "0C2B91A4BCF3589E", type: "item", item: "ae2:energy_cell", count: 1L }]
+			rewards: [{ id: "21B22344F6FA1A61", type: "item", auto: "no_toast", item: "ae2:energy_cell", count: 2 }, { id: "7EF3BD235EB39F55", type: "item", auto: "no_toast", item: "thermal:energy_duct", count: 16 }, { id: "52C317406CF22A65", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "0576E9C670C03D16"
+			title: "Build an ME Drive and a 1k Cell"
+			subtitle: "One drive holds ten cells."
+			icon: "ae2:drive"
+			description: ["The Drive is the shelf; the cells are the disks. Slot a 1k Storage Cell in and the network has somewhere to put things.", "Cells can be pulled out and carried."]
+			x: 18.0d
+			y: 0.0d
+			dependencies: ["61BC8611F94ED445"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "6C53CE583D642DB6", type: "item", item: "ae2:drive", count: 1L }, { id: "2DEA1432BAD601D1", type: "item", item: "ae2:item_storage_cell_1k", count: 1L }]
+			rewards: [{ id: "3A710787632857CB", type: "item", auto: "no_toast", item: "ae2:item_storage_cell_4k", count: 2 }, { id: "5B7810BA62E5C443", type: "item", auto: "no_toast", item: "ae2:item_cell_housing", count: 4 }, { id: "74FD8349B697131E", type: "xp_levels", auto: "no_toast", xp_levels: 5 }]
+		}
+		{
+			id: "3BE256038F266240"
+			title: "Hang an ME Terminal on the Cable"
+			subtitle: "Search, sort and pull from one screen."
+			icon: "ae2:terminal"
+			description: ["Put the Terminal on the side of a cable and open it. Everything in every cell shows up in one searchable list.", "The Crafting Terminal is the same thing with a 3x3 grid."]
+			x: 20.0d
+			y: 0.0d
+			dependencies: ["0576E9C670C03D16"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "6DC621E77D6CC35E", type: "item", item: "ae2:terminal", count: 1L }]
+			rewards: [{ id: "101BF7B5FD7487F8", type: "item", auto: "no_toast", item: "ae2:crafting_terminal" }, { id: "677E82DBB18F8E8C", type: "item", auto: "no_toast", item: "ae2:cable_interface", count: 2 }, { id: "74422CCF06124DA4", type: "xp_levels", auto: "no_toast", xp_levels: 5 }]
+		}
+		{
+			id: "0B2AE6AB2F96571D"
+			title: "Build a Crafting CPU"
+			subtitle: "Four units, a storage and an assembler."
+			icon: "ae2:crafting_unit"
+			description: ["Stack Crafting Units, one 1k Crafting Storage and a Molecular Assembler into a solid block group touching the network.", "That group is what runs auto-crafting jobs."]
+			x: 22.0d
+			y: 0.0d
+			dependencies: ["3BE256038F266240"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "3E02F1ECD6945C3D", type: "item", item: "ae2:crafting_unit", count: 4L }, { id: "3C13906494613730", type: "item", item: "ae2:1k_crafting_storage", count: 1L }, { id: "648C73C199DDB4BA", type: "item", item: "ae2:molecular_assembler", count: 1L }]
+			rewards: [{ id: "47C2D634137E957C", type: "item", auto: "no_toast", item: "ae2:crafting_accelerator", count: 2 }, { id: "626AA6FC0AC90C02", type: "item", auto: "no_toast", item: "ae2:crafting_monitor" }, { id: "794EC29EE119054D", type: "xp_levels", auto: "no_toast", xp_levels: 6 }]
+		}
+		{
+			id: "521D5E50C99C7115"
+			title: "Set a Pattern Provider on a Machine"
+			subtitle: "It pushes ingredients where they go."
+			icon: "ae2:pattern_provider"
+			description: ["Encode a recipe at the Pattern Encoding Terminal, put the pattern in a Pattern Provider, and stick the provider against a machine.", "Ask the terminal for it and it builds itself."]
+			x: 24.0d
+			y: 0.0d
+			dependencies: ["0B2AE6AB2F96571D"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "1A832218C0E6A291", type: "item", item: "ae2:pattern_provider", count: 1L }, { id: "1108394BE22F2740", type: "item", item: "ae2:pattern_encoding_terminal", count: 1L }]
+			rewards: [{ id: "627EC5C8F9145861", type: "item", auto: "no_toast", item: "ae2:pattern_provider", count: 4 }, { id: "6DC6CACC3BDA729B", type: "item", auto: "no_toast", item: "ae2:blank_pattern", count: 16 }, { id: "5A13761A53A383E7", type: "xp_levels", auto: "no_toast", xp_levels: 7 }, { id: "74026709507D8F3F", type: "toast", title: "The network is running", auto: "enabled", description: "Next: The Reactor. Uranium, graphite, and twenty-two casings for a box three blocks on a side." }]
+		}
+	]
+	title: "Applied Energistics"
+}

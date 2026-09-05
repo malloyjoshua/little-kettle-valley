@@ -1,0 +1,88 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "kt_readme"
+	group: "4CAA113E262FC122"
+	icon: "minecraft:book"
+	id: "2002A3C9077367DD"
+	order_index: 0
+	quest_links: [ ]
+	subtitle: ["Six things about this book. None of them are tasks.", "Tick them off as you read, or don't. Nothing depends on them."]
+	hide_quest_until_deps_complete: false
+	hide_quest_details_until_startable: false
+	quests: [
+		{
+			id: "21500B4D704C4BAC"
+			title: "Click a Quest to See What It Wants"
+			subtitle: "Task on the left, reward on the right."
+			icon: "ftbquests:book"
+			description: ["Every quest names the item to make or the thing to do, and what it hands back.", "Finish the task and the reward arrives on its own. Nothing to click twice."]
+			x: 0.0d
+			y: -1.2d
+			hide_details_until_startable: false
+			tasks: [{ id: "7E5E4C682BE4D763", type: "checkmark", title: "One quest read." }]
+			rewards: []
+		}
+		{
+			id: "0DAF54666AADFC09"
+			title: "See the Whole Chapter From Day One"
+			subtitle: "Nothing in here is hidden from you."
+			icon: "minecraft:spyglass"
+			description: ["Quests you can't start yet are drawn greyed out, not hidden, so you can read ahead and plan.", "There are no timers and nothing can be failed."]
+			x: 2.4d
+			y: -1.2d
+			hide_details_until_startable: false
+			tasks: [{ id: "43D30F65134CAD61", type: "checkmark", title: "Board read from left to right." }]
+			rewards: []
+		}
+		{
+			id: "4986AFB3053BD59B"
+			title: "Skip Anything Marked Optional"
+			subtitle: "Cozy and Explore sit in their own tab."
+			icon: "farmersdelight:cooking_pot"
+			description: ["The Side Quests tab holds Cozy and Explore. Every quest in both is optional and blocks nothing.", "Take them when you want a break from machines."]
+			x: 4.8d
+			y: -1.2d
+			hide_details_until_startable: false
+			tasks: [{ id: "0050100117ED998F", type: "checkmark", title: "Side Quests tab found." }]
+			rewards: []
+		}
+		{
+			id: "4C8096FAF2745A2C"
+			title: "Press J, and Hold the Grave Key"
+			subtitle: "J opens this book. ` takes a whole vein."
+			icon: "minecraft:iron_pickaxe"
+			description: ["J opens the book. Hold the grave key, the one above Tab, while breaking an ore or a log to take up to 64 at once.", "Both are rebindable under Options, Controls."]
+			x: 0.0d
+			y: 1.2d
+			hide_details_until_startable: false
+			tasks: [{ id: "78091D8C5477EA03", type: "checkmark", title: "Both keys tried." }]
+			rewards: []
+		}
+		{
+			id: "583663181CDCCCB8"
+			title: "Swing the Wide Hammer, Not a Pickaxe"
+			subtitle: "One swing clears a three by three."
+			icon: "justhammers:stone_hammer"
+			description: ["The Wide Hammer breaks a 3x3 face in one hit, so tunnels, cellars and reactor pits go four times faster.", "Copper and sticks make the first one."]
+			x: 2.4d
+			y: 1.2d
+			hide_details_until_startable: false
+			tasks: [{ id: "786E1E4C8FDD21D8", type: "checkmark", title: "Hammer understood." }]
+			rewards: []
+		}
+		{
+			id: "182C2BE9B7775934"
+			title: "Look Up Any Machine in JEI"
+			subtitle: "R shows the recipe, U shows the uses."
+			icon: "minecraft:crafting_table"
+			description: ["Type a machine's name into the JEI search box on the right, hover the icon and press R for its recipe.", "Press U to see what it makes."]
+			x: 4.8d
+			y: 1.2d
+			hide_details_until_startable: false
+			tasks: [{ id: "777F8C1AA3AB037B", type: "checkmark", title: "One recipe looked up." }]
+			rewards: []
+		}
+	]
+	title: "Read Me First"
+}

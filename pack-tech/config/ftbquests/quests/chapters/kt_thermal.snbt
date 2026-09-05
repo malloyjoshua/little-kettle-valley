@@ -1,0 +1,198 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "kt_thermal"
+	group: "4CAA113E262FC122"
+	icon: "thermal:machine_frame"
+	id: "1145082389F83958"
+	order_index: 3
+	quest_links: [ ]
+	subtitle: ["Machine frames, a dynamo, and power on a wire.", "Thermal is where ore stops being the slow part."]
+	hide_quest_until_deps_complete: false
+	hide_quest_details_until_startable: false
+	quests: [
+		{
+			id: "10386ED44FDAE86A"
+			title: "Craft Eight Redstone Servos"
+			subtitle: "Iron and redstone. The commonest part."
+			icon: "thermal:redstone_servo"
+			description: ["Servos are in the frame, in the coils and in half the machines after that.", "Make eight now and you will not stop mid-build to make more."]
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.5d
+			hide_details_until_startable: false
+			tasks: [{ id: "01C2DD1CF049D04A", type: "item", item: "thermal:redstone_servo", count: 8L }]
+			rewards: [{ id: "23833461F1EF6B57", type: "item", auto: "no_toast", item: "thermal:redstone_servo", count: 8 }, { id: "66F182A601579B31", type: "item", auto: "no_toast", item: "minecraft:redstone", count: 32 }, { id: "3DB5551A6CF35107", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "7FC896C6189E7165"
+			title: "Craft Four Machine Frames"
+			subtitle: "Every Thermal machine starts as one."
+			icon: "thermal:machine_frame"
+			description: ["The frame is the blank machine. Surround it with different parts on the bench and you get a furnace, a pulverizer or a smelter.", "Tin, glass and servos."]
+			x: 2.0d
+			y: 0.0d
+			dependencies: ["10386ED44FDAE86A"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "1E54DAE3F5FB7A9A", type: "item", item: "thermal:machine_frame", count: 4L }]
+			rewards: [{ id: "656D0DFD5E611ECF", type: "item", auto: "no_toast", item: "thermal:machine_frame", count: 4 }, { id: "2D1DF7DC615E65FC", type: "item", auto: "no_toast", item: "minecraft:glass", count: 16 }, { id: "6E51373D005CBD98", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "6582E01164EF0011"
+			title: "Build a Redstone Furnace"
+			subtitle: "Smelts on power. No coal, no waiting."
+			icon: "thermal:machine_furnace"
+			description: ["The Redstone Furnace smelts anything a vanilla furnace does, faster, on stored power.", "Feed it from a dynamo or a cell and the fuel problem is over."]
+			x: 4.0d
+			y: -1.5d
+			dependencies: ["7FC896C6189E7165"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "05ACB9A97EEBF0E2", type: "item", item: "thermal:machine_furnace", count: 1L }]
+			rewards: [{ id: "5FBF51045143C905", type: "item", auto: "no_toast", item: "thermal:rf_coil", count: 2 }, { id: "00E03BFBDDE7AC03", type: "item", auto: "no_toast", item: "minecraft:gold_ingot", count: 8 }, { id: "28A98F3E35067037", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "64E8FF79E6398056"
+			title: "Craft Four RF Coils"
+			subtitle: "Wound wire. Every power part needs one."
+			icon: "thermal:rf_coil"
+			description: ["Coils are the piece that makes a block hold, move or generate power.", "Four gets you a dynamo, a cell and the ducts between them."]
+			x: 4.0d
+			y: 0.0d
+			dependencies: ["7FC896C6189E7165"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "7D210C87A53163BF", type: "item", item: "thermal:rf_coil", count: 4L }]
+			rewards: [{ id: "36439DC9E1722BCD", type: "item", auto: "no_toast", item: "thermal:rf_coil", count: 4 }, { id: "1FE8933BBE5C3084", type: "item", auto: "no_toast", item: "minecraft:coal", count: 32 }, { id: "7ECC864F4E939EAC", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "3A777C3438652D94"
+			title: "Build a Stirling Dynamo"
+			subtitle: "Burns coal, pushes power out its face."
+			icon: "thermal:dynamo_stirling"
+			description: ["Set the dynamo with its coil face touching the machine you want to run, then drop coal in it.", "This is the first power in the pack that travels on a wire."]
+			x: 6.0d
+			y: -0.8d
+			dependencies: ["64E8FF79E6398056"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "496BF13CE319EDF9", type: "item", item: "thermal:dynamo_stirling", count: 1L }]
+			rewards: [{ id: "33B11F9CA47B60DE", type: "item", auto: "no_toast", item: "thermal:dynamo_stirling" }, { id: "47263CC6BC07B96C", type: "item", auto: "no_toast", item: "minecraft:coal_block", count: 8 }, { id: "7DEDBFA5F8D8F39A", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "33E3A013A0698A1E"
+			title: "Build a Pulverizer"
+			subtitle: "Two dust from one ore, plus extras."
+			icon: "thermal:machine_pulverizer"
+			description: ["The Pulverizer grinds raw ore into two dust, and sometimes drops a second metal on the side.", "Dust smelts one to one, so this doubles every vein you mine."]
+			x: 6.0d
+			y: 0.8d
+			dependencies: ["6582E01164EF0011"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "333FB8EBEF71168B", type: "item", item: "thermal:machine_pulverizer", count: 1L }]
+			rewards: [{ id: "5399672E88E41F37", type: "item", auto: "no_toast", item: "minecraft:raw_iron", count: 32 }, { id: "54180372CCFC1547", type: "item", auto: "no_toast", item: "thermal:machine_frame", count: 2 }, { id: "6FAD8DF8C9920DF8", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "61946EE38E21886D"
+			title: "Build an Induction Smelter"
+			subtitle: "Ore plus sand gives three ingots."
+			icon: "thermal:machine_smelter"
+			description: ["The Induction Smelter takes two inputs. Ore with sand gives richer returns than the furnace, and it is the only way to make the alloys.", "Invar, electrum and constantan live here."]
+			x: 8.0d
+			y: -0.8d
+			dependencies: ["33E3A013A0698A1E"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "337E6532EB407DFA", type: "item", item: "thermal:machine_smelter", count: 1L }]
+			rewards: [{ id: "75F7007BCC3F900E", type: "item", auto: "no_toast", item: "minecraft:sand", count: 64 }, { id: "32E720C93F744AC5", type: "item", auto: "no_toast", item: "thermal:invar_gear", count: 4 }, { id: "7A8A2DAC17001492", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "41A7B6C27AE3FD50"
+			title: "Build an Energy Cell"
+			subtitle: "Stores power and meters it out."
+			icon: "thermal:energy_cell"
+			description: ["An Energy Cell is a battery with a dial. Set how fast it takes power in and how fast it lets power out.", "Put one between your dynamos and everything else."]
+			x: 8.0d
+			y: 0.8d
+			dependencies: ["3A777C3438652D94"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "1C540A2CD6551170", type: "item", item: "thermal:energy_cell", count: 1L }]
+			rewards: [{ id: "574212BEE766622A", type: "item", auto: "no_toast", item: "thermal:energy_cell_frame", count: 2 }, { id: "3B95E439552D2056", type: "item", auto: "no_toast", item: "minecraft:lapis_lazuli", count: 16 }, { id: "24165DC573392575", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "5517AA0E37A73A67"
+			title: "Lay Sixteen Energy Ducts"
+			subtitle: "Cheap, and lossless over any distance."
+			icon: "thermal:energy_duct"
+			description: ["Energy ducts carry power between anything that makes it and anything that wants it, with no loss and no configuration.", "Run them from the cell to your machines."]
+			x: 10.0d
+			y: -0.8d
+			dependencies: ["41A7B6C27AE3FD50"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "00CD7B823A1EF5C6", type: "item", item: "thermal:energy_duct", count: 16L }]
+			rewards: [{ id: "21FF054C0BC5CE0B", type: "item", auto: "no_toast", item: "thermal:energy_duct", count: 32 }, { id: "1FB718E91D1881C2", type: "item", auto: "no_toast", item: "thermal:fluid_duct", count: 16 }, { id: "746474B64407115E", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "1CE226A327EDC839"
+			title: "Build a Centrifuge"
+			subtitle: "Splits mixed things back into parts."
+			icon: "thermal:machine_centrifuge"
+			description: ["The Centrifuge pulls apart what other machines mixed together: sand from gravel, dye from flowers, metal from slag.", "It is how the smelter's leftovers stop being waste."]
+			x: 12.0d
+			y: 0.0d
+			dependencies: ["61946EE38E21886D", "5517AA0E37A73A67"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "17FE1989A3B0CECA", type: "item", item: "thermal:machine_centrifuge", count: 1L }]
+			rewards: [{ id: "41DC7E7F0A806D27", type: "item", auto: "no_toast", item: "thermal:machine_frame", count: 2 }, { id: "517923FCF2AFDC6B", type: "item", auto: "no_toast", item: "thermal:rf_coil", count: 4 }, { id: "2C53C9F461E4F36F", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "7D6C5EA2FEE59AC2"
+			title: "Build a Sawmill"
+			subtitle: "Six planks a log, and sawdust besides."
+			icon: "thermal:machine_sawmill"
+			description: ["The Sawmill gets six planks out of a log instead of four, and the sawdust presses back into more.", "Worth building the hour you start needing casings in bulk."]
+			x: 4.0d
+			y: 1.5d
+			dependencies: ["7FC896C6189E7165"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "7E9D7EBCF54B2B83", type: "item", item: "thermal:machine_sawmill", count: 1L }]
+			rewards: [{ id: "2CBD9B4BF4997346", type: "item", auto: "no_toast", item: "minecraft:oak_log", count: 64 }, { id: "33890A7DB48C6229", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "6955127BC3408F85"
+			title: "Fit a Speed Augment to a Machine"
+			subtitle: "Three slots on every Thermal machine."
+			icon: "thermal:machine_speed_augment"
+			description: ["Open any Thermal machine, find the three augment slots on the right, and drop a Speed Augment in.", "It runs faster and draws more power. That trade is the whole system."]
+			x: 10.0d
+			y: 0.8d
+			dependencies: ["41A7B6C27AE3FD50"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "2650FCC659629886", type: "item", item: "thermal:machine_speed_augment", count: 1L }]
+			rewards: [{ id: "68C8C874ED86EA32", type: "item", auto: "no_toast", item: "thermal:machine_speed_augment", count: 2 }, { id: "7135E53D8ED5D933", type: "item", auto: "no_toast", item: "thermal:upgrade_augment_1" }, { id: "73C3AEB104173E88", type: "xp_levels", auto: "no_toast", xp_levels: 4 }]
+		}
+		{
+			id: "3E0D43034B7E2FB7"
+			title: "Build a Magmatic Dynamo"
+			subtitle: "Lava in, four times a Stirling's output."
+			icon: "thermal:dynamo_magmatic"
+			description: ["The Magmatic Dynamo burns lava, so a fluid duct from a nether pool or a bucket run keeps it fed for hours.", "This is the power that carries you to the reactor."]
+			x: 14.0d
+			y: 0.0d
+			dependencies: ["3A777C3438652D94", "1CE226A327EDC839"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "7AEF69DAA009E9EB", type: "item", item: "thermal:dynamo_magmatic", count: 1L }]
+			rewards: [{ id: "2C173E5A25F012E0", type: "item", auto: "no_toast", item: "thermal:dynamo_magmatic" }, { id: "6797BA68421C92AC", type: "item", auto: "no_toast", item: "minecraft:lava_bucket", count: 4 }, { id: "3540929ADB6894D8", type: "xp_levels", auto: "no_toast", xp_levels: 5 }, { id: "526ED65F6B0AC8DE", type: "toast", title: "Thermal is done", auto: "enabled", description: "Next: Applied Energistics. Certus quartz first, then a machine that stamps circuits." }]
+		}
+	]
+	title: "Thermal"
+}
