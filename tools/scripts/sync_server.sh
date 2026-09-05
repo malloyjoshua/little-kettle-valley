@@ -7,6 +7,12 @@ rm -rf "$ROOT/server/config/ftbquests/quests" "$ROOT/server/kubejs/server_script
 cd "$ROOT/server" && "$ROOT/tools/jdk17/Contents/Home/bin/java" -jar "$ROOT/tools/packwiz-installer-bootstrap.jar" -g -s server "${1:-$ROOT/pack/pack.toml}" 2>&1 | tail -1
 ls "$ROOT/server/config/ftbquests/quests/chapters" | wc -l | xargs echo "quest chapters:"
 
+# The shipped singleplayer world (pack/saves/Little Kettle Valley/, 55 MB) is indexed as plain
+# files, and packwiz's index has no per-file `side` -- only metafiles carry one -- so `-s server`
+# installs it here too. The server's world is server/world/; a copy under server/saves/ is dead
+# weight and, worse, looks like a second world to anyone reading the folder. Drop it.
+rm -rf "$ROOT/server/saves"
+
 # ---------------------------------------------------------------------------
 # ORPHAN SWEEP. This script deletes server/packwiz.json above -- that file is the
 # installer's record of what IT put there, and without it the installer cannot remove

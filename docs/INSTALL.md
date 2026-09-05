@@ -2,6 +2,8 @@
 
 Pick the path for your computer. All three end up in the same place — Prism Launcher, signed in with your Microsoft account, with the pack installed and self-updating.
 
+**You do not make a world.** The valley ships with the pack: the same seed, the same town, the same forty unlit lamp posts, the same letter on the same cold hearth as everybody else. Clicking **Play** drops you straight into it — no menu, no Create New World, no seed to type.
+
 ## Windows
 
 1. Download **LittleKettleValley-Setup.exe** from the [release page](https://github.com/malloyjoshua/little-kettle-valley/releases/tag/friends) and open it. Your browser will probably flag it as uncommonly downloaded — choose **Keep**.
@@ -38,9 +40,17 @@ Use this if you already run a different launcher, or the Windows/Mac installer d
 
 ## First launch
 
-The first launch downloads about 125 mods and takes a few minutes. After that it's fast. Every time you launch after that, the pack checks for updates and applies them — you never need to download anything again.
+The first launch downloads about 125 mods and the 55 MB valley, and takes a few minutes. After that it's fast. Every time you launch after that, the pack checks for updates and applies them — you never need to download anything again.
+
+Then the game opens **in the valley**, on a road, at dawn, facing the way you're meant to walk. If you ever land at the Minecraft main menu instead, the world is still there: **Singleplayer → Little Kettle Valley → Play Selected World**. Tell Josh if that happens, it means a setting didn't take.
+
+**Your game is yours.** Updates never touch your world. Once the valley is on your machine it belongs to you — every wall you move, every chest you fill, every lamp you light stays exactly where you left it, no matter how many times Josh pushes a fix. The trade is that a fix to the *world itself* only reaches people who haven't started yet; anything that goes wrong in yours, Josh fixes with a command instead.
+
+**Starting over.** If you ever want a clean valley: quit the game and the launcher, right-click the instance → **Minecraft Folder**, and delete the folder `saves/Little Kettle Valley`. Next launch lays down a fresh one. (Rename it to `saves/old valley` instead if you might want the old one back — it'll still show up in the world list.) Your account, mods, keybinds and video settings are untouched either way.
 
 ## Join the server
+
+Josh runs a server with **the same valley on it** — the identical world, the identical town, played together instead of alone. Your singleplayer copy and the server are separate saves: what you build in one does not appear in the other.
 
 **Server address:** `cynthia-mfc.tun.ply.gg` (Multiplayer > Add Server, paste that as the address; no port needed). If a launcher insists on a port, use `cynthia-mfc.tun.ply.gg:35925`. The server is up when Josh's Mac is running it.
 
@@ -49,4 +59,6 @@ The first launch downloads about 125 mods and takes a few minutes. After that it
 ## If it won't start
 - Make sure memory is set to at least 3072 MB (Edit > Settings > Memory).
 - Turn off shaders if any got enabled (Options > Video > Shader Packs > None). The pack ships without them on purpose.
+- If it starts but sits on the main menu, open **Singleplayer > Little Kettle Valley** by hand and tell Josh.
+- If the world list is empty, the pre-launch download didn't finish. Relaunch on a working connection; it picks up where it left off.
 - Send Josh the file `logs/latest.log` from the instance's Minecraft folder (right-click instance > Minecraft Folder).

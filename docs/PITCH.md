@@ -2,7 +2,7 @@
 
 ## Short
 
-I built a Minecraft pack. You inherit a dead great-aunt's cottage in a valley where everyone leaves every February. Forty dark lamp posts. Fifteen neighbours who don't exist yet. One locked door in your cellar that says "Not yet." Your job is to make it through one winter. Spring's easy. Winter is why there's a nuclear reactor.
+I built a Minecraft pack — and a whole valley to go in it, hand-built, that ships with it. You inherit a dead great-aunt's cottage in a valley where everyone leaves every February. Forty dark lamp posts. Fifteen neighbours who don't exist yet. One locked door in your cellar that says "Not yet." Your job is to make it through one winter. Spring's easy. Winter is why there's a nuclear reactor.
 
 ## Full
 
@@ -20,6 +20,6 @@ It never asks you to be creative. The book always tells you the one next thing. 
 
 Fifteen residents show up one at a time, each with their own thing going on. There's a kid who names all the animals. There's a frog who's cheerful with slightly wrong grammar. There's a prospector who explains everything twice. Bram says "Well." once in the whole game and it means everything.
 
-Five minutes to install. It updates itself. Bring a friend or bring a spouse who hates open-world games; it was built for exactly that person.
+Five minutes to install. It updates itself. **You don't make a world** — the valley comes with it, the same one for everybody, and clicking Play drops you on the road into it. Bring a friend or bring a spouse who hates open-world games; it was built for exactly that person.
 
 Forty lamps. Fifteen people. One winter that nobody leaves.

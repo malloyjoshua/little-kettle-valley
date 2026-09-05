@@ -88,6 +88,35 @@ AIR_RENDER_DISTANCE = 6
 AIR_SIMULATION_DISTANCE = 6
 PACK_OPTIONS = ROOT / "pack" / "options.txt"
 
+# Open the shipped valley instead of the Minecraft main menu.
+#
+# The pack carries the world itself (pack/saves/Little Kettle Valley/, every file
+# marked preserve = true), so by the time the game starts the save is already on
+# disk -- the PreLaunchCommand that installs it runs before the JVM does.  These
+# two keys are what make Prism walk her into it rather than leaving her at
+# Singleplayer > pick one.
+#
+# Read out of PrismLauncher 11.1.0 (the version this dmg bundles):
+#   * MinecraftInstance::loadSpecificSettings registers JoinServerOnLaunch (bool),
+#     JoinServerOnLaunchAddress (string) and JoinWorldOnLaunch (string), with no
+#     global override -- they are instance.cfg keys and nothing else.
+#   * createLaunchTask() only looks at any of them when JoinServerOnLaunch is
+#     true; it then takes the ADDRESS if it is non-empty and the WORLD otherwise.
+#     So the world path needs the boolean on and the address key absent.
+#   * processMinecraftArgs() emits `--quickPlaySingleplayer <JoinWorldOnLaunch>`
+#     if the profile has the trait feature:is_quick_play_singleplayer.
+#     meta.prismlauncher.org's net.minecraft/1.20.1.json carries that trait.
+#   * MinecraftTarget::parse(s, useWorld=true) returns s verbatim -- no splitting,
+#     no trimming -- so the space in the folder name is safe.
+#
+# The value is the SAVE FOLDER name (Prism fills the box from
+# WorldList::folderName()), not level.dat's LevelName.  They are the same string
+# here; if the folder is ever renamed, this must follow it, not the display name.
+#
+# Worst case is benign: if the world is missing or the arg is wrong, Minecraft
+# falls back to the main menu.  It cannot fail the launch.
+JOIN_WORLD_FOLDER = "Little Kettle Valley"
+
 # --------------------------------------------------------------------------
 # Window / background layout — one source of truth, shared by the PNG we draw
 # and the icon positions dmgbuild writes into the .DS_Store.
@@ -293,6 +322,14 @@ def tune_instance_cfg(text: str) -> str:
     missing = {"MaxMemAlloc", "MinMemAlloc"} - seen
     if missing:
         raise SystemExit(f"FATAL: dist/CozyTech/instance.cfg has no {sorted(missing)}")
+    # Join-the-world keys: normally inherited from dist/CozyTech/instance.cfg, but
+    # written here if that file has drifted, so the dmg can never ship an instance
+    # that drops her at the main menu.  An explicit JoinServerOnLaunchAddress would
+    # win over the world (createLaunchTask checks the address first), so drop it.
+    out = [l for l in out if (l.split("=", 1)[0].strip() if "=" in l else None)
+           not in ("JoinServerOnLaunch", "JoinWorldOnLaunch", "JoinServerOnLaunchAddress")]
+    head = out.index("[General]") + 1
+    out[head:head] = ["JoinServerOnLaunch=true", f"JoinWorldOnLaunch={JOIN_WORLD_FOLDER}"]
     return "\n".join(out) + "\n"
 
 
@@ -363,12 +400,16 @@ def build_instance_zip() -> Path:
     cfg = next(d for a, d in members if a == "instance.cfg").decode()
     assert f"MaxMemAlloc={MAX_MEM_MB}" in cfg and f"MinMemAlloc={MIN_MEM_MB}" in cfg
     assert "JavaPath" not in cfg and "OverrideJavaLocation" not in cfg
+    assert "JoinServerOnLaunch=true" in cfg, "instance would open the main menu, not the valley"
+    assert f"JoinWorldOnLaunch={JOIN_WORLD_FOLDER}" in cfg
+    assert "JoinServerOnLaunchAddress" not in cfg, "an address key would beat the world"
     opt = next(d for a, d in members if a == ".minecraft/options.txt").decode()
     assert opt.splitlines()[0].startswith("version:")
     assert f"renderDistance:{AIR_RENDER_DISTANCE}" in opt
     assert f"simulationDistance:{AIR_SIMULATION_DISTANCE}" in opt
     say(f"{ZIP_NAME}: {len(members)} entries, "
         f"MaxMemAlloc={MAX_MEM_MB} MinMemAlloc={MIN_MEM_MB}, no Java pin")
+    say(f"  opens {JOIN_WORLD_FOLDER!r} on launch (--quickPlaySingleplayer)")
     say(f"  .minecraft/options.txt: {len(opt.splitlines())} lines, "
         f"renderDistance={AIR_RENDER_DISTANCE} "
         f"simulationDistance={AIR_SIMULATION_DISTANCE} "

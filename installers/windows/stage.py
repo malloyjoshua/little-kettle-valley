@@ -84,6 +84,25 @@ JAVA_PATH_TOKEN = "@@JAVA_PATH@@"
 MAX_MEM_TOKEN = "@@MAX_MEM@@"
 MIN_MEM_MB = 1024
 
+# Open the shipped valley instead of the main menu.  The pack carries the world
+# (pack/saves/Little Kettle Valley/) and the PreLaunchCommand installs it before the
+# JVM starts, so the save is on disk by the time these are read.
+#
+# PrismLauncher 11.1.0, MinecraftInstance.cpp: createLaunchTask() ignores both keys
+# unless JoinServerOnLaunch is true, then prefers JoinServerOnLaunchAddress and only
+# falls through to JoinWorldOnLaunch when the address is empty -- so we set the bool
+# and write no address key at all.  processMinecraftArgs() turns it into
+# `--quickPlaySingleplayer <value>`, gated on the profile trait
+# feature:is_quick_play_singleplayer, which 1.20.1's Prism meta carries.
+#
+# The value is the SAVE FOLDER name (Prism reads WorldList::folderName()), not
+# level.dat's LevelName.  Rename the folder and this has to follow it.
+#
+# Note the INI caveat in instance_cfg()'s docstring applies here too: with no
+# ConfigVersion key Prism runs unescape() over every value.  unescape() only eats
+# backslashes -- spaces are untouched -- so "Little Kettle Valley" survives intact.
+JOIN_WORLD_FOLDER = "Little Kettle Valley"
+
 # Prism's own self-updater. Deliberately NOT shipped: Application::updaterEnabled() (Application.cpp
 # 1272-1279) only turns the updater on when this binary sits next to the exe, so omitting it stops
 # Prism prompting friends to self-update a launcher we pin and ship ourselves.
@@ -247,6 +266,10 @@ def instance_cfg(java_path: str, max_mem: str) -> str:
             "InstanceType=OneSix",
             f"name={INSTANCE_NAME}",
             "iconKey=lkv",
+            # Join-on-launch: see JOIN_WORLD_FOLDER above. No JoinServerOnLaunchAddress
+            # key -- an address would win over the world.
+            "JoinServerOnLaunch=true",
+            f"JoinWorldOnLaunch={JOIN_WORLD_FOLDER}",
             "OverrideMemory=true",
             f"MinMemAlloc={MIN_MEM_MB}",
             f"MaxMemAlloc={max_mem}",
@@ -409,6 +432,14 @@ def main() -> int:
                 raise SystemExit(f"{rel} does not contain {tok!r} -- the installer would never patch it")
     if args.max_mem == MAX_MEM_TOKEN:
         log("memory left as a token; the installer picks 3072/3584/4096 from the machine's RAM")
+
+    cfg_body = (out / f"instances/{INSTANCE_NAME}/instance.cfg").read_text(encoding="utf-8")
+    for needed in ("JoinServerOnLaunch=true", f"JoinWorldOnLaunch={JOIN_WORLD_FOLDER}"):
+        if needed not in cfg_body:
+            raise SystemExit(f"instance.cfg is missing {needed!r} -- it would open the main menu")
+    if "JoinServerOnLaunchAddress" in cfg_body:
+        raise SystemExit("instance.cfg sets JoinServerOnLaunchAddress -- that beats the world join")
+    log(f"opens {JOIN_WORLD_FOLDER!r} on launch (--quickPlaySingleplayer)")
 
     # 7. Report -----------------------------------------------------------------
     files = [p for p in out.rglob("*") if p.is_file()]

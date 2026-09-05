@@ -61,7 +61,7 @@ win_steps = [
     ('Click through SmartScreen', '"Windows protected your PC" > More info > Run anyway. One-time, because the installer is not code-signed.'),
     ('Install', 'Next > Install. No admin password, nothing else to install — Java is bundled.'),
     ('Sign in', 'Leave "Launch Little Kettle Valley" ticked. Sign in with the Microsoft account that owns Minecraft.'),
-    ('Launch', 'Little Kettle Valley > Play. First launch downloads about 125 mods and takes a few minutes.'),
+    ('Launch', 'Little Kettle Valley > Play. First launch downloads about 125 mods and the valley itself, and takes a few minutes. Then it opens straight into the world — you never make one.'),
 ]
 y = numbered_steps(win_steps, M, y)
 y -= 0.05 * inch

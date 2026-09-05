@@ -1376,3 +1376,343 @@ hash = "2e886e2d19172262df39eb6ef7f0adf8e9cfb28e8a4eebc1838c33de7d3a9ec9"
 [[files]]
 file = "patchouli_books/valley_journal/en_us/entries/journal/entry_5_the_last_page.json"
 hash = "15c30d75fb61a4c54d3ceb6f7704c824fae798a7d2cfe203d30e28b7c9f9e042"
+
+[[files]]
+file = "saves/Little Kettle Valley/DIM-1/data/capabilities.dat"
+hash = "72e3e0a68617a7950a7cb3cc1a80bd82982c27754ae3a090d5e4bdc54bf15741"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/DIM-1/data/raids.dat"
+hash = "a4a468ac91d2bed9ec70b3a98d63fbc08008f2ff1da23b41cf71d6e9f62badd4"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/DIM-1/data/seasons.dat"
+hash = "45e6dc39681323228afea0bedf1256a8b89de1091cb48b19f02ec514f83ee9ae"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/DIM1/data/capabilities.dat"
+hash = "72e3e0a68617a7950a7cb3cc1a80bd82982c27754ae3a090d5e4bdc54bf15741"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/DIM1/data/raids_end.dat"
+hash = "a4a468ac91d2bed9ec70b3a98d63fbc08008f2ff1da23b41cf71d6e9f62badd4"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/DIM1/data/seasons.dat"
+hash = "45e6dc39681323228afea0bedf1256a8b89de1091cb48b19f02ec514f83ee9ae"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/data/ae2_compass_0_0.dat"
+hash = "bc09335222be1e2bc108852e7e2aaf5e0d22501128696c4df891a59c099dbe2b"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/data/capabilities.dat"
+hash = "d14706f1c22df17adb60b12e44e8e5ac4f887713734dd4621210f7e4be54b114"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/data/chunks.dat"
+hash = "e104cfd7251797f129eed94d0b4862b8f77864c36541b6e54b9e61c53c0bf7a3"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/data/citadel_world_data.dat"
+hash = "75ca581ffc37c73767e394aa34969717b03dca8f310f25528b6dec32b018b740"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/data/raids.dat"
+hash = "a4a468ac91d2bed9ec70b3a98d63fbc08008f2ff1da23b41cf71d6e9f62badd4"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/data/random_sequences.dat"
+hash = "11976ac7c90801262811d721e4480e87e1e4a2ae32d8129b8b557a700af46924"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/data/seasons.dat"
+hash = "e473ad4b9d74f22db482bde495c8da7846cbb24b8fd101c86cdf619132cbb955"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/data/waystones.dat"
+hash = "2a7573ba1fbead4c51869eb08ccaa2048c93c544edd721ac9c544ce1700c0aec"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/dimensions/ae2/spatial_storage/data/capabilities.dat"
+hash = "72e3e0a68617a7950a7cb3cc1a80bd82982c27754ae3a090d5e4bdc54bf15741"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/dimensions/ae2/spatial_storage/data/raids.dat"
+hash = "a4a468ac91d2bed9ec70b3a98d63fbc08008f2ff1da23b41cf71d6e9f62badd4"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/dimensions/ae2/spatial_storage/data/seasons.dat"
+hash = "45e6dc39681323228afea0bedf1256a8b89de1091cb48b19f02ec514f83ee9ae"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/dimensions/deeperdarker/otherside/data/capabilities.dat"
+hash = "72e3e0a68617a7950a7cb3cc1a80bd82982c27754ae3a090d5e4bdc54bf15741"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/dimensions/deeperdarker/otherside/data/raids.dat"
+hash = "a4a468ac91d2bed9ec70b3a98d63fbc08008f2ff1da23b41cf71d6e9f62badd4"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/dimensions/deeperdarker/otherside/data/seasons.dat"
+hash = "45e6dc39681323228afea0bedf1256a8b89de1091cb48b19f02ec514f83ee9ae"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/dimensions/minecraft/server_faucet_test_level/mfix_stronghold_cache_v2.nbt"
+hash = "8d0ce8fd360aedeb94c8cf9f1d8dd0e7acfdc63f1c261be340e8bf6e037b22e3"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/entities/r.-1.-1.mca"
+hash = "7886484fff7259472585bb40745ada541588d561d760d2e52b3d7564faba19c3"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/entities/r.-1.-2.mca"
+hash = "83df94c035b735cfa26b8c7ae7bf16f2ccbbe9f2c17f1097ffad4ac004f3e858"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/entities/r.-1.0.mca"
+hash = "0d7f05b5c1650fa9babf1144f3007c587cdd133045887462622cbb7d3a9c3717"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/entities/r.-2.-1.mca"
+hash = "e632e8991dccc8197b6020b019888561f65a6bc8f563554e2ecaa36af438dee4"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/entities/r.-2.0.mca"
+hash = "f2edfd8c8d50f4a71c33df8f58768400989a9077269d9914a9d7212301c8d65e"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/entities/r.0.-1.mca"
+hash = "a171332dae0e914001e2327bdafa9d77cedc22ea56bc64c2eca586a9b034dba2"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/entities/r.0.0.mca"
+hash = "97e07c59ee79b1611c46588e7698e9a314a7ea7a3cce8b1c26e6bb182454f671"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/kubejs_persistent_data.nbt"
+hash = "128d36780d6421cac4c79ee2e5cd771d7e9c43caa8d947d1ba767c1a32b0d5c9"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/level.dat"
+hash = "ac00623e9ce7ad67a9c62f24e0e066d05a75ad775817c6b2cee4606490bb8aed"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/mfix_stronghold_cache_v2.nbt"
+hash = "8d0ce8fd360aedeb94c8cf9f1d8dd0e7acfdc63f1c261be340e8bf6e037b22e3"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/poi/r.-1.-1.mca"
+hash = "c8b4327beee8e97ee008078454eaf7dbb21111a26a5bbfd43cc61cd9690fe58b"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/poi/r.-1.-2.mca"
+hash = "a7d3bbe0345c631be04f931e72c9fe8243ca2d34015785a13b8c069c8c8de0d1"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/poi/r.-1.0.mca"
+hash = "ec3c003ea5087d3722769414328b2f9353561a09522df550b0b025b5f2c69331"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/poi/r.-1.1.mca"
+hash = "5590054154b6d7880aba089d81a867eba2fd53783979e683930afb61ea21c4b2"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/poi/r.-2.-1.mca"
+hash = "c8019f19a782c0347f68344460a94a45eaeea5fc6b6e951952f50f257775a93f"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/poi/r.-2.-2.mca"
+hash = "d805f5256235c64c069cffcf666f5bf8e867b69d05284a87bc7783ca37dba2e3"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/poi/r.-2.0.mca"
+hash = "0d71ec398f3d870426155e82b86aca0d7385e7bd271d2590fb9fae35af11e3bf"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/poi/r.-2.1.mca"
+hash = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/poi/r.0.-1.mca"
+hash = "32077cb6d5851d49bbbed31dedf0c834131630b2b7e042e3c4823b51486f6f3e"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/poi/r.0.-2.mca"
+hash = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/poi/r.0.0.mca"
+hash = "e2934a5703292b31d7ccd49db39da01d6fe82d85f413d9e52cca1c20995926ef"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/poi/r.0.1.mca"
+hash = "7cbaedb690866b4ca7e9fa0f9f80c4b1b2f85b0af8897ca047ebf660656f425e"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/region/r.-1.-1.mca"
+hash = "9a00dbd955ecbeca7c5e7bee4569a3e0a5773b4a042f373f9bef2ec0a5e05c24"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/region/r.-1.-2.mca"
+hash = "b496efbdb4bc7cd7ae0d5988c5ec09a4758c790aa312de6c39d44ba6f7656336"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/region/r.-1.0.mca"
+hash = "ed5cf566b3ebedc97dca6e8bcadfe442df263fcaec4d2b5ad05fc91daea9ea41"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/region/r.-1.1.mca"
+hash = "d3ddb275889fa9de06ac3222c0d3fea01480558244c7928939476c0d1bc49958"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/region/r.-2.-1.mca"
+hash = "45f634e4de4a6213b32d59d979d2f24282e2116da287a08e46c879e1e0b5432d"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/region/r.-2.-2.mca"
+hash = "b08e6007f7f7291ba4787fc331193f9c53e8bfbb457ab82679840df5136062c0"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/region/r.-2.0.mca"
+hash = "17c425e4eb53e8cc1c9bb13abe21e25e4a07308f178013cd724e4eddb4dbdc68"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/region/r.-2.1.mca"
+hash = "da5ec8a1b65a8079ef386879d9c4fdeb524501ff390f4d1a661913ebd8ef3363"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/region/r.0.-1.mca"
+hash = "6be43c37430f0275005ce19647c85e99e3c515d0d330cbde40f7bf078c7546cf"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/region/r.0.-2.mca"
+hash = "eef45252762f43a854805462cfb33217a9ce49989f050615f9b85f538a72ee86"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/region/r.0.0.mca"
+hash = "7f675c4f2451019ce0c969a94c053752bd008d7fff3d55dc2bdee150d286c234"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/region/r.0.1.mca"
+hash = "418c1a23a16a8581df512e58735b509378913e58711c73267bf4c8a79a4d2b55"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/serverconfig/cofh_core-server.toml"
+hash = "10271bd3ac71c8f432e473958c4a958cba3e19f4706b445c716f46dd1760dad9"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/serverconfig/corpse-server.toml"
+hash = "15e258f5581f452128834f1f7578bd5bff057046517435dc825a2169fefa6967"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/serverconfig/create-server.toml"
+hash = "02d76e674a677f296b153e7d30d5fa47dc89e82be1c9d331a67e0d3c11114f99"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/serverconfig/curios-server.toml"
+hash = "c6b3ceb80bb8fba4e7956961abc063e76eb399a098d4227061afd540c1c3a72f"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/serverconfig/forge-server.toml"
+hash = "d3c131a2568fa7d791c5b9a64f924426b0c053c0255c2557fb05c351bab2a737"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/serverconfig/inventorysorter-server.toml"
+hash = "ca3b26197951d89d6ecba1e08aaa043e778d1f783b169b6ba214491f1cc20bce"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/serverconfig/jei-server.toml"
+hash = "0085454dbcae55e9d85ab4e6bca97cc14ec4bba8133460cefc9d9d9e6be2ed1d"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/serverconfig/quarryplus-server.toml"
+hash = "1bb8cd4af7a9ba1f208e366ac87a2384cc598cf1f6fa6506cdca4c4944c6214a"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/serverconfig/railways-server.toml"
+hash = "7fc8fe66b491b236cdd7a2e54a6d67109b4da2844162cc717d611328a798910e"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/serverconfig/sophisticatedbackpacks-server.toml"
+hash = "f25627da1929ad8369a90289b3d2a7672d0bf57d18fef218150ce953c2b38ee2"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/serverconfig/sophisticatedstorage-server.toml"
+hash = "81eb1e3e957badde57446280eb54f926f3443fae8445584f52d067d55f557612"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/serverconfig/thermal-server.toml"
+hash = "663cd7ad322e18adc7b428a6bd21c5179fb29e2f120cb21880b0e5eb749f109b"
+preserve = true
+
+[[files]]
+file = "saves/Little Kettle Valley/serverconfig/voicechat-server.toml"
+hash = "546cc588bb021baca50efbbba84a488e7fa8d83948295923eb6f0182453d86a8"
+preserve = true

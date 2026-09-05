@@ -15,13 +15,26 @@ rm -f dist/LittleKettleValley.zip
 # back to this committed zip. So the zip has to be on main BEFORE the workflow is triggered, or the
 # .exe gets built around the previous instance.
 echo "==> Refreshing the packwiz index (a stale index aborts every friend's launch mid-install)"
-( cd "$ROOT/pack" && "$ROOT/tools/packwiz" refresh >/dev/null )
-git add pack/index.toml pack/pack.toml
-if git diff --cached --quiet -- pack/index.toml pack/pack.toml; then
+# NOT a bare `packwiz refresh`. refresh rewrites every [[files]] block and invents no keys of
+# its own, so it is the one command that can quietly drop `preserve = true` off the 68 shipped-
+# world files -- and an index that ships the world WITHOUT that flag overwrites every existing
+# player's save on their next launch. mark_preserve.py --refresh does the whole invariant in
+# the only correct order: refresh, re-mark, re-point pack.toml's index hash.
+"$ROOT/tools/venv/bin/python" "$ROOT/tools/scripts/mark_preserve.py" --refresh
+# Gate, not a formality: an unflagged world deletes people's games.
+"$ROOT/tools/venv/bin/python" "$ROOT/tools/scripts/mark_preserve.py" --check
+git add pack/index.toml pack/pack.toml pack/saves
+if git diff --cached --quiet -- pack/index.toml pack/pack.toml pack/saves; then
   echo "    index current"
 else
-  git commit -m "Refresh packwiz index for the release" -- pack/index.toml pack/pack.toml
+  git commit -m "Refresh packwiz index for the release" -- pack/index.toml pack/pack.toml pack/saves
   echo "    index committed"
+fi
+# The index names every world file by hash; if one of them is not on main, the friend's install
+# 404s halfway through a launch. Refuse to go on.
+if [ -n "$(git status --porcelain -- pack/saves)" ]; then
+  echo "!! pack/saves has uncommitted changes -- the index would name files that are not on main" >&2
+  exit 1
 fi
 echo "==> Committing dist/LittleKettleValley.zip (the Windows CI build reads it from main)"
 git add dist/LittleKettleValley.zip

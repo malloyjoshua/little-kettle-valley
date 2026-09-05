@@ -6,23 +6,28 @@ The one line the pack repeats in every act: **Forty lamps. Fifteen people. One w
 
 ## The first hour, minute by minute
 
+This is the shipped world, not a description of one. Every coordinate below is fixed: the
+same road, the same signpost, the same cold hearth for everybody who installs it.
+
 | When | What you do | What you get for it |
 |---|---|---|
-| 0:00 | Right-click Josie's letter and read all four pages. The last one is the way to the farm. | The journal, the copper kettle, the Homestead Waystone, a shovel and pick, food, torches, a megatorch. A lit path is already laid from your feet to the ruined farm |
-| 0:03 | Follow the lit path to the ruin — chimney, three broken walls, a bed frame. Put the waystone on the hearthstone. | The cottage rebuilds itself around you: walls, roof, doorway, two window holes, a bed mat |
-| 0:07 | Hang the door, windows, bed and sconce (all in your bag). | Table, chairs, a rug |
-| 0:13 | Place the megatorch inside. | Nothing hostile spawns near home, ever |
-| 0:14 | Dig out the cellar stairs. | You find an iron door with no handle, chalked "Not yet. J.K." and a crate of Josie's tools |
-| 0:18 | Cook one vegetable soup. | Skillet, knife, seeds |
-| 0:23 | Plant the Surveyor's Stake where the town will be. | A stone path lays itself to the stake and the first two lamps go up (2 of 40) |
-| 0:28 | Sleep one night. | **Marnie arrives** at your door, and **Bram** is down at the mill with the race cut and the axle on the floor |
+| 0:00 | **You wake on a road**, at dawn, at the south end of the valley (−324, 75, 116), already facing the way you are meant to walk. The town is behind a rise and you cannot see it. Four blocks ahead on the right is a signpost with a lit lantern on it: **KETTLE FARM**. Two unlit lamp posts stand further up the verge. | The opening frame is a road going somewhere, and one light in it |
+| 0:01 | Right-click Josie's letter and read all four pages. The last one is the way to the farm. | The journal, the copper kettle, the Homestead Waystone, a shovel and pick, food, torches, a megatorch — and the line the whole pack turns on: *forty lamp posts stand along this road and not one of them is lit* |
+| 0:04 | Follow the road north, past the signpost and the gate, about eighty blocks. The chimney comes up over the rise before the house does. | The old Kettle farm, standing: cold, empty, no door on it. **Nothing is ruined and nothing rebuilds itself.** It is exactly as she left it |
+| 0:06 | Put the Homestead Waystone on the flat grey hearthstone in the middle of the kitchen floor and name it Home. | The door, four windows, the red bed and the sconce — everything the house is missing, handed to you at once |
+| 0:09 | Hang the door, the windows, the bed and the sconce. The holes are already cut for all of them. | Table, chairs, a rug, flower boxes, the cooking pot, the campfire |
+| 0:13 | Place the megatorch inside, where you can see it from the bed. | Nothing hostile spawns near home, ever. Two more megatorches and two flare lanterns for later |
+| 0:14 | Dig out the cellar stairs — forty marked blocks of gravel in the kitchen floor. | You come down onto a stone landing in front of an **iron door with no handle**, chalked *"Not yet. J.K."*, and a crate of Josie's tools. It stays shut for six hours of play |
+| 0:18 | Hang the kettle over the campfire and cook one vegetable soup. | Skillet, knife, seeds — and the Surveyor's Stake |
+| 0:23 | Walk up the road to the square and drive the Surveyor's Stake into Bram's socket, two blocks north of the town waystone. He cut that socket forty years ago and never drove it. | The paving runs itself out to the stake and **the first two lamps come on** (2 of 40) |
+| 0:28 | Sleep one night in your own bed. | **Marnie arrives** at your door with bread, and **Bram** is down at the mill with the race cut and the axle on the floor |
 | 0:34 | Till and plant. Fence a pen, open the hen crates. | Watering can, straw hat, a chicken feeder |
 | 0:46 | Take three eggs to Marnie. | **Pip arrives**, puts a duckling on your boot and names it Biscuit before you can stop him |
 | 0:52 | Talk to Bram at the broken mill. | **Bram arrives.** Wrench, goggles, iron and andesite |
 | 0:57 | Craft 8 andesite alloy. | A pre-made Mechanical Press, cogs, shafts |
 | 1:00 | Take Bram's wide hammer off the peg. | A Stone Hammer: three blocks by three, one swing. Every dig-out after this one is a third of the swings |
 
-Three residents, a rebuilt house, a pet called Biscuit, a mystery door, the first machine and a hammer that breaks nine blocks at a time, before the hour is out. Every quest in that stretch is one to six minutes.
+Three residents, a house with a door on it, a pet called Biscuit, a mystery door, the first machine and a hammer that breaks nine blocks at a time, before the hour is out. Every quest in that stretch is one to six minutes.
 
 ## Act I: Spring, The Thaw (20 quests, about 2 hours)
 You arrive at a cold house in a valley that used to be a town. One neighbour sees the chimney smoke and decides you are staying. The cozy lane gets the kitchen running and the first crops in; the tech lane gets the mill turning with water wheels made from boards that only exist because somebody dried them in Marnie's oven. That is the first braid: she unblocks him before he has mined anything.
@@ -61,6 +66,11 @@ The anti-grind valve. Bounties and deliveries pay Valley Scrip; scrip buys pre-m
 - **Payoffs render.** A person standing where they were not, a lit lamp, a warm room, a plushie. Never "the town is grateful".
 
 ## What the valley is built out of
+
+**The world ships with the pack.** Nobody generates one. `pack/saves/Little Kettle Valley/`
+is the finished valley — 68 files, 55 MB, the same seed and the same town for every install —
+and the launcher opens straight into it. See *The world* in `docs/RUNBOOK.md` for where the
+copies live and how a rebuild works.
 
 Every building in Little Kettle Valley is a real structure template placed on a
 levelled pad, not a procedural plank box. One style runs through the whole
