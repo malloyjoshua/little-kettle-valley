@@ -232,6 +232,34 @@ function doorState(level, p, open) {
   return id + '[' + out.join(',') + ']'
 }
 
+// A DOOR WILL NOT TAKE AN `open` FLIP FROM A BARE SETBLOCK. Measured on this pack,
+// 2026-09-05, on the shipped world, with the server console:
+//
+//   setblock -342 68 -39 minecraft:spruce_door[facing=east,half=lower,hinge=right,\
+//                                              open=true,powered=false]
+//   -> "Could not set the block"                       (the door stayed shut)
+//
+// and the same command differing in `hinge` instead, or in `powered` instead, both come
+// back "Changed the block". So it is not the command, the coordinate, the chunk or the
+// permission: it is the `open` property specifically, and only while the door's OTHER HALF
+// is standing. A door half's updateShape copies FACING, OPEN, HINGE and POWERED from its
+// partner in BOTH directions, so a write that touches one half alone is put straight back
+// to what the other half says, the write ends up equal to the state already there, and
+// vanilla reports it as no change. A trapdoor and a fence gate -- single blocks -- take the
+// same open-only flip without complaint, which is the control.
+//
+// This is why the store, the church, the mill, the inn, the two cottages, the Town Hall and
+// all three newcomer houses were still shut at the end of a full playthrough: every one of
+// them is opened by this function, and every one of those setblocks was refused, silently,
+// because runCommandSilent's 0 was never read.
+//
+// So: clear BOTH halves to air first, then write both back with the new `open`. Clearing
+// the upper half takes the lower with it (updateShape returns AIR when the partner is
+// gone), which is why the second air setblock usually reports no change and why the lower
+// is written FIRST on the way back -- the upper cannot survive without it. `setblock air`
+// drops nothing (only `destroy` mode does), so the door is not turned into an item, and the
+// net effect on the world is still the one block the story is entitled to: the same door,
+// same facing, same hinge, open.
 function openDoor(server, p, open) {
   let level = null
   try { level = server.overworld() } catch (err) { level = null }
@@ -242,7 +270,15 @@ function openDoor(server, p, open) {
     return false
   }
   let upper = doorState(level, [p[0], p[1] + 1, p[2]], open)
-  server.runCommandSilent('setblock ' + p[0] + ' ' + p[1] + ' ' + p[2] + ' ' + lower)
+  if (upper) {
+    server.runCommandSilent('setblock ' + p[0] + ' ' + (p[1] + 1) + ' ' + p[2] +
+                            ' minecraft:air')
+  }
+  server.runCommandSilent('setblock ' + p[0] + ' ' + p[1] + ' ' + p[2] + ' minecraft:air')
+  let r = server.runCommandSilent('setblock ' + p[0] + ' ' + p[1] + ' ' + p[2] + ' ' + lower)
+  if (r === 0) {
+    console.error('[valley] door at ' + p.join(' ') + ' could not be put back: ' + lower)
+  }
   if (upper) {
     server.runCommandSilent('setblock ' + p[0] + ' ' + (p[1] + 1) + ' ' + p[2] + ' ' + upper)
   }

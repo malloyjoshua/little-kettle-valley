@@ -760,6 +760,57 @@ def ring(x0, y0, z0, x1, y1, z1, block):
             fill(x1, y0, z0 + 1, x1, y1, z1 - 1, block)]
 
 
+# SHUT DOORS, the general case (2026-09-05, job B). A structure template may ship its own
+# front door standing OPEN, and eleven of the twelve houses in this valley ship shut. The
+# twelfth -- kaisyn meadow_medium_house_4, Corin's -- ships open, which is wrong twice over:
+# an empty, unlit house standing wide open reads as a break-in for the whole of Acts I to
+# IV, and Act V's moveIn() then "opens" a door that is already open, so one of the three
+# newcomers' arrivals has no visible beat at all.
+#
+# Every door the piece carries is written back WHERE IT STANDS with open=false and nothing
+# else touched -- same block, same half, same facing, same hinge -- so this can never spin a
+# door round the way a typed `setblock` with default properties would (see openDoor() in
+# valley_finales.js for the same trap on the runtime side). Emitted straight after the
+# `place template`, so anything the dressing puts on top of it still wins.
+def shut_doors(p):
+    """Every door this template ships open, shut where it stands.
+
+    NOT a single setblock per half. A door will not take an `open` flip from a bare
+    setblock while its other half is standing -- both halves copy FACING/OPEN/HINGE/POWERED
+    off each other in updateShape, so the write is put straight back and vanilla answers
+    "Could not set the block". That is exactly what the first version of this did, on this
+    door, and the build log recorded both halves as `command returned 0` while the door
+    stayed open. Measured and reproduced on the console 2026-09-05; the same fix is in
+    openDoor() in valley_finales.js, with the full measurement written up there.
+
+    So: air the upper half (which takes the lower with it), air the lower for the case where
+    it did not, then write the lower back and the upper on top of it. `setblock air` drops
+    nothing, and every property except `open` is the template's own.
+    """
+    out = []
+    for lp, b in sorted(p.grid.items()):
+        if not b[0].endswith('_door') or not b[1]:
+            continue
+        if b[1].get('half') != 'lower' or b[1].get('open') != 'true':
+            continue
+        up = p.grid.get((lp[0], lp[1] + 1, lp[2]))
+        a = p.abs(lp)
+        au = p.abs((lp[0], lp[1] + 1, lp[2]))
+
+        def shut(b2):
+            pr = dict(b2[1])
+            pr['open'] = 'false'
+            return '%s[%s]' % (b2[0], ','.join('%s=%s' % (k, pr[k]) for k in sorted(pr)))
+
+        if up and up[0].endswith('_door'):
+            out.append(setb(au[0], au[1], au[2], 'minecraft:air'))
+        out.append(setb(a[0], a[1], a[2], 'minecraft:air'))
+        out.append(setb(a[0], a[1], a[2], shut(b)))
+        if up and up[0].endswith('_door'):
+            out.append(setb(au[0], au[1], au[2], shut(up)))
+    return out
+
+
 def build_cmds(p, top='minecraft:grass_block'):
     # The LEVELLED rectangle stops ONE COLUMN INSIDE the site's registry box. That last ring
     # -- and the two beyond it -- is the feathered edge: sometimes the terrace, sometimes the
@@ -2118,6 +2169,7 @@ def building_group(key, name, dressing=None, npc_at=None, top='minecraft:grass_b
     note_walls(p)
     dy = PAD_DY.get(name, 0)
     body = build_cmds(p, top)
+    body += shut_doors(p)
     body += window_boxes(p)
     if dressing:
         body += dressing
