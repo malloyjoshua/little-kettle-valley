@@ -918,13 +918,46 @@ function yawToward(from, to) {
   return Math.round(Math.atan2(-dx, dz) * 180 / Math.PI)
 }
 
-// Turn the player to face the hearth. The hearth is a registry constant, so this is the
-// same yaw for every player on every world and it cannot fail for want of a ruin.
+// Turn the player to face the road. At spawn that is the registry's own `spawn_yaw` -- the
+// bearing plan_town.py solved the arrival on -- and anywhere else it is the bearing to the
+// hearth, which is a registry constant and cannot fail for want of a ruin.
+//
+// WHY THIS IS NOT LEFT TO THE WORLD. `setworldspawn <pos> <yaw>` writes SpawnAngle into
+// level.dat, and level.dat's SpawnAngle is used for RESPAWN. A player who has never played
+// before is placed by ServerPlayer#fudgeSpawnLocation, which calls moveTo(..., 0.0F, 0.0F)
+// -- yaw ZERO, every time, whatever SpawnAngle says. Measured on the shipped world
+// 2026-09-05: level.dat SpawnAngle -180.0, player Rotation [0.0f, 0.0f]. She woke up facing
+// due SOUTH, 180 degrees from the road, the signpost and both lamp posts the arrival was
+// solved around, looking at an empty meadow. So the facing is set here, by command, or it
+// is not set at all.
 function facePath(server, player, name) {
-  let hearth = global.valley.hearth()
-  if (!hearth) return
-  let yaw = yawToward([player.x, player.y, player.z], hearth)
+  let spawn = global.valley.site('spawn')
+  let syaw = global.valley.site('spawn_yaw')
+  let yaw = null
+  if (spawn && syaw !== null && syaw !== undefined) {
+    let dx = player.x - (spawn[0] + 0.5)
+    let dz = player.z - (spawn[2] + 0.5)
+    // "still standing on the road head": use the bearing the planner solved, not a
+    // bee-line to the hearth, because the road bends before it gets there.
+    if (dx * dx + dz * dz <= 36) yaw = syaw
+  }
+  if (yaw === null) {
+    let hearth = global.valley.hearth()
+    if (!hearth) return
+    yaw = yawToward([player.x, player.y, player.z], hearth)
+  }
   server.runCommandSilent('tp ' + name + ' ' + player.x + ' ' + player.y + ' ' + player.z + ' ' + yaw + ' 8')
+}
+
+// A rotation set in the first few ticks of a join is thrown away: the client is still on
+// "Loading terrain", and the position-and-look it acks when it finishes puts her back at
+// whatever the spawn packet said. So the turn is made three times, and the last one lands
+// after the world is on screen. It is idempotent -- same yaw, same place -- so a player who
+// has already turned to look at something loses at most the first two seconds.
+function facePathSettled(server, player, name) {
+  [5, 40, 100].forEach(function (t) {
+    valleyDelay(t, function (s) { try { facePath(s, player, name) } catch (err) {} })
+  })
 }
 
 // The compass is a lodestone compass pointed at the hearthstone from the registry — the
@@ -1047,10 +1080,10 @@ function valleyFirstJoin(server, player, name) {
   // the player or nobody hears it.
   server.runCommandSilent('execute at ' + name + ' run playsound minecraft:block.note_block.chime master ' + name + ' ~ ~ ~ 1 0.8')
 
-  // The farm, the road, the signpost and the lit gate are ALREADY THERE. Spawn is fixed by
-  // the world (scratch/master_build.sh runs `setworldspawn` from the registry with a yaw
-  // that already faces the road), so nothing here places a block or moves the spawn point:
-  // the first join hands over the kit, turns her round and tells her where to walk.
+  // The farm, the road, the signpost and the lit gate are ALREADY THERE. The world fixes
+  // where she stands; it CANNOT fix which way she looks (see facePath), so nothing here
+  // places a block or moves the spawn point: the first join hands over the kit, turns her
+  // round -- three times, until the client stops arguing -- and tells her where to walk.
   let hearth = global.valley.hearth()
   let where = hearthBearing()
 
@@ -1058,7 +1091,7 @@ function valleyFirstJoin(server, player, name) {
   player.give(Item.of(VALLEY.ITEM.deed))
   player.give(Item.of(VALLEY.ITEM.kettle))
   if (hearth) server.runCommandSilent('give ' + name + ' ' + kettleFarmCompass() + ' 1')
-  valleyDelay(5, s => { try { facePath(s, player, name) } catch (err) {} })
+  facePathSettled(server, player, name)
   // A5: NO second title card here. tellWhere() fires one 4.5 seconds after the
   // LITTLE KETTLE VALLEY card, and two title cards that close together read as a
   // cutscene she cannot skip. The same destination, with coordinates, is chat line

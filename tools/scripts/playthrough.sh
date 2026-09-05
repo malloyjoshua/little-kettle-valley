@@ -31,7 +31,9 @@
 # =============================================================================
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"; SRV="$ROOT/server"; C="$ROOT/tools/scripts/server_ctl.sh"
 JAVA="$ROOT/tools/jdk17/Contents/Home/bin/java"
-GD="$HOME/Library/Application Support/PrismLauncher/instances/CozyTech/.minecraft"
+# The client game directory. Overridable so a run can use a throwaway gamedir instead of
+# Josh's own Prism instance (which this script otherwise packwiz-syncs and deletes logs in).
+GD="${PLAYTHROUGH_GD:-$HOME/Library/Application Support/PrismLauncher/instances/CozyTech/.minecraft}"
 LOG="$SRV/logs/latest.log"; OUT="${PLAYTHROUGH_OUT:-$ROOT/scratch/shipped_playthrough}"
 FIFO="$ROOT/scratch/server.in"; P=packtester; PIDF="$ROOT/scratch/server.pid"
 PY="$ROOT/tools/venv/bin/python"
