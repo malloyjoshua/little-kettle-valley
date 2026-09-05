@@ -618,7 +618,7 @@ hash = "95e50da8776baa18681591548598675c284ae8b1b249403dd90f78e9ac4cd314"
 
 [[files]]
 file = "kubejs/server_scripts/valley_gates.js"
-hash = "7f69c27e9268941d45723f0e8bc7515d24c9169096e64899e39c306a13f44ba1"
+hash = "d81a907e9c48948ca69a2f6fb9fbcdd983bdc9d91a1a6b0ee5b5dc597da6e4ec"
 
 [[files]]
 file = "kubejs/server_scripts/valley_greetings.js"
