@@ -554,7 +554,7 @@ hash = "0e06d1a0360cf2253e7b38284c360a848080867c21a522e17ee2be0e09b1a2f7"
 
 [[files]]
 file = "kubejs/data/valley/functions/act1/square_path.mcfunction"
-hash = "4ba096705a70378e28b7eb3f5d59a585b2ec248bd69f9abf4f92b693896e3d2d"
+hash = "71d126623477f99bc1f7823cbd520c398c2a74247d6ec9c380b17cb7b0c4d01d"
 
 [[files]]
 file = "kubejs/data/valley/functions/act3/turn.mcfunction"
@@ -618,7 +618,7 @@ hash = "7dd673598aa27229e3325c937b1c581428774584696561216b7ea2f3b31e3609"
 
 [[files]]
 file = "kubejs/data/valley/valley_sites.json"
-hash = "6b12739373ebc70decabc6dc44cf537f2383ff4705dfc0271c8c30cb527c40d6"
+hash = "cc84e72731df2df9979e10edf42903733cf622cb956f5a8aebe2b16328c180a1"
 
 [[files]]
 file = "kubejs/data/vinery/loot_tables/blocks/apple_press.json"
@@ -634,7 +634,7 @@ hash = "2d9e5260eb6dd9ce4158c7bf06dd250757281063451aad04b5e8fef344d4316b"
 
 [[files]]
 file = "kubejs/server_scripts/town_plan.js"
-hash = "ace49aaf28e779e7764d4976cae7b6e13faab2954df684b0ec1e44b16d40ec0f"
+hash = "c57a0c687fc35aaf130a831d3f24fbdc2f8644ca747547b09331c2792bfedb5e"
 
 [[files]]
 file = "kubejs/server_scripts/unify.js"
@@ -650,7 +650,7 @@ hash = "52890df19ed5f989c03986bfc71961563f654a5790a77f502a6a6b3994e47950"
 
 [[files]]
 file = "kubejs/server_scripts/valley_finales.js"
-hash = "be4b562619755bcd24068bc6f7a7187322cc78ad06934c2a25eaff018ee198ed"
+hash = "0aa3f1db262e979d3dd81e1b93a0bb9749afd5ffe25d8559413617c9b9326807"
 
 [[files]]
 file = "kubejs/server_scripts/valley_gates.js"

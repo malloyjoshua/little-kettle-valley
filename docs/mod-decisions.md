@@ -125,3 +125,42 @@ read against each other in the actual 1.20.1 jars before the mod was kept:
   `RenderLevelStageEvent`, and its lang file has no `key.*` entries), so
   `pack/options.txt` is untouched and nothing collides with the existing Vein Mining,
   FTB Quests, backpack, Carry, sorter or push-to-talk bindings.
+
+---
+
+## 2026-09-05 — KubeJS script load order is not alphabetical, and the pack was relying on it
+
+Not a mod swap, but it belongs in this log because it is a fact about a dependency the pack
+had assumed rather than checked.
+
+`valley_core.js` builds `VALLEY.OFF` — every mark the finales and scenes measure from — like
+this:
+
+```js
+OFF: (typeof global.valleyTownPlan !== 'undefined' && global.valleyTownPlan.OFF)
+  ? global.valleyTownPlan.OFF
+  : { square: [0,1,0], ... works: [34,-6,-20], ... }      // hand-typed fallback
+```
+
+with a comment above it saying town_plan.js is loaded first because "'t' sorts before 'v'".
+It is not. Measured, from `server/logs/latest.log` on 2026-09-05:
+
+```
+00:15:02.929  valley_core.js#1213: [valley] valley_core.js ok
+00:15:02.953  town_plan.js#9974:  [valley] town_plan.js ok -- 30 build groups
+```
+
+So `global.valleyTownPlan` was undefined at the moment `OFF` was evaluated, and **every mark
+in the pack was coming from the hand-typed fallback**, not from the generated plan. It went
+unnoticed for as long as the two happened to agree. They stopped agreeing the moment the
+terracing pass moved the Works down nine blocks to keep it buried: `act4_works` then built a
+15 x 6 x 15 stone-brick room at the fallback's depth, which put its ceiling one block under
+the meadow and its floor through the pad of Pip's house.
+
+**Decision:** `plan_town.py` now emits `// priority: 1000` as the first line of the generated
+`town_plan.js`. KubeJS reads that header and loads the file before anything without one, so
+the plan is in `global` before `valley_core.js` asks for it. The fallback stays where it is —
+it is a sensible thing to have — but nothing normal should ever reach it again.
+
+Worth knowing for anything else added to `pack/kubejs/server_scripts/`: if a script reads a
+global another script sets, say so with a priority. Filenames are not a contract.
