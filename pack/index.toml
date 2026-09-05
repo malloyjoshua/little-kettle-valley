@@ -618,7 +618,7 @@ hash = "95e50da8776baa18681591548598675c284ae8b1b249403dd90f78e9ac4cd314"
 
 [[files]]
 file = "kubejs/server_scripts/valley_gates.js"
-hash = "6722628c109cf942e7ec62183d2db39a8e77863aaf8c7c02ddf20f12b811f327"
+hash = "7f69c27e9268941d45723f0e8bc7515d24c9169096e64899e39c306a13f44ba1"
 
 [[files]]
 file = "kubejs/server_scripts/valley_greetings.js"
@@ -635,6 +635,10 @@ hash = "2de50abf65ac31212bb91aac0c414e71a0d9ca887420c48b276b13e0a5784653"
 [[files]]
 file = "kubejs/server_scripts/valley_step.js"
 hash = "3916b4cb887c4c45bfe823013edf63c43b491c7f5b5d7e43cfe2f710989d33d5"
+
+[[files]]
+file = "kubejs/server_scripts/valley_storage.js"
+hash = "53a9fd0cf254046538d6dd5a466116b1caad6124240ef4ce9592bd5dce88b860"
 
 [[files]]
 file = "kubejs/startup_scripts/valley_blocks.js"

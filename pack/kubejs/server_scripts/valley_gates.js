@@ -386,11 +386,10 @@ ServerEvents.recipes(event => {
     K: '#forge:ingots/copper'
   }).id('valley:craft/place_setting')
 
-  event.shaped('valley:delivery_crate', [
-    'BBB',
-    'B B',
-    'BBB'
-  ], { B: '#minecraft:planks' })
+  // Eight planks in a ring is the CHEST. The crate is a chest's worth of boards
+  // around a label (paper), so the two never collide (Josh, 2026-09-05).
+  event.shaped('valley:delivery_crate', [ 'BBB', 'BPB', 'BBB'
+  ], { B: '#minecraft:planks', P: 'minecraft:paper' })
     .id('valley:craft/delivery_crate')
 
   event.shaped('valley:courier_parcel', [
