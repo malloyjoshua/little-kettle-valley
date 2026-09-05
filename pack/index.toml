@@ -97,6 +97,10 @@ file = "config/thermal-common.toml"
 hash = "f6ce2b44ed3dc8b0dcba15874b209bc8aea325c829ff2f3b4a9420365bfe60c9"
 
 [[files]]
+file = "config/toastcontrol-client.toml"
+hash = "6e8e484b53ce4eadff43da33466f91b50dcd230beb48a196397864be00605d6a"
+
+[[files]]
 file = "config/torchmaster.toml"
 hash = "968522483c909cd663b133543c10aae4c5b5d7dca693ef2bf611c8a55278a51c"
 
@@ -622,7 +626,7 @@ hash = "41d67de899f2506b4b49afa6a2ad48986ce13669a79eb81eda0711adb6705e9d"
 
 [[files]]
 file = "kubejs/server_scripts/valley_checks.js"
-hash = "7ad94d70722bed118738f7a380d59d22a3564a3ae13cfc48e56a0357f2359bb1"
+hash = "70b7af2cfc792a6f7b065a813a5d9fc22e815b89f588882bceac1a5458ea1aee"
 
 [[files]]
 file = "kubejs/server_scripts/valley_core.js"
@@ -1073,6 +1077,11 @@ hash = "bb8b27c977410a8c66eb0f1ea205798d010e4a875e25d9b288e4cb56e8cb0b3d"
 metafile = true
 
 [[files]]
+file = "mods/placebo.pw.toml"
+hash = "a7c85edeb3d4d72c656e869018c39004a471262de0ff21f545a2c20734618661"
+metafile = true
+
+[[files]]
 file = "mods/puzzles-lib.pw.toml"
 hash = "4dd7038889da90e145f9d074bec64a61aaae12dc57c875aa7ad99b8b2e07979b"
 metafile = true
@@ -1080,11 +1089,6 @@ metafile = true
 [[files]]
 file = "mods/quartz.pw.toml"
 hash = "a947d3f9d6f75fbe1e85d3bd7c3c5b7b2df9182fb4983604ef6168eef0034db2"
-metafile = true
-
-[[files]]
-file = "mods/regions-unexplored.pw.toml"
-hash = "cc64ca541c4710726dc3fa4b283b1260cfb2d3ff8d1784f80e0180d248c35688"
 metafile = true
 
 [[files]]
@@ -1168,11 +1172,6 @@ hash = "168b3ee3fa2fe18f712c593d9d90e8b3a8a6a10564376af98bcc6f9719506641"
 metafile = true
 
 [[files]]
-file = "mods/terrablender.pw.toml"
-hash = "14117b94c456598c9acece143c7a0da3cf56d13182d035a74a2da8a52dd19cbd"
-metafile = true
-
-[[files]]
 file = "mods/thermal-cultivation.pw.toml"
 hash = "6e3b20b2d1af0d1681580879ab0af9d74854d095b273fb3f01d3746118134094"
 metafile = true
@@ -1195,6 +1194,11 @@ metafile = true
 [[files]]
 file = "mods/thermal-innovation.pw.toml"
 hash = "9d3caee351b004fa5fece4e3b434b55181e453f51e49f46b67a71b063928a8e2"
+metafile = true
+
+[[files]]
+file = "mods/toast-control.pw.toml"
+hash = "a974d860205ff7966f41d2b0de90aa15f8779261d17cebcdedf0b3b4e89cfd9f"
 metafile = true
 
 [[files]]

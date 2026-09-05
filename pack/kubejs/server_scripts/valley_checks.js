@@ -139,17 +139,13 @@ BlockEvents.placed(event => {
     // measure from it), so only the first party sets it; a later party still
     // gets the tick for putting their waystone on the same hearth.
     if (!v.home()) v.setHome(b.x, b.y, b.z)
-    global.valleyServer.runCommandSilent(
-      'setblock ' + b.x + ' ' + b.y + ' ' + b.z + ' waystones:waystone{WaystoneName:"Home"}')
+    // The waystone the player just placed IS the waystone: nothing is set over
+    // it (that orphaned the naming screen) and nothing is rebuilt around it.
+    // The farm stands as found; Q3 hands the door, the windows, the bed and the
+    // sconce and the player hangs them. Josh, 2026-09-04: "when you place the
+    // waystone the house gets fully replaced and everything that's there
+    // breaks." Nothing scripted changes the homestead any more.
     v.say(player, 'Josie', 'That is where the hearth was. Good.')
-    // The repair is centred on the HEARTHSTONE, not on wherever the player is
-    // standing when they claim. Once per world: a second party's waystone must
-    // not re-fill the walls and delete the door, windows and bed the first
-    // party hung. (This was q02's command reward until the ruin existed.)
-    if (v.once('cottage_built')) {
-      global.valleyServer.runCommandSilent(
-        'execute positioned ' + b.x + ' ' + b.y + ' ' + b.z + ' run function valley:act1/cottage')
-    }
     fire(player, 'q02')
     return
   }
