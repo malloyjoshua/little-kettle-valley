@@ -642,8 +642,16 @@ def build_cmds(p, top='minecraft:grass_block'):
     # so the pad never reads as a trench around the building. `@padfix` rather
     # than a fill because it has to put back the same material `@pad` chose:
     # the handler caches the sample per pad rectangle, so the two agree.
+    #
+    # OVER THE SAME RECTANGLE `@pad` LEVELLED, inset one from the registry box. It used to
+    # run over the whole box, and the ring it added is the one ring the design surface says
+    # is meadow: padfix filled the air at pad level there, the built kerb came out a block
+    # over the plan, and the skirt -- which had walked that column down to the hillside --
+    # left a two-block lip. Measured on the 2026-09-05 build: eleven columns of it down the
+    # inn's east side, `cut_edge` 11 against a limit of 8. The template never reaches that
+    # ring anyway; it stands inside its own footprint, several columns in.
     out.append('@padfix %s %s %s %s %s %s %s'
-               % (t(px0), t(0), t(pz0), t(px1), t(0), t(pz1), top))
+               % (t(px0 + 1), t(0), t(pz0 + 1), t(px1 - 1), t(0), t(pz1 - 1), top))
     return out
 
 
@@ -1019,7 +1027,7 @@ def lamp_pad_cmds():
 #                makes `stone_face` pass: no two adjacent columns anywhere in a site's
 #                skirt differ by more than one.
 # =============================================================================
-SKIRT_RINGS = 10                 # how far a pad may reach out to find the natural surface
+SKIRT_RINGS = 14                 # how far a pad may reach out to find the natural surface
 ROAD_RUN = 3                     # one block of climb per this many blocks of road
 
 SITE = None
@@ -1054,14 +1062,73 @@ if TERRAIN:
     # is the only way an offline heightmap read can tell a lake from a lake bed.
     _OF, _, _ = _SH.heights_box(WORLD_DIR, _GX0, _GX1, _GZ0, _GZ1, 'OCEAN_FLOOR')
     _MB, _, _ = _SH.heights_box(WORLD_DIR, _GX0, _GX1, _GZ0, _GZ1, 'MOTION_BLOCKING')
+    # ...and the same grid with the leaves taken off, which is the cheap half of the walk
+    # below: it drops the reader straight under the canopy so only the trunk has to be
+    # stepped through block by block.
+    _NL, _, _ = _SH.heights_box(WORLD_DIR, _GX0, _GX1, _GZ0, _GZ1, 'MOTION_BLOCKING_NO_LEAVES')
 
-    def surface(x, z):
-        """Top non-fluid motion-blocking Y in the PREGEN. None off-grid or ungenerated."""
+    def canopy(x, z):
+        """Top non-fluid motion-blocking Y in the PREGEN -- INCLUDING whatever grew on the
+        column. None off-grid or ungenerated."""
         ix, iz = x - _GX0, z - _GZ0
         if ix < 0 or iz < 0 or ix >= _OF.shape[0] or iz >= _OF.shape[1]:
             return None
         y = int(_OF[ix, iz])
         return None if y < -900 else y
+
+    # A TREE IS NOT THE GROUND, and for the first three builds of this world the planner
+    # thought it was.
+    #
+    # OCEAN_FLOOR is "the top block that blocks motion, ignoring fluids", and leaves and
+    # logs block motion -- so on a wooded column the surface it reports is the CANOPY,
+    # eleven or twelve blocks over the land. Measured on this seed: 38% of the columns
+    # within ten blocks of the lantern road are leaf-covered in the pregen, and every one of
+    # them handed the planner a natural surface up to twelve blocks too high.
+    #
+    # That is where the trench came from, and it came from it twice over. The skirt starts
+    # every free column at its "natural" surface and then relaxes the field until no column
+    # is more than a block from its neighbours -- so a tree column got dragged down eleven
+    # blocks to meet the road, which counts as a REGRADE, and regrading a column means
+    # clearing the air over it. Measured on the shipped world: 38% leaf cover in the pregen
+    # against 2% in the built world over the same 2768 columns. The lantern road was a
+    # twenty-block-wide clear-cut with bare graded steps in it, which is exactly what the
+    # first-join screenshots show.
+    #
+    # So the surface is the LAND: start under the leaves and walk down through anything
+    # that GREW there. Everything else -- pad medians, the road's profile, the skirt --
+    # reads this, and the trees stay standing because nothing needs to move them.
+    _GREW = ('_log', '_wood', 'leaves', 'mushroom_block', 'mushroom_stem', 'bamboo',
+             'cactus', 'sugar_cane', 'vine', 'shroomlight', 'bee_nest', 'beehive',
+             'nether_wart_block', 'moss_carpet', 'azalea', 'hanging_roots', 'cocoa',
+             'stem', 'log', 'wood', 'branch', 'trunk')
+    _LAND = {}
+
+    def surface(x, z):
+        """The LAND at this column in the PREGEN: the top block that grew there is walked
+        past, so a spruce is not a hill. None off-grid or ungenerated."""
+        k = (x, z)
+        if k in _LAND:
+            return _LAND[k]
+        y = canopy(x, z)
+        if y is None:
+            _LAND[k] = None
+            return None
+        ix, iz = x - _GX0, z - _GZ0
+        nl = int(_NL[ix, iz])
+        if -900 < nl < y:
+            y = nl
+        low = y - 40
+        try:
+            v = _vt()
+            while y > low:
+                b = v.block(x, y, z).split('[')[0]
+                if not any(t in b for t in _GREW):
+                    break
+                y -= 1
+        except Exception:                                         # noqa: BLE001
+            y = canopy(x, z)
+        _LAND[k] = y
+        return y
 
     def water_depth(x, z):
         ix, iz = x - _GX0, z - _GZ0
@@ -1120,6 +1187,9 @@ if TERRAIN:
         return out
 else:
     def surface(x, z):
+        return None
+
+    def canopy(x, z):
         return None
 
     def water_depth(x, z):
@@ -1404,6 +1474,7 @@ if TERRAIN:
                         return LEVEL[q]
         return None
 
+    STREET_PATHS = {}          # name -> [(dx, dy, dz)], anchor-relative, for the registry
     for _sn, _spts in STREETS:
         _cl = centre_line(_spts)
         _tg = [lev(c[0], c[1]) for c in _cl]
@@ -1413,6 +1484,13 @@ if TERRAIN:
             for _ddx in range(-(ROAD_BRUSH + 1), ROAD_BRUSH + 2):
                 for _ddz in range(-(ROAD_BRUSH + 1), ROAD_BRUSH + 2):
                     LEVEL.setdefault((_c[0] + _ddx, _c[1] + _ddz), _sy[_i])
+        # ...and record the level the street ACTUALLY got, which is not always the one its
+        # own staircase asked for: LEVEL is first-writer-wins, so where a street runs into
+        # the plaza or over a pad the terrace it meets keeps its level. Writing the
+        # staircase's number into the registry instead made `road_banks` measure a verge
+        # against a carriageway that is not there.
+        STREET_PATHS[_sn] = [(_c[0], LEVEL.get((_c[0], _c[1]), _sy[_i]), _c[1])
+                             for _i, _c in enumerate(_cl)]
     # The Works is a sealed room in undisturbed rock, and "six blocks under the anchor" is
     # only under the ground while the anchor happens to BE the ground. Moving the datum onto
     # the plaza lifted the ceiling to within nothing of the meadow over it (measured: -3 to
@@ -2889,16 +2967,99 @@ if SITE:
             out.append((int(round(ax + (bx - ax) * f)), int(round(az + (bz - az) * f))))
         return out
 
-    # One road, walked once: the square's doorstep (spawn stands 14 blocks off the anchor,
-    # at the town's mouth) out to the farm gate. The old route ran spawn -> gate -> back to
-    # the plaza's south kerb, which laid a second carriageway ten blocks from the first all
-    # the way down the valley and then had to be pinned twice.
+    # The town's mouth: the column the site solver picked, fourteen blocks off the anchor,
+    # on the square's doorstep. It USED to be where the player spawned, and that was the
+    # arrival bug: spawn sat NORTH of the plaza and the farm is SOUTH of it, so "follow the
+    # road south to the farm" walked her straight across the finished square before Q1 --
+    # a wall of plaza benches on the first frame and the whole town spent in ten seconds.
+    # It is now just the road's town end; she arrives here on foot from the farm.
+    TOWN_HEAD_W = list(SPAWN_W)
+
+    # =====================================================================
+    # WHERE SHE ACTUALLY STARTS.
+    #
+    # The far side of the farm, so the road reads in the order the story does:
+    #   spawn -> the farm gate -> past the farm -> the square.
+    # Solved, not typed. Walk a fan of bearings out of the gate on the side AWAY from the
+    # town, SPAWN_MIN..SPAWN_MAX road columns, and keep the one that
+    #   * never crosses water and stays on generated land;
+    #   * lands the road's own staircase ON the natural surface at the far end;
+    #   * cuts and fills the least along the way; and, the point of the whole thing,
+    #   * cannot see the plaza -- the sightline from her eye at spawn to the town waystone
+    #     has to run into ground first, and on this seed it runs into the farm's own rise.
+    # =====================================================================
+    SPAWN_MIN, SPAWN_MAX = 70, 90
+
+    def _hidden(sx, sz, sy):
+        """Is the town waystone out of sight from her eye at spawn? Tested against the
+        LAND, so a wood is not counted as cover -- the fix has to hold in winter."""
+        tx, tz, ty = ANCHOR_W[0], ANCHOR_W[2], ANCHOR_W[1] + 1
+        dist = math.hypot(tx - sx, tz - sz)
+        eye = sy + 2
+        for s in range(3, int(dist)):
+            f = s / dist
+            px = int(round(sx + (tx - sx) * f))
+            pz = int(round(sz + (tz - sz) * f))
+            g = surface(px, pz)
+            if g is None:
+                continue
+            if g > eye + (ty - eye) * f + 1.5:
+                return (px, pz, g)
+        return None
+
+    _ax = GATE_W[0] - ANCHOR_W[0]
+    _az = GATE_W[2] - ANCHOR_W[2]
+    _al = math.hypot(_ax, _az) or 1.0
+    _ax, _az = _ax / _al, _az / _al                # anchor -> gate, i.e. AWAY from the town
+    _cands = []
+    for _deg in range(-40, 41, 4):
+        _a = math.radians(_deg)
+        _ux = _ax * math.cos(_a) - _az * math.sin(_a)
+        _uz = _ax * math.sin(_a) + _az * math.cos(_a)
+        for _d in range(SPAWN_MIN, SPAWN_MAX + 1, 2):
+            _cx = int(round(GATE_W[0] + _ux * _d))
+            _cz = int(round(GATE_W[2] + _uz * _d))
+            _pts = _leg(GATE_W, [_cx, 0, _cz]) + [(_cx, _cz)]
+            if any(wet(_p[0] - ANCHOR_W[0], _p[1] - ANCHOR_W[2]) or
+                   surface(_p[0], _p[1]) is None for _p in _pts):
+                continue
+            # the leg's own staircase, pinned to the cottage yard where it starts inside it
+            _tgt = [dsurf(_p[0], _p[1]) for _p in _pts]
+            _prof = staircase(_tgt, _tgt[0])
+            _cut = [abs(_prof[_k] - _tgt[_k]) for _k in range(len(_tgt))]
+            _sy = _prof[-1]
+            _blk = _hidden(_cx, _cz, _sy)
+            if _blk is None:
+                continue
+            _cands.append((_cut[-1], max(_cut), abs(len(_pts) - 1 - 76), _deg, _d,
+                           _cx, _cz, _sy, _blk))
+    if not _cands:
+        raise SystemExit('plan_town: no spawn candidate on the far side of the farm hides '
+                         'the town -- widen the fan or the distance band')
+    _cands.sort()
+    _c = _cands[0]
+    SPAWN_W = [_c[5], _c[7] + 1, _c[6]]
+    SPAWN_HIDDEN = _c[8]
+    SPAWN_RUN = int(max(abs(SPAWN_W[0] - GATE_W[0]), abs(SPAWN_W[2] - GATE_W[2])))
+    print('  spawn moved to the far side of the farm: %s, %d road blocks from the gate '
+          '(bearing %+d deg off the away-line), cut %d/%d'
+          % (str(SPAWN_W), SPAWN_RUN, _c[3], _c[0], _c[1]))
+    print('    the town is hidden: the sightline to the waystone runs into ground at '
+          '%d,%d (y %d)' % (SPAWN_HIDDEN[0], SPAWN_HIDDEN[1], SPAWN_HIDDEN[2]))
+
+    # One road, walked once, town end first: the square's doorstep -> the bend at the
+    # bottom of the cottage yard -> the farm gate -> on past the farm to where she wakes
+    # up. The old route ran spawn -> gate -> back to the plaza's south kerb, which laid a
+    # second carriageway ten blocks from the first all the way down the valley and then had
+    # to be pinned twice. The order matters twice over: the profile is a staircase and it is
+    # pinned at the square, and the forty lamps are numbered along it, so lighting the road
+    # runs from the square outward toward home exactly as the quests say.
     ROAD_CENTRE = []
-    for _a, _b in ((SPAWN_W, BEND_W), (BEND_W, GATE_W)):
-        for _c in _leg(_a, _b):
-            if not ROAD_CENTRE or ROAD_CENTRE[-1] != _c:
-                ROAD_CENTRE.append(_c)
-    ROAD_CENTRE.append((GATE_W[0], GATE_W[2]))
+    for _a, _b in ((TOWN_HEAD_W, BEND_W), (BEND_W, GATE_W), (GATE_W, SPAWN_W)):
+        for _c2 in _leg(_a, _b):
+            if not ROAD_CENTRE or ROAD_CENTRE[-1] != _c2:
+                ROAD_CENTRE.append(_c2)
+    ROAD_CENTRE.append((SPAWN_W[0], SPAWN_W[2]))
 
     # The road's own Y. Read off the DESIGN surface, not the raw land: where the road runs
     # into the plaza or the cottage yard it has to arrive at the level those were terraced
@@ -3039,6 +3200,99 @@ if SITE:
             ROAD_CMDS.append('fill ~%d ~%d ~%d ~%d ~%d ~%d minecraft:dirt replace minecraft:air'
                              % (_cx, _y - 4, _cz, _cx, _y - 1, _cz))
 
+    # =========================================================================
+    # THE SHOULDERS.  A road is never a trench.
+    #
+    # The three-block carriageway used to be the whole of the road: everything outside it
+    # was skirt, and the skirt is allowed to climb a block a ring. So wherever the road ran
+    # a block or two below the meadow -- which is most of a staircase laid across a hillside
+    # -- the very first column off the gravel was already a step up, the next one another,
+    # and the road came out as a slot with bare dirt sides. Measured on the shipped world:
+    # the first column outside the paving stood two blocks over the road surface, and the
+    # first-join screenshots show the result.
+    #
+    # So the road carries its own shoulder: SHOULDER_MIN..SHOULDER_MAX columns either side,
+    # held at the carriageway's OWN level (or one below it, where the ground is already
+    # falling away -- a shoulder may drop, it may never rise). Two things come out of that:
+    #
+    #   * the column next to the paving, and the one next to THAT, are never more than a
+    #     block over the road -- which is the whole of `road_banks` in nature_check.py; and
+    #   * the bank that does remain starts at the shoulder's outer edge, so the skirt's
+    #     one-block-a-ring climb reads as a grass slope three to five blocks deep rather
+    #     than a wall at the kerb.
+    #
+    # The shoulder's WIDTH is drawn from the same coherent hash as the pad feathering, in
+    # HOLD_BLOCK-sized cells, so the edge of the cut wanders in plan instead of running dead
+    # straight beside the road for a hundred and ninety columns. That is the difference
+    # between a verge and a kerbstone.
+    # =========================================================================
+    SHOULDER_MIN, SHOULDER_MAX = 2, 4
+    ROAD_SHOULDER = {}                       # (x,z) -> (distance from centre, world Y)
+    for _i, (_x, _z) in enumerate(ROAD_CENTRE):
+        _y = ROAD_Y[_i]
+        _j = min(_i + 1, len(ROAD_CENTRE) - 1)
+        _k = max(_i - 1, 0)
+        _dx = ROAD_CENTRE[_j][0] - ROAD_CENTRE[_k][0]
+        _dz = ROAD_CENTRE[_j][1] - ROAD_CENTRE[_k][1]
+        _px, _pz = (0, 1) if abs(_dx) >= abs(_dz) else (1, 0)
+        for _side in (-1, 1):
+            _w = SHOULDER_MIN + cell_hash((_x + 40 * _side) // HOLD_BLOCK * HOLD_BLOCK,
+                                          (_z + 40 * _side) // HOLD_BLOCK * HOLD_BLOCK) \
+                % (SHOULDER_MAX - SHOULDER_MIN + 1)
+            for _o in range(2, _w + 1):
+                _cx, _cz = _x + _px * _side * _o, _z + _pz * _side * _o
+                _rel = (_cx - ANCHOR_W[0], _cz - ANCHOR_W[2])
+                if (_cx, _cz) in ROAD_CELLS or _rel in LEVEL:
+                    continue                 # the plaza, a pad or a street already owns it
+                if wet(_rel[0], _rel[1]):
+                    continue                 # the lake keeps its shore
+                _n = surface(_cx, _cz)
+                if _n is None:
+                    continue
+                # never above the road; never more than a block below it either, so the
+                # shoulder is a verge and not the top of a fill.
+                _sy = max(_y - 1, min(_y, _n))
+                _have = ROAD_SHOULDER.get((_cx, _cz))
+                if _have is None or (_o, _sy) < _have:
+                    ROAD_SHOULDER[(_cx, _cz)] = (_o, _sy)
+    # ---- the ROAD HEAD: a landing, not a lip -------------------------------------------
+    # The road stops at her feet on purpose -- it is where she wakes up -- but the first
+    # build with the arrival moved measured what that costs: the world put her down on the
+    # last column of the carriageway and the harness read her back a block later, a block
+    # lower, having stepped off the end of it. So the ground the road stops on is part of
+    # the arrival. The three columns beyond the last one, five wide, are held at the
+    # carriageway's own level: she wakes on a level patch of meadow with the road under her
+    # feet and the meadow walking away from it a block a ring, like everywhere else.
+    ROAD_HEAD = 3
+    _hx, _hz = ROAD_CENTRE[-1]
+    _hdx = _hx - ROAD_CENTRE[-2][0]
+    _hdz = _hz - ROAD_CENTRE[-2][1]
+    _hpx, _hpz = (0, 1) if abs(_hdx) >= abs(_hdz) else (1, 0)
+    _hy = ROAD_Y[-1]
+    for _st in range(1, ROAD_HEAD + 1):
+        for _o in range(-2, 3):
+            _cx = _hx + _hdx * _st + _hpx * _o
+            _cz = _hz + _hdz * _st + _hpz * _o
+            _rel = (_cx - ANCHOR_W[0], _cz - ANCHOR_W[2])
+            if (_cx, _cz) in ROAD_CELLS or _rel in LEVEL or (_cx, _cz) in ROAD_SHOULDER:
+                continue
+            if wet(_rel[0], _rel[1]) or surface(_cx, _cz) is None:
+                continue
+            ROAD_SHOULDER[(_cx, _cz)] = (2, _hy)
+            LEVEL.setdefault(_rel, _hy - ANCHOR_W[1])
+
+    for (_cx, _cz), (_o, _sy) in ROAD_SHOULDER.items():
+        LEVEL.setdefault((_cx - ANCHOR_W[0], _cz - ANCHOR_W[2]), _sy - ANCHOR_W[1])
+        _top = max(_sy + 3, canopy(_cx, _cz) or _sy)
+        ROAD_CMDS.append('fill ~%d ~%d ~%d ~%d ~%d ~%d minecraft:air'
+                         % (_cx, _sy + 1, _cz, _cx, _top, _cz))
+        ROAD_CMDS.append('setblock ~%d ~%d ~%d %s'
+                         % (_cx, _sy, _cz, surf_mat(_cx, _cz)))
+        ROAD_CMDS.append('fill ~%d ~%d ~%d ~%d ~%d ~%d minecraft:dirt replace minecraft:air'
+                         % (_cx, _sy - 4, _cz, _cx, _sy - 1, _cz))
+    print('  road shoulders: %d columns held at the carriageway\'s level, %d..%d wide'
+          % (len(ROAD_SHOULDER), SHOULDER_MIN, SHOULDER_MAX))
+
     # ---- lamp posts on the road, every 6 blocks, BOTH sides -----------------
     ROAD_LAMPS = []
     for _i in range(6, len(ROAD_CENTRE) - 4, 6):
@@ -3070,7 +3324,11 @@ if SITE:
     # =========================================================================
     ROAD_STATIONS = 8
     ROAD_LAMPS = []
-    _lo, _hi = 8, len(ROAD_CENTRE) - 10
+    # ...and the band they are spread over runs almost to the far end now. The road used to
+    # STOP where she stood, so the last station had to hold back from the end; the road runs
+    # on past her arrival instead, and the two posts at its last station are the two she can
+    # see from the moment the world loads.
+    _lo, _hi = 8, len(ROAD_CENTRE) - 6
     for _s in range(ROAD_STATIONS):
         _i = int(round(_lo + (_hi - _lo) * (_s + 0.5) / ROAD_STATIONS))
         _i = max(1, min(len(ROAD_CENTRE) - 2, _i))
@@ -3152,33 +3410,126 @@ if SITE:
         LAMP_CMDS.append('setblock ~%d ~%d ~%d %s' % (_p[0], _p[1] + 1, _p[2], LAMP_DARK))
 
     # =========================================================================
-    # The spawn signpost. Three blocks along the road from where she stands, so the
-    # first thing in frame is a direction, not a quest card.
-    # =========================================================================
-    # Three blocks along, but OUTSIDE the plaza: spawn is 14 blocks from the anchor, so a
-    # naive "index 3" put the signpost inside the square, where act1_square's paving and the
-    # Handcrafted furniture then stood on top of it (the built world had a chair there and no
-    # sign). Walk out along the road until the column is clear of both pads.
-    _sp_i = None
-    for _i in range(3, len(ROAD_CENTRE) - 6):
-        _x, _z = ROAD_CENTRE[_i]
-        if _pin(_x, _z) is None:
-            _sp_i = _i
-            break
-    if _sp_i is None:
-        _sp_i = min(3, len(ROAD_CENTRE) - 1)
+    # The spawn signpost. Four blocks along the road from where she stands, beside it, and
+    # TURNED TO FACE HER, so the first thing in frame is a direction rather than a quest
+    # card. It used to be four blocks along the road from the town end -- which is where
+    # she used to wake up -- so with the arrival moved to the far side of the farm it moves
+    # with her: the road's last four columns are the ones she is standing on.
+    #
+    # Which way it faces is computed, not typed. `rotation` counts sixteen steps clockwise
+    # from SOUTH, so the facing vector back down the road toward her is turned into a step
+    # here; the old hard-coded `rotation=8` was north because the old road ran north, and it
+    # would have shown her the blank back of the sign on any other bearing.
+    _sp_i = max(0, len(ROAD_CENTRE) - 5)
+    while _sp_i < len(ROAD_CENTRE) - 1 and _pin(*ROAD_CENTRE[_sp_i]) is not None:
+        _sp_i += 1
     _sx, _sz = ROAD_CENTRE[_sp_i]
-    SIGNPOST = [_sx + 2, dsurf(_sx + 2, _sz) + 1, _sz]
+    _bx, _bz = ROAD_CENTRE[min(_sp_i + 1, len(ROAD_CENTRE) - 1)]
+    _fx, _fz = _bx - _sx, _bz - _sz            # points from the sign toward spawn
+    _spx, _spz = (0, 1) if abs(_fx) >= abs(_fz) else (1, 0)
+    _SIGN_ROT = int(round(math.atan2(-_fx, _fz) / (2 * math.pi) * 16)) % 16
+    SIGNPOST = None
+    for _side in (1, -1):
+        _cx, _cz = _sx + _spx * 2 * _side, _sz + _spz * 2 * _side
+        if (_cx, _cz) not in ROAD_CELLS:
+            SIGNPOST = [_cx, dsurf(_cx, _cz) + 1, _cz]
+            break
+    if SIGNPOST is None:
+        SIGNPOST = [_sx + 2, dsurf(_sx + 2, _sz) + 1, _sz]
     SIGN_CMDS = [
         'setblock ~%d ~%d ~%d minecraft:cobblestone' % (SIGNPOST[0], SIGNPOST[1] - 1, SIGNPOST[2]),
         'setblock ~%d ~%d ~%d %s' % (SIGNPOST[0], SIGNPOST[1], SIGNPOST[2], POST),
-        'setblock ~%d ~%d ~%d minecraft:oak_sign[rotation=8]{front_text:{messages:['
+        'setblock ~%d ~%d ~%d minecraft:oak_sign[rotation=%d]{front_text:{messages:['
         '\'{"text":"KETTLE FARM"}\',\'{"text":"follow the road"}\',\'{"text":""}\','
         '\'{"text":"LITTLE KETTLE"}\'],color:"gray"}}'
-        % (SIGNPOST[0], SIGNPOST[1] + 1, SIGNPOST[2]),
-        'setblock ~%d ~%d ~%d minecraft:lantern[hanging=false]'
-        % (SIGNPOST[0] - 1, SIGNPOST[1], SIGNPOST[2]),
+        % (SIGNPOST[0], SIGNPOST[1] + 1, SIGNPOST[2], _SIGN_ROT),
     ]
+    # the lantern stands on the ground beside the post, one step further off the road:
+    # on top of the post it would be sitting on the sign, which is not something a lantern
+    # can stand on, and it drops the moment the chunk ticks.
+    _lx = SIGNPOST[0] + (SIGNPOST[0] - _sx and (1 if SIGNPOST[0] > _sx else -1))
+    _lz = SIGNPOST[2] + (SIGNPOST[2] - _sz and (1 if SIGNPOST[2] > _sz else -1))
+    SIGN_CMDS.append('setblock ~%d ~%d ~%d minecraft:lantern[hanging=false]'
+                     % (_lx, dsurf(_lx, _lz) + 1, _lz))
+    print('  signpost at %s, %d blocks from spawn, facing rotation %d (back down the road)'
+          % (str(SIGNPOST), int(round(math.hypot(SIGNPOST[0] - SPAWN_W[0],
+                                                 SIGNPOST[2] - SPAWN_W[2]))), _SIGN_ROT))
+
+    # =========================================================================
+    # THE ARRIVAL, measured rather than hoped for.
+    #
+    # Four things the first frame has to be, all of them checked here so a re-run on a new
+    # site cannot quietly lose them:
+    #   1. she is facing along the road, toward the farm;
+    #   2. nothing the plan builds stands within SPAWN_CLEAR blocks of her except the road,
+    #      its shoulder and the signpost -- the old spawn opened on a wall of plaza benches;
+    #   3. the town is out of sight (solved above, re-stated here for the record); and
+    #   4. two lamp posts ARE in sight, so the road reads as the lantern road from the
+    #      first second.
+    # =========================================================================
+    SPAWN_CLEAR = 8
+    _sdx = ROAD_CENTRE[-2][0] - ROAD_CENTRE[-1][0]
+    _sdz = ROAD_CENTRE[-2][1] - ROAD_CENTRE[-1][1]
+    SPAWN_YAW = round(-math.degrees(math.atan2(_sdx, _sdz)), 1)
+
+    _near = []
+    for _k2, _g2 in GROUPS.items():
+        _o2 = OFF.get(_g2['origin'], [0, 0, 0])
+        _base = {'world': [0, 0, 0],
+                 'home': [HEARTH_W[0], HEARTH_W[1] + 1, HEARTH_W[2]]}.get(
+            _g2['origin'], [ANCHOR_W[0] + _o2[0], ANCHOR_W[1] + _o2[1],
+                            ANCHOR_W[2] + _o2[2]])
+        for _c3 in _g2['cmds']:
+            for _b3 in write_boxes(_c3):
+                if (max(_b3[0], _b3[3]) + _base[0] >= SPAWN_W[0] - SPAWN_CLEAR and
+                        min(_b3[0], _b3[3]) + _base[0] <= SPAWN_W[0] + SPAWN_CLEAR and
+                        max(_b3[2], _b3[5]) + _base[2] >= SPAWN_W[2] - SPAWN_CLEAR and
+                        min(_b3[2], _b3[5]) + _base[2] <= SPAWN_W[2] + SPAWN_CLEAR):
+                    _near.append('%s: %s' % (_k2, _c3[:70]))
+    if _near:
+        raise SystemExit('plan_town: %d thing(s) stand within %d blocks of spawn: %s'
+                         % (len(_near), SPAWN_CLEAR, '; '.join(_near[:4])))
+
+    _allnear = [_p for _p in LAMPS_40
+                if max(abs(_p[0] - SPAWN_W[0]), abs(_p[2] - SPAWN_W[2])) <= SPAWN_CLEAR]
+    if _allnear:
+        raise SystemExit('plan_town: %d lamp post(s) inside the %d-block clear at spawn: %s'
+                         % (len(_allnear), SPAWN_CLEAR, str(_allnear[:3])))
+    _lampd = sorted((math.hypot(_p[0] - SPAWN_W[0], _p[2] - SPAWN_W[2]), _p)
+                    for _p in ROAD_LAMPS)
+    if len(_lampd) < 2:
+        raise SystemExit('plan_town: the lantern road has fewer than two posts on it')
+
+    def _sees(a, b):
+        """Straight sightline over the DESIGN surface between two eye-height points."""
+        dist = math.hypot(b[0] - a[0], b[2] - a[2])
+        if dist < 2:
+            return True
+        for _s in range(2, int(dist)):
+            _f = _s / dist
+            _px = int(round(a[0] + (b[0] - a[0]) * _f))
+            _pz = int(round(a[2] + (b[2] - a[2]) * _f))
+            if dsurf(_px, _pz) > (a[1] + 1) + ((b[1] + 1) - (a[1] + 1)) * _f + 1.0:
+                return False
+        return True
+
+    SPAWN_LAMPS = []
+    for _d3, _p3 in _lampd[:4]:
+        if _sees(SPAWN_W, _p3):
+            SPAWN_LAMPS.append((round(_d3, 1), list(_p3)))
+        if len(SPAWN_LAMPS) == 2:
+            break
+    if len(SPAWN_LAMPS) < 2:
+        raise SystemExit('plan_town: fewer than two lantern-road posts are visible from '
+                         'spawn (nearest four at %s)'
+                         % str([round(_d3, 1) for _d3, _ in _lampd[:4]]))
+    if SPAWN_LAMPS[1][0] > 40:
+        raise SystemExit('plan_town: the second visible post is %.0f blocks from spawn'
+                         % SPAWN_LAMPS[1][0])
+    print('  arrival: yaw %.1f toward the farm, nothing built within %d blocks, first two '
+          'road posts in sight at %.0f and %.0f blocks (%s, %s)'
+          % (SPAWN_YAW, SPAWN_CLEAR, SPAWN_LAMPS[0][0], SPAWN_LAMPS[1][0],
+             str(SPAWN_LAMPS[0][1]), str(SPAWN_LAMPS[1][1])))
 
     # =========================================================================
     # The cottage, standing, with the gaps Q3 fills.
@@ -3219,6 +3570,28 @@ if SITE:
     _rp = _c2h(ROOF_PATCH)
     ROOF_HOLE_HOME = [_rp[0], _rp[1], _rp[2]]
 
+    # ---- where the gate post stands -----------------------------------------------------
+    # Home-relative, solved against the finished road. Candidates run outward from the old
+    # spot along the road's own cross direction; the first one whose column is neither
+    # paving nor shoulder wins, so the sign is always two clear of the carriageway however
+    # the road happens to leave the gate.
+    GATE_POST = (0, 10)
+    for _gc in ((0, 10), (3, 10), (-3, 10), (3, 12), (-3, 12), (0, 13), (5, 10), (-5, 10)):
+        _gw = (HEARTH_W[0] + _gc[0], HEARTH_W[2] + _gc[1])
+        if _gw not in ROAD_CELLS and _gw not in ROAD_SHOULDER:
+            GATE_POST = _gc
+            break
+    # face the sign back down the road she came up, the same arithmetic as the signpost.
+    _gi = min(range(len(ROAD_CENTRE)),
+              key=lambda i: (ROAD_CENTRE[i][0] - GATE_W[0]) ** 2
+              + (ROAD_CENTRE[i][1] - GATE_W[2]) ** 2)
+    _gj = min(_gi + 2, len(ROAD_CENTRE) - 1)
+    GATE_ROT = int(round(math.atan2(-(ROAD_CENTRE[_gj][0] - ROAD_CENTRE[_gi][0]),
+                                    ROAD_CENTRE[_gj][1] - ROAD_CENTRE[_gi][1])
+                         / (2 * math.pi) * 16)) % 16
+    print('  farm gate post at home + %s (rotation %d); the road runs through the gate now'
+          % (str(GATE_POST), GATE_ROT))
+
     # the day-one cottage group: cot_lines minus the waystone, minus the flavour line,
     # with the hard level replaced by @pad (feathered, material-sampled) and the roof
     # patch and cold campfire added.
@@ -3254,15 +3627,18 @@ if SITE:
         'setblock ~0 ~-1 ~0 minecraft:polished_andesite',
         'setblock ~0 ~0 ~0 minecraft:air',
         'setblock ~-1 ~0 ~0 minecraft:campfire[lit=false]',
-        '# the gate at the end of the road, unchanged from the ruin: this is still the',
-        '# marker that says you have arrived.',
-        '# ...beside the road, not in it. The lantern road arrives along z = home+8 and its',
-        '# three-block brush covers z = home+7..9, so a post anywhere on that line is a',
-        '# two-block step at the very end of the road. It stands one clear of the verge.',
-        'setblock ~0 ~0 ~10 minecraft:oak_fence',
-        'setblock ~0 ~1 ~10 minecraft:oak_sign[rotation=8]{front_text:{messages:['
+        '# the gate: the marker that says you have arrived.',
+        '# ...beside the road, not in it. It used to sit at home + [0,0,10] because the road',
+        '# only ever ARRIVED at the gate along z = home+8 and stopped. The road runs THROUGH',
+        '# the gate now -- she comes up it from the far side of the farm and carries on past',
+        '# the yard to the town -- so home + [0,0,10] is under the carriageway. The post is',
+        '# solved against the road it stands beside instead of typed: the first candidate',
+        '# clear of the paving AND of its shoulder, so it is never a step at the kerb.',
+        'setblock ~%d ~0 ~%d minecraft:oak_fence' % (GATE_POST[0], GATE_POST[1]),
+        'setblock ~%d ~1 ~%d minecraft:oak_sign[rotation=%d]{front_text:{messages:['
         '\'{"text":"KETTLE FARM"}\',\'{"text":""}\',\'{"text":"J. Kettle"}\','
-        '\'{"text":"mind the weeds"}\'],color:"gray"}}',
+        '\'{"text":"mind the weeds"}\'],color:"gray"}}'
+        % (GATE_POST[0], GATE_POST[1], GATE_ROT),
     ])
 
     group('day1_cottage', 'home', DAY1_COTTAGE)
@@ -3618,33 +3994,143 @@ if SITE:
         free = [c for c in field if c not in pinned]
         nat_of = {c: field[c] for c in free}
         order = sorted(free)
-        for _sweep in range(60):
+
+        # ---- THE ENVELOPE, and why the sweep it replaces could not build a ramp ---------
+        #
+        # The sweep relaxed each column to `clamp(natural, max(nb) - 1, min(nb) + 1)` in
+        # place, and where those two bounds crossed it split the difference. That is a fixed
+        # point, but it is the wrong one, and beside a terrace it is reliably wrong: the
+        # first free column outside a pad is pulled UP by the pad (max(nb) - 1) and pulled
+        # DOWN by the meadow behind it (min(nb) + 1), the bounds cross on the first sweep,
+        # and it settles halfway. Measured on the 2026-09-05 build: the cottage yard sat at
+        # 74, the column outside it at 72, and the same two-block lip ran twenty-six columns
+        # down the plot's west side -- `cut_edge` 20 against a limit of 8. Nothing further
+        # out was wrong; the ramp simply never started.
+        #
+        # A ramp is not a local condition, so it is not solved locally. Two Lipschitz
+        # envelopes are propagated from the PINNED columns instead:
+        #
+        #   LO(c) = max over pinned p of (level(p) - chebyshev(c, p))
+        #   HI(c) = min over pinned p of (level(p) + chebyshev(c, p))
+        #
+        # LO is the lowest a column may be without leaving a step down to some terrace; HI
+        # the highest without leaving a step up to one. Both are 1-Lipschitz by
+        # construction, so a column pinned between them is one ring of a proper staircase,
+        # and a column that is already at the natural surface inside them is left alone --
+        # which is still most of the field.
+        INF = 10 ** 6
+        LO = {c: -INF for c in free}
+        HI = {c: INF for c in free}
+        for _it in range(SKIRT_RINGS + 4):
             moved = 0
-            seq = order if _sweep % 2 == 0 else order[::-1]
+            seq = order if _it % 2 == 0 else order[::-1]
             for c in seq:
-                nb = [field[q] for q in ((c[0] + dx, c[1] + dz) for dx, dz in _NB8)
-                      if q in field]
-                if not nb:
-                    continue
-                lo = max(nb) - 1
-                hi = min(nb) + 1
-                n = nat_of[c]
-                # A column may hold its terrace's level for a ring or two before it starts
-                # down: that is the feathering, and it is what stops the edge of a pad being
-                # a straight line in plan. It is a floor on the level, never a ceiling, so it
-                # can never make a step taller.
-                if hold_depth(c[0], c[1]) and max(nb) > n:
-                    n = min(max(nb), n + hold_depth(c[0], c[1]))
-                y = n if lo <= hi else (lo + hi) // 2
-                y = max(lo, min(hi, y)) if lo <= hi else y
-                if y != field[c]:
-                    field[c] = y
+                nl, nh = -INF, INF
+                for dx, dz in _NB8:
+                    q = (c[0] + dx, c[1] + dz)
+                    if q in pinned:
+                        v = pinned[q]
+                        if v > nl:
+                            nl = v
+                        if v < nh:
+                            nh = v
+                    elif q in LO:
+                        if LO[q] > nl:
+                            nl = LO[q]
+                        if HI[q] < nh:
+                            nh = HI[q]
+                nl = -INF if nl <= -INF else nl - 1
+                nh = INF if nh >= INF else nh + 1
+                if nl > LO[c]:
+                    LO[c] = nl
+                    moved += 1
+                if nh < HI[c]:
+                    HI[c] = nh
                     moved += 1
             if not moved:
                 break
+
+        for c in free:
+            n = nat_of[c]
+            # A column may hold its terrace's level for a ring or two before it starts down:
+            # that is the feathering, and it is what stops the edge of a pad being a straight
+            # line in plan. It is a floor on the level, never a ceiling, and the capping pass
+            # below takes back anything it turned into a step.
+            h = hold_depth(c[0], c[1])
+            if h and LO[c] > n:
+                n = min(LO[c] + h, n + h)
+            y = n
+            if LO[c] > -INF:
+                y = max(y, LO[c])
+            if HI[c] < INF:
+                y = min(y, HI[c])
+            if LO[c] > -INF and HI[c] < INF and LO[c] > HI[c]:
+                y = (LO[c] + HI[c]) // 2       # two terraces too close to ramp between
+            field[c] = y
+
+        # ---- and cap: no free column may stand more than a block over its lowest
+        # neighbour. Downward only, so it cannot break LO (every neighbour is at least
+        # LO[c] - 1, so the cap can never push a column under its own envelope) and it
+        # cannot make a step; all it does is take back the feathering wherever the hash
+        # raised a column its neighbours could not follow.
+        for _it in range(SKIRT_RINGS + 4):
+            moved = 0
+            seq = order if _it % 2 == 0 else order[::-1]
+            for c in seq:
+                nb = [pinned[q] if q in pinned else field[q]
+                      for q in ((c[0] + dx, c[1] + dz) for dx, dz in _NB8)
+                      if q in field or q in pinned]
+                if not nb:
+                    continue
+                cap = min(nb) + 1
+                if field[c] > cap:
+                    field[c] = cap
+                    moved += 1
+            if not moved:
+                break
+
+        # ---- and say so. The skirt's whole promise is "no step taller than one anywhere
+        # the plan regraded", and the only honest way to make that claim is to measure it.
+        worst = 0
+        for c in free:
+            for dx, dz in _NB8:
+                q = (c[0] + dx, c[1] + dz)
+                v = pinned.get(q, field.get(q))
+                if v is None:
+                    continue
+                if c in nat_of and q in nat_of and field[c] == nat_of[c] \
+                        and field[q] == nat_of[q]:
+                    continue                    # two untouched columns: that is the land
+                worst = max(worst, abs(field[c] - v))
+        print('  skirt: worst step between a regraded column and any neighbour: %d' % worst)
         return {c: field[c] for c in free if field[c] != nat_of[c]}
 
     SKIRT = build_skirt()
+
+    # --- and the meadow put back on top of it ---------------------------------------
+    # A graded column is bare. Nine hundred of them in a row beside the road is a cutting,
+    # whatever its cross-section, because the eye reads "mown" as "man-made". So every
+    # column the plan regrades to grass gets its ground cover back: short grass and ferns
+    # mostly, a flower here and there, drawn from the same reproducible per-column hash the
+    # rest of the file uses so a rebuild lays down the same meadow. None of it blocks
+    # motion, so it changes no heightmap and no probe reads it as ground.
+    MEADOW = ('minecraft:grass', 'minecraft:grass', 'minecraft:grass', 'minecraft:fern',
+              'minecraft:poppy', 'minecraft:dandelion', 'minecraft:oxeye_daisy',
+              'minecraft:cornflower', 'minecraft:azure_bluet', 'minecraft:allium')
+
+    def meadow_cmds(x0, x1, z, wy, mat):
+        """Ground cover for one graded row run, or nothing if the run is not turf."""
+        if not mat.endswith('grass_block'):
+            return []
+        out = []
+        for xx in range(x0, x1 + 1):
+            wx = ANCHOR_W[0] + xx
+            h = cell_hash(wx, ANCHOR_W[2] + z)
+            if h >= 34:
+                continue
+            out.append('setblock ~%d ~%d ~%d %s'
+                       % (wx, wy + 1, ANCHOR_W[2] + z, MEADOW[h % len(MEADOW)]))
+        return out
 
     def grade_cmds(cells):
         """Row runs, in world coordinates. One `fill` per run of columns at the same level
@@ -3670,13 +4156,32 @@ if SITE:
                 hi = max(nat(x, z) for x in range(x0, x1 + 1))
                 WX0, WX1 = ANCHOR_W[0] + x0, ANCHOR_W[0] + x1
                 WZ, WY = ANCHOR_W[2] + z, ANCHOR_W[1] + y
+                # TWO blocks of clearance over the new ground, not ten.
+                #
+                # This line used to read `max(WY + 4, hi + 10)`, i.e. every graded column
+                # had a ten-block column of air punched over it -- and a graded column is
+                # not a lonely thing: an oak's canopy is five columns wide, so clearing the
+                # sky over ONE column at its edge takes the whole crown off a tree whose
+                # trunk was never touched. That is the multiplier that turned a road with
+                # some cut-and-fill into a twenty-block clear-cut: 1044 of the 2768 columns
+                # within ten blocks of the road are wooded in the pregen and 57 survived.
+                # Two blocks is enough to lift the old ground off the new one and no more;
+                # the columns that really do carry a trunk are cleared one by one below.
+                top = max(WY + 2, ANCHOR_W[1] + hi)
                 out.append('fill ~%d ~%d ~%d ~%d ~%d ~%d minecraft:air'
-                           % (WX0, WY + 1, WZ, WX1, max(WY + 4, ANCHOR_W[1] + hi + 10), WZ))
+                           % (WX0, WY + 1, WZ, WX1, top, WZ))
+                for xx in range(x0, x1 + 1):
+                    cy = canopy(ANCHOR_W[0] + xx, WZ)
+                    if cy is not None and cy > top:
+                        out.append('fill ~%d ~%d ~%d ~%d ~%d ~%d minecraft:air'
+                                   % (ANCHOR_W[0] + xx, top + 1, WZ,
+                                      ANCHOR_W[0] + xx, cy, WZ))
                 out.append('fill ~%d ~%d ~%d ~%d ~%d ~%d %s'
                            % (WX0, WY, WZ, WX1, WY, WZ, mat))
                 if y - 1 >= lo:
                     out.append('fill ~%d ~%d ~%d ~%d ~%d ~%d minecraft:dirt replace minecraft:air'
                                % (WX0, ANCHOR_W[1] + lo, WZ, WX1, WY - 1, WZ))
+                out += meadow_cmds(x0, x1, z, WY, mat)
                 i = j + 1
         return out
 
@@ -3835,7 +4340,7 @@ if SITE:
             'roof_patch': [W(ROOF_HOLE_HOME, HOME_W),
                            W([ROOF_HOLE_HOME[0] + 1, ROOF_HOLE_HOME[1], ROOF_HOLE_HOME[2] + 1], HOME_W)],
             'bed': W([-1, -1, -1], HOME_W),
-            'gate_sign': W([0, 1, 10], HOME_W),
+            'gate_sign': W([GATE_POST[0], 1, GATE_POST[1]], HOME_W),
             'porch': W([3, 0, 0], HOME_W),
         },
         'plaza': _site_boxes['plaza'],
@@ -3860,7 +4365,17 @@ if SITE:
         'road_path': [[x, ROAD_Y[i], z] for i, (x, z) in enumerate(ROAD_CENTRE)
                       if not (ANCHOR_W[0] - PLAZA <= x <= ANCHOR_W[0] + PLAZA
                               and ANCHOR_W[2] - PLAZA <= z <= ANCHOR_W[2] + PLAZA)],
+        # The streets' own centre lines, at the level the terracing gave them. The lantern
+        # road is not the only thing in the valley with a verge, and `road_banks` in
+        # nature_check.py walks these for the same reason it walks the road: a street cut
+        # into the hillside with a two-block bank at the kerb is the same defect indoors.
+        'streets': {_sn: [[ANCHOR_W[0] + _c[0], ANCHOR_W[1] + _c[1], ANCHOR_W[2] + _c[2]]
+                          for _c in _sp] for _sn, _sp in STREET_PATHS.items()},
         'signpost': SIGNPOST,
+        # Which way she is facing when the world puts her down: along the road, toward the
+        # farm. `setworldspawn <x> <y> <z> <yaw>` takes it, and the yaw is computed from the
+        # road's first step rather than typed, so it follows the arrival wherever it moves.
+        'spawn_yaw': SPAWN_YAW,
         'pier': W(OFF['lake'], ANCHOR_W),
         'lake_centre': [SITE['lake_centre'][0], SITE.get('lake_surface_y', HEARTH_W[1]),
                         SITE['lake_centre'][1]],
