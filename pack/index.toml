@@ -606,7 +606,7 @@ hash = "70417c717a5949732195139bbae75c0a599df8fd0494a10de3cd159b9488a875"
 
 [[files]]
 file = "kubejs/server_scripts/valley_core.js"
-hash = "fe8964410931319acd2e17b5af432f8b3630f338ba3104a3f168a1f4d70ea7ba"
+hash = "7151b02c41d3b136dc280fd1d85fb6bebda95e8518a6d6e7321d9fee6cf36a6c"
 
 [[files]]
 file = "kubejs/server_scripts/valley_finales.js"
