@@ -14,31 +14,39 @@ hash = "922a0a06c316eb1f0aba285f5bc59f4421b51b6f861661f3cdab38bbd44e4927"
 
 [[files]]
 file = "config/ftbquests/quests/chapter_groups.snbt"
-hash = "010fe6528ce51f263871b86a0bc5741c0207d1aeb5a2b628282ae498fed7872b"
+hash = "9b85db0d9ab11980c00deb35811a08c59902060d0c3f06db0e8e186ebbc23a60"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act1.snbt"
-hash = "7be8528f09e8835025fbe8b1e469fd4b211a09bf6e103da6a92410236d1810e0"
+hash = "16fd60e34d05cd7e2b33cf9f533c8f6580f6c33d54440c2fe1dfd68cba06a2ea"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act2.snbt"
-hash = "b6d99d5300ab359908cc2da114c35827ed2e520f5d651f3d2805e952336025f5"
+hash = "b8f80aefa034963286afcc7369ca95f6ffebdac5ce9a3d9f1704198edd58af7b"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act3.snbt"
-hash = "7fd35bf5b1c3d8d0282bb2a28767a4322ef09a9a218eb42cb96a141c02d34079"
+hash = "f9f70117fd80daac07b48ddab1b551bf6469982d164331e703144bc4668c9757"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act4.snbt"
-hash = "786c66f524151a868f4675d93818452614a76b360183d66fcc163405f15850ea"
+hash = "8aff04a1f10b49c24a92b885803146ee4396b2d81b84d3baf6ce20378214ed19"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act5.snbt"
-hash = "2cc7a38abfb4e81a0a93b627e97cb9fdfb485ccc166394254918c139e8b9d83f"
+hash = "130ff40da372d52a05c3b171284bfd8256eb166b2cd7328b93365053d91f5be1"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/oda.snbt"
-hash = "c17245a32f3b88b14430e1e628f184aa977217520ff6d656fe6d1d2e66466d54"
+hash = "d94603b1d24f7b4b0986bc4d9d22758104754dd6cae346339c72a1022731f784"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/readme.snbt"
+hash = "dea3248ee63d26b7851d5bee66c881dd61031f8cbcf9ffe68c4de7ee6ebf1950"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/start.snbt"
+hash = "c1fcf1eb5f51abb00a2d97a84868507e1ec50024b973c7d4ccb2551b9606c1ed"
 
 [[files]]
 file = "config/ftbquests/quests/data.snbt"
@@ -63,6 +71,10 @@ hash = "d357a0fa1cf5f3016b7cde3f34fec95354dcd01a2186f545530cc6f3077d1b5c"
 [[files]]
 file = "config/geolosys-common.toml"
 hash = "e807e83cd74d789d4cfecdb2413167351426d808265cefa2dd4a5fa14bb0a853"
+
+[[files]]
+file = "config/inventoryprofilesnext/inventoryprofiles.json"
+hash = "0f0735e8548ba6db2931d7fb7cc5a14259ae11041fc42cd41b17949edb946147"
 
 [[files]]
 file = "config/lootr-common.toml"
@@ -610,7 +622,7 @@ hash = "c24ac34612f8317811252804ea5b2b0500cd47fcaaa225a3b06eb7c9eb2c19e0"
 
 [[files]]
 file = "kubejs/server_scripts/_quest_ids.js"
-hash = "d0241b18131a7d0a338f4e8705a2316ab5c33fddb7cd8b1c6a01360ff8f45bd0"
+hash = "e17798103a67d3fedbbdf47804ed3ec63355294070a67f93ca001499275adedf"
 
 [[files]]
 file = "kubejs/server_scripts/seasons_tags.js"
@@ -626,11 +638,11 @@ hash = "41d67de899f2506b4b49afa6a2ad48986ce13669a79eb81eda0711adb6705e9d"
 
 [[files]]
 file = "kubejs/server_scripts/valley_checks.js"
-hash = "70b7af2cfc792a6f7b065a813a5d9fc22e815b89f588882bceac1a5458ea1aee"
+hash = "678007501064c1a4051eb7d67eb983b23e3231eaeccd6750d29c092295fb9c1a"
 
 [[files]]
 file = "kubejs/server_scripts/valley_core.js"
-hash = "208a3ff8fa59fc417f1ab5fc240c0895584feb14cf7664afe48a125540086e0c"
+hash = "52890df19ed5f989c03986bfc71961563f654a5790a77f502a6a6b3994e47950"
 
 [[files]]
 file = "kubejs/server_scripts/valley_finales.js"
@@ -647,6 +659,10 @@ hash = "129d4f0668662cb761fa8f817590d511f51162e2e5960b8f44c727642c4d19b6"
 [[files]]
 file = "kubejs/server_scripts/valley_keepsakes.js"
 hash = "e16490a4c5a501871702c8eadd38300db9260814b9fbc2c0c598f679e45c4fb1"
+
+[[files]]
+file = "kubejs/server_scripts/valley_step.js"
+hash = "3916b4cb887c4c45bfe823013edf63c43b491c7f5b5d7e43cfe2f710989d33d5"
 
 [[files]]
 file = "kubejs/startup_scripts/valley_blocks.js"
@@ -932,8 +948,8 @@ hash = "dcedae8889f7d16757a0c77287ea7accad6afa1f2e41fab0ca5cc8159ad0d237"
 metafile = true
 
 [[files]]
-file = "mods/inventory-sorter-configurable.pw.toml"
-hash = "15737439a8dbfff1c2bd5e89b89e31681faf8d0629edfa9b890021b7cec8367e"
+file = "mods/inventory-profiles-next.pw.toml"
+hash = "e87e55d35c6a335f35329b1356c8c40589f6b955b4933614f03d6c8b747f1476"
 metafile = true
 
 [[files]]
@@ -994,6 +1010,11 @@ metafile = true
 [[files]]
 file = "mods/lets-do-vinery.pw.toml"
 hash = "94255c24694569e26337079e3ff81165b4e914ab427d4dab0e1d78b65325ba9f"
+metafile = true
+
+[[files]]
+file = "mods/libipn.pw.toml"
+hash = "5a98133891a72e041e37bc235e86d495e488387f1628fc1377e6b5169dfbb8bd"
 metafile = true
 
 [[files]]
@@ -1157,6 +1178,11 @@ hash = "b07c6c5e54b6f8a0bc563fa19548110e7544f343c77540addf9c484692d43b51"
 metafile = true
 
 [[files]]
+file = "mods/stepitup.pw.toml"
+hash = "64050d516184266d1a141e976cfa8a2823f0b21b2b69052bf2bb6182d4e912d4"
+metafile = true
+
+[[files]]
 file = "mods/storagedrawers.pw.toml"
 hash = "ff765c8249ef581bc6eef2ab9304f519aeec2552dc7a57760b7cd88eadd2685d"
 metafile = true
@@ -1293,7 +1319,7 @@ metafile = true
 
 [[files]]
 file = "options.txt"
-hash = "f0d377e17d51e5033479f4603ffeac6d92717ef2b8b2e180e16e577b36d083ac"
+hash = "ccb9369a04f2f4f95d0312fd69deb669cd983606b420dd45924986e4b4a4fe9c"
 preserve = true
 
 [[files]]
