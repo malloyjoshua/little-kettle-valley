@@ -549,7 +549,9 @@ poll('q74', (server, player) => {
       justHit = i
     }
   }
-  if (justHit >= 0 && done < posts.length) {
+  // The progress line is Act IV's. The flags may be earned earlier (walking the road counts),
+  // but a player in Act I must never see a duct being 'run' to posts she has not been told about.
+  if (justHit >= 0 && done < posts.length && v.hasWorldStage('act4')) {
     global.valleyServer.runCommandSilent('title ' + v.pname(player) + ' actionbar ' +
       JSON.stringify({ text: 'The line is run to ' + done + ' of ' + posts.length + ' posts.',
                        color: 'gold' }))
