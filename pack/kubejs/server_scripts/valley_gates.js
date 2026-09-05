@@ -294,6 +294,20 @@ ServerEvents.recipes(event => {
     S: 'minecraft:stick'
   }).id('valley:cheap/copper_hammer')
 
+  // The Prospector's Pick is the only honest way to read a Geolosys bed, and
+  // the mod prices it at three IRON ingots: the tool that finds iron costs
+  // iron. Bram hands one over with the hammer in q13a; this is the copy for
+  // whoever loses it or skipped the bench. Same copper price as the hammer.
+  // The mod's own iron recipe stays, so JEI shows both.
+  event.shaped('geolosys:prospectors_pick', [
+    'CCC',
+    '  S',
+    '  S'
+  ], {
+    C: '#forge:ingots/copper',
+    S: 'minecraft:stick'
+  }).id('valley:cheap/copper_pro_pick')
+
   // ===========================================================================
   // The custom items that have to be craftable, so JEI never shows a dead end.
   // Everything else (Scrip, tokens, plates, notes, deeds) is quest-granted on

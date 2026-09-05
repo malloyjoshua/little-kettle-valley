@@ -18,7 +18,7 @@ hash = "9b85db0d9ab11980c00deb35811a08c59902060d0c3f06db0e8e186ebbc23a60"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act1.snbt"
-hash = "7be7a2f54c1e83d3067d9276b4c6eea56840ce1c6121faa10423b454f6bbaa6a"
+hash = "468d92c4ea3b665a15d6f42f8af11673b428f45347e270b4f059d24484224541"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act2.snbt"
@@ -75,6 +75,10 @@ hash = "e807e83cd74d789d4cfecdb2413167351426d808265cefa2dd4a5fa14bb0a853"
 [[files]]
 file = "config/inventoryprofilesnext/inventoryprofiles.json"
 hash = "0f0735e8548ba6db2931d7fb7cc5a14259ae11041fc42cd41b17949edb946147"
+
+[[files]]
+file = "config/jei/jei-client.ini"
+hash = "93b598897d090d675842ea112ef5d3514521de8cc86cf64ab8a15e198aa1efcd"
 
 [[files]]
 file = "config/lootr-common.toml"
@@ -386,7 +390,7 @@ hash = "a3c6ef5c325c4fcbbd07aa804bb58172a71b35734921c341e6026bc9a560518f"
 
 [[files]]
 file = "kubejs/client_scripts/valley_lore.js"
-hash = "87d9409f23e5c7d2bbdf78e677710834048acf50f9f86e798089e48d4858569f"
+hash = "1b976dc816658d55ccef9865b88fbbc532f883fb7ab615b14ad9114683a79fdd"
 
 [[files]]
 file = "kubejs/data/bountiful/bounty_decrees/valley/cozy.json"
@@ -618,7 +622,7 @@ hash = "95e50da8776baa18681591548598675c284ae8b1b249403dd90f78e9ac4cd314"
 
 [[files]]
 file = "kubejs/server_scripts/valley_gates.js"
-hash = "d81a907e9c48948ca69a2f6fb9fbcdd983bdc9d91a1a6b0ee5b5dc597da6e4ec"
+hash = "f9c26138cf0d0134ccdcffa8cc4bb6859359ad5c5ed6e850c4c9320b44404d63"
 
 [[files]]
 file = "kubejs/server_scripts/valley_greetings.js"

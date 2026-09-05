@@ -46,7 +46,7 @@
 			icon: "minecraft:egg"
 			description: ["Pip: \"Is that an egg? Aunt Marnie says I get a duck if I'm useful, so I am being extremely useful.\"", "", "Collect 3 eggs from the nesting box behind your house — right-click a hen with chicken feed if you would rather not wait — and hand them in here. Marnie gets them either way; the book does the walking.", "", "Pip puts a duckling on your boot, names it Biscuit, and opens his courier board. Marnie tips 16 carded wool onto the counter."]
 			x: 4.0d
-			y: -1.5d
+			y: -0.8d
 			dependencies: ["0BFB18E2492D8F4D"]
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
@@ -72,10 +72,10 @@
 			title: "Craft 8 Andesite Alloy"
 			subtitle: "One andesite, one iron nugget. Eight, not nine."
 			icon: "create:andesite_alloy"
-			description: ["Bram: \"One andesite, one iron nugget, pressed. Eight of them, not nine — if you're making nine you've misread something.\"", "", "Craft 8 Andesite Alloy — one andesite and one iron nugget each, so eight andesite and one ingot's worth of nuggets — and hold them when you hand the quest in. The rest of Bram's crate is for the Millstone.", "", "You get a pre-made Mechanical Press, 8 cogwheels, 8 shafts and 32 wheat — the whole bill for the Millstone and its first grind."]
-			x: 2.0d
+			description: ["Bram: \"One andesite, one iron nugget, pressed. Eight of them, not nine — if you're making nine you've misread something.\"", "", "Craft 8 Andesite Alloy — one andesite and one iron nugget each, so eight andesite and one ingot's worth of nuggets (an ingot in the crafting grid makes nine) — and hold them when you hand the quest in. The rest of Bram's crate is for the Millstone.", "", "You get a pre-made Mechanical Press, 8 cogwheels, 8 shafts and 32 wheat — the whole bill for the Millstone and its first grind."]
+			x: 6.0d
 			y: 0.0d
-			dependencies: ["167FBD502857379B"]
+			dependencies: ["2F8AE9350986BEB5"]
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "3A6C855E8714FB2E", type: "item", item: "create:andesite_alloy", count: 8L }]
@@ -83,33 +83,32 @@
 		}
 		{
 			id: "7444A31B1FB2101C"
-			title: "Take Bram's Wide Hammer Off the Bench"
-			subtitle: "Three by three. One swing."
+			title: "Take Bram's Hammer and Pick Off the Bench"
+			subtitle: "Three by three. One swing. And the pick that reads stone."
 			icon: "justhammers:stone_hammer"
-			description: ["Bram: \"Josie said this thing made a man lazy. Then she borrowed it for eleven days and gave it back with the handle worn smooth.\"", "", "Take the Stone Hammer off the peg by Bram's bench. It breaks a three-by-three face in one swing — every block in the square goes the same as the one in the middle — so aim the middle of the square at the middle of the hole you want.", "", "It is yours. Bram will not take it back and he will not discuss it further."]
-			x: 4.0d
+			description: ["Bram: \"Josie said this thing made a man lazy. Then she borrowed it for eleven days and gave it back with the handle worn smooth.\"", "", "Take the Stone Hammer off the peg by Bram's bench. It breaks a three-by-three face in one swing — every block in the square goes the same as the one in the middle — so aim the middle of the square at the middle of the hole you want.", "", "The Prospector's Pick hangs beside it. Hold it and it tells you how high above the lake you stand. Underground, right-click bare stone with it and it names the ore in the direction you are looking, and how far.", "", "Both are yours. Bram will not take them back and he will not discuss it further."]
+			x: 2.0d
 			y: 0.0d
-			dependencies: ["70AF7E0ABE69FA26"]
-			optional: true
+			dependencies: ["167FBD502857379B"]
 			shape: "square"
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "1D4FF67AA7FE56D2", type: "checkmark", title: "Stone Hammer off the peg and in your bag" }]
-			rewards: [{ id: "7AB11217DCF84DEA", type: "item", auto: "no_toast", item: "justhammers:stone_hammer" }, { id: "3C5244D7C84B9F19", type: "command", auto: "invisible", command: "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Middle of the square, middle of the hole. And do not swing it in my mill.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "7B1DDA1B97F1A0DE", type: "toast", title: "Bram's Wide Hammer", auto: "enabled", description: "Next: the Millstone and Hand Crank, and 16 flour for Marnie. The peg by Bram's bench is empty now and stays empty." }]
+			rewards: [{ id: "7AB11217DCF84DEA", type: "item", auto: "no_toast", item: "justhammers:stone_hammer" }, { id: "0516072A906290C9", type: "item", auto: "no_toast", item: "geolosys:prospectors_pick" }, { id: "3C5244D7C84B9F19", type: "command", auto: "invisible", command: "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Middle of the square, middle of the hole. And do not swing it in my mill.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "5628F6BD86AA8DC4", type: "toast", title: "Bram's Bench, Emptied", auto: "enabled", description: "Next: read the ground west of the cottage. The iron is there. Bram knows where." }]
 		}
 		{
 			id: "2F8AE9350986BEB5"
-			title: "Read the Ground Behind the Cottage"
-			subtitle: "Ore lives in beds, and the beds leave signs."
+			title: "Read the Ground West of the Cottage"
+			subtitle: "Ore lives in beds, and every bed leaves its rubbish on the grass."
 			icon: "geolosys:hematite_ore_sample"
-			description: ["Bram: \"You'll not find iron by hitting stone and hoping. Nobody has, here, since Josie's day.\"", "Walk the grass behind the cottage and look for the small rust-brown rocks lying about: those are ore samples, and every one of them sits over a bed of iron thirty blocks down. Dig straight under the samples and bring back 8 iron clusters (hematite breaks into them). Bram's wide hammer takes it three blocks at a time.", "Every metal in the valley works this way: coal, copper, tin, silver, gold. Samples on the surface, the bed beneath. Tobin will teach you to read them properly in the summer."]
-			x: 6.0d
-			y: -0.8d
+			description: ["Bram: \"You'll not find iron by hitting stone and hoping. Nobody has, here, since Josie's day. It sits in beds. And every bed throws its rubbish up onto the grass above it.\"", "", "Walk out the west side of the cottage, fifteen paces past the fence, and look down. Small rust-brown rocks lie about on the grass: hematite samples. There are more up the slope past the cellar door. Every one of them sits over a bed of iron.", "", "From the rock nearest the cottage, walk seven paces north toward the town and dig straight down. Fifteen blocks under your boots the stone turns red, and stays red for twenty more. Bram's hammer takes it three at a time. If you miss the bed, hold the pick, right-click the stone and it will point you.", "", "Hematite breaks into iron clusters. Bring back 8. Every metal in the valley works this way: coal, copper, gold, lead. Samples on the surface, the bed beneath. Tobin will teach you to read them properly in the summer."]
+			x: 4.0d
+			y: 0.8d
 			dependencies: ["7444A31B1FB2101C"]
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
-			tasks: [{ id: "30D510A4F2457237", type: "item", title: "8 iron clusters from the bed behind the cottage", item: "geolosys:iron_cluster", count: 8L }]
-			rewards: [{ id: "6B5C805638133D17", type: "item", auto: "no_toast", item: "minecraft:iron_ingot", count: 8 }, { id: "62824802AC500FFF", type: "item", auto: "no_toast", item: "minecraft:torch", count: 16 }, { id: "7C971329081F0A87", type: "toast", title: "Next: 8 andesite alloy", auto: "enabled", description: "Next: craft 8 Andesite Alloy for Bram." }]
+			tasks: [{ id: "64CBEA76AD0C3FB2", type: "item", title: "8 iron clusters from the bed west of the cottage", item: "geolosys:iron_cluster", count: 8L }]
+			rewards: [{ id: "6B5C805638133D17", type: "item", auto: "no_toast", item: "minecraft:iron_ingot", count: 8 }, { id: "62824802AC500FFF", type: "item", auto: "no_toast", item: "minecraft:torch", count: 16 }, { id: "11467AC7E63F3BB7", type: "toast", title: "Iron, Read Off the Grass", auto: "enabled", description: "Next: smelt the clusters and craft 8 Andesite Alloy for Bram." }]
 		}
 		{
 			id: "7EFC0D973670E744"
@@ -117,8 +116,8 @@
 			subtitle: "Your arm first, then the river."
 			icon: "create:wheat_flour"
 			description: ["Bram: \"Hand crank first. You should know exactly what the water is doing for you before it starts doing it.\"", "", "Build a Millstone, put a Hand Crank on top of it, and grind Bram's 32 wheat down to 16 Wheat Flour for Marnie.", "", "Encased Fan, 3 Andesite Alloy, casings and iron — the parts list for the Mechanical Saw in two quests' time."]
-			x: 4.0d
-			y: 1.5d
+			x: 8.0d
+			y: 0.0d
 			dependencies: ["70AF7E0ABE69FA26"]
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
@@ -145,8 +144,8 @@
 			subtitle: "The boards are dry; the race is cut."
 			icon: "create:water_wheel"
 			description: ["Bram: \"Race is cut, boards are dry, and I'm sixty-four. Two wheels, today.\"", "", "Craft 2 Water Wheels using the Seasoned Oak Boards, set them in the mill race beside the mill, and belt the Millstone off them so it turns without you.", "", "Mechanical Saw, Basin and Mixer, plus Bram's crate: 32 Andesite Alloy and 16 wool he has been keeping for windmill sails."]
-			x: 6.0d
-			y: 0.8d
+			x: 10.0d
+			y: 0.0d
 			dependencies: ["7EFC0D973670E744", "3D62FF07E2F30634"]
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
@@ -159,7 +158,7 @@
 			subtitle: "Sixty-four boards is four stalls."
 			icon: "minecraft:oak_planks"
 			description: ["Bram: \"Oda wants four stalls for the fair. Sixty-four boards is four stalls.\"", "", "Cut 128 Oak Planks on the Mechanical Saw — about twenty-two oak logs off the ridge behind the mill. Hold all 128 when you hand in: the book counts the full 128 and only takes 64 of them for Bram's stalls. You are not cutting 192.", "", "Stage market_stalls: the Thaw Fair now has somewhere to trade from, and you keep Macaw's roof kits and four planters for your own roof."]
-			x: 8.0d
+			x: 12.0d
 			y: 0.0d
 			dependencies: ["5656BC94973A071C"]
 			hide_until_deps_complete: false
@@ -187,7 +186,7 @@
 			subtitle: "Act I finale — The Thaw Fair."
 			icon: "minecraft:bread"
 			description: ["Oda: \"Eleven years of keeping the ledger of a shop with nothing in it. Bring me stock and I will open the door.\"", "", "Sweep the marked cobwebs out of the store with Oda's broom, then hand her 16 Wheat Flour and 8 Bread across the counter.", "", "Forty lamps. Fifteen people. One winter that nobody leaves.", "", "The Thaw Fair opens at the Town Anchor: four stalls, a long table, six lamps burning, and five people in a field that froze in February."]
-			x: 10.0d
+			x: 14.0d
 			y: 0.0d
 			dependencies: ["0F8FD30F0BFA66B1", "697248D3F46FF263"]
 			shape: "hexagon"

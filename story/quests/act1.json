@@ -246,7 +246,7 @@
    "description": [
     "Marnie: \"Three beds: wheat, carrots, potatoes. Anything fancier and you'll be eating it alone in July.\"",
     "",
-    "Till the 3x9 patch behind the house — every tile is marked in path blocks — then plant the 9 carrots, 9 potatoes and 9 wheat seeds from Marnie's sack. Do the wheat last: hand in holding the nine seeds, which the book counts and never takes.",
+    "Till the 3x9 patch behind the house \u2014 every tile is marked in path blocks \u2014 then plant the 9 carrots, 9 potatoes and 9 wheat seeds from Marnie's sack. Do the wheat last: hand in holding the nine seeds, which the book counts and never takes.",
     "",
     "Marnie hands over the fence, the gate, the trough and three Hen Crates for the pen next to it."
    ],
@@ -313,7 +313,7 @@
    "subtitle": "Two hens and a rooster.",
    "icon": "valley:hen_crate",
    "description": [
-    "Marnie: \"Two hens and a rooster. Don't name the rooster — you'll get attached, and he is horrible.\"",
+    "Marnie: \"Two hens and a rooster. Don't name the rooster \u2014 you'll get attached, and he is horrible.\"",
     "",
     "Put a fence section on each of the 23 stone footings marked out behind the house, hang the gate on the single grey slab in the middle of the side facing you, then right-click all three Hen Crates inside the finished pen. Any order is right.",
     "",
@@ -367,7 +367,7 @@
    "description": [
     "Pip: \"Is that an egg? Aunt Marnie says I get a duck if I'm useful, so I am being extremely useful.\"",
     "",
-    "Collect 3 eggs from the nesting box behind your house — right-click a hen with chicken feed if you would rather not wait — and hand them in here. Marnie gets them either way; the book does the walking.",
+    "Collect 3 eggs from the nesting box behind your house \u2014 right-click a hen with chicken feed if you would rather not wait \u2014 and hand them in here. Marnie gets them either way; the book does the walking.",
     "",
     "Pip puts a duckling on your boot, names it Biscuit, and opens his courier board. Marnie tips 16 carded wool onto the counter."
    ],
@@ -429,11 +429,11 @@
    "subtitle": "Walk west to the mill. He will accept 'hold this'.",
    "icon": "valley:token_bram",
    "description": [
-    "Bram: \"I don't need help — I need somebody to hold things. Different word, same pair of hands.\"",
+    "Bram: \"I don't need help \u2014 I need somebody to hold things. Different word, same pair of hands.\"",
     "",
     "Walk to the mill plot marked on your map, talk to Bram, and bring back the Millwright's Bolt he puts in your hand.",
     "",
-    "Bram opens his labelled crates: 12 iron ingots and 24 andesite — three times what eight alloys want, because the Millstone wants the rest."
+    "Bram opens his labelled crates: 12 iron ingots and 24 andesite \u2014 three times what eight alloys want, because the Millstone wants the rest."
    ],
    "deps": [
     "q08"
@@ -479,7 +479,7 @@
     {
      "type": "toast",
      "title": "Residents 3/15",
-     "description": "Next: craft 8 Andesite Alloy out of what Bram gave you. Eight, not nine — the rest of the crate is the Millstone's."
+     "description": "Next: craft 8 Andesite Alloy out of what Bram gave you. Eight, not nine \u2014 the rest of the crate is the Millstone's."
     }
    ]
   },
@@ -489,14 +489,14 @@
    "subtitle": "One andesite, one iron nugget. Eight, not nine.",
    "icon": "create:andesite_alloy",
    "description": [
-    "Bram: \"One andesite, one iron nugget, pressed. Eight of them, not nine — if you're making nine you've misread something.\"",
+    "Bram: \"One andesite, one iron nugget, pressed. Eight of them, not nine \u2014 if you're making nine you've misread something.\"",
     "",
-    "Craft 8 Andesite Alloy — one andesite and one iron nugget each, so eight andesite and one ingot's worth of nuggets — and hold them when you hand the quest in. The rest of Bram's crate is for the Millstone.",
+    "Craft 8 Andesite Alloy \u2014 one andesite and one iron nugget each, so eight andesite and one ingot's worth of nuggets (an ingot in the crafting grid makes nine) \u2014 and hold them when you hand the quest in. The rest of Bram's crate is for the Millstone.",
     "",
-    "You get a pre-made Mechanical Press, 8 cogwheels, 8 shafts and 32 wheat — the whole bill for the Millstone and its first grind."
+    "You get a pre-made Mechanical Press, 8 cogwheels, 8 shafts and 32 wheat \u2014 the whole bill for the Millstone and its first grind."
    ],
    "deps": [
-    "q12"
+    "q13b"
    ],
    "tasks": [
     {
@@ -538,21 +538,23 @@
   },
   {
    "key": "q13a",
-   "title": "Take Bram's Wide Hammer Off the Bench",
-   "subtitle": "Three by three. One swing.",
+   "title": "Take Bram's Hammer and Pick Off the Bench",
+   "subtitle": "Three by three. One swing. And the pick that reads stone.",
    "icon": "justhammers:stone_hammer",
    "description": [
     "Bram: \"Josie said this thing made a man lazy. Then she borrowed it for eleven days and gave it back with the handle worn smooth.\"",
     "",
-    "Take the Stone Hammer off the peg by Bram's bench. It breaks a three-by-three face in one swing — every block in the square goes the same as the one in the middle — so aim the middle of the square at the middle of the hole you want.",
+    "Take the Stone Hammer off the peg by Bram's bench. It breaks a three-by-three face in one swing \u2014 every block in the square goes the same as the one in the middle \u2014 so aim the middle of the square at the middle of the hole you want.",
     "",
-    "It is yours. Bram will not take it back and he will not discuss it further."
+    "The Prospector's Pick hangs beside it. Hold it and it tells you how high above the lake you stand. Underground, right-click bare stone with it and it names the ore in the direction you are looking, and how far.",
+    "",
+    "Both are yours. Bram will not take them back and he will not discuss it further."
    ],
    "deps": [
-    "q13"
+    "q12"
    ],
    "shape": "square",
-   "optional": true,
+   "optional": false,
    "tasks": [
     {
      "type": "checkmark",
@@ -566,6 +568,11 @@
      "count": 1
     },
     {
+     "type": "item",
+     "item": "geolosys:prospectors_pick",
+     "count": 1
+    },
+    {
      "type": "command",
      "command": "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Middle of the square, middle of the hole. And do not swing it in my mill.\",\"italic\":true}]",
      "elevate": true,
@@ -573,31 +580,35 @@
     },
     {
      "type": "toast",
-     "title": "Bram's Wide Hammer",
-     "description": "Next: the Millstone and Hand Crank, and 16 flour for Marnie. The peg by Bram's bench is empty now and stays empty."
+     "title": "Bram's Bench, Emptied",
+     "description": "Next: read the ground west of the cottage. The iron is there. Bram knows where."
     }
    ]
   },
   {
    "key": "q13b",
-   "title": "Read the Ground Behind the Cottage",
-   "subtitle": "Ore lives in beds, and the beds leave signs.",
+   "title": "Read the Ground West of the Cottage",
+   "subtitle": "Ore lives in beds, and every bed leaves its rubbish on the grass.",
    "icon": "geolosys:hematite_ore_sample",
    "deps": [
     "q13a"
    ],
    "optional": false,
    "description": [
-    "Bram: \"You'll not find iron by hitting stone and hoping. Nobody has, here, since Josie's day.\"",
-    "Walk the grass behind the cottage and look for the small rust-brown rocks lying about: those are ore samples, and every one of them sits over a bed of iron thirty blocks down. Dig straight under the samples and bring back 8 iron clusters (hematite breaks into them). Bram's wide hammer takes it three blocks at a time.",
-    "Every metal in the valley works this way: coal, copper, tin, silver, gold. Samples on the surface, the bed beneath. Tobin will teach you to read them properly in the summer."
+    "Bram: \"You'll not find iron by hitting stone and hoping. Nobody has, here, since Josie's day. It sits in beds. And every bed throws its rubbish up onto the grass above it.\"",
+    "",
+    "Walk out the west side of the cottage, fifteen paces past the fence, and look down. Small rust-brown rocks lie about on the grass: hematite samples. There are more up the slope past the cellar door. Every one of them sits over a bed of iron.",
+    "",
+    "From the rock nearest the cottage, walk seven paces north toward the town and dig straight down. Fifteen blocks under your boots the stone turns red, and stays red for twenty more. Bram's hammer takes it three at a time. If you miss the bed, hold the pick, right-click the stone and it will point you.",
+    "",
+    "Hematite breaks into iron clusters. Bring back 8. Every metal in the valley works this way: coal, copper, gold, lead. Samples on the surface, the bed beneath. Tobin will teach you to read them properly in the summer."
    ],
    "tasks": [
     {
      "type": "item",
      "item": "geolosys:iron_cluster",
      "count": 8,
-     "title": "8 iron clusters from the bed behind the cottage"
+     "title": "8 iron clusters from the bed west of the cottage"
     }
    ],
    "rewards": [
@@ -613,8 +624,8 @@
     },
     {
      "type": "toast",
-     "title": "Next: 8 andesite alloy",
-     "description": "Next: craft 8 Andesite Alloy for Bram."
+     "title": "Iron, Read Off the Grass",
+     "description": "Next: smelt the clusters and craft 8 Andesite Alloy for Bram."
     }
    ]
   },
@@ -628,7 +639,7 @@
     "",
     "Build a Millstone, put a Hand Crank on top of it, and grind Bram's 32 wheat down to 16 Wheat Flour for Marnie.",
     "",
-    "Encased Fan, 3 Andesite Alloy, casings and iron — the parts list for the Mechanical Saw in two quests' time."
+    "Encased Fan, 3 Andesite Alloy, casings and iron \u2014 the parts list for the Mechanical Saw in two quests' time."
    ],
    "deps": [
     "q13"
@@ -668,7 +679,7 @@
     {
      "type": "toast",
      "title": "Turn It By Hand",
-     "description": "Next: two Water Wheels — and they need Seasoned Oak Boards out of Marnie's bread oven."
+     "description": "Next: two Water Wheels \u2014 and they need Seasoned Oak Boards out of Marnie's bread oven."
     }
    ]
   },
@@ -680,7 +691,7 @@
    "description": [
     "Marnie: \"Green planks want heat and time. Josie dried every board in this valley in a furnace and was insufferable about it.\"",
     "",
-    "Smelt the 32 Green Oak Planks in any furnace — about two minutes for the lot — and hold 32 Seasoned Oak Boards. Marnie's charcoal is in the barrel by the door.",
+    "Smelt the 32 Green Oak Planks in any furnace \u2014 about two minutes for the lot \u2014 and hold 32 Seasoned Oak Boards. Marnie's charcoal is in the barrel by the door.",
     "",
     "Bram cannot build a Water Wheel until these dry, and the furnace is you. Also the inn's crockery, your chair by the oven, the kitchen kit."
    ],
@@ -796,7 +807,7 @@
    "description": [
     "Bram: \"Oda wants four stalls for the fair. Sixty-four boards is four stalls.\"",
     "",
-    "Cut 128 Oak Planks on the Mechanical Saw — about twenty-two oak logs off the ridge behind the mill. Hold all 128 when you hand in: the book counts the full 128 and only takes 64 of them for Bram's stalls. You are not cutting 192.",
+    "Cut 128 Oak Planks on the Mechanical Saw \u2014 about twenty-two oak logs off the ridge behind the mill. Hold all 128 when you hand in: the book counts the full 128 and only takes 64 of them for Bram's stalls. You are not cutting 192.",
     "",
     "Stage market_stalls: the Thaw Fair now has somewhere to trade from, and you keep Macaw's roof kits and four planters for your own roof."
    ],
@@ -808,7 +819,7 @@
      "type": "item",
      "item": "minecraft:oak_planks",
      "count": 128,
-     "title": "128 boards cut — you keep these"
+     "title": "128 boards cut \u2014 you keep these"
     },
     {
      "type": "item",
@@ -864,7 +875,7 @@
     "",
     "Hold the Counter, Sink and Oven at hand-in; the book gives them back. Set them on the inn's three grey slabs, 1, 2, 3: counter, sink, oven. Cook Bread, Pumpkin Pie and Vegetable Soup. The crate holds all but the pumpkin, which is wild.",
     "",
-    "You get the recipe book, the fruit basket, Marnie's cupboards — and Oda's broom off the back door, which Q19 needs."
+    "You get the recipe book, the fruit basket, Marnie's cupboards \u2014 and Oda's broom off the back door, which Q19 needs."
    ],
    "deps": [
     "q15"
@@ -944,7 +955,7 @@
   {
    "key": "q19",
    "title": "Sweep Oda's Store, Bring 16 Flour and 8 Bread",
-   "subtitle": "Act I finale — The Thaw Fair.",
+   "subtitle": "Act I finale \u2014 The Thaw Fair.",
    "icon": "minecraft:bread",
    "shape": "hexagon",
    "size": 1.5,

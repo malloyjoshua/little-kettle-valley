@@ -181,3 +181,26 @@ ItemEvents.tooltip(event => {
   })
   console.info('[valley] lore on ' + LORE.length + ' items')
 })
+
+// -----------------------------------------------------------------------------
+// Geolosys. The pack strips every vanilla ore and hides the metal in beds,
+// and the only sign of a bed is a handful of sample rocks on the grass above
+// it. Nothing on the item says so. These lines do, in Bram's register, so a
+// player who picks one up on day one learns the rule without the quest book.
+// The pick line matches what the tool actually does (Geolosys 7.0.14).
+// -----------------------------------------------------------------------------
+const FIELD_LORE = [
+  ['geolosys:prospectors_pick', ['Held, it reads your height above the lake.',
+                                 'Tapped on stone below, it names the ore ahead.']]
+]
+const SAMPLE_LORE = ['Thrown up off a bed of the same, straight down.',
+                     'Bram: fifteen blocks under your boots. Then dig.']
+;['ancient_debris', 'anthracite_coal', 'autunite', 'azurite', 'bauxite', 'beryl', 'bituminous_coal', 'cassiterite', 'cinnabar', 'coal', 'galena', 'gold', 'hematite', 'kimberlite', 'lapis', 'lignite', 'limonite', 'malachite', 'nether_gold', 'platinum', 'quartz', 'sphalerite', 'teallite'].forEach(id => FIELD_LORE.push(['geolosys:' + id + '_ore_sample', SAMPLE_LORE]))
+
+ItemEvents.tooltip(event => {
+  FIELD_LORE.forEach(entry => {
+    let lines = entry[1].map(line => Text.gray(line).italic(true))
+    event.add(entry[0], lines)
+  })
+  console.info('[valley] field lore on ' + FIELD_LORE.length + ' geolosys items')
+})
