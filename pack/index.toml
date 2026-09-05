@@ -613,6 +613,10 @@ file = "kubejs/server_scripts/valley_finales.js"
 hash = "e2dcb49efe0546df5f19337fe4ebe003921065ddc73b2fbc24416a938a824f25"
 
 [[files]]
+file = "kubejs/server_scripts/valley_floorfix.js"
+hash = "95e50da8776baa18681591548598675c284ae8b1b249403dd90f78e9ac4cd314"
+
+[[files]]
 file = "kubejs/server_scripts/valley_gates.js"
 hash = "6722628c109cf942e7ec62183d2db39a8e77863aaf8c7c02ddf20f12b811f327"
 
