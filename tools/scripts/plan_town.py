@@ -2013,22 +2013,35 @@ for i, (cx, cz) in enumerate(CART_POS):
     tid = MARKET_CARTS[i]
     sq.append('place template %s %s %s %s' % (tid, t(cx), t(1), t(cz)))
     sq.append(fill(cx, 1, cz, cx + 4, 5, cz + 4, 'minecraft:air', ' replace minecraft:jigsaw'))
+    # DARK SQUARE FIX (2026-09-05): the cart templates carry LIT candles under their
+    # awnings. The square has to be dark until Act I lights the six copper lamps, so the
+    # candles are blown out where they stand -- the cart still reads as a dressed cart,
+    # it just stops being a light source. The four in this valley are all candles=3.
+    sq.append(fill(cx, 1, cz, cx + 4, 5, cz + 4,
+                   'minecraft:candle[candles=3,lit=false]', ' replace minecraft:candle[lit=true]'))
 _cart = Placed('market_cart', MARKET_CARTS[0], 0, CART_POS[0][0], CART_POS[0][1], y_base=-1)
 for _pr in _cart.probes():
     PROBES.append(_pr)
-# flower boxes and lanterns along the kerb
+# flower boxes along the kerb.
+# DARK SQUARE FIX (2026-09-05): these posts used to carry a LIT minecraft:lantern, and
+# with fourteen of them plus the supper table's candles the square read fully at midnight
+# -- so the story's payoff (forty dark copper lamps, six lit at the end of Act I, all
+# forty by Act V) had no before and no after. The lantern is gone; the POST stays,
+# because the flower box beside it is wall-mounted ON the post and pops off as an item
+# the moment the post does.
 for i, (fx, fz) in enumerate(FLOWER_POS):
     sq.append(setb(fx, 1, fz, POST))
-    sq.append(setb(fx, 2, fz, 'minecraft:lantern[hanging=false]'))
     sq.append(setb(fx + 1, 1, fz, 'supplementaries:flower_box'))
 # the bench garden either side of the waystone (see SQ_BENCH above)
 for (bx, bz, face) in SQ_BENCH:
     sq.append(setb(bx, 1, bz, 'handcrafted:oak_bench[facing=%s]' % face))
 for (bx, bz) in SQ_PLANTER:
     sq.append(setb(bx, 1, bz, 'supplementaries:flower_box'))
-for (bx, bz) in SQ_POST:
-    sq.append(setb(bx, 1, bz, POST))
-    sq.append(setb(bx, 2, bz, 'minecraft:lantern[hanging=false]'))
+# DARK SQUARE FIX (2026-09-05): the four bench-garden ends carried a post and a LIT
+# lantern each. Nothing is mounted on these four, so post and lantern both go -- which
+# also takes four of the forty-seven fence posts out of the middle of the square.
+# SQ_POST itself stays: it is part of _sq_blocked, and the solver routes the well, the
+# carts and the flower boxes around those four cells. Only the emission is gone.
 sq.append('setblock ~0 ~1 ~0 waystones:waystone{WaystoneName:"Town Square"}')
 sq += arrival('The Town Square', 'A well, four lamps, somewhere to stand.',
               'minecraft:block.bell.resonate')
@@ -2114,12 +2127,12 @@ for x in range(-4, 5):
     tbl.append(setb(x, 1, -10, 'handcrafted:oak_table'))
     tbl.append(setb(x, 1, -11, 'handcrafted:oak_chair[facing=south]'))
     tbl.append(setb(x, 1, -9, 'handcrafted:oak_chair[facing=north]'))
+# DARK SQUARE FIX (2026-09-05): the three candle holders were lit=true and the two
+# table ends carried a post with a LIT lantern on it. The supper table keeps its candle
+# holders -- unlit -- and loses the two lantern posts, so nothing on this square emits
+# light until finaleAct1 lights the first six copper lamps.
 for x in (-4, 0, 4):
-    tbl.append(setb(x, 2, -10, 'supplementaries:candle_holder[lit=true,face=floor,facing=north,candles=3]'))
-tbl += [
-    setb(-6, 1, -10, POST), setb(-6, 2, -10, 'minecraft:lantern[hanging=false]'),
-    setb(6, 1, -10, POST), setb(6, 2, -10, 'minecraft:lantern[hanging=false]'),
-]
+    tbl.append(setb(x, 2, -10, 'supplementaries:candle_holder[lit=false,face=floor,facing=north,candles=3]'))
 group('act3_table', 'anchor', tbl)
 probe('supper_table', [0, 1, -10], 'handcrafted:oak_table')
 
