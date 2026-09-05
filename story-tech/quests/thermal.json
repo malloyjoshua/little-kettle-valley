@@ -1,0 +1,264 @@
+{
+  "chapter": {
+    "key": "kt_thermal",
+    "title": "Thermal",
+    "subtitle": [
+      "Machine frames, a dynamo, and power on a wire.",
+      "Thermal is where ore stops being the slow part."
+    ],
+    "icon": "thermal:machine_frame",
+    "group": "Kettle Tech",
+    "order": 3
+  },
+  "quests": [
+    {
+      "key": "kt_th_servo",
+      "title": "Craft Eight Redstone Servos",
+      "subtitle": "Iron and redstone. The commonest part.",
+      "icon": "thermal:redstone_servo",
+      "description": [
+        "Servos are in the frame, in the coils and in half the machines after that.",
+        "Make eight now and you will not stop mid-build to make more."
+      ],
+      "deps": [],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "shape": "hexagon",
+      "size": 1.5,
+      "tasks": [{ "type": "item", "item": "thermal:redstone_servo", "count": 8 }],
+      "rewards": [
+        { "type": "item", "item": "thermal:redstone_servo", "count": 8, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:redstone", "count": 32, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 2 }
+      ]
+    },
+    {
+      "key": "kt_th_frame",
+      "title": "Craft Four Machine Frames",
+      "subtitle": "Every Thermal machine starts as one.",
+      "icon": "thermal:machine_frame",
+      "description": [
+        "The frame is the blank machine. Surround it with different parts on the bench and you get a furnace, a pulverizer or a smelter.",
+        "Tin, glass and servos."
+      ],
+      "deps": ["kt_th_servo"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "thermal:machine_frame", "count": 4 }],
+      "rewards": [
+        { "type": "item", "item": "thermal:machine_frame", "count": 4, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:glass", "count": 16, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 }
+      ]
+    },
+    {
+      "key": "kt_th_furnace",
+      "title": "Build a Redstone Furnace",
+      "subtitle": "Smelts on power. No coal, no waiting.",
+      "icon": "thermal:machine_furnace",
+      "description": [
+        "The Redstone Furnace smelts anything a vanilla furnace does, faster, on stored power.",
+        "Feed it from a dynamo or a cell and the fuel problem is over."
+      ],
+      "deps": ["kt_th_frame"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "thermal:machine_furnace", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "thermal:rf_coil", "count": 2, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:gold_ingot", "count": 8, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 }
+      ]
+    },
+    {
+      "key": "kt_th_coil",
+      "title": "Craft Four RF Coils",
+      "subtitle": "Wound wire. Every power part needs one.",
+      "icon": "thermal:rf_coil",
+      "description": [
+        "Coils are the piece that makes a block hold, move or generate power.",
+        "Four gets you a dynamo, a cell and the ducts between them."
+      ],
+      "deps": ["kt_th_frame"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "thermal:rf_coil", "count": 4 }],
+      "rewards": [
+        { "type": "item", "item": "thermal:rf_coil", "count": 4, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:coal", "count": 32, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 }
+      ]
+    },
+    {
+      "key": "kt_th_dynamo",
+      "title": "Build a Stirling Dynamo",
+      "subtitle": "Burns coal, pushes power out its face.",
+      "icon": "thermal:dynamo_stirling",
+      "description": [
+        "Set the dynamo with its coil face touching the machine you want to run, then drop coal in it.",
+        "This is the first power in the pack that travels on a wire."
+      ],
+      "deps": ["kt_th_coil"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "thermal:dynamo_stirling", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "thermal:dynamo_stirling", "count": 1, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:coal_block", "count": 8, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 4 }
+      ]
+    },
+    {
+      "key": "kt_th_pulverizer",
+      "title": "Build a Pulverizer",
+      "subtitle": "Two dust from one ore, plus extras.",
+      "icon": "thermal:machine_pulverizer",
+      "description": [
+        "The Pulverizer grinds raw ore into two dust, and sometimes drops a second metal on the side.",
+        "Dust smelts one to one, so this doubles every vein you mine."
+      ],
+      "deps": ["kt_th_furnace"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "thermal:machine_pulverizer", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "minecraft:raw_iron", "count": 32, "autoclaim": "no_toast" },
+        { "type": "item", "item": "thermal:machine_frame", "count": 2, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 4 }
+      ]
+    },
+    {
+      "key": "kt_th_smelter",
+      "title": "Build an Induction Smelter",
+      "subtitle": "Ore plus sand gives three ingots.",
+      "icon": "thermal:machine_smelter",
+      "description": [
+        "The Induction Smelter takes two inputs. Ore with sand gives richer returns than the furnace, and it is the only way to make the alloys.",
+        "Invar, electrum and constantan live here."
+      ],
+      "deps": ["kt_th_pulverizer"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "thermal:machine_smelter", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "minecraft:sand", "count": 64, "autoclaim": "no_toast" },
+        { "type": "item", "item": "thermal:invar_gear", "count": 4, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 4 }
+      ]
+    },
+    {
+      "key": "kt_th_cell",
+      "title": "Build an Energy Cell",
+      "subtitle": "Stores power and meters it out.",
+      "icon": "thermal:energy_cell",
+      "description": [
+        "An Energy Cell is a battery with a dial. Set how fast it takes power in and how fast it lets power out.",
+        "Put one between your dynamos and everything else."
+      ],
+      "deps": ["kt_th_dynamo"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "thermal:energy_cell", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "thermal:energy_cell_frame", "count": 2, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:lapis_lazuli", "count": 16, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 4 }
+      ]
+    },
+    {
+      "key": "kt_th_duct",
+      "title": "Lay Sixteen Energy Ducts",
+      "subtitle": "Cheap, and lossless over any distance.",
+      "icon": "thermal:energy_duct",
+      "description": [
+        "Energy ducts carry power between anything that makes it and anything that wants it, with no loss and no configuration.",
+        "Run them from the cell to your machines."
+      ],
+      "deps": ["kt_th_cell"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "thermal:energy_duct", "count": 16 }],
+      "rewards": [
+        { "type": "item", "item": "thermal:energy_duct", "count": 32, "autoclaim": "no_toast" },
+        { "type": "item", "item": "thermal:fluid_duct", "count": 16, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 }
+      ]
+    },
+    {
+      "key": "kt_th_centrifuge",
+      "title": "Build a Centrifuge",
+      "subtitle": "Splits mixed things back into parts.",
+      "icon": "thermal:machine_centrifuge",
+      "description": [
+        "The Centrifuge pulls apart what other machines mixed together: sand from gravel, dye from flowers, metal from slag.",
+        "It is how the smelter's leftovers stop being waste."
+      ],
+      "deps": ["kt_th_smelter", "kt_th_duct"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "thermal:machine_centrifuge", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "thermal:machine_frame", "count": 2, "autoclaim": "no_toast" },
+        { "type": "item", "item": "thermal:rf_coil", "count": 4, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 4 }
+      ]
+    },
+    {
+      "key": "kt_th_sawmill",
+      "title": "Build a Sawmill",
+      "subtitle": "Six planks a log, and sawdust besides.",
+      "icon": "thermal:machine_sawmill",
+      "description": [
+        "The Sawmill gets six planks out of a log instead of four, and the sawdust presses back into more.",
+        "Worth building the hour you start needing casings in bulk."
+      ],
+      "deps": ["kt_th_frame"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "thermal:machine_sawmill", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "minecraft:oak_log", "count": 64, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 }
+      ]
+    },
+    {
+      "key": "kt_th_augment",
+      "title": "Fit a Speed Augment to a Machine",
+      "subtitle": "Three slots on every Thermal machine.",
+      "icon": "thermal:machine_speed_augment",
+      "description": [
+        "Open any Thermal machine, find the three augment slots on the right, and drop a Speed Augment in.",
+        "It runs faster and draws more power. That trade is the whole system."
+      ],
+      "deps": ["kt_th_cell"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "thermal:machine_speed_augment", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "thermal:machine_speed_augment", "count": 2, "autoclaim": "no_toast" },
+        { "type": "item", "item": "thermal:upgrade_augment_1", "count": 1, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 4 }
+      ]
+    },
+    {
+      "key": "kt_th_magmatic",
+      "title": "Build a Magmatic Dynamo",
+      "subtitle": "Lava in, four times a Stirling's output.",
+      "icon": "thermal:dynamo_magmatic",
+      "description": [
+        "The Magmatic Dynamo burns lava, so a fluid duct from a nether pool or a bucket run keeps it fed for hours.",
+        "This is the power that carries you to the reactor."
+      ],
+      "deps": ["kt_th_dynamo", "kt_th_centrifuge"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "thermal:dynamo_magmatic", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "thermal:dynamo_magmatic", "count": 1, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:lava_bucket", "count": 4, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 5 },
+        { "type": "toast", "title": "Thermal is done", "description": "Next: Applied Energistics. Certus quartz first, then a machine that stamps circuits." }
+      ]
+    }
+  ]
+}

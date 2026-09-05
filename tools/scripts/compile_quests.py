@@ -3,9 +3,21 @@
 Usage: compile_quests.py <quests_json_dir> <ftbquests_quests_dir> <ids.json> [--strict]
 Input JSON per chapter (see docs/QUEST_FORMAT.md). Output: chapters/<key>.snbt, reward_tables/<key>.snbt,
 chapter_groups.snbt, data.snbt. IDs are deterministic (sha1 of key). Layout is automatic by dependency depth.
-Validates every item id against ids.json and every dep against known quest keys. Exit 1 on any error."""
+Validates every item id against ids.json and every dep against known quest keys. Exit 1 on any error.
+
+Two book-wide conventions are baked in here, not per quest (docs/research/astral-vs-valley.md A1/A2):
+  A1  Nothing hides. hide_until_deps_complete / hide_details_until_startable default to FALSE and the
+      false is written explicitly, so a locked quest is drawn greyed with its title and subtitle readable
+      instead of being absent from the board. A quest that is a genuine surprise opts back in by setting
+      the field to true on itself.
+  A2  One toast per quest. Item/xp/loot rewards auto-claim as "no_toast", command/stage/advancement
+      rewards as "invisible", and the quest's FIRST toast reward (our "Next:" line) as "enabled".
+      Auto-claim behaviour is unchanged -- everything still lands the moment the quest ticks -- so the
+      Homestead Waystone bug stays fixed; only the popup count drops from ~11 to 2.
+"""
 import sys, json, hashlib, pathlib, re, collections
-src, out, ids_path = pathlib.Path(sys.argv[1]), pathlib.Path(sys.argv[2]), pathlib.Path(sys.argv[3])
+_args = [a for a in sys.argv[1:] if not a.startswith('--')]
+src, out, ids_path = pathlib.Path(_args[0]), pathlib.Path(_args[1]), pathlib.Path(_args[2])
 strict = '--strict' in sys.argv
 IDS = set(json.loads(ids_path.read_text())['items'])
 errors, warns = [], []
@@ -56,16 +68,31 @@ def task_snbt(t, where, key):
         p = t['pos']; parts.append(f'position: [I; {int(p[0])}, {int(p[1])}, {int(p[2])}]'); s = t.get('size',[8,8,8]); parts.append(f'size: [I; {int(s[0])}, {int(s[1])}, {int(s[2])}]')
     else: errors.append(f"{where}: unknown task type {typ}")
     return '{ ' + ', '.join(parts) + ' }'
-def reward_snbt(r, where, key, tables):
+# A2. Rewards pay out the moment the quest completes. The old default (manual claim
+# inside the quest book) cost Josh the Homestead Waystone on his first play: Q1 ticked
+# on reading the letter, nothing arrived, and Q2 asked him to place a block he did not
+# have. Everything below still auto-claims -- only the POPUP is rationed.
+# RewardAutoClaim (verified in ftb-quests-forge-2001.4.22, RewardAutoClaim.class)
+# accepts exactly: default / disabled / enabled / no_toast / invisible, and all three
+# of enabled/no_toast/invisible are automated claims.
+#   items, xp, loot   -> no_toast   the stack lands, silently; it is listed on the card
+#   command, stage,
+#   advancement       -> invisible  machinery (scene commands, KubeJS stages); not a gift,
+#                                   so it is neither toasted nor listed as loot
+#   the FIRST toast   -> enabled    our "Next:" line, the one popup worth reading
+# Any later toast reward on the same quest falls back to no_toast, so a quest can never
+# fire two of them. An explicit "autoclaim" on the reward always wins; "toast": true
+# forces "enabled" on a hero item that has earned its own pop.
+AUTO_BY_TYPE = {'item': 'no_toast', 'xp': 'no_toast', 'xp_levels': 'no_toast', 'loot': 'no_toast',
+                'command': 'invisible', 'stage': 'invisible', 'advancement': 'invisible',
+                'toast': 'no_toast'}
+def reward_snbt(r, where, key, tables, lead_toast=False):
     rid = hid(key + '/r/' + json.dumps(r, sort_keys=True))
     typ = r['type']; parts = [f'id: "{rid}"', f'type: "{typ}"']
     if 'title' in r: parts.append(f'title: {q(r["title"])}')
     if r.get('team'): parts.append('team_reward: true')
-    # Rewards pay out the moment the quest completes. The default (manual claim
-    # inside the quest book) cost Josh the Homestead Waystone on his first play:
-    # Q1 ticked on reading the letter, nothing arrived, and Q2 asked him to place
-    # a block he did not have. "enabled" = auto-claim with the toast.
-    parts.append(f'auto: {q(r.get("autoclaim", "enabled"))}')
+    auto_default = 'enabled' if (lead_toast or r.get('toast')) else AUTO_BY_TYPE.get(typ, 'no_toast')
+    parts.append(f'auto: {q(r.get("autoclaim", auto_default))}')
     if typ == 'item':
         item_ok(r['item'], where); parts.append(f'item: {q(r["item"])}')
         if int(r.get('count',1)) != 1: parts.append(f'count: {int(r["count"])}')
@@ -142,8 +169,19 @@ for f, data in chapters:
         if qq.get('optional'): parts.append('optional: true')
         if qq.get('shape'): parts.append(f'shape: {q(qq["shape"])}')
         if qq.get('size'): parts.append(f'size: {float(qq["size"])}d')
-        if qq.get('hide_until_deps_complete', True) and deps: parts.append('hide_until_deps_complete: true')
-        if qq.get('hide_details_until_startable', True): parts.append('hide_details_until_startable: true')
+        if qq.get('min_width'): parts.append(f'min_width: {int(qq["min_width"])}')
+        if qq.get('icon_scale') is not None: parts.append(f'icon_scale: {float(qq["icon_scale"])}d')
+        if qq.get('hide_lock_icon'): parts.append('hide_lock_icon: true')
+        # A1. hide_until_deps_complete / hide_details_until_startable are ftb-library
+        # Tristates: the key present writes TRUE/FALSE, absent means DEFAULT (inherit the
+        # chapter). Both default to FALSE here and the false is written explicitly, so a
+        # locked quest is drawn greyed with its title and subtitle readable and no
+        # chapter-level default can re-hide it. The player can read a whole act on day one.
+        # A quest that is a real surprise sets "hide_until_deps_complete": true on itself.
+        hide_deps = bool(qq.get('hide_until_deps_complete', False))
+        if deps: parts.append(f'hide_until_deps_complete: {str(hide_deps).lower()}')
+        hide_det = bool(qq.get('hide_details_until_startable', False))
+        parts.append(f'hide_details_until_startable: {str(hide_det).lower()}')
         if qq.get('can_repeat'): parts.append('can_repeat: true')
         if qq.get('invisible'): parts.append('invisible: true')
         if qq.get('hide_dependency_lines'): parts.append('hide_dependency_lines: true')
@@ -152,7 +190,10 @@ for f, data in chapters:
         if qq.get('dependency_requirement'): parts.append(f'dependency_requirement: {q(qq["dependency_requirement"])}')
         if qq.get('guide_page'): parts.append(f'guide_page: {q(qq["guide_page"])}')
         parts.append('tasks: [' + ', '.join(task_snbt(t, where, qq['key']) for t in qq.get('tasks', [])) + ']')
-        parts.append('rewards: [' + ', '.join(reward_snbt(r, where, qq['key'], tables) for r in qq.get('rewards', [])) + ']')
+        rw = qq.get('rewards', [])
+        # A2: exactly one "enabled" toast per quest -- the first toast reward in the list.
+        lead = next((i for i, r in enumerate(rw) if r.get('type') == 'toast'), -1)
+        parts.append('rewards: [' + ', '.join(reward_snbt(r, where, qq['key'], tables, i == lead) for i, r in enumerate(rw)) + ']')
         lines.append('\t\t{\n\t\t\t' + '\n\t\t\t'.join(parts) + '\n\t\t}')
     sub = ch.get('subtitle', [])
     if isinstance(sub, str): sub = [sub]
@@ -161,8 +202,37 @@ for f, data in chapters:
             f'\torder_index: {int(ch.get("order",0))}', '\tquest_links: [ ]']
     if sub: body.append('\tsubtitle: [' + ', '.join(q(x) for x in sub) + ']')
     if ch.get('always_invisible'): body.append('\talways_invisible: true')
-    if ch.get('hide_quest_until_deps_complete', False): body.append('\thide_quest_until_deps_complete: true')
+    # A1, chapter half. Both keys are verified present in Chapter.class. Writing the false
+    # explicitly means a chapter can never re-hide the quests the quest emitter just drew.
+    body.append(f'\thide_quest_until_deps_complete: {str(bool(ch.get("hide_quest_until_deps_complete", False))).lower()}')
+    body.append(f'\thide_quest_details_until_startable: {str(bool(ch.get("hide_quest_details_until_startable", False))).lower()}')
     if ch.get('progression_mode'): body.append(f'\tprogression_mode: {q(ch["progression_mode"])}')
+    # ChapterImage (ftb-quests 2001.4.22): x/y/width/height/rotation are doubles, image is an
+    # Icon (a texture path), alpha and order and color are ints, hover is a list of lines,
+    # click is a URL or a "quest id" string, dependency is a quest whose completion reveals
+    # the image, corner pins it to the screen corner, dev hides it outside the editor.
+    # Only emitted when a chapter actually declares images, so the story pack is untouched.
+    imgs = ch.get('images', [])
+    if imgs:
+        ilines = []
+        for im in imgs:
+            hov = im.get('hover', [])
+            if isinstance(hov, str): hov = [hov]
+            ip = [f'x: {float(im.get("x", 0)):.1f}d', f'y: {float(im.get("y", 0)):.1f}d',
+                  f'width: {float(im.get("width", 1)):.1f}d', f'height: {float(im.get("height", 1)):.1f}d',
+                  f'rotation: {float(im.get("rotation", 0)):.1f}d', f'image: {q(im["image"])}',
+                  f'alpha: {int(im.get("alpha", 255))}', f'order: {int(im.get("order", 0))}',
+                  'hover: [' + ', '.join(q(x) for x in hov) + ']']
+            if im.get('click'): ip.append(f'click: {q(im["click"])}')
+            if im.get('color') is not None: ip.append(f'color: {int(im["color"])}')
+            if im.get('corner'): ip.append('corner: true')
+            if im.get('dev'): ip.append('dev: true')
+            idep = im.get('dependency')
+            if idep:
+                if idep not in all_keys: errors.append(f"{f.name}: chapter image dependency {idep} is not a quest key")
+                ip.append(f'dependency: "{hid(idep)}"')
+            ilines.append('\t\t{ ' + ', '.join(ip) + ' }')
+        body.append('\timages: [\n' + '\n'.join(ilines) + '\n\t]')
     body.append('\tquests: [\n' + '\n'.join(lines) + '\n\t]')
     body.append(f'\ttitle: {q(ch["title"])}'); body.append('}')
     (out / 'chapters' / f'{ch["key"]}.snbt').write_text('\n'.join(body) + '\n')

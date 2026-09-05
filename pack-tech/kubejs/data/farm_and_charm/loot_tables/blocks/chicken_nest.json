@@ -1,0 +1,16 @@
+{
+  "__comment": "OVERRIDE. letsdo-farm_and_charm-forge-1.0.14.jar drops the Chicken Nest itself ONLY with Silk Touch; a bare hand (or any ordinary tool) gets 0-2 wheat and a 5% feather and the nest is gone. It is a quest reward in this pack. Drop itself, every time; the wheat/feather pool is dropped on purpose — it was compensation for losing the block.",
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "conditions": [
+        { "condition": "minecraft:survives_explosion" }
+      ],
+      "entries": [
+        { "type": "minecraft:item", "name": "farm_and_charm:chicken_nest" }
+      ]
+    }
+  ]
+}

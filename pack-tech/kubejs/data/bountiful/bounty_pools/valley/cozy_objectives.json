@@ -1,0 +1,173 @@
+{
+	"content": {
+
+		"cozy_obj_wheat": {
+			"type": "item",
+			"content": "minecraft:wheat",
+			"amount": { "min": 16, "max": 32 },
+			"unitWorth": 20
+		},
+
+		"cozy_obj_carrot": {
+			"type": "item",
+			"content": "minecraft:carrot",
+			"amount": { "min": 12, "max": 24 },
+			"unitWorth": 25
+		},
+
+		"cozy_obj_potato": {
+			"type": "item",
+			"content": "minecraft:potato",
+			"amount": { "min": 12, "max": 24 },
+			"unitWorth": 25
+		},
+
+		"cozy_obj_beetroot": {
+			"type": "item",
+			"content": "minecraft:beetroot",
+			"amount": { "min": 10, "max": 20 },
+			"unitWorth": 30
+		},
+
+		"cozy_obj_tomato": {
+			"type": "item",
+			"content": "farmersdelight:tomato",
+			"amount": { "min": 8, "max": 16 },
+			"unitWorth": 40
+		},
+
+		"cozy_obj_cabbage": {
+			"type": "item",
+			"content": "farmersdelight:cabbage",
+			"amount": { "min": 8, "max": 16 },
+			"unitWorth": 40
+		},
+
+		"cozy_obj_onion": {
+			"type": "item",
+			"content": "farmersdelight:onion",
+			"amount": { "min": 8, "max": 16 },
+			"unitWorth": 40
+		},
+
+		"cozy_obj_pumpkin": {
+			"type": "item",
+			"content": "minecraft:pumpkin",
+			"amount": { "min": 4, "max": 10 },
+			"unitWorth": 55
+		},
+
+		"cozy_obj_melon": {
+			"type": "item",
+			"content": "minecraft:melon",
+			"amount": { "min": 4, "max": 10 },
+			"unitWorth": 55
+		},
+
+		"cozy_obj_wool": {
+			"type": "item",
+			"content": "minecraft:white_wool",
+			"amount": { "min": 12, "max": 24 },
+			"unitWorth": 45,
+			"weightMult": 1.4
+		},
+
+		"cozy_obj_hay_bale": {
+			"type": "item",
+			"content": "minecraft:hay_block",
+			"amount": { "min": 4, "max": 12 },
+			"unitWorth": 35
+		},
+
+		"cozy_obj_cod": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "minecraft:cod",
+			"amount": { "min": 8, "max": 16 },
+			"unitWorth": 70,
+			"weightMult": 1.3
+		},
+
+		"cozy_obj_salmon": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "minecraft:salmon",
+			"amount": { "min": 6, "max": 12 },
+			"unitWorth": 85,
+			"weightMult": 1.3
+		},
+
+		"cozy_obj_rainbow_trout": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "aquaculture:rainbow_trout",
+			"amount": { "min": 4, "max": 10 },
+			"unitWorth": 100
+		},
+
+		"cozy_obj_catfish": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "aquaculture:catfish",
+			"amount": { "min": 4, "max": 10 },
+			"unitWorth": 95
+		},
+
+		"cozy_obj_vegetable_soup": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "farmersdelight:vegetable_soup",
+			"amount": { "min": 3, "max": 6 },
+			"unitWorth": 130
+		},
+
+		"cozy_obj_pumpkin_pie": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "minecraft:pumpkin_pie",
+			"amount": { "min": 2, "max": 5 },
+			"unitWorth": 150
+		},
+
+		"cozy_obj_apple_cider": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "farmersdelight:apple_cider",
+			"amount": { "min": 2, "max": 5 },
+			"unitWorth": 160
+		},
+
+		"cozy_obj_honey_glazed_ham": {
+			"type": "item",
+			"rarity": "RARE",
+			"content": "farmersdelight:honey_glazed_ham",
+			"amount": { "min": 1, "max": 3 },
+			"unitWorth": 320
+		},
+
+		"cozy_obj_shepherds_pie": {
+			"type": "item",
+			"rarity": "RARE",
+			"content": "farmersdelight:shepherds_pie",
+			"amount": { "min": 1, "max": 3 },
+			"unitWorth": 300
+		},
+
+		"cozy_obj_strawberry_cake": {
+			"type": "item",
+			"rarity": "RARE",
+			"content": "bakery:strawberry_cake",
+			"amount": { "min": 1, "max": 2 },
+			"unitWorth": 380
+		},
+
+		"cozy_obj_neptunium_ingot": {
+			"type": "item",
+			"rarity": "EPIC",
+			"content": "aquaculture:neptunium_ingot",
+			"amount": { "min": 1, "max": 2 },
+			"unitWorth": 1800
+		}
+
+	}
+}

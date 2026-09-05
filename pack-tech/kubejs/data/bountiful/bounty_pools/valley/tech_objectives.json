@@ -1,0 +1,180 @@
+{
+	"content": {
+
+		"tech_obj_iron_ingot": {
+			"type": "item",
+			"content": "minecraft:iron_ingot",
+			"amount": { "min": 16, "max": 32 },
+			"unitWorth": 35
+		},
+
+		"tech_obj_copper_ingot": {
+			"type": "item",
+			"content": "minecraft:copper_ingot",
+			"amount": { "min": 16, "max": 32 },
+			"unitWorth": 30
+		},
+
+		"tech_obj_coal": {
+			"type": "item",
+			"content": "minecraft:coal",
+			"amount": { "min": 24, "max": 48 },
+			"unitWorth": 25
+		},
+
+		"tech_obj_redstone": {
+			"type": "item",
+			"content": "minecraft:redstone",
+			"amount": { "min": 16, "max": 32 },
+			"unitWorth": 30
+		},
+
+		"tech_obj_andesite_alloy": {
+			"type": "item",
+			"content": "create:andesite_alloy",
+			"amount": { "min": 12, "max": 24 },
+			"unitWorth": 45,
+			"weightMult": 1.3
+		},
+
+		"tech_obj_tin_ingot": {
+			"type": "item",
+			"content": "thermal:tin_ingot",
+			"amount": { "min": 8, "max": 16 },
+			"unitWorth": 55
+		},
+
+		"tech_obj_lead_ingot": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "thermal:lead_ingot",
+			"amount": { "min": 8, "max": 16 },
+			"unitWorth": 70
+		},
+
+		"tech_obj_nickel_ingot": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "thermal:nickel_ingot",
+			"amount": { "min": 6, "max": 12 },
+			"unitWorth": 90
+		},
+
+		"tech_obj_bronze_ingot": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "thermal:bronze_ingot",
+			"amount": { "min": 6, "max": 16 },
+			"unitWorth": 110
+		},
+
+		"tech_obj_invar_ingot": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "thermal:invar_ingot",
+			"amount": { "min": 6, "max": 16 },
+			"unitWorth": 120
+		},
+
+		"tech_obj_cassiterite_sample": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "geolosys:cassiterite_ore_sample",
+			"amount": { "min": 4, "max": 8 },
+			"unitWorth": 100
+		},
+
+		"tech_obj_bauxite_sample": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "geolosys:bauxite_ore_sample",
+			"amount": { "min": 4, "max": 8 },
+			"unitWorth": 100
+		},
+
+		"tech_obj_certus_quartz_dust": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "ae2:certus_quartz_dust",
+			"amount": { "min": 6, "max": 16 },
+			"unitWorth": 130
+		},
+
+		"tech_obj_constantan_ingot": {
+			"type": "item",
+			"rarity": "RARE",
+			"content": "thermal:constantan_ingot",
+			"amount": { "min": 4, "max": 10 },
+			"unitWorth": 260
+		},
+
+		"tech_obj_electrum_ingot": {
+			"type": "item",
+			"rarity": "RARE",
+			"content": "thermal:electrum_ingot",
+			"amount": { "min": 4, "max": 10 },
+			"unitWorth": 280
+		},
+
+		"tech_obj_silver_ingot": {
+			"type": "item",
+			"rarity": "RARE",
+			"content": "thermal:silver_ingot",
+			"amount": { "min": 4, "max": 10 },
+			"unitWorth": 240
+		},
+
+		"tech_obj_redstone_servo": {
+			"type": "item",
+			"rarity": "RARE",
+			"content": "thermal:redstone_servo",
+			"amount": { "min": 1, "max": 3 },
+			"unitWorth": 500,
+			"weightMult": 0.8
+		},
+
+		"tech_obj_machine_frame": {
+			"type": "item",
+			"rarity": "RARE",
+			"content": "thermal:machine_frame",
+			"amount": { "min": 1, "max": 2 },
+			"unitWorth": 550,
+			"weightMult": 0.8
+		},
+
+		"tech_obj_electric_motor": {
+			"type": "item",
+			"rarity": "RARE",
+			"content": "createaddition:electric_motor",
+			"amount": { "min": 1, "max": 2 },
+			"unitWorth": 480,
+			"weightMult": 0.8
+		},
+
+		"tech_obj_enderium_ingot": {
+			"type": "item",
+			"rarity": "EPIC",
+			"content": "thermal:enderium_ingot",
+			"amount": { "min": 2, "max": 4 },
+			"unitWorth": 1800
+		},
+
+		"tech_obj_uranium_ingot": {
+			"type": "item",
+			"rarity": "EPIC",
+			"content": "biggerreactors:uranium_ingot",
+			"amount": { "min": 1, "max": 3 },
+			"unitWorth": 2200
+		},
+
+		"tech_obj_energy_cell": {
+			"type": "item",
+			"rarity": "EPIC",
+			"content": "ae2:energy_cell",
+			"amount": { "min": 1, "max": 1 },
+			"unitWorth": 1700,
+			"weightMult": 0.7
+		}
+
+	}
+}

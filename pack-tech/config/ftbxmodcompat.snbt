@@ -1,0 +1,4 @@
+{
+	permission_selector: "default"
+	stage_selector: "kubejs"
+}

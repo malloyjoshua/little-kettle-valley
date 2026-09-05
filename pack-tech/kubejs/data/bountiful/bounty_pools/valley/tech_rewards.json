@@ -1,0 +1,121 @@
+{
+	"content": {
+		"tech_rew_redstone": {
+			"type": "item",
+			"content": "minecraft:redstone",
+			"amount": {
+				"min": 6,
+				"max": 16
+			},
+			"unitWorth": 25,
+			"weightMult": 0.9
+		},
+		"tech_rew_copper_gear": {
+			"type": "item",
+			"content": "thermal:copper_gear",
+			"amount": {
+				"min": 2,
+				"max": 6
+			},
+			"unitWorth": 60,
+			"weightMult": 0.8
+		},
+		"tech_rew_tin_plate": {
+			"type": "item",
+			"content": "thermal:tin_plate",
+			"amount": {
+				"min": 2,
+				"max": 6
+			},
+			"unitWorth": 65,
+			"weightMult": 0.8
+		},
+		"tech_rew_fluix_dust": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "ae2:fluix_dust",
+			"amount": {
+				"min": 2,
+				"max": 6
+			},
+			"unitWorth": 90,
+			"weightMult": 0.7
+		},
+		"tech_rew_rf_coil": {
+			"type": "item",
+			"rarity": "RARE",
+			"content": "thermal:rf_coil",
+			"amount": {
+				"min": 1,
+				"max": 2
+			},
+			"unitWorth": 420,
+			"weightMult": 0.5
+		},
+		"tech_rew_capacitor": {
+			"type": "item",
+			"rarity": "RARE",
+			"content": "createaddition:capacitor",
+			"amount": {
+				"min": 1,
+				"max": 2
+			},
+			"unitWorth": 400,
+			"weightMult": 0.5
+		},
+		"tech_rew_energy_cell_frame": {
+			"type": "item",
+			"rarity": "RARE",
+			"content": "thermal:energy_cell_frame",
+			"amount": {
+				"min": 1,
+				"max": 1
+			},
+			"unitWorth": 450,
+			"weightMult": 0.45
+		},
+		"tech_rew_flux_capacitor": {
+			"type": "item",
+			"rarity": "EPIC",
+			"content": "thermal:flux_capacitor",
+			"amount": {
+				"min": 1,
+				"max": 1
+			},
+			"unitWorth": 1600,
+			"weightMult": 0.35
+		},
+		"tech_rew_storage_drawer": {
+			"type": "item",
+			"rarity": "UNCOMMON",
+			"content": "storagedrawers:oak_full_drawers_1",
+			"amount": {
+				"min": 1,
+				"max": 2
+			},
+			"unitWorth": 150,
+			"weightMult": 0.6
+		},
+		"tech_rew_plushie_geode": {
+			"type": "item",
+			"rarity": "RARE",
+			"content": "perfectplushies:geode_plushie",
+			"amount": {
+				"min": 1,
+				"max": 1
+			},
+			"unitWorth": 350,
+			"weightMult": 0.5
+		},
+		"tech_rew_emerald": {
+			"type": "item",
+			"content": "minecraft:emerald",
+			"amount": {
+				"min": 2,
+				"max": 5
+			},
+			"unitWorth": 50,
+			"weightMult": 0.9
+		}
+	}
+}

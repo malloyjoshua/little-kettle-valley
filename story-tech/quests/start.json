@@ -1,0 +1,166 @@
+{
+  "chapter": {
+    "key": "kt_start",
+    "title": "Start Here",
+    "subtitle": [
+      "Eight short jobs. An hour, give or take.",
+      "A hammer, a bag, a bed, a warm meal and a way home."
+    ],
+    "icon": "justhammers:stone_hammer",
+    "group": "Kettle Tech",
+    "order": 1
+  },
+  "quests": [
+    {
+      "key": "kt_st_open",
+      "title": "Open the Quest Book",
+      "subtitle": "It is in your bag, or press J.",
+      "icon": "ftbquests:book",
+      "description": [
+        "Right-click the book in your inventory, or press J anywhere.",
+        "The chapter list runs down the left edge. That is the whole interface."
+      ],
+      "deps": [],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "shape": "hexagon",
+      "size": 1.5,
+      "tasks": [{ "type": "checkmark", "title": "Book open." }],
+      "rewards": [
+        { "type": "item", "item": "minecraft:copper_ingot", "count": 8, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:stick", "count": 8, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 1 }
+      ]
+    },
+    {
+      "key": "kt_st_hammer",
+      "title": "Craft the Wide Hammer",
+      "subtitle": "Copper and sticks, not diamonds.",
+      "icon": "justhammers:stone_hammer",
+      "description": [
+        "Make a Wide Hammer. It breaks a 3x3 face in one swing and never needs an upgrade to be useful.",
+        "The copper and sticks for it are already in your bag."
+      ],
+      "deps": ["kt_st_open"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "justhammers:stone_hammer", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "minecraft:leather", "count": 4, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 2 }
+      ]
+    },
+    {
+      "key": "kt_st_backpack",
+      "title": "Craft a Backpack",
+      "subtitle": "Twenty-seven slots that follow you.",
+      "icon": "sophisticatedbackpacks:backpack",
+      "description": [
+        "Leather and string make a Backpack. Wear it in the back slot and right-click it anywhere to open it.",
+        "The leather is already yours."
+      ],
+      "deps": ["kt_st_hammer"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "sophisticatedbackpacks:backpack", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "sophisticatedbackpacks:pickup_upgrade", "count": 1, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 2 }
+      ]
+    },
+    {
+      "key": "kt_st_bed",
+      "title": "Sleep One Night in a Bed",
+      "subtitle": "Three wool, three planks, one dawn.",
+      "icon": "minecraft:white_bed",
+      "description": [
+        "Build a bed, put it down under a roof and sleep. Your spawn point moves to it.",
+        "Three wool of one colour and three planks is the whole recipe."
+      ],
+      "deps": ["kt_st_hammer"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "advancement", "advancement": "minecraft:adventure/sleep_in_bed" }],
+      "rewards": [
+        { "type": "item", "item": "minecraft:wheat", "count": 24, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 2 }
+      ]
+    },
+    {
+      "key": "kt_st_food",
+      "title": "Bake Eight Loaves of Bread",
+      "subtitle": "Three wheat each, no furnace needed.",
+      "icon": "minecraft:bread",
+      "description": [
+        "Bake eight loaves so hunger stops being a reason to stop working.",
+        "The wheat is in your bag. Bread stacks, keeps, and never spoils."
+      ],
+      "deps": ["kt_st_bed"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "minecraft:bread", "count": 8 }],
+      "rewards": [
+        { "type": "item", "item": "farmersdelight:hamburger", "count": 4, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:stone_bricks", "count": 8, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 2 }
+      ]
+    },
+    {
+      "key": "kt_st_waystone",
+      "title": "Place a Waystone at Home",
+      "subtitle": "Name it, and it is on your map forever.",
+      "icon": "waystones:waystone",
+      "description": [
+        "Set a Waystone by your base and right-click to name it. Every Waystone you find afterwards can send you back to it.",
+        "Stone bricks and a copper ingot."
+      ],
+      "deps": ["kt_st_bed"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "waystones:waystone", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "waystones:waystone", "count": 1, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:copper_block", "count": 2, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 }
+      ]
+    },
+    {
+      "key": "kt_st_megatorch",
+      "title": "Raise a Megatorch",
+      "subtitle": "No mobs spawn for 64 blocks around it.",
+      "icon": "torchmaster:megatorch",
+      "description": [
+        "Stand a Megatorch in the middle of your base. Nothing hostile spawns inside its radius, lit or not.",
+        "Torches, logs and copper. The copper blocks are already yours."
+      ],
+      "deps": ["kt_st_waystone"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "torchmaster:megatorch", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "minecraft:oak_planks", "count": 32, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 }
+      ]
+    },
+    {
+      "key": "kt_st_storage",
+      "title": "Put Up a Chest or a Drawer",
+      "subtitle": "Drawers hold 32 stacks of one thing.",
+      "icon": "minecraft:chest",
+      "description": [
+        "Make a chest to start. Storage Drawers are the better answer once you are mining: one item each, 32 stacks deep, labelled on the front.",
+        "Planks are in your bag."
+      ],
+      "deps": ["kt_st_backpack"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "minecraft:chest", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "storagedrawers:oak_full_drawers_2", "count": 4, "autoclaim": "no_toast" },
+        { "type": "item", "item": "create:andesite_alloy", "count": 8, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 },
+        { "type": "toast", "title": "Start Here is done", "description": "Next: the Create chapter. Andesite alloy is already in your bag, so quest one is a formality." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,292 @@
+{
+  "chapter": {
+    "key": "kt_create",
+    "title": "Create",
+    "subtitle": [
+      "Andesite to brass to a train track.",
+      "Every machine here runs on rotation, so the first job is a water wheel."
+    ],
+    "icon": "create:cogwheel",
+    "group": "Kettle Tech",
+    "order": 2
+  },
+  "quests": [
+    {
+      "key": "kt_cr_alloy",
+      "title": "Craft Eight Andesite Alloy",
+      "subtitle": "Andesite and iron nuggets. Create's bolt.",
+      "icon": "create:andesite_alloy",
+      "description": [
+        "Andesite alloy is in almost every Create recipe, so make more than you think you need.",
+        "Eight is enough to reach a working water wheel."
+      ],
+      "deps": [],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "shape": "hexagon",
+      "size": 1.5,
+      "tasks": [{ "type": "item", "item": "create:andesite_alloy", "count": 8 }],
+      "rewards": [
+        { "type": "item", "item": "create:andesite_alloy", "count": 16, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:oak_log", "count": 16, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 2 }
+      ]
+    },
+    {
+      "key": "kt_cr_shaft",
+      "title": "Craft Eight Shafts and Four Cogwheels",
+      "subtitle": "Rotation travels along these two.",
+      "icon": "create:shaft",
+      "description": [
+        "Shafts carry rotation in a straight line. Cogwheels turn a corner, change the speed, or hand power sideways.",
+        "Andesite alloy and stripped logs."
+      ],
+      "deps": ["kt_cr_alloy"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [
+        { "type": "item", "item": "create:shaft", "count": 8 },
+        { "type": "item", "item": "create:cogwheel", "count": 4 }
+      ],
+      "rewards": [
+        { "type": "item", "item": "create:shaft", "count": 16, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:oak_planks", "count": 32, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 2 }
+      ]
+    },
+    {
+      "key": "kt_cr_wheel",
+      "title": "Stand a Water Wheel in Running Water",
+      "subtitle": "Free power. No fuel, no upkeep.",
+      "icon": "create:water_wheel",
+      "description": [
+        "Place a Water Wheel so a flowing stream hits its blades, then run a shaft out of its side.",
+        "That shaft is the power for everything else in this chapter."
+      ],
+      "deps": ["kt_cr_shaft"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "create:water_wheel", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "create:water_wheel", "count": 1, "autoclaim": "no_toast" },
+        { "type": "item", "item": "create:cogwheel", "count": 8, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 }
+      ]
+    },
+    {
+      "key": "kt_cr_casing",
+      "title": "Craft Eight Andesite Casing",
+      "subtitle": "The wooden shell on half of Create.",
+      "icon": "create:andesite_casing",
+      "description": [
+        "Casing wraps a shaft or a cogwheel so it can pass through a wall, and it is a part in most Create machines.",
+        "Stripped logs plus andesite alloy."
+      ],
+      "deps": ["kt_cr_wheel"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "create:andesite_casing", "count": 8 }],
+      "rewards": [
+        { "type": "item", "item": "create:andesite_casing", "count": 8, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:iron_ingot", "count": 8, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 2 }
+      ]
+    },
+    {
+      "key": "kt_cr_press",
+      "title": "Build a Mechanical Press",
+      "subtitle": "Ingots in, sheets out, one at a time.",
+      "icon": "create:mechanical_press",
+      "description": [
+        "Hang a Mechanical Press over a Depot or a belt and give it rotation from above. It presses ingots into sheets and compacts blocks.",
+        "Sheets gate the rest of Create."
+      ],
+      "deps": ["kt_cr_casing"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "create:mechanical_press", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "create:depot", "count": 2, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:copper_ingot", "count": 24, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 }
+      ]
+    },
+    {
+      "key": "kt_cr_mill",
+      "title": "Build a Millstone",
+      "subtitle": "Grinds ore and grain off one cogwheel.",
+      "icon": "create:millstone",
+      "description": [
+        "A Millstone takes rotation from a cogwheel underneath and needs no other structure. Drop ore in the top, pull dust out of the bottom.",
+        "It doubles most ores."
+      ],
+      "deps": ["kt_cr_casing"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "create:millstone", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "create:millstone", "count": 1, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:raw_iron", "count": 16, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 }
+      ]
+    },
+    {
+      "key": "kt_cr_mixer",
+      "title": "Set a Mechanical Mixer Over a Basin",
+      "subtitle": "Two blocks apart, mixer on top.",
+      "icon": "create:mechanical_mixer",
+      "description": [
+        "Put a Basin down, leave one block of air, then place the Mechanical Mixer above it and feed the mixer rotation.",
+        "Items dropped in the basin combine."
+      ],
+      "deps": ["kt_cr_press"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [
+        { "type": "item", "item": "create:basin", "count": 1 },
+        { "type": "item", "item": "create:mechanical_mixer", "count": 1 }
+      ],
+      "rewards": [
+        { "type": "item", "item": "create:basin", "count": 2, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:raw_copper", "count": 24, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 }
+      ]
+    },
+    {
+      "key": "kt_cr_burner",
+      "title": "Light a Blaze Burner Under the Basin",
+      "subtitle": "Heat is what turns mixing into alloys.",
+      "icon": "create:blaze_burner",
+      "description": [
+        "Catch a blaze in an Empty Blaze Burner at a nether fortress, set it directly under the basin and feed it fuel.",
+        "Coal keeps it lit; a blaze cake makes it roar."
+      ],
+      "deps": ["kt_cr_mixer"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "create:blaze_burner", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "minecraft:coal_block", "count": 4, "autoclaim": "no_toast" },
+        { "type": "item", "item": "create:empty_blaze_burner", "count": 1, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 4 }
+      ]
+    },
+    {
+      "key": "kt_cr_brass",
+      "title": "Mix Sixteen Brass Ingots",
+      "subtitle": "One copper, one zinc, one hot basin.",
+      "icon": "create:brass_ingot",
+      "description": [
+        "Drop crushed copper and crushed zinc into the heated basin. The mixer pours out molten brass; the press or a basin cast makes ingots.",
+        "Brass is the second half of Create."
+      ],
+      "deps": ["kt_cr_burner"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "create:brass_ingot", "count": 16 }],
+      "rewards": [
+        { "type": "item", "item": "create:brass_ingot", "count": 16, "autoclaim": "no_toast" },
+        { "type": "item", "item": "create:andesite_casing", "count": 8, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 4 }
+      ]
+    },
+    {
+      "key": "kt_cr_brasscasing",
+      "title": "Craft Eight Brass Casing",
+      "subtitle": "Everything clever in Create wears this.",
+      "icon": "create:brass_casing",
+      "description": [
+        "Brass casing is the shell on the smart half of the mod: tunnels, chutes, funnels, crafters and the precision mechanism.",
+        "Brass sheets plus stripped logs."
+      ],
+      "deps": ["kt_cr_brass"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "create:brass_casing", "count": 8 }],
+      "rewards": [
+        { "type": "item", "item": "create:brass_casing", "count": 8, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:gold_ingot", "count": 8, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 }
+      ]
+    },
+    {
+      "key": "kt_cr_fan",
+      "title": "Build an Encased Fan",
+      "subtitle": "Blows through fire, water or lava.",
+      "icon": "create:encased_fan",
+      "description": [
+        "An Encased Fan pushes air through whatever is in front of it. Through fire it smelts, through water it washes, through lava it blasts.",
+        "Cheapest bulk processing in the pack."
+      ],
+      "deps": ["kt_cr_brasscasing"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "create:encased_fan", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "create:belt_connector", "count": 4, "autoclaim": "no_toast" },
+        { "type": "item", "item": "create:chute", "count": 4, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 3 }
+      ]
+    },
+    {
+      "key": "kt_cr_crafters",
+      "title": "Build Eight Mechanical Crafters",
+      "subtitle": "A crafting grid a machine can feed.",
+      "icon": "create:mechanical_crafter",
+      "description": [
+        "Set the crafters in the shape of the recipe, wrench each one so the arrows point along one path, and give the group rotation.",
+        "Eight covers the recipes that need them."
+      ],
+      "deps": ["kt_cr_brasscasing"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "create:mechanical_crafter", "count": 8 }],
+      "rewards": [
+        { "type": "item", "item": "create:mechanical_crafter", "count": 4, "autoclaim": "no_toast" },
+        { "type": "item", "item": "create:wrench", "count": 1, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:gold_ingot", "count": 16, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 4 }
+      ]
+    },
+    {
+      "key": "kt_cr_precision",
+      "title": "Craft a Precision Mechanism",
+      "subtitle": "Only the mechanical crafters make it.",
+      "icon": "create:precision_mechanism",
+      "description": [
+        "Feed cogwheels, gold sheets and an iron nugget into the crafter grid and watch it assemble in stages.",
+        "It is the part behind train stations and every clever block left."
+      ],
+      "deps": ["kt_cr_crafters"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "create:precision_mechanism", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "create:precision_mechanism", "count": 2, "autoclaim": "no_toast" },
+        { "type": "item", "item": "create:railway_casing", "count": 4, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 5 }
+      ]
+    },
+    {
+      "key": "kt_cr_track",
+      "title": "Lay Sixteen Lengths of Train Track",
+      "subtitle": "Right-click one rail, then another, to curve.",
+      "icon": "create:track",
+      "description": [
+        "Place a track, then right-click a second spot with the same item and Create draws the curve between them.",
+        "A Station turns any stretch of it into a place a train stops."
+      ],
+      "deps": ["kt_cr_precision"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "create:track", "count": 16 }],
+      "rewards": [
+        { "type": "item", "item": "create:track", "count": 64, "autoclaim": "no_toast" },
+        { "type": "item", "item": "create:track_station", "count": 1, "autoclaim": "no_toast" },
+        { "type": "item", "item": "railways:conductor_whistle", "count": 1, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 5 },
+        { "type": "toast", "title": "Create is done", "description": "Next: Thermal. Redstone servos and machine frames, then power that runs on wire instead of shafts." }
+      ]
+    }
+  ]
+}

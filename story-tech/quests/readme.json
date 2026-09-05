@@ -1,0 +1,117 @@
+{
+  "chapter": {
+    "key": "kt_readme",
+    "title": "Read Me First",
+    "subtitle": [
+      "Six things about this book. None of them are tasks.",
+      "Tick them off as you read, or don't. Nothing depends on them."
+    ],
+    "icon": "minecraft:book",
+    "group": "Kettle Tech",
+    "order": 0
+  },
+  "quests": [
+    {
+      "key": "kt_rm_how",
+      "title": "Click a Quest to See What It Wants",
+      "subtitle": "Task on the left, reward on the right.",
+      "icon": "ftbquests:book",
+      "description": [
+        "Every quest names the item to make or the thing to do, and what it hands back.",
+        "Finish the task and the reward arrives on its own. Nothing to click twice."
+      ],
+      "deps": [],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "checkmark", "title": "One quest read." }],
+      "rewards": [],
+      "x": 0.0,
+      "y": -1.2
+    },
+    {
+      "key": "kt_rm_open",
+      "title": "See the Whole Chapter From Day One",
+      "subtitle": "Nothing in here is hidden from you.",
+      "icon": "minecraft:spyglass",
+      "description": [
+        "Quests you can't start yet are drawn greyed out, not hidden, so you can read ahead and plan.",
+        "There are no timers and nothing can be failed."
+      ],
+      "deps": [],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "checkmark", "title": "Board read from left to right." }],
+      "rewards": [],
+      "x": 2.4,
+      "y": -1.2
+    },
+    {
+      "key": "kt_rm_optional",
+      "title": "Skip Anything Marked Optional",
+      "subtitle": "Cozy and Explore sit in their own tab.",
+      "icon": "farmersdelight:cooking_pot",
+      "description": [
+        "The Side Quests tab holds Cozy and Explore. Every quest in both is optional and blocks nothing.",
+        "Take them when you want a break from machines."
+      ],
+      "deps": [],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "checkmark", "title": "Side Quests tab found." }],
+      "rewards": [],
+      "x": 4.8,
+      "y": -1.2
+    },
+    {
+      "key": "kt_rm_keys",
+      "title": "Two Keys: J and the Grave Key",
+      "subtitle": "J opens this book. ` takes a whole vein.",
+      "icon": "minecraft:iron_pickaxe",
+      "description": [
+        "J opens the book. Hold the grave key, the one above Tab, while breaking an ore or a log to take up to 64 at once.",
+        "Both are rebindable under Options, Controls."
+      ],
+      "deps": [],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "checkmark", "title": "Both keys tried." }],
+      "rewards": [],
+      "x": 0.0,
+      "y": 1.2
+    },
+    {
+      "key": "kt_rm_hammer",
+      "title": "Swing the Wide Hammer, Not a Pickaxe",
+      "subtitle": "One swing clears a three by three.",
+      "icon": "justhammers:stone_hammer",
+      "description": [
+        "The Wide Hammer breaks a 3x3 face in one hit, so tunnels, cellars and reactor pits go four times faster.",
+        "Copper and sticks make the first one."
+      ],
+      "deps": [],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "checkmark", "title": "Hammer understood." }],
+      "rewards": [],
+      "x": 2.4,
+      "y": 1.2
+    },
+    {
+      "key": "kt_rm_jei",
+      "title": "Look Up Any Machine in JEI",
+      "subtitle": "R shows the recipe, U shows the uses.",
+      "icon": "minecraft:crafting_table",
+      "description": [
+        "Type a machine's name into the JEI search box on the right, hover the icon and press R for its recipe.",
+        "Press U to see what it makes."
+      ],
+      "deps": [],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "checkmark", "title": "One recipe looked up." }],
+      "rewards": [],
+      "x": 4.8,
+      "y": 1.2
+    }
+  ]
+}

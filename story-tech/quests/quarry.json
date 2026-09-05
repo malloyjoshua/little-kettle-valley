@@ -1,0 +1,132 @@
+{
+  "chapter": {
+    "key": "kt_quarry",
+    "title": "The Quarry",
+    "subtitle": [
+      "Draw a box with markers, point a machine at it, walk away.",
+      "It keeps digging while you are logged out."
+    ],
+    "icon": "quarryplus:quarry",
+    "group": "Kettle Tech",
+    "order": 6
+  },
+  "quests": [
+    {
+      "key": "kt_qp_workbench",
+      "title": "Build a Workbench Plus",
+      "subtitle": "QuarryPlus machines are assembled on it.",
+      "icon": "quarryplus:workbench",
+      "description": [
+        "The Workbench Plus takes ingredients over time instead of all at once. Drop the parts in and it fills a bar.",
+        "Nothing else in this chapter crafts without it."
+      ],
+      "deps": [],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "shape": "hexagon",
+      "size": 1.5,
+      "tasks": [{ "type": "item", "item": "quarryplus:workbench", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "minecraft:diamond", "count": 8, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:gold_ingot", "count": 32, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 5 }
+      ]
+    },
+    {
+      "key": "kt_qp_marker",
+      "title": "Craft Four Flexible Markers",
+      "subtitle": "One marker can define the whole box.",
+      "icon": "quarryplus:flex_marker",
+      "description": [
+        "Put a Flexible Marker down and right-click it to type the exact size of the pit you want.",
+        "Plain Markers work too: three at three corners and the rectangle between them is the box."
+      ],
+      "deps": ["kt_qp_workbench"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "quarryplus:flex_marker", "count": 4 }],
+      "rewards": [
+        { "type": "item", "item": "quarryplus:marker", "count": 8, "autoclaim": "no_toast" },
+        { "type": "item", "item": "quarryplus:y_setter", "count": 1, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 4 }
+      ]
+    },
+    {
+      "key": "kt_qp_quarry",
+      "title": "Build a Quarry",
+      "subtitle": "It builds its own frame from the marker.",
+      "icon": "quarryplus:quarry",
+      "description": [
+        "Set the Quarry flat against the marker, facing into the box. It raises the frame itself, then digs down to bedrock.",
+        "Attach a chest or an ME interface to catch the output."
+      ],
+      "deps": ["kt_qp_marker"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "quarryplus:quarry", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "quarryplus:frame", "count": 32, "autoclaim": "no_toast" },
+        { "type": "item", "item": "minecraft:chest", "count": 4, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 6 }
+      ]
+    },
+    {
+      "key": "kt_qp_power",
+      "title": "Wire the Quarry to Your Power",
+      "subtitle": "It idles quietly until it has FE.",
+      "icon": "thermal:energy_duct",
+      "description": [
+        "Run an energy duct from the reactor, the turbine or an energy cell into the back of the quarry.",
+        "The more power it gets, the faster it digs. There is no upper limit worth worrying about."
+      ],
+      "deps": ["kt_qp_quarry"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "checkmark", "title": "Quarry powered and digging." }],
+      "rewards": [
+        { "type": "item", "item": "thermal:energy_duct", "count": 32, "autoclaim": "no_toast" },
+        { "type": "item", "item": "thermal:energy_cell", "count": 1, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 5 }
+      ]
+    },
+    {
+      "key": "kt_qp_pump",
+      "title": "Build an Advanced Pump",
+      "subtitle": "Drains water and lava out of the pit.",
+      "icon": "quarryplus:adv_pump",
+      "description": [
+        "Set the Advanced Pump on the quarry so it clears the fluids the dig runs into, instead of the quarry stopping at every aquifer.",
+        "It also fills tanks with the lava it takes."
+      ],
+      "deps": ["kt_qp_power"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "quarryplus:adv_pump", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "thermal:fluid_cell", "count": 1, "autoclaim": "no_toast" },
+        { "type": "item", "item": "thermal:fluid_duct", "count": 16, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 5 }
+      ]
+    },
+    {
+      "key": "kt_qp_adv",
+      "title": "Build a Chunk Destroyer",
+      "subtitle": "Clears whole chunks and fills behind it.",
+      "icon": "quarryplus:adv_quarry",
+      "description": [
+        "The Chunk Destroyer needs no frame and works the area chunk by chunk, replacing what it takes so you are not left with a hole.",
+        "It wants a lot more power than the plain quarry."
+      ],
+      "deps": ["kt_qp_power"],
+      "hide_until_deps_complete": false,
+      "hide_details_until_startable": false,
+      "tasks": [{ "type": "item", "item": "quarryplus:adv_quarry", "count": 1 }],
+      "rewards": [
+        { "type": "item", "item": "quarryplus:filter_module", "count": 1, "autoclaim": "no_toast" },
+        { "type": "item", "item": "quarryplus:exp_module", "count": 1, "autoclaim": "no_toast" },
+        { "type": "xp_levels", "levels": 8 },
+        { "type": "toast", "title": "The quarry is running", "description": "That is the main line finished. The Side Quests tab has Cozy and Explore whenever you want them." }
+      ]
+    }
+  ]
+}

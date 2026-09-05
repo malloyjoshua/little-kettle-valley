@@ -1,0 +1,8 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "kettletech"
+	progression_mode: "flexible"
+	title: "Kettle Tech"
+	version: 13
+}
