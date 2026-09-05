@@ -98,6 +98,20 @@
 			rewards: [{ id: "7AB11217DCF84DEA", type: "item", auto: "no_toast", item: "justhammers:stone_hammer" }, { id: "3C5244D7C84B9F19", type: "command", auto: "invisible", command: "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Middle of the square, middle of the hole. And do not swing it in my mill.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "7B1DDA1B97F1A0DE", type: "toast", title: "Bram's Wide Hammer", auto: "enabled", description: "Next: the Millstone and Hand Crank, and 16 flour for Marnie. The peg by Bram's bench is empty now and stays empty." }]
 		}
 		{
+			id: "2F8AE9350986BEB5"
+			title: "Read the Ground Behind the Cottage"
+			subtitle: "Ore lives in beds, and the beds leave signs."
+			icon: "geolosys:hematite_ore_sample"
+			description: ["Bram: \"You'll not find iron by hitting stone and hoping. Nobody has, here, since Josie's day.\"", "Walk the grass behind the cottage and look for the small rust-brown rocks lying about: those are ore samples, and every one of them sits over a bed of iron thirty blocks down. Dig straight under the samples and bring back 8 iron clusters (hematite breaks into them). Bram's wide hammer takes it three blocks at a time.", "Every metal in the valley works this way: coal, copper, tin, silver, gold. Samples on the surface, the bed beneath. Tobin will teach you to read them properly in the summer."]
+			x: 6.0d
+			y: -0.8d
+			dependencies: ["7444A31B1FB2101C"]
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "30D510A4F2457237", type: "item", title: "8 iron clusters from the bed behind the cottage", item: "geolosys:iron_cluster", count: 8L }]
+			rewards: [{ id: "6B5C805638133D17", type: "item", auto: "no_toast", item: "minecraft:iron_ingot", count: 8 }, { id: "62824802AC500FFF", type: "item", auto: "no_toast", item: "minecraft:torch", count: 16 }, { id: "7C971329081F0A87", type: "toast", title: "Next: 8 andesite alloy", auto: "enabled", description: "Next: craft 8 Andesite Alloy for Bram." }]
+		}
+		{
 			id: "7EFC0D973670E744"
 			title: "Mill 16 Flour on a Hand-Cranked Millstone"
 			subtitle: "Your arm first, then the river."
@@ -132,7 +146,7 @@
 			icon: "create:water_wheel"
 			description: ["Bram: \"Race is cut, boards are dry, and I'm sixty-four. Two wheels, today.\"", "", "Craft 2 Water Wheels using the Seasoned Oak Boards, set them in the mill race beside the mill, and belt the Millstone off them so it turns without you.", "", "Mechanical Saw, Basin and Mixer, plus Bram's crate: 32 Andesite Alloy and 16 wool he has been keeping for windmill sails."]
 			x: 6.0d
-			y: 0.0d
+			y: 0.8d
 			dependencies: ["7EFC0D973670E744", "3D62FF07E2F30634"]
 			hide_until_deps_complete: false
 			hide_details_until_startable: false

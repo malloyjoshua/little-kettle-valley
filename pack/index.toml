@@ -18,7 +18,7 @@ hash = "9b85db0d9ab11980c00deb35811a08c59902060d0c3f06db0e8e186ebbc23a60"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act1.snbt"
-hash = "16fd60e34d05cd7e2b33cf9f533c8f6580f6c33d54440c2fe1dfd68cba06a2ea"
+hash = "7be7a2f54c1e83d3067d9276b4c6eea56840ce1c6121faa10423b454f6bbaa6a"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act2.snbt"
@@ -46,7 +46,7 @@ hash = "dea3248ee63d26b7851d5bee66c881dd61031f8cbcf9ffe68c4de7ee6ebf1950"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/start.snbt"
-hash = "05d0d418bc14cb016e431ccd551cca770df7661cf5f691e39bc27bf1e0f79709"
+hash = "3a5f125ddd41c5f1b4cccfca791febbdd8090a87a1d53b150f4cde07ac790266"
 
 [[files]]
 file = "config/ftbquests/quests/data.snbt"
@@ -582,7 +582,7 @@ hash = "c24ac34612f8317811252804ea5b2b0500cd47fcaaa225a3b06eb7c9eb2c19e0"
 
 [[files]]
 file = "kubejs/server_scripts/_quest_ids.js"
-hash = "e17798103a67d3fedbbdf47804ed3ec63355294070a67f93ca001499275adedf"
+hash = "e348a4938f7f796ad6bc28d6a0550dd039eadf00f8abec68a1bb6928533c8555"
 
 [[files]]
 file = "kubejs/server_scripts/seasons_tags.js"

@@ -209,6 +209,16 @@
      "count": 4
     },
     {
+     "type": "item",
+     "item": "minecraft:beetroot",
+     "count": 4
+    },
+    {
+     "type": "item",
+     "item": "minecraft:beetroot_seeds",
+     "count": 4
+    },
+    {
      "type": "toast",
      "title": "Four Walls and a Door",
      "description": "Next: place the Megatorch inside the cottage. Then the soup."

@@ -579,6 +579,46 @@
    ]
   },
   {
+   "key": "q13b",
+   "title": "Read the Ground Behind the Cottage",
+   "subtitle": "Ore lives in beds, and the beds leave signs.",
+   "icon": "geolosys:hematite_ore_sample",
+   "deps": [
+    "q13a"
+   ],
+   "optional": false,
+   "description": [
+    "Bram: \"You'll not find iron by hitting stone and hoping. Nobody has, here, since Josie's day.\"",
+    "Walk the grass behind the cottage and look for the small rust-brown rocks lying about: those are ore samples, and every one of them sits over a bed of iron thirty blocks down. Dig straight under the samples and bring back 8 iron clusters (hematite breaks into them). Bram's wide hammer takes it three blocks at a time.",
+    "Every metal in the valley works this way: coal, copper, tin, silver, gold. Samples on the surface, the bed beneath. Tobin will teach you to read them properly in the summer."
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "geolosys:iron_cluster",
+     "count": 8,
+     "title": "8 iron clusters from the bed behind the cottage"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:iron_ingot",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "minecraft:torch",
+     "count": 16
+    },
+    {
+     "type": "toast",
+     "title": "Next: 8 andesite alloy",
+     "description": "Next: craft 8 Andesite Alloy for Bram."
+    }
+   ]
+  },
+  {
    "key": "q14",
    "title": "Mill 16 Flour on a Hand-Cranked Millstone",
    "subtitle": "Your arm first, then the river.",
