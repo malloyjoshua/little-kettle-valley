@@ -9,7 +9,7 @@
   ],
   "icon": "minecraft:bell",
   "group": "Story",
-  "order": 4
+  "order": 6
  },
  "quests": [
   {
@@ -139,6 +139,7 @@
    ],
    "shape": "circle",
    "size": 1.25,
+   "min_width": 300,
    "tasks": [
     {
      "type": "checkmark",
@@ -471,6 +472,7 @@
     "q84"
    ],
    "shape": "square",
+   "optional": true,
    "tasks": [
     {
      "type": "item",
@@ -1143,6 +1145,7 @@
    ],
    "shape": "circle",
    "size": 1.25,
+   "min_required_deps": 2,
    "tasks": [
     {
      "type": "checkmark",

@@ -9,7 +9,7 @@
   ],
   "icon": "minecraft:hay_block",
   "group": "Story",
-  "order": 2
+  "order": 4
  },
  "reward_tables": [],
  "quests": [
@@ -314,6 +314,7 @@
    "deps": [
     "q40"
    ],
+   "min_width": 300,
    "tasks": [
     {
      "type": "item",
@@ -674,6 +675,7 @@
    "deps": [
     "q51a"
    ],
+   "optional": true,
    "tasks": [
     {
      "type": "item",
@@ -1469,6 +1471,8 @@
     "q54a",
     "q55"
    ],
+   "min_width": 300,
+   "min_required_deps": 3,
    "tasks": [
     {
      "type": "item",

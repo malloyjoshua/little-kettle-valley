@@ -1,0 +1,48 @@
+#Client Configuration
+[client]
+
+	[client.blocked_toasts]
+		#If advancement toasts are blocked.
+		#LEFT FALSE ON PURPOSE. Toast Control has no per-id filter (see docs/mod-decisions.md):
+		#this switch is all-or-nothing, and the valley: journal advancements
+		#(pack/kubejs/data/valley/advancements/journal/*.json, show_toast: true) are how the
+		#story speaks. Blocking here would silence them along with the vanilla ones.
+		advancements = false
+		#If recipe toasts are blocked.
+		recipes = true
+		#If system toasts are blocked.
+		system = true
+		#If tutorial toasts are blocked.
+		tutorial = true
+		#If all vanilla toasts are blocked.
+		global_vanilla = false
+		#If all non-vanilla toasts are blocked.
+		global_modded = false
+		#If all toasts are blocked.
+		global = false
+		#Toast Classes that are blocked from being shown.
+		blocked_classes = []
+
+	[client.visual_options]
+		#How long a toast must be on the screen for, in ticks.  Use 0 to use the default time.
+		force_time = 0
+		#If toasts are translucent.
+		translucent = false
+		#If toasts are transparent.  Overrides translucency.
+		transparent = false
+		#How many toasts will be displayed on screen at once.
+		toast_count = 3
+		#The X offset for toasts to be drawn at.
+		x_offset = 0
+		#The Y offset for toasts to be drawn at.
+		y_offset = 0
+		#If toasts automatically pop into the screen without animations.
+		no_slide = false
+		#If toasts show on the left of the screen.
+		start_left = false
+		#If toasts will come in from the top of the screen, rather than the side.
+		top_down = false
+
+	[client.debug]
+		#If toast classes are printed when they are shown.
+		print_classes = false

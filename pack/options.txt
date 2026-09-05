@@ -3,11 +3,13 @@ renderDistance:8
 simulationDistance:6
 entityDistanceScaling:0.75
 maxFps:60
+tutorialStep:none
+hideBundleTutorial:true
+joinedFirstServer:true
 key_key.veinmining.activate.desc:key.keyboard.grave.accent
 key_key.ftbquests.quests:key.keyboard.j
 key_key.sophisticatedbackpacks.open_backpack:key.keyboard.b
 key_key.carry.desc:key.keyboard.c
-key_key.inventorysorter.sort:key.mouse.middle
 key_key.push_to_talk:key.keyboard.caps.lock
 key_key.sophisticatedbackpacks.inventory_interaction:key.keyboard.i
 key_gui.xaero_new_waypoint:key.keyboard.o

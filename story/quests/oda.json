@@ -8,8 +8,8 @@
       "Stock widens as the wagon comes up the line."
     ],
     "icon": "valley:scrip",
-    "group": "Story",
-    "order": 5
+    "group": "Side Quests",
+    "order": 0
   },
   "quests": [
     {
@@ -29,6 +29,7 @@
       "deps": ["q19"],
       "shape": "hexagon",
       "size": 1.5,
+      "min_width": 300,
       "tasks": [
         { "type": "checkmark", "title": "Read the board and the prices under it" }
       ],
@@ -55,6 +56,7 @@
       "shape": "square",
       "size": 1.0,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "minecraft:wheat", "count": 24, "consume": true }
       ],
@@ -79,6 +81,7 @@
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 10, "consume": true }
       ],
@@ -103,6 +106,7 @@
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 8, "consume": true }
       ],
@@ -127,6 +131,7 @@
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 6, "consume": true }
       ],
@@ -154,6 +159,7 @@
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 4, "consume": true }
       ],
@@ -182,6 +188,7 @@
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 4, "consume": true }
       ],
@@ -208,6 +215,7 @@
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 6, "consume": true }
       ],
@@ -234,6 +242,7 @@
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 15, "consume": true }
       ],
@@ -258,6 +267,7 @@
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 25, "consume": true }
       ],
@@ -282,6 +292,7 @@
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 18, "consume": true }
       ],
@@ -306,6 +317,7 @@
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 12, "consume": true }
       ],
@@ -331,6 +343,7 @@
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 12, "consume": true }
       ],
@@ -360,6 +373,7 @@
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 12, "consume": true }
       ],
@@ -387,6 +401,7 @@
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 10, "consume": true }
       ],
@@ -414,6 +429,7 @@
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 14, "consume": true }
       ],
@@ -442,6 +458,7 @@
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 20, "consume": true }
       ],
@@ -469,6 +486,7 @@
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 16, "consume": true }
       ],
@@ -497,6 +515,7 @@
       "size": 1.25,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 40, "consume": true }
       ],
@@ -522,6 +541,7 @@
       "size": 1.25,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 35, "consume": true }
       ],
@@ -551,6 +571,7 @@
       "size": 1.25,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 30, "consume": true }
       ],
@@ -578,6 +599,7 @@
       "size": 1.0,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "item", "item": "valley:scrip", "count": 10, "consume": true }
       ],
@@ -604,6 +626,7 @@
       "size": 1.5,
       "can_repeat": true,
       "hide_details_until_startable": false,
+      "optional": true,
       "tasks": [
         { "type": "stage", "stage": "works_deed", "title": "The town's Works Deed already signed" },
         { "type": "item", "item": "valley:scrip", "count": 150, "consume": true }

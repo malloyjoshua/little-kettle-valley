@@ -667,6 +667,24 @@ PlayerEvents.loggedIn(event => {
   // Re-attach the bossbars for this player.
   server.runCommandSilent('bossbar set valley:lamps players @a')
   server.runCommandSilent('bossbar set valley:folk players @a')
+
+  // ---- A5: the one push notification in the pack, and it kills itself.
+  // Create: Astral's whole nag budget is a single aqua line on login, gated by a
+  // read_quest player stage that valley_checks.js sets the first time the Quest
+  // Book is right-clicked. After that it never appears again, on this login or any
+  // future one, and the hover tells her how to stop it before she has to wonder.
+  // Delayed past the first-join chat so it lands last rather than in the middle.
+  if (!player.stages.has('read_quest')) {
+    valleyDelay(60, s => {
+      if (player.stages.has('read_quest')) return
+      s.runCommandSilent('tellraw ' + name + ' ' + JSON.stringify({
+        text: 'Right-click the Quest Book in your bag, or press J.',
+        color: 'aqua', underlined: true,
+        hoverEvent: { action: 'show_text', contents:
+          'The book is the list of what to do next. Open it once and this line stops for good.' }
+      }))
+    })
+  }
 })
 
 // The party dance. Split out of loggedIn so the retry can run a tick later:
@@ -1050,11 +1068,18 @@ function valleyFirstJoin(server, player, name) {
   player.give(Item.of(VALLEY.ITEM.deed))
   player.give(Item.of(VALLEY.ITEM.kettle))
   valleyDelay(5, s => { try { facePath(s, player, name) } catch (err) {} })
-  tellWhere(server, name, where)
+  // A5: NO second title card here. tellWhere() fires one 4.5 seconds after the
+  // LITTLE KETTLE VALLEY card, and two title cards that close together read as a
+  // cutscene she cannot skip. The same destination, with coordinates, is chat line
+  // two below, and the actionbar repeats it on every state change. tellWhere() is
+  // still live on global.valley.orient for a player who asks to be re-pointed.
   startObjectiveLoop()
 
-  // Three short lines. The premise lives in the letter itself now; chat only
-  // says what to do (writer-brief rule 3 keeps the destination line verbatim).
+  // A5: ONE title card and at most TWO chat lines. The premise lives in the letter
+  // itself; chat only says what to do (writer-brief rule 3 keeps the destination
+  // line verbatim). The third line -- "right-click the Quest Book" -- moved to the
+  // self-dismissing login nudge in PlayerEvents.loggedIn, so it can repeat for a
+  // player who never opens the book and vanish forever for one who does.
   let lines = [
     [{ text: 'A letter from ', color: 'white' }, { text: 'Josie Kettle', color: 'gold' },
      { text: ' is in your bag. Read all four pages.', color: 'white' }]
@@ -1066,7 +1091,6 @@ function valleyFirstJoin(server, player, name) {
       { text: '.', color: 'white' }
     ])
   }
-  lines.push([{ text: 'Right-click the Quest Book in your bag (or press J). There is exactly one thing to do.', color: 'gray', italic: true }])
   lines.forEach((l, i) => {
     valleyDelay(20 + i * 20, s => s.runCommandSilent('tellraw ' + name + ' ' + JSON.stringify(l)))
   })

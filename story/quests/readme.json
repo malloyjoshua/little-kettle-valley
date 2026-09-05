@@ -1,0 +1,204 @@
+{
+ "chapter": {
+  "key": "readme",
+  "title": "Read Me First",
+  "subtitle": [
+   "Nine short pages about the book itself.",
+   "No dependencies, no rewards, nothing here can be missed."
+  ],
+  "icon": "minecraft:book",
+  "group": "Story",
+  "order": 0
+ },
+ "quests": [
+  {
+   "key": "rm_book",
+   "title": "How This Book Works",
+   "subtitle": "Chapters are the tabs down the left edge.",
+   "icon": "minecraft:book",
+   "description": [
+    "This is the whole book. Chapters are the tabs down the left edge; this one is the top one and it never locks.",
+    "",
+    "Every quest is drawn from the day you open it. A quest you cannot start yet sits greyed out with its title and subtitle still readable, so you can see what is coming and how far off it is."
+   ],
+   "x": 0.0,
+   "y": -1.5,
+   "deps": [],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": []
+  },
+  {
+   "key": "rm_notimer",
+   "title": "Nothing Here Is Timed",
+   "subtitle": "No clock, no fail state, no penalty.",
+   "icon": "minecraft:clock",
+   "description": [
+    "No quest in this pack has a timer, and none of them can be failed.",
+    "",
+    "Crops keep. Neighbours wait. The seasons turn on the calendar and not on you, and a quest left half done in spring is exactly where you left it in autumn."
+   ],
+   "x": 2.0,
+   "y": -1.5,
+   "deps": [],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": []
+  },
+  {
+   "key": "rm_next",
+   "title": "The Next Line",
+   "subtitle": "One popup per quest, pointing forward.",
+   "icon": "minecraft:paper",
+   "description": [
+    "When a quest ticks, one popup slides in at the top right. It starts with Next: and it names what to do after this, where it is, and who is standing there.",
+    "",
+    "Rewards arrive by themselves at the same moment. There is nothing to click for them."
+   ],
+   "x": 4.0,
+   "y": -1.5,
+   "deps": [],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": []
+  },
+  {
+   "key": "rm_oda",
+   "title": "Oda's Counter Is the Shortcut",
+   "subtitle": "She sells the dull half for Scrip.",
+   "icon": "valley:scrip",
+   "description": [
+    "Oda's Counter is a second tab, under Side Quests. It opens once her store does.",
+    "",
+    "Cooking, fishing, planting and running parcels pay Valley Scrip. Scrip buys casings, alloys, ducts, seeds and furniture over her counter. If a crafting step is annoying, buy it instead."
+   ],
+   "x": 0.0,
+   "y": 0.0,
+   "deps": [],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": []
+  },
+  {
+   "key": "rm_order",
+   "title": "Order Barely Matters",
+   "subtitle": "Out of sequence is still the story.",
+   "icon": "minecraft:oak_sign",
+   "description": [
+    "A quest waits for the ones drawn into it and for nothing else.",
+    "",
+    "Mill the flour before the kitchen or the kitchen before the mill; both roads meet. Anything you walk past is still standing there next season, and no side branch you skip takes the story with it."
+   ],
+   "x": 2.0,
+   "y": 0.0,
+   "deps": [],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": []
+  },
+  {
+   "key": "rm_journal",
+   "title": "The Journal and the Compass",
+   "subtitle": "Josie's notes, and the way to the farm.",
+   "icon": "patchouli:guide_book",
+   "description": [
+    "The Valley Journal is in your bag. Right-click it: five entries in Josie's hand, and a field note for every machine the book asks you to build.",
+    "",
+    "The compass next to it points at the Kettle farm, not at spawn."
+   ],
+   "x": 4.0,
+   "y": 0.0,
+   "deps": [],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": []
+  },
+  {
+   "key": "rm_folk",
+   "title": "Who Lives Here",
+   "subtitle": "Eight neighbours. Fifteen by the end.",
+   "icon": "minecraft:bread",
+   "description": [
+    "Marnie, Bram, Oda, Halden, Tobin, Wisp, Pip and Nella.",
+    "",
+    "Right-click any of them and they say something. What they say changes as their part of the valley moves, so the same neighbour on day forty is not the sentence you got on day three. The bar at the top of the screen counts them."
+   ],
+   "x": 0.0,
+   "y": 1.5,
+   "deps": [],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": []
+  },
+  {
+   "key": "rm_lanes",
+   "title": "Two Lanes, One Valley",
+   "subtitle": "Cooking counts. So does the reactor.",
+   "icon": "create:cogwheel",
+   "description": [
+    "The book braids a cozy lane — food, animals, planting, decorating — through a tech lane — Create, then Thermal, then the network and the reactor.",
+    "",
+    "Every third quest or so wants something the other lane made. Either lane on its own is a way through the pack."
+   ],
+   "x": 2.0,
+   "y": 1.5,
+   "deps": [],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": []
+  },
+  {
+   "key": "rm_world",
+   "title": "One Valley, Everyone In It",
+   "subtitle": "The same map, the same forty lamps.",
+   "icon": "minecraft:lantern",
+   "description": [
+    "There is one valley and everybody plays in it. The lamps that get lit, the buildings that go up and the people who move in are the same for whoever else is logged in.",
+    "",
+    "Quest progress is shared across your party, so a quest one of you finishes is finished for both."
+   ],
+   "x": 4.0,
+   "y": 1.5,
+   "deps": [],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": []
+  }
+ ]
+}

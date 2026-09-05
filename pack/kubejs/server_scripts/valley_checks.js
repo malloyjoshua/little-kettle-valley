@@ -388,6 +388,23 @@ ItemEvents.rightClicked('minecraft:written_book', event => {
 ItemEvents.rightClicked('valley:letter', event => letterRead(event.player))
 
 // -----------------------------------------------------------------------------
+// A5 -- the kill switch for the login nudge.
+// valley_core.js sends one aqua "right-click the Quest Book" line on every login
+// while the player lacks the read_quest stage. Opening the book once sets that
+// stage permanently, so the nudge is gone from that moment on, for this login and
+// every future one. This is Create: Astral's exact mechanism (its interaction.js
+// gates the same line on the same stage name).
+//
+// Not a quest gate: nothing in the book depends on read_quest, so a right-click
+// that never reaches the server costs the player a chat line and nothing else.
+// -----------------------------------------------------------------------------
+ItemEvents.rightClicked('ftbquests:book', event => {
+  let player = event.player
+  if (!player || player.level.isClientSide()) return
+  if (!player.stages.has('read_quest')) player.stages.add('read_quest')
+})
+
+// -----------------------------------------------------------------------------
 // Q28 — "Read the Rock." Six uses of Tobin's prospector pick.
 // Counted per world in persistentData, which is what the quest text promises
 // ("the 6 spots he marked"), rather than off the cumulative vanilla stat.

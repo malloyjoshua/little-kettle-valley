@@ -9,7 +9,7 @@
   ],
   "icon": "minecraft:sunflower",
   "group": "Story",
-  "order": 1
+  "order": 3
  },
  "quests": [
   {
@@ -215,7 +215,7 @@
    "key": "q22",
    "title": "Catch 10 Fish and Cook One in the Skillet",
    "subtitle": "Any ten fish, then one cooked cod.",
-   "icon": "aquaculture:fish_fillet_cooked",
+   "icon": "minecraft:cooked_cod",
    "description": [
     "Nella: \"Ten, any ten. The lake isn't fussy and neither am I.\"",
     "",
@@ -381,7 +381,7 @@
    "key": "q24",
    "title": "Put Up the Trellis and Plant 4 Grape Starts",
    "subtitle": "8 lattice panels, 4 grape starts, two waterings.",
-   "icon": "vinery:red_grape_seeds",
+   "icon": "vinery:red_grape",
    "description": [
     "Halden: \"South slope, morning sun, out of the wind. Josie argued with me about this spot for nine years.\"",
     "",
@@ -394,6 +394,7 @@
    ],
    "shape": "circle",
    "size": 1.0,
+   "optional": true,
    "tasks": [
     {
      "type": "item",
@@ -796,6 +797,7 @@
    ],
    "shape": "circle",
    "size": 1.0,
+   "min_width": 300,
    "tasks": [
     {
      "type": "item",
@@ -1239,6 +1241,7 @@
    ],
    "shape": "gear",
    "size": 2.0,
+   "min_required_deps": 2,
    "tasks": [
     {
      "type": "item",

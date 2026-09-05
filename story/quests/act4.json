@@ -9,7 +9,7 @@
   ],
   "icon": "minecraft:campfire",
   "group": "Story",
-  "order": 3
+  "order": 5
  },
  "quests": [
   {
@@ -328,6 +328,7 @@
    "deps": [
     "q59"
    ],
+   "optional": true,
    "tasks": [
     {
      "type": "item",
@@ -382,6 +383,7 @@
    "deps": [
     "q58"
    ],
+   "optional": true,
    "tasks": [
     {
      "type": "item",
@@ -445,6 +447,7 @@
     "q58",
     "q53"
    ],
+   "optional": true,
    "tasks": [
     {
      "type": "item",
@@ -700,6 +703,7 @@
    "deps": [
     "q68a"
    ],
+   "optional": true,
    "tasks": [
     {
      "type": "item",
@@ -762,6 +766,7 @@
    "deps": [
     "q72"
    ],
+   "optional": true,
    "tasks": [
     {
      "type": "checkmark",
@@ -1163,6 +1168,7 @@
    "deps": [
     "q69"
    ],
+   "min_width": 300,
    "tasks": [
     {
      "type": "item",
@@ -1542,6 +1548,8 @@
     "q72",
     "q74"
    ],
+   "min_width": 300,
+   "min_required_deps": 3,
    "tasks": [
     {
      "type": "checkmark",

@@ -5,9 +5,11 @@
 	group: "300129D2A12C0DC3"
 	icon: "minecraft:hay_block"
 	id: "06DE5A59EF33292E"
-	order_index: 2
+	order_index: 4
 	quest_links: [ ]
 	subtitle: ["Autumn, Year One", "Fill the granary and finish Josie's storage system before winter — and feed the whole town at the Harvest Supper.", "Forty lamps. Fifteen people. One winter that nobody leaves."]
+	hide_quest_until_deps_complete: false
+	hide_quest_details_until_startable: false
 	quests: [
 		{
 			id: "379DF28AF21498E4"
@@ -20,10 +22,10 @@
 			dependencies: ["551AAB093CEA5743"]
 			shape: "hexagon"
 			size: 1.5d
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "0A26D68617DBB657", type: "item", item: "valley:token_oda", count: 1L, consume_items: true }]
-			rewards: [{ id: "4E5A706B1E91E20F", type: "item", auto: "enabled", item: "valley:scrip", count: 30 }, { id: "50760B1EFFFD756C", type: "command", title: "Josie's Journal", auto: "enabled", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "2CBBFECBE5EC9306", type: "item", auto: "enabled", item: "minecraft:filled_map" }, { id: "07EA2B9EB0A7AE7B", type: "command", auto: "enabled", command: "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Twelve alcoves in the granary shell. Twelve drawers. Nobody is going hungry on my arithmetic.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "56FCAD039FF18AD8", type: "toast", title: "The ledger is open", auto: "enabled", description: "Next: twelve drawers into the granary's twelve alcoves, and the autumn seed pack into the marked beds." }]
+			rewards: [{ id: "4E5A706B1E91E20F", type: "item", auto: "no_toast", item: "valley:scrip", count: 30 }, { id: "50760B1EFFFD756C", type: "command", title: "Josie's Journal", auto: "invisible", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "2CBBFECBE5EC9306", type: "item", auto: "no_toast", item: "minecraft:filled_map" }, { id: "07EA2B9EB0A7AE7B", type: "command", auto: "invisible", command: "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Twelve alcoves in the granary shell. Twelve drawers. Nobody is going hungry on my arithmetic.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "56FCAD039FF18AD8", type: "toast", title: "The ledger is open", auto: "enabled", description: "Next: twelve drawers into the granary's twelve alcoves, and the autumn seed pack into the marked beds." }]
 		}
 		{
 			id: "76C4B9946F943E38"
@@ -34,10 +36,10 @@
 			x: 2.0d
 			y: -1.5d
 			dependencies: ["379DF28AF21498E4"]
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "69F64BA8D6AEE0D7", type: "item", item: "storagedrawers:oak_full_drawers_1", count: 12L }, { id: "714C0E903C58241A", type: "checkmark", title: "All twelve alcoves filled." }]
-			rewards: [{ id: "47E446091D131BA6", type: "item", auto: "enabled", item: "waystones:waystone" }, { id: "5882054579F667FF", type: "item", auto: "enabled", item: "storagedrawers:controller" }, { id: "5581D1B3D00E0FF3", type: "item", auto: "enabled", item: "storagedrawers:copper_storage_upgrade", count: 12 }, { id: "3F9A25A282BF4DCE", type: "item", auto: "enabled", item: "storagedrawers:drawer_key" }, { id: "4204AFB10F706FCD", type: "stage", auto: "enabled", stage: "granary" }, { id: "0CD5636AFA9019D9", type: "command", auto: "enabled", command: "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"The key's brass. My initials are scratched off it and yours are scratched on. Don't lose it.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "0AFB4D111BECCDE7", type: "command", auto: "enabled", command: "advancement grant @a only valley:journal/found_4", elevate_perms: true, silent: true }, { id: "00A2636888D2CE0A", type: "toast", title: "Granary stocked", auto: "enabled", description: "Next: the four marked beds behind the inn — pumpkin, beetroot, oats and barley, four of each." }]
+			rewards: [{ id: "47E446091D131BA6", type: "item", auto: "no_toast", item: "waystones:waystone" }, { id: "5882054579F667FF", type: "item", auto: "no_toast", item: "storagedrawers:controller" }, { id: "5581D1B3D00E0FF3", type: "item", auto: "no_toast", item: "storagedrawers:copper_storage_upgrade", count: 12 }, { id: "3F9A25A282BF4DCE", type: "item", auto: "no_toast", item: "storagedrawers:drawer_key" }, { id: "4204AFB10F706FCD", type: "stage", auto: "invisible", stage: "granary" }, { id: "0CD5636AFA9019D9", type: "command", auto: "invisible", command: "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"The key's brass. My initials are scratched off it and yours are scratched on. Don't lose it.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "0AFB4D111BECCDE7", type: "command", auto: "invisible", command: "advancement grant @a only valley:journal/found_4", elevate_perms: true, silent: true }, { id: "00A2636888D2CE0A", type: "toast", title: "Granary stocked", auto: "enabled", description: "Next: the four marked beds behind the inn — pumpkin, beetroot, oats and barley, four of each." }]
 		}
 		{
 			id: "5C9E4AA1B6ADCEA6"
@@ -48,10 +50,10 @@
 			x: 2.0d
 			y: 0.0d
 			dependencies: ["379DF28AF21498E4"]
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "626E80E226B740F1", type: "item", item: "minecraft:pumpkin_seeds", count: 4L }, { id: "5DCA169C36495D2B", type: "item", item: "minecraft:beetroot_seeds", count: 4L }, { id: "152C76F39F44ECCB", type: "item", item: "bakery:oat_seeds", count: 4L }, { id: "19CD4C2CC4D49AD3", type: "item", item: "thermal:barley_seeds", count: 4L }]
-			rewards: [{ id: "09FB5C19F1219FC0", type: "item", auto: "enabled", item: "farm_and_charm:scarecrow" }, { id: "5EA3AB184DFEAEAB", type: "command", title: "Josie's Journal", auto: "enabled", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "4E913FA34D1132E4", type: "item", auto: "enabled", item: "minecraft:egg", count: 32 }, { id: "278B4BBD42CF1AC0", type: "item", auto: "enabled", item: "minecraft:sugar", count: 32 }, { id: "1CC988A72299E10F", type: "item", auto: "enabled", item: "farmersdelight:milk_bottle", count: 12 }, { id: "59F71BDEF1CCAFDA", type: "item", auto: "enabled", item: "minecraft:beef", count: 32 }, { id: "7F1EDC9A1FF51924", type: "item", auto: "enabled", item: "minecraft:apple", count: 16 }, { id: "45F7DAE2CB62083D", type: "item", auto: "enabled", item: "bakery:jar", count: 12 }, { id: "635680FBF8088D56", type: "loot", auto: "enabled", table_id: 6428311738069300697L }, { id: "26A91E1039ADF1B1", type: "toast", title: "Autumn sown", auto: "enabled", description: "Next: Halden is waiting at the hedge garden gate to walk you up to the spring." }]
+			rewards: [{ id: "09FB5C19F1219FC0", type: "item", auto: "no_toast", item: "farm_and_charm:scarecrow" }, { id: "5EA3AB184DFEAEAB", type: "command", title: "Josie's Journal", auto: "invisible", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "4E913FA34D1132E4", type: "item", auto: "no_toast", item: "minecraft:egg", count: 32 }, { id: "278B4BBD42CF1AC0", type: "item", auto: "no_toast", item: "minecraft:sugar", count: 32 }, { id: "1CC988A72299E10F", type: "item", auto: "no_toast", item: "farmersdelight:milk_bottle", count: 12 }, { id: "59F71BDEF1CCAFDA", type: "item", auto: "no_toast", item: "minecraft:beef", count: 32 }, { id: "7F1EDC9A1FF51924", type: "item", auto: "no_toast", item: "minecraft:apple", count: 16 }, { id: "45F7DAE2CB62083D", type: "item", auto: "no_toast", item: "bakery:jar", count: 12 }, { id: "635680FBF8088D56", type: "loot", auto: "no_toast", table_id: 6428311738069300697L }, { id: "26A91E1039ADF1B1", type: "toast", title: "Autumn sown", auto: "enabled", description: "Next: Halden is waiting at the hedge garden gate to walk you up to the spring." }]
 		}
 		{
 			id: "12F011564E219F52"
@@ -62,10 +64,10 @@
 			x: 4.0d
 			y: -1.5d
 			dependencies: ["5C9E4AA1B6ADCEA6"]
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "7C48DCF34C39D9C6", type: "item", item: "valley:spring_water", count: 3L, consume_items: true }, { id: "48AA6AB10DC54AF3", type: "checkmark", title: "You are standing at the spring above the hedge garden" }]
-			rewards: [{ id: "4272092AC864785B", type: "item", auto: "enabled", item: "valley:spring_water", count: 6 }, { id: "70D786EA782D6C0C", type: "item", auto: "enabled", item: "ae2:certus_quartz_crystal", count: 16 }, { id: "2ADA794E479DA8BF", type: "item", auto: "enabled", item: "herbalbrews:tea_kettle" }, { id: "6316D0CEC7217DE6", type: "item", auto: "enabled", item: "herbalbrews:copper_tea_kettle" }, { id: "7FE1FAB13191BC99", type: "stage", auto: "enabled", stage: "springwater" }, { id: "5239DAA62F015BBE", type: "command", auto: "enabled", command: "/tellraw @p [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"She left the jar with me. I never asked what for. I think I knew.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "5A4EF578817FCCAD", type: "command", auto: "enabled", command: "/tellraw @p [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"She walked that slope in February in her shirtsleeves and called it good circulation, and snow never sat on it.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "1407319A00B5E65F", type: "toast", title: "Spring Water bottled", auto: "enabled", description: "Next: Marnie's crate by the counter — 4 pies, 4 jams and 4 jars of pickles." }]
+			rewards: [{ id: "4272092AC864785B", type: "item", auto: "no_toast", item: "valley:spring_water", count: 6 }, { id: "70D786EA782D6C0C", type: "item", auto: "no_toast", item: "ae2:certus_quartz_crystal", count: 16 }, { id: "2ADA794E479DA8BF", type: "item", auto: "no_toast", item: "herbalbrews:tea_kettle" }, { id: "6316D0CEC7217DE6", type: "item", auto: "no_toast", item: "herbalbrews:copper_tea_kettle" }, { id: "7FE1FAB13191BC99", type: "stage", auto: "invisible", stage: "springwater" }, { id: "5239DAA62F015BBE", type: "command", auto: "invisible", command: "/tellraw @p [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"She left the jar with me. I never asked what for. I think I knew.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "5A4EF578817FCCAD", type: "command", auto: "invisible", command: "/tellraw @p [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"She walked that slope in February in her shirtsleeves and called it good circulation, and snow never sat on it.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "1407319A00B5E65F", type: "toast", title: "Spring Water bottled", auto: "enabled", description: "Next: Marnie's crate by the counter — 4 pies, 4 jams and 4 jars of pickles." }]
 		}
 		{
 			id: "2340A46B5E7C8359"
@@ -76,10 +78,11 @@
 			x: 4.0d
 			y: 0.0d
 			dependencies: ["5C9E4AA1B6ADCEA6"]
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			min_width: 300
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "5D6F8C89BE3A1EF3", type: "item", item: "farmersdelight:apple_pie", count: 4L }, { id: "4E7C183094473F4B", type: "item", item: "handcrafted:berry_jam_jar", count: 4L }, { id: "054A5CF10C8B0FA5", type: "item", item: "supplementaries:jar", count: 4L }]
-			rewards: [{ id: "5AD24BBF96A5E757", type: "item", auto: "enabled", item: "handcrafted:wood_crockery_combo", count: 4 }, { id: "3407546A171D0AE1", type: "item", auto: "enabled", item: "bakery:cabinet" }, { id: "002D06F202A29C95", type: "item", auto: "enabled", item: "farm_and_charm:tool_rack" }, { id: "56A9CCCBD0179E64", type: "command", title: "Josie's Journal", auto: "enabled", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "729C96A25638EF97", type: "item", auto: "enabled", item: "cookingforblockheads:spice_rack", count: 2 }, { id: "6118B8930BA0F9D2", type: "toast", title: "Larder stocked", auto: "enabled", description: "Next: the inn kitchen — 4 loaves, 2 pies and 2 cakes. Josie's drying rack is in your pack for the hams after it." }]
+			rewards: [{ id: "5AD24BBF96A5E757", type: "item", auto: "no_toast", item: "handcrafted:wood_crockery_combo", count: 4 }, { id: "3407546A171D0AE1", type: "item", auto: "no_toast", item: "bakery:cabinet" }, { id: "002D06F202A29C95", type: "item", auto: "no_toast", item: "farm_and_charm:tool_rack" }, { id: "56A9CCCBD0179E64", type: "command", title: "Josie's Journal", auto: "invisible", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "729C96A25638EF97", type: "item", auto: "no_toast", item: "cookingforblockheads:spice_rack", count: 2 }, { id: "6118B8930BA0F9D2", type: "toast", title: "Larder stocked", auto: "enabled", description: "Next: the inn kitchen — 4 loaves, 2 pies and 2 cakes. Josie's drying rack is in your pack for the hams after it." }]
 		}
 		{
 			id: "177A495F36B16021"
@@ -90,10 +93,10 @@
 			x: 6.0d
 			y: -1.5d
 			dependencies: ["2340A46B5E7C8359"]
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "77E82A3944166D6C", type: "item", item: "minecraft:bread", count: 4L }, { id: "153E239A47ACCA03", type: "item", item: "farmersdelight:chocolate_pie", count: 2L }, { id: "5E08EE95A2E60D96", type: "item", item: "minecraft:cake", count: 2L }]
-			rewards: [{ id: "68BFBA3BF133335A", type: "item", auto: "enabled", item: "bakery:cake_stand", count: 2 }, { id: "4BB4355833C2EE2B", type: "item", auto: "enabled", item: "bakery:bread_crate", count: 2 }, { id: "747990D6FD6B6A4B", type: "item", auto: "enabled", item: "vinery:winemaker_apron" }, { id: "11EBE1E319274CB4", type: "item", auto: "enabled", item: "perfectplushies:hedgehog_plushie" }, { id: "435ECBB27FFFD068", type: "loot", auto: "enabled", table_id: 6428311738069300697L }, { id: "1928D5851DE82370", type: "command", auto: "enabled", command: "/tellraw @p [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"That's the first full oven since Josie. Oda will want it written down, and she can wait until morning.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "5DEA113E747BDC7F", type: "toast", title: "The oven is full", auto: "enabled", description: "Next: Pip has three parcels on the counter and is already shouting about them." }]
+			rewards: [{ id: "68BFBA3BF133335A", type: "item", auto: "no_toast", item: "bakery:cake_stand", count: 2 }, { id: "4BB4355833C2EE2B", type: "item", auto: "no_toast", item: "bakery:bread_crate", count: 2 }, { id: "747990D6FD6B6A4B", type: "item", auto: "no_toast", item: "vinery:winemaker_apron" }, { id: "11EBE1E319274CB4", type: "item", auto: "no_toast", item: "perfectplushies:hedgehog_plushie" }, { id: "435ECBB27FFFD068", type: "loot", auto: "no_toast", table_id: 6428311738069300697L }, { id: "1928D5851DE82370", type: "command", auto: "invisible", command: "/tellraw @p [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"That's the first full oven since Josie. Oda will want it written down, and she can wait until morning.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "5DEA113E747BDC7F", type: "toast", title: "The oven is full", auto: "enabled", description: "Next: Pip has three parcels on the counter and is already shouting about them." }]
 		}
 		{
 			id: "2BA1B3E087841436"
@@ -104,10 +107,10 @@
 			x: 8.0d
 			y: -1.5d
 			dependencies: ["177A495F36B16021"]
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "0B8E69FA112544F5", type: "item", item: "valley:courier_parcel", count: 3L, consume_items: true }]
-			rewards: [{ id: "414BC866D25BE101", type: "item", auto: "enabled", item: "thermal:satchel" }, { id: "2F883D957CC11847", type: "item", auto: "enabled", item: "minecraft:painting" }, { id: "24C2E56F3FCA315C", type: "item", auto: "enabled", item: "valley:scrip", count: 15 }, { id: "4B5B95192EEB8FB4", type: "toast", title: "Three parcels delivered", auto: "enabled", description: "Next: hang 8 Smoked Ham on Josie's drying rack in the shed behind the inn." }]
+			rewards: [{ id: "414BC866D25BE101", type: "item", auto: "no_toast", item: "thermal:satchel" }, { id: "2F883D957CC11847", type: "item", auto: "no_toast", item: "minecraft:painting" }, { id: "24C2E56F3FCA315C", type: "item", auto: "no_toast", item: "valley:scrip", count: 15 }, { id: "4B5B95192EEB8FB4", type: "toast", title: "Three parcels delivered", auto: "enabled", description: "Next: hang 8 Smoked Ham on Josie's drying rack in the shed behind the inn." }]
 		}
 		{
 			id: "353BBFB416B61074"
@@ -118,10 +121,10 @@
 			x: 10.0d
 			y: -1.5d
 			dependencies: ["2BA1B3E087841436"]
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "71BDEC55F3226A6C", type: "item", item: "farmersdelight:smoked_ham", count: 8L, consume_items: true }, { id: "154D85D15C405D8B", type: "checkmark", title: "Eight hams hung on the rack." }]
-			rewards: [{ id: "2069E5F7B63CD19B", type: "item", auto: "enabled", item: "farmersdelight:ham", count: 32 }, { id: "1175608485AFC581", type: "item", auto: "enabled", item: "farmersdelight:stove" }, { id: "4DFCA76CD80E2F69", type: "item", auto: "enabled", item: "handcrafted:oak_counter", count: 4 }, { id: "088FC8D80362CDC6", type: "item", auto: "enabled", item: "supplementaries:sconce", count: 8 }, { id: "17847E633B83B80D", type: "stage", auto: "enabled", stage: "larder" }, { id: "423067B7457DF5AD", type: "command", auto: "enabled", command: "/tellraw @p [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"That's meat in February. I have not been able to say that sentence in eleven years.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "04C10BEB019CF0E0", type: "toast", title: "The larder is closed", auto: "enabled", description: "Next: the two upstairs bedrooms at the inn. Bed, rug, lantern and chest on each marked spot." }]
+			rewards: [{ id: "2069E5F7B63CD19B", type: "item", auto: "no_toast", item: "farmersdelight:ham", count: 32 }, { id: "1175608485AFC581", type: "item", auto: "no_toast", item: "farmersdelight:stove" }, { id: "4DFCA76CD80E2F69", type: "item", auto: "no_toast", item: "handcrafted:oak_counter", count: 4 }, { id: "088FC8D80362CDC6", type: "item", auto: "no_toast", item: "supplementaries:sconce", count: 8 }, { id: "17847E633B83B80D", type: "stage", auto: "invisible", stage: "larder" }, { id: "423067B7457DF5AD", type: "command", auto: "invisible", command: "/tellraw @p [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"That's meat in February. I have not been able to say that sentence in eleven years.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "04C10BEB019CF0E0", type: "toast", title: "The larder is closed", auto: "enabled", description: "Next: the two upstairs bedrooms at the inn. Bed, rug, lantern and chest on each marked spot." }]
 		}
 		{
 			id: "6B74496143CDDB11"
@@ -132,10 +135,10 @@
 			x: 12.0d
 			y: -0.8d
 			dependencies: ["353BBFB416B61074"]
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "7516C730FE4007A4", type: "checkmark", title: "Bed, rug, lantern and chest on all eight marked spots." }]
-			rewards: [{ id: "1E907EEA3820490B", type: "item", auto: "enabled", item: "valley:letter" }, { id: "56A46CE4D10F55EC", type: "item", auto: "enabled", item: "handcrafted:oak_nightstand", count: 2 }, { id: "5E8C914BA4EB18D3", type: "item", auto: "enabled", item: "handcrafted:white_sheet", count: 4 }, { id: "4D5E1591D716C77E", type: "item", auto: "enabled", item: "valley:scrip", count: 15 }, { id: "63BC69B4AC82C0EE", type: "loot", auto: "enabled", table_id: 6428311738069300697L }, { id: "3072863A42580378", type: "toast", title: "Two rooms to let", auto: "enabled", description: "Next: Wisp is downstream at the marsh beds — 12 rice, ripe on the same day. There is a letter in your bag from the first person who wants a room." }]
+			rewards: [{ id: "1E907EEA3820490B", type: "item", auto: "no_toast", item: "valley:letter" }, { id: "56A46CE4D10F55EC", type: "item", auto: "no_toast", item: "handcrafted:oak_nightstand", count: 2 }, { id: "5E8C914BA4EB18D3", type: "item", auto: "no_toast", item: "handcrafted:white_sheet", count: 4 }, { id: "4D5E1591D716C77E", type: "item", auto: "no_toast", item: "valley:scrip", count: 15 }, { id: "63BC69B4AC82C0EE", type: "loot", auto: "no_toast", table_id: 6428311738069300697L }, { id: "3072863A42580378", type: "toast", title: "Two rooms to let", auto: "enabled", description: "Next: Wisp is downstream at the marsh beds — 12 rice, ripe on the same day. There is a letter in your bag from the first person who wants a room." }]
 		}
 		{
 			id: "5B08E1A0810FCBFF"
@@ -146,10 +149,10 @@
 			x: 14.0d
 			y: -0.8d
 			dependencies: ["6B74496143CDDB11"]
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "1EAF1DAC43AC1F9C", type: "item", item: "farmersdelight:rice_panicle", count: 12L, consume_items: true }]
-			rewards: [{ id: "070184D3E1947DAF", type: "item", auto: "enabled", item: "farmersdelight:rice_panicle", count: 16 }, { id: "2814B9C0E25BD17E", type: "item", auto: "enabled", item: "ribbits:swamp_lantern", count: 8 }, { id: "49CCE70DED496D27", type: "item", auto: "enabled", item: "ribbits:giant_lilypad", count: 4 }, { id: "217E6FA3FF9E40A8", type: "item", auto: "enabled", item: "ribbits:toadstool", count: 8 }, { id: "57CB7CEC76F87645", type: "item", auto: "enabled", item: "perfectplushies:frog_plushie" }, { id: "011513D8087A2AB5", type: "item", auto: "enabled", item: "valley:scrip", count: 15 }, { id: "74249132DD30F7FB", type: "toast", title: "Marsh harvest in", auto: "enabled", description: "Next: Nella is on the pier. Eight fillets salted into the granary before the lake turns." }]
+			rewards: [{ id: "070184D3E1947DAF", type: "item", auto: "no_toast", item: "farmersdelight:rice_panicle", count: 16 }, { id: "2814B9C0E25BD17E", type: "item", auto: "no_toast", item: "ribbits:swamp_lantern", count: 8 }, { id: "49CCE70DED496D27", type: "item", auto: "no_toast", item: "ribbits:giant_lilypad", count: 4 }, { id: "217E6FA3FF9E40A8", type: "item", auto: "no_toast", item: "ribbits:toadstool", count: 8 }, { id: "57CB7CEC76F87645", type: "item", auto: "no_toast", item: "perfectplushies:frog_plushie" }, { id: "011513D8087A2AB5", type: "item", auto: "no_toast", item: "valley:scrip", count: 15 }, { id: "74249132DD30F7FB", type: "toast", title: "Marsh harvest in", auto: "enabled", description: "Next: Nella is on the pier. Eight fillets salted into the granary before the lake turns." }]
 		}
 		{
 			id: "2A58745479C32D0A"
@@ -160,10 +163,11 @@
 			x: 16.0d
 			y: 0.0d
 			dependencies: ["5B08E1A0810FCBFF"]
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			optional: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "59484E6AC63373AB", type: "item", item: "aquaculture:fish_fillet_cooked", count: 8L, consume_items: true }]
-			rewards: [{ id: "11437763F7807ECF", type: "item", auto: "enabled", item: "minecraft:barrel" }, { id: "3CF13659AE3D8261", type: "item", auto: "enabled", item: "aquaculture:oak_fish_mount", count: 2 }, { id: "23909F2647A0998F", type: "item", auto: "enabled", item: "aquaculture:iron_fishing_rod" }, { id: "40F5585D089A6AE7", type: "item", auto: "enabled", item: "minecraft:bowl", count: 12 }, { id: "7EF936AD2D142A95", type: "item", auto: "enabled", item: "minecraft:brick", count: 12 }, { id: "3CB2A06F2D953E53", type: "item", auto: "enabled", item: "minecraft:iron_ingot", count: 12 }, { id: "1390954985D35C7B", type: "item", auto: "enabled", item: "minecraft:copper_ingot", count: 12 }, { id: "7766FF2D21A8BC9D", type: "item", auto: "enabled", item: "valley:scrip", count: 15 }, { id: "31FC09C65F9BFB1F", type: "command", auto: "enabled", command: "/tellraw @p [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"Eight. Fine. That's the lake settled.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "61361420E93AB8F0", type: "toast", title: "Fish in the granary", auto: "enabled", description: "Next: the long table. Twelve Place Settings come out of Marnie's bowls and bricks, and the centrepiece once the cellar is open." }]
+			rewards: [{ id: "11437763F7807ECF", type: "item", auto: "no_toast", item: "minecraft:barrel" }, { id: "3CF13659AE3D8261", type: "item", auto: "no_toast", item: "aquaculture:oak_fish_mount", count: 2 }, { id: "23909F2647A0998F", type: "item", auto: "no_toast", item: "aquaculture:iron_fishing_rod" }, { id: "40F5585D089A6AE7", type: "item", auto: "no_toast", item: "minecraft:bowl", count: 12 }, { id: "7EF936AD2D142A95", type: "item", auto: "no_toast", item: "minecraft:brick", count: 12 }, { id: "3CB2A06F2D953E53", type: "item", auto: "no_toast", item: "minecraft:iron_ingot", count: 12 }, { id: "1390954985D35C7B", type: "item", auto: "no_toast", item: "minecraft:copper_ingot", count: 12 }, { id: "7766FF2D21A8BC9D", type: "item", auto: "no_toast", item: "valley:scrip", count: 15 }, { id: "31FC09C65F9BFB1F", type: "command", auto: "invisible", command: "/tellraw @p [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"Eight. Fine. That's the lake settled.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "61361420E93AB8F0", type: "toast", title: "Fish in the granary", auto: "enabled", description: "Next: the long table. Twelve Place Settings come out of Marnie's bowls and bricks, and the centrepiece once the cellar is open." }]
 		}
 		{
 			id: "34538B89B64CC7D7"
@@ -176,10 +180,10 @@
 			dependencies: ["044F10540A7996F8"]
 			shape: "hexagon"
 			size: 1.5d
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "63F247500B90873C", type: "checkmark", title: "Adit cleared and the Lootr chest opened" }]
-			rewards: [{ id: "005C9ABD818304CC", type: "item", auto: "enabled", item: "valley:kettle_plate_a" }, { id: "62CD04FF347948EF", type: "item", auto: "enabled", item: "geolosys:prospectors_pick" }, { id: "4E752BE90727A847", type: "item", auto: "enabled", item: "minecraft:raw_copper", count: 48 }, { id: "58519312D108782B", type: "item", auto: "enabled", item: "thermal:raw_tin", count: 16 }, { id: "0F2F85A5F1EC0162", type: "item", auto: "enabled", item: "minecraft:raw_gold", count: 16 }, { id: "7A8C46BD66592EF6", type: "item", auto: "enabled", item: "thermal:raw_silver", count: 16 }, { id: "0FC7D9A142C8CABA", type: "loot", auto: "enabled", table_id: 1574160642622613271L }, { id: "338CEEBF87782D7F", type: "command", auto: "enabled", command: "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Copper, iron, gold AND silver, all in one run, and I'm going to talk about it for a week.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "0C6A04C374DDA87B", type: "command", auto: "enabled", command: "title @p times 10 70 20", elevate_perms: true, silent: true }, { id: "271563A6B031F59A", type: "command", auto: "enabled", command: "title @p subtitle {\"text\": \"Forty blocks of rock. Something behind.\", \"color\": \"gray\", \"italic\": true}", elevate_perms: true, silent: true }, { id: "2E33DF8DA4D47583", type: "command", auto: "enabled", command: "title @p title {\"text\": \"Tobin's Adit\", \"color\": \"gold\"}", elevate_perms: true, silent: true }, { id: "5AC3567901240A44", type: "command", auto: "enabled", command: "execute at @p run playsound minecraft:block.bell.resonate master @p ~ ~ ~ 1 1", elevate_perms: true, silent: true }, { id: "16FB0FF1A7BC3774", type: "toast", title: "The adit is open", auto: "enabled", description: "Next: build a Thermal Induction Smelter at the mill and run Tobin's raw ore through it — 16 bronze and 16 electrum." }]
+			rewards: [{ id: "005C9ABD818304CC", type: "item", auto: "no_toast", item: "valley:kettle_plate_a" }, { id: "62CD04FF347948EF", type: "item", auto: "no_toast", item: "geolosys:prospectors_pick" }, { id: "4E752BE90727A847", type: "item", auto: "no_toast", item: "minecraft:raw_copper", count: 48 }, { id: "58519312D108782B", type: "item", auto: "no_toast", item: "thermal:raw_tin", count: 16 }, { id: "0F2F85A5F1EC0162", type: "item", auto: "no_toast", item: "minecraft:raw_gold", count: 16 }, { id: "7A8C46BD66592EF6", type: "item", auto: "no_toast", item: "thermal:raw_silver", count: 16 }, { id: "0FC7D9A142C8CABA", type: "loot", auto: "no_toast", table_id: 1574160642622613271L }, { id: "338CEEBF87782D7F", type: "command", auto: "invisible", command: "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Copper, iron, gold AND silver, all in one run, and I'm going to talk about it for a week.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "0C6A04C374DDA87B", type: "command", auto: "invisible", command: "title @p times 10 70 20", elevate_perms: true, silent: true }, { id: "271563A6B031F59A", type: "command", auto: "invisible", command: "title @p subtitle {\"text\": \"Forty blocks of rock. Something behind.\", \"color\": \"gray\", \"italic\": true}", elevate_perms: true, silent: true }, { id: "2E33DF8DA4D47583", type: "command", auto: "invisible", command: "title @p title {\"text\": \"Tobin's Adit\", \"color\": \"gold\"}", elevate_perms: true, silent: true }, { id: "5AC3567901240A44", type: "command", auto: "invisible", command: "execute at @p run playsound minecraft:block.bell.resonate master @p ~ ~ ~ 1 1", elevate_perms: true, silent: true }, { id: "16FB0FF1A7BC3774", type: "toast", title: "The adit is open", auto: "enabled", description: "Next: build a Thermal Induction Smelter at the mill and run Tobin's raw ore through it — 16 bronze and 16 electrum." }]
 		}
 		{
 			id: "76EEF65327004696"
@@ -190,10 +194,10 @@
 			x: 2.0d
 			y: 1.5d
 			dependencies: ["34538B89B64CC7D7"]
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "6D8509580A679DD2", type: "item", item: "thermal:machine_smelter", count: 1L }, { id: "37E5F6753CD0E2B4", type: "item", item: "thermal:bronze_ingot", count: 16L, consume_items: true }, { id: "51B2141441900791", type: "item", item: "thermal:electrum_ingot", count: 16L, consume_items: true }]
-			rewards: [{ id: "0202229A2AAC648D", type: "item", auto: "enabled", item: "thermal:machine_centrifuge" }, { id: "3FBE1DEE53C661F3", type: "item", auto: "enabled", item: "thermal:energy_duct", count: 64 }, { id: "5D49F58668AF8362", type: "item", auto: "enabled", item: "thermal:machine_frame", count: 2 }, { id: "49D397878552E8CD", type: "loot", auto: "enabled", table_id: 1001168104822881485L }, { id: "604A7B4A77A4EF7D", type: "toast", title: "Alloys running", auto: "enabled", description: "Next: charge a Thermal Energy Cell and run Energy Duct to the inn. Oda sells Machine Frames at 25 Scrip, and the granary drawers are still not bussed." }]
+			rewards: [{ id: "0202229A2AAC648D", type: "item", auto: "no_toast", item: "thermal:machine_centrifuge" }, { id: "3FBE1DEE53C661F3", type: "item", auto: "no_toast", item: "thermal:energy_duct", count: 64 }, { id: "5D49F58668AF8362", type: "item", auto: "no_toast", item: "thermal:machine_frame", count: 2 }, { id: "49D397878552E8CD", type: "loot", auto: "no_toast", table_id: 1001168104822881485L }, { id: "604A7B4A77A4EF7D", type: "toast", title: "Alloys running", auto: "enabled", description: "Next: charge a Thermal Energy Cell and run Energy Duct to the inn. Oda sells Machine Frames at 25 Scrip, and the granary drawers are still not bussed." }]
 		}
 		{
 			id: "12CF0601171AFE5B"
@@ -204,10 +208,10 @@
 			x: 6.0d
 			y: 0.0d
 			dependencies: ["76EEF65327004696", "2340A46B5E7C8359"]
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "4486DF1A3D0A04D4", type: "item", item: "thermal:energy_cell", count: 1L }, { id: "2375DFB9E9245AE7", type: "checkmark", title: "Energy Duct reaches within 12 blocks of the inn." }]
-			rewards: [{ id: "05A46210A46B085B", type: "item", auto: "enabled", item: "thermal:energy_cell" }, { id: "0192B8759C02BC8F", type: "item", auto: "enabled", item: "cookingforblockheads:fridge" }, { id: "345E8504BD99FBB9", type: "item", auto: "enabled", item: "cookingforblockheads:sink" }, { id: "5BBBE57E1F439EB7", type: "item", auto: "enabled", item: "cookingforblockheads:milk_jar" }, { id: "4A3DB747998B4382", type: "item", auto: "enabled", item: "valley:works_power_tap", count: 4 }, { id: "7C264B7924FFDA19", type: "item", auto: "enabled", item: "thermal:energy_duct", count: 64 }, { id: "2BD493D682869541", type: "command", auto: "enabled", command: "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Fridge works. Told her I was working on it.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "53724A5E2497EDB7", type: "toast", title: "The inn has power", auto: "enabled", description: "Next: a Create train station at the mill and 64 track laid to the square." }]
+			rewards: [{ id: "05A46210A46B085B", type: "item", auto: "no_toast", item: "thermal:energy_cell" }, { id: "0192B8759C02BC8F", type: "item", auto: "no_toast", item: "cookingforblockheads:fridge" }, { id: "345E8504BD99FBB9", type: "item", auto: "no_toast", item: "cookingforblockheads:sink" }, { id: "5BBBE57E1F439EB7", type: "item", auto: "no_toast", item: "cookingforblockheads:milk_jar" }, { id: "4A3DB747998B4382", type: "item", auto: "no_toast", item: "valley:works_power_tap", count: 4 }, { id: "7C264B7924FFDA19", type: "item", auto: "no_toast", item: "thermal:energy_duct", count: 64 }, { id: "2BD493D682869541", type: "command", auto: "invisible", command: "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Fridge works. Told her I was working on it.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "53724A5E2497EDB7", type: "toast", title: "The inn has power", auto: "enabled", description: "Next: a Create train station at the mill and 64 track laid to the square." }]
 		}
 		{
 			id: "169850DC09D3D38C"
@@ -218,10 +222,10 @@
 			x: 4.0d
 			y: 1.5d
 			dependencies: ["76EEF65327004696"]
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "63B9EE9CD252580D", type: "item", item: "create:track_station", count: 1L }, { id: "34F6D6EF70BCDCDA", type: "item", item: "create:track", count: 64L }]
-			rewards: [{ id: "08D94A9B24DD8FEE", type: "item", auto: "enabled", item: "create:railway_casing", count: 8 }, { id: "548F4D5A0B0B3314", type: "item", auto: "enabled", item: "railways:benchcart", count: 2 }, { id: "176188283E47C32E", type: "item", auto: "enabled", item: "railways:conductor_whistle" }, { id: "00262C0561CEA352", type: "item", auto: "enabled", item: "create:desk_bell" }, { id: "0C4987F673105C10", type: "stage", auto: "enabled", stage: "trainline" }, { id: "6D4F80A669724F4E", type: "command", auto: "enabled", command: "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"There is a TRAIN. In the valley. I'm going to need everyone to stop and acknowledge that.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "7BE15A322F9EAB16", type: "toast", title: "The line is live", auto: "enabled", description: "Next: Oda's Delivery Crate is sitting in the station chest. Unload it." }]
+			rewards: [{ id: "08D94A9B24DD8FEE", type: "item", auto: "no_toast", item: "create:railway_casing", count: 8 }, { id: "548F4D5A0B0B3314", type: "item", auto: "no_toast", item: "railways:benchcart", count: 2 }, { id: "176188283E47C32E", type: "item", auto: "no_toast", item: "railways:conductor_whistle" }, { id: "00262C0561CEA352", type: "item", auto: "no_toast", item: "create:desk_bell" }, { id: "0C4987F673105C10", type: "stage", auto: "invisible", stage: "trainline" }, { id: "6D4F80A669724F4E", type: "command", auto: "invisible", command: "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"There is a TRAIN. In the valley. I'm going to need everyone to stop and acknowledge that.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "7BE15A322F9EAB16", type: "toast", title: "The line is live", auto: "enabled", description: "Next: Oda's Delivery Crate is sitting in the station chest. Unload it." }]
 		}
 		{
 			id: "20C583473F9CE279"
@@ -232,10 +236,10 @@
 			x: 6.0d
 			y: 1.5d
 			dependencies: ["169850DC09D3D38C"]
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "3749865DAC99AB20", type: "item", item: "valley:delivery_crate", count: 1L, consume_items: true }]
-			rewards: [{ id: "41D2AB7DF6A8DE97", type: "item", auto: "enabled", item: "valley:scrip", count: 25 }, { id: "2C1EB8660580A873", type: "command", auto: "enabled", command: "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Forty-one of forty-one. That is the first delivery this valley has taken in eleven years. Shop's open properly now.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "5F1A9616F66AD5B1", type: "toast", title: "Oda's shelves fill up", auto: "enabled", description: "Next: plant Certus Quartz Seeds in Halden's Spring Water and grow 32 certus." }]
+			rewards: [{ id: "41D2AB7DF6A8DE97", type: "item", auto: "no_toast", item: "valley:scrip", count: 25 }, { id: "2C1EB8660580A873", type: "command", auto: "invisible", command: "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Forty-one of forty-one. That is the first delivery this valley has taken in eleven years. Shop's open properly now.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "5F1A9616F66AD5B1", type: "toast", title: "Oda's shelves fill up", auto: "enabled", description: "Next: plant Certus Quartz Seeds in Halden's Spring Water and grow 32 certus." }]
 		}
 		{
 			id: "0A2EA8E5F9EA51CB"
@@ -246,10 +250,10 @@
 			x: 8.0d
 			y: 0.0d
 			dependencies: ["12F011564E219F52", "12CF0601171AFE5B"]
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "2681854E68B7852E", type: "item", item: "ae2:certus_quartz_crystal", count: 32L }]
-			rewards: [{ id: "4065BC7E8A1A966E", type: "item", auto: "enabled", item: "ae2:inscriber" }, { id: "08B0C065673832D5", type: "item", auto: "enabled", item: "ae2:meteorite_compass" }, { id: "31A28BB646CBAE3A", type: "item", auto: "enabled", item: "ae2:growth_accelerator", count: 4 }, { id: "0AB2A05430039502", type: "item", auto: "enabled", item: "ae2:charger" }, { id: "6E08D7FFB0F69509", type: "command", auto: "enabled", command: "/tellraw @p [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"The compass is already pointing. She set it. I only carried it.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "20A70E5B9DA6859D", type: "toast", title: "Certus growing", auto: "enabled", description: "Next: an ME Drive, 2 storage cells and a terminal in the mill workshop." }]
+			rewards: [{ id: "4065BC7E8A1A966E", type: "item", auto: "no_toast", item: "ae2:inscriber" }, { id: "08B0C065673832D5", type: "item", auto: "no_toast", item: "ae2:meteorite_compass" }, { id: "31A28BB646CBAE3A", type: "item", auto: "no_toast", item: "ae2:growth_accelerator", count: 4 }, { id: "0AB2A05430039502", type: "item", auto: "no_toast", item: "ae2:charger" }, { id: "6E08D7FFB0F69509", type: "command", auto: "invisible", command: "/tellraw @p [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"The compass is already pointing. She set it. I only carried it.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "20A70E5B9DA6859D", type: "toast", title: "Certus growing", auto: "enabled", description: "Next: an ME Drive, 2 storage cells and a terminal in the mill workshop." }]
 		}
 		{
 			id: "2524B0A81A85E5DB"
@@ -260,10 +264,10 @@
 			x: 10.0d
 			y: 0.0d
 			dependencies: ["0A2EA8E5F9EA51CB"]
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "1279CD28C09B14BF", type: "item", item: "ae2:drive", count: 1L }, { id: "3B7CB78B8608A1D0", type: "item", item: "ae2:item_storage_cell_4k", count: 2L }, { id: "20892441EDE3310F", type: "item", item: "ae2:terminal", count: 1L }]
-			rewards: [{ id: "38F0F85C96B06039", type: "item", auto: "enabled", item: "ae2:item_storage_cell_4k", count: 4 }, { id: "444C7483FC76F627", type: "item", auto: "enabled", item: "ae2:storage_bus", count: 4 }, { id: "726E12E0D3A8AD90", type: "item", auto: "enabled", item: "ae2:import_bus", count: 4 }, { id: "0BEAAB40E6598A4A", type: "item", auto: "enabled", item: "ae2:export_bus", count: 4 }, { id: "7502AE04319010B4", type: "stage", auto: "enabled", stage: "ae_basic" }, { id: "7FFB820E7F4C0008", type: "loot", auto: "enabled", table_id: 1001168104822881485L }, { id: "63D3001A29D25707", type: "toast", title: "The network is up", auto: "enabled", description: "Next: storage-bus the granary's twelve drawers onto it." }]
+			rewards: [{ id: "38F0F85C96B06039", type: "item", auto: "no_toast", item: "ae2:item_storage_cell_4k", count: 4 }, { id: "444C7483FC76F627", type: "item", auto: "no_toast", item: "ae2:storage_bus", count: 4 }, { id: "726E12E0D3A8AD90", type: "item", auto: "no_toast", item: "ae2:import_bus", count: 4 }, { id: "0BEAAB40E6598A4A", type: "item", auto: "no_toast", item: "ae2:export_bus", count: 4 }, { id: "7502AE04319010B4", type: "stage", auto: "invisible", stage: "ae_basic" }, { id: "7FFB820E7F4C0008", type: "loot", auto: "no_toast", table_id: 1001168104822881485L }, { id: "63D3001A29D25707", type: "toast", title: "The network is up", auto: "enabled", description: "Next: storage-bus the granary's twelve drawers onto it." }]
 		}
 		{
 			id: "048AC0F913C95A34"
@@ -274,10 +278,10 @@
 			x: 12.0d
 			y: 0.8d
 			dependencies: ["2524B0A81A85E5DB", "76C4B9946F943E38"]
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "5ED403BECBE2B131", type: "item", item: "ae2:wireless_terminal", count: 1L }, { id: "5EF24C6156627A7A", type: "checkmark", title: "The granary's drawers read on the terminal." }]
-			rewards: [{ id: "184DBAC0537E1334", type: "item", auto: "enabled", item: "ae2:wireless_terminal" }, { id: "5AE7A546CF604664", type: "item", auto: "enabled", item: "ae2:wireless_receiver" }, { id: "331AFA4B3F18D76B", type: "item", auto: "enabled", item: "ae2:charger" }, { id: "10C9F29B7871ED8F", type: "command", title: "Josie's Journal", auto: "enabled", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "228959B919B10AB1", type: "toast", title: "One screen, whole town", auto: "enabled", description: "Next: a Delivery Crate beside Oda's bounty board, fed by an export bus." }]
+			rewards: [{ id: "184DBAC0537E1334", type: "item", auto: "no_toast", item: "ae2:wireless_terminal" }, { id: "5AE7A546CF604664", type: "item", auto: "no_toast", item: "ae2:wireless_receiver" }, { id: "331AFA4B3F18D76B", type: "item", auto: "no_toast", item: "ae2:charger" }, { id: "10C9F29B7871ED8F", type: "command", title: "Josie's Journal", auto: "invisible", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "228959B919B10AB1", type: "toast", title: "One screen, whole town", auto: "enabled", description: "Next: a Delivery Crate beside Oda's bounty board, fed by an export bus." }]
 		}
 		{
 			id: "65E361864DFF29DC"
@@ -288,10 +292,10 @@
 			x: 14.0d
 			y: 0.8d
 			dependencies: ["048AC0F913C95A34"]
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "282AECD7EA56A49F", type: "checkmark", title: "Crate beside the board, export bus feeding it." }]
-			rewards: [{ id: "5DD984A7F1587C84", type: "item", auto: "enabled", item: "valley:scrip", count: 60 }, { id: "7A845D5A47AE1D83", type: "item", auto: "enabled", item: "ae2:export_bus", count: 4 }, { id: "14040198A012AEBE", type: "item", auto: "enabled", item: "ae2:blank_pattern", count: 16 }, { id: "2C5C30A489378569", type: "command", auto: "enabled", command: "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"The crate fills itself. I have opinions about that, and all of them are good.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "221D4D406D91EAD5", type: "command", auto: "enabled", command: "title @p times 10 70 20", elevate_perms: true, silent: true }, { id: "59173BFDD1428201", type: "command", auto: "enabled", command: "title @p subtitle {\"text\": \"Eleven years of ledger, one full crate.\", \"color\": \"gray\", \"italic\": true}", elevate_perms: true, silent: true }, { id: "585E5BEF6C4A1E50", type: "command", auto: "enabled", command: "title @p title {\"text\": \"Oda's Order Board\", \"color\": \"gold\"}", elevate_perms: true, silent: true }, { id: "61B17A0CDCFDF7B1", type: "command", auto: "enabled", command: "execute at @p run playsound minecraft:ui.toast.challenge_complete master @p ~ ~ ~ 1 1", elevate_perms: true, silent: true }, { id: "5ABB8C5CDB52D496", type: "toast", title: "Standing orders live", auto: "enabled", description: "Next: take the Kettle Plate from the adit to Halden at his cottage." }]
+			rewards: [{ id: "5DD984A7F1587C84", type: "item", auto: "no_toast", item: "valley:scrip", count: 60 }, { id: "7A845D5A47AE1D83", type: "item", auto: "no_toast", item: "ae2:export_bus", count: 4 }, { id: "14040198A012AEBE", type: "item", auto: "no_toast", item: "ae2:blank_pattern", count: 16 }, { id: "2C5C30A489378569", type: "command", auto: "invisible", command: "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"The crate fills itself. I have opinions about that, and all of them are good.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "221D4D406D91EAD5", type: "command", auto: "invisible", command: "title @p times 10 70 20", elevate_perms: true, silent: true }, { id: "59173BFDD1428201", type: "command", auto: "invisible", command: "title @p subtitle {\"text\": \"Eleven years of ledger, one full crate.\", \"color\": \"gray\", \"italic\": true}", elevate_perms: true, silent: true }, { id: "585E5BEF6C4A1E50", type: "command", auto: "invisible", command: "title @p title {\"text\": \"Oda's Order Board\", \"color\": \"gold\"}", elevate_perms: true, silent: true }, { id: "61B17A0CDCFDF7B1", type: "command", auto: "invisible", command: "execute at @p run playsound minecraft:ui.toast.challenge_complete master @p ~ ~ ~ 1 1", elevate_perms: true, silent: true }, { id: "5ABB8C5CDB52D496", type: "toast", title: "Standing orders live", auto: "enabled", description: "Next: take the Kettle Plate from the adit to Halden at his cottage." }]
 		}
 		{
 			id: "463503CEDF72AFBE"
@@ -304,10 +308,10 @@
 			dependencies: ["34538B89B64CC7D7", "177A495F36B16021"]
 			shape: "diamond"
 			size: 1.5d
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "789BC3BC0CD4CC94", type: "item", item: "valley:kettle_plate_a", count: 1L, consume_items: true }]
-			rewards: [{ id: "6C7C5DCA8F097AF9", type: "command", title: "Josie's Journal", auto: "enabled", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "00A5BD42BE10C114", type: "item", auto: "enabled", item: "valley:scrip", count: 20 }, { id: "2BB8141309539CF7", type: "command", auto: "enabled", command: "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"It's a parts list. It has always been a parts list. She wasn't digging a mine.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "4CECED31F1846095", type: "toast", title: "The door turns a quarter", auto: "enabled", description: "Next: go down into the cellar under the farmhouse and read the wall." }]
+			rewards: [{ id: "6C7C5DCA8F097AF9", type: "command", title: "Josie's Journal", auto: "invisible", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "00A5BD42BE10C114", type: "item", auto: "no_toast", item: "valley:scrip", count: 20 }, { id: "2BB8141309539CF7", type: "command", auto: "invisible", command: "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"It's a parts list. It has always been a parts list. She wasn't digging a mine.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "4CECED31F1846095", type: "toast", title: "The door turns a quarter", auto: "enabled", description: "Next: go down into the cellar under the farmhouse and read the wall." }]
 		}
 		{
 			id: "4B7C03A613A457FE"
@@ -320,10 +324,10 @@
 			dependencies: ["463503CEDF72AFBE"]
 			shape: "diamond"
 			size: 1.5d
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
 			tasks: [{ id: "3EF6120442290A6E", type: "checkmark", title: "You are standing in the cellar, in front of the wall." }]
-			rewards: [{ id: "73BA21E60E087C8A", type: "item", auto: "enabled", item: "waystones:waystone" }, { id: "6FD7A83C87BE2A1D", type: "item", auto: "enabled", item: "create:orange_toolbox" }, { id: "058AA334012F4326", type: "item", auto: "enabled", item: "create:crafting_blueprint" }, { id: "2BF29139D4C04FCF", type: "command", auto: "enabled", command: "give @p minecraft:diamond_pickaxe{Enchantments:[{id:\"minecraft:efficiency\",lvl:5},{id:\"minecraft:unbreaking\",lvl:3}],display:{Name:'{\"text\":\"The Works Pick\",\"italic\":false,\"color\":\"gold\"}'}} 1", elevate_perms: true, silent: true }, { id: "62C4018380D0873B", type: "item", auto: "enabled", item: "minecraft:tnt", count: 16 }, { id: "42363C52BFC025A4", type: "loot", auto: "enabled", table_id: 1574160642622613271L }, { id: "188CB0EE82FDC311", type: "command", auto: "enabled", command: "/tellraw @a [{\"text\":\"Josie, on the wall: \",\"color\":\"gold\"},{\"text\":\"If there's more than one set of footprints on these stairs, I was right to wait. Go and turn it on.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "005A6CC308CB8681", type: "command", auto: "enabled", command: "advancement grant @a only valley:journal/cellar_wall", elevate_perms: true, silent: true }, { id: "423A535FA4406D5B", type: "command", auto: "enabled", command: "title @p times 10 70 20", elevate_perms: true, silent: true }, { id: "0B4EBB23CC2CCD98", type: "command", auto: "enabled", command: "title @p subtitle {\"text\": \"She waited for two of you.\", \"color\": \"gray\", \"italic\": true}", elevate_perms: true, silent: true }, { id: "3D264897DC197A19", type: "command", auto: "enabled", command: "title @p title {\"text\": \"The Cellar Wall\", \"color\": \"gold\"}", elevate_perms: true, silent: true }, { id: "26A0A9FDE7FDC23E", type: "command", auto: "enabled", command: "execute at @p run playsound minecraft:block.bell.resonate master @p ~ ~ ~ 1 1", elevate_perms: true, silent: true }, { id: "4FD4ADECA99AD183", type: "toast", title: "She Built a Power Plant", auto: "enabled", description: "Next: the long table in the square, twelve settings and the centrepiece. Tobin is at the collapsed adit with a shovel and a theory about where the Works opens." }]
+			rewards: [{ id: "73BA21E60E087C8A", type: "item", auto: "no_toast", item: "waystones:waystone" }, { id: "6FD7A83C87BE2A1D", type: "item", auto: "no_toast", item: "create:orange_toolbox" }, { id: "058AA334012F4326", type: "item", auto: "no_toast", item: "create:crafting_blueprint" }, { id: "2BF29139D4C04FCF", type: "command", auto: "invisible", command: "give @p minecraft:diamond_pickaxe{Enchantments:[{id:\"minecraft:efficiency\",lvl:5},{id:\"minecraft:unbreaking\",lvl:3}],display:{Name:'{\"text\":\"The Works Pick\",\"italic\":false,\"color\":\"gold\"}'}} 1", elevate_perms: true, silent: true }, { id: "62C4018380D0873B", type: "item", auto: "no_toast", item: "minecraft:tnt", count: 16 }, { id: "42363C52BFC025A4", type: "loot", auto: "no_toast", table_id: 1574160642622613271L }, { id: "188CB0EE82FDC311", type: "command", auto: "invisible", command: "/tellraw @a [{\"text\":\"Josie, on the wall: \",\"color\":\"gold\"},{\"text\":\"If there's more than one set of footprints on these stairs, I was right to wait. Go and turn it on.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "005A6CC308CB8681", type: "command", auto: "invisible", command: "advancement grant @a only valley:journal/cellar_wall", elevate_perms: true, silent: true }, { id: "423A535FA4406D5B", type: "command", auto: "invisible", command: "title @p times 10 70 20", elevate_perms: true, silent: true }, { id: "0B4EBB23CC2CCD98", type: "command", auto: "invisible", command: "title @p subtitle {\"text\": \"She waited for two of you.\", \"color\": \"gray\", \"italic\": true}", elevate_perms: true, silent: true }, { id: "3D264897DC197A19", type: "command", auto: "invisible", command: "title @p title {\"text\": \"The Cellar Wall\", \"color\": \"gold\"}", elevate_perms: true, silent: true }, { id: "26A0A9FDE7FDC23E", type: "command", auto: "invisible", command: "execute at @p run playsound minecraft:block.bell.resonate master @p ~ ~ ~ 1 1", elevate_perms: true, silent: true }, { id: "4FD4ADECA99AD183", type: "toast", title: "She Built a Power Plant", auto: "enabled", description: "Next: the long table in the square, twelve settings and the centrepiece. Tobin is at the collapsed adit with a shovel and a theory about where the Works opens." }]
 		}
 		{
 			id: "447F0160D253CCD3"
@@ -336,10 +340,12 @@
 			dependencies: ["177A495F36B16021", "353BBFB416B61074", "2A58745479C32D0A", "4B7C03A613A457FE"]
 			shape: "gear"
 			size: 2.0d
-			hide_until_deps_complete: true
-			hide_details_until_startable: true
+			min_width: 300
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			min_required_dependencies: 3
 			tasks: [{ id: "28D95521BA82CE75", type: "item", item: "handcrafted:oak_table", count: 1L }, { id: "03E5BE2D4BED14FD", type: "item", item: "valley:place_setting", count: 12L, consume_items: true }, { id: "06501A4AE40B1FA8", type: "item", item: "supplementaries:candle_holder", count: 1L }, { id: "2768D1CED736050A", type: "checkmark", title: "Twelve settings down and the centrepiece in the middle." }]
-			rewards: [{ id: "45CE1850173898AD", type: "command", auto: "enabled", command: "/valley finale act3", elevate_perms: true, silent: true }, { id: "6C3889522CCEAFB1", type: "stage", auto: "enabled", stage: "act4" }, { id: "295DD626823FAF55", type: "toast", title: "The Harvest Supper", auto: "enabled", description: "Next: sleep one night, then follow Pip down to the inn. Winter starts in the morning." }]
+			rewards: [{ id: "45CE1850173898AD", type: "command", auto: "invisible", command: "/valley finale act3", elevate_perms: true, silent: true }, { id: "6C3889522CCEAFB1", type: "stage", auto: "invisible", stage: "act4" }, { id: "295DD626823FAF55", type: "toast", title: "The Harvest Supper", auto: "enabled", description: "Next: sleep one night, then follow Pip down to the inn. Winter starts in the morning." }]
 		}
 	]
 	title: "Act III: The Harvest Debt"
