@@ -9,6 +9,50 @@ directory — the point is to record what friends actually get, not what a build
 
 ---
 
+## 2026-09-05 — The world ships with the pack
+
+CI run: <https://github.com/malloyjoshua/little-kettle-valley/actions/runs/33960623054> (`0fabb6b`)
+
+| Asset | Size (bytes) | sha256 |
+| --- | ---: | --- |
+| `LittleKettleValley-Setup.exe` | 56,796,473 | `3fc5ea4e07a861fa6e58466f1b68fea21ae688005f2b36d225ce15d9438766a3` |
+| `LittleKettleValley.dmg` | 47,152,624 | `6fe54c1ad81d7dd5a6c3805099f27a7916d90790ed389258370abcb58bf38db2` |
+| `LittleKettleValley.zip` | 92,408 | `3e59729b7ce7a303aa2930b4df9deb1031e0cccdc3d2a7a1d982394659dab63b` |
+| `Little Kettle Valley - Install Guide.pdf` | 87,247 | `3c1d142b92a447328b4fcafb9278519cd022fd42f5464329a4d07564bdee809f` |
+
+**What changed:** all four, and for one reason — **the valley now ships inside the pack**.
+`pack/saves/Little Kettle Valley/` is the finished world (68 files, 55 MB, byte-identical to
+`world-master/` minus `level.dat_old`), indexed by packwiz with `preserve = true` on every file,
+so a friend downloads it on first launch and never generates one. Every instance in every asset
+gained two keys — `JoinServerOnLaunch=true` and `JoinWorldOnLaunch=Little Kettle Valley` — which
+Prism 11.1.0 turns into `--quickPlaySingleplayer "Little Kettle Valley"`. Click Play, wake on the
+road. The PDF and `docs/INSTALL.md` were rewritten to say so.
+
+**Provenance checks that passed:**
+
+- `tools/scripts/release.sh` ran end-to-end. Its index step is now
+  `tools/scripts/mark_preserve.py --refresh` rather than a bare `packwiz refresh` — refresh
+  rewrites every `[[files]]` block and invents no keys, so it is the one command that can silently
+  drop the flag that stops an update deleting a player's save — followed by a `--check` gate and a
+  refusal to proceed while anything under `pack/saves/` is uncommitted.
+- Windows CI (`run 33960623054`, job succeeded in 2m35s) staged the payload with its own assertion
+  (`[stage] opens 'Little Kettle Valley' on launch (--quickPlaySingleplayer)`) and then
+  silent-installed four ways; `JoinWorldOnLaunch=Little Kettle Valley` was read back out of the
+  installed `instance.cfg` in all four.
+- `build_dmg.py` asserts the same three conditions into the built zip (`JoinServerOnLaunch=true`
+  present, `JoinWorldOnLaunch` matching, `JoinServerOnLaunchAddress` absent — an address key beats
+  the world) and reported `opens 'Little Kettle Valley' on launch`.
+- The shipped `packwiz-installer.jar` was exercised against a local copy of this index, both
+  directions: a clean install lands all 68 world files byte-identical to `world-master/`; then,
+  with the local copy edited and the upstream hash moved, it printed `level.dat pending (you
+  should never see this...)` and left the player's file alone, while a control file with the flag
+  stripped was silently overwritten.
+- The three sampled world files fetch from `raw.githubusercontent.com` with percent-encoded
+  spaces at HTTP 200 and matching sha256, so the folder name's spaces survive the CDN.
+- Hashes above are from `gh release download friends --dir <tmp> --clobber && shasum -a 256 *`.
+
+---
+
 ## 2026-09-04 — Final polish: town residuals, quest text, Air render distance
 
 CI run: <https://github.com/malloyjoshua/little-kettle-valley/actions/runs/33851790986> (`863edad`)

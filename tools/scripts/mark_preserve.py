@@ -152,7 +152,12 @@ def repoint_pack_toml():
     """
     digest = hashlib.sha256(INDEX.read_bytes()).hexdigest()
     text = PACK_TOML.read_text()
-    new = re.sub(r'^hash\s*=\s*"[0-9a-f]{64}"\s*$', f'hash = "{digest}"', text, flags=re.MULTILINE)
+    # Anchor on the line, not on trailing whitespace: `\s*$` in MULTILINE also matches the
+    # newline and any blank line after it, which silently deleted the blank line between
+    # [index] and [versions] on every run. Match only up to the closing quote.
+    new, n = re.subn(r'^(hash[ \t]*=[ \t]*)"[0-9a-f]{64}"', rf'\g<1>"{digest}"', text, flags=re.MULTILINE)
+    if n != 1:
+        raise SystemExit(f"FATAL: expected exactly one index hash line in {PACK_TOML}, found {n}")
     if new != text:
         PACK_TOML.write_text(new)
         print(f"pack.toml index hash -> {digest}")
