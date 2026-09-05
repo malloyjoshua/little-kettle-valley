@@ -238,11 +238,11 @@
    "icon": "farmersdelight:vegetable_soup",
    "shape": "circle",
    "description": [
-    "Marnie, quietly: \"I have fed this room for thirty years, and tonight I'm sitting down at it. Don't make a thing of it.\"",
+    "Marnie, quietly: “I have fed this room for thirty years, and tonight I'm sitting down at it. Don't make a thing of it.”",
     "",
     "Cook 12 bowls of Vegetable Soup in the Cooking Pot and set them on the long table at the inn — one for every seat.",
     "",
-    "The Hearth relights, Marnie sits down at her own table, and the greenhouse shell goes up on the square with its glazing stacked inside."
+    "The Hearth relights, Marnie sits down at her own table, and the greenhouse on the square — a shell with six empty frames in it since before you got here — gets its glazing out of the same soup crate."
    ],
    "deps": [
     "q59"
@@ -302,7 +302,7 @@
     {
      "type": "toast",
      "title": "The Hearth Is Lit Again",
-     "description": "Next: glaze the greenhouse shell on the square. Six windows, one door and eight planters are already in your bag."
+     "description": "Next: glaze the greenhouse shell on the square. Six windows, one door and eight planters are in your bag; the frames are already cut."
     },
     {
      "type": "command",
@@ -499,7 +499,7 @@
    "icon": "mcwwindows:oak_window",
    "shape": "circle",
    "description": [
-    "Nella: \"Nothing grows in it yet. I'll sit in it anyway — it's the only quiet room in town.\"",
+    "Nella: “Nothing grows in it yet. I'll sit in it anyway — it's the only quiet room in town.”",
     "",
     "Put one Oak Window in each of the six frames of the greenhouse shell on the square, hang the Oak Cottage Door, and set 8 Planters on the marked bench. All fifteen came over in Marnie's soup crate. Any order is right.",
     "",
@@ -808,13 +808,13 @@
   {
    "key": "q65",
    "title": "Open the Works",
-   "subtitle": "Forty marked blocks of fall, then the Waystone.",
+   "subtitle": "Forty blocks of fall in Tobin's adit, then the Waystone.",
    "icon": "thermal:flux_drill",
    "shape": "square",
    "description": [
-    "Tobin, fast: \"The fall is forty blocks of it, I paced it twice, and behind forty blocks is the entire works, and I have not slept.\"",
+    "Tobin, fast: “The fall is forty blocks of it, I paced it twice, and behind forty blocks is the entire works, and I have not slept.”",
     "",
-    "Mine the 40 marked blocks out of the fallen adit into Josie's Works, then place the Waystone on the marked plinth inside. The Works Pick came with the cellar wall.",
+    "The adit mouth is on the verge of the East Lane, lined and signposted, and it goes straight down. Mine the 40 marked blocks of fall out of it, drop into Josie's Works, and place the Waystone on the marked plinth inside. The Works Pick came with the cellar wall.",
     "",
     "The Works lights up, her Flux Drill is on the bench charged and ready for the yellorite, and there is a saddled horse in the stable."
    ],
@@ -1477,16 +1477,16 @@
   },
   {
    "key": "q74",
-   "title": "Place the Last 17 Lamp Posts, Mill to Lake",
-   "subtitle": "Lamps 39 of 40. One post stays bare.",
+   "title": "Run the Line, Mill to Square to Lake",
+   "subtitle": "Twenty-nine posts. Lamps 39 of 40. One stays bare.",
    "icon": "minecraft:lantern",
    "shape": "diamond",
    "description": [
-    "Josie, page forty: \"Forty posts, mill to square to lake. I counted them on my fingers before I could count to forty.\"",
+    "Josie, page forty: “Forty posts, mill to square to lake. I counted them on my fingers before I could count to forty.”",
     "",
-    "Place the last 17 lamp posts on the marked spots, mill to square to lake. Any order is right. The duct runs itself along the line as you go, and not one of them lights until Bram pulls the lever.",
+    "Walk the whole line and run the duct along it — mill, square, lake, farm gate, past every one of the twenty-nine posts still off the grid. The posts have been standing there the whole time; not one of them lights until Bram pulls the lever.",
     "",
-    "Lamps 39 of 40. One post stays bare on purpose: Josie's porch."
+    "Lamps 39 of 40. One post stays bare on purpose: the one on Josie's porch."
    ],
    "deps": [
     "q66",
@@ -1523,7 +1523,7 @@
     {
      "type": "toast",
      "title": "Lamps 39 / 40",
-     "description": "Next: Tobin's safety check at the Reactor Terminal. Then Bram pulls the lever."
+     "description": "Next: fetch Bram from the mill, and take the cocoa with you."
     }
    ]
   },

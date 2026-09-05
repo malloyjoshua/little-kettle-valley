@@ -1020,15 +1020,15 @@
   },
   {
    "key": "q34",
-   "title": "Place 4 Lamp Posts and Light Two of Them",
-   "subtitle": "Four marked spots, mill to square.",
+   "title": "Run the Duct to Four Lamp Posts, Mill to Square",
+   "subtitle": "Four marked posts. They have stood dark for eleven years.",
    "icon": "minecraft:lantern",
    "description": [
-    "Oda: \"Six lamps lit, thirty-four dark. I count them every night whether I mean to or not.\"",
+    "Oda: “Six lamps lit, thirty-four dark. I count them every night whether I mean to or not.”",
     "",
-    "Put a lamp post on each of the 4 marked spots, mill to square, then run Energy Duct from the Stirling Dynamo's output face to the nearest two. Posts and duct are in the crate at the mill door. The Redstone Furnace eats power — leave it out.",
+    "The posts are already up — every one of the forty is, and Josie put them there. Run Energy Duct from the Stirling Dynamo's output face out to the four marked posts between the mill and the square. Duct is in the crate at the mill door. The Redstone Furnace eats power — leave it out.",
     "",
-    "Lamps 10 of 40. Nothing hostile spawns anywhere along the lit road, for good."
+    "Lamps 10 of 40. Nothing hostile spawns anywhere along the lit stretch."
    ],
    "deps": [
     "q32",

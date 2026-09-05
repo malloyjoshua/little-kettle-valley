@@ -302,7 +302,7 @@
 			title: "Take the Plate to Halden"
 			subtitle: "He can read Josie's shorthand."
 			icon: "valley:kettle_plate_a"
-			description: ["Halden: \"I have been able to read that hand for four years. I have been finding reasons not to. Give it here before I find another one.\"", "", "Bring the Kettle Plate from the adit to Halden at his cottage and put it in his hands.", "", "The door turns a quarter and stops. Journal Part Two opens and the reactor recipes appear — the casings still want Josie's Turbine Notes."]
+			description: ["Halden: “I have been able to read that hand for four years. I have been finding reasons not to. Give it here before I find another one.”", "", "Bring the Kettle Plate from the outcrop to Halden at his cottage and put it in his hands.", "", "The iron door in your cellar turns a quarter and stops. Journal Part Two opens and the reactor recipes appear — the casings still want Josie's Turbine Notes."]
 			x: 8.0d
 			y: 1.5d
 			dependencies: ["34538B89B64CC7D7", "177A495F36B16021"]
@@ -311,14 +311,14 @@
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "789BC3BC0CD4CC94", type: "item", item: "valley:kettle_plate_a", count: 1L, consume_items: true }]
-			rewards: [{ id: "6C7C5DCA8F097AF9", type: "command", title: "Josie's Journal", auto: "invisible", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "00A5BD42BE10C114", type: "item", auto: "no_toast", item: "valley:scrip", count: 20 }, { id: "2BB8141309539CF7", type: "command", auto: "invisible", command: "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"It's a parts list. It has always been a parts list. She wasn't digging a mine.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "4CECED31F1846095", type: "toast", title: "The door turns a quarter", auto: "enabled", description: "Next: go down into the cellar under the farmhouse and read the wall." }]
+			rewards: [{ id: "662827E431344684", type: "command", auto: "invisible", command: "/valley scene q54", elevate_perms: true, silent: true }, { id: "6C7C5DCA8F097AF9", type: "command", title: "Josie's Journal", auto: "invisible", command: "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}", elevate_perms: true, silent: true }, { id: "00A5BD42BE10C114", type: "item", auto: "no_toast", item: "valley:scrip", count: 20 }, { id: "2BB8141309539CF7", type: "command", auto: "invisible", command: "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"It's a parts list. It has always been a parts list. She wasn't digging a mine.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "4CECED31F1846095", type: "toast", title: "The door turns a quarter", auto: "enabled", description: "Next: go down into the cellar under the farmhouse and read the wall." }]
 		}
 		{
 			id: "4B7C03A613A457FE"
 			title: "Read the Cellar Wall"
-			subtitle: "Down the stairs under the farmhouse."
+			subtitle: "Down the stairs under the farmhouse. The door is open."
 			icon: "minecraft:iron_door"
-			description: ["Halden, from the top of the stairs: \"I carried the chalk up for her and went home. I am not reading the bottom half over your shoulder.\"", "", "Go back down the stairs under the farmhouse. The door finished turning some time in the night and it is standing open. Stand in front of the wall and read the whole thing — every line, all the way to the bottom.", "", "Her chalk copies itself into the journal, the cellar waystone is yours, and the Works Pick is in the tube by the stairs with her blueprint."]
+			description: ["Halden, from the top of the stairs: “I carried the chalk up for her and went home. I am not reading the bottom half over your shoulder.”", "", "Go back down the stairs under the farmhouse. The door finished turning some time in the night and it is standing open. Stand in the cellar and read the whole wall — every line, all the way to the bottom.", "", "Her chalk copies itself into the journal, the cellar waystone is yours, and the Works Pick is in the chest by the stairs with her blueprint."]
 			x: 10.0d
 			y: 1.5d
 			dependencies: ["463503CEDF72AFBE"]

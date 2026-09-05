@@ -62,7 +62,7 @@
 			title: "Cook 12 Vegetable Soup for the Long Table"
 			subtitle: "One bowl for every seat."
 			icon: "farmersdelight:vegetable_soup"
-			description: ["Marnie, quietly: \"I have fed this room for thirty years, and tonight I'm sitting down at it. Don't make a thing of it.\"", "", "Cook 12 bowls of Vegetable Soup in the Cooking Pot and set them on the long table at the inn — one for every seat.", "", "The Hearth relights, Marnie sits down at her own table, and the greenhouse shell goes up on the square with its glazing stacked inside."]
+			description: ["Marnie, quietly: “I have fed this room for thirty years, and tonight I'm sitting down at it. Don't make a thing of it.”", "", "Cook 12 bowls of Vegetable Soup in the Cooking Pot and set them on the long table at the inn — one for every seat.", "", "The Hearth relights, Marnie sits down at her own table, and the greenhouse on the square — a shell with six empty frames in it since before you got here — gets its glazing out of the same soup crate."]
 			x: 6.0d
 			y: -1.5d
 			dependencies: ["2214CAF2EDA521CB"]
@@ -70,7 +70,7 @@
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "29A22B1ED47A2AF8", type: "item", item: "farmersdelight:vegetable_soup", count: 12L, consume_items: true }]
-			rewards: [{ id: "37F545DA4F438864", type: "command", auto: "invisible", command: "/valley scene q60", elevate_perms: true, silent: true }, { id: "1A1EF7137AE82B12", type: "item", auto: "no_toast", item: "cookingforblockheads:recipe_book" }, { id: "098BCDFAEBBB52D2", type: "item", auto: "no_toast", item: "cookingforblockheads:spice_rack" }, { id: "693892AD18BAC4A2", type: "item", auto: "no_toast", item: "valley:scrip", count: 25 }, { id: "36089166CF222CA2", type: "item", auto: "no_toast", item: "mcwwindows:oak_window", count: 6 }, { id: "34BA1EAD88A3FFE5", type: "item", auto: "no_toast", item: "mcwdoors:oak_cottage_door" }, { id: "61D075830894CB29", type: "item", auto: "no_toast", item: "supplementaries:planter", count: 8 }, { id: "0DFA3AB63C42626F", type: "item", auto: "no_toast", item: "farmersdelight:apple_pie", count: 2 }, { id: "48F6E7D0771E500C", type: "loot", auto: "no_toast", table_id: 6428311738069300697L }, { id: "10AE09354A53D74E", type: "toast", title: "The Hearth Is Lit Again", auto: "enabled", description: "Next: glaze the greenhouse shell on the square. Six windows, one door and eight planters are already in your bag." }, { id: "45B272F4040199B8", type: "command", auto: "invisible", command: "/valley standing q60 {team}", elevate_perms: true, silent: true }]
+			rewards: [{ id: "37F545DA4F438864", type: "command", auto: "invisible", command: "/valley scene q60", elevate_perms: true, silent: true }, { id: "1A1EF7137AE82B12", type: "item", auto: "no_toast", item: "cookingforblockheads:recipe_book" }, { id: "098BCDFAEBBB52D2", type: "item", auto: "no_toast", item: "cookingforblockheads:spice_rack" }, { id: "693892AD18BAC4A2", type: "item", auto: "no_toast", item: "valley:scrip", count: 25 }, { id: "36089166CF222CA2", type: "item", auto: "no_toast", item: "mcwwindows:oak_window", count: 6 }, { id: "34BA1EAD88A3FFE5", type: "item", auto: "no_toast", item: "mcwdoors:oak_cottage_door" }, { id: "61D075830894CB29", type: "item", auto: "no_toast", item: "supplementaries:planter", count: 8 }, { id: "0DFA3AB63C42626F", type: "item", auto: "no_toast", item: "farmersdelight:apple_pie", count: 2 }, { id: "48F6E7D0771E500C", type: "loot", auto: "no_toast", table_id: 6428311738069300697L }, { id: "34B6A484D8DC9A40", type: "toast", title: "The Hearth Is Lit Again", auto: "enabled", description: "Next: glaze the greenhouse shell on the square. Six windows, one door and eight planters are in your bag; the frames are already cut." }, { id: "45B272F4040199B8", type: "command", auto: "invisible", command: "/valley standing q60 {team}", elevate_perms: true, silent: true }]
 		}
 		{
 			id: "6663F36FE51BA219"
@@ -125,7 +125,7 @@
 			title: "Glaze the Greenhouse Shell and Hang Its Door"
 			subtitle: "6 windows, a door, 8 planters on the bench."
 			icon: "mcwwindows:oak_window"
-			description: ["Nella: \"Nothing grows in it yet. I'll sit in it anyway — it's the only quiet room in town.\"", "", "Put one Oak Window in each of the six frames of the greenhouse shell on the square, hang the Oak Cottage Door, and set 8 Planters on the marked bench. All fifteen came over in Marnie's soup crate. Any order is right.", "", "The shell becomes a room the coolant loop can heat, and the inn's solstice dressing — twelve of each — comes off the same wagon."]
+			description: ["Nella: “Nothing grows in it yet. I'll sit in it anyway — it's the only quiet room in town.”", "", "Put one Oak Window in each of the six frames of the greenhouse shell on the square, hang the Oak Cottage Door, and set 8 Planters on the marked bench. All fifteen came over in Marnie's soup crate. Any order is right.", "", "The shell becomes a room the coolant loop can heat, and the inn's solstice dressing — twelve of each — comes off the same wagon."]
 			x: 8.0d
 			y: -0.8d
 			dependencies: ["211E8D8781573A13"]
@@ -200,9 +200,9 @@
 		{
 			id: "728D7483985961D8"
 			title: "Open the Works"
-			subtitle: "Forty marked blocks of fall, then the Waystone."
+			subtitle: "Forty blocks of fall in Tobin's adit, then the Waystone."
 			icon: "thermal:flux_drill"
-			description: ["Tobin, fast: \"The fall is forty blocks of it, I paced it twice, and behind forty blocks is the entire works, and I have not slept.\"", "", "Mine the 40 marked blocks out of the fallen adit into Josie's Works, then place the Waystone on the marked plinth inside. The Works Pick came with the cellar wall.", "", "The Works lights up, her Flux Drill is on the bench charged and ready for the yellorite, and there is a saddled horse in the stable."]
+			description: ["Tobin, fast: “The fall is forty blocks of it, I paced it twice, and behind forty blocks is the entire works, and I have not slept.”", "", "The adit mouth is on the verge of the East Lane, lined and signposted, and it goes straight down. Mine the 40 marked blocks of fall out of it, drop into Josie's Works, and place the Waystone on the marked plinth inside. The Works Pick came with the cellar wall.", "", "The Works lights up, her Flux Drill is on the bench charged and ready for the yellorite, and there is a saddled horse in the stable."]
 			x: 0.0d
 			y: 0.8d
 			dependencies: ["4B7C03A613A457FE"]
@@ -335,10 +335,10 @@
 		}
 		{
 			id: "61D152A866E44CBB"
-			title: "Place the Last 17 Lamp Posts, Mill to Lake"
-			subtitle: "Lamps 39 of 40. One post stays bare."
+			title: "Run the Line, Mill to Square to Lake"
+			subtitle: "Twenty-nine posts. Lamps 39 of 40. One stays bare."
 			icon: "minecraft:lantern"
-			description: ["Josie, page forty: \"Forty posts, mill to square to lake. I counted them on my fingers before I could count to forty.\"", "", "Place the last 17 lamp posts on the marked spots, mill to square to lake. Any order is right. The duct runs itself along the line as you go, and not one of them lights until Bram pulls the lever.", "", "Lamps 39 of 40. One post stays bare on purpose: Josie's porch."]
+			description: ["Josie, page forty: “Forty posts, mill to square to lake. I counted them on my fingers before I could count to forty.”", "", "Walk the whole line and run the duct along it — mill, square, lake, farm gate, past every one of the twenty-nine posts still off the grid. The posts have been standing there the whole time; not one of them lights until Bram pulls the lever.", "", "Lamps 39 of 40. One post stays bare on purpose: the one on Josie's porch."]
 			x: 4.0d
 			y: 3.0d
 			dependencies: ["4581DADA91C14EBE", "1A3D337EA9ABA565"]
@@ -346,7 +346,7 @@
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "60A7EFB6DB8AF18F", type: "checkmark", title: "All 17 marked lamp posts placed, mill to square to lake" }]
-			rewards: [{ id: "213953792D69211A", type: "command", auto: "invisible", command: "/valley scene q74", elevate_perms: true, silent: true }, { id: "3D6E9D18329E46E4", type: "item", auto: "no_toast", item: "minecraft:lantern", count: 24 }, { id: "22C5B2F833747A2C", type: "item", auto: "no_toast", item: "thermal:energy_duct", count: 64 }, { id: "4CE090F1A473062C", type: "item", auto: "no_toast", item: "torchmaster:megatorch", count: 2 }, { id: "791FD1A81F1FDD5F", type: "toast", title: "Lamps 39 / 40", auto: "enabled", description: "Next: Tobin's safety check at the Reactor Terminal. Then Bram pulls the lever." }]
+			rewards: [{ id: "213953792D69211A", type: "command", auto: "invisible", command: "/valley scene q74", elevate_perms: true, silent: true }, { id: "3D6E9D18329E46E4", type: "item", auto: "no_toast", item: "minecraft:lantern", count: 24 }, { id: "22C5B2F833747A2C", type: "item", auto: "no_toast", item: "thermal:energy_duct", count: 64 }, { id: "4CE090F1A473062C", type: "item", auto: "no_toast", item: "torchmaster:megatorch", count: 2 }, { id: "1D24ADA27D7FDB06", type: "toast", title: "Lamps 39 / 40", auto: "enabled", description: "Next: fetch Bram from the mill, and take the cocoa with you." }]
 		}
 		{
 			id: "78E6F9A263CA4B65"

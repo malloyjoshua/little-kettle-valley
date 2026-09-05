@@ -164,3 +164,56 @@ it is a sensible thing to have — but nothing normal should ever reach it again
 
 Worth knowing for anything else added to `pack/kubejs/server_scripts/`: if a script reads a
 global another script sets, say so with a priority. Filenames are not a contract.
+
+
+## `valley_sites.js` is priority 2000, and everything reads it
+
+*2026-09-05, the shipped-story pass.*
+
+The pack now ships one hand-built world (`docs/transitions-design.md` architecture A) and the
+story only ever adds to it. That turned every coordinate in the pack into a constant, and
+constants have to live somewhere a KubeJS server script can reach: a server script cannot
+open a file, so `pack/kubejs/data/valley/valley_sites.json` is emitted a second time by
+`tools/scripts/plan_town.py` as `pack/kubejs/server_scripts/valley_sites.js`, which does
+nothing but `global.valleySites = { ... }`.
+
+It carries `// priority: 2000`, which puts it ahead of `town_plan.js` (1000) and ahead of
+every `valley_*.js`. That is the same lesson as the note above, applied before it bit:
+`valley_core.js` builds its constants (`MARKS`, `LAMPS_ALL`, `CELLAR_BOX`, `PORCH`) at load
+time out of `global.valleySites`, so a registry that loaded second would leave every one of
+them empty and every check in the pack silently false. Verified in the boot log:
+
+```
+01:30:26.604  valley_sites.js  ok -- seed 5369984945557223422, anchor -302 69 -44, 40 lamps
+01:30:26.642  town_plan.js     ok -- 35 build groups
+01:30:26.662  valley_core.js   ok
+01:30:26.666  valley_build.js  ok -- 35 groups in the build order
+```
+
+**Never hand-edit `valley_sites.js`.** It is generated; `plan_town.py --site` is the source.
+
+## The story may not build, and the runner enforces it
+
+`valley_finales.js` used to carry the levelled pad, `place template`, and thirty-seven fills.
+All of that now lives in `valley_build.js`, behind `/valley build`, which is permission level
+2, is in no quest's reward list, and is run exactly once by `scratch/master_build.sh` into the
+master save.
+
+What is left in `valley_finales.js` goes through `runSeg()`, and `runSeg()` **refuses**
+`@pad`, `@padfix`, `place template`, any `fill`, any `clone` and any `run function valley:`,
+logging the line instead of running it. It is enforced in the runner rather than checked in
+review because the failure it prevents is silent: a `fill … replace` destroys a chest with
+its contents and returns success.
+
+Two helpers carry the rest of the rule:
+
+* `put(server, pos, block)` writes a block **only if that cell is air right now**. That is
+  the whole of "never replace a player-placed block" — we do not need to know whose the block
+  in the way is, because if anything is in the way we do not write. It is also what makes
+  every scene re-runnable without a latch.
+* `openDoor(server, pos, open)` reads the door out of the world and writes it back with the
+  same `facing` and `hinge` and `open` flipped. A typed `/setblock` cannot do this: unspecified
+  blockstate properties take DEFAULTS, so a typed door spins to face north and swaps its hinge.
+
+`tools/scripts/playthrough.sh` greps all seven runtime scripts for the same four things
+before it boots anything, and refuses to run if it finds one.

@@ -27,11 +27,21 @@ fill ~-4 ~-1 ~-4 ~4 ~8 ~4 minecraft:air replace minecraft:green_bed
 # 4. the hearthstone stays a hearthstone, and Home stands on it
 setblock ~0 ~-1 ~0 minecraft:polished_andesite
 setblock ~0 ~0 ~0 waystones:waystone{WaystoneName:"Home"}
-# the wool mat Q3 puts the Red Bed on, and the hook for the sconce
+# The wool mat Q3 puts the Red Bed on, and the hook the Sconce goes on. Both are
+# CLEARED ABOVE, which the old pair were not: the template stands a length of
+# stripped dark oak on one mat cell and a cold campfire is on the other, so the bed
+# had nowhere to go, and the hook at [1,0,1] had the loft LADDER in the cell the
+# sconce hangs in. Two cells for the bed, running west along z = home-1, and the
+# hook moved to the wall on the other side of the hearth.
 setblock ~-1 ~-1 ~-1 minecraft:white_wool
+setblock ~-2 ~-1 ~-1 minecraft:white_wool
+setblock ~-1 ~0 ~-1 minecraft:air
+setblock ~-2 ~0 ~-1 minecraft:air
+setblock ~-1 ~1 ~-1 minecraft:air
+setblock ~-2 ~1 ~-1 minecraft:air
 setblock ~-1 ~-1 ~0 minecraft:white_wool
-setblock ~-2 ~-1 ~-1 minecraft:red_carpet
-setblock ~1 ~0 ~1 minecraft:oak_fence
+setblock ~-1 ~0 ~1 minecraft:oak_fence
+setblock ~-1 ~1 ~1 minecraft:air
 
 # 5. HOME_PORCH: the bare fortieth post lands at home + [3,0,0] (Q90), so that
 #    cell is kept clear with solid ground under it.

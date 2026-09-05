@@ -28,10 +28,23 @@ for f in sorted((root / 'story/quests').glob('*.json')):
             if '{x}' in c: c = 'execute as %s at %s run ' % (player, player) + c.replace('{x}', '~').replace('{y}', '~').replace('{z}', '~')
             elif '~' in c: c = 'execute as %s at %s run ' % (player, player) + c
             out.append(f'# {q["key"]}\n{c}')
-for f in sorted((root / 'pack/kubejs/data/valley/functions').rglob('*.mcfunction')):
-    rel = f.relative_to(root / 'pack/kubejs/data/valley/functions').with_suffix('')
-    for ln in f.read_text().split('\n'):
-        ln = ln.strip()
-        if not ln or ln.startswith('#'): continue
-        out.append(f'# fn {rel}\nexecute as {player} at {player} positioned ~8 ~ ~8 run {ln}')
+# THE DATAPACK FUNCTIONS ARE NOT AUDITED, AND MUST NOT BE.
+#
+# This used to replay every line of every .mcfunction in the pack as
+#     execute as <player> at <player> positioned ~8 ~ ~8 run <line>
+# which was reasonable when the functions were live code invoked at a runtime anchor. They
+# are not any more: `valley:act1/cottage` and `valley:act1/square_path` are DERIVATIONS that
+# tools/scripts/plan_town.py writes out so the cottage and the road can be read by a human,
+# nothing in the pack calls them, and valley_finales.js REFUSES `run function valley:`.
+#
+# Replaying them is actively destructive, and it was measured being so. On the shipped-world
+# playthrough of 2026-09-05, the audit ran while the test player was standing at the farm and
+# the first line of cottage.mcfunction --
+#     fill ~-11 ~0 ~-14 ~11 ~15 ~11 minecraft:air
+# -- took the cottage, the gate sign, the porch post and four lamp posts off the map, then
+# the next three re-laid a pad over the hole. The world asserts caught it (the hearthstone
+# read `coarse_dirt`), which is what they are for, but the audit had no business running it.
+#
+# If a function ever becomes live again, audit it by CALLING it at the position it documents,
+# not by replaying its body at whatever coordinate the player happens to be standing on.
 print('\n'.join(out))

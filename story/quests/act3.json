@@ -1318,11 +1318,11 @@
    "shape": "diamond",
    "size": 1.5,
    "description": [
-    "Halden: \"I have been able to read that hand for four years. I have been finding reasons not to. Give it here before I find another one.\"",
+    "Halden: “I have been able to read that hand for four years. I have been finding reasons not to. Give it here before I find another one.”",
     "",
-    "Bring the Kettle Plate from the adit to Halden at his cottage and put it in his hands.",
+    "Bring the Kettle Plate from the outcrop to Halden at his cottage and put it in his hands.",
     "",
-    "The door turns a quarter and stops. Journal Part Two opens and the reactor recipes appear — the casings still want Josie's Turbine Notes."
+    "The iron door in your cellar turns a quarter and stops. Journal Part Two opens and the reactor recipes appear — the casings still want Josie's Turbine Notes."
    ],
    "deps": [
     "q45",
@@ -1337,6 +1337,12 @@
     }
    ],
    "rewards": [
+    {
+     "type": "command",
+     "command": "/valley scene q54",
+     "elevate": true,
+     "silent": true
+    },
     {
      "type": "command",
      "command": "give @p patchouli:guide_book{'patchouli:book':'patchouli:valley_journal'}",
@@ -1363,16 +1369,16 @@
   {
    "key": "q55",
    "title": "Read the Cellar Wall",
-   "subtitle": "Down the stairs under the farmhouse.",
+   "subtitle": "Down the stairs under the farmhouse. The door is open.",
    "icon": "minecraft:iron_door",
    "shape": "diamond",
    "size": 1.5,
    "description": [
-    "Halden, from the top of the stairs: \"I carried the chalk up for her and went home. I am not reading the bottom half over your shoulder.\"",
+    "Halden, from the top of the stairs: “I carried the chalk up for her and went home. I am not reading the bottom half over your shoulder.”",
     "",
-    "Go back down the stairs under the farmhouse. The door finished turning some time in the night and it is standing open. Stand in front of the wall and read the whole thing — every line, all the way to the bottom.",
+    "Go back down the stairs under the farmhouse. The door finished turning some time in the night and it is standing open. Stand in the cellar and read the whole wall — every line, all the way to the bottom.",
     "",
-    "Her chalk copies itself into the journal, the cellar waystone is yours, and the Works Pick is in the tube by the stairs with her blueprint."
+    "Her chalk copies itself into the journal, the cellar waystone is yours, and the Works Pick is in the chest by the stairs with her blueprint."
    ],
    "deps": [
     "q54"

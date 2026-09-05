@@ -134,3 +134,48 @@ human to hand-tune. The price — one seed for everyone, no re-rolls — is one 
    No title card fires for a building she can't see.
 5. **Terrain is never cut into rectangles.** Sample the real surface, feather the edges, follow the slope — or
    don't touch the ground at all.
+
+
+---
+
+## 6. Where the plan actually got to (2026-09-05)
+
+Steps 1-4, 7, 8 and 10 are done and the harness proves them on every run. What follows is the
+honest state of each, and the two places the plan changed shape when it met the world.
+
+| step | state | how it is proved |
+|---|---|---|
+| 1 freeze the seed, pre-explore | **done** | `scratch/master_build.sh pregen`; the pristine pregen is snapshotted to `scratch/pregen/` and every later phase reads it |
+| 2 planner writes the world | **done** | `/valley build all` from `valley_build.js`; 35 groups, 14,614 commands, into the master save, never at runtime |
+| 3 no rectangles | **done** | `scratch/nature_check.py --world world-master --baseline scratch/pregen` — 8/8 |
+| 4 fixed registry, runtime anchoring gone | **done** | `valley_sites.json` + generated `valley_sites.js`; `ruinSiteOk`, `ruinPath`, `placeRuin`, `spawnSignpost`, `townWouldSwallow`, `townBox` and the whole Q7 stake guide are deleted |
+| 5 additive beat kit | **changed shape — see below** | `put()` / `swap()` / `openDoor()` in `valley_finales.js` |
+| 6 the cottage beat | **changed shape — see below** | the cottage is shipped standing; Q2 registers Home and changes nothing |
+| 7 retire the finales' terrain work | **done** | `runSeg()` refuses `@pad`, `place template`, `fill`, `clone` and `run function valley:`; `playthrough.sh` greps all seven runtime scripts before it boots |
+| 8 re-point the quests | **done** | every check reads a registry coordinate; a full run completes all 135 |
+| 9 ship it | unchanged | `tools/scripts/release.sh` |
+| 10 prove it end to end | **done** | `playthrough.sh` salts 20 player blocks, runs the whole story, then reads the region files with the server stopped |
+
+**Step 5 changed shape.** The plan asked for a helper that writes into air *or into a block
+matching a stored baseline*, throttled to 200 blocks a tick, with an overnight scheduler. The
+baseline half turned out to be unnecessary and the throttle turned out to be unreachable: once
+the world ships finished, no beat writes more than about a dozen blocks, so there is nothing to
+throttle, and there is no baseline to compare against because there is no rebuild — the only
+question a beat ever has to ask is "is this cell empty". That is `put()`. Its sibling `swap()`
+handles the other half of the vocabulary the story actually needs: a fixture that is already
+standing, changed to a different *state* of itself (a candle lit, a campfire lit, a lamp
+burning), guarded by "the block that is there has to be the block I expect".
+
+**Step 6 changed shape.** The plan had the cottage rebuilt from a kit over a night. It is
+simpler than that now: the cottage is standing when the player arrives, cold and empty and with
+no door on it, and Q3 hands her the door, the windows, the bed and the sconce for holes that
+are already in the walls. Nothing is raised overnight because nothing needs raising. The one
+thing she genuinely digs is the cellar — forty blocks of gravel in the kitchen floor over a
+stone flight and a sealed iron door — and the one thing she genuinely mines is Tobin's fallen
+adit into the Works, forty blocks of it.
+
+**What the world gained on day one to make that true:** the cellar (`day1_cellar`), the adit
+(`day1_adit`), the noticeboard and the Surveyor's Stake socket (`day1_board`), the whole
+lakefront — basin, beach, pier, rails, rafts (`day1_lakefront`), and Wisp's four posts down the
+frozen river (`day1_wisp_posts`). Every one of those was previously cut at runtime, in front of
+the player, by a finale or a scene.

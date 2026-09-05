@@ -2431,11 +2431,21 @@ cot_lines += [
     '# 4. the hearthstone stays a hearthstone, and Home stands on it',
     'setblock ~0 ~-1 ~0 minecraft:polished_andesite',
     'setblock ~0 ~0 ~0 waystones:waystone{WaystoneName:"Home"}',
-    '# the wool mat Q3 puts the Red Bed on, and the hook for the sconce',
+    '# The wool mat Q3 puts the Red Bed on, and the hook the Sconce goes on. Both are',
+    '# CLEARED ABOVE, which the old pair were not: the template stands a length of',
+    '# stripped dark oak on one mat cell and a cold campfire is on the other, so the bed',
+    '# had nowhere to go, and the hook at [1,0,1] had the loft LADDER in the cell the',
+    '# sconce hangs in. Two cells for the bed, running west along z = home-1, and the',
+    '# hook moved to the wall on the other side of the hearth.',
     'setblock ~-1 ~-1 ~-1 minecraft:white_wool',
+    'setblock ~-2 ~-1 ~-1 minecraft:white_wool',
+    'setblock ~-1 ~0 ~-1 minecraft:air',
+    'setblock ~-2 ~0 ~-1 minecraft:air',
+    'setblock ~-1 ~1 ~-1 minecraft:air',
+    'setblock ~-2 ~1 ~-1 minecraft:air',
     'setblock ~-1 ~-1 ~0 minecraft:white_wool',
-    'setblock ~-2 ~-1 ~-1 minecraft:red_carpet',
-    'setblock ~1 ~0 ~1 minecraft:oak_fence',
+    'setblock ~-1 ~0 ~1 minecraft:oak_fence',
+    'setblock ~-1 ~1 ~1 minecraft:air',
     '',
     '# 5. HOME_PORCH: the bare fortieth post lands at home + [3,0,0] (Q90), so that',
     '#    cell is kept clear with solid ground under it.',
@@ -2893,6 +2903,37 @@ if SITE:
     # The road's own Y. Read off the DESIGN surface, not the raw land: where the road runs
     # into the plaza or the cottage yard it has to arrive at the level those were terraced
     # to, and everywhere else the design surface IS the land.
+    # The lakefront's own footprint, in world coordinates: the levelled yard is the lake
+    # mark +-LAKE_R, and the basin runs on to +LAKE_FAR. Everything in it is finished at
+    # lake.y-1, so it is a terrace like the plaza and the cottage yard and the design
+    # surface has to say so BEFORE the skirt and the road are solved against it.
+    LAKE_W = [ANCHOR_W[0] + OFF['lake'][0], ANCHOR_W[1] + OFF['lake'][1],
+              ANCHOR_W[2] + OFF['lake'][2]]
+    # ...and it is not a square. The first attempt registered the bounding box, 29 x 41, and
+    # that is a plate cut into a hillside forty blocks from the water -- exactly the "grey
+    # plinth with a green lid" the terracing pass exists to stop. The footprint is the three
+    # rectangles the group actually writes: the pier yard, the beach and the basin.
+    # ...and it is entirely EAST of the lantern road. Centred on the lake mark, as the Act
+    # II finale had it, the basin's west half sat on top of the road: measured on the first
+    # shipped-world build, fifteen consecutive road columns came out under three courses of
+    # water, and `road_steps` reported a 3-block drop at the water's edge. The road runs
+    # along the yard's western kerb now and the water starts two blocks east of it.
+    LAKE_RECTS = ((-2, -6, 16, 8),       # the yard, including the road's crossing of it
+                  (2, 6, 14, 16),        # the beach
+                  (1, 9, 17, 25))        # the basin and its rim
+
+    def in_lake(x, z):
+        dx, dz = x - LAKE_W[0], z - LAKE_W[2]
+        for r in LAKE_RECTS:
+            if r[0] <= dx <= r[2] and r[1] <= dz <= r[3]:
+                return True
+        return False
+
+    for _r in LAKE_RECTS:
+        for _lx in range(LAKE_W[0] + _r[0], LAKE_W[0] + _r[2] + 1):
+            for _lz in range(LAKE_W[2] + _r[1], LAKE_W[2] + _r[3] + 1):
+                LEVEL[(_lx - ANCHOR_W[0], _lz - ANCHOR_W[2])] = LAKE_W[1] - 1 - ANCHOR_W[1]
+
     _ry = []
     for _x, _z in ROAD_CENTRE:
         _ry.append(dsurf(_x, _z))
@@ -2911,6 +2952,14 @@ if SITE:
             return HEARTH_W[1]
         if (ANCHOR_W[0]-PLAZA <= x <= ANCHOR_W[0]+PLAZA) and (ANCHOR_W[2]-PLAZA <= z <= ANCHOR_W[2]+PLAZA):
             return ANCHOR_W[1]
+        # ...and the lakefront, which is the third. The pier, its basin and its beach used
+        # to be dug by the Act II finale, at runtime, into whatever the road had left there
+        # -- so the plan never had to know about them. They are day one now (group
+        # day1_lakefront), they level a 29x29 yard to lake.y-1, and the lantern road runs
+        # straight through the middle of it. Measured on the first shipped-world build: a
+        # 3-block road step and an 8-block bare face, both at the lakefront's own edge.
+        if in_lake(x, z):
+            return LAKE_W[1] - 1
         return None
 
     # A STAIRCASE, not a smoothing pass. The old code clamped the profile to one block of
@@ -3053,10 +3102,53 @@ if SITE:
     LAMPS_40 = PLAZA_LAMPS + Q07_LAMPS + ROAD_LAMPS + STREET_LAMPS
     assert len(LAMPS_40) == 40, 'lamp registry is %d, not 40' % len(LAMPS_40)
 
-    LAMP_CMDS = ['# forty unlit lamp posts. `setblock <LAMP_LIT>` is the whole of lighting one.']
+    # ---- the three cells on the square a lamp post may not stand on ---------------------
+    # Measured on the 2026-09-05 build: ROAD_LAMPS' first station lands on the anchor
+    # itself, so day1_lamps (which runs LAST, so nothing pads over a post) wrote an oak
+    # fence straight over the town waystone act1_square had just set at anchor + [0,1,0].
+    # The square came out with a lamp post in the middle of it and no waystone at all.
+    # These are the cells the square owns: the waystone, the Surveyor's Stake socket, and
+    # the noticeboard. A post that lands on one is nudged along until it is clear.
+    RESERVED_XZ = {(ANCHOR_W[0], ANCHOR_W[2]),                 # the town waystone
+                   (ANCHOR_W[0], ANCHOR_W[2] - 2),             # the stake socket
+                   (ANCHOR_W[0], ANCHOR_W[2] - 5)}             # the noticeboard
+    _taken = set()
+    for _i, _p in enumerate(LAMPS_40):
+        _k = (_p[0], _p[2])
+        _n = 0
+        while (_k in RESERVED_XZ or _k in _taken) and _n < 8:
+            _n += 1
+            _k = (_p[0] + 2 * _n, _p[2])
+            if _k in RESERVED_XZ or _k in _taken:
+                _k = (_p[0] - 2 * _n, _p[2])
+        if _k != (_p[0], _p[2]):
+            print('  lamp %d moved off a reserved square cell: %s -> %s'
+                  % (_i + 1, (_p[0], _p[2]), _k))
+            _p[0], _p[2] = _k[0], _k[1]
+            _p[1] = dsurf(_p[0], _p[2]) + 1
+        _taken.add(_k)
+
+    # ---- the FORTIETH post is Josie's own, and it ships BARE ----------------------------
+    # Every number in the pack says so: Q74 is "lamps 39 of 40, one post stays bare on
+    # purpose: Josie's porch", and Q90 is the lantern that goes on it. The registry had
+    # forty town-and-road posts AND a porch post the Q74 scene set down at runtime, which is
+    # forty-one lights and a runtime build. So the last street post is dropped and the porch
+    # takes its place: thirty-nine posts ship with a dark cage lamp on them, the fortieth
+    # ships as a bare fence, and Q90 is the only thing that ever puts a light on it.
+    LAMP_BARE = len(LAMPS_40) - 1
+    LAMPS_40[LAMP_BARE] = [HEARTH_W[0] + 3, HEARTH_W[1] + 1, HEARTH_W[2]]
+    print('  lamp 40 is the bare post on Josie\'s porch at %s (Q90)' % LAMPS_40[LAMP_BARE])
+
+    LAMP_CMDS = ['# Forty lamp posts, standing from the first second and every one of them',
+                 '# dark. `setblock <LAMP_LIT>` on the head is the whole of lighting one, and',
+                 '# that is the only thing the story ever does to them. The fortieth -- the',
+                 '# last entry, on Josie\'s porch -- ships as a BARE post: Q90 is its lamp.']
     for _i, _p in enumerate(LAMPS_40):
         LAMP_CMDS.append('setblock ~%d ~%d ~%d minecraft:cobblestone' % (_p[0], _p[1] - 1, _p[2]))
         LAMP_CMDS.append('setblock ~%d ~%d ~%d %s' % (_p[0], _p[1], _p[2], POST))
+        if _i == LAMP_BARE:
+            LAMP_CMDS.append('setblock ~%d ~%d ~%d minecraft:air' % (_p[0], _p[1] + 1, _p[2]))
+            continue
         LAMP_CMDS.append('setblock ~%d ~%d ~%d %s' % (_p[0], _p[1] + 1, _p[2], LAMP_DARK))
 
     # =========================================================================
@@ -3174,6 +3266,293 @@ if SITE:
     ])
 
     group('day1_cottage', 'home', DAY1_COTTAGE)
+
+    # =========================================================================
+    # 11.5b  THE CELLAR.  The one room in the pack the player DIGS.
+    #
+    # Q5's own text has always described a shipped world: "There is a trapdoor under the
+    # ash in the old kitchen ... Dig the gravel out of the stairs beneath it -- about 40
+    # marked blocks ... At the bottom: a sealed iron door, no handle, four words in her
+    # chalk." Nothing built it. `/valley scene cellar` ran a 7x4x7 stone-brick box out of a
+    # datapack function AT THE CLAIMING PLAYER, which is the exact class of runtime edit
+    # this whole rewrite exists to delete -- and on the shipped world the ground under the
+    # cottage is solid stone from y-5 down, so there was no cellar at all.
+    #
+    # So it is here, on day one, and the story only opens the door.
+    #
+    #   * a real stone-brick flight, ten treads, descending north out of the kitchen;
+    #   * forty blocks of gravel filling the void ABOVE the treads -- two wide, two tall,
+    #     ten steps, and the top course is flush with the kitchen floor, so the gravel
+    #     patch in the floorboards IS the mark the quest text promises;
+    #   * a room at the bottom with her chalk, her tool chest, the marked plinth the
+    #     Cellar Waystone goes on, and a sealed iron door in the north wall with nothing
+    #     but rock behind it. Q55 opens the door; it is a state change, not a build.
+    #
+    # Everything is HOME-relative: home is the waystone cell, the kitchen floor is home-1.
+    # =========================================================================
+    CELLAR_STEPS = 10
+    CELLAR_W = (1, 2)              # the flight is x = home+1 .. home+2
+    # step i: tread at y home-3-i, z home-2-i; the two cells of headroom above it are the
+    # gravel. 2 wide x 2 tall x 10 steps = 40.
+    CELLAR_ROOM = {                # all home-relative
+        'shell': (-2, -13, -19, 5, -8, -11),
+        'floor_y': -12,
+        'stand': (1, -11, -15),
+        'door': (1, -11, -19),
+        # THE LOCK. One block of rock buried behind the door, out of sight, which Q54 turns
+        # into a redstone block. An IRON door cannot be held open by a setblock: vanilla's
+        # DoorBlock#neighborChanged recomputes OPEN from the redstone signal for any door
+        # that cannot be opened by hand, so a door set open with nothing powering it snaps
+        # shut on the next block update beside it. Measured: `/valley scene q54` reported
+        # played, wrote both halves open, and the region file came back `open=false`.
+        # Josie's door has no handle. It has a lock, and this is the lock.
+        'lock': (1, -11, -20),
+        'chalk': (0, -10, -18),
+        'chest': (4, -11, -17),
+        'plinth': (-1, -12, -17),
+    }
+    _cs = CELLAR_ROOM['shell']
+    DAY1_CELLAR = [
+        '# The cellar. GENERATED by tools/scripts/plan_town.py. Home-relative.',
+        '# Ten treads, forty blocks of gravel on top of them, and a sealed iron door at the',
+        '# bottom. The story never builds this -- Q5 digs it out and Q55 opens the door.',
+        '# 1. ROCK for the flight to be cut out of -- plain stone, not dressed brick, and',
+        '#    topping out at home-2, one course under the yard.',
+        '#    Two measurements, both on the cottage plot:',
+        '#      * filled to home-1 it broke the surface as a 4x12 patch of stone in the',
+        '#        middle of the seed bed;',
+        '#      * filled with STONE BRICK it stayed buried and still failed, because seven',
+        '#        courses of dressed stone under one course of turf is not something the',
+        '#        terrain probe will read as land (paving counts as ground only two courses',
+        '#        deep), and it reported a 12-block face where there is a garden.',
+        '#    Rock is what she cut the stair out of anyway. Only the ROOM is dressed.',
+        'fill ~%d ~%d ~%d ~%d ~%d ~%d minecraft:stone'
+        % (CELLAR_W[0] - 1, -3 - CELLAR_STEPS - 1, -2 - CELLAR_STEPS - 1,
+           CELLAR_W[1] + 1, -2, -1),
+        '# 2. the room at the bottom: shell, then hollow, then a stone floor',
+        'fill ~%d ~%d ~%d ~%d ~%d ~%d minecraft:stone_bricks' % _cs,
+        'fill ~%d ~%d ~%d ~%d ~%d ~%d minecraft:air'
+        % (_cs[0] + 1, _cs[1] + 1, _cs[2] + 1, _cs[3] - 1, _cs[4] - 1, _cs[5] - 1),
+        'fill ~%d ~%d ~%d ~%d ~%d ~%d minecraft:stone_bricks'
+        % (_cs[0] + 1, _cs[1], _cs[2] + 1, _cs[3] - 1, _cs[1], _cs[5] - 1),
+    ]
+    for _i in range(CELLAR_STEPS):
+        _ty, _tz = -3 - _i, -2 - _i
+        DAY1_CELLAR += [
+            # the tread, and solid rock under it so the flight cannot be undermined
+            'fill ~%d ~%d ~%d ~%d ~%d ~%d minecraft:stone_bricks'
+            % (CELLAR_W[0], _cs[1], _tz, CELLAR_W[1], _ty, _tz),
+            'setblock ~%d ~%d ~%d minecraft:stone_brick_stairs[facing=north,half=bottom]'
+            % (CELLAR_W[0], _ty, _tz),
+            'setblock ~%d ~%d ~%d minecraft:stone_brick_stairs[facing=north,half=bottom]'
+            % (CELLAR_W[1], _ty, _tz),
+            # the two cells of headroom, filled: THIS is the forty blocks of gravel
+            'fill ~%d ~%d ~%d ~%d ~%d ~%d minecraft:gravel'
+            % (CELLAR_W[0], _ty + 1, _tz, CELLAR_W[1], _ty + 2, _tz),
+        ]
+    DAY1_CELLAR += [
+        '# 3. the sealed iron door. No handle: nothing in the world can open it until Q55.',
+        'setblock ~%d ~%d ~%d minecraft:stone_bricks'
+        % (CELLAR_ROOM['door'][0], CELLAR_ROOM['door'][1] + 2, CELLAR_ROOM['door'][2]),
+        'setblock ~%d ~%d ~%d minecraft:chiseled_stone_bricks'
+        % (CELLAR_ROOM['door'][0] - 1, CELLAR_ROOM['door'][1], CELLAR_ROOM['door'][2]),
+        'setblock ~%d ~%d ~%d minecraft:chiseled_stone_bricks'
+        % (CELLAR_ROOM['door'][0] + 1, CELLAR_ROOM['door'][1], CELLAR_ROOM['door'][2]),
+        'setblock ~%d ~%d ~%d minecraft:iron_door[facing=north,half=lower,hinge=left,open=false,powered=false]'
+        % CELLAR_ROOM['door'],
+        'setblock ~%d ~%d ~%d minecraft:iron_door[facing=north,half=upper,hinge=left,open=false,powered=false]'
+        % (CELLAR_ROOM['door'][0], CELLAR_ROOM['door'][1] + 1, CELLAR_ROOM['door'][2]),
+        '# ...and the lock: one block of rock behind it, buried, that Q54 turns to redstone.',
+        'setblock ~%d ~%d ~%d minecraft:stone' % CELLAR_ROOM['lock'],
+        'setblock ~%d ~%d ~%d minecraft:stone'
+        % (CELLAR_ROOM['lock'][0], CELLAR_ROOM['lock'][1] + 1, CELLAR_ROOM['lock'][2]),
+        '# 4. her chalk, her tool chest, and the plinth the Cellar Waystone goes on',
+        'setblock ~%d ~%d ~%d minecraft:oak_wall_sign[facing=south]{front_text:{messages:['
+        '\'{"text":"Not yet."}\',\'{"text":""}\',\'{"text":"- J.K."}\',\'{"text":""}\'],color:"gray"}}'
+        % CELLAR_ROOM['chalk'],
+        'setblock ~%d ~%d ~%d minecraft:chest[facing=west]' % CELLAR_ROOM['chest'],
+        'setblock ~%d ~%d ~%d minecraft:polished_andesite' % CELLAR_ROOM['plinth'],
+        'setblock ~%d ~%d ~%d minecraft:lantern[hanging=false]'
+        % (_cs[0] + 1, _cs[1] + 1, _cs[2] + 1),
+        'setblock ~%d ~%d ~%d minecraft:lantern[hanging=false]'
+        % (_cs[3] - 1, _cs[1] + 1, _cs[2] + 1),
+        'setblock ~%d ~%d ~%d minecraft:lantern[hanging=true]'
+        % (CELLAR_ROOM['stand'][0], _cs[4] - 1, CELLAR_ROOM['stand'][2]),
+    ]
+    group('day1_cellar', 'home', DAY1_CELLAR)
+    print('  cellar: %d treads, %d blocks of gravel, sealed iron door at home + %s'
+          % (CELLAR_STEPS, CELLAR_STEPS * 4, str(CELLAR_ROOM['door'])))
+
+    # =========================================================================
+    # 11.5c  THE ADIT.  Q65's forty marked blocks of fall.
+    #
+    # "Mine the 40 marked blocks out of the fallen adit into Josie's Works, then place the
+    # Waystone on the marked plinth inside." The Works chamber is sealed on all six sides
+    # and there was no way in at all: the only opening anything ever made was
+    # excavateWorks(), a runtime fill. So the adit is here, on day one -- an open mouth on
+    # the verge beside the East Lane, a lined shaft, and forty blocks of cobblestone fall
+    # in it. Nothing in the story digs it; the player does, with the Works Pick.
+    #
+    # Works-relative. The mark is the chamber floor's centre; the shell runs y-1..+4.
+    # =========================================================================
+    ADIT_XZ = ((0, 6), (1, 6), (0, 7), (1, 7))       # a 2x2 shaft, works-relative x/z
+    ADIT_TOP = 11                                    # works + 11 is the meadow surface
+    ADIT_FALL = (0, 10)                              # ten courses of cobblestone: 40 blocks
+    DAY1_ADIT = [
+        '# The fallen adit into the Works. GENERATED by plan_town.py. Works-relative.',
+        '# Forty blocks of cobblestone in a lined shaft, and a mouth on the verge.',
+    ]
+    for _dx, _dz in ADIT_XZ:
+        # line every column the shaft passes through, so it never opens into dirt or a cave
+        for _lx in (-1, 0, 1):
+            for _lz in (-1, 0, 1):
+                if (_dx + _lx, _dz + _lz) in ADIT_XZ:
+                    continue
+                # ...and it stops ONE COURSE SHORT of the surface. Lined all the way up,
+                # the mouth is a stone-brick collar twelve courses deep standing where the
+                # verge was, and both the terrain probe and a person read that as a wall:
+                # nature_check scored a 14-block bare face on it. Under the top course the
+                # lining is invisible; at the top course the ground is the ground, with a
+                # two-by-two hole in it. And the lining is plain STONE, not dressed brick:
+                # a fallen adit through a hillside is a hole in rock, and eleven courses of
+                # stone brick read to the terrain probe as a wall with no land under it.
+                DAY1_ADIT.append('fill ~%d ~%d ~%d ~%d ~%d ~%d minecraft:stone'
+                                 % (_dx + _lx, 0, _dz + _lz, _dx + _lx, ADIT_TOP - 1, _dz + _lz))
+    DAY1_ADIT += [
+        '# the shaft itself: open from the mouth down to the top of the fall',
+        'fill ~%d ~%d ~%d ~%d ~%d ~%d minecraft:air'
+        % (ADIT_XZ[0][0], ADIT_FALL[1] + 1, ADIT_XZ[0][1],
+           ADIT_XZ[3][0], ADIT_TOP, ADIT_XZ[3][1]),
+        '# THE FALL. Forty blocks. This is Q65.',
+        'fill ~%d ~%d ~%d ~%d ~%d ~%d minecraft:cobblestone'
+        % (ADIT_XZ[0][0], ADIT_FALL[0] + 1, ADIT_XZ[0][1],
+           ADIT_XZ[3][0], ADIT_FALL[1], ADIT_XZ[3][1]),
+        '# ...and the chamber floor under it stays open, so the last block drops you in',
+        'fill ~%d ~%d ~%d ~%d ~%d ~%d minecraft:air'
+        % (ADIT_XZ[0][0], 0, ADIT_XZ[0][1], ADIT_XZ[3][0], 0, ADIT_XZ[3][1]),
+        '# the mouth, on the verge: a stone-brick rim, a post and Tobin\'s sign',
+        'setblock ~%d ~%d ~%d minecraft:oak_fence' % (ADIT_XZ[0][0] - 1, ADIT_TOP, ADIT_XZ[0][1] - 1),
+        'setblock ~%d ~%d ~%d minecraft:lantern[hanging=false]'
+        % (ADIT_XZ[0][0] - 1, ADIT_TOP + 1, ADIT_XZ[0][1] - 1),
+        'setblock ~%d ~%d ~%d minecraft:oak_sign[rotation=8]{front_text:{messages:['
+        '\'{"text":"THE WORKS"}\',\'{"text":"adit - fallen"}\',\'{"text":"40 blocks"}\','
+        '\'{"text":"- T. Gale"}\'],color:"gray"}}'
+        % (ADIT_XZ[1][0] + 1, ADIT_TOP, ADIT_XZ[1][1] - 1),
+        '# the marked plinth Q65 stands the Works Waystone on, and the andesite panel the',
+        '# Act IV lever hangs off. Both are fixtures of the room; neither is a build.',
+        'setblock ~0 ~0 ~-5 minecraft:polished_andesite',
+        'setblock ~%d ~%d ~%d minecraft:polished_andesite' % tuple(PANEL),
+    ]
+    group('day1_adit', 'works', DAY1_ADIT)
+    print('  adit: %d blocks of fall, mouth at works + [%d, %d, %d]'
+          % ((ADIT_FALL[1] - ADIT_FALL[0]) * 4, ADIT_XZ[0][0], ADIT_TOP, ADIT_XZ[0][1]))
+
+    # =========================================================================
+    # 11.5d  The noticeboard and the Surveyor's Stake socket, on the square.
+    # Both used to be built at runtime -- the board by finaleAct3's `place template`, the
+    # socket by nothing at all, because Q7 used to accept a stake anywhere in the valley.
+    # =========================================================================
+    DAY1_BOARD = [
+        '# The noticeboard, and the socket the Surveyor\'s Stake goes into. Anchor-relative.',
+        'place template valley:noticeboard ~0 ~1 ~-5',
+        '# the socket: chiselled, two blocks north of the town waystone, with the sign that',
+        '# says what it is for. Q7 is "put the stake in the socket" now, not "find flat ground".',
+        'setblock ~0 ~0 ~-2 minecraft:chiseled_stone_bricks',
+        'setblock ~0 ~1 ~-2 minecraft:air',
+        'setblock ~-1 ~0 ~-2 minecraft:polished_andesite',
+        'setblock ~1 ~0 ~-2 minecraft:polished_andesite',
+        'setblock ~-1 ~1 ~-2 minecraft:oak_sign[rotation=12]{front_text:{messages:['
+        '\'{"text":"THE SQUARE"}\',\'{"text":"stake goes here"}\',\'{"text":""}\','
+        '\'{"text":"- B. Tolliver"}\'],color:"gray"}}',
+    ]
+    group('day1_board', 'anchor', DAY1_BOARD)
+
+    # =========================================================================
+    # 11.5e  THE LAKEFRONT.  The pier, the basin and the Lantern Float's water.
+    #
+    # There is no lake at the Lake Waystone. The seed's water is four hundred blocks away;
+    # what the pack calls "the lake" is a basin the Act II finale DUG -- 29x29 levelled to
+    # stone, eight courses cleared to air, five `replace minecraft:water` plugs and three
+    # courses of source water poured back in -- with a pier template pasted into the middle
+    # of it, at the moment twelve people were standing on the spot for a festival.
+    #
+    # All of it is day one now. The basin, the beach, the pier, the rails, the candle
+    # holders, the twelve lantern rafts and the lily pads are standing before anybody logs
+    # in; Act II lights the candles, brings the town down to the water and hands out the
+    # fireworks. The pier is a pier from the first walk down the road, which is also the
+    # only reason Q22's fishing and Q26's Dredge Net have any water to work in before Act II.
+    #
+    # Lake-mark-relative, exactly as finaleAct2 had it.
+    # =========================================================================
+    DAY1_LAKE = [
+        '# The lakefront. GENERATED by plan_town.py. Lake-mark-relative, and all of it EAST',
+        '# of the lantern road, which runs down the yard\'s western kerb.',
+        '# 1. the yard: two courses of stone under it, everything above cleared.',
+        'fill ~-2 ~1 ~-6 ~16 ~10 ~8 minecraft:air',
+        'fill ~-2 ~-2 ~-6 ~16 ~-1 ~8 minecraft:stone',
+        '# 2. the beach, laid BEFORE the basin is dug (the basin takes back z 9..16 of it)',
+        'fill ~2 ~-1 ~6 ~14 ~-1 ~16 minecraft:sandstone',
+        '# 3. the basin: a sealed stone shell, one block proud of the water on all four',
+        '#    sides and under it, so a spring, an aquifer or a flooded cave cannot drain it.',
+        'fill ~1 ~-4 ~9 ~17 ~-1 ~25 minecraft:stone',
+        'fill ~1 ~0 ~10 ~17 ~8 ~25 minecraft:air',
+        'fill ~1 ~0 ~9 ~17 ~0 ~9 minecraft:air',
+        'fill ~0 ~-5 ~8 ~0 ~3 ~26 minecraft:stone replace minecraft:water',
+        'fill ~18 ~-5 ~8 ~18 ~3 ~26 minecraft:stone replace minecraft:water',
+        'fill ~0 ~-5 ~8 ~18 ~3 ~8 minecraft:stone replace minecraft:water',
+        'fill ~0 ~-5 ~26 ~18 ~3 ~26 minecraft:stone replace minecraft:water',
+        'fill ~0 ~-5 ~8 ~18 ~-5 ~26 minecraft:stone replace minecraft:water',
+        'fill ~2 ~-3 ~10 ~16 ~-1 ~24 minecraft:water[level=0]',
+        '# 4. the shore lip the shell paved over, back in beach sandstone, so the water\'s',
+        '#    edge reads as an edge and not as a kerb',
+        'fill ~2 ~-1 ~9 ~14 ~-1 ~9 minecraft:sandstone',
+        '# 5. the pier, out over the water rather than nine blocks up the middle of the',
+        '#    road. Rails closed on both sides -- the template posts its rail only every',
+        '#    fourth block, and with a basin under it that is a two-block drop into cold',
+        '#    water at a party.',
+        'place template valley:pier ~7 ~0 ~6',
+        'fill ~7 ~2 ~7 ~7 ~2 ~13 minecraft:oak_fence',
+        'fill ~9 ~2 ~7 ~9 ~2 ~13 minecraft:oak_fence',
+        'setblock ~8 ~0 ~4 waystones:waystone{WaystoneName:"The Pier"}',
+        '# 6. Nella\'s beached boat and her cold fire, at the head of the shingle',
+        'setblock ~3 ~0 ~6 minecraft:oak_stairs[facing=east,half=bottom]',
+        'setblock ~3 ~0 ~7 minecraft:oak_stairs[facing=east,half=bottom]',
+        'setblock ~3 ~0 ~8 minecraft:oak_planks',
+        'setblock ~4 ~0 ~7 minecraft:campfire[lit=false]',
+        'setblock ~5 ~0 ~8 minecraft:barrel[facing=up]',
+        'setblock ~11 ~0 ~6 minecraft:oak_fence',
+        'setblock ~11 ~1 ~6 minecraft:lantern[hanging=false]',
+    ]
+    # the twelve rafts: a lantern on a waterlogged TOP slab, whose upper face IS the block
+    # boundary, so it sits flush with the water and still supports the lantern.
+    for _rx, _rz in ((3, 13), (7, 12), (11, 14), (15, 12), (2, 18), (6, 17), (10, 19),
+                     (14, 17), (4, 22), (9, 23), (13, 21), (16, 23)):
+        DAY1_LAKE.append('setblock ~%d ~-1 ~%d minecraft:oak_slab[type=top,waterlogged=true]'
+                         % (_rx, _rz))
+        DAY1_LAKE.append('setblock ~%d ~0 ~%d minecraft:lantern[hanging=false]' % (_rx, _rz))
+    for _gx, _gz in ((3, 15), (16, 19), (8, 21)):
+        DAY1_LAKE.append('setblock ~%d ~0 ~%d ribbits:giant_lilypad' % (_gx, _gz))
+    for _lx2, _lz2 in ((5, 11), (9, 11), (13, 11), (3, 13), (16, 14), (4, 16), (12, 16),
+                       (8, 15), (15, 20), (2, 21), (11, 24), (6, 24)):
+        DAY1_LAKE.append('setblock ~%d ~0 ~%d minecraft:lily_pad' % (_lx2, _lz2))
+    for _cz in (8, 10, 12):
+        for _cx in (7, 9):
+            DAY1_LAKE.append('setblock ~%d ~3 ~%d supplementaries:candle_holder'
+                             '[lit=false,face=floor,facing=north,candles=3]' % (_cx, _cz))
+    group('day1_lakefront', 'lake', DAY1_LAKE)
+
+    # =========================================================================
+    # 11.5f  Wisp's four posts down the frozen river (Q58).
+    # Four more posts, outside the forty, standing dark like everything else. Q58 lights
+    # them; it used to set them down.
+    # =========================================================================
+    DAY1_WISP = ['# Wisp\'s lantern path down the frozen river (Q58 lights these).']
+    for _wx, _wz in ((2, 14), (-2, 20), (2, 26), (-2, 32)):
+        DAY1_WISP.append('setblock ~%d ~0 ~%d minecraft:cobblestone' % (_wx, _wz))
+        DAY1_WISP.append('setblock ~%d ~1 ~%d %s' % (_wx, _wz, POST))
+        DAY1_WISP.append('setblock ~%d ~2 ~%d %s' % (_wx, _wz, LAMP_DARK))
+    group('day1_wisp_posts', 'anchor', DAY1_WISP)
+
     group('day1_lamps', 'world', LAMP_CMDS)
     group('day1_signpost', 'world', SIGN_CMDS)
 
@@ -3324,7 +3703,12 @@ if SITE:
           % (len(SKIRT), len(GRADE_CMDS)))
 
     RUN_ORDER[:0] = ['day1_road', 'day1_cottage', 'day1_signpost']
-    RUN_ORDER.append('day1_lamps')
+    # The cellar, the adit, the noticeboard and the stake socket all go in AFTER the
+    # buildings they sit under or on: the cellar is cut out from under the cottage, the
+    # adit pierces the Works shell act4_works seals, and the board and the socket stand on
+    # the square act1_square paves.
+    RUN_ORDER += ['day1_cellar', 'day1_adit', 'day1_board', 'day1_lakefront',
+                  'day1_wisp_posts', 'day1_lamps']
 
     # =========================================================================
     # valley_sites.json -- THE fixed registry.
@@ -3458,9 +3842,13 @@ if SITE:
         'site_boxes': _site_boxes,
         'buildings': _buildings,
         'doors': {k: v for k, v in _doors.items() if v},
-        'lamps': [{'n': i + 1, 'pos': p,
-                   'route': ('finale' if i < 4 else 'q07' if i < 6 else
-                             'q34' if i < 22 else 'q74')}
+        # Lighting ORDER, 1..40, and which quest lights each one. The last is the bare
+        # post on Josie's porch (Q90); everything before it ships with a dark cage lamp
+        # on top, at pos + [0,1,0].
+        'lamps': [{'n': i + 1, 'pos': p, 'bare': (i == LAMP_BARE),
+                   'route': ('q90' if i == LAMP_BARE else
+                             'finale' if i < 4 else 'q07' if i < 6 else
+                             'q34' if i < 10 else 'q74')}
                   for i, p in enumerate(LAMPS_40)],
         # The road's own columns, MINUS the ones inside the square. The lantern road is laid
         # from spawn to the farm gate and it crosses the plaza on the way, but inside the
@@ -3491,7 +3879,46 @@ if SITE:
     SITES_JSON['works']['shell'] = [
         _wm[0] + WORKS_SHELL['x'][0], _wm[1] + WORKS_SHELL['y'][0], _wm[2] + WORKS_SHELL['z'][0],
         _wm[0] + WORKS_SHELL['x'][1], _wm[1] + WORKS_SHELL['y'][1], _wm[2] + WORKS_SHELL['z'][1]]
-    SITES_JSON['cellar_door'] = [HOME_W[0], HOME_W[1] - 6, HOME_W[2]]
+    SITES_JSON['works']['plinth'] = W([0, 0, -5], _wm)
+    SITES_JSON['works']['adit'] = {
+        'mouth': W([ADIT_XZ[0][0], ADIT_TOP, ADIT_XZ[0][1]], _wm),
+        'fall': [_wm[0] + ADIT_XZ[0][0], _wm[1] + ADIT_FALL[0] + 1, _wm[2] + ADIT_XZ[0][1],
+                 _wm[0] + ADIT_XZ[3][0], _wm[1] + ADIT_FALL[1], _wm[2] + ADIT_XZ[3][1]],
+        'blocks': (ADIT_FALL[1] - ADIT_FALL[0]) * 4,
+    }
+    SITES_JSON['cellar'] = {
+        'stand': W(CELLAR_ROOM['stand'], HOME_W),
+        'box': [HOME_W[0] + _cs[0], HOME_W[1] + _cs[1], HOME_W[2] + _cs[2],
+                HOME_W[0] + _cs[3], HOME_W[1] + _cs[4], HOME_W[2] + _cs[5]],
+        'door': W(CELLAR_ROOM['door'], HOME_W),
+        'chalk': W(CELLAR_ROOM['chalk'], HOME_W),
+        'chest': W(CELLAR_ROOM['chest'], HOME_W),
+        'plinth': W(CELLAR_ROOM['plinth'], HOME_W),
+        'lock': W(CELLAR_ROOM['lock'], HOME_W),
+        'gravel': [HOME_W[0] + CELLAR_W[0], HOME_W[1] - 2 - CELLAR_STEPS,
+                   HOME_W[2] - 1 - CELLAR_STEPS,
+                   HOME_W[0] + CELLAR_W[1], HOME_W[1] - 1, HOME_W[2] - 2],
+        'blocks': CELLAR_STEPS * 4,
+    }
+    SITES_JSON['cellar_door'] = SITES_JSON['cellar']['door']
+    SITES_JSON['stake_socket'] = [ANCHOR_W[0], ANCHOR_W[1] + 1, ANCHOR_W[2] - 2]
+    SITES_JSON['lakefront'] = {
+        'pier_waystone': W([8, 0, 4], W(OFF['lake'], ANCHOR_W)),
+        'candles': [W([_c[0], 3, _c[1]], W(OFF['lake'], ANCHOR_W))
+                    for _c in ((7, 8), (9, 8), (7, 10), (9, 10), (7, 12), (9, 12))],
+        'campfire': W([4, 0, 7], W(OFF['lake'], ANCHOR_W)),
+        'boat': W([3, 0, 10], W(OFF['lake'], ANCHOR_W)),
+        'water': [W([2, -3, 10], W(OFF['lake'], ANCHOR_W)),
+                  W([16, -1, 24], W(OFF['lake'], ANCHOR_W))],
+    }
+    SITES_JSON['wisp_posts'] = [W([_w[0], 2, _w[1]], ANCHOR_W)
+                                for _w in ((2, 14), (-2, 20), (2, 26), (-2, 32))]
+    SITES_JSON['town_waystone'] = [ANCHOR_W[0], ANCHOR_W[1] + 1, ANCHOR_W[2]]
+    SITES_JSON['noticeboard'] = {
+        'origin': W([0, 1, -5], ANCHOR_W),
+        'sign': W([1, 4, -5], ANCHOR_W),
+    }
+    SITES_JSON['cottage']['sconce'] = W([-1, 1, 1], HOME_W)
     for _sp in NPC_SPOTS:
         _base = ANCHOR_W if _sp['origin'] == 'anchor' else (
             HOME_W if _sp['origin'] == 'home' else W(OFF.get(_sp['origin'], [0, 0, 0]), ANCHOR_W))
@@ -3662,10 +4089,25 @@ js += ['  }', '}', '',
        '']
 pathlib.Path('pack/kubejs/server_scripts/town_plan.js').write_text('\n'.join(js))
 
+# The two mcfunctions the pack still ships. They are DERIVATIONS, not runtime code:
+# `day1_cottage` and Q7's road are built from the same `cot_lines` / `sp_lines` this writes
+# out, and having them on disk in a readable form is how the cottage and the road are
+# reviewed. Nothing calls them -- valley_finales.js REFUSES `run function valley:`, and no
+# quest reward names one.
+#
+# valley:setup/place_ruin is NOT written any more. It cut a 23x26 pad and pasted a ruin onto
+# it at the first player's first join, which is the single thing this whole architecture
+# exists to delete: the farm is in the shipped world, standing, before anybody logs in.
 fn = pathlib.Path('pack/kubejs/data/valley/functions')
-(fn / 'setup').mkdir(parents=True, exist_ok=True)
 (fn / 'act1').mkdir(parents=True, exist_ok=True)
-(fn / 'setup' / 'place_ruin.mcfunction').write_text('\n'.join(ruin_lines) + '\n')
+_dead = fn / 'setup' / 'place_ruin.mcfunction'
+if _dead.exists():
+    _dead.unlink()
+    try:
+        (fn / 'setup').rmdir()
+    except OSError:
+        pass
+    print('  removed the dead valley:setup/place_ruin')
 (fn / 'act1' / 'cottage.mcfunction').write_text('\n'.join(cot_lines) + '\n')
 (fn / 'act1' / 'square_path.mcfunction').write_text('\n'.join(sp_lines) + '\n')
 
@@ -3676,6 +4118,37 @@ if SITES_JSON is not None:
     print('  valley_sites.json: seed %s, spawn %s, hearth %s, anchor %s, %d lamps, %d doors'
           % (SITES_JSON['seed'], SITES_JSON['spawn'], SITES_JSON['hearth'],
              SITES_JSON['anchor'], len(SITES_JSON['lamps']), len(SITES_JSON['doors'])))
+
+    # ---- ...and the same registry as a KubeJS global ---------------------------------
+    # valley_core.js, valley_checks.js and valley_finales.js all read their coordinates
+    # out of the registry now, and a server script cannot open a file. So the JSON is
+    # emitted a second time as a script that does nothing but assign it, with a priority
+    # comment that puts it ahead of every valley_*.js AND ahead of town_plan.js.
+    #
+    # KubeJS sorts server_scripts by `// priority:` DESC and only then by filename, and
+    # the ordering matters: valley_core.js reads global.valleySites at load time to build
+    # its constants, and a file that loads after it would be invisible. This was already a
+    # live bug for town_plan.js -- the log shows valley_core.js at 00:15:02.929 and
+    # town_plan.js at 00:15:02.953, i.e. the plan loaded SECOND and every mark in the pack
+    # came out of valley_core's hand-typed fallback. See docs/mod-decisions.md.
+    _js = pathlib.Path('pack/kubejs/server_scripts/valley_sites.js')
+    _js.write_text(
+        '// priority: 2000\n'
+        '// valley_sites.js -- GENERATED by tools/scripts/plan_town.py. DO NOT HAND-EDIT.\n'
+        '//\n'
+        '// The fixed site registry, verbatim from pack/kubejs/data/valley/valley_sites.json,\n'
+        '// as a KubeJS global. The world is shipped, so every coordinate in the pack is a\n'
+        '// constant and this is where all three valley scripts read them from.\n'
+        '//\n'
+        '// priority 2000 loads it before town_plan.js (1000) and before every valley_*.js.\n'
+        '\n'
+        'global.valleySites = ' + json.dumps(SITES_JSON, indent=1) + '\n'
+        '\n'
+        "console.info('[valley] valley_sites.js ok -- seed " + str(SITES_JSON['seed']) +
+        ", anchor " + ' '.join(str(v) for v in SITES_JSON['anchor']) +
+        ", ' + global.valleySites.lamps.length + ' lamps, ' +\n"
+        "             Object.keys(global.valleySites.buildings).length + ' buildings')\n")
+    print('  valley_sites.js: %d bytes' % _js.stat().st_size)
 
 if errors:
     # Section 11 raises on what it can see before day one is built. Everything the day-one

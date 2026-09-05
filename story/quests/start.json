@@ -19,11 +19,11 @@
    "shape": "hexagon",
    "size": 1.5,
    "description": [
-    "Josie: \"If you're reading this I'm dead and the valley is cold. Only one of those is your problem.\"",
+    "Josie: “If you're reading this I'm dead and the valley is cold. Only one of those is your problem.”",
     "",
     "Take Josie's Letter out of your bag and right-click it. Read all four pages — the last one tells you where the old Kettle farm is.",
     "",
-    "Forty lamps. Fifteen people. One winter that nobody leaves."
+    "Forty lamp posts stand along the road out of here and not one of them is lit. That is the whole job."
    ],
    "deps": [],
    "tasks": [
@@ -74,7 +74,7 @@
     {
      "type": "toast",
      "title": "Found on the Mantle",
-     "description": "Next: follow the lit path from where you woke up. It ends at the old Kettle farm. Put the waystone on the flat grey hearthstone by the chimney."
+     "description": "Next: follow the road from where you woke up. It ends at the Kettle farm gate. Put the waystone on the flat grey hearthstone in the middle of the kitchen floor."
     }
    ]
   },
@@ -84,11 +84,11 @@
    "subtitle": "Name it Home.",
    "icon": "waystones:waystone",
    "description": [
-    "Josie: \"The hearthstone is the one thing in that house I never had to fix. Start from the part that held.\"",
+    "Josie: “The hearthstone is the one thing in that house I never had to fix. Start from the part that held.”",
     "",
-    "Follow the lit path from where you woke up to the old farm — the chimney is still standing. Place the Homestead Waystone on the flat grey hearthstone beside it, type Home in the box, click the tick.",
+    "Follow the road from where you woke up to the old farm — the gate is signposted and the chimney is standing. The house is standing too: cold, empty, no door on it. Place the Homestead Waystone on the flat grey hearthstone in the middle of the kitchen floor, type Home in the box, click the tick.",
     "",
-    "The roof and the walls go back up around you, with a doorway, two window holes and a wool mat where the bed goes."
+    "Nothing is rebuilt and nothing is moved. It is your house from that moment, exactly as she left it."
    ],
    "deps": [
     "q01"
@@ -136,19 +136,19 @@
     {
      "type": "toast",
      "title": "Home",
-     "description": "Next: hang the door, put a window in each hole, the bed on the mat, the sconce by the door."
+     "description": "Next: the door, the two windows, the bed and the sconce are in your bag. The holes they go in are already in the walls."
     }
    ]
   },
   {
    "key": "q03",
    "title": "Hang the Door, Windows, Bed and Sconce",
-   "subtitle": "All four are in your bag.",
+   "subtitle": "All four are in your bag. The holes are already there.",
    "icon": "handcrafted:oak_table",
    "description": [
-    "Josie: \"A house is a box until somebody shuts a door in it. Go and shut the door.\"",
+    "Josie: “A house is a box until somebody shuts a door in it. Go and shut the door.”",
     "",
-    "Put the Oak Cottage Door in the doorway, one Oak Window in each of the two holes, the Red Bed on the wool mat, and the Sconce on the hook by the door. Any order is right.",
+    "The doorway is empty, two window holes are open to the weather, there is a wool mat where the bed goes and a hook by the door. Put the Oak Cottage Door in the doorway, one Oak Window in each hole, the Red Bed on the mat and the Sconce on the hook. Any order is right.",
     "",
     "The cottage becomes a home you can cook in, and the smoke from it is what brings Marnie up the hill."
    ],
@@ -257,14 +257,14 @@
   {
    "key": "q05",
    "title": "Dig Out the Cellar Stairs",
-   "subtitle": "About 40 marked blocks of gravel.",
+   "subtitle": "Forty marked blocks of gravel in the kitchen floor.",
    "icon": "minecraft:iron_door",
    "description": [
-    "Josie: \"There's a door down there I'm not going to explain yet. Dig anyway; I know you.\"",
+    "Josie: “There's a door down there I'm not going to explain yet. Dig anyway; I know you.”",
     "",
-    "There is a trapdoor under the ash in the old kitchen and it is glowing. Dig the gravel out of the stairs beneath it — about 40 marked blocks. The iron shovel is in your bag.",
+    "There is a patch of gravel in the kitchen floor, two blocks wide, and it goes down. Dig it out — forty marked blocks — and you will be standing on a stone stair she cut herself. The iron shovel is in your bag.",
     "",
-    "At the bottom: a sealed iron door, no handle, four words in her chalk — Not yet. — J.K. Beside it, a Cellar Waystone and her tool chest."
+    "At the bottom: a sealed iron door, no handle, four words in her chalk — Not yet. — J.K. Beside it, a plinth for the Cellar Waystone and her tool chest."
    ],
    "deps": [
     "q02"
@@ -272,7 +272,7 @@
    "tasks": [
     {
      "type": "checkmark",
-     "title": "Stairs cleared — you are standing below the cottage floor"
+     "title": "Standing in the cellar, at the bottom of the flight"
     }
    ],
    "rewards": [
@@ -389,23 +389,21 @@
     {
      "type": "toast",
      "title": "Put the Kettle On",
-     "description": "Next: carry the Surveyor's Stake north up the road and place it where the ground sparks green."
+     "description": "Next: carry Bram's Surveyor's Stake up the road to the square and drive it into the socket he cut for it."
     }
    ]
   },
   {
    "key": "q07",
-   "title": "Place the Surveyor's Stake North of Your Gate",
-   "subtitle": "Walk north. The ground tells you where.",
+   "title": "Drive the Surveyor's Stake into Bram's Socket",
+   "subtitle": "It is cut into the middle of the square. It has been for forty years.",
    "icon": "valley:town_anchor",
    "description": [
-    "Josie: \"Bram surveyed that flat by the road twice and never drove the stake — forty years of nearly. Drive it.\"",
+    "Josie: “Bram surveyed that flat by the road twice, cut the socket for the stake, and never drove it — forty years of nearly. Drive it.”",
     "",
-    "Carry Bram's Surveyor's Stake north up the road. Green sparks come up round your feet the moment the ground is flat enough to hold a town — drive the stake in the sparks. Every building in the valley is measured from that spot.",
+    "Walk up the road to the square. There is a chiselled socket in the paving two blocks north of the town waystone, with Bram's own sign beside it. Put the Surveyor's Stake in it.",
     "",
-    "Walk until the cottage chimney is small behind you. Stake it in your own dooryard and the square and the mill land on top of the farm.",
-    "",
-    "A stone path is laid from your door to the anchor and the first two lamp posts go up. 2 of 40."
+    "Nothing moves and nothing is built. The square, the streets and the empty houses round it have been standing since long before you got here — what changes is that the town is on the record again, and the two lamps at the head of the High Street come on."
    ],
    "deps": [
     "q06"
@@ -414,7 +412,7 @@
    "tasks": [
     {
      "type": "checkmark",
-     "title": "Surveyor's Stake placed north of the gate"
+     "title": "Surveyor's Stake driven into the socket on the square"
     }
    ],
    "rewards": [
@@ -447,7 +445,7 @@
     {
      "type": "toast",
      "title": "Lantern Road 2/40",
-     "description": "Next: sleep one night in your bed. Somebody is going to see the smoke."
+     "description": "Next: sleep one night in your own bed. Marnie has been watching that chimney for four years."
     }
    ]
   },
@@ -457,11 +455,11 @@
    "subtitle": "Marnie sees the chimney.",
    "icon": "minecraft:red_bed",
    "description": [
-    "Marnie: \"Four years I've looked at that chimney, and last night there was smoke. I've brought bread and I am not carrying it home.\"",
+    "Marnie: “Four years I've looked at that chimney, and last night there was smoke. I've brought bread and I am not carrying it home.”",
     "",
     "Sleep one night in the Red Bed in your cottage.",
     "",
-    "Marnie moves in, the inn shell goes up at the Town Anchor, and she leaves you her seed sack, 32 Green Oak Planks and a flint and steel."
+    "Marnie unlocks the inn she has kept with no guests in it and moves back in, Bram opens the mill, and she leaves you her seed sack, 32 Green Oak Planks and a flint and steel."
    ],
    "deps": [
     "q07"
@@ -529,7 +527,7 @@
     {
      "type": "toast",
      "title": "Residents 1/15",
-     "description": "Next: till the 3x9 patch behind the house — every tile is marked. Bram is outside the mill west of the stake; he has waited sixty years, he can wait a week."
+     "description": "Next: till the 3x9 patch behind the house — every tile is marked. Bram is at the mill west of the square; he has waited sixty years, he can wait a week."
     }
    ]
   }
