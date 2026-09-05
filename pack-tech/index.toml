@@ -237,6 +237,10 @@ file = "kubejs/server_scripts/tech_recipes.js"
 hash = "450dac4cf30f1c60ee4a527a81d774776691c96726d46719fde90b24fe8438e9"
 
 [[files]]
+file = "kubejs/server_scripts/tech_step.js"
+hash = "3916b4cb887c4c45bfe823013edf63c43b491c7f5b5d7e43cfe2f710989d33d5"
+
+[[files]]
 file = "kubejs/server_scripts/unify.js"
 hash = "41d67de899f2506b4b49afa6a2ad48986ce13669a79eb81eda0711adb6705e9d"
 
