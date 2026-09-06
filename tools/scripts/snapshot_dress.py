@@ -117,15 +117,30 @@ def main():
     f = nbtlib.File.parse(io.BytesIO(gzip.decompress(lvl.read_bytes())))
     root = f[''] if '' in f else f
     was = str(root['Data']['LevelName'])
+    dirty = False
     if was != args.name:
         root['Data']['LevelName'] = nbtlib.String(args.name)
-        if not args.dry_run:
-            buf = io.BytesIO()
-            f.write(buf, byteorder='big')
-            lvl.write_bytes(gzip.compress(buf.getvalue()))
+        dirty = True
         print('  LevelName %r -> %r' % (was, args.name))
     else:
         print('  LevelName already %r' % args.name)
+    # ---- 1b. the clock and the spawns ---------------------------------------------
+    # master_build.sh freezes the clock for the pregen/build and holds mob spawning for
+    # the ore sweep. A product with doDaylightCycle=false cannot be slept in, and q08
+    # "Sleep One Night" gates all of Act I (shipped that way until 2026-09-05). Enforce.
+    gr = root['Data']['GameRules']
+    for rule, want in (('doDaylightCycle', 'true'), ('doMobSpawning', 'true'), ('doWeatherCycle', 'true')):
+        have = str(gr.get(rule, ''))
+        if have != want:
+            gr[rule] = nbtlib.String(want)
+            dirty = True
+            print('  gamerule %s %r -> %r' % (rule, have, want))
+        else:
+            print('  gamerule %s already %r' % (rule, want))
+    if dirty and not args.dry_run:
+        buf = io.BytesIO()
+        f.write(buf, byteorder='big')
+        lvl.write_bytes(gzip.compress(buf.getvalue()))
 
     # ---- 2. the litter and the hostiles -------------------------------------------
     import json

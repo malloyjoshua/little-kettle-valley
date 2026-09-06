@@ -727,6 +727,13 @@ ServerEvents.loaded(event => {
   s.runCommandSilent('bossbar set valley:folk max 15')
   s.runCommandSilent('bossbar set valley:folk players @a')
 
+  // The shipped world was built with doDaylightCycle=false (master_build.sh sets it for
+  // the build and never set it back; found 2026-09-05 by the deep-dive critic). A frozen
+  // morning makes the bed refuse ("you can only sleep at night"), and q08 "Sleep One
+  // Night" gates all of Act I. The level.dat is fixed; this heals every copy that was
+  // downloaded before the fix. Cheap, idempotent, every load.
+  s.runCommandSilent('gamerule doDaylightCycle true')
+
   let a = global.valley.anchor()
   console.info('[valley] core loaded. Anchor: ' + (a ? a.join(' ') : 'not set yet'))
 })
