@@ -27,7 +27,7 @@
 			title: "Sleep, Then Walk the Square With Marnie"
 			subtitle: "Year two, and the noticeboard is longer."
 			icon: "minecraft:oak_sapling"
-			description: ["Marnie: \"Snow's still on the ridge and the square's still standing. Come on, I want you to see it in daylight.\"", "", "Sleep one night in your own bed, then walk the square with Marnie. She hands you a packet on the way.", "", "Year two opens on thirty bare tiles and Nella's cold frame. What grows when is in the &6Farm & Seasons&r chapter."]
+			description: ["Marnie: \"Snow's still on the ridge and the square's still standing. Come on, I want you to see it in daylight.\"", "", "Sleep one night in your own bed, then walk the square with Marnie. She hands you a packet on the way.", "", "Year two opens on thirty bare tiles and Nella's cold frame. What grows when is in the &6Farm and Seasons&r chapter."]
 			x: 0.0d
 			y: -0.8d
 			dependencies: ["78E6F9A263CA4B65"]
@@ -76,7 +76,7 @@
 			title: "Catch Three Named Fish for the Inn Wall"
 			subtitle: "Bluegill and perch by day, catfish after dark."
 			icon: "aquaculture:oak_fish_mount"
-			description: ["Nella: \"Bluegill and perch off the pier any time. Catfish is a night fish and he wants a worm on the hook.\"", "", "Catch a bluegill and a perch off the pier in daylight, then a &acatfish&r after dark on a worm. Hang three fish mounts on the inn wall.", "", "Fifty Scrip toward the winter debt. Rods, bait and the rest of the lake are in the &6Animals & Fishing&r chapter."]
+			description: ["Nella: \"Bluegill and perch off the pier any time. Catfish is a night fish and he wants a worm on the hook.\"", "", "Catch a bluegill and a perch off the pier in daylight, then a &acatfish&r after dark on a worm. Hang three fish mounts on the inn wall.", "", "Fifty Scrip toward the winter debt. Rods, bait and the rest of the lake are in the &6Animals and Fishing&r chapter."]
 			x: 4.0d
 			y: -1.5d
 			dependencies: ["17BC7CABEC8874AB"]
@@ -93,7 +93,7 @@
 			title: "Build the Second Turbine"
 			subtitle: "Same reactor. Same fuel. Twice the power."
 			icon: "biggerreactors:turbine_rotor_blade"
-			description: ["Tobin: \"Second turbine, same reactor, and the fuel line does not move. I did the arithmetic four times, then once more with Bram watching.\"", "", "Build a second turbine off the reactor you already have, then stand at the terminal, press &bT&r and type &b/valley check power&r.", "", "It ticks at 25,000 or more on 60 or less fuel. Turbines start to finish: the &6Reactor & the Quarry&r chapter."]
+			description: ["Tobin: \"Second turbine, same reactor, and the fuel line does not move. I did the arithmetic four times, then once more with Bram watching.\"", "", "Build a second turbine off the reactor you already have, then stand at the terminal, press &bT&r and type &b/valley check power&r.", "", "It ticks at 25,000 or more on 60 or less fuel. Turbines start to finish: the &6Reactor and the Quarry&r chapter."]
 			x: 0.0d
 			y: 0.8d
 			dependencies: ["78E6F9A263CA4B65"]
@@ -158,7 +158,7 @@
 			title: "Cook Each Resident's Favourite Dish"
 			subtitle: "Eight plates, eight people."
 			icon: "farmersdelight:roast_chicken"
-			description: ["Marnie: \"Eight plates, eight people. The crate by the counter already has every ingredient in it. Your network saw to that.\"", "", "Cook one each: roast chicken for Marnie, beef stew for Bram, cabbage rolls for Oda, fish stew for Nella, mushroom rice for Halden, bacon and eggs for Tobin, fruit salad for Wisp, sweet berry cheesecake for Pip.", "", "You keep the &aFeast Crate&r, one of each, set aside for Founder's Day. Kit and recipes: the &6Cooking & Brewing&r chapter."]
+			description: ["Marnie: \"Eight plates, eight people. The crate by the counter already has every ingredient in it. Your network saw to that.\"", "", "Cook one each: roast chicken for Marnie, beef stew for Bram, cabbage rolls for Oda, fish stew for Nella, mushroom rice for Halden, bacon and eggs for Tobin, fruit salad for Wisp, sweet berry cheesecake for Pip.", "", "You keep the &aFeast Crate&r, one of each, set aside for Founder's Day. Kit and recipes: the &6Cooking and Brewing&r chapter."]
 			x: 4.0d
 			y: 1.5d
 			dependencies: ["6AEB1A84451F29C0", "714CBF3A1860EFA5"]

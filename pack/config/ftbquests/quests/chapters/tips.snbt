@@ -143,7 +143,7 @@
 			title: "Hold One Key and Take the Whole Seam"
 			subtitle: "The key above Tab. No enchantment needed."
 			icon: "minecraft:iron_ore"
-			description: ["Hold the &bgrave key&r (above Tab) as you break an ore or a log. Up to 64 blocks of that vein come out at once.", "", "Drops gather where you broke it. See the &6Ores & Mining&r chapter."]
+			description: ["Hold the &bgrave key&r (above Tab) as you break an ore or a log. Up to 64 blocks of that vein come out at once.", "", "Drops gather where you broke it. See the &6Ores and Mining&r chapter."]
 			x: 4.0d
 			y: 0.0d
 			dependencies: ["4F28B700FB8E4080"]
@@ -177,7 +177,7 @@
 			title: "Carry a Calendar and Sow in Season"
 			subtitle: "Nine days a sub-season, twenty-seven a season."
 			icon: "sereneseasons:calendar"
-			description: ["Craft a &aCalendar&r. Held, it names the season, and a crop planted out of its season simply stops growing.", "", "Which crop wants which season is in the &6Farm & Seasons&r chapter."]
+			description: ["Craft a &aCalendar&r. Held, it names the season, and a crop planted out of its season simply stops growing.", "", "Which crop wants which season is in the &6Farm and Seasons&r chapter."]
 			x: 8.0d
 			y: 0.0d
 			dependencies: ["0B21A0D1D95F17EB"]
@@ -258,5 +258,5 @@
 			rewards: [{ id: "27FFA92EC42B69BD", type: "loot", auto: "no_toast", table_id: 9034832565463683162L }, { id: "2131431BF7CD3791", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
 		}
 	]
-	title: "Useful Items & Tips"
+	title: "Useful Items and Tips"
 }

@@ -26,7 +26,7 @@
 			title: "Smelt 16 Uranium Ingots"
 			subtitle: "Autunite. Dig where the sample is."
 			icon: "biggerreactors:uranium_ingot"
-			description: ["&bAutunite&r is the uranium ore in this pack. Break it for Uranium Clusters and smelt each cluster into one &aUranium Ingot&r.", "", "The sample block on the grass sits over the pocket, so dig where the sample is. Sixteen ingots runs a small vessel a long time. For bed depths, see the &6Ores & Mining&r chapter."]
+			description: ["&bAutunite&r is the uranium ore in this pack. Break it for Uranium Clusters and smelt each cluster into one &aUranium Ingot&r.", "", "The sample block on the grass sits over the pocket, so dig where the sample is. Sixteen ingots runs a small vessel a long time. For bed depths, see the &6Ores and Mining&r chapter."]
 			x: 0.0d
 			y: 0.0d
 			shape: "hexagon"
@@ -139,7 +139,7 @@
 			title: "Reprocess Cyanite Back Into Fuel"
 			subtitle: "Spent fuel is half a fuel rod."
 			icon: "biggerreactors:cyanite_reprocessor"
-			description: ["Build a &aCyanite Reprocessor&r and run four cyanite ingots from the access port through it.", "", "Cyanite is what uranium becomes. Reprocessed it goes to &aBlutonium&r, which burns hotter. One cyanite ingot is also what a pane of greenhouse glass costs: see the &6Farm & Seasons&r chapter."]
+			description: ["Build a &aCyanite Reprocessor&r and run four cyanite ingots from the access port through it.", "", "Cyanite is what uranium becomes. Reprocessed it goes to &aBlutonium&r, which burns hotter. One cyanite ingot is also what a pane of greenhouse glass costs: see the &6Farm and Seasons&r chapter."]
 			x: 12.0d
 			y: 0.0d
 			dependencies: ["2D3D1E11049D8DE5"]
@@ -287,5 +287,5 @@
 			rewards: [{ id: "7E4E9DF30236FF99", type: "item", auto: "no_toast", item: "quarryplus:filler_module" }, { id: "1EBD2E8D9D6D43F1", type: "item", auto: "no_toast", item: "quarryplus:exp_module" }, { id: "7C4BB27E96639DDB", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
 		}
 	]
-	title: "The Reactor & the Quarry"
+	title: "The Reactor and the Quarry"
 }

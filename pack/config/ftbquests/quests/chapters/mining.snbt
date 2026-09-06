@@ -283,5 +283,5 @@
 			rewards: [{ id: "44D5887B74D3AC59", type: "item", auto: "no_toast", item: "thermal:machine_pulverizer" }, { id: "3A6D44B525FE80A6", type: "loot", auto: "no_toast", table_id: 4361491368388299398L }, { id: "2EBDEF99042D83F5", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "26828ABA683A0BD6", type: "toast", title: "Ore, Doubled", auto: "enabled", description: "Next: dynamos, ducts and the induction smelter, in the Thermal chapter." }]
 		}
 	]
-	title: "Ores & Mining"
+	title: "Ores and Mining"
 }

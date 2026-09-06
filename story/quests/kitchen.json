@@ -1,13 +1,13 @@
 {
  "chapter": {
   "key": "kitchen",
-  "title": "Cooking & Brewing",
+  "title": "Cooking and Brewing",
   "subtitle": [
    "Pot, board, oven, kettle, press.",
    "Everything the inn kitchen does, built one station at a time."
   ],
   "icon": "farmersdelight:cooking_pot",
-  "group": "Home & Farm",
+  "group": "Home and Farm",
   "order": 11,
   "images": [
    {
@@ -868,7 +868,7 @@
     "",
     "Cook &aBeef Stew&r, &aPumpkin Soup&r, &aCabbage Rolls&r and &aChicken Soup&r, then hand all four in at once.",
     "",
-    "For what grows in which month, see the &6Farm & Seasons&r chapter."
+    "For what grows in which month, see the &6Farm and Seasons&r chapter."
    ],
    "deps": [
     "kitchen_counter",

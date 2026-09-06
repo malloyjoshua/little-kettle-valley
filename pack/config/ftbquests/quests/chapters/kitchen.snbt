@@ -2,7 +2,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "kitchen"
-	group: "304B7E2B056C2322"
+	group: "2D0F6CD6F9B66DC8"
 	icon: "farmersdelight:cooking_pot"
 	id: "7ACD9E6E157ACDD6"
 	order_index: 11
@@ -271,7 +271,7 @@
 			title: "Cook Four Dishes for a Full Room"
 			subtitle: "One off every station you built."
 			icon: "farmersdelight:beef_stew"
-			description: ["Marnie: \"A full room is twelve plates. I have counted them for four years.\"", "", "Cook &aBeef Stew&r, &aPumpkin Soup&r, &aCabbage Rolls&r and &aChicken Soup&r, then hand all four in at once.", "", "For what grows in which month, see the &6Farm & Seasons&r chapter."]
+			description: ["Marnie: \"A full room is twelve plates. I have counted them for four years.\"", "", "Cook &aBeef Stew&r, &aPumpkin Soup&r, &aCabbage Rolls&r and &aChicken Soup&r, then hand all four in at once.", "", "For what grows in which month, see the &6Farm and Seasons&r chapter."]
 			x: 8.0d
 			y: 0.8d
 			dependencies: ["7AE4D05C2FBCEC2C", "4F386464CE2D7299", "78315EED57F61BD0"]
@@ -283,5 +283,5 @@
 			rewards: [{ id: "4E369D829CF1C6ED", type: "loot", auto: "no_toast", table_id: 4554657591133890288L }, { id: "441757E4E2E94668", type: "item", auto: "no_toast", item: "cookingforblockheads:fruit_basket" }, { id: "6BFC449F27D60313", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "30B335BF0E815265", type: "toast", title: "The Kitchen Is Warm", auto: "enabled", description: "Next: Marnie's own counter, sink and oven at the inn - Act I, step 10 - and the bakery line in Act III." }]
 		}
 	]
-	title: "Cooking & Brewing"
+	title: "Cooking and Brewing"
 }

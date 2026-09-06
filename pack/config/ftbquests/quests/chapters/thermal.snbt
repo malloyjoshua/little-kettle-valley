@@ -353,7 +353,7 @@
 			title: "Feed Phytogro to an Insolator"
 			subtitle: "A crop's whole season inside one block."
 			icon: "thermal:machine_insolator"
-			description: ["&aPhytogro&r is sand, bone meal, apatite and niter, and all four fall out of the pulverizer. An &aInsolator&r spends it and power to bring one planted crop to ripe.", "", "Barley, tomatoes, peppers and corn are Thermal's own. The &6Farm & Seasons&r chapter has when they grow outdoors."]
+			description: ["&aPhytogro&r is sand, bone meal, apatite and niter, and all four fall out of the pulverizer. An &aInsolator&r spends it and power to bring one planted crop to ripe.", "", "Barley, tomatoes, peppers and corn are Thermal's own. The &6Farm and Seasons&r chapter has when they grow outdoors."]
 			x: 12.0d
 			y: 0.0d
 			dependencies: ["65F82E462B7E3771"]

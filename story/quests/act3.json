@@ -183,7 +183,7 @@
     "",
     "Craft 12 &aOak Full Drawers&r \u2014 six oak planks around a wooden chest \u2014 and put one in each marked alcove in the granary at the Lantern Float. Any order is right.",
     "",
-    "They arrive holding the town's stock, and the Granary Waystone goes up outside. Drawers and ducts: &6Power & Logistics&r."
+    "They arrive holding the town's stock, and the Granary Waystone goes up outside. Drawers and ducts: &6Power and Logistics&r."
    ],
    "deps": [
     "q38"
@@ -260,7 +260,7 @@
     "",
     "Plant 4 &aPumpkin Seeds&r, 4 Beetroot Seeds, 4 Oat Seeds and 4 Barley Seeds in the four marked beds behind the inn. Oat is Bakery's, Barley is Thermal's. Nothing has to sprout and nothing is taken.",
     "",
-    "The larder crate comes back. What grows in which season: &6Farm & Seasons&r."
+    "The larder crate comes back. What grows in which season: &6Farm and Seasons&r."
    ],
    "deps": [
     "q38"
@@ -432,7 +432,7 @@
     "",
     "Make 4 &aApple Pies&r and 4 Berry Jam Jars, then seal 4 Jars of pickles \u2014 the plain glass Jar, not the Bakery one \u2014 and bring all twelve to the inn counter.",
     "",
-    "Sweet berries are out of season, so pick wild ones off taiga bushes. More pots and pans: &6Cooking & Brewing&r."
+    "Sweet berries are out of season, so pick wild ones off taiga bushes. More pots and pans: &6Cooking and Brewing&r."
    ],
    "deps": [
     "q40"
@@ -703,7 +703,7 @@
     "",
     "Eight marked spots, four per room \u2014 bed on the wool mat, rug beside it, lantern on the hook, chest at the foot. Any order is right.",
     "",
-    "Two rooms Marnie can let, and a letter from the first person who wants one. More furniture: &6Home & Town&r."
+    "Two rooms Marnie can let, and a letter from the first person who wants one. More furniture: &6Home and Town&r."
    ],
    "deps": [
     "q44"
@@ -830,7 +830,7 @@
     "",
     "Catch fish off the pier, cure 8 &aCooked Fish Fillets&r, and put all eight in the granary drawers.",
     "",
-    "A salt barrel on the pier, and twelve each of bowls, bricks, iron and copper for the long table. Rods and fish: &6Animals & Fishing&r."
+    "A salt barrel on the pier, and twelve each of bowls, bricks, iron and copper for the long table. Rods and fish: &6Animals and Fishing&r."
    ],
    "deps": [
     "q51a"
@@ -916,7 +916,7 @@
     "",
     "Take Tobin's 3 core samples to the marked hillside, dig out the adit \u2014 roughly 90 marked blocks \u2014 and open the Lootr chest at the back.",
     "",
-    "Josie's &aKettle Plate&r is in that chest. Keep it; Halden reads that hand. Samples, beds and hammers: &6Ores & Mining&r."
+    "Josie's &aKettle Plate&r is in that chest. Keep it; Halden reads that hand. Samples, beds and hammers: &6Ores and Mining&r."
    ],
    "deps": [
     "q28"

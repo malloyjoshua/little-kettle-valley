@@ -232,8 +232,8 @@
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "42A85C017AE3DC8A", type: "item", item: "sophisticatedstorage:controller", count: 1L }, { id: "700CB56FECE9936A", type: "item", item: "sophisticatedstorage:storage_link", count: 2L }]
-			rewards: [{ id: "072DB971DC74ABE7", type: "loot", auto: "no_toast", table_id: 564952204811606290L }, { id: "5A764D510DFC5F22", type: "item", auto: "no_toast", item: "sophisticatedstorage:storage_link", count: 4 }, { id: "22D13DF0B9969AAC", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "64F02EF3D1D1E95C", type: "toast", title: "Power & Logistics", auto: "enabled", description: "Next: Act II step 14 fits the workshop with drawers, and Act III step 10 runs the first duct to the inn." }]
+			rewards: [{ id: "072DB971DC74ABE7", type: "loot", auto: "no_toast", table_id: 564952204811606290L }, { id: "5A764D510DFC5F22", type: "item", auto: "no_toast", item: "sophisticatedstorage:storage_link", count: 4 }, { id: "22D13DF0B9969AAC", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "45A6E3CAD12F73D4", type: "toast", title: "Power and Logistics", auto: "enabled", description: "Next: Act II step 14 fits the workshop with drawers, and Act III step 10 runs the first duct to the inn." }]
 		}
 	]
-	title: "Power & Logistics"
+	title: "Power and Logistics"
 }

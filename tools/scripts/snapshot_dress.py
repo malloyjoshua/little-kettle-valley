@@ -129,7 +129,7 @@ def main():
     # the ore sweep. A product with doDaylightCycle=false cannot be slept in, and q08
     # "Sleep One Night" gates all of Act I (shipped that way until 2026-09-05). Enforce.
     gr = root['Data']['GameRules']
-    for rule, want in (('doDaylightCycle', 'true'), ('doMobSpawning', 'true'), ('doWeatherCycle', 'true')):
+    for rule, want in (('doDaylightCycle', 'true'), ('doMobSpawning', 'true'), ('doWeatherCycle', 'true'), ('announceAdvancements', 'false'), ('playersSleepingPercentage', '1')):
         have = str(gr.get(rule, ''))
         if have != want:
             gr[rule] = nbtlib.String(want)

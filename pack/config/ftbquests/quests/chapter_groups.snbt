@@ -1,7 +1,7 @@
 {
 	chapter_groups: [
 		{ id: "353C6133C33553CA", title: "The Valley" }
-		{ id: "304B7E2B056C2322", title: "Home & Farm" }
+		{ id: "2D0F6CD6F9B66DC8", title: "Home and Farm" }
 		{ id: "33D241142550E678", title: "Tech" }
 		{ id: "18F91CE74CDADF87", title: "The Valley Beyond" }
 		{ id: "03DBE7D3196FAA34", title: "Side Quests" }

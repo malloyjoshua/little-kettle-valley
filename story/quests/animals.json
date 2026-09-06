@@ -1,13 +1,13 @@
 {
  "chapter": {
   "key": "animals",
-  "title": "Animals & Fishing",
+  "title": "Animals and Fishing",
   "subtitle": [
    "Hens, cows, sheep, ducks, and one duck with a name.",
    "Nella's rods, her bait, and the four fish she counts."
   ],
   "icon": "aquaculture:iron_fishing_rod",
-  "group": "Home & Farm",
+  "group": "Home and Farm",
   "order": 12,
   "images": [
    {

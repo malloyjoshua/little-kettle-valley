@@ -300,7 +300,7 @@
    "description": [
     "Walk any sand or gravel shore until you find crabs, then take 2 &aCrab Claws&r home.",
     "",
-    "Friends & Foes put nine new creatures in the world. This is the mildest of them."
+    "Friends and Foes put nine new creatures in the world. This is the mildest of them."
    ],
    "deps": [
     "wild_bow"
@@ -335,7 +335,7 @@
    "description": [
     "Craft a &aBirch Beehive&r from six birch planks and three honeycomb, then set it where bees already work.",
     "",
-    "Take 3 &aHoney Bottles&r off it. &6Cooking & Brewing&r has work for them."
+    "Take 3 &aHoney Bottles&r off it. &6Cooking and Brewing&r has work for them."
    ],
    "deps": [
     "wild_crab"
@@ -472,7 +472,7 @@
    "tasks": [
     {
      "type": "structure",
-     "structure": "minecraft:fortress"
+     "structure": "betterfortresses:fortress"
     }
    ],
    "rewards": [
@@ -593,7 +593,7 @@
    "tasks": [
     {
      "type": "structure",
-     "structure": "minecraft:stronghold"
+     "structure": "betterstrongholds:stronghold"
     }
    ],
    "rewards": [

@@ -59,7 +59,7 @@
 			title: "Catch 10 Fish and Cook One in the Skillet"
 			subtitle: "Any ten fish, then one cooked cod."
 			icon: "minecraft:cooked_cod"
-			description: ["Nella: \"Ten, any ten. The lake isn't fussy and neither am I.\"", "", "Cast the &aIron Rod&r from the shore until ten fish are in the boat, then cook one cod on a &aSkillet&r and hand the cooked cod in. Nothing counts the ten for you: tick the box yourself.", "", "Rods, baits and every fish in the lake: the &6Animals & Fishing&r chapter."]
+			description: ["Nella: \"Ten, any ten. The lake isn't fussy and neither am I.\"", "", "Cast the &aIron Rod&r from the shore until ten fish are in the boat, then cook one cod on a &aSkillet&r and hand the cooked cod in. Nothing counts the ten for you: tick the box yourself.", "", "Rods, baits and every fish in the lake: the &6Animals and Fishing&r chapter."]
 			x: 2.0d
 			y: -2.2d
 			dependencies: ["3A4D2C8BF6E503C2"]
@@ -91,7 +91,7 @@
 			title: "Put Up the Trellis and Plant 4 Grape Starts"
 			subtitle: "8 lattice panels, 4 starts, two waterings."
 			icon: "vinery:red_grape"
-			description: ["Halden: \"South slope, morning sun, out of the wind. Josie argued with me about this spot for nine years.\"", "", "Place the 8 &alattice panels&r on the marked terrace, plant the 4 grape starts along the base, water them twice, and hand in one &aRed Grape&r when they fruit.", "", "The press and the barrel come with them. Wine, tea and everything else that boils: the &6Cooking & Brewing&r chapter."]
+			description: ["Halden: \"South slope, morning sun, out of the wind. Josie argued with me about this spot for nine years.\"", "", "Place the 8 &alattice panels&r on the marked terrace, plant the 4 grape starts along the base, water them twice, and hand in one &aRed Grape&r when they fruit.", "", "The press and the barrel come with them. Wine, tea and everything else that boils: the &6Cooking and Brewing&r chapter."]
 			x: 4.0d
 			y: -1.5d
 			dependencies: ["2F56F12A0B4EDB5F"]
@@ -156,7 +156,7 @@
 			title: "Use Tobin's Pick on All 6 Marked Spots"
 			subtitle: "He marked them twice, in two colours."
 			icon: "geolosys:prospectors_pick"
-			description: ["Tobin: \"Hit the sample, read the sample. If it says copper it means copper is under you, not near you - under you.\"", "", "Take the &aprospector's pick&r to the 6 spots on Tobin's maps and right-click each one. The sixth reading is the copper cluster.", "", "Copper and tin get pinned to your maps. How deep each bed sits: the &6Ores & Mining&r chapter."]
+			description: ["Tobin: \"Hit the sample, read the sample. If it says copper it means copper is under you, not near you - under you.\"", "", "Take the &aprospector's pick&r to the 6 spots on Tobin's maps and right-click each one. The sixth reading is the copper cluster.", "", "Copper and tin get pinned to your maps. How deep each bed sits: the &6Ores and Mining&r chapter."]
 			x: 2.0d
 			y: 2.2d
 			dependencies: ["7E63CE8E345DA2FC"]
@@ -221,7 +221,7 @@
 			title: "Fit the Workshop With Drawers and Barrels"
 			subtitle: "Six drawers, a controller, three barrels."
 			icon: "storagedrawers:controller"
-			description: ["Bram: \"Bench first, machines after. A man who can't find his tin ends up mining it twice.\"", "", "Craft and hold 6 &aOak Full Drawers&r, 1 &aDrawer Controller&r and 3 Sophisticated Barrels, then set them along the long wall of the mill's back room.", "", "One controller makes six drawers one inventory. More of that in &6Power & Logistics&r."]
+			description: ["Bram: \"Bench first, machines after. A man who can't find his tin ends up mining it twice.\"", "", "Craft and hold 6 &aOak Full Drawers&r, 1 &aDrawer Controller&r and 3 Sophisticated Barrels, then set them along the long wall of the mill's back room.", "", "One controller makes six drawers one inventory. More of that in &6Power and Logistics&r."]
 			x: 10.0d
 			y: 0.0d
 			dependencies: ["4D0BC5F83B1DC875"]

@@ -2,7 +2,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "animals"
-	group: "304B7E2B056C2322"
+	group: "2D0F6CD6F9B66DC8"
 	icon: "aquaculture:iron_fishing_rod"
 	id: "2BB230AD66E9BFB6"
 	order_index: 12
@@ -250,5 +250,5 @@
 			rewards: [{ id: "0414B71CED849616", type: "loot", auto: "no_toast", table_id: 914663965233188795L }, { id: "3089A84A395F7EDF", type: "item", auto: "no_toast", item: "ribbits:swamp_lantern", count: 4 }, { id: "1B768BECAEAD3F7E", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
 		}
 	]
-	title: "Animals & Fishing"
+	title: "Animals and Fishing"
 }

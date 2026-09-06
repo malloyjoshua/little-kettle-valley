@@ -73,7 +73,7 @@
 			title: "Place the Megatorch Inside the Cottage"
 			subtitle: "One torch. It never goes out."
 			icon: "torchmaster:megatorch"
-			description: ["Josie: \"The dark out here has opinions. The tall torch settles them, permanently.\"", "", "Place the &aMegatorch&r on the cottage floor, inside the walls, where you can see it from the bed.", "", "Nothing &chostile&r spawns near home again. The two spares are for the pens; lamps and lanterns live in &6Home & Town&r."]
+			description: ["Josie: \"The dark out here has opinions. The tall torch settles them, permanently.\"", "", "Place the &aMegatorch&r on the cottage floor, inside the walls, where you can see it from the bed.", "", "Nothing &chostile&r spawns near home again. The two spares are for the pens; lamps and lanterns live in &6Home and Town&r."]
 			x: 6.0d
 			y: -0.8d
 			dependencies: ["0778ACD6AAB0BFA3"]
@@ -105,7 +105,7 @@
 			title: "Cook One Vegetable Soup"
 			subtitle: "Kettle on the hook, pot on the fire."
 			icon: "herbalbrews:copper_tea_kettle"
-			description: ["Josie: \"Kettle on the hook, soup in the pot. That is the entire ceremony.\"", "", "Set the &acampfire&r down outside your door, hang the &aCopper Kettle&r over it, and cook one &aVegetable Soup&r in the Cooking Pot: cabbage, carrot, potato, beetroot and a bowl. Three planks make four bowls.", "", "Bram's Surveyor's Stake is in the vegetable basket, in a rag with a chalk K on it. Ovens and kettles: &6Cooking & Brewing&r."]
+			description: ["Josie: \"Kettle on the hook, soup in the pot. That is the entire ceremony.\"", "", "Set the &acampfire&r down outside your door, hang the &aCopper Kettle&r over it, and cook one &aVegetable Soup&r in the Cooking Pot: cabbage, carrot, potato, beetroot and a bowl. Three planks make four bowls.", "", "Bram's Surveyor's Stake is in the vegetable basket, in a rag with a chalk K on it. Ovens and kettles: &6Cooking and Brewing&r."]
 			x: 6.0d
 			y: 0.8d
 			dependencies: ["0778ACD6AAB0BFA3"]

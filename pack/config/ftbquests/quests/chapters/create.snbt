@@ -318,7 +318,7 @@
 			title: "Hang Eight Brass Lamps"
 			subtitle: "Four colours, and a redstone switch."
 			icon: "createdeco:yellow_brass_lamp"
-			description: ["Craft eight &aBrass Lamps&r from a nugget, a torch and a plate, and hang them over the workshop.", "", "The forty posts on the road take a different fitting: see the &6Power & Logistics&r chapter."]
+			description: ["Craft eight &aBrass Lamps&r from a nugget, a torch and a plate, and hang them over the workshop.", "", "The forty posts on the road take a different fitting: see the &6Power and Logistics&r chapter."]
 			x: 18.0d
 			y: 0.0d
 			dependencies: ["038DA7DFC405F744"]

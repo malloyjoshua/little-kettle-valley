@@ -349,7 +349,7 @@
     "",
     "Till the 3x9 patch behind the house \u2014 every tile is marked in path blocks \u2014 then plant the &a9 carrots&r, &a9 potatoes&r and &a9 wheat seeds&r from Marnie's sack. Hand in holding the seeds; the book counts them and never takes them.",
     "",
-    "For what grows in which season, see the &6Farm & Seasons&r chapter."
+    "For what grows in which season, see the &6Farm and Seasons&r chapter."
    ],
    "deps": [
     "q08"
@@ -484,7 +484,7 @@
     "",
     "Collect &a3 eggs&r from the nesting box behind your house and hand them in. Right-click a hen with &achicken feed&r if you would rather not wait for her.",
     "",
-    "Pip puts a duckling on your boot and names it Biscuit. Ducks, cows and pets have a chapter of their own: &6Animals & Fishing&r."
+    "Pip puts a duckling on your boot and names it Biscuit. Ducks, cows and pets have a chapter of their own: &6Animals and Fishing&r."
    ],
    "deps": [
     "q10"
@@ -673,7 +673,7 @@
     "",
     "Take the &aStone Hammer&r off the peg by Bram's bench. It breaks a 3x3 face in one swing, so aim the middle of the square at the middle of the hole you want.",
     "",
-    "The &aProspector's Pick&r hangs beside it: right-click bare stone underground and it names the nearest ore and how far. More in &6Ores & Mining&r."
+    "The &aProspector's Pick&r hangs beside it: right-click bare stone underground and it names the nearest ore and how far. More in &6Ores and Mining&r."
    ],
    "deps": [
     "q12"
@@ -834,7 +834,7 @@
     "",
     "Smelt the 32 &aGreen Oak Planks&r in any furnace \u2014 ten seconds a plank \u2014 and hold 32 &aSeasoned Oak Boards&r. Marnie's charcoal is in the barrel by the door.",
     "",
-    "Bram cannot build a Water Wheel until these dry, and the furnace is you. The kitchen kit comes with them: see &6Cooking & Brewing&r."
+    "Bram cannot build a Water Wheel until these dry, and the furnace is you. The kitchen kit comes with them: see &6Cooking and Brewing&r."
    ],
    "deps": [
     "q08"
@@ -898,7 +898,7 @@
    "description": [
     "Bram: \"Race is cut, boards are dry, and I'm sixty-four. Two wheels, today.\"",
     "",
-    "Craft &a2 Water Wheels&r from the Seasoned Oak Boards, set them in the mill race beside the mill, and belt the Millstone off them so it turns without you.",
+    "Craft &a2 Water Wheels&r: Bram's way is the Seasoned Oak Boards, Create's own recipe (planks round a shaft) works too. Set them in the mill race beside the mill and belt the Millstone off them so it turns without you.",
     "",
     "Sixty years he waited for that noise. The rest of the mill is in the &6Create&r chapter."
    ],
@@ -1033,7 +1033,7 @@
     "",
     "Hold the Counter, Sink and Oven at hand-in; the book gives them back. Set them on the inn's three grey slabs, 1, 2, 3, then cook &aBread&r, &aPumpkin Pie&r and &aVegetable Soup&r. The pumpkin is wild.",
     "",
-    "Oda's broom comes off the back door with the cookbook. Kettles, skillets and teas: &6Cooking & Brewing&r."
+    "Oda's broom comes off the back door with the cookbook. Kettles, skillets and teas: &6Cooking and Brewing&r."
    ],
    "deps": [
     "q15"

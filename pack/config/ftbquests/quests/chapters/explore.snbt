@@ -281,7 +281,7 @@
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "270AD78E484A3D3F", type: "structure", structure: "minecraft:ancient_city" }]
-			rewards: [{ id: "7B4B4681E563C1E6", type: "loot", auto: "no_toast", table_id: 7878166782298204742L }, { id: "15CB5089AB04F30E", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "6357463AE1136A06", type: "toast", title: "The Valley Beyond", auto: "enabled", description: "Next: Act V sends you back down for one Echo Shard. See q82, and the &6The Wild&r chapter." }]
+			rewards: [{ id: "7B4B4681E563C1E6", type: "loot", auto: "no_toast", table_id: 7878166782298204742L }, { id: "15CB5089AB04F30E", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "3F3DAA40BB136C36", type: "toast", title: "The Valley Beyond", auto: "enabled", description: "Next: Act V sends you back down for one Echo Shard. Everything else with teeth is in &6The Wild&r." }]
 		}
 	]
 	title: "Places"

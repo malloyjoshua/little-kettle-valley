@@ -735,6 +735,9 @@ ServerEvents.loaded(event => {
   s.runCommandSilent('gamerule doDaylightCycle true')
   // Two players, one bed each: one sleeper passes the night. Vanilla's 100 needs both.
   s.runCommandSilent('gamerule playersSleepingPercentage 1')
+  // Vanilla shouts every advancement into chat ('X has made the advancement [Isn't It Iron Pick]'
+  // the moment the first pickaxe lands). Seen in the real client 2026-09-06. Off.
+  s.runCommandSilent('gamerule announceAdvancements false')
   // Copies opened before 2026-09-06 carry the old 1500 border in their world state. Widen it.
   try {
     if (s.overworld().getWorldBorder().getSize() < 6000) s.runCommandSilent('worldborder set 6000')

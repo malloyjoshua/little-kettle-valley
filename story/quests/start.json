@@ -131,7 +131,7 @@
    "tasks": [
     {
      "type": "checkmark",
-     "title": "Josie's Letter read — all four pages"
+     "title": "Josie's Letter read \u2014 all four pages"
     }
    ],
    "rewards": [
@@ -334,7 +334,7 @@
     "",
     "Place the &aMegatorch&r on the cottage floor, inside the walls, where you can see it from the bed.",
     "",
-    "Nothing &chostile&r spawns near home again. The two spares are for the pens; lamps and lanterns live in &6Home & Town&r."
+    "Nothing &chostile&r spawns near home again. The two spares are for the pens; lamps and lanterns live in &6Home and Town&r."
    ],
    "deps": [
     "q03"
@@ -373,9 +373,9 @@
    "description": [
     "Josie: \"There's a door down there I'm not going to explain yet. Dig anyway; I know you.\"",
     "",
-    "Dig out the two-wide patch of &agravel&r in the kitchen floor — forty marked blocks — down to the stone stair she cut herself. The &airon shovel&r is in your bag.",
+    "Dig out the two-wide patch of &agravel&r in the kitchen floor \u2014 forty marked blocks \u2014 down to the stone stair she cut herself. The &airon shovel&r is in your bag.",
     "",
-    "At the bottom: a sealed iron door with no handle, four words in her chalk — Not yet. — J.K. — and a plinth for the &aCellar Waystone&r."
+    "At the bottom: a sealed iron door with no handle, four words in her chalk \u2014 Not yet. \u2014 J.K. \u2014 and a plinth for the &aCellar Waystone&r."
    ],
    "deps": [
     "q02"
@@ -454,7 +454,7 @@
     "",
     "Set the &acampfire&r down outside your door, hang the &aCopper Kettle&r over it, and cook one &aVegetable Soup&r in the Cooking Pot: cabbage, carrot, potato, beetroot and a bowl. Three planks make four bowls.",
     "",
-    "Bram's Surveyor's Stake is in the vegetable basket, in a rag with a chalk K on it. Ovens and kettles: &6Cooking & Brewing&r."
+    "Bram's Surveyor's Stake is in the vegetable basket, in a rag with a chalk K on it. Ovens and kettles: &6Cooking and Brewing&r."
    ],
    "deps": [
     "q03"
@@ -524,7 +524,7 @@
     "",
     "Walk up the road to the square (&b-302 69 -44&r). The chiselled socket is two blocks north of the town waystone, Bram's own sign beside it. Put the &aSurveyor's Stake&r in it.",
     "",
-    "Nothing is built. The square has stood here since long before you came — what changes is that the town is on the record, and the first two lamps come on."
+    "Nothing is built. The square has stood here since long before you came \u2014 what changes is that the town is on the record, and the first two lamps come on."
    ],
    "deps": [
     "q06"

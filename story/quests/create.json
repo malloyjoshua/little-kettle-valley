@@ -1,306 +1,1207 @@
 {
-  "chapter": {
-    "key": "create",
-    "title": "Create",
-    "subtitle": ["Rotation, and everything it turns.", "Bram's half of the valley, from one shaft outward."],
-    "icon": "create:cogwheel",
-    "group": "Tech",
-    "order": 20,
-    "images": [
-      { "x": -4.0, "y": -5.0, "width": 3.0, "height": 3.0, "image": "create:item/andesite_alloy", "order": -1, "hover": ["Andesite and iron nuggets.", "The first thing you make here."] },
-      { "x": 0.0, "y": 6.5, "width": 2.5, "height": 2.5, "image": "create:block/cogwheel", "order": -1, "hover": "Rotation turns a corner here." },
-      { "x": 5.0, "y": -5.0, "width": 2.5, "height": 2.5, "image": "create:block/belt", "order": -1, "hover": "Cargo and rotation on one strap." },
-      { "x": 9.0, "y": 6.5, "width": 2.5, "height": 2.5, "image": "create:block/millstone", "order": -1, "hover": ["Ore in the top.", "Dust out of the bottom."] },
-      { "x": 13.0, "y": -5.0, "width": 2.5, "height": 2.5, "image": "create:block/mechanical_press_top", "order": -1, "hover": "Ingots in, sheets out." },
-      { "x": 17.0, "y": 6.5, "width": 2.5, "height": 2.5, "image": "create:item/brass_ingot", "order": -1, "hover": "Copper and zinc in a hot basin." },
-      { "x": 21.0, "y": -5.0, "width": 2.5, "height": 2.5, "image": "create:block/brass_casing", "order": -1, "hover": "The shell on the clever half." },
-      { "x": 25.0, "y": 6.5, "width": 2.5, "height": 2.5, "image": "create:item/precision_mechanism", "order": -1, "hover": "Only the crafters can build it." },
-      { "x": 28.0, "y": -5.0, "width": 2.5, "height": 2.5, "image": "create:block/station", "order": -1, "hover": "Where a train stops and is named." }
-    ]
-  },
-  "reward_tables": [
-    { "key": "create_crate", "title": "Bram's Crate", "loot_size": 1,
-      "loot_crate": { "id": "create_crate", "name": "Bram's Crate", "color": 11570519, "glow": false },
-      "rewards": [
-        { "item": "create:andesite_alloy", "count": 8, "weight": 5 },
-        { "item": "create:shaft", "count": 8, "weight": 4 },
-        { "item": "create:cogwheel", "count": 4, "weight": 4 },
-        { "item": "create:andesite_casing", "count": 4, "weight": 3 },
-        { "item": "create:belt_connector", "count": 4, "weight": 3 },
-        { "item": "create:iron_sheet", "count": 4, "weight": 2 },
-        { "item": "create:brass_ingot", "count": 4, "weight": 2 },
-        { "item": "create:zinc_ingot", "count": 4, "weight": 2 },
-        { "item": "createdeco:brass_coin", "count": 4, "weight": 2 },
-        { "item": "create:electron_tube", "count": 2, "weight": 1 },
-        { "item": "create:super_glue", "weight": 1 },
-        { "item": "create:wrench", "weight": 1 }
-      ] }
+ "chapter": {
+  "key": "create",
+  "title": "Create",
+  "subtitle": [
+   "Rotation, and everything it turns.",
+   "Bram's half of the valley, from one shaft outward."
   ],
-  "quests": [
-    { "key": "create_alloy", "title": "Craft Eight Andesite Alloy", "subtitle": "Act I asks for eight of these too.",
-      "icon": "create:andesite_alloy", "deps": [], "shape": "hexagon", "size": 2.0,
-      "description": [
-        "Craft eight &aAndesite Alloy&r from andesite and iron nuggets. Almost every recipe in this chapter opens with it.",
-        "",
-        "Make more than eight. You will be back at this bench."
-      ],
-      "tasks": [ { "type": "item", "item": "create:andesite_alloy", "count": 8 } ],
-      "rewards": [ { "type": "item", "item": "create:andesite_alloy", "count": 16 }, { "type": "item", "item": "minecraft:iron_ingot", "count": 8 }, { "type": "xp_levels", "levels": 2 } ] },
-
-    { "key": "create_shafts", "title": "Craft Eight Shafts and Four Cogwheels", "subtitle": "One carries rotation, one turns it.",
-      "icon": "create:cogwheel", "deps": ["create_alloy"], "shape": "square", "size": 1.0,
-      "description": [
-        "Craft eight &aShafts&r and four &aCogwheels&r. A shaft carries rotation straight; a cogwheel turns the corner or changes the speed.",
-        "",
-        "Andesite alloy and stripped logs make both."
-      ],
-      "long_description": true,
-      "tasks": [ { "type": "item", "item": "create:shaft", "count": 8 }, { "type": "item", "item": "create:cogwheel", "count": 4 } ],
-      "rewards": [ { "type": "item", "item": "create:shaft", "count": 16 }, { "type": "item", "item": "create:andesite_alloy", "count": 8 }, { "type": "xp_levels", "levels": 2 } ] },
-
-    { "key": "create_crank", "title": "Turn a Hand Crank", "subtitle": "Power for one job while you stand there.",
-      "icon": "create:hand_crank", "deps": ["create_shafts"], "optional": true, "shape": "rsquare", "size": 1.0,
-      "description": [
-        "Craft a &aHand Crank&r and set it on a shaft. Hold right-click and it turns whatever the shaft feeds.",
-        "",
-        "It is how Act I grinds its first sixteen flour."
-      ],
-      "tasks": [ { "type": "item", "item": "create:hand_crank", "count": 1 } ],
-      "rewards": [ { "type": "item", "item": "create:cogwheel", "count": 4 }, { "type": "xp_levels", "levels": 1 } ] },
-
-    { "key": "create_wheel", "title": "Stand a Water Wheel in a Stream", "subtitle": "Free power. No fuel, no upkeep.",
-      "icon": "create:water_wheel", "deps": ["create_shafts"], "shape": "hexagon", "size": 1.5,
-      "description": [
-        "Bram: \"Two of them. On the race. I have been looking at that gap for sixty years.\"",
-        "",
-        "Place a &aWater Wheel&r where flowing water hits its blades and run a shaft out of the side. Seasoned boards or the mod's own recipe, either works."
-      ],
-      "long_description": true,
-      "tasks": [ { "type": "item", "item": "create:water_wheel", "count": 1 } ],
-      "rewards": [ { "type": "item", "item": "create:water_wheel", "count": 1 }, { "type": "loot", "table": "create_crate" }, { "type": "xp_levels", "levels": 3 } ] },
-
-    { "key": "create_casing", "title": "Craft Eight Andesite Casing", "subtitle": "The wooden shell on half of Create.",
-      "icon": "create:andesite_casing", "deps": ["create_wheel"], "shape": "square", "size": 1.0,
-      "description": [
-        "Craft eight &aAndesite Casing&r. It wraps a shaft so rotation can cross a wall, and it is a part in most machines below.",
-        "",
-        "Stripped logs plus andesite alloy."
-      ],
-      "tasks": [ { "type": "item", "item": "create:andesite_casing", "count": 8 } ],
-      "rewards": [ { "type": "item", "item": "create:andesite_casing", "count": 8 }, { "type": "item", "item": "minecraft:iron_ingot", "count": 8 }, { "type": "xp_levels", "levels": 2 } ] },
-
-    { "key": "create_millstone", "title": "Grind Sixteen Flour on a Millstone", "subtitle": "One cogwheel underneath is enough.",
-      "icon": "create:millstone", "deps": ["create_casing"], "shape": "square", "size": 1.0,
-      "description": [
-        "Build a &aMillstone&r and turn it with a cogwheel below. Drop wheat in the top, take flour out of the bottom.",
-        "",
-        "The same stone doubles most raw ore. Act I, step 6 runs on one."
-      ],
-      "tasks": [ { "type": "item", "item": "create:millstone", "count": 1 }, { "type": "item", "item": "create:wheat_flour", "count": 16 } ],
-      "rewards": [ { "type": "item", "item": "create:millstone", "count": 1 }, { "type": "item", "item": "minecraft:raw_iron", "count": 16 }, { "type": "xp_levels", "levels": 3 } ] },
-
-    { "key": "create_press", "title": "Press Eight Iron Sheets", "subtitle": "Ingots in, plates out, one at a time.",
-      "icon": "create:mechanical_press", "deps": ["create_casing"], "shape": "square", "size": 1.0,
-      "description": [
-        "Hang a &aMechanical Press&r over a depot and feed it rotation from above. Run eight iron ingots under it.",
-        "",
-        "&bIron sheets&r are in half the recipes left in this chapter."
-      ],
-      "tasks": [ { "type": "item", "item": "create:mechanical_press", "count": 1 }, { "type": "item", "item": "create:iron_sheet", "count": 8 } ],
-      "rewards": [ { "type": "item", "item": "create:depot", "count": 2 }, { "type": "item", "item": "minecraft:copper_ingot", "count": 16 }, { "type": "xp_levels", "levels": 3 } ] },
-
-    { "key": "create_belt", "title": "Run a Belt Between Two Shafts", "subtitle": "Cargo and rotation on one strap.",
-      "icon": "create:belt_connector", "deps": ["create_casing"], "shape": "square", "size": 1.0,
-      "description": [
-        "Craft a &aBelt Connector&r, right-click one shaft, then a second shaft up to nineteen blocks off. The belt draws itself between them.",
-        "",
-        "A belt carries rotation as well as boxes."
-      ],
-      "long_description": true,
-      "tasks": [ { "type": "item", "item": "create:belt_connector", "count": 2 } ],
-      "rewards": [ { "type": "item", "item": "create:belt_connector", "count": 4 }, { "type": "item", "item": "create:chute", "count": 4 }, { "type": "xp_levels", "levels": 2 } ] },
-
-    { "key": "create_windmill", "title": "Put Up a Bearing and Eight Sails", "subtitle": "Wind, where there is no stream.",
-      "icon": "create:windmill_bearing", "deps": ["create_casing"], "optional": true, "shape": "rsquare", "size": 1.0,
-      "description": [
-        "Place a &aWindmill Bearing&r facing out, build eight &aSails&r into a cross on its face, then right-click the bearing.",
-        "",
-        "Bram puts one on the mill roof in Act II, step 10."
-      ],
-      "long_description": true,
-      "tasks": [ { "type": "item", "item": "create:windmill_bearing", "count": 1 }, { "type": "item", "item": "create:white_sail", "count": 8 } ],
-      "rewards": [ { "type": "item", "item": "create:white_sail", "count": 8 }, { "type": "item", "item": "create:super_glue", "count": 1 }, { "type": "xp_levels", "levels": 3 } ] },
-
-    { "key": "create_fan", "title": "Build an Encased Fan", "subtitle": "Through fire, water or lava.",
-      "icon": "create:encased_fan", "deps": ["create_press"], "shape": "square", "size": 1.0,
-      "description": [
-        "Build an &aEncased Fan&r and give it rotation. Air pushed through fire smelts, through water washes, through lava blasts.",
-        "",
-        "Cheapest bulk cooking in the pack, and it has no menu."
-      ],
-      "tasks": [ { "type": "item", "item": "create:encased_fan", "count": 1 } ],
-      "rewards": [ { "type": "item", "item": "create:propeller", "count": 2 }, { "type": "item", "item": "minecraft:coal", "count": 32 }, { "type": "xp_levels", "levels": 3 } ] },
-
-    { "key": "create_saw", "title": "Build a Mechanical Saw", "subtitle": "One log, six planks, no hands.",
-      "icon": "create:mechanical_saw", "deps": ["create_press"], "shape": "square", "size": 1.0,
-      "description": [
-        "Build a &aMechanical Saw&r, lay it flat and feed it logs off a belt. Stood upright it fells the whole tree.",
-        "",
-        "Bram's hundred and twenty-eight boards in Act I go faster on one."
-      ],
-      "tasks": [ { "type": "item", "item": "create:mechanical_saw", "count": 1 } ],
-      "rewards": [ { "type": "item", "item": "minecraft:oak_log", "count": 32 }, { "type": "item", "item": "create:andesite_casing", "count": 4 }, { "type": "xp_levels", "levels": 3 } ] },
-
-    { "key": "create_mixer", "title": "Set a Mixer Over a Basin", "subtitle": "One block of air between them.",
-      "icon": "create:mechanical_mixer", "deps": ["create_press"], "shape": "square", "size": 1.0,
-      "description": [
-        "Put a &aBasin&r down, leave one block of air, and set the &aMechanical Mixer&r above it. Rotation comes in at the top.",
-        "",
-        "Anything dropped in the basin combines."
-      ],
-      "tasks": [ { "type": "item", "item": "create:basin", "count": 1 }, { "type": "item", "item": "create:mechanical_mixer", "count": 1 } ],
-      "rewards": [ { "type": "item", "item": "create:basin", "count": 2 }, { "type": "item", "item": "minecraft:raw_copper", "count": 16 }, { "type": "xp_levels", "levels": 3 } ] },
-
-    { "key": "create_washing", "title": "Wash Sixteen Crushed Iron", "subtitle": "Nine nuggets a lump, and redstone.",
-      "icon": "create:crushed_raw_iron", "deps": ["create_fan"], "optional": true, "shape": "rsquare", "size": 1.0,
-      "description": [
-        "Mill raw iron into &aCrushed Iron&r, drop it on a belt, and blow water through the fan at it.",
-        "",
-        "Nella's lake sand goes under the same fan in Act II, step 12."
-      ],
-      "tasks": [ { "type": "item", "item": "create:crushed_raw_iron", "count": 16 }, { "type": "checkmark", "title": "Sixteen crushed iron washed under the fan." } ],
-      "rewards": [ { "type": "item", "item": "minecraft:gravel", "count": 32 }, { "type": "loot", "table": "create_crate" }, { "type": "xp_levels", "levels": 2 } ] },
-
-    { "key": "create_burner", "title": "Light a Blaze Burner Under the Basin", "subtitle": "Heat turns mixing into alloying.",
-      "icon": "create:empty_blaze_burner", "deps": ["create_mixer"], "shape": "square", "size": 1.0,
-      "description": [
-        "Craft an &aEmpty Blaze Burner&r, take it to a nether fortress and right-click a blaze with it. Set the lit burner under the basin and feed it coal.",
-        "",
-        "&cBlazes throw fire.&r Take a shield and a bucket of water."
-      ],
-      "long_description": true,
-      "tasks": [ { "type": "item", "item": "create:empty_blaze_burner", "count": 1 }, { "type": "checkmark", "title": "Burner lit and standing under the basin." } ],
-      "rewards": [ { "type": "item", "item": "minecraft:coal_block", "count": 4 }, { "type": "item", "item": "minecraft:blaze_powder", "count": 8 }, { "type": "xp_levels", "levels": 4 } ] },
-
-    { "key": "create_brass", "title": "Mix Sixteen Brass Ingots", "subtitle": "One copper, one zinc, one hot basin.",
-      "icon": "create:brass_ingot", "deps": ["create_burner"], "shape": "hexagon", "size": 1.5,
-      "description": [
-        "Crush copper and zinc on the millstone, drop both into the heated basin, and press what pours out into sixteen &aBrass Ingots&r.",
-        "",
-        "Zinc is a real ore down there. Ask Tobin where."
-      ],
-      "long_description": true,
-      "tasks": [ { "type": "item", "item": "create:brass_ingot", "count": 16 } ],
-      "rewards": [ { "type": "item", "item": "create:brass_ingot", "count": 16 }, { "type": "loot", "table": "create_crate" }, { "type": "xp_levels", "levels": 4 } ] },
-
-    { "key": "create_brasscasing", "title": "Craft Eight Brass Casing", "subtitle": "The shell on the clever half.",
-      "icon": "create:brass_casing", "deps": ["create_brass"], "shape": "square", "size": 1.0,
-      "description": [
-        "Press brass into sheets, then craft eight &aBrass Casing&r with stripped logs. Tunnels, funnels, crafters and the deployer all wear it.",
-        "",
-        "Same press you built two steps back."
-      ],
-      "long_description": true,
-      "tasks": [ { "type": "item", "item": "create:brass_casing", "count": 8 } ],
-      "rewards": [ { "type": "item", "item": "create:brass_casing", "count": 8 }, { "type": "item", "item": "create:brass_sheet", "count": 8 }, { "type": "xp_levels", "levels": 3 } ] },
-
-    { "key": "create_goggles", "title": "Wear the Engineer's Goggles", "subtitle": "They read a shaft off its own network.",
-      "icon": "create:goggles", "deps": ["create_brass"], "optional": true, "shape": "rsquare", "size": 1.0,
-      "description": [
-        "Craft &aEngineer's Goggles&r and put them on. Look at any shaft and the &bstress&r and &bspeed&r of that network show on screen.",
-        "",
-        "A stressometer nails the same number to a wall."
-      ],
-      "long_description": true,
-      "tasks": [ { "type": "item", "item": "create:goggles", "count": 1 } ],
-      "rewards": [ { "type": "item", "item": "create:speedometer", "count": 1 }, { "type": "item", "item": "create:stressometer", "count": 1 }, { "type": "xp_levels", "levels": 2 } ] },
-
-    { "key": "create_deployer", "title": "Set a Deployer on a Depot", "subtitle": "A hand that holds one tool.",
-      "icon": "create:deployer", "deps": ["create_brasscasing"], "optional": true, "shape": "rsquare", "size": 1.0,
-      "description": [
-        "Build a &aDeployer&r, point it at a depot and turn it. It uses whatever you put in its hand: a hoe, a bucket, a pair of shears.",
-        "",
-        "Two of them over a belt will plant and cut a field without you."
-      ],
-      "long_description": true,
-      "tasks": [ { "type": "item", "item": "create:deployer", "count": 1 } ],
-      "rewards": [ { "type": "item", "item": "create:deployer", "count": 1 }, { "type": "item", "item": "create:belt_connector", "count": 4 }, { "type": "xp_levels", "levels": 3 } ] },
-
-    { "key": "create_lamps", "title": "Hang Eight Brass Lamps", "subtitle": "Four colours, and a redstone switch.",
-      "icon": "createdeco:yellow_brass_lamp", "deps": ["create_brasscasing"], "optional": true, "shape": "rsquare", "size": 1.0,
-      "description": [
-        "Craft eight &aBrass Lamps&r from a nugget, a torch and a plate, and hang them over the workshop.",
-        "",
-        "The forty posts on the road take a different fitting: see the &6Power & Logistics&r chapter."
-      ],
-      "long_description": true,
-      "tasks": [ { "type": "item", "item": "createdeco:yellow_brass_lamp", "count": 8 } ],
-      "rewards": [ { "type": "item", "item": "createdeco:brass_coin", "count": 8 }, { "type": "item", "item": "create:brass_ingot", "count": 8 }, { "type": "xp_levels", "levels": 2 } ] },
-
-    { "key": "create_crafters", "title": "Build Eight Mechanical Crafters", "subtitle": "A crafting grid a machine can feed.",
-      "icon": "create:mechanical_crafter", "deps": ["create_brasscasing"], "shape": "square", "size": 1.0,
-      "description": [
-        "Set eight &aMechanical Crafters&r in the shape of the recipe, wrench each one until the arrows follow one path, then turn the group.",
-        "",
-        "Eight covers every recipe in the pack that needs them."
-      ],
-      "long_description": true,
-      "tasks": [ { "type": "item", "item": "create:mechanical_crafter", "count": 8 } ],
-      "rewards": [ { "type": "item", "item": "create:wrench", "count": 1 }, { "type": "item", "item": "minecraft:gold_ingot", "count": 16 }, { "type": "xp_levels", "levels": 4 } ] },
-
-    { "key": "create_precision", "title": "Craft a Precision Mechanism", "subtitle": "Nothing but the crafters can make it.",
-      "icon": "create:precision_mechanism", "deps": ["create_crafters"], "shape": "hexagon", "size": 1.5,
-      "description": [
-        "Feed cogwheels, golden sheets and an iron nugget into the crafter grid and watch it assemble in stages.",
-        "",
-        "It is the part behind stations, arms and every clever block left."
-      ],
-      "tasks": [ { "type": "item", "item": "create:precision_mechanism", "count": 1 } ],
-      "rewards": [ { "type": "item", "item": "create:precision_mechanism", "count": 2 }, { "type": "item", "item": "create:railway_casing", "count": 4 }, { "type": "xp_levels", "levels": 5 } ] },
-
-    { "key": "create_arm", "title": "Set a Mechanical Arm Over a Belt", "subtitle": "Six inputs, six outputs, one arm.",
-      "icon": "create:mechanical_arm", "deps": ["create_precision"], "optional": true, "shape": "rsquare", "size": 1.0,
-      "description": [
-        "Craft a &aMechanical Arm&r, right-click its inputs and outputs while holding it, then place it and give it rotation.",
-        "",
-        "One arm does the work of a dozen funnels over a row of machines."
-      ],
-      "long_description": true,
-      "tasks": [ { "type": "item", "item": "create:mechanical_arm", "count": 1 } ],
-      "rewards": [ { "type": "item", "item": "create:brass_funnel", "count": 8 }, { "type": "item", "item": "create:chute", "count": 8 }, { "type": "xp_levels", "levels": 4 } ] },
-
-    { "key": "create_track", "title": "Lay Sixteen Lengths of Track", "subtitle": "Right-click twice; it draws the curve.",
-      "icon": "create:track", "deps": ["create_precision"], "shape": "square", "size": 1.0,
-      "description": [
-        "Assemble sixteen &aTrack&r on the crafters. Place one, right-click a second spot with the same item, and the rail bends between them.",
-        "",
-        "Tobin lays this line to the square in Act III, step 11."
-      ],
-      "long_description": true,
-      "tasks": [ { "type": "item", "item": "create:track", "count": 16 } ],
-      "rewards": [ { "type": "item", "item": "create:track", "count": 64 }, { "type": "item", "item": "create:railway_casing", "count": 4 }, { "type": "xp_levels", "levels": 5 } ] },
-
-    { "key": "create_station", "title": "Stand a Station on the Line", "subtitle": "Where a train stops and gets a name.",
-      "icon": "create:track_station", "deps": ["create_track"], "shape": "square", "size": 1.0,
-      "description": [
-        "Place a &aTrack Station&r beside your rail and name it. Right-click the track with a &aRailway Casing&r to set a bogey, then add a seat.",
-        "",
-        "Oda's wagon unloads at one of these."
-      ],
-      "long_description": true,
-      "tasks": [ { "type": "item", "item": "create:track_station", "count": 1 } ],
-      "rewards": [ { "type": "item", "item": "create:track_station", "count": 1 }, { "type": "item", "item": "create:railway_casing", "count": 8 }, { "type": "xp_levels", "levels": 5 },
-        { "type": "toast", "title": "The Line to the Square", "description": "Next: Act III runs this track from Tobin's adit into town, and Act I wants two water wheels on the mill race." } ] },
-
-    { "key": "create_schedule", "title": "Give a Train a Schedule", "subtitle": "Two stations and it runs without you.",
-      "icon": "create:schedule", "deps": ["create_station"], "optional": true, "shape": "rsquare", "size": 1.0,
-      "description": [
-        "Write two station names into a &aSchedule&r and hand it to the conductor in the seat. The &aConductor's Whistle&r calls a train back.",
-        "",
-        "A second station anywhere in the valley is all it wants."
-      ],
-      "long_description": true,
-      "tasks": [ { "type": "item", "item": "create:schedule", "count": 1 }, { "type": "item", "item": "railways:conductor_whistle", "count": 1 } ],
-      "rewards": [ { "type": "item", "item": "create:track", "count": 64 }, { "type": "loot", "table": "create_crate" }, { "type": "xp_levels", "levels": 4 } ] }
+  "icon": "create:cogwheel",
+  "group": "Tech",
+  "order": 20,
+  "images": [
+   {
+    "x": -4.0,
+    "y": -5.0,
+    "width": 3.0,
+    "height": 3.0,
+    "image": "create:item/andesite_alloy",
+    "order": -1,
+    "hover": [
+     "Andesite and iron nuggets.",
+     "The first thing you make here."
+    ]
+   },
+   {
+    "x": 0.0,
+    "y": 6.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "create:block/cogwheel",
+    "order": -1,
+    "hover": "Rotation turns a corner here."
+   },
+   {
+    "x": 5.0,
+    "y": -5.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "create:block/belt",
+    "order": -1,
+    "hover": "Cargo and rotation on one strap."
+   },
+   {
+    "x": 9.0,
+    "y": 6.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "create:block/millstone",
+    "order": -1,
+    "hover": [
+     "Ore in the top.",
+     "Dust out of the bottom."
+    ]
+   },
+   {
+    "x": 13.0,
+    "y": -5.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "create:block/mechanical_press_top",
+    "order": -1,
+    "hover": "Ingots in, sheets out."
+   },
+   {
+    "x": 17.0,
+    "y": 6.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "create:item/brass_ingot",
+    "order": -1,
+    "hover": "Copper and zinc in a hot basin."
+   },
+   {
+    "x": 21.0,
+    "y": -5.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "create:block/brass_casing",
+    "order": -1,
+    "hover": "The shell on the clever half."
+   },
+   {
+    "x": 25.0,
+    "y": 6.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "create:item/precision_mechanism",
+    "order": -1,
+    "hover": "Only the crafters can build it."
+   },
+   {
+    "x": 28.0,
+    "y": -5.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "create:block/station",
+    "order": -1,
+    "hover": "Where a train stops and is named."
+   }
   ]
+ },
+ "reward_tables": [
+  {
+   "key": "create_crate",
+   "title": "Bram's Crate",
+   "loot_size": 1,
+   "loot_crate": {
+    "id": "create_crate",
+    "name": "Bram's Crate",
+    "color": 11570519,
+    "glow": false
+   },
+   "rewards": [
+    {
+     "item": "create:andesite_alloy",
+     "count": 8,
+     "weight": 5
+    },
+    {
+     "item": "create:shaft",
+     "count": 8,
+     "weight": 4
+    },
+    {
+     "item": "create:cogwheel",
+     "count": 4,
+     "weight": 4
+    },
+    {
+     "item": "create:andesite_casing",
+     "count": 4,
+     "weight": 3
+    },
+    {
+     "item": "create:belt_connector",
+     "count": 4,
+     "weight": 3
+    },
+    {
+     "item": "create:iron_sheet",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "create:brass_ingot",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "create:zinc_ingot",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "createdeco:brass_coin",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "create:electron_tube",
+     "count": 2,
+     "weight": 1
+    },
+    {
+     "item": "create:super_glue",
+     "weight": 1
+    },
+    {
+     "item": "create:wrench",
+     "weight": 1
+    }
+   ]
+  }
+ ],
+ "quests": [
+  {
+   "key": "create_alloy",
+   "title": "Craft Eight Andesite Alloy",
+   "subtitle": "Act I asks for eight of these too.",
+   "icon": "create:andesite_alloy",
+   "deps": [],
+   "shape": "hexagon",
+   "size": 2.0,
+   "description": [
+    "Craft eight &aAndesite Alloy&r from andesite and iron nuggets. Almost every recipe in this chapter opens with it.",
+    "",
+    "Make more than eight. You will be back at this bench."
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:andesite_alloy",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:andesite_alloy",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "minecraft:iron_ingot",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "create_shafts",
+   "title": "Craft Eight Shafts and Four Cogwheels",
+   "subtitle": "One carries rotation, one turns it.",
+   "icon": "create:cogwheel",
+   "deps": [
+    "create_alloy"
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "description": [
+    "Craft eight &aShafts&r and four &aCogwheels&r. A shaft carries rotation straight; a cogwheel turns the corner or changes the speed.",
+    "",
+    "Andesite alloy and stripped logs make both."
+   ],
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:shaft",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "create:cogwheel",
+     "count": 4
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:shaft",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "create:andesite_alloy",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "create_crank",
+   "title": "Turn a Hand Crank",
+   "subtitle": "Power for one job while you stand there.",
+   "icon": "create:hand_crank",
+   "deps": [
+    "create_shafts"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "description": [
+    "Craft a &aHand Crank&r and set it on a shaft. Hold right-click and it turns whatever the shaft feeds.",
+    "",
+    "It is how Act I grinds its first sixteen flour."
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:hand_crank",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:cogwheel",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "create_wheel",
+   "title": "Stand a Water Wheel in a Stream",
+   "subtitle": "Free power. No fuel, no upkeep.",
+   "icon": "create:water_wheel",
+   "deps": [
+    "create_shafts"
+   ],
+   "shape": "hexagon",
+   "size": 1.5,
+   "description": [
+    "Bram: \"Two of them. On the race. I have been looking at that gap for sixty years.\"",
+    "",
+    "Place a &aWater Wheel&r where flowing water hits its blades and run a shaft out of the side. Seasoned boards or the mod's own recipe, either works."
+   ],
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:water_wheel",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:water_wheel",
+     "count": 1
+    },
+    {
+     "type": "loot",
+     "table": "create_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "create_casing",
+   "title": "Craft Eight Andesite Casing",
+   "subtitle": "The wooden shell on half of Create.",
+   "icon": "create:andesite_casing",
+   "deps": [
+    "create_wheel"
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "description": [
+    "Craft eight &aAndesite Casing&r. It wraps a shaft so rotation can cross a wall, and it is a part in most machines below.",
+    "",
+    "Stripped logs plus andesite alloy."
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:andesite_casing",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:andesite_casing",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "minecraft:iron_ingot",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "create_millstone",
+   "title": "Grind Sixteen Flour on a Millstone",
+   "subtitle": "One cogwheel underneath is enough.",
+   "icon": "create:millstone",
+   "deps": [
+    "create_casing"
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "description": [
+    "Build a &aMillstone&r and turn it with a cogwheel below. Drop wheat in the top, take flour out of the bottom.",
+    "",
+    "The same stone doubles most raw ore. Act I, step 6 runs on one."
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:millstone",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "create:wheat_flour",
+     "count": 16
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:millstone",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:raw_iron",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "create_press",
+   "title": "Press Eight Iron Sheets",
+   "subtitle": "Ingots in, plates out, one at a time.",
+   "icon": "create:mechanical_press",
+   "deps": [
+    "create_casing"
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "description": [
+    "Hang a &aMechanical Press&r over a depot and feed it rotation from above. Run eight iron ingots under it.",
+    "",
+    "&bIron sheets&r are in half the recipes left in this chapter."
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:mechanical_press",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "create:iron_sheet",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:depot",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "minecraft:copper_ingot",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "create_belt",
+   "title": "Run a Belt Between Two Shafts",
+   "subtitle": "Cargo and rotation on one strap.",
+   "icon": "create:belt_connector",
+   "deps": [
+    "create_casing"
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "description": [
+    "Craft a &aBelt Connector&r, right-click one shaft, then a second shaft up to nineteen blocks off. The belt draws itself between them.",
+    "",
+    "A belt carries rotation as well as boxes."
+   ],
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:belt_connector",
+     "count": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:belt_connector",
+     "count": 4
+    },
+    {
+     "type": "item",
+     "item": "create:chute",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "create_windmill",
+   "title": "Put Up a Bearing and Eight Sails",
+   "subtitle": "Wind, where there is no stream.",
+   "icon": "create:windmill_bearing",
+   "deps": [
+    "create_casing"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "description": [
+    "Place a &aWindmill Bearing&r facing out, build eight &aSails&r into a cross on its face, then right-click the bearing.",
+    "",
+    "Bram puts one on the mill roof in Act II, step 10."
+   ],
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:windmill_bearing",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "create:white_sail",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:white_sail",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "create:super_glue",
+     "count": 1
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "create_fan",
+   "title": "Build an Encased Fan",
+   "subtitle": "Through fire, water or lava.",
+   "icon": "create:encased_fan",
+   "deps": [
+    "create_press"
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "description": [
+    "Build an &aEncased Fan&r and give it rotation. Air pushed through fire smelts, through water washes, through lava blasts.",
+    "",
+    "Cheapest bulk cooking in the pack, and it has no menu."
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:encased_fan",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:propeller",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "minecraft:coal",
+     "count": 32
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "create_saw",
+   "title": "Build a Mechanical Saw",
+   "subtitle": "One log, six planks, no hands.",
+   "icon": "create:mechanical_saw",
+   "deps": [
+    "create_press"
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "description": [
+    "Build a &aMechanical Saw&r, lay it flat and feed it logs off a belt. Stood upright it fells the whole tree.",
+    "",
+    "Bram's hundred and twenty-eight boards in Act I go faster on one."
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:mechanical_saw",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:oak_log",
+     "count": 32
+    },
+    {
+     "type": "item",
+     "item": "create:andesite_casing",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "create_mixer",
+   "title": "Set a Mixer Over a Basin",
+   "subtitle": "One block of air between them.",
+   "icon": "create:mechanical_mixer",
+   "deps": [
+    "create_press"
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "description": [
+    "Put a &aBasin&r down, leave one block of air, and set the &aMechanical Mixer&r above it. Rotation comes in at the top.",
+    "",
+    "Anything dropped in the basin combines."
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:basin",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "create:mechanical_mixer",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:basin",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "minecraft:raw_copper",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "create_washing",
+   "title": "Wash Sixteen Crushed Iron",
+   "subtitle": "Nine nuggets a lump, and redstone.",
+   "icon": "create:crushed_raw_iron",
+   "deps": [
+    "create_fan"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "description": [
+    "Mill raw iron into &aCrushed Iron&r, drop it on a belt, and blow water through the fan at it.",
+    "",
+    "Nella's lake sand goes under the same fan in Act II, step 12."
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:crushed_raw_iron",
+     "count": 16
+    },
+    {
+     "type": "checkmark",
+     "title": "Sixteen crushed iron washed under the fan."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:gravel",
+     "count": 32
+    },
+    {
+     "type": "loot",
+     "table": "create_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "create_burner",
+   "title": "Light a Blaze Burner Under the Basin",
+   "subtitle": "Heat turns mixing into alloying.",
+   "icon": "create:empty_blaze_burner",
+   "deps": [
+    "create_mixer"
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "description": [
+    "Craft an &aEmpty Blaze Burner&r, take it to a nether fortress and right-click a blaze with it. Set the lit burner under the basin and feed it coal.",
+    "",
+    "&cBlazes throw fire.&r Take a shield and a bucket of water."
+   ],
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:empty_blaze_burner",
+     "count": 1
+    },
+    {
+     "type": "checkmark",
+     "title": "Burner lit and standing under the basin."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:coal_block",
+     "count": 4
+    },
+    {
+     "type": "item",
+     "item": "minecraft:blaze_powder",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 4
+    }
+   ]
+  },
+  {
+   "key": "create_brass",
+   "title": "Mix Sixteen Brass Ingots",
+   "subtitle": "One copper, one zinc, one hot basin.",
+   "icon": "create:brass_ingot",
+   "deps": [
+    "create_burner"
+   ],
+   "shape": "hexagon",
+   "size": 1.5,
+   "description": [
+    "Crush copper and zinc on the millstone, drop both into the heated basin, and press what pours out into sixteen &aBrass Ingots&r.",
+    "",
+    "Zinc is a real ore down there. Ask Tobin where."
+   ],
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:brass_ingot",
+     "count": 16
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:brass_ingot",
+     "count": 16
+    },
+    {
+     "type": "loot",
+     "table": "create_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 4
+    }
+   ]
+  },
+  {
+   "key": "create_brasscasing",
+   "title": "Craft Eight Brass Casing",
+   "subtitle": "The shell on the clever half.",
+   "icon": "create:brass_casing",
+   "deps": [
+    "create_brass"
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "description": [
+    "Press brass into sheets, then craft eight &aBrass Casing&r with stripped logs. Tunnels, funnels, crafters and the deployer all wear it.",
+    "",
+    "Same press you built two steps back."
+   ],
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:brass_casing",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:brass_casing",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "create:brass_sheet",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "create_goggles",
+   "title": "Wear the Engineer's Goggles",
+   "subtitle": "They read a shaft off its own network.",
+   "icon": "create:goggles",
+   "deps": [
+    "create_brass"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "description": [
+    "Craft &aEngineer's Goggles&r and put them on. Look at any shaft and the &bstress&r and &bspeed&r of that network show on screen.",
+    "",
+    "A stressometer nails the same number to a wall."
+   ],
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:goggles",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:speedometer",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "create:stressometer",
+     "count": 1
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "create_deployer",
+   "title": "Set a Deployer on a Depot",
+   "subtitle": "A hand that holds one tool.",
+   "icon": "create:deployer",
+   "deps": [
+    "create_brasscasing"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "description": [
+    "Build a &aDeployer&r, point it at a depot and turn it. It uses whatever you put in its hand: a hoe, a bucket, a pair of shears.",
+    "",
+    "Two of them over a belt will plant and cut a field without you."
+   ],
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:deployer",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:deployer",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "create:belt_connector",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "create_lamps",
+   "title": "Hang Eight Brass Lamps",
+   "subtitle": "Four colours, and a redstone switch.",
+   "icon": "createdeco:yellow_brass_lamp",
+   "deps": [
+    "create_brasscasing"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "description": [
+    "Craft eight &aBrass Lamps&r from a nugget, a torch and a plate, and hang them over the workshop.",
+    "",
+    "The forty posts on the road take a different fitting: see the &6Power and Logistics&r chapter."
+   ],
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "createdeco:yellow_brass_lamp",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "createdeco:brass_coin",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "create:brass_ingot",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "create_crafters",
+   "title": "Build Eight Mechanical Crafters",
+   "subtitle": "A crafting grid a machine can feed.",
+   "icon": "create:mechanical_crafter",
+   "deps": [
+    "create_brasscasing"
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "description": [
+    "Set eight &aMechanical Crafters&r in the shape of the recipe, wrench each one until the arrows follow one path, then turn the group.",
+    "",
+    "Eight covers every recipe in the pack that needs them."
+   ],
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:mechanical_crafter",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:wrench",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:gold_ingot",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 4
+    }
+   ]
+  },
+  {
+   "key": "create_precision",
+   "title": "Craft a Precision Mechanism",
+   "subtitle": "Nothing but the crafters can make it.",
+   "icon": "create:precision_mechanism",
+   "deps": [
+    "create_crafters"
+   ],
+   "shape": "hexagon",
+   "size": 1.5,
+   "description": [
+    "Feed cogwheels, golden sheets and an iron nugget into the crafter grid and watch it assemble in stages.",
+    "",
+    "It is the part behind stations, arms and every clever block left."
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:precision_mechanism",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:precision_mechanism",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "create:railway_casing",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 5
+    }
+   ]
+  },
+  {
+   "key": "create_arm",
+   "title": "Set a Mechanical Arm Over a Belt",
+   "subtitle": "Six inputs, six outputs, one arm.",
+   "icon": "create:mechanical_arm",
+   "deps": [
+    "create_precision"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "description": [
+    "Craft a &aMechanical Arm&r, right-click its inputs and outputs while holding it, then place it and give it rotation.",
+    "",
+    "One arm does the work of a dozen funnels over a row of machines."
+   ],
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:mechanical_arm",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:brass_funnel",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "create:chute",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 4
+    }
+   ]
+  },
+  {
+   "key": "create_track",
+   "title": "Lay Sixteen Lengths of Track",
+   "subtitle": "Right-click twice; it draws the curve.",
+   "icon": "create:track",
+   "deps": [
+    "create_precision"
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "description": [
+    "Assemble sixteen &aTrack&r on the crafters. Place one, right-click a second spot with the same item, and the rail bends between them.",
+    "",
+    "Tobin lays this line to the square in Act III, step 11."
+   ],
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:track",
+     "count": 16
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:track",
+     "count": 64
+    },
+    {
+     "type": "item",
+     "item": "create:railway_casing",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 5
+    }
+   ]
+  },
+  {
+   "key": "create_station",
+   "title": "Stand a Station on the Line",
+   "subtitle": "Where a train stops and gets a name.",
+   "icon": "create:track_station",
+   "deps": [
+    "create_track"
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "description": [
+    "Place a &aTrack Station&r beside your rail and name it. Right-click the track with a &aRailway Casing&r to set a bogey, then add a seat.",
+    "",
+    "Oda's wagon unloads at one of these."
+   ],
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:track_station",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:track_station",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "create:railway_casing",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 5
+    },
+    {
+     "type": "toast",
+     "title": "The Line to the Square",
+     "description": "Next: Act III runs this track from Tobin's adit into town, and Act I wants two water wheels on the mill race."
+    }
+   ]
+  },
+  {
+   "key": "create_schedule",
+   "title": "Give a Train a Schedule",
+   "subtitle": "Two stations and it runs without you.",
+   "icon": "create:schedule",
+   "deps": [
+    "create_station"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "description": [
+    "Write two station names into a &aSchedule&r and hand it to the conductor in the seat. The &aConductor's Whistle&r calls a train back.",
+    "",
+    "A second station anywhere in the valley is all it wants."
+   ],
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "create:schedule",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "railways:conductor_whistle",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "create:track",
+     "count": 64
+    },
+    {
+     "type": "loot",
+     "table": "create_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 4
+    }
+   ]
+  }
+ ]
 }

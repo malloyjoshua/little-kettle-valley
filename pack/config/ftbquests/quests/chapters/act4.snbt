@@ -74,7 +74,7 @@
 			title: "Cook 12 Vegetable Soup for the Long Table"
 			subtitle: "One bowl for every seat."
 			icon: "farmersdelight:vegetable_soup"
-			description: ["Marnie, quietly: \"I have fed this room for thirty years, and tonight I'm sitting down at it. Don't make a thing of it.\"", "", "Cook 12 &aVegetable Soup&r in the Cooking Pot and set them on the long table at the inn.", "", "The Hearth relights and Marnie sits down. More pots and pans: the &6Cooking & Brewing&r chapter."]
+			description: ["Marnie, quietly: \"I have fed this room for thirty years, and tonight I'm sitting down at it. Don't make a thing of it.\"", "", "Cook 12 &aVegetable Soup&r in the Cooking Pot and set them on the long table at the inn.", "", "The Hearth relights and Marnie sits down. More pots and pans: the &6Cooking and Brewing&r chapter."]
 			x: 6.0d
 			y: -1.5d
 			dependencies: ["2214CAF2EDA521CB"]
@@ -90,7 +90,7 @@
 			title: "Cut the Ice for Muskellunge and Trout"
 			subtitle: "Nella's Ice Auger goes through it."
 			icon: "aquaculture:muskellunge"
-			description: ["Nella, flat: \"Lake's a floor now, and the auger goes through it. Fish underneath don't know it's winter.\"", "", "Cut a hole past the pier where the ice is dark, then catch 4 &aMuskellunge&r and 4 &aRainbow Trout&r through it. Bait the hook with a worm.", "", "Winter tackle, and two mounts for the inn wall. More rods: the &6Animals & Fishing&r chapter."]
+			description: ["Nella, flat: \"Lake's a floor now, and the auger goes through it. Fish underneath don't know it's winter.\"", "", "Cut a hole past the pier where the ice is dark, then catch 4 &aMuskellunge&r and 4 &aRainbow Trout&r through it. Bait the hook with a worm.", "", "Winter tackle, and two mounts for the inn wall. More rods: the &6Animals and Fishing&r chapter."]
 			x: 6.0d
 			y: 0.0d
 			dependencies: ["2214CAF2EDA521CB"]
@@ -141,7 +141,7 @@
 			title: "Glaze the Greenhouse and Hang Its Door"
 			subtitle: "6 windows, a door, 8 planters on the bench."
 			icon: "mcwwindows:oak_window"
-			description: ["Nella: \"Nothing grows in it yet. I'll sit in it anyway — it's the only quiet room in town.\"", "", "Put an &aOak Window&r in each of the six frames on the square, hang the &aOak Cottage Door&r, and set 8 Planters on the marked bench.", "", "The shell becomes a room the coolant loop can heat. Growing in winter: the &6Farm & Seasons&r chapter."]
+			description: ["Nella: \"Nothing grows in it yet. I'll sit in it anyway — it's the only quiet room in town.\"", "", "Put an &aOak Window&r in each of the six frames on the square, hang the &aOak Cottage Door&r, and set 8 Planters on the marked bench.", "", "The shell becomes a room the coolant loop can heat. Growing in winter: the &6Farm and Seasons&r chapter."]
 			x: 8.0d
 			y: -0.8d
 			dependencies: ["211E8D8781573A13"]
@@ -208,7 +208,7 @@
 			title: "Furnish the Bathhouse's Twelve Spots"
 			subtitle: "Bram piped it and stopped there."
 			icon: "handcrafted:oak_bench"
-			description: ["Bram: \"Built it, piped it, didn't furnish it. That end's not mine.\"", "", "Put an &aOak Bench&r, an &aOak Shelf&r and a &aLantern&r on each of the bathhouse's twelve marked spots, behind the inn.", "", "Bram's waste heat becomes a room people sit in. More fittings: the &6Home & Town&r chapter."]
+			description: ["Bram: \"Built it, piped it, didn't furnish it. That end's not mine.\"", "", "Put an &aOak Bench&r, an &aOak Shelf&r and a &aLantern&r on each of the bathhouse's twelve marked spots, behind the inn.", "", "Bram's waste heat becomes a room people sit in. More fittings: the &6Home and Town&r chapter."]
 			x: 14.0d
 			y: 0.0d
 			dependencies: ["13FC9DEDA582A29C"]
@@ -241,7 +241,7 @@
 			title: "Duct the Mill to the Works, Fit 2 Cells"
 			subtitle: "Two Thermal Energy Cells at the Works end."
 			icon: "thermal:energy_cell"
-			description: ["Bram: \"Mill makes it, Works needs it, duct in between. You have done this once already.\"", "", "Run &aEnergy Duct&r from the mill to the Works, then fit 2 &aEnergy Cells&r at the Works end of the line.", "", "The Works has power. What &bRF&r is and where it goes: the &6Power & Logistics&r chapter."]
+			description: ["Bram: \"Mill makes it, Works needs it, duct in between. You have done this once already.\"", "", "Run &aEnergy Duct&r from the mill to the Works, then fit 2 &aEnergy Cells&r at the Works end of the line.", "", "The Works has power. What &bRF&r is and where it goes: the &6Power and Logistics&r chapter."]
 			x: 2.0d
 			y: 0.0d
 			dependencies: ["728D7483985961D8"]
@@ -305,7 +305,7 @@
 			title: "Build the Vessel"
 			subtitle: "Four rod columns, two tall, on the pad."
 			icon: "biggerreactors:reactor_casing"
-			description: ["Bram: \"Shell, terminal, fuel rods, control rods, access port, two coolant ports. Build it square. Her drawing's on the wall behind you.\"", "", "Assemble the vessel on the Works pad: 64 &aReactor Casings&r, 1 Terminal, 8 Fuel Rods, 4 Control Rods, 1 Access Port, 2 Coolant Ports. Without the coolant pair it runs passive.", "", "Bram's turbine crate comes back — the whole bill for the next quest. For the rest, see &6The Reactor & the Quarry&r."]
+			description: ["Bram: \"Shell, terminal, fuel rods, control rods, access port, two coolant ports. Build it square. Her drawing's on the wall behind you.\"", "", "Assemble the vessel on the Works pad: 64 &aReactor Casings&r, 1 Terminal, 8 Fuel Rods, 4 Control Rods, 1 Access Port, 2 Coolant Ports. Without the coolant pair it runs passive.", "", "Bram's turbine crate comes back — the whole bill for the next quest. For the rest, see &6The Reactor and the Quarry&r."]
 			x: 8.0d
 			y: 0.8d
 			dependencies: ["68EDF19065A460B7"]

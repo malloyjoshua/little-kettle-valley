@@ -330,7 +330,7 @@
     "",
     "Cast the &aIron Rod&r from the shore until ten fish are in the boat, then cook one cod on a &aSkillet&r and hand the cooked cod in. Nothing counts the ten for you: tick the box yourself.",
     "",
-    "Rods, baits and every fish in the lake: the &6Animals & Fishing&r chapter."
+    "Rods, baits and every fish in the lake: the &6Animals and Fishing&r chapter."
    ],
    "deps": [
     "q21"
@@ -502,7 +502,7 @@
     "",
     "Place the 8 &alattice panels&r on the marked terrace, plant the 4 grape starts along the base, water them twice, and hand in one &aRed Grape&r when they fruit.",
     "",
-    "The press and the barrel come with them. Wine, tea and everything else that boils: the &6Cooking & Brewing&r chapter."
+    "The press and the barrel come with them. Wine, tea and everything else that boils: the &6Cooking and Brewing&r chapter."
    ],
    "deps": [
     "q23"
@@ -771,7 +771,7 @@
     "",
     "Take the &aprospector's pick&r to the 6 spots on Tobin's maps and right-click each one. The sixth reading is the copper cluster.",
     "",
-    "Copper and tin get pinned to your maps. How deep each bed sits: the &6Ores & Mining&r chapter."
+    "Copper and tin get pinned to your maps. How deep each bed sits: the &6Ores and Mining&r chapter."
    ],
    "deps": [
     "q27"
@@ -1048,7 +1048,7 @@
     "",
     "Craft and hold 6 &aOak Full Drawers&r, 1 &aDrawer Controller&r and 3 Sophisticated Barrels, then set them along the long wall of the mill's back room.",
     "",
-    "One controller makes six drawers one inventory. More of that in &6Power & Logistics&r."
+    "One controller makes six drawers one inventory. More of that in &6Power and Logistics&r."
    ],
    "deps": [
     "q31"

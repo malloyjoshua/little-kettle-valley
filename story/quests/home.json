@@ -1,13 +1,13 @@
 {
  "chapter": {
   "key": "home",
-  "title": "Home & Town",
+  "title": "Home and Town",
   "subtitle": [
    "Doors that shut, chairs that face the fire, and a light on the porch.",
    "None of it is required. All of it is why anybody stays."
   ],
   "icon": "mcwdoors:oak_cottage_door",
-  "group": "Home & Farm",
+  "group": "Home and Farm",
   "order": 13,
   "images": [
    {
@@ -547,7 +547,7 @@
    "description": [
     "A Macaw's drawer holds a chest's worth and reads as furniture.",
     "",
-    "Craft an &aOak Wardrobe&r and two &aOak Drawers&r. For bulk, see the &6Power & Logistics&r chapter."
+    "Craft an &aOak Wardrobe&r and two &aOak Drawers&r. For bulk, see the &6Power and Logistics&r chapter."
    ],
    "deps": [
     "home_chairs"
@@ -738,7 +738,7 @@
     },
     {
      "type": "toast",
-     "title": "Home & Town",
+     "title": "Home and Town",
      "description": "Next: Act II builds Wisp a stilt house, Act III fits out the inn's two guest rooms. Same hands, bigger rooms."
     }
    ]

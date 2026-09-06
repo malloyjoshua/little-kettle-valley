@@ -43,7 +43,7 @@
 			title: "Fill the Granary's Twelve Alcoves"
 			subtitle: "One drawer per alcove, at the Lantern Float."
 			icon: "storagedrawers:oak_full_drawers_1"
-			description: ["Oda: \"Twelve alcoves, twelve drawers. Do not improvise on me.\"", "", "Craft 12 &aOak Full Drawers&r — six oak planks around a wooden chest — and put one in each marked alcove in the granary at the Lantern Float. Any order is right.", "", "They arrive holding the town's stock, and the Granary Waystone goes up outside. Drawers and ducts: &6Power & Logistics&r."]
+			description: ["Oda: \"Twelve alcoves, twelve drawers. Do not improvise on me.\"", "", "Craft 12 &aOak Full Drawers&r — six oak planks around a wooden chest — and put one in each marked alcove in the granary at the Lantern Float. Any order is right.", "", "They arrive holding the town's stock, and the Granary Waystone goes up outside. Drawers and ducts: &6Power and Logistics&r."]
 			x: 2.0d
 			y: -1.5d
 			dependencies: ["379DF28AF21498E4"]
@@ -60,7 +60,7 @@
 			title: "Sow the Four Autumn Crops"
 			subtitle: "Marked beds behind the inn."
 			icon: "minecraft:pumpkin_seeds"
-			description: ["Marnie: \"Pumpkin, beetroot, oats and barley. Everything else is finished for the year, love.\"", "", "Plant 4 &aPumpkin Seeds&r, 4 Beetroot Seeds, 4 Oat Seeds and 4 Barley Seeds in the four marked beds behind the inn. Oat is Bakery's, Barley is Thermal's. Nothing has to sprout and nothing is taken.", "", "The larder crate comes back. What grows in which season: &6Farm & Seasons&r."]
+			description: ["Marnie: \"Pumpkin, beetroot, oats and barley. Everything else is finished for the year, love.\"", "", "Plant 4 &aPumpkin Seeds&r, 4 Beetroot Seeds, 4 Oat Seeds and 4 Barley Seeds in the four marked beds behind the inn. Oat is Bakery's, Barley is Thermal's. Nothing has to sprout and nothing is taken.", "", "The larder crate comes back. What grows in which season: &6Farm and Seasons&r."]
 			x: 2.0d
 			y: 0.0d
 			dependencies: ["379DF28AF21498E4"]
@@ -92,7 +92,7 @@
 			title: "Put Up Twelve Preserves"
 			subtitle: "Cookbook pages 3 to 5."
 			icon: "handcrafted:berry_jam_jar"
-			description: ["Marnie: \"Four pies, four jams, four jars of pickles — pages three to five. It's all in the crate by the counter.\"", "", "Make 4 &aApple Pies&r and 4 Berry Jam Jars, then seal 4 Jars of pickles — the plain glass Jar, not the Bakery one — and bring all twelve to the inn counter.", "", "Sweet berries are out of season, so pick wild ones off taiga bushes. More pots and pans: &6Cooking & Brewing&r."]
+			description: ["Marnie: \"Four pies, four jams, four jars of pickles — pages three to five. It's all in the crate by the counter.\"", "", "Make 4 &aApple Pies&r and 4 Berry Jam Jars, then seal 4 Jars of pickles — the plain glass Jar, not the Bakery one — and bring all twelve to the inn counter.", "", "Sweet berries are out of season, so pick wild ones off taiga bushes. More pots and pans: &6Cooking and Brewing&r."]
 			x: 4.0d
 			y: 0.0d
 			dependencies: ["5C9E4AA1B6ADCEA6"]
@@ -157,7 +157,7 @@
 			title: "Fit Out the Two Guest Rooms"
 			subtitle: "Eight marked spots, four in each room."
 			icon: "handcrafted:oak_fancy_bed"
-			description: ["Marnie: \"Two rooms upstairs, both bare: a bed, a rug, a lantern and a chest in each. It's all in the packet.\"", "", "Eight marked spots, four per room — bed on the wool mat, rug beside it, lantern on the hook, chest at the foot. Any order is right.", "", "Two rooms Marnie can let, and a letter from the first person who wants one. More furniture: &6Home & Town&r."]
+			description: ["Marnie: \"Two rooms upstairs, both bare: a bed, a rug, a lantern and a chest in each. It's all in the packet.\"", "", "Eight marked spots, four per room — bed on the wool mat, rug beside it, lantern on the hook, chest at the foot. Any order is right.", "", "Two rooms Marnie can let, and a letter from the first person who wants one. More furniture: &6Home and Town&r."]
 			x: 12.0d
 			y: -0.8d
 			dependencies: ["353BBFB416B61074"]
@@ -190,7 +190,7 @@
 			title: "Salt Eight Fillets into the Granary"
 			subtitle: "Nella is on the pier before the lake turns."
 			icon: "aquaculture:fish_fillet_cooked"
-			description: ["Nella: \"Eight fillets, salted, straight into the granary drawers. Ice fishing works too, but this is the easy way round.\"", "", "Catch fish off the pier, cure 8 &aCooked Fish Fillets&r, and put all eight in the granary drawers.", "", "A salt barrel on the pier, and twelve each of bowls, bricks, iron and copper for the long table. Rods and fish: &6Animals & Fishing&r."]
+			description: ["Nella: \"Eight fillets, salted, straight into the granary drawers. Ice fishing works too, but this is the easy way round.\"", "", "Catch fish off the pier, cure 8 &aCooked Fish Fillets&r, and put all eight in the granary drawers.", "", "A salt barrel on the pier, and twelve each of bowls, bricks, iron and copper for the long table. Rods and fish: &6Animals and Fishing&r."]
 			x: 16.0d
 			y: 0.0d
 			dependencies: ["5B08E1A0810FCBFF"]
@@ -207,7 +207,7 @@
 			title: "Dig Out Tobin's Adit"
 			subtitle: "About 90 marked blocks in the hillside."
 			icon: "geolosys:prospectors_pick"
-			description: ["Tobin: \"Three cores, all copper-rich, all the same seam. So it isn't a pocket, it's a run. About ninety blocks, give or take.\"", "", "Take Tobin's 3 core samples to the marked hillside, dig out the adit — roughly 90 marked blocks — and open the Lootr chest at the back.", "", "Josie's &aKettle Plate&r is in that chest. Keep it; Halden reads that hand. Samples, beds and hammers: &6Ores & Mining&r."]
+			description: ["Tobin: \"Three cores, all copper-rich, all the same seam. So it isn't a pocket, it's a run. About ninety blocks, give or take.\"", "", "Take Tobin's 3 core samples to the marked hillside, dig out the adit — roughly 90 marked blocks — and open the Lootr chest at the back.", "", "Josie's &aKettle Plate&r is in that chest. Keep it; Halden reads that hand. Samples, beds and hammers: &6Ores and Mining&r."]
 			x: 0.0d
 			y: 0.8d
 			dependencies: ["044F10540A7996F8"]

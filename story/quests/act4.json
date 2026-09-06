@@ -352,7 +352,7 @@
     "",
     "Cook 12 &aVegetable Soup&r in the Cooking Pot and set them on the long table at the inn.",
     "",
-    "The Hearth relights and Marnie sits down. More pots and pans: the &6Cooking & Brewing&r chapter."
+    "The Hearth relights and Marnie sits down. More pots and pans: the &6Cooking and Brewing&r chapter."
    ],
    "deps": [
     "q59"
@@ -439,7 +439,7 @@
     "",
     "Cut a hole past the pier where the ice is dark, then catch 4 &aMuskellunge&r and 4 &aRainbow Trout&r through it. Bait the hook with a worm.",
     "",
-    "Winter tackle, and two mounts for the inn wall. More rods: the &6Animals & Fishing&r chapter."
+    "Winter tackle, and two mounts for the inn wall. More rods: the &6Animals and Fishing&r chapter."
    ],
    "deps": [
     "q59"
@@ -618,7 +618,7 @@
     "",
     "Put an &aOak Window&r in each of the six frames on the square, hang the &aOak Cottage Door&r, and set 8 Planters on the marked bench.",
     "",
-    "The shell becomes a room the coolant loop can heat. Growing in winter: the &6Farm & Seasons&r chapter."
+    "The shell becomes a room the coolant loop can heat. Growing in winter: the &6Farm and Seasons&r chapter."
    ],
    "deps": [
     "q60"
@@ -894,7 +894,7 @@
     "",
     "Put an &aOak Bench&r, an &aOak Shelf&r and a &aLantern&r on each of the bathhouse's twelve marked spots, behind the inn.",
     "",
-    "Bram's waste heat becomes a room people sit in. More fittings: the &6Home & Town&r chapter."
+    "Bram's waste heat becomes a room people sit in. More fittings: the &6Home and Town&r chapter."
    ],
    "deps": [
     "q72"
@@ -1054,7 +1054,7 @@
     "",
     "Run &aEnergy Duct&r from the mill to the Works, then fit 2 &aEnergy Cells&r at the Works end of the line.",
     "",
-    "The Works has power. What &bRF&r is and where it goes: the &6Power & Logistics&r chapter."
+    "The Works has power. What &bRF&r is and where it goes: the &6Power and Logistics&r chapter."
    ],
    "deps": [
     "q65"
@@ -1321,7 +1321,7 @@
     "",
     "Assemble the vessel on the Works pad: 64 &aReactor Casings&r, 1 Terminal, 8 Fuel Rods, 4 Control Rods, 1 Access Port, 2 Coolant Ports. Without the coolant pair it runs passive.",
     "",
-    "Bram's turbine crate comes back \u2014 the whole bill for the next quest. For the rest, see &6The Reactor & the Quarry&r."
+    "Bram's turbine crate comes back \u2014 the whole bill for the next quest. For the rest, see &6The Reactor and the Quarry&r."
    ],
    "deps": [
     "q69"

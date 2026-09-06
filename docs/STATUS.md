@@ -67,3 +67,14 @@ Josh mined and found nothing, then: "Do we need Geolosys? I like vanilla ores AN
 
 ## Deep dive (2026-09-05 night)
 Josh: "why are these packs so beloved and why does ours still kinda suck." Full study in `docs/research/beloved-packs-vs-valley.md`. One-line answer: they were played by thousands of strangers before they were good; ours has one tester who is also the customer, and our tests prove the world is intact, not that a person can get through hour one. Found and fixed tonight: the shipped world's clock was frozen (nobody could sleep, Act I was gated), both players had to sleep to pass a night, the soup sentence omitted beetroot, Bram's toast pointed at the wrong quest.
+
+## Overnight rebuild (2026-09-06 morning)
+Josh, 22:00: "I've been playing FTB Evolution and I really like their quest line... I am going to let you run all night so I wake up to a genuinely useful plot, world, etc." The book was rebuilt in Evolution's shape on our world; the story engine underneath is untouched.
+
+- **The book: 367 quests, 22 chapters, five tabs** (The Valley, Home and Farm, Tech, The Valley Beyond, Side Quests). 143 optional. Every one of the 136 original keys, tasks, deps and story hooks preserved (`spine_diff.py`, 0 breaches). Spec: `docs/research/book-redesign.md`.
+- **New chapters:** Create, Thermal, Power and Logistics, Storage Network, Ores and Mining, The Reactor and the Quarry, Farm and Seasons, Cooking and Brewing, Animals and Fishing, Home and Town, Places (real structures with coordinates), Getting Around, The Wild, Useful Items and Tips. Each has a loot crate and board art from the mods' own textures.
+- **Mods are not gated** (Evolution's rule): Create, Thermal, the kitchen and AE2 keep their own recipes, with the story recipes as a second road. Reactor (q67) and quarry (q86) stay story-gated. World border starts at 6000 and heals old copies.
+- **Proven, not hoped:** strict compile 0 errors; `feasibility.py` proves every task item obtainable when its quest opens (it caught the deleted vanilla chest recipe that silently broke nineteen recipes: Storage Drawers, the reactor access port, chest boats); `book_lint.py` 0 errors over numbers, pointers, toasts, coordinates and keys; all 22 boards screenshot in the real client (`scratch/visual/`), colour codes and chapter pointers render, no broken formatting.
+- **Fixed on the way:** bare ampersands in titles rendered as "Invalid formatting!" (FTB Quests treats & as a colour code); vanilla advancement announcements in chat; two players both had to sleep to pass a night; YUNG's fortress and stronghold structure ids; the soup sentence; Bram's toast after the quest reorder.
+- **Lost time:** the Mac slept from about 06:00 to 09:30 and every process with it. `caffeinate` now runs for the session; add it to any overnight runbook.
+

@@ -1,13 +1,13 @@
 {
  "chapter": {
   "key": "farm",
-  "title": "Farm & Seasons",
+  "title": "Farm and Seasons",
   "subtitle": [
    "Nine rows, a calendar, and one machine that ignores it.",
    "What grows when, what beats the frost, and where the flour comes from."
   ],
   "icon": "minecraft:wheat",
-  "group": "Home & Farm",
+  "group": "Home and Farm",
   "order": 10,
   "images": [
    {
@@ -872,7 +872,7 @@
     },
     {
      "type": "toast",
-     "title": "Farm & Seasons",
+     "title": "Farm and Seasons",
      "description": "Next: Act V glazes a cold frame and grows four crops in February."
     }
    ],

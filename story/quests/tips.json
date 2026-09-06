@@ -1,7 +1,7 @@
 {
  "chapter": {
   "key": "tips",
-  "title": "Useful Items & Tips",
+  "title": "Useful Items and Tips",
   "subtitle": [
    "Fourteen small things that make the valley easier to live in.",
    "Not one of them is required, and every one is already installed."
@@ -414,7 +414,7 @@
    "description": [
     "Hold the &bgrave key&r (above Tab) as you break an ore or a log. Up to 64 blocks of that vein come out at once.",
     "",
-    "Drops gather where you broke it. See the &6Ores & Mining&r chapter."
+    "Drops gather where you broke it. See the &6Ores and Mining&r chapter."
    ],
    "deps": [
     "tips_hammer"
@@ -492,7 +492,7 @@
    "description": [
     "Craft a &aCalendar&r. Held, it names the season, and a crop planted out of its season simply stops growing.",
     "",
-    "Which crop wants which season is in the &6Farm & Seasons&r chapter."
+    "Which crop wants which season is in the &6Farm and Seasons&r chapter."
    ],
    "deps": [
     "tips_backpack"

@@ -75,7 +75,7 @@
 			title: "Bring Back Two Crab Claws"
 			subtitle: "They walk the shingle sideways at dusk."
 			icon: "friendsandfoes:crab_claw"
-			description: ["Walk any sand or gravel shore until you find crabs, then take 2 &aCrab Claws&r home.", "", "Friends & Foes put nine new creatures in the world. This is the mildest of them."]
+			description: ["Walk any sand or gravel shore until you find crabs, then take 2 &aCrab Claws&r home.", "", "Friends and Foes put nine new creatures in the world. This is the mildest of them."]
 			x: 2.0d
 			y: 0.0d
 			dependencies: ["03D0024BEFEA5468"]
@@ -91,7 +91,7 @@
 			title: "Hang a Birch Beehive by the Orchard"
 			subtitle: "It takes four bees where vanilla takes three."
 			icon: "friendsandfoes:birch_beehive"
-			description: ["Craft a &aBirch Beehive&r from six birch planks and three honeycomb, then set it where bees already work.", "", "Take 3 &aHoney Bottles&r off it. &6Cooking & Brewing&r has work for them."]
+			description: ["Craft a &aBirch Beehive&r from six birch planks and three honeycomb, then set it where bees already work.", "", "Take 3 &aHoney Bottles&r off it. &6Cooking and Brewing&r has work for them."]
 			x: 4.0d
 			y: -2.2d
 			dependencies: ["1BCCFA97543E5CD0"]
@@ -149,7 +149,7 @@
 			size: 1.5d
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
-			tasks: [{ id: "24A60232CC8E8B6E", type: "structure", structure: "minecraft:fortress" }]
+			tasks: [{ id: "0C3EEC1930604C92", type: "structure", structure: "betterfortresses:fortress" }]
 			rewards: [{ id: "4193EE4B0545B89E", type: "item", auto: "no_toast", item: "minecraft:gold_ingot", count: 8 }, { id: "36DEE7F55ACB59DC", type: "loot", auto: "no_toast", table_id: 3222315870028655150L }, { id: "3A14A6E613B94168", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
 		}
 		{
@@ -199,7 +199,7 @@
 			size: 1.0d
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
-			tasks: [{ id: "0E4835E7B3779D35", type: "structure", structure: "minecraft:stronghold" }]
+			tasks: [{ id: "21E0861A33CBC27B", type: "structure", structure: "betterstrongholds:stronghold" }]
 			rewards: [{ id: "50788E2B8A82FFD9", type: "item", auto: "no_toast", item: "minecraft:ender_pearl", count: 4 }, { id: "0CF71E43EB85F4B4", type: "loot", auto: "no_toast", table_id: 3222315870028655150L }, { id: "59C7AD0C4818DA8F", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
 		}
 		{
