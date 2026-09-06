@@ -86,7 +86,7 @@
 			title: "Cook One Vegetable Soup"
 			subtitle: "Kettle on the hook, pot on the fire."
 			icon: "herbalbrews:copper_tea_kettle"
-			description: ["Josie: \"Kettle on the hook, soup in the pot — that is the entire ceremony. There has never been a bigger one.\"", "", "Put the campfire outside your door, hang the Copper Kettle on the hook above it, and cook one Vegetable Soup in the Cooking Pot — a pot only cooks over lit fire. Cabbage, carrots and potatoes are in the basket; three planks make four bowls.", "", "Bram's old Surveyor's Stake is in the vegetable basket, wrapped in a rag with a chalk K on it — the next quest is what you do with it."]
+			description: ["Josie: \"Kettle on the hook, soup in the pot — that is the entire ceremony. There has never been a bigger one.\"", "", "Put the campfire outside your door, hang the Copper Kettle on the hook above it, and cook one Vegetable Soup in the Cooking Pot — a pot only cooks over lit fire. Cabbage, carrots, potatoes and beetroot are in the crate: the pot wants all four. Three planks make four bowls.", "", "Bram's old Surveyor's Stake is in the vegetable basket, wrapped in a rag with a chalk K on it — the next quest is what you do with it."]
 			x: 6.0d
 			y: 0.8d
 			dependencies: ["0778ACD6AAB0BFA3"]

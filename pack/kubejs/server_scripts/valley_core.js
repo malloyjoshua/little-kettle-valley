@@ -733,6 +733,8 @@ ServerEvents.loaded(event => {
   // Night" gates all of Act I. The level.dat is fixed; this heals every copy that was
   // downloaded before the fix. Cheap, idempotent, every load.
   s.runCommandSilent('gamerule doDaylightCycle true')
+  // Two players, one bed each: one sleeper passes the night. Vanilla's 100 needs both.
+  s.runCommandSilent('gamerule playersSleepingPercentage 1')
 
   let a = global.valley.anchor()
   console.info('[valley] core loaded. Anchor: ' + (a ? a.join(' ') : 'not set yet'))

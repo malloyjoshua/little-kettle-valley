@@ -18,7 +18,7 @@ hash = "9b85db0d9ab11980c00deb35811a08c59902060d0c3f06db0e8e186ebbc23a60"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act1.snbt"
-hash = "6bb87f63f337314899284fb3474d7fefbef5b41bec165ed7e033e5eb94472e5d"
+hash = "3ab832bfe180d1bc54b7c287e47f1a8888c192f0632289433711652c25cf8daa"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act2.snbt"
@@ -46,7 +46,7 @@ hash = "dea3248ee63d26b7851d5bee66c881dd61031f8cbcf9ffe68c4de7ee6ebf1950"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/start.snbt"
-hash = "3a5f125ddd41c5f1b4cccfca791febbdd8090a87a1d53b150f4cde07ac790266"
+hash = "e5a697758b501a21e0f1c4e29ed0ea0678cef968abfb2db37ecf573ffa791cb3"
 
 [[files]]
 file = "config/ftbquests/quests/data.snbt"
@@ -614,7 +614,7 @@ hash = "78dc444e9b5a7080264f409ed7cb81773a326827dbc62080bc9a724a53400668"
 
 [[files]]
 file = "kubejs/server_scripts/valley_core.js"
-hash = "ecb0df398476c4e6e9324168e4316ee4c1f3f6d859da8dd69969a8d79acb3185"
+hash = "bc69c1026cf4f60c2e4ccca6f92281dea23a1b26c1851394daca5a9ef8751ca2"
 
 [[files]]
 file = "kubejs/server_scripts/valley_finales.js"
@@ -1569,7 +1569,7 @@ preserve = true
 
 [[files]]
 file = "saves/Little Kettle Valley/level.dat"
-hash = "23295f52e41e35dc86181eac9723d64bd94eca68208a72603bdb1c1cce178422"
+hash = "1e8fc65c5180d19b86ae5f01e1a6467dcc61b2ab334a6ced75e51612f8bea054"
 preserve = true
 
 [[files]]

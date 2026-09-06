@@ -65,7 +65,7 @@
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "37840C18479A70A7", type: "item", item: "valley:token_bram", count: 1L, consume_items: true }]
-			rewards: [{ id: "226F6892A3A1EF80", type: "item", auto: "no_toast", item: "create:wrench" }, { id: "2C366D84BFCB8766", type: "item", auto: "no_toast", item: "create:goggles" }, { id: "6376C4ABA54D8A50", type: "item", auto: "no_toast", item: "minecraft:iron_ingot", count: 12 }, { id: "36CE00BCF4AF352F", type: "item", auto: "no_toast", item: "minecraft:andesite", count: 24 }, { id: "3254B4365C633356", type: "command", team_reward: true, auto: "invisible", command: "bossbar set valley:folk value 3", elevate_perms: true, silent: true }, { id: "1ABBBD460B1C492F", type: "command", auto: "invisible", command: "advancement grant @a only valley:journal/found_2", elevate_perms: true, silent: true }, { id: "4931CAD36B28432C", type: "toast", title: "Residents 3/15", auto: "enabled", description: "Next: craft 8 Andesite Alloy out of what Bram gave you. Eight, not nine — the rest of the crate is the Millstone's." }]
+			rewards: [{ id: "226F6892A3A1EF80", type: "item", auto: "no_toast", item: "create:wrench" }, { id: "2C366D84BFCB8766", type: "item", auto: "no_toast", item: "create:goggles" }, { id: "6376C4ABA54D8A50", type: "item", auto: "no_toast", item: "minecraft:iron_ingot", count: 12 }, { id: "36CE00BCF4AF352F", type: "item", auto: "no_toast", item: "minecraft:andesite", count: 24 }, { id: "3254B4365C633356", type: "command", team_reward: true, auto: "invisible", command: "bossbar set valley:folk value 3", elevate_perms: true, silent: true }, { id: "1ABBBD460B1C492F", type: "command", auto: "invisible", command: "advancement grant @a only valley:journal/found_2", elevate_perms: true, silent: true }, { id: "1DBC1ABF1FCDA79E", type: "toast", title: "Residents 3/15", auto: "enabled", description: "Next: Bram's bench. Take the hammer and the pick, then read the ground west of the cottage for iron." }]
 		}
 		{
 			id: "70AF7E0ABE69FA26"
@@ -157,7 +157,7 @@
 			title: "Cut 128 Boards and Give Bram 64"
 			subtitle: "Sixty-four boards is four stalls."
 			icon: "minecraft:oak_planks"
-			description: ["Bram: \"Oda wants four stalls for the fair. Sixty-four boards is four stalls.\"", "", "Cut 128 Oak Planks on the Mechanical Saw — about twenty-two oak logs off the ridge behind the mill. Hold all 128 when you hand in: the book counts the full 128 and only takes 64 of them for Bram's stalls. You are not cutting 192.", "", "Stage market_stalls: the Thaw Fair now has somewhere to trade from, and you keep Macaw's roof kits and four planters for your own roof."]
+			description: ["Bram: \"Oda wants four stalls for the fair. Sixty-four boards is four stalls.\"", "", "Cut 128 Oak Planks on the Mechanical Saw — about twenty-two oak logs off the ridge behind the mill. Hold all 128 when you hand in: the book counts the full 128 and only takes 64 of them for Bram's stalls. You are not cutting 192.", "", "The Thaw Fair now has somewhere to trade from, and you keep Macaw's roof kits and four planters for your own roof."]
 			x: 12.0d
 			y: 0.0d
 			dependencies: ["5656BC94973A071C"]
