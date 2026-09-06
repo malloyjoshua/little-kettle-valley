@@ -16,7 +16,7 @@
 			title: "Read Oda's Board at the Counter"
 			subtitle: "Scrip only. Every buy line restocks."
 			icon: "valley:scrip"
-			description: ["Oda: \"Store's open. Shelves are thin and my ledger is thinner, but they're open. Cash is Scrip. I don't barter and I don't round up.\"", "", "Buy anything on this board with Valley Scrip. Scrip comes from deliveries, festival baskets and closing a neighbour's story — her standing order pays eight for twenty-four wheat, once, and then that page is closed.", "", "Every buy line below restocks. Buy a line as many times as you can pay for it.", "", "One warning: keep two hundred Scrip back. The winter debt is a hundred and twenty, the Works Deed is eighty, and I do not get talked down."]
+			description: ["Oda: \"Store's open. Shelves are thin and my ledger is thinner, but they're open. Cash is Scrip. I don't barter and I don't round up.\"", "", "Buy anything on this board with Valley Scrip. Scrip comes from deliveries, festival baskets and closing a neighbour's story — her standing order pays eight for twenty-four wheat, once, and then that page is closed.", "", "Every buy line below restocks. Buy a line as many times as you can pay for it.", "", "One warning: keep two hundred Scrip back. The winter debt is a hundred and twenty, the Works Deed is eighty, and I do not get talked down.", "", "&7Two players:&r Scrip is one purse. Pile it into one pack before you buy — and before Oda asks for the hundred and twenty."]
 			x: 0.0d
 			y: 0.0d
 			dependencies: ["1589859EB1A28DCE"]
@@ -26,7 +26,7 @@
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "47831093E5788B67", type: "checkmark", title: "Read the board and the prices under it" }]
-			rewards: [{ id: "63897F04BEC3881B", type: "item", auto: "no_toast", item: "valley:catalogue" }, { id: "27A2E446F0A125E1", type: "item", auto: "no_toast", item: "valley:scrip", count: 10 }, { id: "49A42F43DD652389", type: "command", auto: "invisible", command: "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Ten Scrip, on the house. That is the only time those three words happen in this store.\",\"color\":\"white\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "445FD32D55DD1C5A", type: "toast", title: "Oda's Counter is open", auto: "enabled", description: "Next: buy the cheap tech now, the decor when the rail comes in — and keep 200 Scrip back for year two. Oda means it." }]
+			rewards: [{ id: "63897F04BEC3881B", type: "item", auto: "no_toast", item: "valley:catalogue" }, { id: "0746E47533614B28", type: "item", team_reward: true, auto: "no_toast", item: "valley:scrip", count: 10 }, { id: "374762EF82CB36F3", type: "command", team_reward: true, auto: "invisible", command: "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Ten Scrip, on the house. That is the only time those three words happen in this store.\",\"color\":\"white\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "0E67C3B804FC8860", type: "xp_levels", auto: "no_toast", xp_levels: 1 }, { id: "445FD32D55DD1C5A", type: "toast", title: "Oda's Counter is open", auto: "enabled", description: "Next: buy the cheap tech now, the decor when the rail comes in — and keep 200 Scrip back for year two. Oda means it." }]
 		}
 		{
 			id: "0FE8C79C42C61940"
@@ -43,7 +43,7 @@
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "4DD955FF1A526E60", type: "item", item: "minecraft:wheat", count: 24L, consume_items: true }]
-			rewards: [{ id: "412DADF38F4FC498", type: "item", auto: "no_toast", item: "valley:scrip", count: 8 }]
+			rewards: [{ id: "3170E8DD5B288DE6", type: "item", team_reward: true, auto: "no_toast", item: "valley:scrip", count: 8 }]
 		}
 		{
 			id: "12489253BB7C0744"
@@ -61,7 +61,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "4F7D3028DA1ADF7E", type: "item", item: "valley:scrip", count: 10L, consume_items: true }]
-			rewards: [{ id: "5229419B80B6B168", type: "item", auto: "no_toast", item: "create:andesite_casing", count: 16 }]
+			rewards: [{ id: "438C4C973FF7991F", type: "item", team_reward: true, auto: "no_toast", item: "create:andesite_casing", count: 16 }]
 		}
 		{
 			id: "1BF4F8B224C18BE4"
@@ -79,7 +79,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "61D15834AED8554F", type: "item", item: "valley:scrip", count: 8L, consume_items: true }]
-			rewards: [{ id: "1E939117B85C6BF8", type: "item", auto: "no_toast", item: "create:andesite_alloy", count: 32 }]
+			rewards: [{ id: "7A8A0FDF1F91C637", type: "item", team_reward: true, auto: "no_toast", item: "create:andesite_alloy", count: 32 }]
 		}
 		{
 			id: "2CBED0C4BB8AD0AC"
@@ -97,7 +97,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "6FDC9E0CD930F0FF", type: "item", item: "valley:scrip", count: 6L, consume_items: true }]
-			rewards: [{ id: "77D32FC7F2EFC868", type: "item", auto: "no_toast", item: "create:cogwheel", count: 16 }, { id: "7FC353CF578D907C", type: "item", auto: "no_toast", item: "create:large_cogwheel", count: 8 }, { id: "52D97E0F63BEC212", type: "item", auto: "no_toast", item: "create:shaft", count: 16 }, { id: "0836FB6A92929B9A", type: "item", auto: "no_toast", item: "create:belt_connector", count: 8 }]
+			rewards: [{ id: "066B69CC4FC686E9", type: "item", team_reward: true, auto: "no_toast", item: "create:cogwheel", count: 16 }, { id: "1B5CFB2D3EE6511A", type: "item", team_reward: true, auto: "no_toast", item: "create:large_cogwheel", count: 8 }, { id: "21B155312B3DCD46", type: "item", team_reward: true, auto: "no_toast", item: "create:shaft", count: 16 }, { id: "1FDFD123E8D9DC8F", type: "item", team_reward: true, auto: "no_toast", item: "create:belt_connector", count: 8 }]
 		}
 		{
 			id: "24DDE7B320244522"
@@ -115,7 +115,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "6B555A609B93D731", type: "item", item: "valley:scrip", count: 4L, consume_items: true }]
-			rewards: [{ id: "30E239A69A2AE85F", type: "item", auto: "no_toast", item: "farmersdelight:cabbage_seeds", count: 8 }, { id: "1BA850CC05168465", type: "item", auto: "no_toast", item: "thermal:tomato_seeds", count: 8 }, { id: "5ECBD00C78A5A28F", type: "item", auto: "no_toast", item: "thermal:corn_seeds", count: 8 }, { id: "0EC752AD4750B4C0", type: "item", auto: "no_toast", item: "minecraft:beetroot_seeds", count: 8 }, { id: "73BC02F42DFD47FE", type: "item", auto: "no_toast", item: "minecraft:pumpkin_seeds", count: 8 }]
+			rewards: [{ id: "0679B5C17EB58BEA", type: "item", team_reward: true, auto: "no_toast", item: "farmersdelight:cabbage_seeds", count: 8 }, { id: "0B1AA9E04FDEF6EF", type: "item", team_reward: true, auto: "no_toast", item: "thermal:tomato_seeds", count: 8 }, { id: "16F6E67E762A9133", type: "item", team_reward: true, auto: "no_toast", item: "thermal:corn_seeds", count: 8 }, { id: "3DAA710EE6059C8A", type: "item", team_reward: true, auto: "no_toast", item: "minecraft:beetroot_seeds", count: 8 }, { id: "6AFC361C5D6E1999", type: "item", team_reward: true, auto: "no_toast", item: "minecraft:pumpkin_seeds", count: 8 }]
 		}
 		{
 			id: "4BFDD97D3744144F"
@@ -133,7 +133,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "6389155CEA3A1153", type: "item", item: "valley:scrip", count: 4L, consume_items: true }]
-			rewards: [{ id: "314941A8DBACD47A", type: "item", auto: "no_toast", item: "minecraft:bread", count: 16 }, { id: "79BCE2B744678B0F", type: "item", auto: "no_toast", item: "farmersdelight:rice", count: 16 }, { id: "0E523255AC9FF616", type: "item", auto: "no_toast", item: "minecraft:cooked_beef", count: 8 }]
+			rewards: [{ id: "62F6C20182DB2CC1", type: "item", team_reward: true, auto: "no_toast", item: "minecraft:bread", count: 16 }, { id: "1316E102C035A9E4", type: "item", team_reward: true, auto: "no_toast", item: "farmersdelight:rice", count: 16 }, { id: "72DF126E238BDC2A", type: "item", team_reward: true, auto: "no_toast", item: "minecraft:cooked_beef", count: 8 }]
 		}
 		{
 			id: "01E7588B56F0CD27"
@@ -151,7 +151,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "76ED610DDAB2D7AE", type: "item", item: "valley:scrip", count: 6L, consume_items: true }]
-			rewards: [{ id: "0775E822249EAB9C", type: "item", auto: "no_toast", item: "minecraft:lantern", count: 8 }, { id: "6FDE1D999625F516", type: "item", auto: "no_toast", item: "supplementaries:candle_holder", count: 8 }, { id: "58021C13844F4179", type: "item", auto: "no_toast", item: "createdeco:yellow_copper_lamp", count: 4 }]
+			rewards: [{ id: "647E9C88BE485B44", type: "item", team_reward: true, auto: "no_toast", item: "minecraft:lantern", count: 8 }, { id: "7B3FE5E7FB8174EE", type: "item", team_reward: true, auto: "no_toast", item: "supplementaries:candle_holder", count: 8 }, { id: "42324D1A9D0117E4", type: "item", team_reward: true, auto: "no_toast", item: "createdeco:yellow_copper_lamp", count: 4 }]
 		}
 		{
 			id: "65425A40C3B60A06"
@@ -169,7 +169,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "2CE3EC039B8DF7AD", type: "item", item: "valley:scrip", count: 15L, consume_items: true }]
-			rewards: [{ id: "07FDF0F39CF24638", type: "item", auto: "no_toast", item: "thermal:redstone_servo", count: 16 }]
+			rewards: [{ id: "4F24D1AE5836513C", type: "item", team_reward: true, auto: "no_toast", item: "thermal:redstone_servo", count: 16 }]
 		}
 		{
 			id: "01C0237EC201A046"
@@ -187,7 +187,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "72D8E48459B23E7F", type: "item", item: "valley:scrip", count: 25L, consume_items: true }]
-			rewards: [{ id: "49D078F08AB2569F", type: "item", auto: "no_toast", item: "thermal:machine_frame", count: 2 }]
+			rewards: [{ id: "73F235583A8B05E3", type: "item", team_reward: true, auto: "no_toast", item: "thermal:machine_frame", count: 2 }]
 		}
 		{
 			id: "068B8865ECBFF4A4"
@@ -205,7 +205,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "5A3289E89E72598D", type: "item", item: "valley:scrip", count: 18L, consume_items: true }]
-			rewards: [{ id: "72CEB6D96799B8EC", type: "item", auto: "no_toast", item: "thermal:rf_coil", count: 8 }]
+			rewards: [{ id: "089F535D0FFADC7A", type: "item", team_reward: true, auto: "no_toast", item: "thermal:rf_coil", count: 8 }]
 		}
 		{
 			id: "0FA1DF8B014F923B"
@@ -223,7 +223,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "2052CF59C34AAB11", type: "item", item: "valley:scrip", count: 12L, consume_items: true }]
-			rewards: [{ id: "42F26924E3EE7E46", type: "item", auto: "no_toast", item: "thermal:energy_duct", count: 64 }, { id: "49C0B43986A0E6C9", type: "item", auto: "no_toast", item: "thermal:energy_cell_frame" }]
+			rewards: [{ id: "485664A55962BBD1", type: "item", team_reward: true, auto: "no_toast", item: "thermal:energy_duct", count: 64 }, { id: "00A6401F94ED29D9", type: "item", team_reward: true, auto: "no_toast", item: "thermal:energy_cell_frame" }]
 		}
 		{
 			id: "7FA9971832975397"
@@ -241,7 +241,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "23BBE7E9363DED96", type: "item", item: "valley:scrip", count: 12L, consume_items: true }]
-			rewards: [{ id: "547679A1141D2BC9", type: "item", auto: "no_toast", item: "handcrafted:oak_table" }, { id: "0DB8C580B28BD60D", type: "item", auto: "no_toast", item: "handcrafted:oak_chair", count: 4 }, { id: "07179E79082D74A3", type: "item", auto: "no_toast", item: "handcrafted:oak_couch" }, { id: "1A6AF9A229437F91", type: "item", auto: "no_toast", item: "handcrafted:oak_cupboard" }, { id: "6576F9F539B17E33", type: "item", auto: "no_toast", item: "handcrafted:oak_shelf", count: 2 }, { id: "72AC14AB4CD3FB51", type: "item", auto: "no_toast", item: "handcrafted:oak_nightstand" }]
+			rewards: [{ id: "676B469C94318DB0", type: "item", team_reward: true, auto: "no_toast", item: "handcrafted:oak_table" }, { id: "37BD5728089C02F3", type: "item", team_reward: true, auto: "no_toast", item: "handcrafted:oak_chair", count: 4 }, { id: "2577A5645D5ABD1C", type: "item", team_reward: true, auto: "no_toast", item: "handcrafted:oak_couch" }, { id: "7F91BD02C82D8339", type: "item", team_reward: true, auto: "no_toast", item: "handcrafted:oak_cupboard" }, { id: "6543A7B2D6C947D3", type: "item", team_reward: true, auto: "no_toast", item: "handcrafted:oak_shelf", count: 2 }, { id: "314E6863DC275AEB", type: "item", team_reward: true, auto: "no_toast", item: "handcrafted:oak_nightstand" }]
 		}
 		{
 			id: "2A2F899324D89749"
@@ -259,7 +259,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "61FF28C356444E8C", type: "item", item: "valley:scrip", count: 12L, consume_items: true }]
-			rewards: [{ id: "1C0B3941CB63238E", type: "item", auto: "no_toast", item: "mcwwindows:oak_four_window", count: 8 }, { id: "57E4ED6A3154E0CB", type: "item", auto: "no_toast", item: "mcwwindows:oak_curtain_rod", count: 4 }, { id: "04B37539F5AD754D", type: "item", auto: "no_toast", item: "mcwroofs:oak_planks_roof", count: 16 }, { id: "38F24343EDDB8335", type: "item", auto: "no_toast", item: "mcwdoors:oak_cottage_door" }]
+			rewards: [{ id: "20BCFBCE7C7C3A25", type: "item", team_reward: true, auto: "no_toast", item: "mcwwindows:oak_four_window", count: 8 }, { id: "03AB04016060BA4D", type: "item", team_reward: true, auto: "no_toast", item: "mcwwindows:oak_curtain_rod", count: 4 }, { id: "68394D9A9FB286FC", type: "item", team_reward: true, auto: "no_toast", item: "mcwroofs:oak_planks_roof", count: 16 }, { id: "585D266FFD84406E", type: "item", team_reward: true, auto: "no_toast", item: "mcwdoors:oak_cottage_door" }]
 		}
 		{
 			id: "58290F8657B4D408"
@@ -277,7 +277,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "7BA711C82DDA0CCF", type: "item", item: "valley:scrip", count: 10L, consume_items: true }]
-			rewards: [{ id: "6F991BD89D7F0F9D", type: "item", auto: "no_toast", item: "supplementaries:flower_box", count: 8 }, { id: "3AAAE4150FE55DF5", type: "item", auto: "no_toast", item: "supplementaries:planter", count: 8 }, { id: "7750DFE0FC06E239", type: "item", auto: "no_toast", item: "mcwfences:oak_hedge", count: 16 }, { id: "4FF013EFFA3458B1", type: "item", auto: "no_toast", item: "minecraft:oak_sapling", count: 4 }]
+			rewards: [{ id: "0891E727AD0FC5E2", type: "item", team_reward: true, auto: "no_toast", item: "supplementaries:flower_box", count: 8 }, { id: "3155AB97A9129C45", type: "item", team_reward: true, auto: "no_toast", item: "supplementaries:planter", count: 8 }, { id: "1113BC802C1382F7", type: "item", team_reward: true, auto: "no_toast", item: "mcwfences:oak_hedge", count: 16 }, { id: "1C8704A23CAA86F0", type: "item", team_reward: true, auto: "no_toast", item: "minecraft:oak_sapling", count: 4 }]
 		}
 		{
 			id: "6C294E8331893620"
@@ -295,7 +295,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "43549F0AFD361DDF", type: "item", item: "valley:scrip", count: 14L, consume_items: true }]
-			rewards: [{ id: "2CF25D4E74BD6097", type: "item", auto: "no_toast", item: "supplementaries:sconce", count: 12 }, { id: "6D003FEB4F813B7A", type: "item", auto: "no_toast", item: "minecraft:lantern", count: 8 }, { id: "4D819C72F2113B5A", type: "item", auto: "no_toast", item: "minecraft:soul_lantern", count: 8 }, { id: "5B615956B5C6EBCF", type: "item", auto: "no_toast", item: "supplementaries:rope", count: 16 }, { id: "0EB13AC30802A5F2", type: "item", auto: "no_toast", item: "supplementaries:item_shelf", count: 4 }]
+			rewards: [{ id: "1ED829AAF732108C", type: "item", team_reward: true, auto: "no_toast", item: "supplementaries:sconce", count: 12 }, { id: "4B670DF1DEB23652", type: "item", team_reward: true, auto: "no_toast", item: "minecraft:lantern", count: 8 }, { id: "44CC85638B79C607", type: "item", team_reward: true, auto: "no_toast", item: "minecraft:soul_lantern", count: 8 }, { id: "07DCB02834D60CB7", type: "item", team_reward: true, auto: "no_toast", item: "supplementaries:rope", count: 16 }, { id: "3DB4000C6B5EE56D", type: "item", team_reward: true, auto: "no_toast", item: "supplementaries:item_shelf", count: 4 }]
 		}
 		{
 			id: "5B830910435FC44E"
@@ -313,7 +313,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "529638C2175B7A38", type: "item", item: "valley:scrip", count: 20L, consume_items: true }]
-			rewards: [{ id: "6AE7BC30DA0EFB9D", type: "item", auto: "no_toast", item: "valley:cow_crate" }, { id: "62A37D2C80F58FBA", type: "item", auto: "no_toast", item: "valley:sheep_crate" }, { id: "17EF2CE7D685D01F", type: "item", auto: "no_toast", item: "valley:hen_crate", count: 2 }, { id: "7C266AF4088BC7E2", type: "item", auto: "no_toast", item: "valley:chicken_feed", count: 8 }]
+			rewards: [{ id: "19E1E3ACEE5A0F3C", type: "item", team_reward: true, auto: "no_toast", item: "valley:cow_crate" }, { id: "2BD7DF060D62DC95", type: "item", team_reward: true, auto: "no_toast", item: "valley:sheep_crate" }, { id: "051E65D76333475B", type: "item", team_reward: true, auto: "no_toast", item: "valley:hen_crate", count: 2 }, { id: "20976BB6E16D392F", type: "item", team_reward: true, auto: "no_toast", item: "valley:chicken_feed", count: 8 }]
 		}
 		{
 			id: "02BDF5E10E02976A"
@@ -331,7 +331,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "1C7863DA2EA2AFB3", type: "item", item: "valley:scrip", count: 16L, consume_items: true }]
-			rewards: [{ id: "716D9E814FF3B654", type: "item", auto: "no_toast", item: "minecraft:torchflower_seeds", count: 2 }, { id: "296554E684E03E3F", type: "item", auto: "no_toast", item: "minecraft:pitcher_pod", count: 2 }, { id: "396E7BB208256EA7", type: "item", auto: "no_toast", item: "minecraft:glow_berries", count: 8 }, { id: "0B121B6A85D7427A", type: "item", auto: "no_toast", item: "minecraft:sweet_berries", count: 8 }, { id: "6EC93BAAE1813A95", type: "item", auto: "no_toast", item: "thermal:coffee_seeds", count: 4 }]
+			rewards: [{ id: "440D2186507E5550", type: "item", team_reward: true, auto: "no_toast", item: "minecraft:torchflower_seeds", count: 2 }, { id: "6B573EE8C6A630E9", type: "item", team_reward: true, auto: "no_toast", item: "minecraft:pitcher_pod", count: 2 }, { id: "7AF4BECB1FC334EB", type: "item", team_reward: true, auto: "no_toast", item: "minecraft:glow_berries", count: 8 }, { id: "127ADC12FC27DC6A", type: "item", team_reward: true, auto: "no_toast", item: "minecraft:sweet_berries", count: 8 }, { id: "2D818A1511346D88", type: "item", team_reward: true, auto: "no_toast", item: "thermal:coffee_seeds", count: 4 }]
 		}
 		{
 			id: "3CE051F603E1AC08"
@@ -349,7 +349,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "69703AA36990AC77", type: "item", item: "valley:scrip", count: 40L, consume_items: true }]
-			rewards: [{ id: "79B79183714C6C8C", type: "item", auto: "no_toast", item: "biggerreactors:reactor_casing", count: 16 }, { id: "6B5071E47B4EF0B2", type: "item", auto: "no_toast", item: "biggerreactors:turbine_casing", count: 8 }]
+			rewards: [{ id: "004B2F7BE0049CC4", type: "item", team_reward: true, auto: "no_toast", item: "biggerreactors:reactor_casing", count: 16 }, { id: "7D4E2488E990E7A4", type: "item", team_reward: true, auto: "no_toast", item: "biggerreactors:turbine_casing", count: 8 }]
 		}
 		{
 			id: "68FECEDA8D6943A7"
@@ -367,7 +367,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "1C2E7E4BC0441EC5", type: "item", item: "valley:scrip", count: 35L, consume_items: true }]
-			rewards: [{ id: "5916F556483D496E", type: "item", auto: "no_toast", item: "biggerreactors:reactor_fuel_rod", count: 8 }, { id: "6C72FFF601074DB0", type: "item", auto: "no_toast", item: "biggerreactors:reactor_control_rod", count: 2 }, { id: "6B604A27988978BB", type: "item", auto: "no_toast", item: "biggerreactors:reactor_glass", count: 8 }, { id: "5207EA2E97648196", type: "item", auto: "no_toast", item: "biggerreactors:turbine_rotor_bearing" }, { id: "1D2612DE5385B96A", type: "item", auto: "no_toast", item: "biggerreactors:turbine_rotor_blade", count: 8 }, { id: "0ECC33C1524B8AC1", type: "item", auto: "no_toast", item: "biggerreactors:turbine_rotor_shaft", count: 4 }]
+			rewards: [{ id: "76B1D64782A06CC0", type: "item", team_reward: true, auto: "no_toast", item: "biggerreactors:reactor_fuel_rod", count: 8 }, { id: "4D84765C419FF042", type: "item", team_reward: true, auto: "no_toast", item: "biggerreactors:reactor_control_rod", count: 2 }, { id: "79AF33322AAABB94", type: "item", team_reward: true, auto: "no_toast", item: "biggerreactors:reactor_glass", count: 8 }, { id: "48FEA2F7EFB46470", type: "item", team_reward: true, auto: "no_toast", item: "biggerreactors:turbine_rotor_bearing" }, { id: "3F17B1B53B1AD9AC", type: "item", team_reward: true, auto: "no_toast", item: "biggerreactors:turbine_rotor_blade", count: 8 }, { id: "10424A3502660035", type: "item", team_reward: true, auto: "no_toast", item: "biggerreactors:turbine_rotor_shaft", count: 4 }]
 		}
 		{
 			id: "2FEE2E5D69ACBDE0"
@@ -385,7 +385,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "76D5DAC40AA88B82", type: "item", item: "valley:scrip", count: 30L, consume_items: true }]
-			rewards: [{ id: "029FC421AA4D58F0", type: "item", auto: "no_toast", item: "ae2:item_storage_cell_4k", count: 4 }, { id: "52E26BAE82221EB3", type: "item", auto: "no_toast", item: "ae2:cell_component_4k", count: 4 }, { id: "3145700D8AAFB52E", type: "item", auto: "no_toast", item: "ae2:calculation_processor", count: 8 }, { id: "091270518A3A57A9", type: "item", auto: "no_toast", item: "ae2:fluix_glass_cable", count: 32 }]
+			rewards: [{ id: "25C5390BA10670CE", type: "item", team_reward: true, auto: "no_toast", item: "ae2:item_storage_cell_4k", count: 4 }, { id: "53EDD625634FB785", type: "item", team_reward: true, auto: "no_toast", item: "ae2:cell_component_4k", count: 4 }, { id: "53004BFB53F4E068", type: "item", team_reward: true, auto: "no_toast", item: "ae2:calculation_processor", count: 8 }, { id: "709B079318C88C19", type: "item", team_reward: true, auto: "no_toast", item: "ae2:fluix_glass_cable", count: 32 }]
 		}
 		{
 			id: "50B50215551140F6"
@@ -403,7 +403,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "32702A2B551DEDC8", type: "item", item: "valley:scrip", count: 10L, consume_items: true }]
-			rewards: [{ id: "2E6F18B2E3D14636", type: "item", auto: "no_toast", item: "valley:plushie_token" }]
+			rewards: [{ id: "49EEFA31AEAA23CE", type: "item", team_reward: true, auto: "no_toast", item: "valley:plushie_token" }]
 		}
 		{
 			id: "1447A4EDBD9143CC"
@@ -421,7 +421,7 @@
 			hide_details_until_startable: false
 			can_repeat: true
 			tasks: [{ id: "700E67CED021D163", type: "stage", title: "The town's Works Deed already signed", stage: "works_deed" }, { id: "2CB730E1390E06CB", type: "item", item: "valley:scrip", count: 150L, consume_items: true }]
-			rewards: [{ id: "4E3A80876FFF31EC", type: "item", auto: "no_toast", item: "valley:deed_works" }, { id: "585F44EC1487A2E4", type: "item", auto: "no_toast", item: "quarryplus:marker", count: 4 }, { id: "112C3FF22D4E1A24", type: "item", auto: "no_toast", item: "valley:catalogue" }, { id: "51E9489C74CB755F", type: "toast", title: "Filed, in duplicate", auto: "enabled", description: "Next: box your own site with the four Markers in the crate. Two copies of the Deed is how a thing survives one of us leaving." }]
+			rewards: [{ id: "5F63E176F8ACF8C0", type: "item", team_reward: true, auto: "no_toast", item: "valley:deed_works" }, { id: "42D2C66309E4F691", type: "item", team_reward: true, auto: "no_toast", item: "quarryplus:marker", count: 4 }, { id: "2551BC2E45E8065A", type: "item", team_reward: true, auto: "no_toast", item: "valley:catalogue" }, { id: "51E9489C74CB755F", type: "toast", title: "Filed, in duplicate", auto: "enabled", description: "Next: box your own site with the four Markers in the crate. Two copies of the Deed is how a thing survives one of us leaving." }]
 		}
 	]
 	title: "Oda's Counter"

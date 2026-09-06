@@ -17,7 +17,10 @@ def load(d):
 B, A = load(before), load(after)
 FROZEN_REWARDS = ('command', 'stage', 'loot')
 def frozen(q):
-    return [r for r in q.get('rewards', []) if r.get('type') in FROZEN_REWARDS]
+    # 'team' and 'autoclaim' are claim-behaviour flags (the co-op audit adds team:true to scene
+    # and finale commands so they fire once per party); the command/stage/table itself is what
+    # the engine depends on.
+    return [{k: v for k, v in r.items() if k not in ('team', 'autoclaim')} for r in q.get('rewards', []) if r.get('type') in FROZEN_REWARDS]
 bad = 0
 for k, (bf, bq) in B.items():
     if k not in A:

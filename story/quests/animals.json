@@ -195,7 +195,9 @@
    "description": [
     "Marnie: \"Anything that eats will follow you. That is not affection, it is arithmetic.\"",
     "",
-    "Fence a square behind the barn, then bring in two animals on a &aLead&r, or hold &aWheat&r and walk slowly.",
+    "Fence a square behind the barn and walk two animals into it holding &aWheat&r \u2014 they follow the food.",
+    "",
+    "Make the two &aLeads&r as well: four string and one of Pip's slimeballs makes a pair, and a led animal does not wander off mid-hill.",
     "",
     "Two animals in a pen is a herd by autumn."
    ],
@@ -334,6 +336,8 @@
     "",
     "Keep three hens penned and pick up the &aEgg&r each one drops. &aWheat Seeds&r in your hand walk them anywhere.",
     "",
+    "Sixteen eggs is most of an afternoon of hen time. Go fishing and come back to a full box \u2014 they lay whether you are there or not.",
+    "",
     "Marnie took the first three: Act I, step 3."
    ],
    "deps": [
@@ -414,7 +418,7 @@
   },
   {
    "key": "an_bees",
-   "title": "Hive the Bees and Take Three Combs",
+   "title": "Wax the Hive and Bottle the Honey",
    "subtitle": "Smoke first. They remember.",
    "icon": "minecraft:honeycomb",
    "description": [
@@ -465,7 +469,7 @@
    "subtitle": "A name, a collar colour, and a place to sleep.",
    "icon": "domesticationinnovation:collar_tag",
    "description": [
-    "Tame a wolf with bones or a cat with raw fish, then put a &aCollar Tag&r on it to name it and set its collar colour.",
+    "Feed &abones&r to a wolf in the woods until hearts pop \u2014 keep feeding, never hit it \u2014 or a cat with raw fish. Then put a &aCollar Tag&r on it (a chain and a copper ingot) to name it and set its collar colour.",
     "",
     "A &aPet Bed&r heals it while it sleeps, and it walks back there on its own.",
     "",
@@ -648,7 +652,9 @@
    "description": [
     "Nella: \"Four is not a competition. Six is a competition. We will get to six.\"",
     "",
-    "Cast off the pier for &aBluegill&r and &aPerch&r. &aCatfish&r and &aCarp&r sit on the bottom, so hook a worm first.",
+    "Right-click to cast. When the float dips and you hear the splash, right-click again \u2014 that is the whole skill.",
+    "",
+    "Cast off the pier for &aBluegill&r and &aPerch&r. &aCatfish&r and &aCarp&r sit on the bottom, so hook a worm first. Which fish comes up is luck; keep casting.",
     "",
     "Three of them go on the inn wall in Act V."
    ],
@@ -794,7 +800,7 @@
    "description": [
     "Wisp: \"You bring bread, we bring the mushrooms that are good, not the ones that are also good.\"",
     "",
-    "Walk downstream to the reed village and trade for &aRed&r and &aBrown Toadstools&r. They grow in the boardwalk planters too.",
+    "Follow the river down from the mill to the reed village on the shallows \u2014 the one you first walked into at Act II, step 1 \u2014 and trade for &aRed&r and &aBrown Toadstools&r. They grow in the boardwalk planters too.",
     "",
     "First contact is Act II, step 1."
    ],

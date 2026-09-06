@@ -114,7 +114,7 @@
   {
    "key": "q57",
    "title": "Sleep One Night, Then Follow Pip to the Inn",
-   "subtitle": "The Hearth has gone out.",
+   "subtitle": "The Hearth has gone out. One of you sleeping is enough.",
    "icon": "minecraft:campfire",
    "shape": "hexagon",
    "size": 2.0,
@@ -175,7 +175,7 @@
    "description": [
     "Oda, not looking up from the ledger: \"Four houses, sixteen bundles each. That is sixty-four, which is exactly what you were given.\"",
     "",
-    "Put 16 &aFirewood Bundles&r into each of the four marked stacks in the inn's back room. Any order is right.",
+    "Put 16 &aFirewood Bundles&r into each of the four marked stacks in the inn's back room. Sixty-four is what Oda gave you and sixty-four is what winter costs \u2014 burn any of it and you are cutting more.",
     "",
     "Each of them gives something back, and Wisp lights a lantern path down the frozen river."
    ],
@@ -237,7 +237,8 @@
      "type": "command",
      "command": "/valley scene q58",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -278,7 +279,8 @@
      "type": "command",
      "command": "/valley scene q59",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "item",
@@ -287,7 +289,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 25
+     "count": 25,
+     "team": true
     },
     {
      "type": "item",
@@ -370,7 +373,8 @@
      "type": "command",
      "command": "/valley scene q60",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "item",
@@ -383,7 +387,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 25
+     "count": 25,
+     "team": true
     },
     {
      "type": "item",
@@ -520,7 +525,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 25
+     "count": 25,
+     "team": true
     },
     {
      "type": "stage",
@@ -530,7 +536,8 @@
      "type": "command",
      "command": "/valley scene q62",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "command",
@@ -588,7 +595,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 25
+     "count": 25,
+     "team": true
     },
     {
      "type": "loot",
@@ -669,7 +677,8 @@
      "type": "command",
      "command": "/valley scene q64",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -687,9 +696,8 @@
    "title": "Dress the Inn's Twelve Solstice Tiles",
    "subtitle": "A candle holder, a sconce and a flower box.",
    "icon": "supplementaries:candle_holder",
-   "shape": "rsquare",
+   "shape": "square",
    "size": 1.0,
-   "optional": true,
    "description": [
     "Marnie: \"Twelve spots. The solstice is the solstice, even in a year like this one has been.\"",
     "",
@@ -730,7 +738,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 15
+     "count": 15,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -748,9 +757,8 @@
    "title": "Bake 4 Bread With Pip at the Inn Oven",
    "subtitle": "He can reach if he stands on the stool.",
    "icon": "minecraft:bread",
-   "shape": "rsquare",
+   "shape": "square",
    "size": 1.0,
-   "optional": true,
    "description": [
     "Pip: \"I can reach if I stand on the stool! Aunt Marnie says I can reach and Aunt Marnie is right!\"",
     "",
@@ -805,7 +813,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 15
+     "count": 15,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -867,13 +876,15 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 15
+     "count": 15,
+     "team": true
     },
     {
      "type": "command",
      "command": "/valley scene q70a",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -928,7 +939,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 15
+     "count": 15,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -964,7 +976,8 @@
      "type": "command",
      "command": "/valley scene q65",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "item",
@@ -1007,13 +1020,15 @@
      "type": "command",
      "command": "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Four years I have known that boiler never cracked and never said so. Right \u2014 where do you want the duct.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "command",
      "command": "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"She left the adit breathing eleven years so the works would not damp out, and I noticed the warm grass in July.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "command",
@@ -1099,7 +1114,8 @@
      "type": "command",
      "command": "/valley scene q66",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -1259,7 +1275,7 @@
   },
   {
    "key": "q69",
-   "title": "Mine 64 Uranium From Josie's Pocket",
+   "title": "Mine 32 Uranium From Josie's Pocket",
    "subtitle": "Her map starts at the Works Waystone.",
    "icon": "biggerreactors:uranium_ingot",
    "shape": "square",
@@ -1267,7 +1283,7 @@
    "description": [
     "Tobin: \"Her map puts the pocket a fixed walk from the Works waystone. Josie's surveys have never once been wrong.\"",
     "",
-    "Follow Josie's map from the Works Waystone and mine 64 &aUranium&r. Every block drops a cluster and every cluster smelts one for one. \"Yellorium\" is her shorthand.",
+    "Follow Josie's map from the Works Waystone and mine 32 &aUranium&r. Every block drops a cluster and every cluster smelts one for one \u2014 a Redstone Furnace or Induction Smelter clears the lot in a minute. \"Yellorium\" is her shorthand.",
     "",
     "Your own network auto-crafts 64 &aReactor Casings&r while you walk back."
    ],
@@ -1279,7 +1295,7 @@
     {
      "type": "item",
      "item": "biggerreactors:uranium_ingot",
-     "count": 64
+     "count": 32
     }
    ],
    "rewards": [
@@ -1321,7 +1337,7 @@
     "",
     "Assemble the vessel on the Works pad: 64 &aReactor Casings&r, 1 Terminal, 8 Fuel Rods, 4 Control Rods, 1 Access Port, 2 Coolant Ports. Without the coolant pair it runs passive.",
     "",
-    "Bram's turbine crate comes back \u2014 the whole bill for the next quest. For the rest, see &6The Reactor and the Quarry&r."
+    "A hollow box of casing with the ports in the walls, fuel rods standing floor to ceiling inside and a control rod on top of each column. The &bReactor Terminal&r tells you what is wrong. Bram's turbine crate comes back with it \u2014 see &6The Reactor and the Quarry&r."
    ],
    "deps": [
     "q69"
@@ -1450,9 +1466,11 @@
    "description": [
     "Bram: \"Crate's got what it's got \u2014 blades, coils, casing. Get it to eighteen hundred RPM under load and hold it there.\"",
     "",
-    "Build the turbine from that crate: 64 &aTurbine Casing&r, 16 Glass, 2 Rotor Bearings one at each end, 6 Shafts, 16 Blades, 2 Fluid Ports and 16 copper blocks for the coil ring.",
+    "Build the turbine from that crate: 64 &aTurbine Casing&r, 16 Glass, 2 Rotor Bearings one at each end, 6 Shafts, 16 Blades, 2 Fluid Ports and 16 copper blocks for the coil ring. Bram's crate builds the big one; the &6Reactor&r chapter builds the small 5x5x4 on four blades, and the two are not interchangeable.",
     "",
-    "Hold 1,800 RPM under load without going over. The lever goes live."
+    "RPM is a balance, not a switch: &bmore steam speeds it, more blades or more coil blocks slow it&r. Open the flow a little at a time.",
+    "",
+    "Press &bT&r and type &b/valley check turbine&r to read RPM, steam in and power out. It settles in about three passes. Josie's field notes f6 and f7 are in the &aValley Journal&r, and &6The Reactor and the Quarry&r chapter builds one from scratch."
    ],
    "deps": [
     "q70"
@@ -1487,7 +1505,8 @@
      "type": "command",
      "command": "/valley scene q71",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -1567,7 +1586,8 @@
      "type": "command",
      "command": "/valley scene q72",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -1618,7 +1638,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 25
+     "count": 25,
+     "team": true
     },
     {
      "type": "item",
@@ -1629,7 +1650,8 @@
      "type": "command",
      "command": "/valley scene q73",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "loot",
@@ -1681,7 +1703,8 @@
      "type": "command",
      "command": "/valley scene q74",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "item",
@@ -1741,7 +1764,8 @@
      "type": "command",
      "command": "/valley finale act4",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "stage",
@@ -1764,7 +1788,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 75
+     "count": 75,
+     "team": true
     },
     {
      "type": "loot",
@@ -1778,7 +1803,8 @@
      "type": "command",
      "command": "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"One hundred Scrip against your name. I have never written a number that large in this book, so I wrote it twice.\",\"color\":\"white\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",

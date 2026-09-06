@@ -4,7 +4,7 @@
   "title": "Places",
   "subtitle": [
    "Sixteen real places in this world, with the two numbers that find them.",
-   "Nothing here is on the way to anything. That is the point."
+   "Most of it is not on the way to anything. Two of them are: the crater and the ruined portal."
   ],
   "icon": "minecraft:filled_map",
   "group": "The Valley Beyond",
@@ -724,13 +724,12 @@
    "description": [
     "Walk to &b-728, 232&r. The frame is broken, the chest beside it is not, and it usually keeps a &aFlint and Steel&r in it.",
     "",
-    "Patch the frame with &aObsidian&r if you want the Nether early."
+    "Patch the frame with &aObsidian&r \u2014 six comes with this quest. The &6Create&r chapter cannot pass the Blaze Burner without a trip through it, and &6Thermal&r wants a lava pool."
    ],
    "deps": [
     "ex_pack"
    ],
-   "optional": true,
-   "shape": "rsquare",
+   "shape": "square",
    "size": 1.0,
    "tasks": [
     {
@@ -779,8 +778,18 @@
      "table": "explore_crate"
     },
     {
+     "type": "item",
+     "item": "minecraft:echo_shard",
+     "count": 4
+    },
+    {
+     "type": "item",
+     "item": "minecraft:experience_bottle",
+     "count": 16
+    },
+    {
      "type": "xp_levels",
-     "levels": 3
+     "levels": 5
     },
     {
      "type": "toast",

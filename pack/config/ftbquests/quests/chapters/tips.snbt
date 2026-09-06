@@ -92,7 +92,7 @@
 			title: "Write Down the Three Numbers"
 			subtitle: "Home is -319 74 32. The square is -302 69 -44."
 			icon: "minecraft:compass"
-			description: ["Press &bF3&r. The XYZ line top left is where you stand; the line under it is the way you face.", "", "Josie's hearth reads &b-319 74 32&r. Oda's square reads &b-302 69 -44&r."]
+			description: ["Press &bF3&r — on a Mac laptop, &bfn&r + &bF3&r. The XYZ line top left is where you stand; the line under it is the way you face.", "", "Josie's hearth reads &b-319 74 32&r. Oda's square reads &b-302 69 -44&r."]
 			x: 8.0d
 			y: -1.5d
 			dependencies: ["7D279CBF2B6016A8"]
@@ -109,7 +109,7 @@
 			title: "Learn the Four Keys That Matter"
 			subtitle: "J, B, C, Home. All of them move."
 			icon: "ftbquests:book"
-			description: ["&bJ&r opens this book. &bB&r opens your backpack. &bC&r picks a chest up with everything still in it.", "", "&bHome&r lists where you died. All four move under Options - Controls."]
+			description: ["&bJ&r opens this book. &bB&r opens your backpack. &bC&r picks a chest up with everything still in it.", "", "&bHome&r lists where you died — a Mac laptop has no Home key, so use &bfn&r + &bleft arrow&r, or bind it to something else.", "", "All four move under Options - Controls."]
 			x: 10.0d
 			y: 0.0d
 			dependencies: ["06C1F1A019262E8E"]

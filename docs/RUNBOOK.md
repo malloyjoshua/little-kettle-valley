@@ -222,6 +222,11 @@ Backups land in `server/backups/`, newest 20 kept. Point Time Machine or Backbla
 2. `server_ctl.sh cmd "whitelist add <name>"` (and `op <name>` only if they should run commands)
 3. Send them `dist/LittleKettleValley.zip` (or the GitHub release link) plus `docs/INSTALL.md` and the server address.
 
+Two players share one quest book only if they are on one FTB Teams party. The pack
+auto-parties everyone into "Cozy" on join; the first time two people join, have the second
+wait until the host is in the world, then both type `/ftbteams party info`. If the names
+differ, the second player types `/ftbteams party join Cozy`.
+
 ## Publish a new friend zip
 ```bash
 "$HOME/Desktop/1. Projects/Minecraft/tools/scripts/release.sh"
@@ -265,6 +270,23 @@ Current public address (set up 2026-09-04): **`cynthia-mfc.tun.ply.gg`** (SRV re
 Testing note: the tunnel only forwards connections that send a Minecraft handshake naming the hostname (playit's "no raw IP" setting), so a plain TCP or netcat test times out even when everything is fine. Test with the game, or with the handshake probe in `tools/scripts/playit_probe.py`. Never run two copies of `playitd` with the same secret: they kick each other's session every second.
 
 4. To move the agent to another machine or start over: `tools/playit/playit-cli reset`, then `claim` again.
+
+## Overnight runs: keep the Mac awake, and how the look client is driven (2026-09-06)
+
+The Mac slept at about 06:00 on the first overnight run and every server, client and agent
+stalled with it for three and a half hours. Before any unattended run:
+
+```bash
+nohup caffeinate -dims > /dev/null 2>&1 &
+```
+
+The real-client look pass is `scratch/visual_pass.sh up|client|down|shot <name>|cmd '<mc cmd>'`
+(offline client in `scratch/lookclient/.minecraft`, online mode switched off for the pass and
+back on at `down`) and `scratch/gui.py bounds|kc <keys>|click <x> <y>|rclick|move|chord|shot`
+which drives the game window with raw CGEvents (AppleScript keystrokes never reach LWJGL).
+Toggle pause-on-lost-focus off first (`gui.py chord 99 35` is F3+P) or every focus change opens
+the pause menu under your clicks. The quest book opens with a right-click on the book in hand;
+the chapter list is the left-edge arrow; hover it, click a chapter, move onto the board, shoot.
 
 ## Two checks that prove the book, not the world (2026-09-06)
 

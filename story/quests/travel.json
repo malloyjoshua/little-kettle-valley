@@ -452,7 +452,7 @@
    "deps": [
     "travel_town"
    ],
-   "optional": true,
+   "optional": false,
    "shape": "gear",
    "size": 1.0,
    "description": [

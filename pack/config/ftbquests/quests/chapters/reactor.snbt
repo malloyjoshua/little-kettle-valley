@@ -26,14 +26,14 @@
 			title: "Smelt 16 Uranium Ingots"
 			subtitle: "Autunite. Dig where the sample is."
 			icon: "biggerreactors:uranium_ingot"
-			description: ["&bAutunite&r is the uranium ore in this pack. Break it for Uranium Clusters and smelt each cluster into one &aUranium Ingot&r.", "", "The sample block on the grass sits over the pocket, so dig where the sample is. Sixteen ingots runs a small vessel a long time. For bed depths, see the &6Ores and Mining&r chapter."]
+			description: ["&bAutunite&r is the uranium ore in this pack. Break it for Uranium Clusters and smelt each cluster into one &aUranium Ingot&r.", "", "The sample block on the grass sits over the pocket, so dig where the sample is. Sixteen ingots runs a small vessel a long time. For bed depths, see the &6Ores and Mining&r chapter.", "", "&cThe rest of this chapter waits on one thing:&r a casing recipe needs a page of Josie's Turbine Notes, and those come out of the Merchant's Tower in Act IV, step 67. Mine the uranium now; it keeps."]
 			x: 0.0d
 			y: 0.0d
 			shape: "hexagon"
 			size: 2.0d
 			hide_details_until_startable: false
 			tasks: [{ id: "1F773C4C6512E8EC", type: "item", item: "biggerreactors:uranium_ingot", count: 16L }]
-			rewards: [{ id: "4897A2F3C02E3D82", type: "item", auto: "no_toast", item: "minecraft:coal", count: 32 }, { id: "5D470DA449858F39", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+			rewards: [{ id: "4897A2F3C02E3D82", type: "item", auto: "no_toast", item: "minecraft:coal", count: 32 }, { id: "1AE9004FD935252C", type: "item", auto: "no_toast", item: "biggerreactors:uranium_ingot", count: 8 }, { id: "033283992A9C8D14", type: "item", auto: "no_toast", item: "biggerreactors:graphite_ingot", count: 8 }, { id: "1ED02B6004FD735A", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
 		}
 		{
 			id: "692FFD85A04F6C0B"

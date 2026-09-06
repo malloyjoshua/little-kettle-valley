@@ -190,6 +190,10 @@
     {
      "type": "xp_levels",
      "levels": 1
+    },
+    {
+     "type": "loot",
+     "table": "farm_crate"
     }
    ],
    "long_description": true
@@ -201,6 +205,8 @@
    "icon": "minecraft:wheat",
    "description": [
     "Plant &awheat seeds&r on wet farmland and leave them until the stalks go gold before you cut.",
+    "",
+    "Crops grow while you are elsewhere. Put the composter in, hunt the wild crops, or go and see Bram \u2014 do not stand and watch the rows.",
     "",
     "Act I, step 8 wants sixteen flour and eight bread off this patch."
    ],
@@ -235,7 +241,9 @@
    "subtitle": "Twelve pages. Four seasons. One rule.",
    "icon": "sereneseasons:calendar",
    "description": [
-    "Hold the &aCalendar&r to read the season and the day. Every crop here is tagged to a season, and out of season it does not grow one stage.",
+    "Hold the &aCalendar&r to read the season and the day. Every crop here is tagged to a season, and out of season it does not grow one stage. &cIt is not broken \u2014 it is waiting.&r",
+    "",
+    "A season is &b27 days&r long, so the three quests below are a year-long thread. Leave them running and play the rest of the valley around them.",
     "",
     "&bSpring&r: carrot, potato, strawberry. &bSummer&r: melon, tomato, corn. &bAutumn&r: pumpkin, beetroot, amaranth."
    ],
@@ -270,7 +278,7 @@
    "subtitle": "Carrots, potatoes, strawberries.",
    "icon": "thermal:strawberry",
    "description": [
-    "Plant &acarrots&r, &apotatoes&r and &astrawberries&r on the first spring page and bring in sixteen of each.",
+    "Carrots and potatoes came out of Marnie's sack. &aStrawberries&r grow wild in the meadow \u2014 break the plants for seed, then plant all three and bring in sixteen of each.",
     "",
     "Wheat is spring-fertile in this pack on purpose, so Act I is not waiting on July."
    ],
@@ -412,7 +420,7 @@
    "deps": [
     "farm_calendar"
    ],
-   "optional": true,
+   "optional": false,
    "shape": "gear",
    "size": 1.0,
    "tasks": [
@@ -482,7 +490,11 @@
    "description": [
     "Marnie: \"Cabbage grows wild along the treeline. I have walked past it for ten years because I like the walk.\"",
     "",
-    "Take a start of cabbage, tomato, onion and rice from the wild patches, replant them at home, and harvest eight of each."
+    "Josie's seed tin already holds cabbage, tomato and rice \u2014 plant those at home. Only the &aonion&r is still out there, in the long grass on the forest edge.",
+    "",
+    "Harvest eight of each.",
+    "",
+    "Marnie hands eight onions across the counter on the first quest of &6Cooking and Brewing&r if you would rather not walk the treeline."
    ],
    "deps": [
     "farm_wheat"
@@ -565,7 +577,7 @@
    "subtitle": "Three of them work through winter.",
    "icon": "thermal:sadiroot",
    "description": [
-    "Craft the seeds for &abarley&r, &aspinach&r, &asadiroot&r and &abell pepper&r, plant them, and harvest sixteen of each.",
+    "These four grow wild. Walk the meadows and the field edges until you find &abarley&r, &aspinach&r, &asadiroot&r and &abell pepper&r standing in the grass, break them for seed, then plant and harvest sixteen of each.",
     "",
     "The first three keep growing outdoors in December. Bell pepper stops at the frost."
    ],
@@ -657,7 +669,7 @@
    "subtitle": "Right-click dirt with it for rich soil.",
    "icon": "farmersdelight:organic_compost",
    "description": [
-    "&aOrganic Compost&r is straw, tree bark, bone meal and one dirt on the grid. Straw and bark both come off a cutting board.",
+    "&aOrganic Compost&r is straw, tree bark, bone meal and one dirt on the grid. Straw and bark both come off a &aCutting Board&r \u2014 that is the first quest in &6Cooking and Brewing&r.",
     "",
     "Crops on rich soil grow faster, and the block never needs tilling again."
    ],
@@ -805,16 +817,16 @@
    "subtitle": "A field in one block, indoors.",
    "icon": "thermal:machine_insolator",
    "description": [
-    "The &aInsolator&r takes seeds, water and phytogro and hands back the crop. It is a machine, so no season touches it.",
+    "The stretch goal of this chapter, and the only one that needs the tech lane. The &aInsolator&r takes seeds, water and phytogro and hands back the crop, and no season touches it.",
     "",
     "It wants a machine frame and lumium gears: both roads to a frame are in the &6Thermal&r chapter."
    ],
    "deps": [
     "farm_phytogro"
    ],
-   "optional": false,
-   "shape": "hexagon",
-   "size": 1.5,
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
    "tasks": [
     {
      "type": "item",
@@ -847,9 +859,9 @@
    "deps": [
     "farm_insolator"
    ],
-   "optional": false,
-   "shape": "hexagon",
-   "size": 1.5,
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
    "tasks": [
     {
      "type": "checkmark",

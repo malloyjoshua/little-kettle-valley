@@ -4,7 +4,7 @@
   "title": "Home and Town",
   "subtitle": [
    "Doors that shut, chairs that face the fire, and a light on the porch.",
-   "None of it is required. All of it is why anybody stays."
+   "Nothing here blocks the story. All of it is why anybody stays."
   ],
   "icon": "mcwdoors:oak_cottage_door",
   "group": "Home and Farm",
@@ -347,7 +347,7 @@
    "subtitle": "Sleep out without moving your bed.",
    "icon": "comforts:sleeping_bag_red",
    "description": [
-    "A &aSleeping Bag&r passes the night and leaves your spawn where it is. A &aHammock&r needs two Rope and Nail.",
+    "A &aSleeping Bag&r passes the night anywhere and leaves your spawn where it is \u2014 roll it out on the road instead of walking home in the dark. A &aHammock&r needs two Rope and Nail.",
     "",
     "Craft one of each and keep the bag on you."
    ],
@@ -394,7 +394,7 @@
    "description": [
     "&bCarry On&r picks up a chest, a barrel or a machine with everything still inside it.",
     "",
-    "Sneak and use an empty hand on it. You walk slow until you set it down."
+    "Hold &bShift&r to sneak and right-click it with an empty hand. You walk slow until you set it down."
    ],
    "deps": [
     "home_root"
@@ -723,7 +723,7 @@
     {
      "type": "item",
      "item": "torchmaster:megatorch",
-     "count": 1
+     "count": 2
     }
    ],
    "rewards": [

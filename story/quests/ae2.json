@@ -247,7 +247,7 @@
     },
     {
      "type": "xp_levels",
-     "levels": 1
+     "levels": 2
     }
    ]
   },
@@ -396,7 +396,7 @@
     },
     {
      "type": "xp_levels",
-     "levels": 2
+     "levels": 3
     }
    ]
   },
@@ -467,6 +467,11 @@
     {
      "type": "item",
      "item": "ae2:sky_stone_block",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "ae2:certus_quartz_crystal",
      "count": 16
     },
     {
@@ -603,13 +608,13 @@
   },
   {
    "key": "ae_processors",
-   "title": "Print Eight of Each Processor",
+   "title": "Print Four of Each Processor",
    "subtitle": "Two passes each: print, then press.",
    "icon": "ae2:logic_processor",
    "description": [
-    "Inscribe &aPrinted Silicon&r and a printed circuit, then run the pair through again with redstone between them.",
+    "Build three Inscribers and belt them in a row before you start \u2014 one prints silicon, one prints the circuit, the third presses the pair with redstone between them. Doing it by hand is seventy-two clicks.",
     "",
-    "Eight logic, eight calculation, eight engineering. A belt feeding the &aInscriber&r does all of it for you."
+    "Four logic, four calculation, four engineering is the controller, the drive, a terminal and a cell. Print more the moment the network can craft them for you."
    ],
    "deps": [
     "ae_presses",
@@ -623,17 +628,17 @@
     {
      "type": "item",
      "item": "ae2:logic_processor",
-     "count": 8
+     "count": 4
     },
     {
      "type": "item",
      "item": "ae2:calculation_processor",
-     "count": 8
+     "count": 4
     },
     {
      "type": "item",
      "item": "ae2:engineering_processor",
-     "count": 8
+     "count": 4
     }
    ],
    "rewards": [
@@ -655,7 +660,9 @@
    "description": [
     "Craft an &aME Controller&r and run &aFluix Glass Cable&r out of its faces. Every device those cables touch joins one network.",
     "",
-    "One is plenty. Two controller blocks touching are one machine, not two networks."
+    "One is plenty. Two controller blocks touching are one machine, not two networks.",
+    "",
+    "Every device on it eats a &bchannel&r: eight to a glass cable, thirty-two to a dense one. Read the next quest before you wire eight things off one strand."
    ],
    "deps": [
     "ae_processors",

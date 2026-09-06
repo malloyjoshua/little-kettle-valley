@@ -3,7 +3,7 @@
   "key": "readme",
   "title": "Read Me First",
   "subtitle": [
-   "Eleven short pages about the book itself.",
+   "Eleven short pages about the book itself. Read the first, skip the rest if you like.",
    "Nothing here locks, and nothing here can be missed."
   ],
   "icon": "minecraft:book",
@@ -92,6 +92,8 @@
    "description": [
     "Chapters are the &btabs&r down the left edge. This one is the top one.",
     "",
+    "Click a quest to open it. Where a quest ends in a &bbox to tick&r, that box is yours to click when you have done the thing.",
+    "",
     "A quest you cannot start yet stays on the board, greyed, with its title readable.",
     "",
     "The story starts one tab down, in &6Start Here&r."
@@ -121,7 +123,9 @@
    "subtitle": "Two mouse buttons and a 3x3 grid.",
    "icon": "minecraft:crafting_table",
    "description": [
-    "&bLeft-click&r held breaks a block. &bRight-click&r places what you hold.",
+    "&bW A S D&r walk. The trackpad turns your head. &bE&r opens your bag.",
+    "",
+    "&bLeft-click&r held breaks a block. &bRight-click&r places what you hold \u2014 on a Mac trackpad that is a &btwo-finger tap&r.",
     "",
     "Your pack has a 2x2 grid; a &aCrafting Table&r makes it 3x3. Click an item in the search list to see its recipe."
    ],
@@ -156,7 +160,7 @@
    "description": [
     "Eat when the drumsticks drop. Sleep in a bed to skip a night.",
     "",
-    "Press &bF3&r for the XYZ line and write the three numbers down.",
+    "Press &bF3&r for the XYZ line and write the three numbers down. On a Mac laptop that is &bfn&r + &bF3&r.",
     "",
     "The &aMegatorch&r you place at home keeps &cmonsters&r off it for good."
    ],
@@ -219,7 +223,7 @@
    "subtitle": "Eight neighbours. Fifteen by the end.",
    "icon": "minecraft:bread",
    "description": [
-    "Marnie, Bram, Oda, Halden, Tobin, Wisp, Pip and Nella live here. Seven more arrive.",
+    "Marnie the innkeeper, Bram the miller, Oda the shopkeeper, Halden the gardener, Tobin the prospector, Wisp of the reeds, Pip the courier and Nella the fisher. Seven more arrive.",
     "",
     "Right-click any of them; what they say changes as the valley moves. The &bbar at the top&r counts them."
    ],
@@ -248,9 +252,17 @@
    "subtitle": "Cooking counts. So does the reactor.",
    "icon": "create:cogwheel",
    "description": [
-    "Most of the book is the cozy lane: food, animals, planting, decorating. Start in the &6Farm and Seasons&r chapter.",
+    "Most of the book is the cozy lane: food, animals, planting, decorating.",
     "",
-    "Only &cfive quests in winter&r need the reactor, and Oda sells every part of it over her counter."
+    "After &6Start Here&r, plant something in &6Farm and Seasons&r and then go and build in &6Home and Town&r while it grows. Crops take days; a door takes a minute.",
+    "",
+    "The other lane is machines: start in &6Create&r, then &6Thermal&r, &6Power and Logistics&r and &6Storage Network&r. None of it is gated.",
+    "",
+    "Only &cfive quests in winter&r need the reactor, and Oda sells every part of it over her counter.",
+    "",
+    "It runs both ways: the quarry at the end wants six neighbours' stories closed, so the cooking is not optional forever.",
+    "",
+    "&7Two players:&r that is your split. One takes the cozy lane, one takes &6Create&r and &6Thermal&r, and the story quests get done by whoever is nearest. About thirty side quests are open at any moment."
    ],
    "x": 2.5,
    "y": 0.0,
@@ -279,7 +291,9 @@
    "description": [
     "Cooking, fishing, planting and running parcels pay &aValley Scrip&r.",
     "",
-    "Her counter sells casings, alloys, ducts, seeds and furniture. If a step is annoying, buy it: see the &6Oda's Counter&r chapter."
+    "Her counter sells casings, alloys, ducts, seeds and furniture. If a step is annoying, buy it: see the &6Oda's Counter&r chapter.",
+    "",
+    "It opens at the end of Act I and the money is real from Act III. Before then, the only shortcut is a neighbour handing you the thing."
    ],
    "x": 5.0,
    "y": 0.0,
@@ -337,7 +351,9 @@
    "description": [
     "A quest waits for the ones drawn into it and nothing else.",
     "",
-    "Mill the flour before the kitchen or the kitchen before the mill. Anything you walk past is still standing next season."
+    "Mill the flour before the kitchen or the kitchen before the mill. Anything you walk past is still standing next season.",
+    "",
+    "&7Two players:&r a quest counts what &bone&r of you is carrying, not both. Split the gathering, then pile it into one pack to hand in."
    ],
    "x": 0.0,
    "y": 2.0,
@@ -395,7 +411,11 @@
    "description": [
     "There is one valley and everybody plays in it. Lamps lit, houses opened, people moved in: the same for everyone logged in.",
     "",
-    "Quest progress is shared across your party."
+    "Quest progress is shared across your party.",
+    "",
+    "&7Before your first quest, both of you type &b/ftbteams party info&7. If it does not name the same party, the second player types &b/ftbteams party join Cozy&7 and it does from then on.",
+    "",
+    "&7If one of you plays ahead:&r rewards only land in the bags of whoever is &blogged in&r at the time. Open the book, scroll back over the green quests and click any reward still sitting there. Nothing is lost."
    ],
    "x": 5.0,
    "y": 2.0,

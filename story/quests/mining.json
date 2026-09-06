@@ -401,7 +401,9 @@
    "description": [
     "Work a hematite bed between &by 32 and y 60&r. Every ore drops an Iron Cluster, and a cluster smelts into one &aIron Ingot&r.",
     "",
-    "Hematite is a dike: narrow and tall. Follow it up and down, not sideways."
+    "Hematite is a dike: narrow and tall. Follow it up and down, not sideways.",
+    "",
+    "Do not smelt a second bed by hand. The &6Thermal&r chapter reaches a Pulverizer in four quests and every ore after that is worth two."
    ],
    "deps": [
     "mining_propick"
@@ -503,7 +505,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 5
+     "count": 5,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -557,9 +560,9 @@
    "subtitle": "The widest bed here: y -16 to 90.",
    "icon": "geolosys:copper_cluster",
    "description": [
-    "Work a malachite bed for &a32 Copper Clusters&r. Malachite sits anywhere from &by -16 to y 90&r, so the sample may be under your own field.",
+    "Work a malachite bed for &a24 Copper Clusters&r. Malachite sits anywhere from &by -16 to y 90&r, so the sample may be under your own field.",
     "",
-    "Azurite is the same metal further down, below y 13."
+    "Azurite is the same metal further down, below y 13. Vein-mine it with the grave key and the bed comes up in a handful of swings."
    ],
    "deps": [
     "mining_hematite"
@@ -572,7 +575,7 @@
     {
      "type": "item",
      "item": "geolosys:copper_cluster",
-     "count": 32
+     "count": 24
     }
    ],
    "rewards": [
@@ -721,7 +724,9 @@
    "description": [
     "Craft a &aDiamond Hammer&r now the kimberlite has paid out. Nine blocks a swing, and enough durability to cut a reactor pit in one sitting.",
     "",
-    "Put Efficiency on it before Fortune. Speed is what a hammer is for."
+    "Put Efficiency on it before Fortune. Speed is what a hammer is for.",
+    "",
+    "After this the upgrade is not another hammer \u2014 it is the &aFlux Drill&r off stored power, in the &6Thermal&r chapter. It never wears out at all."
    ],
    "deps": [
     "mining_kimberlite"

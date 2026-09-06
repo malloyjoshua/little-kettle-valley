@@ -187,7 +187,7 @@
 			title: "Build a Mechanical Saw"
 			subtitle: "One log, six planks, no hands."
 			icon: "create:mechanical_saw"
-			description: ["Build a &aMechanical Saw&r, lay it flat and feed it logs off a belt. Stood upright it fells the whole tree.", "", "Bram's hundred and twenty-eight boards in Act I go faster on one."]
+			description: ["Already have one from Bram? Lay it flat and feed it logs off a belt anyway — stood upright it fells the whole tree instead.", "", "Bram's hundred and twenty-eight boards in Act I go faster on one."]
 			x: 10.0d
 			y: 0.0d
 			dependencies: ["232F38242F72FFF8"]
@@ -234,9 +234,9 @@
 		{
 			id: "3B5435F12DBE0A66"
 			title: "Light a Blaze Burner Under the Basin"
-			subtitle: "Heat turns mixing into alloying."
+			subtitle: "Heat turns mixing into alloying. One trip to the Nether."
 			icon: "create:empty_blaze_burner"
-			description: ["Craft an &aEmpty Blaze Burner&r, take it to a nether fortress and right-click a blaze with it. Set the lit burner under the basin and feed it coal.", "", "&cBlazes throw fire.&r Take a shield and a bucket of water."]
+			description: ["Craft an &aEmpty Blaze Burner&r, take it to a nether fortress and right-click a blaze with it. Set the lit burner under the basin and feed it coal.", "", "No portal yet? There is a ruined one in the pines at &b-728, 232&r — see &6Places&r. Ten obsidian and a flint and steel is the other road.", "", "&cBlazes throw fire.&r Take a shield and a bucket of water."]
 			x: 12.0d
 			y: 0.8d
 			dependencies: ["6F27D780D668593D"]

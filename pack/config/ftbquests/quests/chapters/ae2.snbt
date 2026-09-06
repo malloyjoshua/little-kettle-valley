@@ -51,7 +51,7 @@
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "3A74983178A9A3B0", type: "item", item: "ae2:silicon", count: 8L }]
-			rewards: [{ id: "16C7325C25BBDFB5", type: "item", auto: "no_toast", item: "ae2:silicon", count: 8 }, { id: "70E7F86C2F111ADB", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+			rewards: [{ id: "16C7325C25BBDFB5", type: "item", auto: "no_toast", item: "ae2:silicon", count: 8 }, { id: "26D40B47B19BDF4C", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
 		}
 		{
 			id: "64B96930FBD37527"
@@ -116,7 +116,7 @@
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "36A518ED89D32796", type: "item", item: "ae2:fluix_crystal", count: 16L }]
-			rewards: [{ id: "32C873CC30D730FF", type: "item", auto: "no_toast", item: "ae2:fluix_glass_cable", count: 16 }, { id: "521D43C61F3723E5", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+			rewards: [{ id: "32C873CC30D730FF", type: "item", auto: "no_toast", item: "ae2:fluix_glass_cable", count: 16 }, { id: "4DD633B53FA00A4C", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
 		}
 		{
 			id: "5BEBE39A4E161C7D"
@@ -149,7 +149,7 @@
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "79E496F78AC5E9CE", type: "item", item: "ae2:meteorite_compass", count: 1L }, { id: "6DAC94D75CB58A7D", type: "structure", structure: "ae2:meteorite" }]
-			rewards: [{ id: "239706F5D66A8910", type: "item", auto: "no_toast", item: "ae2:sky_stone_block", count: 16 }, { id: "54E3941182D5E2F1", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+			rewards: [{ id: "239706F5D66A8910", type: "item", auto: "no_toast", item: "ae2:sky_stone_block", count: 16 }, { id: "06E3DCD5F757DB66", type: "item", auto: "no_toast", item: "ae2:certus_quartz_crystal", count: 16 }, { id: "54E3941182D5E2F1", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
 		}
 		{
 			id: "70E95C016175C804"
@@ -202,10 +202,10 @@
 		}
 		{
 			id: "5CDE186DFC72F7B1"
-			title: "Print Eight of Each Processor"
+			title: "Print Four of Each Processor"
 			subtitle: "Two passes each: print, then press."
 			icon: "ae2:logic_processor"
-			description: ["Inscribe &aPrinted Silicon&r and a printed circuit, then run the pair through again with redstone between them.", "", "Eight logic, eight calculation, eight engineering. A belt feeding the &aInscriber&r does all of it for you."]
+			description: ["Build three Inscribers and belt them in a row before you start — one prints silicon, one prints the circuit, the third presses the pair with redstone between them. Doing it by hand is seventy-two clicks.", "", "Four logic, four calculation, four engineering is the controller, the drive, a terminal and a cell. Print more the moment the network can craft them for you."]
 			x: 8.0d
 			y: 0.8d
 			dependencies: ["3BCE86EA9B28DCF5", "70C9A296E26B838E"]
@@ -213,7 +213,7 @@
 			size: 1.5d
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
-			tasks: [{ id: "614F1F27431CF532", type: "item", item: "ae2:logic_processor", count: 8L }, { id: "0CBC7689E12C53FD", type: "item", item: "ae2:calculation_processor", count: 8L }, { id: "5F458951E00C31BB", type: "item", item: "ae2:engineering_processor", count: 8L }]
+			tasks: [{ id: "247BB852451BA09E", type: "item", item: "ae2:logic_processor", count: 4L }, { id: "14203C492FBB2346", type: "item", item: "ae2:calculation_processor", count: 4L }, { id: "4DA7545FA4745FB9", type: "item", item: "ae2:engineering_processor", count: 4L }]
 			rewards: [{ id: "654AA71B6FE80265", type: "loot", auto: "no_toast", table_id: 8913334366376019510L }, { id: "74E6687E2BCA866B", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
 		}
 		{
@@ -221,7 +221,7 @@
 			title: "Set One ME Controller Down"
 			subtitle: "Everything hangs off its six faces."
 			icon: "ae2:controller"
-			description: ["Craft an &aME Controller&r and run &aFluix Glass Cable&r out of its faces. Every device those cables touch joins one network.", "", "One is plenty. Two controller blocks touching are one machine, not two networks."]
+			description: ["Craft an &aME Controller&r and run &aFluix Glass Cable&r out of its faces. Every device those cables touch joins one network.", "", "One is plenty. Two controller blocks touching are one machine, not two networks.", "", "Every device on it eats a &bchannel&r: eight to a glass cable, thirty-two to a dense one. Read the next quest before you wire eight things off one strand."]
 			x: 10.0d
 			y: 0.0d
 			dependencies: ["5CDE186DFC72F7B1", "5593F78D82000563"]

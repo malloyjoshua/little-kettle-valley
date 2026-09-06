@@ -347,7 +347,7 @@
    "description": [
     "Marnie: \"Three beds: wheat, carrots, potatoes. Anything fancier and you'll be eating it alone in July.\"",
     "",
-    "Till the 3x9 patch behind the house \u2014 every tile is marked in path blocks \u2014 then plant the &a9 carrots&r, &a9 potatoes&r and &a9 wheat seeds&r from Marnie's sack. Hand in holding the seeds; the book counts them and never takes them.",
+    "Take the &ahoe&r from your bag and right-click each of the 27 marked tiles behind the house, then plant &a9 carrots&r, &a9 potatoes&r and &a9 wheat seeds&r. Marnie packed a spare nine seeds for the hand-in; the book counts them and never takes them.",
     "",
     "For what grows in which season, see the &6Farm and Seasons&r chapter."
    ],
@@ -482,7 +482,7 @@
    "description": [
     "Pip: \"Is that an egg? Aunt Marnie says I get a duck if I'm useful, so I am being extremely useful.\"",
     "",
-    "Collect &a3 eggs&r from the nesting box behind your house and hand them in. Right-click a hen with &achicken feed&r if you would rather not wait for her.",
+    "Marnie's three eggs are already in your bag \u2014 walk them up to the inn. For the next lot, watch the nesting box, or right-click a hen with &achicken feed&r rather than wait.",
     "",
     "Pip puts a duckling on your boot and names it Biscuit. Ducks, cows and pets have a chapter of their own: &6Animals and Fishing&r."
    ],
@@ -534,6 +534,16 @@
     {
      "type": "xp_levels",
      "levels": 2
+    },
+    {
+     "type": "item",
+     "item": "minecraft:slime_ball",
+     "count": 4
+    },
+    {
+     "type": "toast",
+     "title": "His Name Is Biscuit",
+     "description": "Next: Bram is at the broken mill west of the square, and Marnie's green planks want a furnace. Ducks and pets have their own chapter: Animals and Fishing."
     }
    ],
    "shape": "hexagon",
@@ -548,7 +558,7 @@
    "description": [
     "Bram: \"I don't need help \u2014 I need somebody to hold things. Different word, same pair of hands.\"",
     "",
-    "Walk to the mill plot marked on your map, talk to &bBram&r, and bring back the Millwright's Bolt he puts in your hand.",
+    "Walk west down the river from the square until you find the mill with the snapped axle (&b-329 67 -39&r). Talk to &bBram&r and bring back the Millwright's Bolt he puts in your hand.",
     "",
     "He opens his labelled crates: &a12 iron ingots&r and &a24 andesite&r. More than the eight alloys want, because the Millstone takes the rest."
    ],
@@ -636,6 +646,11 @@
     },
     {
      "type": "item",
+     "item": "create:andesite_casing",
+     "count": 2
+    },
+    {
+     "type": "item",
      "item": "create:cogwheel",
      "count": 8
     },
@@ -673,7 +688,9 @@
     "",
     "Take the &aStone Hammer&r off the peg by Bram's bench. It breaks a 3x3 face in one swing, so aim the middle of the square at the middle of the hole you want.",
     "",
-    "The &aProspector's Pick&r hangs beside it: right-click bare stone underground and it names the nearest ore and how far. More in &6Ores and Mining&r."
+    "The &aProspector's Pick&r hangs beside it: right-click bare stone underground and it names the nearest ore and how far. More in &6Ores and Mining&r.",
+    "",
+    "&7Two players:&r you each get a pick, and the six strikes in Q28 are counted between you \u2014 not six each."
    ],
    "deps": [
     "q12"
@@ -701,7 +718,8 @@
      "type": "command",
      "command": "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Middle of the square, middle of the hole. And do not swing it in my mill.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -727,9 +745,11 @@
    "description": [
     "Bram: \"The weight of the iron sits in beds. And every bed throws its rubbish onto the grass above it.\"",
     "",
-    "Walk out the west side of the cottage, fifteen paces past the fence, and look down: rust-brown &ahematite samples&r on the grass. From the nearest one, walk seven paces north and dig straight down.",
+    "Walk out the west side of the cottage, fifteen paces past the fence, and look down: rust-brown &ahematite samples&r on the grass. From the nearest one, walk seven paces north and dig down.",
     "",
-    "Fifteen blocks down the stone turns red and stays red for twenty more. Hematite breaks into &airon clusters&r; bring back 8."
+    "&cNever dig the block under your own feet.&r Dig a two-wide staircase down instead, and put a torch every few steps.",
+    "",
+    "Fifteen blocks down the stone turns red and stays red for twenty more. Hematite breaks into &airon clusters&r; bring back 8. Your grave keeps your things \u2014 see the &6The Wild&r chapter."
    ],
    "tasks": [
     {
@@ -757,7 +777,7 @@
     {
      "type": "toast",
      "title": "Iron, Read Off the Grass",
-     "description": "Next: smelt the clusters and press eight Andesite Alloy. Copper, gold and lead sit in beds too."
+     "description": "Next: eight Andesite Alloy, two andesite and two iron nuggets at a time. Copper, gold and lead sit in beds too."
     }
    ],
    "shape": "square",
@@ -771,7 +791,9 @@
    "description": [
     "Bram: \"Hand crank first. You should know exactly what the water is doing for you before it starts doing it.\"",
     "",
-    "Build a &aMillstone&r, put a &aHand Crank&r on top of it, and grind &a16 Wheat Flour&r for Marnie. Bram's 32 wheat covers this and Oda's order at the end of the act.",
+    "A Millstone is a cogwheel, a stone block and an &aAndesite Casing&r. Casing is not made in a grid: strip a log with your axe, put the stripped log down, and &bright-click it holding an Andesite Alloy&r.",
+    "",
+    "Put a &aHand Crank&r on top of the Millstone and hold right-click to turn it. Grind &a16 Wheat Flour&r for Marnie; Bram's 32 wheat covers this and Oda's order at the end of the act.",
     "",
     "The reward is the whole parts list for the Mechanical Saw, two quests from here."
    ],
@@ -832,9 +854,11 @@
    "description": [
     "Marnie: \"Green planks want heat and time. Josie dried every board in this valley in a furnace and was insufferable about it.\"",
     "",
-    "Smelt the 32 &aGreen Oak Planks&r in any furnace \u2014 ten seconds a plank \u2014 and hold 32 &aSeasoned Oak Boards&r. Marnie's charcoal is in the barrel by the door.",
+    "Eight cobblestone in a ring makes a &aFurnace&r. Marnie's charcoal is in the barrel by the door.",
     "",
-    "Bram cannot build a Water Wheel until these dry, and the furnace is you. The kitchen kit comes with them: see &6Cooking and Brewing&r."
+    "Smelt the 32 &aGreen Oak Planks&r into 32 &aSeasoned Oak Boards&r. That is five minutes of burning, so light it and go and see Bram at the mill while it works.",
+    "",
+    "Bram cannot build a Water Wheel until these dry. One furnace is five minutes; four furnaces is one. Kitchen kit comes with them: &6Cooking and Brewing&r."
    ],
    "deps": [
     "q08"
@@ -877,6 +901,16 @@
      "item": "cookingforblockheads:oven"
     },
     {
+     "type": "item",
+     "item": "minecraft:pumpkin",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "minecraft:sugar_cane",
+     "count": 4
+    },
+    {
      "type": "xp_levels",
      "levels": 2
     },
@@ -898,7 +932,9 @@
    "description": [
     "Bram: \"Race is cut, boards are dry, and I'm sixty-four. Two wheels, today.\"",
     "",
-    "Craft &a2 Water Wheels&r: Bram's way is the Seasoned Oak Boards, Create's own recipe (planks round a shaft) works too. Set them in the mill race beside the mill and belt the Millstone off them so it turns without you.",
+    "Craft &a2 Water Wheels&r: Bram's way is the Seasoned Oak Boards, Create's own recipe (planks round a shaft) works too. Set them in the mill race beside the mill \u2014 that is the whole quest.",
+    "",
+    "Running a shaft from them to the Millstone so it turns without you is worth doing next; the &6Create&r chapter walks it.",
     "",
     "Sixty years he waited for that noise. The rest of the mill is in the &6Create&r chapter."
    ],
@@ -1031,9 +1067,11 @@
    "description": [
     "Marnie: \"Counter, sink, oven, along the back wall in that order. I've had the spots chalked for four years.\"",
     "",
-    "Hold the Counter, Sink and Oven at hand-in; the book gives them back. Set them on the inn's three grey slabs, 1, 2, 3, then cook &aBread&r, &aPumpkin Pie&r and &aVegetable Soup&r. The pumpkin is wild.",
+    "Hold the Counter, Sink and Oven at hand-in; the book gives them back. Set them on the inn's three grey slabs, 1, 2, 3, then cook &aBread&r, &aPumpkin Pie&r and &aVegetable Soup&r. Marnie sent the pumpkins and the cane \u2014 cane makes the sugar.",
     "",
-    "Oda's broom comes off the back door with the cookbook. Kettles, skillets and teas: &6Cooking and Brewing&r."
+    "Oda's broom comes off the back door with the cookbook. Kettles, skillets and teas: &6Cooking and Brewing&r.",
+    "",
+    "Marnie's kitchen is where Act I ends: the next quest, Oda's store, wants eight loaves off this oven."
    ],
    "deps": [
     "q15"
@@ -1113,9 +1151,9 @@
      "description": "Next: sweep Oda's store with that broom, then carry her the flour and the bread."
     }
    ],
-   "shape": "rsquare",
+   "shape": "square",
    "size": 1.0,
-   "optional": true
+   "optional": false
   },
   {
    "key": "q19",
@@ -1127,7 +1165,7 @@
    "description": [
     "Oda: \"Eleven years of keeping the ledger of a shop with nothing in it. Bring me stock and I will open the door.\"",
     "",
-    "Sweep the marked cobwebs out of the store with &aOda's Broom&r, then hand &a16 Wheat Flour&r and &a8 Bread&r across the counter.",
+    "Sweep the marked cobwebs out of the store with &aOda's Broom&r, then hand &a16 Wheat Flour&r and &a8 Bread&r across the counter. The eight loaves are the ones Marnie brought up the hill \u2014 you have been carrying them since spring.",
     "",
     "Forty lamps. Fifteen people. One winter that nobody leaves."
    ],
@@ -1157,7 +1195,8 @@
    "rewards": [
     {
      "type": "command",
-     "command": "/valley finale act1"
+     "command": "/valley finale act1",
+     "team": true
     },
     {
      "type": "command",

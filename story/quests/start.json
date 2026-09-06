@@ -125,7 +125,9 @@
     "",
     "Right-click &aJosie's Letter&r in your bag and read all four pages. The last one maps the old Kettle farm.",
     "",
-    "Forty lamp posts stand along that road and not one is lit. New here? Read the &6Read Me First&r chapter."
+    "Forty lamp posts stand along that road and not one is lit. New here? Read the &6Read Me First&r chapter.",
+    "",
+    "Her kit comes with the letter: a &abackpack&r, a &ashovel&r and &apick&r, food, torches, and the &aJournal&r you can right-click any time."
    ],
    "deps": [],
    "tasks": [
@@ -199,7 +201,9 @@
    "description": [
     "Josie: \"The hearthstone is the one thing in that house I never had to fix. Start from the part that held.\"",
     "",
-    "Follow the road to the old farm (&b-319 74 32&r): signposted gate, standing chimney, no door on the house. Put the &aHomestead Waystone&r on the flat grey hearthstone, type Home, click the tick.",
+    "Hold the &aKettle Farm Compass&r and walk the way its needle points. The road is signposted and ends at her gate (&b-319 74 32&r): standing chimney, no door on the house.",
+    "",
+    "Put the &aHomestead Waystone&r on the flat grey hearthstone in the kitchen floor, type Home, click the tick.",
     "",
     "Nothing is rebuilt and nothing is moved. It is your house from that moment. Scrolls and maps: &6Getting Around&r."
    ],
@@ -292,6 +296,15 @@
     },
     {
      "type": "item",
+     "item": "minecraft:crafting_table"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:bowl",
+     "count": 4
+    },
+    {
+     "type": "item",
      "item": "farmersdelight:cabbage",
      "count": 4
     },
@@ -359,6 +372,11 @@
     {
      "type": "xp_levels",
      "levels": 1
+    },
+    {
+     "type": "toast",
+     "title": "It Never Goes Out",
+     "description": "Next: the gravel patch in the kitchen floor. Josie's shovel is in your bag and there are stairs under it."
     }
    ]
   },
@@ -375,7 +393,9 @@
     "",
     "Dig out the two-wide patch of &agravel&r in the kitchen floor \u2014 forty marked blocks \u2014 down to the stone stair she cut herself. The &airon shovel&r is in your bag.",
     "",
-    "At the bottom: a sealed iron door with no handle, four words in her chalk \u2014 Not yet. \u2014 J.K. \u2014 and a plinth for the &aCellar Waystone&r."
+    "&cGravel falls.&r Stand on solid floor and dig the block in front of you, never the one under your feet. Put a torch down when it gets dark.",
+    "",
+    "At the bottom: a sealed iron door with no handle and four words in her chalk \u2014 Not yet. \u2014 J.K. Stand the spare &aWaystone&r on the empty plinth beside it and you can hop home from anywhere."
    ],
    "deps": [
     "q02"
@@ -438,6 +458,11 @@
     {
      "type": "xp_levels",
      "levels": 2
+    },
+    {
+     "type": "toast",
+     "title": "Josie's Cellar",
+     "description": "Next: an axe, a hoe and shears came up those stairs with you. Set the campfire down and cook one soup."
     }
    ]
   },
@@ -452,7 +477,9 @@
    "description": [
     "Josie: \"Kettle on the hook, soup in the pot. That is the entire ceremony.\"",
     "",
-    "Set the &acampfire&r down outside your door, hang the &aCopper Kettle&r over it, and cook one &aVegetable Soup&r in the Cooking Pot: cabbage, carrot, potato, beetroot and a bowl. Three planks make four bowls.",
+    "Set the &acampfire&r down outside your door and stand the &aCooking Pot&r on top of it \u2014 the fire under it is what cooks.",
+    "",
+    "Drop cabbage, carrot, potato and beetroot in, with a &abowl&r in the slot on the right. Four bowls and a &aCrafting Table&r came with the pot.",
     "",
     "Bram's Surveyor's Stake is in the vegetable basket, in a rag with a chalk K on it. Ovens and kettles: &6Cooking and Brewing&r."
    ],
@@ -497,7 +524,8 @@
     },
     {
      "type": "item",
-     "item": "valley:town_anchor"
+     "item": "valley:town_anchor",
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -589,9 +617,11 @@
    "description": [
     "Marnie: \"Four years I've looked at that chimney, and last night there was smoke. I've brought bread and I am not carrying it home.\"",
     "",
-    "Sleep one night in the &aRed Bed&r in your cottage.",
+    "Sleep one night in the &aRed Bed&r in your cottage. Beds only work after dusk \u2014 if the sun is up, go and dig the cellar stairs and come back.",
     "",
-    "Marnie opens the inn she has kept with no guests in it, Bram opens the mill, and she leaves you her seed sack, 32 &aGreen Oak Planks&r and a flint and steel."
+    "Marnie opens the inn she has kept with no guests in it, Bram opens the mill, and she leaves you her seed sack, 32 &aGreen Oak Planks&r and a flint and steel.",
+    "",
+    "&7Two players:&r one sleeper passes the night for both. Put &adown a second bed&r and sleep in it once anyway \u2014 that is what sets where you wake up if you die."
    ],
    "deps": [
     "q07"
@@ -643,8 +673,13 @@
     },
     {
      "type": "item",
+     "item": "minecraft:furnace",
+     "count": 2
+    },
+    {
+     "type": "item",
      "item": "minecraft:wheat_seeds",
-     "count": 9
+     "count": 18
     },
     {
      "type": "item",

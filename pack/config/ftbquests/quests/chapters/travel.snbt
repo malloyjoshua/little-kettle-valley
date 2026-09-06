@@ -145,7 +145,6 @@
 			x: 4.0d
 			y: 1.5d
 			dependencies: ["46FC0A4DCC954840"]
-			optional: true
 			shape: "gear"
 			size: 1.0d
 			hide_until_deps_complete: false

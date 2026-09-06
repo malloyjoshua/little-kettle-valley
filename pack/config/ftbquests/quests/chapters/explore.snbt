@@ -7,7 +7,7 @@
 	id: "0FF543B3ADE9F7D3"
 	order_index: 30
 	quest_links: [ ]
-	subtitle: ["Sixteen real places in this world, with the two numbers that find them.", "Nothing here is on the way to anything. That is the point."]
+	subtitle: ["Sixteen real places in this world, with the two numbers that find them.", "Most of it is not on the way to anything. Two of them are: the crater and the ruined portal."]
 	hide_quest_until_deps_complete: false
 	hide_quest_details_until_startable: false
 	images: [
@@ -255,12 +255,11 @@
 			title: "Find the Ruined Portal in the Pines"
 			subtitle: "Somebody's way out, half fallen down."
 			icon: "minecraft:flint_and_steel"
-			description: ["Walk to &b-728, 232&r. The frame is broken, the chest beside it is not, and it usually keeps a &aFlint and Steel&r in it.", "", "Patch the frame with &aObsidian&r if you want the Nether early."]
+			description: ["Walk to &b-728, 232&r. The frame is broken, the chest beside it is not, and it usually keeps a &aFlint and Steel&r in it.", "", "Patch the frame with &aObsidian&r — six comes with this quest. The &6Create&r chapter cannot pass the Blaze Burner without a trip through it, and &6Thermal&r wants a lava pool."]
 			x: 2.0d
 			y: 3.8d
 			dependencies: ["55076A5EE84DB7B9"]
-			optional: true
-			shape: "rsquare"
+			shape: "square"
 			size: 1.0d
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
@@ -281,7 +280,7 @@
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "270AD78E484A3D3F", type: "structure", structure: "minecraft:ancient_city" }]
-			rewards: [{ id: "7B4B4681E563C1E6", type: "loot", auto: "no_toast", table_id: 7878166782298204742L }, { id: "15CB5089AB04F30E", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "3F3DAA40BB136C36", type: "toast", title: "The Valley Beyond", auto: "enabled", description: "Next: Act V sends you back down for one Echo Shard. Everything else with teeth is in &6The Wild&r." }]
+			rewards: [{ id: "7B4B4681E563C1E6", type: "loot", auto: "no_toast", table_id: 7878166782298204742L }, { id: "56A635BCE3341BA3", type: "item", auto: "no_toast", item: "minecraft:echo_shard", count: 4 }, { id: "640D2DE406112FD9", type: "item", auto: "no_toast", item: "minecraft:experience_bottle", count: 16 }, { id: "50E43996074857BD", type: "xp_levels", auto: "no_toast", xp_levels: 5 }, { id: "3F3DAA40BB136C36", type: "toast", title: "The Valley Beyond", auto: "enabled", description: "Next: Act V sends you back down for one Echo Shard. Everything else with teeth is in &6The Wild&r." }]
 		}
 	]
 	title: "Places"

@@ -306,7 +306,7 @@
    "subtitle": "Home is -319 74 32. The square is -302 69 -44.",
    "icon": "minecraft:compass",
    "description": [
-    "Press &bF3&r. The XYZ line top left is where you stand; the line under it is the way you face.",
+    "Press &bF3&r \u2014 on a Mac laptop, &bfn&r + &bF3&r. The XYZ line top left is where you stand; the line under it is the way you face.",
     "",
     "Josie's hearth reads &b-319 74 32&r. Oda's square reads &b-302 69 -44&r."
    ],
@@ -341,7 +341,9 @@
    "description": [
     "&bJ&r opens this book. &bB&r opens your backpack. &bC&r picks a chest up with everything still in it.",
     "",
-    "&bHome&r lists where you died. All four move under Options - Controls."
+    "&bHome&r lists where you died \u2014 a Mac laptop has no Home key, so use &bfn&r + &bleft arrow&r, or bind it to something else.",
+    "",
+    "All four move under Options - Controls."
    ],
    "deps": [
     "tips_f3"

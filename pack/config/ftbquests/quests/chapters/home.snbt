@@ -7,7 +7,7 @@
 	id: "22F8BB49E878D025"
 	order_index: 13
 	quest_links: [ ]
-	subtitle: ["Doors that shut, chairs that face the fire, and a light on the porch.", "None of it is required. All of it is why anybody stays."]
+	subtitle: ["Doors that shut, chairs that face the fire, and a light on the porch.", "Nothing here blocks the story. All of it is why anybody stays."]
 	hide_quest_until_deps_complete: false
 	hide_quest_details_until_startable: false
 	images: [
@@ -91,7 +91,7 @@
 			title: "Roll a Sleeping Bag and a Hammock"
 			subtitle: "Sleep out without moving your bed."
 			icon: "comforts:sleeping_bag_red"
-			description: ["A &aSleeping Bag&r passes the night and leaves your spawn where it is. A &aHammock&r needs two Rope and Nail.", "", "Craft one of each and keep the bag on you."]
+			description: ["A &aSleeping Bag&r passes the night anywhere and leaves your spawn where it is — roll it out on the road instead of walking home in the dark. A &aHammock&r needs two Rope and Nail.", "", "Craft one of each and keep the bag on you."]
 			x: 2.0d
 			y: 1.5d
 			dependencies: ["50C5532B79E5A924"]
@@ -108,7 +108,7 @@
 			title: "Carry the Chest, Don't Empty It"
 			subtitle: "Sneak, empty hand, walk it over."
 			icon: "minecraft:chest"
-			description: ["&bCarry On&r picks up a chest, a barrel or a machine with everything still inside it.", "", "Sneak and use an empty hand on it. You walk slow until you set it down."]
+			description: ["&bCarry On&r picks up a chest, a barrel or a machine with everything still inside it.", "", "Hold &bShift&r to sneak and right-click it with an empty hand. You walk slow until you set it down."]
 			x: 2.0d
 			y: 3.0d
 			dependencies: ["50C5532B79E5A924"]
@@ -250,7 +250,7 @@
 			size: 1.5d
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
-			tasks: [{ id: "2EF51908EDB7AF3A", type: "item", item: "torchmaster:megatorch", count: 1L }]
+			tasks: [{ id: "1D7E3DBDAAE44C99", type: "item", item: "torchmaster:megatorch", count: 2L }]
 			rewards: [{ id: "7E4CC4FC56939868", type: "item", auto: "no_toast", item: "torchmaster:feral_flare_lantern" }, { id: "692953363A5DB9B4", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "6483A55B669F969B", type: "toast", title: "Home and Town", auto: "enabled", description: "Next: Act II builds Wisp a stilt house, Act III fits out the inn's two guest rooms. Same hands, bigger rooms." }]
 		}
 	]

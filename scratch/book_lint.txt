@@ -1,0 +1,85 @@
+WARN  q22: title number 10 vs task counts [1]: "Catch 10 Fish and Cook One in the Skillet"
+WARN  q23: title number 24 vs task counts [8]: "Bring Halden 24 Flowers for the Hedge Garden"
+WARN  q24: title number 4 vs task counts [1]: "Put Up the Trellis and Plant 4 Grape Starts"
+WARN  q78: Next toast may not name a dependent (q79, q89): "Next: cook the eight dinners. After that the bell post is the only bar"
+WARN  q84a: title number 8 vs task counts [2]: "Encode 8 Patterns and Wire Marnie's Pantry"
+WARN  q81: Next toast may not name a dependent (q82): "Next: Tobin's lantern line, down under the Works."
+WARN  q88: title number 1 vs task counts [1024]: "Deliver 1,024 Cobblestone to the Granary"
+WARN  q88: title number 24 vs task counts [1024]: "Deliver 1,024 Cobblestone to the Granary"
+WARN  q91: Next toast but nothing depends on this quest
+WARN  ae_patterns: Next toast but nothing depends on this quest
+WARN  an_fillet: Next toast but nothing depends on this quest
+WARN  create_station: Next toast may not name a dependent (create_schedule): "Next: Act III runs this track from Tobin's adit into town, and Act I w"
+WARN  ex_city: developer string in player text: q82
+WARN  ex_city: Next toast but nothing depends on this quest
+WARN  farm_winter_crop: Next toast but nothing depends on this quest
+WARN  home_megatorch: Next toast but nothing depends on this quest
+WARN  kitchen_feast: Next toast but nothing depends on this quest
+WARN  mining_autunite: title number 33 vs task counts [8]: "Find Autunite Between y 8 and 33"
+WARN  mining_kimberlite: title number 10 vs task counts [6]: "Sink Below y 10 for Kimberlite"
+WARN  mining_meteorite: 2D coordinate 216 72 not in registry/structures
+WARN  mining_meteorite: title number 216 vs task counts [12]: "Dig the Sky Stone at -216, 72"
+WARN  mining_meteorite: title number 72 vs task counts [12]: "Dig the Sky Stone at -216, 72"
+WARN  mining_pulverizer: Next toast but nothing depends on this quest
+WARN  oda_standing_order: title number 8 vs task counts [24]: "Fill a Standing Order — 24 Wheat for 8 Scrip"
+WARN  oda_casings: title number 16 vs task counts [10]: "Buy 16 Andesite Casing — 10 Scrip"
+WARN  oda_alloy: title number 32 vs task counts [8]: "Buy 32 Andesite Alloy — 8 Scrip"
+WARN  oda_servos: title number 16 vs task counts [15]: "Buy a Crate of 16 Redstone Servos — 15 Scrip"
+WARN  oda_coils: title number 8 vs task counts [18]: "Buy 8 RF Coils — 18 Scrip"
+WARN  oda_fluxduct: title number 64 vs task counts [12]: "Buy 64 Duct and a Cell Frame — 12 Scrip"
+WARN  oda_works_deed: Next toast but nothing depends on this quest
+WARN  power_link: Next toast but nothing depends on this quest
+WARN  rx_quarry: Next toast may not name a dependent (rx_pump, rx_filler): "Next: 1,024 cobblestone out of network stock into the granary. Act V, "
+WARN  readme_night: claims key "F" which options.txt does not bind (mod default?)
+WARN  thermal_magmatic: Next toast but nothing depends on this quest
+WARN  tips_f3: claims key "F" which options.txt does not bind (mod default?)
+WARN  tips_keys: Next toast but nothing depends on this quest
+WARN  travel_village: Next toast but nothing depends on this quest
+WARN  wild_fortress: structure task minecraft:fortress not in the world scan
+WARN  wild_stronghold: structure task minecraft:stronghold not in the world scan
+WARN  wild_deep: Next toast but nothing depends on this quest
+WARN  same task 1x valley:token_bram in q12, q73
+WARN  same task 8x create:andesite_alloy in q13, create_alloy
+WARN  same task 16x create:wheat_flour in q14, q19, create_millstone
+WARN  same task 1x cookingforblockheads:counter in q18, kitchen_counter
+WARN  same task 1x cookingforblockheads:sink in q18, kitchen_counter
+WARN  same task 1x cookingforblockheads:oven in q18, kitchen_counter
+WARN  same task 1x farmersdelight:vegetable_soup in q18, q06
+WARN  same task 8x minecraft:bread in q19, ex_pack
+WARN  same task 4x ribbits:red_toadstool in q20, wild_ribbits
+WARN  same task 1x create:windmill_bearing in q29, create_windmill
+WARN  same task 8x create:white_sail in q29, create_windmill
+WARN  same task 1x storagedrawers:controller in q33, power_drawers
+WARN  same task 1x thermal:machine_pulverizer in q32, mining_pulverizer, thermal_pulverizer
+WARN  same task 24x minecraft:wheat in q37, oda_standing_order
+WARN  same task 4x supplementaries:jar in q42, home_jars
+WARN  same task 4x minecraft:bread in q43, q68a
+WARN  same task 8x aquaculture:fish_fillet_cooked in q54a, an_fillet
+WARN  same task 1x thermal:machine_smelter in q46, thermal_smelter
+WARN  same task 1x thermal:energy_cell in q47, power_cell, thermal_cell
+WARN  same task 1x create:track_station in q48, create_station
+WARN  same task 1x ae2:drive in q51, ae_drive
+WARN  same task 1x ae2:terminal in q51, ae_terminal
+WARN  same task 1x ae2:wireless_terminal in q52, ae_wireless
+WARN  same task 1x ae2:molecular_assembler in q68, ae_cpu
+WARN  same task 1x biggerreactors:reactor_terminal in q70, rx_core
+WARN  same task 1x biggerreactors:reactor_access_port in q70, rx_core
+WARN  same task 2x biggerreactors:reactor_coolant_port in q70, rx_coolant
+WARN  same task 1x aquaculture:bluegill in q80, an_catch
+WARN  same task 1x aquaculture:perch in q80, an_catch
+WARN  same task 1x aquaculture:catfish in q80, an_catch
+WARN  same task 2x ae2:pattern_provider in q84a, ae_patterns
+WARN  same task 1x farmersdelight:beef_stew in q79, q91, kitchen_feast
+WARN  same task 1x farmersdelight:cabbage_rolls in q79, q91, kitchen_feast
+WARN  same task 1x farmersdelight:bacon_and_eggs in q79, q91, kitchen_skillet
+WARN  same task 1x quarryplus:quarry in q87, rx_quarry
+WARN  same task 1x minecraft:beehive in an_bees, farm_bees
+WARN  same task 1x sereneseasons:calendar in farm_calendar, tips_seasons
+WARN  same task 16x thermal:phytogro in farm_phytogro, thermal_insolator
+WARN  same task 3x minecraft:honey_bottle in farm_bees, wild_hive
+WARN  same task 1x thermal:machine_insolator in farm_insolator, thermal_insolator
+WARN  same task 1x farmersdelight:cooking_pot in kitchen_pot, q06
+WARN  same task 1x nethersdelight:iron_machete in kitchen_nether, wild_nether
+WARN  same task 1x justhammers:stone_hammer in mining_root, tips_hammer
+WARN  same task 4x thermal:rf_coil in power_coil, thermal_coil
+0 errors, 84 warnings over 367 quests

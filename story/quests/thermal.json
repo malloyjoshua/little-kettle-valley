@@ -535,7 +535,7 @@
    "description": [
     "The &aPulverizer&r grinds raw ore into two dust and now and then drops a second metal beside it. Dust smelts one for one, so every vein you mine is worth double.",
     "",
-    "Bram sets you on thirty-two iron in Act II. This is that machine."
+    "Wire it to the dynamo before you tick this \u2014 an unpowered Pulverizer looks exactly like a powered one. Bram sets you on thirty-two iron in Act II on this machine."
    ],
    "long_description": true,
    "deps": [
@@ -617,7 +617,7 @@
    "description": [
     "Bram: \"Anything I only have to feed twice a day, I trust.\"",
     "",
-    "The &aMagmatic Dynamo&r burns lava, so a fluid duct off a nether pool, or a steady bucket run, keeps it fed for hours.",
+    "The &aMagmatic Dynamo&r burns lava, so a fluid duct off a nether pool, or a steady bucket run, keeps it fed for hours. Buckets from the overworld lava lakes work too, and the ruined portal in the pines at &b-728, 232&r is the short way to a pool \u2014 see &6Places&r.",
     "",
     "This is the power that carries the valley to the reactor: see the &6Reactor&r chapter."
    ],
@@ -669,7 +669,9 @@
    "description": [
     "Four ducts come off one glass, two lead and six redstone. Run them from the cell to anything that wants power; they lose nothing over distance and have no settings at all.",
     "",
-    "Bram runs this line to the inn in Act III and out to the Works in Act IV."
+    "Bram runs this line to the inn in Act III and out to the Works in Act IV.",
+    "",
+    "The same craft in itemduct form moves ore into a machine and dust back out. Servos, filters and the rest of the routing are the &6Power and Logistics&r chapter."
    ],
    "long_description": true,
    "deps": [
@@ -792,7 +794,9 @@
    "description": [
     "The &aInduction Smelter&r takes an ore and a catalyst. Sand in the second slot lifts what every ore gives back; the smelter's own Rich Slag lifts it further still.",
     "",
-    "It is also the only road to invar, constantan and the rest of the alloys."
+    "It is also the only road to invar, constantan and the rest of the alloys.",
+    "",
+    "Run sixteen ore through it with sand in the second slot before you move on \u2014 the yield jump is the point, and you cannot see it from the recipe."
    ],
    "long_description": true,
    "deps": [
@@ -968,8 +972,8 @@
   },
   {
    "key": "thermal_alloys",
-   "title": "Smelt 16 Invar and 16 Constantan",
-   "subtitle": "Two iron and a nickel. Copper and a nickel.",
+   "title": "Smelt 24 Invar and 24 Constantan",
+   "subtitle": "Twenty-four each. The smelter has to actually run.",
    "icon": "thermal:invar_ingot",
    "description": [
     "&aInvar&r is two iron with one nickel; &aConstantan&r is one copper with one nickel. Nickel falls out of the pulverizer beside the iron, so some is already in the drawer.",
@@ -987,12 +991,12 @@
     {
      "type": "item",
      "item": "thermal:invar_ingot",
-     "count": 16
+     "count": 24
     },
     {
      "type": "item",
      "item": "thermal:constantan_ingot",
-     "count": 16
+     "count": 24
     }
    ],
    "rewards": [

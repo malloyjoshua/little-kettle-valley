@@ -592,7 +592,7 @@
    "shape": "square",
    "size": 1.0,
    "description": [
-    "Build a &aMechanical Saw&r, lay it flat and feed it logs off a belt. Stood upright it fells the whole tree.",
+    "Already have one from Bram? Lay it flat and feed it logs off a belt anyway \u2014 stood upright it fells the whole tree instead.",
     "",
     "Bram's hundred and twenty-eight boards in Act I go faster on one."
    ],
@@ -710,7 +710,7 @@
   {
    "key": "create_burner",
    "title": "Light a Blaze Burner Under the Basin",
-   "subtitle": "Heat turns mixing into alloying.",
+   "subtitle": "Heat turns mixing into alloying. One trip to the Nether.",
    "icon": "create:empty_blaze_burner",
    "deps": [
     "create_mixer"
@@ -719,6 +719,8 @@
    "size": 1.0,
    "description": [
     "Craft an &aEmpty Blaze Burner&r, take it to a nether fortress and right-click a blaze with it. Set the lit burner under the basin and feed it coal.",
+    "",
+    "No portal yet? There is a ruined one in the pines at &b-728, 232&r \u2014 see &6Places&r. Ten obsidian and a flint and steel is the other road.",
     "",
     "&cBlazes throw fire.&r Take a shield and a bucket of water."
    ],

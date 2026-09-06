@@ -24,7 +24,9 @@
     "",
     "Every buy line below restocks. Buy a line as many times as you can pay for it.",
     "",
-    "One warning: keep two hundred Scrip back. The winter debt is a hundred and twenty, the Works Deed is eighty, and I do not get talked down."
+    "One warning: keep two hundred Scrip back. The winter debt is a hundred and twenty, the Works Deed is eighty, and I do not get talked down.",
+    "",
+    "&7Two players:&r Scrip is one purse. Pile it into one pack before you buy \u2014 and before Oda asks for the hundred and twenty."
    ],
    "deps": [
     "q19"
@@ -47,11 +49,17 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 10
+     "count": 10,
+     "team": true
     },
     {
      "type": "command",
-     "command": "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Ten Scrip, on the house. That is the only time those three words happen in this store.\",\"color\":\"white\",\"italic\":true}]"
+     "command": "/tellraw @p [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Ten Scrip, on the house. That is the only time those three words happen in this store.\",\"color\":\"white\",\"italic\":true}]",
+     "team": true
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
     },
     {
      "type": "toast",
@@ -91,7 +99,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 8
+     "count": 8,
+     "team": true
     }
    ],
    "x": 0.0,
@@ -127,7 +136,8 @@
     {
      "type": "item",
      "item": "create:andesite_casing",
-     "count": 16
+     "count": 16,
+     "team": true
     }
    ],
    "x": 3.0,
@@ -163,7 +173,8 @@
     {
      "type": "item",
      "item": "create:andesite_alloy",
-     "count": 32
+     "count": 32,
+     "team": true
     }
    ],
    "x": 3.0,
@@ -199,22 +210,26 @@
     {
      "type": "item",
      "item": "create:cogwheel",
-     "count": 16
+     "count": 16,
+     "team": true
     },
     {
      "type": "item",
      "item": "create:large_cogwheel",
-     "count": 8
+     "count": 8,
+     "team": true
     },
     {
      "type": "item",
      "item": "create:shaft",
-     "count": 16
+     "count": 16,
+     "team": true
     },
     {
      "type": "item",
      "item": "create:belt_connector",
-     "count": 8
+     "count": 8,
+     "team": true
     }
    ],
    "x": 3.0,
@@ -250,27 +265,32 @@
     {
      "type": "item",
      "item": "farmersdelight:cabbage_seeds",
-     "count": 8
+     "count": 8,
+     "team": true
     },
     {
      "type": "item",
      "item": "thermal:tomato_seeds",
-     "count": 8
+     "count": 8,
+     "team": true
     },
     {
      "type": "item",
      "item": "thermal:corn_seeds",
-     "count": 8
+     "count": 8,
+     "team": true
     },
     {
      "type": "item",
      "item": "minecraft:beetroot_seeds",
-     "count": 8
+     "count": 8,
+     "team": true
     },
     {
      "type": "item",
      "item": "minecraft:pumpkin_seeds",
-     "count": 8
+     "count": 8,
+     "team": true
     }
    ],
    "x": 3.0,
@@ -306,17 +326,20 @@
     {
      "type": "item",
      "item": "minecraft:bread",
-     "count": 16
+     "count": 16,
+     "team": true
     },
     {
      "type": "item",
      "item": "farmersdelight:rice",
-     "count": 16
+     "count": 16,
+     "team": true
     },
     {
      "type": "item",
      "item": "minecraft:cooked_beef",
-     "count": 8
+     "count": 8,
+     "team": true
     }
    ],
    "x": 3.0,
@@ -352,17 +375,20 @@
     {
      "type": "item",
      "item": "minecraft:lantern",
-     "count": 8
+     "count": 8,
+     "team": true
     },
     {
      "type": "item",
      "item": "supplementaries:candle_holder",
-     "count": 8
+     "count": 8,
+     "team": true
     },
     {
      "type": "item",
      "item": "createdeco:yellow_copper_lamp",
-     "count": 4
+     "count": 4,
+     "team": true
     }
    ],
    "x": 3.0,
@@ -399,7 +425,8 @@
     {
      "type": "item",
      "item": "thermal:redstone_servo",
-     "count": 16
+     "count": 16,
+     "team": true
     }
    ],
    "x": 6.0,
@@ -436,7 +463,8 @@
     {
      "type": "item",
      "item": "thermal:machine_frame",
-     "count": 2
+     "count": 2,
+     "team": true
     }
    ],
    "x": 6.0,
@@ -472,7 +500,8 @@
     {
      "type": "item",
      "item": "thermal:rf_coil",
-     "count": 8
+     "count": 8,
+     "team": true
     }
    ],
    "x": 6.0,
@@ -509,12 +538,14 @@
     {
      "type": "item",
      "item": "thermal:energy_duct",
-     "count": 64
+     "count": 64,
+     "team": true
     },
     {
      "type": "item",
      "item": "thermal:energy_cell_frame",
-     "count": 1
+     "count": 1,
+     "team": true
     }
    ],
    "x": 6.0,
@@ -551,32 +582,38 @@
     {
      "type": "item",
      "item": "handcrafted:oak_table",
-     "count": 1
+     "count": 1,
+     "team": true
     },
     {
      "type": "item",
      "item": "handcrafted:oak_chair",
-     "count": 4
+     "count": 4,
+     "team": true
     },
     {
      "type": "item",
      "item": "handcrafted:oak_couch",
-     "count": 1
+     "count": 1,
+     "team": true
     },
     {
      "type": "item",
      "item": "handcrafted:oak_cupboard",
-     "count": 1
+     "count": 1,
+     "team": true
     },
     {
      "type": "item",
      "item": "handcrafted:oak_shelf",
-     "count": 2
+     "count": 2,
+     "team": true
     },
     {
      "type": "item",
      "item": "handcrafted:oak_nightstand",
-     "count": 1
+     "count": 1,
+     "team": true
     }
    ],
    "x": 9.0,
@@ -613,22 +650,26 @@
     {
      "type": "item",
      "item": "mcwwindows:oak_four_window",
-     "count": 8
+     "count": 8,
+     "team": true
     },
     {
      "type": "item",
      "item": "mcwwindows:oak_curtain_rod",
-     "count": 4
+     "count": 4,
+     "team": true
     },
     {
      "type": "item",
      "item": "mcwroofs:oak_planks_roof",
-     "count": 16
+     "count": 16,
+     "team": true
     },
     {
      "type": "item",
      "item": "mcwdoors:oak_cottage_door",
-     "count": 1
+     "count": 1,
+     "team": true
     }
    ],
    "x": 9.0,
@@ -665,22 +706,26 @@
     {
      "type": "item",
      "item": "supplementaries:flower_box",
-     "count": 8
+     "count": 8,
+     "team": true
     },
     {
      "type": "item",
      "item": "supplementaries:planter",
-     "count": 8
+     "count": 8,
+     "team": true
     },
     {
      "type": "item",
      "item": "mcwfences:oak_hedge",
-     "count": 16
+     "count": 16,
+     "team": true
     },
     {
      "type": "item",
      "item": "minecraft:oak_sapling",
-     "count": 4
+     "count": 4,
+     "team": true
     }
    ],
    "x": 9.0,
@@ -717,27 +762,32 @@
     {
      "type": "item",
      "item": "supplementaries:sconce",
-     "count": 12
+     "count": 12,
+     "team": true
     },
     {
      "type": "item",
      "item": "minecraft:lantern",
-     "count": 8
+     "count": 8,
+     "team": true
     },
     {
      "type": "item",
      "item": "minecraft:soul_lantern",
-     "count": 8
+     "count": 8,
+     "team": true
     },
     {
      "type": "item",
      "item": "supplementaries:rope",
-     "count": 16
+     "count": 16,
+     "team": true
     },
     {
      "type": "item",
      "item": "supplementaries:item_shelf",
-     "count": 4
+     "count": 4,
+     "team": true
     }
    ],
    "x": 12.0,
@@ -774,22 +824,26 @@
     {
      "type": "item",
      "item": "valley:cow_crate",
-     "count": 1
+     "count": 1,
+     "team": true
     },
     {
      "type": "item",
      "item": "valley:sheep_crate",
-     "count": 1
+     "count": 1,
+     "team": true
     },
     {
      "type": "item",
      "item": "valley:hen_crate",
-     "count": 2
+     "count": 2,
+     "team": true
     },
     {
      "type": "item",
      "item": "valley:chicken_feed",
-     "count": 8
+     "count": 8,
+     "team": true
     }
    ],
    "x": 12.0,
@@ -826,27 +880,32 @@
     {
      "type": "item",
      "item": "minecraft:torchflower_seeds",
-     "count": 2
+     "count": 2,
+     "team": true
     },
     {
      "type": "item",
      "item": "minecraft:pitcher_pod",
-     "count": 2
+     "count": 2,
+     "team": true
     },
     {
      "type": "item",
      "item": "minecraft:glow_berries",
-     "count": 8
+     "count": 8,
+     "team": true
     },
     {
      "type": "item",
      "item": "minecraft:sweet_berries",
-     "count": 8
+     "count": 8,
+     "team": true
     },
     {
      "type": "item",
      "item": "thermal:coffee_seeds",
-     "count": 4
+     "count": 4,
+     "team": true
     }
    ],
    "x": 12.0,
@@ -883,12 +942,14 @@
     {
      "type": "item",
      "item": "biggerreactors:reactor_casing",
-     "count": 16
+     "count": 16,
+     "team": true
     },
     {
      "type": "item",
      "item": "biggerreactors:turbine_casing",
-     "count": 8
+     "count": 8,
+     "team": true
     }
    ],
    "x": 15.0,
@@ -925,32 +986,38 @@
     {
      "type": "item",
      "item": "biggerreactors:reactor_fuel_rod",
-     "count": 8
+     "count": 8,
+     "team": true
     },
     {
      "type": "item",
      "item": "biggerreactors:reactor_control_rod",
-     "count": 2
+     "count": 2,
+     "team": true
     },
     {
      "type": "item",
      "item": "biggerreactors:reactor_glass",
-     "count": 8
+     "count": 8,
+     "team": true
     },
     {
      "type": "item",
      "item": "biggerreactors:turbine_rotor_bearing",
-     "count": 1
+     "count": 1,
+     "team": true
     },
     {
      "type": "item",
      "item": "biggerreactors:turbine_rotor_blade",
-     "count": 8
+     "count": 8,
+     "team": true
     },
     {
      "type": "item",
      "item": "biggerreactors:turbine_rotor_shaft",
-     "count": 4
+     "count": 4,
+     "team": true
     }
    ],
    "x": 15.0,
@@ -987,22 +1054,26 @@
     {
      "type": "item",
      "item": "ae2:item_storage_cell_4k",
-     "count": 4
+     "count": 4,
+     "team": true
     },
     {
      "type": "item",
      "item": "ae2:cell_component_4k",
-     "count": 4
+     "count": 4,
+     "team": true
     },
     {
      "type": "item",
      "item": "ae2:calculation_processor",
-     "count": 8
+     "count": 8,
+     "team": true
     },
     {
      "type": "item",
      "item": "ae2:fluix_glass_cable",
-     "count": 32
+     "count": 32,
+     "team": true
     }
    ],
    "x": 15.0,
@@ -1039,7 +1110,8 @@
     {
      "type": "item",
      "item": "valley:plushie_token",
-     "count": 1
+     "count": 1,
+     "team": true
     }
    ],
    "x": 15.0,
@@ -1083,17 +1155,20 @@
     {
      "type": "item",
      "item": "valley:deed_works",
-     "count": 1
+     "count": 1,
+     "team": true
     },
     {
      "type": "item",
      "item": "quarryplus:marker",
-     "count": 4
+     "count": 4,
+     "team": true
     },
     {
      "type": "item",
      "item": "valley:catalogue",
-     "count": 1
+     "count": 1,
+     "team": true
     },
     {
      "type": "toast",

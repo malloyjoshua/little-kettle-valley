@@ -144,7 +144,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 30
+     "count": 30,
+     "team": true
     },
     {
      "type": "command",
@@ -160,7 +161,8 @@
      "type": "command",
      "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Twelve alcoves in the granary shell. Twelve drawers. Nobody is going hungry on my arithmetic.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -228,7 +230,8 @@
      "type": "command",
      "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"The key's brass. My initials are scratched off it and yours are scratched on. Don't lose it.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "command",
@@ -246,9 +249,9 @@
      "description": "Next: one screen reads all twelve drawers, once the mill has a network of its own."
     }
    ],
-   "shape": "rsquare",
+   "shape": "square",
    "size": 1.0,
-   "optional": true
+   "optional": false
   },
   {
    "key": "q40",
@@ -401,13 +404,15 @@
      "type": "command",
      "command": "/tellraw @p [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"She left the jar with me. I never asked what for. I think I knew.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "command",
      "command": "/tellraw @p [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"She walked that slope in February in her shirtsleeves and called it good circulation, and snow never sat on it.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -490,9 +495,9 @@
      "description": "Next: four loaves, two pies and two cakes out of one oven \u2014 and Bram wants the duct run to the inn."
     }
    ],
-   "shape": "rsquare",
+   "shape": "square",
    "size": 1.0,
-   "optional": true
+   "optional": false
   },
   {
    "key": "q43",
@@ -502,7 +507,7 @@
    "description": [
     "Marnie: \"Four loaves, two pies, two cakes. Bank the oven right and you'll get the lot out of one heat.\"",
     "",
-    "Bake 4 &aBread&r, 2 Chocolate Pies and 2 Cakes in the inn kitchen. Milk and eggs came with the larder crate; cocoa is the one thing this valley does not grow, so it comes off a wandering trader or a jungle pod.",
+    "Bake 4 &aBread&r, 2 Chocolate Pies and 2 Cakes in the inn kitchen. Milk and eggs came with the larder crate; cocoa is the one thing this valley does not grow. Oda keeps a tin behind the counter \u2014 see the &6Oda's Counter&r chapter \u2014 or take the jungle pods off a trip east.",
     "",
     "It stocks the inn for the Supper, opens Pip's courier board, and it is half of what lets Halden read the Plate."
    ],
@@ -555,7 +560,8 @@
      "type": "command",
      "command": "/tellraw @p [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"That's the first full oven since Josie. Oda will want it written down, and she can wait until morning.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -607,7 +613,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 15
+     "count": 15,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -678,7 +685,8 @@
      "type": "command",
      "command": "/tellraw @p [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"That's meat in February. I have not been able to say that sentence in eleven years.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -733,7 +741,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 15
+     "count": 15,
+     "team": true
     },
     {
      "type": "loot",
@@ -749,9 +758,9 @@
      "description": "Next: Wisp is downstream at the marsh beds \u2014 twelve rice panicles, all ripe on the same day."
     }
    ],
-   "shape": "rsquare",
+   "shape": "square",
    "size": 1.0,
-   "optional": true
+   "optional": false
   },
   {
    "key": "q51a",
@@ -805,7 +814,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 15
+     "count": 15,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -835,7 +845,7 @@
    "deps": [
     "q51a"
    ],
-   "optional": true,
+   "optional": false,
    "tasks": [
     {
      "type": "item",
@@ -883,13 +893,15 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 15
+     "count": 15,
+     "team": true
     },
     {
      "type": "command",
      "command": "/tellraw @p [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"Eight. Fine. That's the lake settled.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -901,7 +913,7 @@
      "description": "Next: the long table in the square \u2014 twelve place settings and the centrepiece."
     }
    ],
-   "shape": "rsquare",
+   "shape": "square",
    "size": 1.0
   },
   {
@@ -966,7 +978,8 @@
      "type": "command",
      "command": "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Copper, iron, gold AND silver, all in one run, and I'm going to talk about it for a week.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "command",
@@ -1070,7 +1083,7 @@
    "description": [
     "Bram: \"Cell on the wall, duct to the inn, and Marnie gets her fridge. Don't overthink it.\"",
     "",
-    "Charge a Thermal &aEnergy Cell&r off your dynamos, then run Energy Duct from the mill until the line ends within 12 blocks of the inn.",
+    "Charge a Thermal &aEnergy Cell&r off your dynamos, then run Energy Duct from the mill until the line ends within 12 blocks of the inn. The preserves quest feeds this one \u2014 Marnie will not open the inn wall until her shelves are up.",
     "",
     "The Cell Frame is 12 Scrip on Oda's board. The Fridge, Sink and Milk Jar arrive made, with four Works Power Taps to hang them on the line."
    ],
@@ -1124,7 +1137,8 @@
      "type": "command",
      "command": "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Fridge works. Told her I was working on it.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -1195,7 +1209,8 @@
      "type": "command",
      "command": "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"There is a TRAIN. In the valley. I'm going to need everyone to stop and acknowledge that.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -1237,13 +1252,15 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 25
+     "count": 25,
+     "team": true
     },
     {
      "type": "command",
      "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Forty-one of forty-one. That is the first delivery this valley has taken in eleven years. Shop's open properly now.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -1268,7 +1285,9 @@
     "",
     "Plant Certus Quartz Seeds in his &aSpring Water&r and grow 32 Certus Quartz Crystals. Josie's sixteen seed the first batch; four Growth Accelerators make every batch after it overnight work.",
     "",
-    "His compass leads to a sky-stone meteorite, and the four presses are in the chest inside. The whole system: &6Storage Network&r."
+    "His compass leads to a sky-stone meteorite, and the four presses are in the chest inside. The whole system: &6Storage Network&r.",
+    "",
+    "Growth is slow even accelerated. Set it going and spend the wait in &6Ores and Mining&r or on Oda's board \u2014 the crystals keep."
    ],
    "deps": [
     "q41",
@@ -1306,7 +1325,8 @@
      "type": "command",
      "command": "/tellraw @p [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"The compass is already pointing. She set it. I only carried it.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -1331,7 +1351,7 @@
     "",
     "Build 1 &aME Drive&r, 2 Item Storage Cells (4k) and 1 ME Terminal, and set them up in the mill workshop.",
     "",
-    "Four more cells and the full bus set come back. The granary is twelve drawers and one screen away."
+    "Power it with an &aEnergy Acceptor&r on the network and your energy duct into that \u2014 nothing lights up without one. Four more cells and the full bus set come back."
    ],
    "deps": [
     "q50"
@@ -1381,6 +1401,11 @@
     {
      "type": "loot",
      "table": "tech_crate"
+    },
+    {
+     "type": "item",
+     "item": "ae2:energy_acceptor",
+     "count": 2
     },
     {
      "type": "xp_levels",
@@ -1464,7 +1489,7 @@
    "description": [
     "Oda: \"Standing orders: bread, planks, nails, lamp oil. If the crate's full when somebody walks up, nobody waits on me.\"",
     "",
-    "Place a &aDelivery Crate&r beside Oda's bounty board in the square and point an ME Export Bus at it with the town's standing orders patterned in.",
+    "Place a &aDelivery Crate&r beside Oda's bounty board in the square and point an ME Export Bus at it. Put bread, planks and lamp oil in the bus's filter slots \u2014 nine slots with the upgrade card, one without.",
     "",
     "From here on the crate is already full when somebody walks up to it, including you."
    ],
@@ -1474,14 +1499,15 @@
    "tasks": [
     {
      "type": "checkmark",
-     "title": "Crate beside the board, export bus feeding it."
+     "title": "Crate beside the board, export bus feeding it \u2014 only ONE barrel by the board"
     }
    ],
    "rewards": [
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 60
+     "count": 60,
+     "team": true
     },
     {
      "type": "item",
@@ -1497,7 +1523,8 @@
      "type": "command",
      "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"The crate fills itself. I have opinions about that, and all of them are good.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "command",
@@ -1559,7 +1586,8 @@
      "type": "command",
      "command": "/valley scene q54",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "command",
@@ -1569,13 +1597,15 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 20
+     "count": 20,
+     "team": true
     },
     {
      "type": "command",
      "command": "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"It's a parts list. It has always been a parts list. She wasn't digging a mine.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -1646,7 +1676,8 @@
      "type": "command",
      "command": "/tellraw @a [{\"text\":\"Josie, on the wall: \",\"color\":\"gold\"},{\"text\":\"If there's more than one set of footprints on these stairs, I was right to wait. Go and turn it on.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "command",
@@ -1732,11 +1763,38 @@
      "type": "command",
      "command": "/valley finale act3",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "stage",
      "stage": "act4"
+    },
+    {
+     "type": "item",
+     "item": "handcrafted:oak_table",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "supplementaries:candle_holder",
+     "count": 4
+    },
+    {
+     "type": "item",
+     "item": "thermal:energy_cell",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "ae2:item_storage_cell_16k",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "valley:scrip",
+     "count": 40,
+     "team": true
     },
     {
      "type": "xp_levels",

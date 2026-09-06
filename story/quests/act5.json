@@ -116,7 +116,7 @@
   {
    "key": "q76",
    "title": "Sleep, Then Walk the Square With Marnie",
-   "subtitle": "Year two, and the noticeboard is longer.",
+   "subtitle": "Year two. One of you sleeping is enough.",
    "icon": "minecraft:oak_sapling",
    "description": [
     "Marnie: \"Snow's still on the ridge and the square's still standing. Come on, I want you to see it in daylight.\"",
@@ -205,11 +205,13 @@
      "type": "command",
      "command": "/valley scene q76",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "command",
-     "command": "/tellraw @a [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"The noticeboard's rewritten. Year two, and it's a longer list than last spring.\",\"color\":\"white\",\"italic\":true}]"
+     "command": "/tellraw @a [{\"text\":\"Marnie: \",\"color\":\"light_purple\"},{\"text\":\"The noticeboard's rewritten. Year two, and it's a longer list than last spring.\",\"color\":\"white\",\"italic\":true}]",
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -295,7 +297,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 25
+     "count": 25,
+     "team": true
     },
     {
      "type": "loot",
@@ -303,7 +306,8 @@
     },
     {
      "type": "command",
-     "command": "/tellraw @a [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"I'll take the gardener's job. Don't tell Pip, he'll shout.\",\"color\":\"white\",\"italic\":true}]"
+     "command": "/tellraw @a [{\"text\":\"Nella: \",\"color\":\"aqua\"},{\"text\":\"I'll take the gardener's job. Don't tell Pip, he'll shout.\",\"color\":\"white\",\"italic\":true}]",
+     "team": true
     },
     {
      "type": "command",
@@ -337,8 +341,8 @@
    "deps": [
     "q76"
    ],
-   "optional": true,
-   "shape": "rsquare",
+   "optional": false,
+   "shape": "square",
    "size": 1.0,
    "tasks": [
     {
@@ -368,7 +372,8 @@
     },
     {
      "type": "command",
-     "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Catalogue's free to you from today. I'll still have opinions.\",\"color\":\"white\",\"italic\":true}]"
+     "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Catalogue's free to you from today. I'll still have opinions.\",\"color\":\"white\",\"italic\":true}]",
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -396,7 +401,7 @@
    "deps": [
     "q77"
    ],
-   "shape": "rsquare",
+   "shape": "square",
    "size": 1.0,
    "tasks": [
     {
@@ -438,7 +443,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 50
+     "count": 50,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -450,7 +456,7 @@
      "description": "Next: 120 Scrip across Oda's counter clears the winter debt."
     }
    ],
-   "optional": true
+   "optional": false
   },
   {
    "key": "q83",
@@ -460,7 +466,7 @@
    "description": [
     "Tobin: \"Second turbine, same reactor, and the fuel line does not move. I did the arithmetic four times, then once more with Bram watching.\"",
     "",
-    "Build a second turbine off the reactor you already have, then stand at the terminal, press &bT&r and type &b/valley check power&r.",
+    "Build a second turbine off the reactor you already have: another 64 &aTurbine Casing&r, 16 Glass, 2 Rotor Bearings, 2 Fluid Ports and a Terminal, none of it in the crate. Then stand at the terminal, press &bT&r and type &b/valley check power&r.",
     "",
     "It ticks at 25,000 or more on 60 or less fuel. Turbines start to finish: the &6Reactor and the Quarry&r chapter."
    ],
@@ -502,7 +508,18 @@
     },
     {
      "type": "command",
-     "command": "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Twenty-five thousand, and the fuel line never moved. That's the town through next winter twice over.\",\"color\":\"white\",\"italic\":true}]"
+     "command": "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Twenty-five thousand, and the fuel line never moved. That's the town through next winter twice over.\",\"color\":\"white\",\"italic\":true}]",
+     "team": true
+    },
+    {
+     "type": "item",
+     "item": "biggerreactors:turbine_rotor_bearing",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "biggerreactors:turbine_fluid_port",
+     "count": 2
     },
     {
      "type": "xp_levels",
@@ -639,7 +656,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 15
+     "count": 15,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -698,7 +716,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 15
+     "count": 15,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -801,7 +820,8 @@
     },
     {
      "type": "command",
-     "command": "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"You cooked for eight people who all showed up. Josie managed that twice.\",\"color\":\"white\",\"italic\":true}]"
+     "command": "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"You cooked for eight people who all showed up. Josie managed that twice.\",\"color\":\"white\",\"italic\":true}]",
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -1002,7 +1022,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 25
+     "count": 25,
+     "team": true
     },
     {
      "type": "command",
@@ -1049,6 +1070,17 @@
     }
    ],
    "rewards": [
+    {
+     "type": "item",
+     "item": "valley:scrip",
+     "count": 40,
+     "team": true
+    },
+    {
+     "type": "item",
+     "item": "sophisticatedbackpacks:gold_backpack",
+     "count": 1
+    },
     {
      "type": "xp_levels",
      "levels": 1
@@ -1100,23 +1132,27 @@
     },
     {
      "type": "command",
-     "command": "/tellraw @a {\"text\":\"The residents vote. Bram signs as witness: 'Kettle Works. Town-held. Good.'\",\"color\":\"gold\"}"
+     "command": "/tellraw @a {\"text\":\"The residents vote. Bram signs as witness: 'Kettle Works. Town-held. Good.'\",\"color\":\"gold\"}",
+     "team": true
     },
     {
      "type": "command",
      "command": "/tellraw @a [{\"text\":\"Halden: \",\"color\":\"green\"},{\"text\":\"Eight names on this deed and not one of them hers. She would have been unbearable about it.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "command",
      "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"If every one of us walked out tomorrow, the lights here would still be on come Thursday. Never been true before.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "command",
-     "command": "/playsound minecraft:block.note_block.bell master @a ~ ~ ~ 1 1"
+     "command": "/playsound minecraft:block.note_block.bell master @a ~ ~ ~ 1 1",
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -1177,7 +1213,8 @@
     },
     {
      "type": "command",
-     "command": "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Right. That's a town works, and I'm going to go and sit down.\",\"color\":\"white\",\"italic\":true}]"
+     "command": "/tellraw @a [{\"text\":\"Tobin: \",\"color\":\"yellow\"},{\"text\":\"Right. That's a town works, and I'm going to go and sit down.\",\"color\":\"white\",\"italic\":true}]",
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -1198,7 +1235,7 @@
    "description": [
     "Bram: \"Rock into the box, box into the granary. That is a public works, not a hole in a hill.\"",
     "",
-    "Pattern the quarry's output, cobble to the granary and ore to the pulverizer, then land one full cycle: &a1,024 cobblestone&r out of network stock. The quarry keeps running afterwards.",
+    "Pattern the quarry's output, cobble to the granary and ore to the pulverizer, then land one full cycle: &a1,024 cobblestone&r out of network stock. The quarry keeps running afterwards. Hand it in off the &aWireless Terminal&r \u2014 you do not have to carry sixteen stacks anywhere.",
     "",
     "Oda's shelves restock themselves off your network from now on, and she will check that they did."
    ],
@@ -1220,7 +1257,8 @@
     {
      "type": "item",
      "item": "valley:scrip",
-     "count": 15
+     "count": 15,
+     "team": true
     },
     {
      "type": "stage",
@@ -1228,7 +1266,8 @@
     },
     {
      "type": "command",
-     "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"My shelves filled themselves overnight. I have written it in the ledger and I am watching it.\",\"color\":\"white\",\"italic\":true}]"
+     "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"My shelves filled themselves overnight. I have written it in the ledger and I am watching it.\",\"color\":\"white\",\"italic\":true}]",
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -1283,17 +1322,20 @@
     },
     {
      "type": "command",
-     "command": "/playsound minecraft:block.bell.use master @a ~ ~ ~ 2 1"
+     "command": "/playsound minecraft:block.bell.use master @a ~ ~ ~ 2 1",
+     "team": true
     },
     {
      "type": "command",
-     "command": "/tellraw @a {\"text\":\"Pip rings it eleven times. Nobody stops him.\",\"color\":\"gold\",\"italic\":true}"
+     "command": "/tellraw @a {\"text\":\"Pip rings it eleven times. Nobody stops him.\",\"color\":\"gold\",\"italic\":true}",
+     "team": true
     },
     {
      "type": "command",
      "command": "/tellraw @a [{\"text\":\"Oda: \",\"color\":\"gold\"},{\"text\":\"Eleven days she ran it, eleven years I kept an empty book, eleven feet of porch \u2014 I have stopped calling it chance.\",\"italic\":true}]",
      "elevate": true,
-     "silent": true
+     "silent": true,
+     "team": true
     },
     {
      "type": "xp_levels",
@@ -1348,11 +1390,13 @@
     },
     {
      "type": "command",
-     "command": "/tellraw @a {\"text\":\"Forty lamps. Fifteen people. One winter that nobody leaves.\",\"color\":\"gold\",\"italic\":true}"
+     "command": "/tellraw @a {\"text\":\"Forty lamps. Fifteen people. One winter that nobody leaves.\",\"color\":\"gold\",\"italic\":true}",
+     "team": true
     },
     {
      "type": "command",
-     "command": "/tellraw @p {\"text\":\"Journal Entry 5 has been added to Josie's Journal \u2014 the last thing she wrote.\",\"color\":\"gray\"}"
+     "command": "/tellraw @p {\"text\":\"Journal Entry 5 has been added to Josie's Journal \u2014 the last thing she wrote.\",\"color\":\"gray\"}",
+     "team": true
     },
     {
      "type": "command",
@@ -1462,7 +1506,8 @@
     },
     {
      "type": "command",
-     "command": "/valley finale act5"
+     "command": "/valley finale act5",
+     "team": true
     },
     {
      "type": "stage",
@@ -1473,8 +1518,24 @@
      "table": "story_crate"
     },
     {
+     "type": "item",
+     "item": "valley:scrip",
+     "count": 100,
+     "team": true
+    },
+    {
+     "type": "item",
+     "item": "artifacts:lucky_scarf",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "handcrafted:blue_plate",
+     "count": 8
+    },
+    {
      "type": "xp_levels",
-     "levels": 3
+     "levels": 10
     },
     {
      "type": "toast",

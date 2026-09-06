@@ -826,11 +826,22 @@ PlayerEvents.loggedIn(event => {
 // The party dance. Split out of loggedIn so the retry can run a tick later:
 // FTB Teams applies a join/create on the command's own tick, so player.team is
 // still the old value at the moment the command returns.
+// Two clients joining a LAN world in the same second both used to find no stored party and
+// both create one (co-op audit C6, 2026-09-06). Now the second waits while the first is
+// creating, and a player who somehow lands on a different party leaves it for the stored one.
+let partyCreating = false
+
 function valleyJoinParty(server, player, name) {
   let stored = pdGet('valley_team', null)
 
+  if (!stored && partyCreating) {
+    valleyDelay(20, s => valleyJoinParty(s, player, name))
+    return
+  }
   if (stored) {
     server.runCommandSilent('execute as ' + name + ' run ftbteams party join ' + stored)
+  } else {
+    partyCreating = true
   }
 
   valleyDelay(1, s => {
@@ -855,9 +866,12 @@ function valleyJoinParty(server, player, name) {
         pdPut('valley_team', made)
         console.info('[valley] the pack party is "' + made + '" (created by ' + name + ')')
       } else if (made !== pdGet('valley_team', null)) {
-        console.warn('[valley] ' + name + ' is on party "' + made + '", not "' +
-                     pdGet('valley_team', null) + '". They keep their own quest book.')
+        let want = pdGet('valley_team', null)
+        console.warn('[valley] ' + name + ' is on party "' + made + '", not "' + want + '". Moving them.')
+        s2.runCommandSilent('execute as ' + name + ' run ftbteams party leave')
+        valleyDelay(2, s3 => s3.runCommandSilent('execute as ' + name + ' run ftbteams party join ' + want))
       }
+      partyCreating = false
     })
   })
 }

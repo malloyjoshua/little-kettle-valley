@@ -183,7 +183,9 @@
    "description": [
     "&bRF&r is the pack's one unit of power. Every dynamo makes it, every duct carries it, every machine spends it, and the number on a cell is the whole story.",
     "",
-    "Craft four &aRF Coils&r. A coil is the piece that lets a block hold power, move it, or make it."
+    "Craft four &aRF Coils&r. A coil is the piece that lets a block hold power, move it, or make it.",
+    "",
+    "Done these in &6Thermal&r already? They tick on sight \u2014 this chapter is really the four Create Addition quests and the shelving. Skip down."
    ],
    "deps": [],
    "optional": false,
@@ -289,10 +291,14 @@
   {
    "key": "power_servo",
    "title": "Cap a Duct With a Servo",
-   "subtitle": "It decides which end is the outlet.",
+   "subtitle": "Power ducts and item ducts, same attachment.",
    "icon": "thermal:servo_attachment",
    "description": [
     "Craft two &aServo Attachments&r and put one on the duct face touching the machine you want fed. A bare duct shares power out evenly; a servo makes that end push.",
+    "",
+    "The same attachment goes on an &aItem Duct&r \u2014 the item-carrying twin of the energy duct, four to a craft off lead and glass. Servo on the chest end, bare duct on the machine end, and ore walks itself into the Pulverizer.",
+    "",
+    "A &aFilter Attachment&r on the same face picks which items travel. Eight of them come with the Works grid in Act IV.",
     "",
     "Oda sells sixteen at the counter if you would rather not make them."
    ],
@@ -436,6 +442,16 @@
     {
      "type": "loot",
      "table": "power_crate"
+    },
+    {
+     "type": "item",
+     "item": "createaddition:alternator",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "createaddition:capacitor",
+     "count": 2
     },
     {
      "type": "xp_levels",

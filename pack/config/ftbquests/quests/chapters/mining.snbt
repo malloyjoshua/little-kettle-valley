@@ -105,7 +105,7 @@
 			title: "Smelt 32 Iron From a Hematite Bed"
 			subtitle: "Hematite runs y 32 to 60, any biome."
 			icon: "minecraft:iron_ingot"
-			description: ["Work a hematite bed between &by 32 and y 60&r. Every ore drops an Iron Cluster, and a cluster smelts into one &aIron Ingot&r.", "", "Hematite is a dike: narrow and tall. Follow it up and down, not sideways."]
+			description: ["Work a hematite bed between &by 32 and y 60&r. Every ore drops an Iron Cluster, and a cluster smelts into one &aIron Ingot&r.", "", "Hematite is a dike: narrow and tall. Follow it up and down, not sideways.", "", "Do not smelt a second bed by hand. The &6Thermal&r chapter reaches a Pulverizer in four quests and every ore after that is worth two."]
 			x: 10.0d
 			y: -1.5d
 			dependencies: ["425F796DA196E92F"]
@@ -148,7 +148,7 @@
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "0EB9996A335D11A2", type: "item", item: "minecraft:emerald", count: 4L }]
-			rewards: [{ id: "7DA790D43A3EADD3", type: "item", auto: "no_toast", item: "minecraft:emerald", count: 2 }, { id: "201853475149F115", type: "item", auto: "no_toast", item: "valley:scrip", count: 5 }, { id: "47081FDBB3EEAF0D", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+			rewards: [{ id: "7DA790D43A3EADD3", type: "item", auto: "no_toast", item: "minecraft:emerald", count: 2 }, { id: "08DF5CA242DE2DE1", type: "item", team_reward: true, auto: "no_toast", item: "valley:scrip", count: 5 }, { id: "47081FDBB3EEAF0D", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
 		}
 		{
 			id: "39C1F749A12B73CE"
@@ -172,7 +172,7 @@
 			title: "Follow Malachite Down for Copper"
 			subtitle: "The widest bed here: y -16 to 90."
 			icon: "geolosys:copper_cluster"
-			description: ["Work a malachite bed for &a32 Copper Clusters&r. Malachite sits anywhere from &by -16 to y 90&r, so the sample may be under your own field.", "", "Azurite is the same metal further down, below y 13."]
+			description: ["Work a malachite bed for &a24 Copper Clusters&r. Malachite sits anywhere from &by -16 to y 90&r, so the sample may be under your own field.", "", "Azurite is the same metal further down, below y 13. Vein-mine it with the grave key and the bed comes up in a handful of swings."]
 			x: 12.0d
 			y: 0.8d
 			dependencies: ["26495834113BD7A3"]
@@ -180,7 +180,7 @@
 			size: 1.0d
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
-			tasks: [{ id: "634AC2C7CCCF7A06", type: "item", item: "geolosys:copper_cluster", count: 32L }]
+			tasks: [{ id: "096ACC6681719A1E", type: "item", item: "geolosys:copper_cluster", count: 24L }]
 			rewards: [{ id: "43B56E1E102F47B0", type: "item", auto: "no_toast", item: "minecraft:copper_ingot", count: 16 }, { id: "69946B669D911A87", type: "loot", auto: "no_toast", table_id: 4361491368388299398L }, { id: "7893A8B29528710C", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
 		}
 		{
@@ -237,7 +237,7 @@
 			title: "Reforge the Hammer in Diamond"
 			subtitle: "The last one you make for a long while."
 			icon: "justhammers:diamond_hammer"
-			description: ["Craft a &aDiamond Hammer&r now the kimberlite has paid out. Nine blocks a swing, and enough durability to cut a reactor pit in one sitting.", "", "Put Efficiency on it before Fortune. Speed is what a hammer is for."]
+			description: ["Craft a &aDiamond Hammer&r now the kimberlite has paid out. Nine blocks a swing, and enough durability to cut a reactor pit in one sitting.", "", "Put Efficiency on it before Fortune. Speed is what a hammer is for.", "", "After this the upgrade is not another hammer — it is the &aFlux Drill&r off stored power, in the &6Thermal&r chapter. It never wears out at all."]
 			x: 18.0d
 			y: -1.5d
 			dependencies: ["386FE8DEA2ED0AE5"]

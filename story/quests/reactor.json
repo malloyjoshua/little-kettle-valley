@@ -188,7 +188,9 @@
    "description": [
     "&bAutunite&r is the uranium ore in this pack. Break it for Uranium Clusters and smelt each cluster into one &aUranium Ingot&r.",
     "",
-    "The sample block on the grass sits over the pocket, so dig where the sample is. Sixteen ingots runs a small vessel a long time. For bed depths, see the &6Ores and Mining&r chapter."
+    "The sample block on the grass sits over the pocket, so dig where the sample is. Sixteen ingots runs a small vessel a long time. For bed depths, see the &6Ores and Mining&r chapter.",
+    "",
+    "&cThe rest of this chapter waits on one thing:&r a casing recipe needs a page of Josie's Turbine Notes, and those come out of the Merchant's Tower in Act IV, step 67. Mine the uranium now; it keeps."
    ],
    "deps": [],
    "optional": false,
@@ -208,8 +210,18 @@
      "count": 32
     },
     {
+     "type": "item",
+     "item": "biggerreactors:uranium_ingot",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "biggerreactors:graphite_ingot",
+     "count": 8
+    },
+    {
      "type": "xp_levels",
-     "levels": 2
+     "levels": 3
     }
    ]
   },

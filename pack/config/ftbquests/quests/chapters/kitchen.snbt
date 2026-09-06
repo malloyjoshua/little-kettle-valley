@@ -57,7 +57,7 @@
 			title: "Fry Breakfast in a Skillet"
 			subtitle: "Cooks in your hand, over any fire."
 			icon: "farmersdelight:skillet"
-			description: ["Pip: \"You can hit things with it while it's still hot. Aunt Marnie says not to.\"", "", "Craft a &aSkillet&r, hold it over a fire and fry one item at a time. Cook &aBacon and Eggs&r on it.", "", "Fastest breakfast in the valley."]
+			description: ["Pip: \"You can hit things with it while it's still hot. Aunt Marnie says not to.\"", "", "Craft a &aSkillet&r, hold it over a fire and fry one item at a time.", "", "Slice a porkchop into &abacon&r on the &aCutting Board&r first — that is the quest beside this one — then fry the bacon and two eggs and put the plate together on the grid.", "", "Fastest breakfast in the valley."]
 			x: 2.0d
 			y: -0.8d
 			dependencies: ["4FDBE6AB494A7DFF"]
@@ -73,7 +73,7 @@
 			title: "Hang a Tea Kettle Over Heat"
 			subtitle: "Halden trades tea for stories."
 			icon: "herbalbrews:tea_kettle"
-			description: ["Halden: \"Green leaves want a week of sun before they want a kettle. Everything here waits.\"", "", "Craft a &aTea Kettle&r and pick &a8 Green Tea Leaves&r off the wild bushes. Dry the leaf blocks in daylight, then brew dried leaf with a glass bottle over heat.", "", "A brewed cup carries a small effect for half an hour."]
+			description: ["Halden: \"Green leaves want a week of sun before they want a kettle. Everything here waits.\"", "", "Craft a &aTea Kettle&r and pick &a8 Green Tea Leaves&r off the low bushes along the lake path below Halden's hedge.", "", "Lay the leaf blocks somewhere the sun reaches and leave them a full day — go and cook something. Then brew dried leaf with a glass bottle over heat.", "", "A brewed cup carries a small effect for half an hour."]
 			x: 2.0d
 			y: 0.8d
 			dependencies: ["4FDBE6AB494A7DFF"]
@@ -89,7 +89,7 @@
 			title: "Grow Sixteen Red Grapes"
 			subtitle: "A pot, a lattice, and patience."
 			icon: "vinery:red_grape"
-			description: ["Plant &aRed Grape Seeds&r in a &aGrapevine Pot&r with a lattice standing over it and the vine climbs on its own. Pick the bunches by hand once they redden.", "", "Halden put the same four starts on a trellis behind the hedge garden in Act II, step 5."]
+			description: ["Wild grapes hang on the sunny slope behind Halden's hedge — pick one for seed. Plant &aRed Grape Seeds&r in a &aGrapevine Pot&r with a lattice standing over it and the vine climbs on its own. Pick the bunches by hand once they redden.", "", "Halden put the same four starts on a trellis behind the hedge garden in Act II, step 5."]
 			x: 2.0d
 			y: 2.2d
 			dependencies: ["4FDBE6AB494A7DFF"]
@@ -122,7 +122,7 @@
 			title: "Grill Two Nether Skewers"
 			subtitle: "Take a machete. Take water too."
 			icon: "nethersdelight:iron_machete"
-			description: ["Craft an &aIron Machete&r, which cuts a fungus colony down in one swing, then grill &a2 Nether Skewers&r over a blackstone stove.", "", "&cHoglins hit hard&r and striders burn nothing but your patience."]
+			description: ["This one is a trip. The fungus grows in the &cNether&r, through a portal you have to build first — the &6The Wild&r chapter walks you in and back out.", "", "Craft an &aIron Machete&r, which cuts a fungus colony down in one swing, then grill &a2 Nether Skewers&r over a blackstone stove.", "", "&cHoglins hit hard&r and striders burn nothing but your patience."]
 			x: 6.0d
 			y: -3.0d
 			dependencies: ["1D6A858E16B4EAEC"]
@@ -221,7 +221,7 @@
 			title: "Brew Three Different Cups"
 			subtitle: "Black, hibiscus, and a coffee."
 			icon: "herbalbrews:black_tea"
-			description: ["Halden: \"I have opinions about hibiscus. You will hear all of them.\"", "", "Brew &aBlack Tea&r, &aHibiscus Tea&r and a &aCoffee&r on the kettle. Each dries from a different plant and each carries its own effect.", "", "Coffee beans grow wild on jungle trunks."]
+			description: ["Halden: \"I have opinions about hibiscus. You will hear all of them.\"", "", "Brew &aBlack Tea&r, &aHibiscus Tea&r and a &aCoffee&r on the kettle. Each dries from a different plant and each carries its own effect.", "", "Coffee beans grow wild on jungle trunks. Find the nearest jungle with &aNature's Compass&r — see the &6Getting Around&r chapter."]
 			x: 4.0d
 			y: 0.8d
 			dependencies: ["78315EED57F61BD0"]
@@ -238,7 +238,7 @@
 			title: "Press Apples into Juice"
 			subtitle: "Mash first, then let it work."
 			icon: "vinery:apple_press"
-			description: ["Build an &aApple Press&r. Drop apples in for &aApple Mash&r, leave the mash in the press to ferment, and draw off &a2 Apple Juice&r.", "", "The press takes grapes too, once there is a barrel to put them in."]
+			description: ["Build an &aApple Press&r. Drop apples in for &aApple Mash&r, then leave the mash in the press — it works on its own and takes minutes, not seconds. Come back and draw off &a2 Apple Juice&r.", "", "The press takes grapes too, once there is a barrel to put them in."]
 			x: 4.0d
 			y: 2.2d
 			dependencies: ["231C10F03346D80C"]
@@ -254,7 +254,7 @@
 			title: "Ferment a Bottle of Apple Wine"
 			subtitle: "Sugar, juice, a bottle, a wait."
 			icon: "vinery:apple_wine"
-			description: ["Build a &aFermentation Barrel&r. Pour in apple juice with sugar and an empty &aWine Bottle&r, then leave it alone until it reads as &aApple Wine&r.", "", "A wine rack ages what you shelve in it, and an older bottle pours stronger."]
+			description: ["Build a &aFermentation Barrel&r. Pour in apple juice with sugar and an empty &aWine Bottle&r, then walk away — it ferments on its own clock. It reads as &aApple Wine&r when it is done.", "", "A wine rack ages what you shelve in it, and an older bottle pours stronger."]
 			x: 6.0d
 			y: 3.0d
 			dependencies: ["2164ED80CEA55025"]
