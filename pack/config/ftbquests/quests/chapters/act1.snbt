@@ -2,7 +2,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "act1"
-	group: "300129D2A12C0DC3"
+	group: "353C6133C33553CA"
 	icon: "minecraft:oak_sapling"
 	id: "325711CC25A0D7B5"
 	order_index: 2
@@ -10,182 +10,217 @@
 	subtitle: ["Spring, Year One", "Make the old Kettle farm livable and wake the town up in time for the Thaw Fair.", "Forty lamps. Fifteen people. One winter that nobody leaves."]
 	hide_quest_until_deps_complete: false
 	hide_quest_details_until_startable: false
+	images: [
+		{ x: 0.0d, y: -4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "minecraft:block/farmland_moist", alpha: 255, order: -1, hover: ["Twenty-seven marked tiles behind the house."] }
+		{ x: 4.0d, y: -4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "minecraft:item/egg", alpha: 255, order: -1, hover: ["Three eggs, and Pip gets his duck."] }
+		{ x: 8.0d, y: -4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "create:item/andesite_alloy", alpha: 255, order: -1, hover: ["Two andesite, two nuggets, corner to corner."] }
+		{ x: 12.0d, y: -4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "create:block/millstone", alpha: 255, order: -1, hover: ["Hand crank first. Then the river."] }
+		{ x: 0.0d, y: 4.0d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "geolosys:block/hematite_ore", alpha: 255, order: -1, hover: ["Iron sits in beds. Read the grass."] }
+		{ x: 4.0d, y: 4.0d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "minecraft:block/oak_planks", alpha: 255, order: -1, hover: ["Green planks in, dry boards out."] }
+		{ x: 8.0d, y: 4.0d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "create:block/waterwheel_metal", alpha: 255, order: -1, hover: ["Two wheels on the mill race."] }
+		{ x: 12.0d, y: 4.0d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "minecraft:item/bread", alpha: 255, order: -1, hover: ["Sixteen flour, eight loaves, and the store opens."] }
+		{ x: 16.5d, y: -0.2d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "torchmaster:block/megatorch", alpha: 255, order: -1, hover: ["Nothing hostile spawns where she lives."] }
+	]
 	quests: [
 		{
 			id: "22DF54626799495A"
 			title: "Till and Plant the 3x9 Patch"
 			subtitle: "Wheat, carrots, potatoes."
 			icon: "minecraft:wheat_seeds"
-			description: ["Marnie: \"Three beds: wheat, carrots, potatoes. Anything fancier and you'll be eating it alone in July.\"", "", "Till the 3x9 patch behind the house — every tile is marked in path blocks — then plant the 9 carrots, 9 potatoes and 9 wheat seeds from Marnie's sack. Do the wheat last: hand in holding the nine seeds, which the book counts and never takes.", "", "Marnie hands over the fence, the gate, the trough and three Hen Crates for the pen next to it."]
+			description: ["Marnie: \"Three beds: wheat, carrots, potatoes. Anything fancier and you'll be eating it alone in July.\"", "", "Till the 3x9 patch behind the house — every tile is marked in path blocks — then plant the &a9 carrots&r, &a9 potatoes&r and &a9 wheat seeds&r from Marnie's sack. Hand in holding the seeds; the book counts them and never takes them.", "", "For what grows in which season, see the &6Farm & Seasons&r chapter."]
 			x: 0.0d
 			y: -1.5d
 			dependencies: ["2CA1AF8451E957EA"]
+			shape: "hexagon"
+			size: 2.0d
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "56EABBC35AFECBB7", type: "item", item: "minecraft:wheat_seeds", count: 9L }, { id: "09EE72E02C9F5215", type: "checkmark", title: "All 27 marked tiles tilled and planted" }]
-			rewards: [{ id: "45D685BA2313E517", type: "item", auto: "no_toast", item: "thermal:watering_can" }, { id: "4854821CBCCED67F", type: "item", auto: "no_toast", item: "minecraft:bone_meal", count: 16 }, { id: "1AD64E7E765CF0BC", type: "item", auto: "no_toast", item: "vinery:straw_hat" }, { id: "0389C6180026B2E3", type: "item", auto: "no_toast", item: "farm_and_charm:scarecrow" }, { id: "163502DB627397E5", type: "item", auto: "no_toast", item: "minecraft:oak_fence", count: 24 }, { id: "0B57DF2F7CD391C6", type: "item", auto: "no_toast", item: "minecraft:oak_fence_gate" }, { id: "6FB58B75C3A8544D", type: "item", auto: "no_toast", item: "farm_and_charm:feeding_trough" }, { id: "61CD818FDAE83938", type: "item", auto: "no_toast", item: "valley:hen_crate", count: 3 }, { id: "0F6D5B2DF15A92B5", type: "toast", title: "Three Beds of Dirt", auto: "enabled", description: "Next: fence the pen on the marked blocks and open the three Hen Crates inside it." }]
+			rewards: [{ id: "45D685BA2313E517", type: "item", auto: "no_toast", item: "thermal:watering_can" }, { id: "4854821CBCCED67F", type: "item", auto: "no_toast", item: "minecraft:bone_meal", count: 16 }, { id: "1AD64E7E765CF0BC", type: "item", auto: "no_toast", item: "vinery:straw_hat" }, { id: "0389C6180026B2E3", type: "item", auto: "no_toast", item: "farm_and_charm:scarecrow" }, { id: "163502DB627397E5", type: "item", auto: "no_toast", item: "minecraft:oak_fence", count: 24 }, { id: "0B57DF2F7CD391C6", type: "item", auto: "no_toast", item: "minecraft:oak_fence_gate" }, { id: "6FB58B75C3A8544D", type: "item", auto: "no_toast", item: "farm_and_charm:feeding_trough" }, { id: "61CD818FDAE83938", type: "item", auto: "no_toast", item: "valley:hen_crate", count: 3 }, { id: "700A422707F715AF", type: "xp_levels", auto: "no_toast", xp_levels: 2 }, { id: "0402B65F4F556718", type: "toast", title: "Three Beds of Dirt", auto: "enabled", description: "Next: fence the pen on the marked footings and open the three Hen Crates inside it." }]
 		}
 		{
 			id: "0BFB18E2492D8F4D"
 			title: "Fence the Pen and Open the Three Hen Crates"
 			subtitle: "Two hens and a rooster."
 			icon: "valley:hen_crate"
-			description: ["Marnie: \"Two hens and a rooster. Don't name the rooster — you'll get attached, and he is horrible.\"", "", "Put a fence section on each of the 23 stone footings marked out behind the house, hang the gate on the single grey slab in the middle of the side facing you, then right-click all three Hen Crates inside the finished pen. Any order is right.", "", "A nesting box goes down with two eggs in it, a Megatorch goes up over the coop, and chicken feed makes a hen lay when you right-click her."]
+			description: ["Marnie: \"Two hens and a rooster. Don't name the rooster — you'll get attached, and he is horrible.\"", "", "Put a fence section on each of the 23 stone footings behind the house, hang the gate on the single grey slab in the middle of the side facing you, then right-click all three &aHen Crates&r inside the pen. Any order is right.", "", "A &aMegatorch&r goes up over the coop. Nothing hostile spawns inside its reach."]
 			x: 2.0d
 			y: -1.5d
 			dependencies: ["22DF54626799495A"]
+			shape: "square"
+			size: 1.0d
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "69C20F4B1D1ED3C1", type: "checkmark", title: "Three chickens standing inside the finished pen" }]
-			rewards: [{ id: "751DF2986D7640D3", type: "command", team_reward: true, auto: "invisible", command: "/valley scene coop", elevate_perms: true, silent: true }, { id: "652A0200FB0FD929", type: "item", auto: "no_toast", item: "farm_and_charm:chicken_nest" }, { id: "3AB2724BEFE08DAA", type: "item", auto: "no_toast", item: "valley:chicken_feed", count: 8 }, { id: "46B8159D2BDBEB41", type: "item", auto: "no_toast", item: "torchmaster:megatorch" }, { id: "701BC3CE01A9ADC9", type: "item", auto: "no_toast", item: "minecraft:egg", count: 3 }, { id: "2945712B9F44E92E", type: "toast", title: "Two Hens and a Rooster", auto: "enabled", description: "Next: Marnie needs three eggs." }]
+			rewards: [{ id: "751DF2986D7640D3", type: "command", team_reward: true, auto: "invisible", command: "/valley scene coop", elevate_perms: true, silent: true }, { id: "652A0200FB0FD929", type: "item", auto: "no_toast", item: "farm_and_charm:chicken_nest" }, { id: "3AB2724BEFE08DAA", type: "item", auto: "no_toast", item: "valley:chicken_feed", count: 8 }, { id: "46B8159D2BDBEB41", type: "item", auto: "no_toast", item: "torchmaster:megatorch" }, { id: "701BC3CE01A9ADC9", type: "item", auto: "no_toast", item: "minecraft:egg", count: 3 }, { id: "7B28A2EA92802AFF", type: "xp_levels", auto: "no_toast", xp_levels: 1 }, { id: "47DCA31077F45949", type: "toast", title: "Two Hens and a Rooster", auto: "enabled", description: "Next: Marnie needs three eggs, and Pip is already watching the nesting box." }]
 		}
 		{
 			id: "30B43B34367293CB"
 			title: "Take Three Eggs to Marnie"
 			subtitle: "Pip is watching the box."
 			icon: "minecraft:egg"
-			description: ["Pip: \"Is that an egg? Aunt Marnie says I get a duck if I'm useful, so I am being extremely useful.\"", "", "Collect 3 eggs from the nesting box behind your house — right-click a hen with chicken feed if you would rather not wait — and hand them in here. Marnie gets them either way; the book does the walking.", "", "Pip puts a duckling on your boot, names it Biscuit, and opens his courier board. Marnie tips 16 carded wool onto the counter."]
+			description: ["Pip: \"Is that an egg? Aunt Marnie says I get a duck if I'm useful, so I am being extremely useful.\"", "", "Collect &a3 eggs&r from the nesting box behind your house and hand them in. Right-click a hen with &achicken feed&r if you would rather not wait for her.", "", "Pip puts a duckling on your boot and names it Biscuit. Ducks, cows and pets have a chapter of their own: &6Animals & Fishing&r."]
 			x: 4.0d
 			y: -0.8d
 			dependencies: ["0BFB18E2492D8F4D"]
+			shape: "hexagon"
+			size: 1.5d
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "3D05A5371C9099E8", type: "item", item: "minecraft:egg", count: 3L, consume_items: true }]
-			rewards: [{ id: "517ECCA79929F26B", type: "command", team_reward: true, auto: "invisible", command: "/valley scene pip", elevate_perms: true, silent: true }, { id: "4D5BCA3FC4FC5199", type: "command", team_reward: true, auto: "invisible", command: "bossbar set valley:folk value 2", elevate_perms: true, silent: true }, { id: "26BE9F42D9B478DC", type: "item", auto: "no_toast", item: "duckling:duck_spawn_egg" }, { id: "6A8BC661F36AA4F5", type: "item", auto: "no_toast", item: "minecraft:white_wool", count: 16 }, { id: "403E9DBBBB72E2D4", type: "item", auto: "no_toast", item: "domesticationinnovation:pet_bed_yellow" }, { id: "11C4C31F2B3035A8", type: "loot", auto: "no_toast", table_id: 6428311738069300697L }, { id: "32C3B10CF4A8E09B", type: "command", auto: "invisible", command: "execute at @p run summon duckling:duck ~ ~ ~ {CustomName:'{\"text\":\"Biscuit\",\"color\":\"gold\"}',CustomNameVisible:1b,PersistenceRequired:1b}", elevate_perms: true, silent: true }, { id: "44A82C8D85E7FBFC", type: "toast", title: "Residents 2/15", auto: "enabled", description: "Next: Marnie's kitchen needs an oven, and the oven needs dry boards. (The man at the mill is still there when you want him.)" }]
+			rewards: [{ id: "517ECCA79929F26B", type: "command", team_reward: true, auto: "invisible", command: "/valley scene pip", elevate_perms: true, silent: true }, { id: "4D5BCA3FC4FC5199", type: "command", team_reward: true, auto: "invisible", command: "bossbar set valley:folk value 2", elevate_perms: true, silent: true }, { id: "26BE9F42D9B478DC", type: "item", auto: "no_toast", item: "duckling:duck_spawn_egg" }, { id: "6A8BC661F36AA4F5", type: "item", auto: "no_toast", item: "minecraft:white_wool", count: 16 }, { id: "403E9DBBBB72E2D4", type: "item", auto: "no_toast", item: "domesticationinnovation:pet_bed_yellow" }, { id: "11C4C31F2B3035A8", type: "loot", auto: "no_toast", table_id: 6428311738069300697L }, { id: "32C3B10CF4A8E09B", type: "command", auto: "invisible", command: "execute at @p run summon duckling:duck ~ ~ ~ {CustomName:'{\"text\":\"Biscuit\",\"color\":\"gold\"}',CustomNameVisible:1b,PersistenceRequired:1b}", elevate_perms: true, silent: true }, { id: "6048D05848A76A2C", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
 		}
 		{
 			id: "167FBD502857379B"
 			title: "Talk to Bram at the Broken Mill"
 			subtitle: "Walk west to the mill. He will accept 'hold this'."
 			icon: "valley:token_bram"
-			description: ["Bram: \"I don't need help — I need somebody to hold things. Different word, same pair of hands.\"", "", "Walk to the mill plot marked on your map, talk to Bram, and bring back the Millwright's Bolt he puts in your hand.", "", "Bram opens his labelled crates: 12 iron ingots and 24 andesite — three times what eight alloys want, because the Millstone wants the rest."]
+			description: ["Bram: \"I don't need help — I need somebody to hold things. Different word, same pair of hands.\"", "", "Walk to the mill plot marked on your map, talk to &bBram&r, and bring back the Millwright's Bolt he puts in your hand.", "", "He opens his labelled crates: &a12 iron ingots&r and &a24 andesite&r. More than the eight alloys want, because the Millstone takes the rest."]
 			x: 0.0d
 			y: 0.0d
 			dependencies: ["2CA1AF8451E957EA"]
+			shape: "hexagon"
+			size: 1.5d
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "37840C18479A70A7", type: "item", item: "valley:token_bram", count: 1L, consume_items: true }]
-			rewards: [{ id: "226F6892A3A1EF80", type: "item", auto: "no_toast", item: "create:wrench" }, { id: "2C366D84BFCB8766", type: "item", auto: "no_toast", item: "create:goggles" }, { id: "6376C4ABA54D8A50", type: "item", auto: "no_toast", item: "minecraft:iron_ingot", count: 12 }, { id: "36CE00BCF4AF352F", type: "item", auto: "no_toast", item: "minecraft:andesite", count: 24 }, { id: "3254B4365C633356", type: "command", team_reward: true, auto: "invisible", command: "bossbar set valley:folk value 3", elevate_perms: true, silent: true }, { id: "1ABBBD460B1C492F", type: "command", auto: "invisible", command: "advancement grant @a only valley:journal/found_2", elevate_perms: true, silent: true }, { id: "1DBC1ABF1FCDA79E", type: "toast", title: "Residents 3/15", auto: "enabled", description: "Next: Bram's bench. Take the hammer and the pick, then read the ground west of the cottage for iron." }]
+			rewards: [{ id: "226F6892A3A1EF80", type: "item", auto: "no_toast", item: "create:wrench" }, { id: "2C366D84BFCB8766", type: "item", auto: "no_toast", item: "create:goggles" }, { id: "6376C4ABA54D8A50", type: "item", auto: "no_toast", item: "minecraft:iron_ingot", count: 12 }, { id: "36CE00BCF4AF352F", type: "item", auto: "no_toast", item: "minecraft:andesite", count: 24 }, { id: "3254B4365C633356", type: "command", team_reward: true, auto: "invisible", command: "bossbar set valley:folk value 3", elevate_perms: true, silent: true }, { id: "1ABBBD460B1C492F", type: "command", auto: "invisible", command: "advancement grant @a only valley:journal/found_2", elevate_perms: true, silent: true }, { id: "5B9E5A659CB2CDC7", type: "xp_levels", auto: "no_toast", xp_levels: 2 }, { id: "6D8D54D9AD61D95F", type: "toast", title: "Residents 3/15", auto: "enabled", description: "Next: take the hammer and the pick off Bram's bench. He will not discuss it." }]
 		}
 		{
 			id: "70AF7E0ABE69FA26"
 			title: "Craft 8 Andesite Alloy"
-			subtitle: "One andesite, one iron nugget. Eight, not nine."
+			subtitle: "Two andesite, two nuggets. Eight, not nine."
 			icon: "create:andesite_alloy"
-			description: ["Bram: \"One andesite, one iron nugget, pressed. Eight of them, not nine — if you're making nine you've misread something.\"", "", "Craft 8 Andesite Alloy — one andesite and one iron nugget each, so eight andesite and one ingot's worth of nuggets (an ingot in the crafting grid makes nine) — and hold them when you hand the quest in. The rest of Bram's crate is for the Millstone.", "", "You get a pre-made Mechanical Press, 8 cogwheels, 8 shafts and 32 wheat — the whole bill for the Millstone and its first grind."]
+			description: ["Bram: \"Two andesite, two nuggets, corner to corner. Eight of them, not nine — if you're making nine you've misread something.\"", "", "Craft &a8 Andesite Alloy&r. Each one is two andesite and two iron nuggets in a 2x2 checker: sixteen andesite, and two ingots' worth of nuggets. Hold all eight when you hand in.", "", "Shafts, cogs, belts and everything else that turns live in the &6Create&r chapter."]
 			x: 6.0d
 			y: 0.0d
 			dependencies: ["2F8AE9350986BEB5"]
+			shape: "square"
+			size: 1.0d
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "3A6C855E8714FB2E", type: "item", item: "create:andesite_alloy", count: 8L }]
-			rewards: [{ id: "1DAB35DAB8572F6D", type: "item", auto: "no_toast", item: "create:mechanical_press" }, { id: "5EA309BAD42B341E", type: "item", auto: "no_toast", item: "create:cogwheel", count: 8 }, { id: "31DC1E9D6120BDE9", type: "item", auto: "no_toast", item: "create:shaft", count: 8 }, { id: "453F68C23B4845EC", type: "item", auto: "no_toast", item: "minecraft:wheat", count: 32 }, { id: "3BC290AD87B85D30", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "2C1D4216039275DD", type: "toast", title: "Eight Alloys, No More", auto: "enabled", description: "Next: Millstone plus Hand Crank, and grind 16 Wheat Flour for Marnie." }]
+			rewards: [{ id: "1DAB35DAB8572F6D", type: "item", auto: "no_toast", item: "create:mechanical_press" }, { id: "5EA309BAD42B341E", type: "item", auto: "no_toast", item: "create:cogwheel", count: 8 }, { id: "31DC1E9D6120BDE9", type: "item", auto: "no_toast", item: "create:shaft", count: 8 }, { id: "453F68C23B4845EC", type: "item", auto: "no_toast", item: "minecraft:wheat", count: 32 }, { id: "3BC290AD87B85D30", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "519BBBFCFB3D43FD", type: "toast", title: "Eight Alloys, No More", auto: "enabled", description: "Next: a Millstone with a Hand Crank on it, and sixteen Wheat Flour for Marnie." }]
 		}
 		{
 			id: "7444A31B1FB2101C"
 			title: "Take Bram's Hammer and Pick Off the Bench"
-			subtitle: "Three by three. One swing. And the pick that reads stone."
+			subtitle: "Three by three, one swing. And a pick that reads."
 			icon: "justhammers:stone_hammer"
-			description: ["Bram: \"Josie said this thing made a man lazy. Then she borrowed it for eleven days and gave it back with the handle worn smooth.\"", "", "Take the Stone Hammer off the peg by Bram's bench. It breaks a three-by-three face in one swing — every block in the square goes the same as the one in the middle — so aim the middle of the square at the middle of the hole you want.", "", "The Prospector's Pick hangs beside it. Hold it and it tells you how high above the lake you stand. Underground, right-click bare stone with it and it names the ore in the direction you are looking, and how far.", "", "Both are yours. Bram will not take them back and he will not discuss it further."]
+			description: ["Bram: \"Josie said this thing made a man lazy. Then she borrowed it for eleven days and gave it back with the handle worn smooth.\"", "", "Take the &aStone Hammer&r off the peg by Bram's bench. It breaks a 3x3 face in one swing, so aim the middle of the square at the middle of the hole you want.", "", "The &aProspector's Pick&r hangs beside it: right-click bare stone underground and it names the nearest ore and how far. More in &6Ores & Mining&r."]
 			x: 2.0d
 			y: 0.0d
 			dependencies: ["167FBD502857379B"]
 			shape: "square"
+			size: 1.0d
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "1D4FF67AA7FE56D2", type: "checkmark", title: "Stone Hammer off the peg and in your bag" }]
-			rewards: [{ id: "7AB11217DCF84DEA", type: "item", auto: "no_toast", item: "justhammers:stone_hammer" }, { id: "0516072A906290C9", type: "item", auto: "no_toast", item: "geolosys:prospectors_pick" }, { id: "3C5244D7C84B9F19", type: "command", auto: "invisible", command: "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Middle of the square, middle of the hole. And do not swing it in my mill.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "5628F6BD86AA8DC4", type: "toast", title: "Bram's Bench, Emptied", auto: "enabled", description: "Next: read the ground west of the cottage. The iron is there. Bram knows where." }]
+			rewards: [{ id: "7AB11217DCF84DEA", type: "item", auto: "no_toast", item: "justhammers:stone_hammer" }, { id: "0516072A906290C9", type: "item", auto: "no_toast", item: "geolosys:prospectors_pick" }, { id: "3C5244D7C84B9F19", type: "command", auto: "invisible", command: "/tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Middle of the square, middle of the hole. And do not swing it in my mill.\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "6A672268E15E1DAA", type: "xp_levels", auto: "no_toast", xp_levels: 1 }, { id: "7AD61C81F2CABA17", type: "toast", title: "Bram's Bench, Emptied", auto: "enabled", description: "Next: read the ground west of the cottage. The iron is there, and it is not in the walls." }]
 		}
 		{
 			id: "2F8AE9350986BEB5"
 			title: "Read the Ground West of the Cottage"
-			subtitle: "Ore lives in beds, and every bed leaves its rubbish on the grass."
-			icon: "geolosys:hematite_ore_sample"
-			description: ["Bram: \"You'll find a vein of iron in the stone here and there, same as anywhere. But the weight of it sits in beds. And every bed throws its rubbish up onto the grass above it.\"", "", "Walk out the west side of the cottage, fifteen paces past the fence, and look down. Small rust-brown rocks lie about on the grass: hematite samples. There are more up the slope past the cellar door. Every one of them sits over a bed of iron.", "", "From the rock nearest the cottage, walk seven paces north toward the town and dig straight down. Fifteen blocks under your boots the stone turns red, and stays red for twenty more. Bram's hammer takes it three at a time. If you miss the bed, hold the pick, right-click the stone and it will point you.", "", "Hematite breaks into iron clusters. Bring back 8. Every metal in the valley works this way: coal, copper, gold, lead. Scattered in the stone if you're lucky, banked in a bed if you can read the grass. Tobin will teach you to read it properly in the summer."]
+			subtitle: "Every bed leaves its rubbish on the grass."
+			icon: "geolosys:iron_cluster"
+			description: ["Bram: \"The weight of the iron sits in beds. And every bed throws its rubbish onto the grass above it.\"", "", "Walk out the west side of the cottage, fifteen paces past the fence, and look down: rust-brown &ahematite samples&r on the grass. From the nearest one, walk seven paces north and dig straight down.", "", "Fifteen blocks down the stone turns red and stays red for twenty more. Hematite breaks into &airon clusters&r; bring back 8."]
 			x: 4.0d
 			y: 0.8d
 			dependencies: ["7444A31B1FB2101C"]
+			shape: "square"
+			size: 1.0d
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "64CBEA76AD0C3FB2", type: "item", title: "8 iron clusters from the bed west of the cottage", item: "geolosys:iron_cluster", count: 8L }]
-			rewards: [{ id: "6B5C805638133D17", type: "item", auto: "no_toast", item: "minecraft:iron_ingot", count: 8 }, { id: "62824802AC500FFF", type: "item", auto: "no_toast", item: "minecraft:torch", count: 16 }, { id: "11467AC7E63F3BB7", type: "toast", title: "Iron, Read Off the Grass", auto: "enabled", description: "Next: smelt the clusters and craft 8 Andesite Alloy for Bram." }]
+			rewards: [{ id: "6B5C805638133D17", type: "item", auto: "no_toast", item: "minecraft:iron_ingot", count: 8 }, { id: "62824802AC500FFF", type: "item", auto: "no_toast", item: "minecraft:torch", count: 16 }, { id: "763109CEC46CC65D", type: "xp_levels", auto: "no_toast", xp_levels: 2 }, { id: "13FB1DD854C55FE9", type: "toast", title: "Iron, Read Off the Grass", auto: "enabled", description: "Next: smelt the clusters and press eight Andesite Alloy. Copper, gold and lead sit in beds too." }]
 		}
 		{
 			id: "7EFC0D973670E744"
 			title: "Mill 16 Flour on a Hand-Cranked Millstone"
 			subtitle: "Your arm first, then the river."
 			icon: "create:wheat_flour"
-			description: ["Bram: \"Hand crank first. You should know exactly what the water is doing for you before it starts doing it.\"", "", "Build a Millstone, put a Hand Crank on top of it, and grind Bram's 32 wheat down to 16 Wheat Flour for Marnie.", "", "Encased Fan, 3 Andesite Alloy, casings and iron — the parts list for the Mechanical Saw in two quests' time."]
+			description: ["Bram: \"Hand crank first. You should know exactly what the water is doing for you before it starts doing it.\"", "", "Build a &aMillstone&r, put a &aHand Crank&r on top of it, and grind &a16 Wheat Flour&r for Marnie. Bram's 32 wheat covers this and Oda's order at the end of the act.", "", "The reward is the whole parts list for the Mechanical Saw, two quests from here."]
 			x: 8.0d
 			y: 0.0d
 			dependencies: ["70AF7E0ABE69FA26"]
+			shape: "square"
+			size: 1.0d
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "196B8E890E4833E0", type: "item", item: "create:wheat_flour", count: 16L, consume_items: true }]
-			rewards: [{ id: "7A10202CA1A5BB14", type: "item", auto: "no_toast", item: "create:encased_fan" }, { id: "3A30150DE4DEFD87", type: "item", auto: "no_toast", item: "create:andesite_alloy", count: 3 }, { id: "0AFABFEC0CB2D674", type: "item", auto: "no_toast", item: "create:andesite_casing", count: 4 }, { id: "470B56C466BBD787", type: "item", auto: "no_toast", item: "minecraft:iron_ingot", count: 8 }, { id: "64B207AF3D94BBEC", type: "loot", auto: "no_toast", table_id: 1001168104822881485L }, { id: "759FFE5C1D332B01", type: "toast", title: "Turn It By Hand", auto: "enabled", description: "Next: two Water Wheels — and they need Seasoned Oak Boards out of Marnie's bread oven." }]
+			rewards: [{ id: "7A10202CA1A5BB14", type: "item", auto: "no_toast", item: "create:encased_fan" }, { id: "3A30150DE4DEFD87", type: "item", auto: "no_toast", item: "create:andesite_alloy", count: 3 }, { id: "0AFABFEC0CB2D674", type: "item", auto: "no_toast", item: "create:andesite_casing", count: 4 }, { id: "470B56C466BBD787", type: "item", auto: "no_toast", item: "minecraft:iron_ingot", count: 8 }, { id: "64B207AF3D94BBEC", type: "loot", auto: "no_toast", table_id: 1001168104822881485L }, { id: "758EA7F3E329B9DB", type: "xp_levels", auto: "no_toast", xp_levels: 2 }, { id: "2376D2A02520F5FB", type: "toast", title: "Turn It By Hand", auto: "enabled", description: "Next: two Water Wheels — and they want Seasoned Oak Boards out of Marnie's oven." }]
 		}
 		{
 			id: "3D62FF07E2F30634"
 			title: "Dry 32 Green Oak Planks in Any Furnace"
-			subtitle: "Two minutes of heat, and they're boards."
+			subtitle: "Ten seconds a plank, and they're boards."
 			icon: "valley:seasoned_oak_board"
-			description: ["Marnie: \"Green planks want heat and time. Josie dried every board in this valley in a furnace and was insufferable about it.\"", "", "Smelt the 32 Green Oak Planks in any furnace — about two minutes for the lot — and hold 32 Seasoned Oak Boards. Marnie's charcoal is in the barrel by the door.", "", "Bram cannot build a Water Wheel until these dry, and the furnace is you. Also the inn's crockery, your chair by the oven, the kitchen kit."]
+			description: ["Marnie: \"Green planks want heat and time. Josie dried every board in this valley in a furnace and was insufferable about it.\"", "", "Smelt the 32 &aGreen Oak Planks&r in any furnace — ten seconds a plank — and hold 32 &aSeasoned Oak Boards&r. Marnie's charcoal is in the barrel by the door.", "", "Bram cannot build a Water Wheel until these dry, and the furnace is you. The kitchen kit comes with them: see &6Cooking & Brewing&r."]
 			x: 0.0d
 			y: 1.5d
 			dependencies: ["2CA1AF8451E957EA"]
+			shape: "square"
+			size: 1.0d
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "64DDBAAE73CBCB72", type: "item", item: "valley:seasoned_oak_board", count: 32L }]
-			rewards: [{ id: "0669F7DEAF619A91", type: "command", team_reward: true, auto: "invisible", command: "tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Dry boards. In April. Hm.\",\"color\":\"white\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "54B778A040082B22", type: "stage", auto: "invisible", stage: "seasoned" }, { id: "5724EBA0DD5C0927", type: "item", auto: "no_toast", item: "handcrafted:wood_crockery_combo" }, { id: "0CFCAFBFACAA10F0", type: "item", auto: "no_toast", item: "handcrafted:oak_chair" }, { id: "73EB427311358B17", type: "item", auto: "no_toast", item: "cookingforblockheads:counter" }, { id: "76B2CD7B7CB67151", type: "item", auto: "no_toast", item: "cookingforblockheads:sink" }, { id: "30A9366001661B8A", type: "item", auto: "no_toast", item: "cookingforblockheads:oven" }, { id: "3C9DBE499127D71A", type: "toast", title: "Dry Boards, in April", auto: "enabled", description: "Next: fit the Counter, Sink and Oven along the inn's back wall. Bram's wheels are unblocked." }]
+			rewards: [{ id: "0669F7DEAF619A91", type: "command", team_reward: true, auto: "invisible", command: "tellraw @a [{\"text\":\"Bram: \",\"color\":\"gray\"},{\"text\":\"Dry boards. In April. Hm.\",\"color\":\"white\",\"italic\":true}]", elevate_perms: true, silent: true }, { id: "54B778A040082B22", type: "stage", auto: "invisible", stage: "seasoned" }, { id: "5724EBA0DD5C0927", type: "item", auto: "no_toast", item: "handcrafted:wood_crockery_combo" }, { id: "0CFCAFBFACAA10F0", type: "item", auto: "no_toast", item: "handcrafted:oak_chair" }, { id: "73EB427311358B17", type: "item", auto: "no_toast", item: "cookingforblockheads:counter" }, { id: "76B2CD7B7CB67151", type: "item", auto: "no_toast", item: "cookingforblockheads:sink" }, { id: "30A9366001661B8A", type: "item", auto: "no_toast", item: "cookingforblockheads:oven" }, { id: "1AB619808F876681", type: "xp_levels", auto: "no_toast", xp_levels: 2 }, { id: "3C9DBE499127D71A", type: "toast", title: "Dry Boards, in April", auto: "enabled", description: "Next: fit the Counter, Sink and Oven along the inn's back wall. Bram's wheels are unblocked." }]
 		}
 		{
 			id: "5656BC94973A071C"
 			title: "Build 2 Water Wheels on the Mill Race"
 			subtitle: "The boards are dry; the race is cut."
 			icon: "create:water_wheel"
-			description: ["Bram: \"Race is cut, boards are dry, and I'm sixty-four. Two wheels, today.\"", "", "Craft 2 Water Wheels using the Seasoned Oak Boards, set them in the mill race beside the mill, and belt the Millstone off them so it turns without you.", "", "Mechanical Saw, Basin and Mixer, plus Bram's crate: 32 Andesite Alloy and 16 wool he has been keeping for windmill sails."]
+			description: ["Bram: \"Race is cut, boards are dry, and I'm sixty-four. Two wheels, today.\"", "", "Craft &a2 Water Wheels&r from the Seasoned Oak Boards, set them in the mill race beside the mill, and belt the Millstone off them so it turns without you.", "", "Sixty years he waited for that noise. The rest of the mill is in the &6Create&r chapter."]
 			x: 10.0d
 			y: 0.0d
 			dependencies: ["7EFC0D973670E744", "3D62FF07E2F30634"]
+			shape: "hexagon"
+			size: 1.5d
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "6878082CBAF5F026", type: "item", item: "create:water_wheel", count: 2L }]
-			rewards: [{ id: "7B30612577B33C90", type: "item", auto: "no_toast", item: "create:mechanical_saw" }, { id: "093A63709DEF9761", type: "item", auto: "no_toast", item: "create:basin" }, { id: "7AB867FD8984B4C3", type: "item", auto: "no_toast", item: "create:mechanical_mixer" }, { id: "339836FB81C92DF4", type: "item", auto: "no_toast", item: "create:andesite_alloy", count: 32 }, { id: "1A4DFF4DEBB2E9C7", type: "item", auto: "no_toast", item: "minecraft:white_wool", count: 16 }, { id: "55E8DCCC56CEFB1C", type: "xp_levels", auto: "no_toast", xp_levels: 5 }, { id: "5F44584FFB4F3EF5", type: "toast", title: "Water Finds a Way", auto: "enabled", description: "Next: cut 128 boards on the Saw and give Bram 64 for Oda's market stalls." }]
+			rewards: [{ id: "7B30612577B33C90", type: "item", auto: "no_toast", item: "create:mechanical_saw" }, { id: "093A63709DEF9761", type: "item", auto: "no_toast", item: "create:basin" }, { id: "7AB867FD8984B4C3", type: "item", auto: "no_toast", item: "create:mechanical_mixer" }, { id: "339836FB81C92DF4", type: "item", auto: "no_toast", item: "create:andesite_alloy", count: 32 }, { id: "1A4DFF4DEBB2E9C7", type: "item", auto: "no_toast", item: "minecraft:white_wool", count: 16 }, { id: "47BAE2441787391E", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "2A65A2131849389B", type: "toast", title: "Water Finds a Way", auto: "enabled", description: "Next: cut 128 boards on the Saw and hand Bram 64 of them for Oda's market stalls." }]
 		}
 		{
 			id: "0F8FD30F0BFA66B1"
 			title: "Cut 128 Boards and Give Bram 64"
 			subtitle: "Sixty-four boards is four stalls."
 			icon: "minecraft:oak_planks"
-			description: ["Bram: \"Oda wants four stalls for the fair. Sixty-four boards is four stalls.\"", "", "Cut 128 Oak Planks on the Mechanical Saw — about twenty-two oak logs off the ridge behind the mill. Hold all 128 when you hand in: the book counts the full 128 and only takes 64 of them for Bram's stalls. You are not cutting 192.", "", "The Thaw Fair now has somewhere to trade from, and you keep Macaw's roof kits and four planters for your own roof."]
+			description: ["Bram: \"Oda wants four stalls for the fair. Sixty-four boards is four stalls.\"", "", "Cut &a128 Oak Planks&r on the Mechanical Saw, about twenty-two oak logs off the ridge behind the mill. Hold all 128 at hand-in: the book counts 128 and takes only 64 for Bram's stalls.", "", "You are not cutting 192."]
 			x: 12.0d
 			y: 0.0d
 			dependencies: ["5656BC94973A071C"]
+			shape: "square"
+			size: 1.0d
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "6B030211BD41CB38", type: "item", title: "128 boards cut — you keep these", item: "minecraft:oak_planks", count: 128L }, { id: "7FF893C2DB0DBAD7", type: "item", title: "64 of them go to Bram for the stalls", item: "minecraft:oak_planks", count: 64L, consume_items: true }]
-			rewards: [{ id: "56D69AE2C001A7DA", type: "stage", auto: "invisible", stage: "market_stalls" }, { id: "1179B92CC2E7A3F9", type: "item", auto: "no_toast", item: "mcwroofs:oak_planks_roof", count: 16 }, { id: "7E44662DC16346A5", type: "item", auto: "no_toast", item: "mcwroofs:oak_planks_steep_roof", count: 16 }, { id: "7C1647AFFC464A07", type: "item", auto: "no_toast", item: "mcwroofs:oak_planks_top_roof", count: 16 }, { id: "541766AD702DC8E5", type: "item", auto: "no_toast", item: "supplementaries:planter", count: 4 }, { id: "112AF233C3C49BCF", type: "loot", auto: "no_toast", table_id: 1001168104822881485L }, { id: "2C654D2D6393B514", type: "toast", title: "Four Stalls for the Fair", auto: "enabled", description: "Next: Oda's store. She wants 16 flour and 8 loaves, and the cobwebs gone." }]
+			rewards: [{ id: "56D69AE2C001A7DA", type: "stage", auto: "invisible", stage: "market_stalls" }, { id: "1179B92CC2E7A3F9", type: "item", auto: "no_toast", item: "mcwroofs:oak_planks_roof", count: 16 }, { id: "7E44662DC16346A5", type: "item", auto: "no_toast", item: "mcwroofs:oak_planks_steep_roof", count: 16 }, { id: "7C1647AFFC464A07", type: "item", auto: "no_toast", item: "mcwroofs:oak_planks_top_roof", count: 16 }, { id: "541766AD702DC8E5", type: "item", auto: "no_toast", item: "supplementaries:planter", count: 4 }, { id: "112AF233C3C49BCF", type: "loot", auto: "no_toast", table_id: 1001168104822881485L }, { id: "5FBC71EF136808B4", type: "xp_levels", auto: "no_toast", xp_levels: 2 }, { id: "034F0D2BF40AD567", type: "toast", title: "Four Stalls for the Fair", auto: "enabled", description: "Next: Oda's store. She wants sixteen flour and eight loaves, and the cobwebs gone." }]
 		}
 		{
 			id: "697248D3F46FF263"
 			title: "Fit the Kitchen and Cook Three Dishes"
 			subtitle: "Counter, sink, oven. The pumpkin is wild."
 			icon: "cookingforblockheads:oven"
-			description: ["Marnie: \"Counter, sink, oven, along the back wall in that order. I've had the spots chalked for four years.\"", "", "Hold the Counter, Sink and Oven at hand-in; the book gives them back. Set them on the inn's three grey slabs, 1, 2, 3: counter, sink, oven. Cook Bread, Pumpkin Pie and Vegetable Soup. The crate holds all but the pumpkin, which is wild.", "", "You get the recipe book, the fruit basket, Marnie's cupboards — and Oda's broom off the back door, which Q19 needs."]
+			description: ["Marnie: \"Counter, sink, oven, along the back wall in that order. I've had the spots chalked for four years.\"", "", "Hold the Counter, Sink and Oven at hand-in; the book gives them back. Set them on the inn's three grey slabs, 1, 2, 3, then cook &aBread&r, &aPumpkin Pie&r and &aVegetable Soup&r. The pumpkin is wild.", "", "Oda's broom comes off the back door with the cookbook. Kettles, skillets and teas: &6Cooking & Brewing&r."]
 			x: 2.0d
 			y: 1.5d
 			dependencies: ["3D62FF07E2F30634"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
 			hide_until_deps_complete: false
 			hide_details_until_startable: false
 			tasks: [{ id: "4EA8C8D584D344CA", type: "item", item: "cookingforblockheads:counter", count: 1L }, { id: "58142466FDE0BDB4", type: "item", item: "cookingforblockheads:sink", count: 1L }, { id: "70FB91328947B6EB", type: "item", item: "cookingforblockheads:oven", count: 1L }, { id: "7445DB2C6855A282", type: "item", item: "minecraft:bread", count: 1L }, { id: "19A6DC19EA01DC58", type: "item", item: "minecraft:pumpkin_pie", count: 1L }, { id: "242A70545CB57DC3", type: "item", item: "farmersdelight:vegetable_soup", count: 1L }]
-			rewards: [{ id: "2040FD26C8215D25", type: "command", auto: "invisible", command: "recipe give @p *", elevate_perms: true, silent: true }, { id: "4587280EC729B1AD", type: "item", auto: "no_toast", item: "cookingforblockheads:recipe_book" }, { id: "52A66876529713F8", type: "item", auto: "no_toast", item: "cookingforblockheads:fruit_basket" }, { id: "64BE5CF47BC653E1", type: "item", auto: "no_toast", item: "handcrafted:oak_cupboard" }, { id: "123B8922E1B48014", type: "item", auto: "no_toast", item: "handcrafted:oak_shelf" }, { id: "12B1852AD73772F9", type: "item", auto: "no_toast", item: "handcrafted:oak_counter" }, { id: "76EC1F8511F6618E", type: "item", auto: "no_toast", item: "valley:oda_broom" }, { id: "11C0252069E5EF8F", type: "loot", auto: "no_toast", table_id: 6428311738069300697L }, { id: "7435F76F78DD3AC2", type: "toast", title: "Marnie's Kitchen", auto: "enabled", description: "Next: sweep Oda's store with the broom, then bring her 16 flour and 8 loaves." }]
+			rewards: [{ id: "2040FD26C8215D25", type: "command", auto: "invisible", command: "recipe give @p *", elevate_perms: true, silent: true }, { id: "4587280EC729B1AD", type: "item", auto: "no_toast", item: "cookingforblockheads:recipe_book" }, { id: "52A66876529713F8", type: "item", auto: "no_toast", item: "cookingforblockheads:fruit_basket" }, { id: "64BE5CF47BC653E1", type: "item", auto: "no_toast", item: "handcrafted:oak_cupboard" }, { id: "123B8922E1B48014", type: "item", auto: "no_toast", item: "handcrafted:oak_shelf" }, { id: "12B1852AD73772F9", type: "item", auto: "no_toast", item: "handcrafted:oak_counter" }, { id: "76EC1F8511F6618E", type: "item", auto: "no_toast", item: "valley:oda_broom" }, { id: "11C0252069E5EF8F", type: "loot", auto: "no_toast", table_id: 6428311738069300697L }, { id: "22A61CC19C77F314", type: "xp_levels", auto: "no_toast", xp_levels: 2 }, { id: "6E83929843C3B4AE", type: "toast", title: "Marnie's Kitchen", auto: "enabled", description: "Next: sweep Oda's store with that broom, then carry her the flour and the bread." }]
 		}
 		{
 			id: "1589859EB1A28DCE"
 			title: "Sweep Oda's Store, Bring 16 Flour and 8 Bread"
 			subtitle: "Act I finale — The Thaw Fair."
 			icon: "minecraft:bread"
-			description: ["Oda: \"Eleven years of keeping the ledger of a shop with nothing in it. Bring me stock and I will open the door.\"", "", "Sweep the marked cobwebs out of the store with Oda's broom, then hand her 16 Wheat Flour and 8 Bread across the counter.", "", "Forty lamps. Fifteen people. One winter that nobody leaves.", "", "The Thaw Fair opens at the Town Anchor: four stalls, a long table, six lamps burning, and five people in a field that froze in February."]
+			description: ["Oda: \"Eleven years of keeping the ledger of a shop with nothing in it. Bring me stock and I will open the door.\"", "", "Sweep the marked cobwebs out of the store with &aOda's Broom&r, then hand &a16 Wheat Flour&r and &a8 Bread&r across the counter.", "", "Forty lamps. Fifteen people. One winter that nobody leaves."]
 			x: 14.0d
 			y: 0.0d
 			dependencies: ["0F8FD30F0BFA66B1", "697248D3F46FF263"]
@@ -195,7 +230,7 @@
 			hide_details_until_startable: false
 			min_required_dependencies: 2
 			tasks: [{ id: "4BC2F2390A94072B", type: "checkmark", title: "Every marked cobweb swept out of the store" }, { id: "1246F3D4D043D7F1", type: "item", item: "create:wheat_flour", count: 16L, consume_items: true }, { id: "22F078ABBBCEEFCE", type: "item", item: "minecraft:bread", count: 8L, consume_items: true }]
-			rewards: [{ id: "01A9087BF15F1DE4", type: "command", auto: "invisible", command: "/valley finale act1", elevate_perms: true, silent: true }, { id: "2F6E6CE7419FDE00", type: "command", auto: "invisible", command: "advancement grant @a only valley:journal/found_3", elevate_perms: true, silent: true }, { id: "5A820389DE5EBE3B", type: "stage", auto: "invisible", stage: "act2" }, { id: "06A871F8670682EB", type: "loot", auto: "no_toast", table_id: 1574160642622613271L }, { id: "487656F5AD7E70CB", type: "item", auto: "no_toast", item: "explorerscompass:explorerscompass" }, { id: "02D526462D6B1880", type: "toast", title: "The Thaw Fair", auto: "enabled", description: "Next: type Ribbit into Marnie's compass and follow the needle. Also a woman fixing a beached boat at the lake, and a prospector at the copper outcrop." }]
+			rewards: [{ id: "01A9087BF15F1DE4", type: "command", auto: "invisible", command: "/valley finale act1", elevate_perms: true, silent: true }, { id: "2F6E6CE7419FDE00", type: "command", auto: "invisible", command: "advancement grant @a only valley:journal/found_3", elevate_perms: true, silent: true }, { id: "5A820389DE5EBE3B", type: "stage", auto: "invisible", stage: "act2" }, { id: "06A871F8670682EB", type: "loot", auto: "no_toast", table_id: 1574160642622613271L }, { id: "487656F5AD7E70CB", type: "item", auto: "no_toast", item: "explorerscompass:explorerscompass" }, { id: "2FC7EC8ECD9909F9", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "3AC046E8A921807E", type: "toast", title: "The Thaw Fair", auto: "enabled", description: "Next: a frog village in the reeds, a woman fixing a beached boat, and a prospector at the copper outcrop." }]
 		}
 	]
 	title: "Act I: The Thaw"

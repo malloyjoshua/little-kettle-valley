@@ -14,47 +14,147 @@ hash = "922a0a06c316eb1f0aba285f5bc59f4421b51b6f861661f3cdab38bbd44e4927"
 
 [[files]]
 file = "config/ftbquests/quests/chapter_groups.snbt"
-hash = "9b85db0d9ab11980c00deb35811a08c59902060d0c3f06db0e8e186ebbc23a60"
+hash = "a053266cf2d1a9d0aeac0918e0f20a7194e637030f20765741bf684e2c00253d"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act1.snbt"
-hash = "3ab832bfe180d1bc54b7c287e47f1a8888c192f0632289433711652c25cf8daa"
+hash = "39246b52047f2a22c60dcae18401f32a64d48dfcec6c38639dde8e8a3f16825a"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act2.snbt"
-hash = "a2b1649f4c5390819461135b5ed45f435b9e58edf68025929f2bfdffebcc2045"
+hash = "710e4a779c613311eb9f225beab3f86f20aaeaffca3c0eaa53d892ece61a1e3c"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act3.snbt"
-hash = "810c32fb67797ba13c65a1f55a5f2c6190a6560f260844ef279934be5d5c7dc3"
+hash = "e9650b099a749de344eaa86b5632097a86089de356935a9ea332c4fce2559add"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act4.snbt"
-hash = "229c86542d08bc35fa452591d367b442cfea1c2b5e35aa45f4cdcfea5d667805"
+hash = "efd46266bf44adc25d69c607c1def100f16a823e369d2115455faa278b736c49"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/act5.snbt"
-hash = "130ff40da372d52a05c3b171284bfd8256eb166b2cd7328b93365053d91f5be1"
+hash = "497d9554f7783b70484e531d2b5648f3d6a18aabd9ba8600a6256882760e697a"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/ae2.snbt"
+hash = "da1940143a7c34afe539d9a1dcdae6975e699172d1d12518138551b4c3076204"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/animals.snbt"
+hash = "bafe7e079f02d75b1e8e396ccb8cd0c112e109e5c2ed2e822952478bea3908d5"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/create.snbt"
+hash = "64e9e849d7fec34259e1a65a4de1962840bd1e2c51cf0500d0153e15b2c89822"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/explore.snbt"
+hash = "d82108094c65b24850abdf437a64eda17584a0381a929d186f02b110a4e36094"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/farm.snbt"
+hash = "230276ad3f28d9d9cdf14b4fbfc7237a919c33677a3aaa099ef701710ed37138"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/home.snbt"
+hash = "400e4aaa5d406e8757903314594b438caf8ef6e2e69a1a088e0a935ff507bc90"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/kitchen.snbt"
+hash = "bf80df2cdc8a092a779fc30bdcc615b47362fab6c23b4251075521f3df87b0d9"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/mining.snbt"
+hash = "75075f69594287fa7a69b0fdb6cc811b78c43ce6d2aa623e229b20f193db45da"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/oda.snbt"
 hash = "d94603b1d24f7b4b0986bc4d9d22758104754dd6cae346339c72a1022731f784"
 
 [[files]]
+file = "config/ftbquests/quests/chapters/power.snbt"
+hash = "a273814ff3bacc0f6ecc66e5bb25eb6cc8484f80766d4186d6452ac4fcda2ae2"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/reactor.snbt"
+hash = "761d7fa63a665308b6bc6f4d73bc3c0a64b43478f0d148a24a72347747d383ff"
+
+[[files]]
 file = "config/ftbquests/quests/chapters/readme.snbt"
-hash = "dea3248ee63d26b7851d5bee66c881dd61031f8cbcf9ffe68c4de7ee6ebf1950"
+hash = "5f157513abde19958858baead8c34df4886d8e7e4c997ab040c1f8d6b5e36e6c"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/start.snbt"
-hash = "e5a697758b501a21e0f1c4e29ed0ea0678cef968abfb2db37ecf573ffa791cb3"
+hash = "b8e84300a34a0b189070ba02a34465c9073c965b362ba804a235e5118a0fc417"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/thermal.snbt"
+hash = "5945575beb3faef7d2b22c0493df9f603f121049d527a886ad1ecae2ee05db2d"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/tips.snbt"
+hash = "aaa8645fc0af925e5ae6db22040d1b8714b8c0436a70d31cf0f79de3efbafc25"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/travel.snbt"
+hash = "921e72c8057be677eff7cf77c03951c21d903c461c8208d64c34fc4af2e965e6"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/wild.snbt"
+hash = "74d14dc3198625efbae7b26b2ff3201499e625d3a21bb111ac4f2f35c78e9528"
 
 [[files]]
 file = "config/ftbquests/quests/data.snbt"
 hash = "2e2a4ff8e7a4f40a88a40f35736bd48196c43531f98aea253d44fb1790f59e85"
 
 [[files]]
+file = "config/ftbquests/quests/reward_tables/ae_crate.snbt"
+hash = "a9d2df858a6244420b40577ef04913f8f78527e93a5e482c8867ab436185e19e"
+
+[[files]]
+file = "config/ftbquests/quests/reward_tables/animals_crate.snbt"
+hash = "76c3e01c214db71e83d1d4731d281eb745d17627b5141040a46450d4e4f7d0e6"
+
+[[files]]
 file = "config/ftbquests/quests/reward_tables/cozy_crate.snbt"
 hash = "695e6f09e4e23781ff67f8194c84ea2b477a2adcce438b00e38578e8d30d4646"
+
+[[files]]
+file = "config/ftbquests/quests/reward_tables/create_crate.snbt"
+hash = "04d137db702eef82c973815fbc3fd769454fb83f31d138c6a9242f9a37cd1252"
+
+[[files]]
+file = "config/ftbquests/quests/reward_tables/explore_crate.snbt"
+hash = "884bf8a426d29ec4ea32151bb2fe27d17e1952d5a8646759f93f5ea5bf0ca47e"
+
+[[files]]
+file = "config/ftbquests/quests/reward_tables/farm_crate.snbt"
+hash = "49bdf80a3f0cacd62a9ff15778aa18f3fb3846c0dd4f13d48b05af87f20e73fc"
+
+[[files]]
+file = "config/ftbquests/quests/reward_tables/flux_crate.snbt"
+hash = "4ae6e798082490edfdaa937003930a1b469aa9ac782ca2d65927a80d94614d74"
+
+[[files]]
+file = "config/ftbquests/quests/reward_tables/home_crate.snbt"
+hash = "1a21fcdee43170e410260e0810586c2163951c7fc7dd39c24984858aaab8e63c"
+
+[[files]]
+file = "config/ftbquests/quests/reward_tables/kitchen_crate.snbt"
+hash = "83e3d44273244700b336d31c1fb0ff827c0b869791bc0e89cb5a442b5d771fed"
+
+[[files]]
+file = "config/ftbquests/quests/reward_tables/mining_crate.snbt"
+hash = "b771b6ed2dc1ca42c0eb6e3e1c30c553cd2067b78cb0604cce1e02e18dd615c4"
+
+[[files]]
+file = "config/ftbquests/quests/reward_tables/power_crate.snbt"
+hash = "4821bb0d0b8cbf315a103c4e36a1c6fedad938d23c64a646ba0ecc39ae9f79c8"
+
+[[files]]
+file = "config/ftbquests/quests/reward_tables/reactor_crate.snbt"
+hash = "aeeec10ce6a77affb0e2856d272d074c0f777e0e5e424e0f08c4b88fdcb681d8"
 
 [[files]]
 file = "config/ftbquests/quests/reward_tables/story_crate.snbt"
@@ -63,6 +163,18 @@ hash = "123b3533814ab713405a37ef9a6c17357d4df82cf05ff9e2b7bf865f54e3158e"
 [[files]]
 file = "config/ftbquests/quests/reward_tables/tech_crate.snbt"
 hash = "a2bcb72e52a4f19fe56bca7e70f7904f851b42b9339de11c4b506a5f7e27252e"
+
+[[files]]
+file = "config/ftbquests/quests/reward_tables/tips_crate.snbt"
+hash = "71ac1b4201ccc8ca935830b8259b0a8d1e2c4534449ef239ca4bb1d629251f1f"
+
+[[files]]
+file = "config/ftbquests/quests/reward_tables/travel_crate.snbt"
+hash = "35f4cec12647c29426617f42b64f3a2d261dd4d3da7b02414b4ce0eb4bccd974"
+
+[[files]]
+file = "config/ftbquests/quests/reward_tables/wild_crate.snbt"
+hash = "2aba577db646d959f17e394f2b51b1489571f8f13c595ee0cddb011f34359275"
 
 [[files]]
 file = "config/ftbxmodcompat.snbt"
@@ -590,7 +702,7 @@ hash = "c24ac34612f8317811252804ea5b2b0500cd47fcaaa225a3b06eb7c9eb2c19e0"
 
 [[files]]
 file = "kubejs/server_scripts/_quest_ids.js"
-hash = "e348a4938f7f796ad6bc28d6a0550dd039eadf00f8abec68a1bb6928533c8555"
+hash = "92794261319430502ff307197e09a48a18bb4f039a264f5dfad0255ee06f5adb"
 
 [[files]]
 file = "kubejs/server_scripts/seasons_tags.js"
@@ -614,11 +726,11 @@ hash = "78dc444e9b5a7080264f409ed7cb81773a326827dbc62080bc9a724a53400668"
 
 [[files]]
 file = "kubejs/server_scripts/valley_core.js"
-hash = "bc69c1026cf4f60c2e4ccca6f92281dea23a1b26c1851394daca5a9ef8751ca2"
+hash = "ca6ed22dd9686d506f330d1f4adf51329d164b90859b68f56cc485dec96e8b7b"
 
 [[files]]
 file = "kubejs/server_scripts/valley_finales.js"
-hash = "e2dcb49efe0546df5f19337fe4ebe003921065ddc73b2fbc24416a938a824f25"
+hash = "e6c3b7640a98df43583df0c7425e71a063d70ddfeb0af798ffbfb82e80d6d3f4"
 
 [[files]]
 file = "kubejs/server_scripts/valley_floorfix.js"
@@ -626,7 +738,7 @@ hash = "95e50da8776baa18681591548598675c284ae8b1b249403dd90f78e9ac4cd314"
 
 [[files]]
 file = "kubejs/server_scripts/valley_gates.js"
-hash = "f9c26138cf0d0134ccdcffa8cc4bb6859359ad5c5ed6e850c4c9320b44404d63"
+hash = "23b2234fe9a15c1a2fae6fa645f8c003b2306e410b2d506579766fc5ebdca555"
 
 [[files]]
 file = "kubejs/server_scripts/valley_greetings.js"

@@ -1,0 +1,925 @@
+{
+ "chapter": {
+  "key": "kitchen",
+  "title": "Cooking & Brewing",
+  "subtitle": [
+   "Pot, board, oven, kettle, press.",
+   "Everything the inn kitchen does, built one station at a time."
+  ],
+  "icon": "farmersdelight:cooking_pot",
+  "group": "Home & Farm",
+  "order": 11,
+  "images": [
+   {
+    "x": -5,
+    "y": -5,
+    "width": 3,
+    "height": 3,
+    "image": "farmersdelight:item/cooking_pot",
+    "order": -1,
+    "hover": [
+     "One pot, one fire.",
+     "Marnie has used the same one since 1971."
+    ]
+   },
+   {
+    "x": 4,
+    "y": -6,
+    "width": 2,
+    "height": 2,
+    "image": "minecraft:item/wheat",
+    "order": -1
+   },
+   {
+    "x": 12,
+    "y": -5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "bakery:item/bread",
+    "order": -1,
+    "hover": [
+     "Three loaves a bake."
+    ]
+   },
+   {
+    "x": 20,
+    "y": -4,
+    "width": 2,
+    "height": 2,
+    "image": "herbalbrews:item/tea_kettle",
+    "order": -1
+   },
+   {
+    "x": 28,
+    "y": -2,
+    "width": 2,
+    "height": 2,
+    "image": "vinery:item/apple_wine",
+    "order": -1
+   },
+   {
+    "x": -6,
+    "y": 6,
+    "width": 2,
+    "height": 2,
+    "image": "farmersdelight:item/iron_knife",
+    "order": -1
+   },
+   {
+    "x": 8,
+    "y": 7,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "bakery:item/strawberry_cake",
+    "order": -1,
+    "hover": [
+     "Wild strawberries, meadow above the mill."
+    ]
+   },
+   {
+    "x": 18,
+    "y": 7,
+    "width": 2,
+    "height": 2,
+    "image": "nethersdelight:item/iron_machete",
+    "order": -1
+   },
+   {
+    "x": 26,
+    "y": 6,
+    "width": 2,
+    "height": 2,
+    "image": "herbalbrews:item/green_tea",
+    "order": -1
+   }
+  ]
+ },
+ "reward_tables": [
+  {
+   "key": "kitchen_crate",
+   "title": "Marnie's Larder",
+   "loot_size": 1,
+   "loot_crate": {
+    "id": "kitchen_crate",
+    "name": "Marnie's Larder",
+    "color": 14188339,
+    "glow": false
+   },
+   "rewards": [
+    {
+     "item": "farmersdelight:onion",
+     "count": 6,
+     "weight": 3
+    },
+    {
+     "item": "farmersdelight:tomato",
+     "count": 6,
+     "weight": 3
+    },
+    {
+     "item": "bakery:bread",
+     "count": 4,
+     "weight": 3
+    },
+    {
+     "item": "herbalbrews:green_tea_leaf",
+     "count": 6,
+     "weight": 3
+    },
+    {
+     "item": "bakery:strawberry",
+     "count": 6,
+     "weight": 2
+    },
+    {
+     "item": "vinery:red_grape",
+     "count": 8,
+     "weight": 2
+    },
+    {
+     "item": "candlelight:butter",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "herbalbrews:coffee_beans",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "farmersdelight:apple_pie",
+     "count": 1,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:cake",
+     "count": 1,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:honey_bottle",
+     "count": 2,
+     "weight": 1
+    },
+    {
+     "item": "cookingforblockheads:fruit_basket",
+     "count": 1,
+     "weight": 1
+    }
+   ]
+  }
+ ],
+ "quests": [
+  {
+   "key": "kitchen_pot",
+   "title": "Set a Cooking Pot Over a Flame",
+   "subtitle": "Stews heal more than bread does.",
+   "icon": "farmersdelight:cooking_pot",
+   "description": [
+    "Marnie: \"One pot and one fire, and you'll never eat a raw carrot again.\"",
+    "",
+    "Craft a &aCooking Pot&r and stand it on a campfire. Crops and meat go in the grid, a bowl in the container slot, and it simmers while you do something else.",
+    "",
+    "Every other station in this chapter hangs off this pot."
+   ],
+   "deps": [],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 2.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "farmersdelight:cooking_pot",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:bowl",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:onion",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "kitchen_board",
+   "title": "Set Up a Cutting Board and Knife",
+   "subtitle": "One log, six planks, on the board.",
+   "icon": "farmersdelight:cutting_board",
+   "description": [
+    "Put an item on the &aCutting Board&r and right-click it with a knife. It strips logs, slices meat, and gets more out of most crops than the crafting grid will.",
+    "",
+    "The &aIron Knife&r is the one worth keeping. The flint one snaps."
+   ],
+   "deps": [
+    "kitchen_pot"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "farmersdelight:cutting_board",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:iron_knife",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "farmersdelight:golden_knife",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:oak_log",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "kitchen_skillet",
+   "title": "Fry Breakfast in a Skillet",
+   "subtitle": "Cooks in your hand, over any fire.",
+   "icon": "farmersdelight:skillet",
+   "description": [
+    "Pip: \"You can hit things with it while it's still hot. Aunt Marnie says not to.\"",
+    "",
+    "Craft a &aSkillet&r, hold it over a fire and fry one item at a time. Cook &aBacon and Eggs&r on it.",
+    "",
+    "Fastest breakfast in the valley."
+   ],
+   "deps": [
+    "kitchen_pot"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "farmersdelight:skillet",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:bacon_and_eggs",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "farmersdelight:bacon",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "minecraft:egg",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "kitchen_kettle",
+   "title": "Hang a Tea Kettle Over Heat",
+   "subtitle": "Halden trades tea for stories.",
+   "icon": "herbalbrews:tea_kettle",
+   "description": [
+    "Halden: \"Green leaves want a week of sun before they want a kettle. Everything here waits.\"",
+    "",
+    "Craft a &aTea Kettle&r and pick &a8 Green Tea Leaves&r off the wild bushes. Dry the leaf blocks in daylight, then brew dried leaf with a glass bottle over heat.",
+    "",
+    "A brewed cup carries a small effect for half an hour."
+   ],
+   "deps": [
+    "kitchen_pot"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "herbalbrews:tea_kettle",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "herbalbrews:green_tea_leaf",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "herbalbrews:jug",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:glass_bottle",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "kitchen_grapes",
+   "title": "Grow Sixteen Red Grapes",
+   "subtitle": "A pot, a lattice, and patience.",
+   "icon": "vinery:red_grape",
+   "description": [
+    "Plant &aRed Grape Seeds&r in a &aGrapevine Pot&r with a lattice standing over it and the vine climbs on its own. Pick the bunches by hand once they redden.",
+    "",
+    "Halden put the same four starts on a trellis behind the hedge garden in Act II, step 5."
+   ],
+   "deps": [
+    "kitchen_pot"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "vinery:grapevine_pot",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "vinery:red_grape",
+     "count": 16
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "vinery:red_grape_seeds",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "vinery:oak_lattice",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "kitchen_stove",
+   "title": "Build a Stove",
+   "subtitle": "Six things frying at once, on show.",
+   "icon": "farmersdelight:stove",
+   "description": [
+    "Marnie: \"A stove is a kitchen that keeps cooking while you're facing the other way.\"",
+    "",
+    "Build a &aStove&r. It fries six items on its top face with no menu, feeds a Cooking Pot standing on it, and lights the room.",
+    "",
+    "Charcoal keeps it going all evening."
+   ],
+   "deps": [
+    "kitchen_skillet"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "farmersdelight:stove",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "farmersdelight:oak_cabinet",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "minecraft:charcoal",
+     "count": 32
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "kitchen_nether",
+   "title": "Grill Two Nether Skewers",
+   "subtitle": "Take a machete. Take water too.",
+   "icon": "nethersdelight:iron_machete",
+   "description": [
+    "Craft an &aIron Machete&r, which cuts a fungus colony down in one swing, then grill &a2 Nether Skewers&r over a blackstone stove.",
+    "",
+    "&cHoglins hit hard&r and striders burn nothing but your patience."
+   ],
+   "deps": [
+    "kitchen_stove"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "nethersdelight:iron_machete",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "nethersdelight:nether_skewer",
+     "count": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "nethersdelight:blackstone_stove",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:cooked_porkchop",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "kitchen_counter",
+   "title": "Fit a Counter, Sink and Oven",
+   "subtitle": "The kitchen starts cooking for you.",
+   "icon": "cookingforblockheads:oven",
+   "description": [
+    "Place a &aCounter&r, a &aSink&r and an &aOven&r so they touch. Connected blocks share one inventory, and the recipe screen then lists every dish you can make from what is inside them.",
+    "",
+    "Marnie's own three sit along the inn's back wall: Act I, step 10."
+   ],
+   "deps": [
+    "kitchen_board"
+   ],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 1.5,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "cookingforblockheads:counter",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "cookingforblockheads:sink",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "cookingforblockheads:oven",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "cookingforblockheads:recipe_book",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "cookingforblockheads:cabinet",
+     "count": 2
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "kitchen_fridge",
+   "title": "Add a Fridge and a Toaster",
+   "subtitle": "Cold storage, and toast.",
+   "icon": "cookingforblockheads:fridge",
+   "description": [
+    "Add a &aFridge&r and a &aToaster&r to the kitchen block. The fridge is more room on the same shared inventory; the toaster browns two slices while you stand there.",
+    "",
+    "A &aMilk Jar&r on the counter ends the bucket runs for cake."
+   ],
+   "deps": [
+    "kitchen_counter"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "cookingforblockheads:fridge",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "cookingforblockheads:toaster",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "cookingforblockheads:milk_jar",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:bread",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "kitchen_bakery",
+   "title": "Fire the Baker Station",
+   "subtitle": "Dough, sugar, water, three loaves.",
+   "icon": "bakery:baker_station",
+   "description": [
+    "Build a &aBaker Station&r and a brick stove beside it. Knead &aDough&r from flour and water, then bake &a4 Bakery Bread&r on the stove with sugar and a water bucket.",
+    "",
+    "Wheat flour comes off Bram's millstone: Act I, step 6."
+   ],
+   "deps": [
+    "kitchen_counter"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "bakery:baker_station",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "bakery:bread",
+     "count": 4
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "bakery:rolling_pin",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "bakery:breadbox",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:wheat",
+     "count": 32
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "kitchen_cake",
+   "title": "Bake Two Cakes for the Display",
+   "subtitle": "One chocolate, one strawberry.",
+   "icon": "bakery:chocolate_cake",
+   "description": [
+    "Beat &aCake Dough&r at the Baker Station, then bake a &aChocolate Cake&r and a &aStrawberry Cake&r. Wild strawberries grow in the meadow above the mill.",
+    "",
+    "A cake stand holds one and shows how many slices are left."
+   ],
+   "deps": [
+    "kitchen_bakery"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "bakery:chocolate_cake",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "bakery:strawberry_cake",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "bakery:cake_stand",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "bakery:strawberry",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "kitchen_candle",
+   "title": "Plate a Bolognese in a Pan",
+   "subtitle": "Candlelight cooks by the plate.",
+   "icon": "candlelight:cooking_pan",
+   "description": [
+    "Craft a &aCooking Pan&r and a &aTable Set&r, then make &aPasta Bolognese&r from pasta, tomato and beef.",
+    "",
+    "Candlelight dishes sit on the table as blocks. Somebody still has to eat them."
+   ],
+   "deps": [
+    "kitchen_counter"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "candlelight:cooking_pan",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "candlelight:pasta_bolognese",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "candlelight:table_set",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "candlelight:oak_chair",
+     "count": 2
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "kitchen_teas",
+   "title": "Brew Three Different Cups",
+   "subtitle": "Black, hibiscus, and a coffee.",
+   "icon": "herbalbrews:black_tea",
+   "description": [
+    "Halden: \"I have opinions about hibiscus. You will hear all of them.\"",
+    "",
+    "Brew &aBlack Tea&r, &aHibiscus Tea&r and a &aCoffee&r on the kettle. Each dries from a different plant and each carries its own effect.",
+    "",
+    "Coffee beans grow wild on jungle trunks."
+   ],
+   "deps": [
+    "kitchen_kettle"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "herbalbrews:black_tea",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "herbalbrews:hibiscus_tea",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "herbalbrews:coffee",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "herbalbrews:tea_leaf_crate",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "herbalbrews:flask",
+     "count": 1
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "kitchen_press",
+   "title": "Press Apples into Juice",
+   "subtitle": "Mash first, then let it work.",
+   "icon": "vinery:apple_press",
+   "description": [
+    "Build an &aApple Press&r. Drop apples in for &aApple Mash&r, leave the mash in the press to ferment, and draw off &a2 Apple Juice&r.",
+    "",
+    "The press takes grapes too, once there is a barrel to put them in."
+   ],
+   "deps": [
+    "kitchen_grapes"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "vinery:apple_press",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "vinery:apple_juice",
+     "count": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "vinery:wine_bottle",
+     "count": 4
+    },
+    {
+     "type": "item",
+     "item": "minecraft:apple",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "kitchen_wine",
+   "title": "Ferment a Bottle of Apple Wine",
+   "subtitle": "Sugar, juice, a bottle, a wait.",
+   "icon": "vinery:apple_wine",
+   "description": [
+    "Build a &aFermentation Barrel&r. Pour in apple juice with sugar and an empty &aWine Bottle&r, then leave it alone until it reads as &aApple Wine&r.",
+    "",
+    "A wine rack ages what you shelve in it, and an older bottle pours stronger."
+   ],
+   "deps": [
+    "kitchen_press"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "vinery:fermentation_barrel",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "vinery:apple_wine",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "vinery:oak_wine_rack_small",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "vinery:winemaker_apron",
+     "count": 1
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "kitchen_feast",
+   "title": "Cook Four Dishes for a Full Room",
+   "subtitle": "One off every station you built.",
+   "icon": "farmersdelight:beef_stew",
+   "description": [
+    "Marnie: \"A full room is twelve plates. I have counted them for four years.\"",
+    "",
+    "Cook &aBeef Stew&r, &aPumpkin Soup&r, &aCabbage Rolls&r and &aChicken Soup&r, then hand all four in at once.",
+    "",
+    "For what grows in which month, see the &6Farm & Seasons&r chapter."
+   ],
+   "deps": [
+    "kitchen_counter",
+    "kitchen_bakery",
+    "kitchen_kettle"
+   ],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 1.5,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "farmersdelight:beef_stew",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:pumpkin_soup",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:cabbage_rolls",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:chicken_soup",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "kitchen_crate"
+    },
+    {
+     "type": "item",
+     "item": "cookingforblockheads:fruit_basket",
+     "count": 1
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    },
+    {
+     "type": "toast",
+     "title": "The Kitchen Is Warm",
+     "description": "Next: Marnie's own counter, sink and oven at the inn - Act I, step 10 - and the bakery line in Act III."
+    }
+   ]
+  }
+ ]
+}

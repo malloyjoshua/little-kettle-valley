@@ -1,0 +1,23 @@
+{
+	empty_weight: 0.0f
+	id: "0CB18A07C0930FBB"
+	loot_size: 1
+	order_index: 0
+	title: "Nella's Creel"
+	use_title: true
+	rewards: [
+		{ item: "aquaculture:worm", count: 16, weight: 3.0f }
+		{ item: "minecraft:wheat_seeds", count: 16, weight: 3.0f }
+		{ item: "minecraft:egg", count: 8, weight: 3.0f }
+		{ item: "aquaculture:fish_fillet_cooked", count: 6, weight: 3.0f }
+		{ item: "minecraft:hay_block", count: 4, weight: 2.0f }
+		{ item: "minecraft:bone_meal", count: 16, weight: 2.0f }
+		{ item: "aquaculture:algae", count: 8, weight: 2.0f }
+		{ item: "minecraft:lead", count: 2, weight: 2.0f }
+		{ item: "minecraft:honey_bottle", count: 2, weight: 2.0f }
+		{ item: "duckling:cooked_duck", count: 3, weight: 1.0f }
+		{ item: "domesticationinnovation:collar_tag", weight: 1.0f }
+		{ item: "minecraft:name_tag", weight: 1.0f }
+	]
+	loot_crate: { string_id: "animals_crate", item_name: "Nella's Creel", color: 5636095, glow: false, drops: { passive: 0, monster: 0, boss: 0 } }
+}

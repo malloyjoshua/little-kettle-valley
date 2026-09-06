@@ -8,8 +8,109 @@
    "Forty lamps. Fifteen people. One winter that nobody leaves."
   ],
   "icon": "minecraft:oak_sapling",
-  "group": "Story",
-  "order": 2
+  "group": "The Valley",
+  "order": 2,
+  "images": [
+   {
+    "x": 0.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:block/farmland_moist",
+    "order": -1,
+    "hover": [
+     "Twenty-seven marked tiles behind the house."
+    ]
+   },
+   {
+    "x": 4.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:item/egg",
+    "order": -1,
+    "hover": [
+     "Three eggs, and Pip gets his duck."
+    ]
+   },
+   {
+    "x": 8.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "create:item/andesite_alloy",
+    "order": -1,
+    "hover": [
+     "Two andesite, two nuggets, corner to corner."
+    ]
+   },
+   {
+    "x": 12.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "create:block/millstone",
+    "order": -1,
+    "hover": [
+     "Hand crank first. Then the river."
+    ]
+   },
+   {
+    "x": 0.0,
+    "y": 4.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "geolosys:block/hematite_ore",
+    "order": -1,
+    "hover": [
+     "Iron sits in beds. Read the grass."
+    ]
+   },
+   {
+    "x": 4.0,
+    "y": 4.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:block/oak_planks",
+    "order": -1,
+    "hover": [
+     "Green planks in, dry boards out."
+    ]
+   },
+   {
+    "x": 8.0,
+    "y": 4.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "create:block/waterwheel_metal",
+    "order": -1,
+    "hover": [
+     "Two wheels on the mill race."
+    ]
+   },
+   {
+    "x": 12.0,
+    "y": 4.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:item/bread",
+    "order": -1,
+    "hover": [
+     "Sixteen flour, eight loaves, and the store opens."
+    ]
+   },
+   {
+    "x": 16.5,
+    "y": -0.25,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "torchmaster:block/megatorch",
+    "order": -1,
+    "hover": [
+     "Nothing hostile spawns where she lives."
+    ]
+   }
+  ]
  },
  "reward_tables": [
   {
@@ -246,9 +347,9 @@
    "description": [
     "Marnie: \"Three beds: wheat, carrots, potatoes. Anything fancier and you'll be eating it alone in July.\"",
     "",
-    "Till the 3x9 patch behind the house \u2014 every tile is marked in path blocks \u2014 then plant the 9 carrots, 9 potatoes and 9 wheat seeds from Marnie's sack. Do the wheat last: hand in holding the nine seeds, which the book counts and never takes.",
+    "Till the 3x9 patch behind the house \u2014 every tile is marked in path blocks \u2014 then plant the &a9 carrots&r, &a9 potatoes&r and &a9 wheat seeds&r from Marnie's sack. Hand in holding the seeds; the book counts them and never takes them.",
     "",
-    "Marnie hands over the fence, the gate, the trough and three Hen Crates for the pen next to it."
+    "For what grows in which season, see the &6Farm & Seasons&r chapter."
    ],
    "deps": [
     "q08"
@@ -301,11 +402,18 @@
      "count": 3
     },
     {
+     "type": "xp_levels",
+     "levels": 2
+    },
+    {
      "type": "toast",
      "title": "Three Beds of Dirt",
-     "description": "Next: fence the pen on the marked blocks and open the three Hen Crates inside it."
+     "description": "Next: fence the pen on the marked footings and open the three Hen Crates inside it."
     }
-   ]
+   ],
+   "shape": "hexagon",
+   "size": 2.0,
+   "optional": false
   },
   {
    "key": "q10",
@@ -315,9 +423,9 @@
    "description": [
     "Marnie: \"Two hens and a rooster. Don't name the rooster \u2014 you'll get attached, and he is horrible.\"",
     "",
-    "Put a fence section on each of the 23 stone footings marked out behind the house, hang the gate on the single grey slab in the middle of the side facing you, then right-click all three Hen Crates inside the finished pen. Any order is right.",
+    "Put a fence section on each of the 23 stone footings behind the house, hang the gate on the single grey slab in the middle of the side facing you, then right-click all three &aHen Crates&r inside the pen. Any order is right.",
     "",
-    "A nesting box goes down with two eggs in it, a Megatorch goes up over the coop, and chicken feed makes a hen lay when you right-click her."
+    "A &aMegatorch&r goes up over the coop. Nothing hostile spawns inside its reach."
    ],
    "deps": [
     "q09"
@@ -353,11 +461,18 @@
      "count": 3
     },
     {
+     "type": "xp_levels",
+     "levels": 1
+    },
+    {
      "type": "toast",
      "title": "Two Hens and a Rooster",
-     "description": "Next: Marnie needs three eggs."
+     "description": "Next: Marnie needs three eggs, and Pip is already watching the nesting box."
     }
-   ]
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "optional": false
   },
   {
    "key": "q11",
@@ -367,9 +482,9 @@
    "description": [
     "Pip: \"Is that an egg? Aunt Marnie says I get a duck if I'm useful, so I am being extremely useful.\"",
     "",
-    "Collect 3 eggs from the nesting box behind your house \u2014 right-click a hen with chicken feed if you would rather not wait \u2014 and hand them in here. Marnie gets them either way; the book does the walking.",
+    "Collect &a3 eggs&r from the nesting box behind your house and hand them in. Right-click a hen with &achicken feed&r if you would rather not wait for her.",
     "",
-    "Pip puts a duckling on your boot, names it Biscuit, and opens his courier board. Marnie tips 16 carded wool onto the counter."
+    "Pip puts a duckling on your boot and names it Biscuit. Ducks, cows and pets have a chapter of their own: &6Animals & Fishing&r."
    ],
    "deps": [
     "q10"
@@ -417,11 +532,13 @@
      "silent": true
     },
     {
-     "type": "toast",
-     "title": "Residents 2/15",
-     "description": "Next: Marnie's kitchen needs an oven, and the oven needs dry boards. (The man at the mill is still there when you want him.)"
+     "type": "xp_levels",
+     "levels": 2
     }
-   ]
+   ],
+   "shape": "hexagon",
+   "size": 1.5,
+   "optional": false
   },
   {
    "key": "q12",
@@ -431,9 +548,9 @@
    "description": [
     "Bram: \"I don't need help \u2014 I need somebody to hold things. Different word, same pair of hands.\"",
     "",
-    "Walk to the mill plot marked on your map, talk to Bram, and bring back the Millwright's Bolt he puts in your hand.",
+    "Walk to the mill plot marked on your map, talk to &bBram&r, and bring back the Millwright's Bolt he puts in your hand.",
     "",
-    "Bram opens his labelled crates: 12 iron ingots and 24 andesite \u2014 three times what eight alloys want, because the Millstone wants the rest."
+    "He opens his labelled crates: &a12 iron ingots&r and &a24 andesite&r. More than the eight alloys want, because the Millstone takes the rest."
    ],
    "deps": [
     "q08"
@@ -477,23 +594,30 @@
      "silent": true
     },
     {
+     "type": "xp_levels",
+     "levels": 2
+    },
+    {
      "type": "toast",
      "title": "Residents 3/15",
-     "description": "Next: Bram's bench. Take the hammer and the pick, then read the ground west of the cottage for iron."
+     "description": "Next: take the hammer and the pick off Bram's bench. He will not discuss it."
     }
-   ]
+   ],
+   "shape": "hexagon",
+   "size": 1.5,
+   "optional": false
   },
   {
    "key": "q13",
    "title": "Craft 8 Andesite Alloy",
-   "subtitle": "One andesite, one iron nugget. Eight, not nine.",
+   "subtitle": "Two andesite, two nuggets. Eight, not nine.",
    "icon": "create:andesite_alloy",
    "description": [
-    "Bram: \"One andesite, one iron nugget, pressed. Eight of them, not nine \u2014 if you're making nine you've misread something.\"",
+    "Bram: \"Two andesite, two nuggets, corner to corner. Eight of them, not nine \u2014 if you're making nine you've misread something.\"",
     "",
-    "Craft 8 Andesite Alloy \u2014 one andesite and one iron nugget each, so eight andesite and one ingot's worth of nuggets (an ingot in the crafting grid makes nine) \u2014 and hold them when you hand the quest in. The rest of Bram's crate is for the Millstone.",
+    "Craft &a8 Andesite Alloy&r. Each one is two andesite and two iron nuggets in a 2x2 checker: sixteen andesite, and two ingots' worth of nuggets. Hold all eight when you hand in.",
     "",
-    "You get a pre-made Mechanical Press, 8 cogwheels, 8 shafts and 32 wheat \u2014 the whole bill for the Millstone and its first grind."
+    "Shafts, cogs, belts and everything else that turns live in the &6Create&r chapter."
    ],
    "deps": [
     "q13b"
@@ -532,23 +656,24 @@
     {
      "type": "toast",
      "title": "Eight Alloys, No More",
-     "description": "Next: Millstone plus Hand Crank, and grind 16 Wheat Flour for Marnie."
+     "description": "Next: a Millstone with a Hand Crank on it, and sixteen Wheat Flour for Marnie."
     }
-   ]
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "optional": false
   },
   {
    "key": "q13a",
    "title": "Take Bram's Hammer and Pick Off the Bench",
-   "subtitle": "Three by three. One swing. And the pick that reads stone.",
+   "subtitle": "Three by three, one swing. And a pick that reads.",
    "icon": "justhammers:stone_hammer",
    "description": [
     "Bram: \"Josie said this thing made a man lazy. Then she borrowed it for eleven days and gave it back with the handle worn smooth.\"",
     "",
-    "Take the Stone Hammer off the peg by Bram's bench. It breaks a three-by-three face in one swing \u2014 every block in the square goes the same as the one in the middle \u2014 so aim the middle of the square at the middle of the hole you want.",
+    "Take the &aStone Hammer&r off the peg by Bram's bench. It breaks a 3x3 face in one swing, so aim the middle of the square at the middle of the hole you want.",
     "",
-    "The Prospector's Pick hangs beside it. Hold it and it tells you how high above the lake you stand. Underground, right-click bare stone with it and it names the ore in the direction you are looking, and how far.",
-    "",
-    "Both are yours. Bram will not take them back and he will not discuss it further."
+    "The &aProspector's Pick&r hangs beside it: right-click bare stone underground and it names the nearest ore and how far. More in &6Ores & Mining&r."
    ],
    "deps": [
     "q12"
@@ -579,29 +704,32 @@
      "silent": true
     },
     {
+     "type": "xp_levels",
+     "levels": 1
+    },
+    {
      "type": "toast",
      "title": "Bram's Bench, Emptied",
-     "description": "Next: read the ground west of the cottage. The iron is there. Bram knows where."
+     "description": "Next: read the ground west of the cottage. The iron is there, and it is not in the walls."
     }
-   ]
+   ],
+   "size": 1.0
   },
   {
    "key": "q13b",
    "title": "Read the Ground West of the Cottage",
-   "subtitle": "Ore lives in beds, and every bed leaves its rubbish on the grass.",
-   "icon": "geolosys:hematite_ore_sample",
+   "subtitle": "Every bed leaves its rubbish on the grass.",
+   "icon": "geolosys:iron_cluster",
    "deps": [
     "q13a"
    ],
    "optional": false,
    "description": [
-    "Bram: \"You'll find a vein of iron in the stone here and there, same as anywhere. But the weight of it sits in beds. And every bed throws its rubbish up onto the grass above it.\"",
+    "Bram: \"The weight of the iron sits in beds. And every bed throws its rubbish onto the grass above it.\"",
     "",
-    "Walk out the west side of the cottage, fifteen paces past the fence, and look down. Small rust-brown rocks lie about on the grass: hematite samples. There are more up the slope past the cellar door. Every one of them sits over a bed of iron.",
+    "Walk out the west side of the cottage, fifteen paces past the fence, and look down: rust-brown &ahematite samples&r on the grass. From the nearest one, walk seven paces north and dig straight down.",
     "",
-    "From the rock nearest the cottage, walk seven paces north toward the town and dig straight down. Fifteen blocks under your boots the stone turns red, and stays red for twenty more. Bram's hammer takes it three at a time. If you miss the bed, hold the pick, right-click the stone and it will point you.",
-    "",
-    "Hematite breaks into iron clusters. Bring back 8. Every metal in the valley works this way: coal, copper, gold, lead. Scattered in the stone if you're lucky, banked in a bed if you can read the grass. Tobin will teach you to read it properly in the summer."
+    "Fifteen blocks down the stone turns red and stays red for twenty more. Hematite breaks into &airon clusters&r; bring back 8."
    ],
    "tasks": [
     {
@@ -623,11 +751,17 @@
      "count": 16
     },
     {
+     "type": "xp_levels",
+     "levels": 2
+    },
+    {
      "type": "toast",
      "title": "Iron, Read Off the Grass",
-     "description": "Next: smelt the clusters and craft 8 Andesite Alloy for Bram."
+     "description": "Next: smelt the clusters and press eight Andesite Alloy. Copper, gold and lead sit in beds too."
     }
-   ]
+   ],
+   "shape": "square",
+   "size": 1.0
   },
   {
    "key": "q14",
@@ -637,9 +771,9 @@
    "description": [
     "Bram: \"Hand crank first. You should know exactly what the water is doing for you before it starts doing it.\"",
     "",
-    "Build a Millstone, put a Hand Crank on top of it, and grind Bram's 32 wheat down to 16 Wheat Flour for Marnie.",
+    "Build a &aMillstone&r, put a &aHand Crank&r on top of it, and grind &a16 Wheat Flour&r for Marnie. Bram's 32 wheat covers this and Oda's order at the end of the act.",
     "",
-    "Encased Fan, 3 Andesite Alloy, casings and iron \u2014 the parts list for the Mechanical Saw in two quests' time."
+    "The reward is the whole parts list for the Mechanical Saw, two quests from here."
    ],
    "deps": [
     "q13"
@@ -677,23 +811,30 @@
      "table": "tech_crate"
     },
     {
+     "type": "xp_levels",
+     "levels": 2
+    },
+    {
      "type": "toast",
      "title": "Turn It By Hand",
-     "description": "Next: two Water Wheels \u2014 and they need Seasoned Oak Boards out of Marnie's bread oven."
+     "description": "Next: two Water Wheels \u2014 and they want Seasoned Oak Boards out of Marnie's oven."
     }
-   ]
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "optional": false
   },
   {
    "key": "q15",
    "title": "Dry 32 Green Oak Planks in Any Furnace",
-   "subtitle": "Two minutes of heat, and they're boards.",
+   "subtitle": "Ten seconds a plank, and they're boards.",
    "icon": "valley:seasoned_oak_board",
    "description": [
     "Marnie: \"Green planks want heat and time. Josie dried every board in this valley in a furnace and was insufferable about it.\"",
     "",
-    "Smelt the 32 Green Oak Planks in any furnace \u2014 about two minutes for the lot \u2014 and hold 32 Seasoned Oak Boards. Marnie's charcoal is in the barrel by the door.",
+    "Smelt the 32 &aGreen Oak Planks&r in any furnace \u2014 ten seconds a plank \u2014 and hold 32 &aSeasoned Oak Boards&r. Marnie's charcoal is in the barrel by the door.",
     "",
-    "Bram cannot build a Water Wheel until these dry, and the furnace is you. Also the inn's crockery, your chair by the oven, the kitchen kit."
+    "Bram cannot build a Water Wheel until these dry, and the furnace is you. The kitchen kit comes with them: see &6Cooking & Brewing&r."
    ],
    "deps": [
     "q08"
@@ -736,11 +877,18 @@
      "item": "cookingforblockheads:oven"
     },
     {
+     "type": "xp_levels",
+     "levels": 2
+    },
+    {
      "type": "toast",
      "title": "Dry Boards, in April",
      "description": "Next: fit the Counter, Sink and Oven along the inn's back wall. Bram's wheels are unblocked."
     }
-   ]
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "optional": false
   },
   {
    "key": "q16",
@@ -750,9 +898,9 @@
    "description": [
     "Bram: \"Race is cut, boards are dry, and I'm sixty-four. Two wheels, today.\"",
     "",
-    "Craft 2 Water Wheels using the Seasoned Oak Boards, set them in the mill race beside the mill, and belt the Millstone off them so it turns without you.",
+    "Craft &a2 Water Wheels&r from the Seasoned Oak Boards, set them in the mill race beside the mill, and belt the Millstone off them so it turns without you.",
     "",
-    "Mechanical Saw, Basin and Mixer, plus Bram's crate: 32 Andesite Alloy and 16 wool he has been keeping for windmill sails."
+    "Sixty years he waited for that noise. The rest of the mill is in the &6Create&r chapter."
    ],
    "deps": [
     "q14",
@@ -790,14 +938,17 @@
     },
     {
      "type": "xp_levels",
-     "levels": 5
+     "levels": 3
     },
     {
      "type": "toast",
      "title": "Water Finds a Way",
-     "description": "Next: cut 128 boards on the Saw and give Bram 64 for Oda's market stalls."
+     "description": "Next: cut 128 boards on the Saw and hand Bram 64 of them for Oda's market stalls."
     }
-   ]
+   ],
+   "shape": "hexagon",
+   "size": 1.5,
+   "optional": false
   },
   {
    "key": "q17",
@@ -807,9 +958,9 @@
    "description": [
     "Bram: \"Oda wants four stalls for the fair. Sixty-four boards is four stalls.\"",
     "",
-    "Cut 128 Oak Planks on the Mechanical Saw \u2014 about twenty-two oak logs off the ridge behind the mill. Hold all 128 when you hand in: the book counts the full 128 and only takes 64 of them for Bram's stalls. You are not cutting 192.",
+    "Cut &a128 Oak Planks&r on the Mechanical Saw, about twenty-two oak logs off the ridge behind the mill. Hold all 128 at hand-in: the book counts 128 and takes only 64 for Bram's stalls.",
     "",
-    "The Thaw Fair now has somewhere to trade from, and you keep Macaw's roof kits and four planters for your own roof."
+    "You are not cutting 192."
    ],
    "deps": [
     "q16"
@@ -859,11 +1010,18 @@
      "table": "tech_crate"
     },
     {
+     "type": "xp_levels",
+     "levels": 2
+    },
+    {
      "type": "toast",
      "title": "Four Stalls for the Fair",
-     "description": "Next: Oda's store. She wants 16 flour and 8 loaves, and the cobwebs gone."
+     "description": "Next: Oda's store. She wants sixteen flour and eight loaves, and the cobwebs gone."
     }
-   ]
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "optional": false
   },
   {
    "key": "q18",
@@ -873,9 +1031,9 @@
    "description": [
     "Marnie: \"Counter, sink, oven, along the back wall in that order. I've had the spots chalked for four years.\"",
     "",
-    "Hold the Counter, Sink and Oven at hand-in; the book gives them back. Set them on the inn's three grey slabs, 1, 2, 3: counter, sink, oven. Cook Bread, Pumpkin Pie and Vegetable Soup. The crate holds all but the pumpkin, which is wild.",
+    "Hold the Counter, Sink and Oven at hand-in; the book gives them back. Set them on the inn's three grey slabs, 1, 2, 3, then cook &aBread&r, &aPumpkin Pie&r and &aVegetable Soup&r. The pumpkin is wild.",
     "",
-    "You get the recipe book, the fruit basket, Marnie's cupboards \u2014 and Oda's broom off the back door, which Q19 needs."
+    "Oda's broom comes off the back door with the cookbook. Kettles, skillets and teas: &6Cooking & Brewing&r."
    ],
    "deps": [
     "q15"
@@ -946,11 +1104,18 @@
      "table": "cozy_crate"
     },
     {
+     "type": "xp_levels",
+     "levels": 2
+    },
+    {
      "type": "toast",
      "title": "Marnie's Kitchen",
-     "description": "Next: sweep Oda's store with the broom, then bring her 16 flour and 8 loaves."
+     "description": "Next: sweep Oda's store with that broom, then carry her the flour and the bread."
     }
-   ]
+   ],
+   "shape": "rsquare",
+   "size": 1.0,
+   "optional": true
   },
   {
    "key": "q19",
@@ -962,11 +1127,9 @@
    "description": [
     "Oda: \"Eleven years of keeping the ledger of a shop with nothing in it. Bring me stock and I will open the door.\"",
     "",
-    "Sweep the marked cobwebs out of the store with Oda's broom, then hand her 16 Wheat Flour and 8 Bread across the counter.",
+    "Sweep the marked cobwebs out of the store with &aOda's Broom&r, then hand &a16 Wheat Flour&r and &a8 Bread&r across the counter.",
     "",
-    "Forty lamps. Fifteen people. One winter that nobody leaves.",
-    "",
-    "The Thaw Fair opens at the Town Anchor: four stalls, a long table, six lamps burning, and five people in a field that froze in February."
+    "Forty lamps. Fifteen people. One winter that nobody leaves."
    ],
    "deps": [
     "q17",
@@ -1015,11 +1178,16 @@
      "item": "explorerscompass:explorerscompass"
     },
     {
+     "type": "xp_levels",
+     "levels": 3
+    },
+    {
      "type": "toast",
      "title": "The Thaw Fair",
-     "description": "Next: type Ribbit into Marnie's compass and follow the needle. Also a woman fixing a beached boat at the lake, and a prospector at the copper outcrop."
+     "description": "Next: a frog village in the reeds, a woman fixing a beached boat, and a prospector at the copper outcrop."
     }
-   ]
+   ],
+   "optional": false
   }
  ]
 }

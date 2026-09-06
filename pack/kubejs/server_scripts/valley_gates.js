@@ -24,7 +24,8 @@ ServerEvents.recipes(event => {
   //  and that's you." Q15 depends on Q8 alone, so she unblocks him in hour one.
   // Original: 8 planks + 1 shaft (create:crafting/kinetics/water_wheel).
   // ===========================================================================
-  event.remove({ output: 'create:water_wheel' })
+  // (2026-09-06) the mod's own recipe STAYS: gates 1-4 are parallel now. FTB Evolution's rule,
+  // which Josh asked for: mods are not gated; the story recipe is a second, cheaper road.
   event.shaped('create:water_wheel', [
     'SBS',
     'BCB',
@@ -45,7 +46,7 @@ ServerEvents.recipes(event => {
   // than shipping a json, so remove-by-output is the only handle; the
   // replacement below is the recipe JEI will show from now on.
   // ===========================================================================
-  event.remove({ output: 'thermal:machine_frame' })
+  // mod recipe kept (parallel gate, see above)
   event.shaped('thermal:machine_frame', [
     'TGT',
     'GSG',
@@ -63,12 +64,12 @@ ServerEvents.recipes(event => {
   // the 12-block proximity is checked by the QUEST (valley_checks.js, q47).
   // Fridge / Sink / Milk Jar each consume the tap.
   // ===========================================================================
-  event.remove({ output: 'cookingforblockheads:fridge' })
+  // mod recipe kept (parallel gate, see above)
   event.shapeless('cookingforblockheads:fridge', [
     '#balm:wooden_chests', 'minecraft:iron_door', 'valley:works_power_tap'
   ]).id('valley:gate/cfb_fridge')
 
-  event.remove({ output: 'cookingforblockheads:sink' })
+  // mod recipe kept (parallel gate, see above)
   event.shaped('cookingforblockheads:sink', [
     'III',
     'CBC',
@@ -80,7 +81,7 @@ ServerEvents.recipes(event => {
     P: 'valley:works_power_tap'
   }).id('valley:gate/cfb_sink')
 
-  event.remove({ output: 'cookingforblockheads:milk_jar' })
+  // mod recipe kept (parallel gate, see above)
   event.shaped('cookingforblockheads:milk_jar', [
     'GPG',
     'GMG',
@@ -101,7 +102,7 @@ ServerEvents.recipes(event => {
   // every AE2 machine. The Crystal Growth Accelerator is gated with it so the
   // whole crystal line sits behind Halden's spring.
   // ===========================================================================
-  event.remove({ output: 'ae2:charger' })
+  // mod recipe kept (parallel gate, see above)
   event.shaped('ae2:charger', [
     'aWa',
     'a b',
@@ -112,7 +113,7 @@ ServerEvents.recipes(event => {
     W: 'valley:spring_water'
   }).id('valley:gate/ae2_charger')
 
-  event.remove({ output: 'ae2:growth_accelerator' })
+  // mod recipe kept (parallel gate, see above)
   event.shaped('ae2:growth_accelerator', [
     'QSQ',
     'FWF',

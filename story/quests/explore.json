@@ -1,0 +1,794 @@
+{
+ "chapter": {
+  "key": "explore",
+  "title": "Places",
+  "subtitle": [
+   "Sixteen real places in this world, with the two numbers that find them.",
+   "Nothing here is on the way to anything. That is the point."
+  ],
+  "icon": "minecraft:filled_map",
+  "group": "The Valley Beyond",
+  "order": 30,
+  "images": [
+   {
+    "x": 0.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:item/filled_map",
+    "order": -1,
+    "hover": [
+     "Every place below is a real place.",
+     "The farm hearth is -319, 32."
+    ]
+   },
+   {
+    "x": 5.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:block/mossy_cobblestone",
+    "order": -1,
+    "hover": [
+     "Dungeon stone. Older than the valley."
+    ]
+   },
+   {
+    "x": 10.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:block/rail",
+    "order": -1,
+    "hover": [
+     "Rails go somewhere. Follow them."
+    ]
+   },
+   {
+    "x": 15.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "ae2:block/sky_stone_block",
+    "order": -1,
+    "hover": [
+     "Sky stone. It fell here."
+    ]
+   },
+   {
+    "x": 20.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:item/nautilus_shell",
+    "order": -1,
+    "hover": [
+     "Nella keeps one on the boat."
+    ]
+   },
+   {
+    "x": 0.0,
+    "y": 4.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:block/prismarine_bricks",
+    "order": -1,
+    "hover": [
+     "Cold water, broken walls."
+    ]
+   },
+   {
+    "x": 5.0,
+    "y": 4.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:block/acacia_planks",
+    "order": -1,
+    "hover": [
+     "The savanna village builds in this."
+    ]
+   },
+   {
+    "x": 10.0,
+    "y": 4.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:block/crying_obsidian",
+    "order": -1,
+    "hover": [
+     "Somebody's way out, half fallen down."
+    ]
+   },
+   {
+    "x": 15.0,
+    "y": 4.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:item/echo_shard",
+    "order": -1,
+    "hover": [
+     "The deepest thing on this board."
+    ]
+   }
+  ]
+ },
+ "reward_tables": [
+  {
+   "key": "explore_crate",
+   "title": "Nella's Ditty Bag",
+   "loot_size": 1,
+   "loot_crate": {
+    "id": "explore_crate",
+    "name": "Nella's Ditty Bag",
+    "color": 43690,
+    "glow": false
+   },
+   "rewards": [
+    {
+     "item": "minecraft:torch",
+     "count": 24,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:bread",
+     "count": 6,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:arrow",
+     "count": 16,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:iron_ingot",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:gold_ingot",
+     "count": 3,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:lapis_lazuli",
+     "count": 8,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:emerald",
+     "count": 3,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:ender_pearl",
+     "count": 2,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:golden_carrot",
+     "count": 4,
+     "weight": 1
+    },
+    {
+     "item": "minecraft:experience_bottle",
+     "count": 4,
+     "weight": 1
+    },
+    {
+     "item": "minecraft:glow_ink_sac",
+     "count": 4,
+     "weight": 1
+    },
+    {
+     "item": "minecraft:diamond",
+     "count": 1,
+     "weight": 1
+    }
+   ]
+  }
+ ],
+ "quests": [
+  {
+   "key": "ex_pack",
+   "title": "Pack a Bag Before You Leave",
+   "subtitle": "Torches first. The rest is optional.",
+   "icon": "minecraft:torch",
+   "description": [
+    "Everywhere on this board is dark and most of it is underground. Carry &a32 Torches&r and food you can eat walking.",
+    "",
+    "Each place below is real, and its two numbers are on the card."
+   ],
+   "deps": [],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 2.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:torch",
+     "count": 32
+    },
+    {
+     "type": "item",
+     "item": "minecraft:bread",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:oak_boat",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "comforts:sleeping_bag_white",
+     "count": 1
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "ex_dungeon",
+   "title": "Find the Small Dungeon West of Home",
+   "subtitle": "Four hundred blocks west, then down.",
+   "icon": "minecraft:mossy_cobblestone",
+   "description": [
+    "Head west from the farm hearth to &b-424, 8&r. The stair is under the grass and the mob room is two floors below it.",
+    "",
+    "&cSpawners keep working while you loot.&r Cage first, chests after."
+   ],
+   "deps": [
+    "ex_pack"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "structure",
+     "structure": "betterdungeons:small_dungeon"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "explore_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ],
+   "long_description": true
+  },
+  {
+   "key": "ex_mineshaft",
+   "title": "Get Into the Oak Mineshaft",
+   "subtitle": "Rails go somewhere. Follow them.",
+   "icon": "minecraft:rail",
+   "description": [
+    "Walk to &b-312, 248&r and dig until you hit timber. The rails run a long way and the cobweb rooms hold the chests.",
+    "",
+    "A sword cuts &aCobweb&r into string. Carry the string home."
+   ],
+   "deps": [
+    "ex_pack"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "structure",
+     "structure": "bettermineshafts:mineshaft_oak"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:string",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:rail",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "minecraft:torch",
+     "count": 32
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "ex_underhouse",
+   "title": "Find the House With No Front Door",
+   "subtitle": "Somebody built it under a field.",
+   "icon": "minecraft:ladder",
+   "description": [
+    "Dig at &b-344, 120&r. The roof is a patch of ordinary grass and the rooms under it are furnished, lit and still stocked.",
+    "",
+    "Take the bed. Whoever laid it is not coming back for it."
+   ],
+   "deps": [
+    "ex_dungeon"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "structure",
+     "structure": "nova_structures:underground_house"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "explore_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "ex_meteorite",
+   "title": "Dig Out the Sky Stone Crater",
+   "subtitle": "110 blocks east of the farm hearth.",
+   "icon": "ae2:sky_stone_block",
+   "description": [
+    "Walk east from the hearth to &b-216, 72&r and dig the dark stone. The chest under the crater holds an &aInscriber Press&r.",
+    "",
+    "The presses belong to the &6Storage Network&r chapter."
+   ],
+   "deps": [
+    "ex_pack"
+   ],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 1.5,
+   "tasks": [
+    {
+     "type": "structure",
+     "structure": "ae2:meteorite"
+    },
+    {
+     "type": "item",
+     "item": "ae2:sky_stone_block",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "ae2:certus_quartz_crystal",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    },
+    {
+     "type": "loot",
+     "table": "explore_crate"
+    }
+   ]
+  },
+  {
+   "key": "ex_wreck",
+   "title": "Dive the Shipwreck Off the North Shore",
+   "subtitle": "Two chests: one in the hold, one on deck.",
+   "icon": "minecraft:oak_boat",
+   "description": [
+    "Nella: \"A wreck is a boat that stopped early. Take the map out of it and leave the planks alone.\"",
+    "",
+    "Swim to &b-120, 376&r. The hold holds the treasure map, the deck the food."
+   ],
+   "deps": [
+    "ex_pack"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "structure",
+     "structure": "minecraft:shipwreck"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "explore_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "ex_treasure",
+   "title": "Dig Up the Buried Treasure",
+   "subtitle": "The X is under the sand, not on it.",
+   "icon": "minecraft:heart_of_the_sea",
+   "description": [
+    "Follow the wreck's map to &b-472, 248&r and dig straight down under the cross until the chest turns up.",
+    "",
+    "The &aHeart of the Sea&r comes out of nowhere else in this world."
+   ],
+   "deps": [
+    "ex_wreck"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "structure",
+     "structure": "minecraft:buried_treasure"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:heart_of_the_sea",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:gold_ingot",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "ex_ruins",
+   "title": "Swim the Cold Ocean Ruin",
+   "subtitle": "Half of it is buried in gravel.",
+   "icon": "minecraft:prismarine_bricks",
+   "description": [
+    "Take a boat to &b72, 184&r and dive. The ruin is broken stone brick on the sea floor with two or three chests in it.",
+    "",
+    "Bring a &aBucket&r. An air pocket beats surfacing."
+   ],
+   "deps": [
+    "ex_wreck"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "structure",
+     "structure": "minecraft:ocean_ruin_cold"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "explore_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "ex_camp",
+   "title": "Clear the Illager Camp",
+   "subtitle": "Tents, a cage, and a lot of crossbows.",
+   "icon": "minecraft:crossbow",
+   "description": [
+    "Go to &b-520, 216&r. &cThe towers shoot down into the camp&r, so take the towers first and the tents afterwards.",
+    "",
+    "Whatever is in the cage in the middle is alive."
+   ],
+   "deps": [
+    "ex_dungeon"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "structure",
+     "structure": "nova_structures:illager_camp"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:emerald",
+     "count": 6
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "ex_bathhouse",
+   "title": "Find the Bathhouse in the Hills",
+   "subtitle": "Not the one Halden is fitting out in town.",
+   "icon": "minecraft:cauldron",
+   "description": [
+    "Walk to &b-600, 24&r. Stone rooms over a hot pool, a floor above the water and a colder one under it.",
+    "",
+    "The town's bathhouse is Act IV, step 72a. This one is older."
+   ],
+   "deps": [
+    "ex_camp"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "structure",
+     "structure": "dungeons_arise:bathhouse"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "explore_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "ex_asylum",
+   "title": "Walk Into the Plague Asylum",
+   "subtitle": "Long corridors. Short sightlines.",
+   "icon": "minecraft:cobweb",
+   "description": [
+    "It stands at &b168, 24&r, east across the water. &cThe corridors refill behind you&r, so work one wing at a time.",
+    "",
+    "The upper floor is the one worth the walk."
+   ],
+   "deps": [
+    "ex_bathhouse"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "structure",
+     "structure": "dungeons_arise:plague_asylum"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "explore_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "ex_village",
+   "title": "Trade in the Savanna Village",
+   "subtitle": "Half a kilometre south of the square.",
+   "icon": "minecraft:emerald",
+   "description": [
+    "Head south to &b-328, -504&r. Acacia houses, a well in the middle, and villagers who buy wheat for &aEmeralds&r.",
+    "",
+    "Oda pays in scrip. They pay in emeralds. Take both."
+   ],
+   "deps": [
+    "ex_pack"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "structure",
+     "structure": "minecraft:village_savanna"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:emerald",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "explore_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "ex_tavern",
+   "title": "Find Both Taverns on the Far Roads",
+   "subtitle": "One in the snow, one in the oak.",
+   "icon": "minecraft:barrel",
+   "description": [
+    "The snowy tavern stands at &b-616, -488&r and the oak one at &b-808, 472&r. Both keep beds, a cellar and a chest behind the bar.",
+    "",
+    "A bed that far out is worth more than the loot."
+   ],
+   "deps": [
+    "ex_village"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "structure",
+     "structure": "nova_structures:tavern_snowy"
+    },
+    {
+     "type": "structure",
+     "structure": "nova_structures:tavern_oak"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "explore_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "ex_dens",
+   "title": "Clear the Zombie, Skeleton and Spider Dens",
+   "subtitle": "Three of them, three long walks.",
+   "icon": "minecraft:bone",
+   "description": [
+    "Zombies at &b-632, 136&r, skeletons at &b-856, 8&r, spiders at &b152, 488&r. Each is built around its own &cspawner room&r.",
+    "",
+    "Bring a bow to the skeletons and a shield to the rest."
+   ],
+   "deps": [
+    "ex_dungeon"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "structure",
+     "structure": "betterdungeons:zombie_dungeon"
+    },
+    {
+     "type": "structure",
+     "structure": "betterdungeons:skeleton_dungeon"
+    },
+    {
+     "type": "structure",
+     "structure": "betterdungeons:spider_dungeon"
+    },
+    {
+     "type": "kill",
+     "entity": "minecraft:skeleton",
+     "count": 16
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:arrow",
+     "count": 32
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    },
+    {
+     "type": "loot",
+     "table": "explore_crate"
+    }
+   ]
+  },
+  {
+   "key": "ex_portal",
+   "title": "Find the Ruined Portal in the Pines",
+   "subtitle": "Somebody's way out, half fallen down.",
+   "icon": "minecraft:flint_and_steel",
+   "description": [
+    "Walk to &b-728, 232&r. The frame is broken, the chest beside it is not, and it usually keeps a &aFlint and Steel&r in it.",
+    "",
+    "Patch the frame with &aObsidian&r if you want the Nether early."
+   ],
+   "deps": [
+    "ex_pack"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "structure",
+     "structure": "minecraft:ruined_portal"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:obsidian",
+     "count": 6
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ],
+   "long_description": true
+  },
+  {
+   "key": "ex_city",
+   "title": "Reach the Ancient City",
+   "subtitle": "Do not sprint. Do not break the sensors.",
+   "icon": "minecraft:echo_shard",
+   "description": [
+    "It is at &b-568, -552&r, far under the deepslate. &cThe Warden hears every block you break&r, so crouch and take one chest at a time.",
+    "",
+    "Wool underfoot is quieter than stone. Bring a stack of it."
+   ],
+   "deps": [
+    "ex_bathhouse"
+   ],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 1.5,
+   "tasks": [
+    {
+     "type": "structure",
+     "structure": "minecraft:ancient_city"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "explore_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    },
+    {
+     "type": "toast",
+     "title": "The Valley Beyond",
+     "description": "Next: Act V sends you back down for one Echo Shard. See q82, and the &6The Wild&r chapter."
+    }
+   ],
+   "long_description": true
+  }
+ ]
+}

@@ -1,0 +1,882 @@
+{
+ "chapter": {
+  "key": "farm",
+  "title": "Farm & Seasons",
+  "subtitle": [
+   "Nine rows, a calendar, and one machine that ignores it.",
+   "What grows when, what beats the frost, and where the flour comes from."
+  ],
+  "icon": "minecraft:wheat",
+  "group": "Home & Farm",
+  "order": 10,
+  "images": [
+   {
+    "x": -5,
+    "y": -1,
+    "width": 3,
+    "height": 3,
+    "image": "minecraft:block/farmland_moist",
+    "hover": [
+     "Tilled and wet.",
+     "Water within four blocks."
+    ],
+    "order": -1
+   },
+   {
+    "x": 1,
+    "y": -6,
+    "width": 2,
+    "height": 2,
+    "image": "minecraft:item/wheat",
+    "hover": "Thirty-two of these is Act I's flour.",
+    "order": -1
+   },
+   {
+    "x": 5,
+    "y": -6,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "sereneseasons:item/calendar_04",
+    "hover": "Late spring.",
+    "order": -1
+   },
+   {
+    "x": 9.5,
+    "y": -6,
+    "width": 2,
+    "height": 2,
+    "image": "thermal:item/strawberry",
+    "order": -1
+   },
+   {
+    "x": 13,
+    "y": -6,
+    "width": 2,
+    "height": 2,
+    "image": "thermal:item/amaranth",
+    "order": -1
+   },
+   {
+    "x": 1,
+    "y": 6.5,
+    "width": 2,
+    "height": 2,
+    "image": "farmersdelight:block/rich_soil",
+    "hover": "Compost, then dirt.",
+    "order": -1
+   },
+   {
+    "x": 5.5,
+    "y": 6.5,
+    "width": 2,
+    "height": 2,
+    "image": "minecraft:block/composter_ready",
+    "order": -1
+   },
+   {
+    "x": 10,
+    "y": 6.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "thermal:block/phytosoil_charged",
+    "hover": "Phytogro, and no season at all.",
+    "order": -1
+   }
+  ]
+ },
+ "reward_tables": [
+  {
+   "key": "farm_crate",
+   "title": "Halden's Seed Tin",
+   "loot_size": 1,
+   "loot_crate": {
+    "id": "farm_crate",
+    "name": "Halden's Seed Tin",
+    "color": 7647562,
+    "glow": false
+   },
+   "rewards": [
+    {
+     "item": "thermal:strawberry_seeds",
+     "count": 8,
+     "weight": 3
+    },
+    {
+     "item": "thermal:tomato_seeds",
+     "count": 8,
+     "weight": 3
+    },
+    {
+     "item": "farmersdelight:cabbage_seeds",
+     "count": 8,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:bone_meal",
+     "count": 16,
+     "weight": 3
+    },
+    {
+     "item": "farm_and_charm:kernels",
+     "count": 8,
+     "weight": 2
+    },
+    {
+     "item": "farm_and_charm:strawberry_seeds",
+     "count": 8,
+     "weight": 2
+    },
+    {
+     "item": "thermal:phytogro",
+     "count": 8,
+     "weight": 2
+    },
+    {
+     "item": "farmersdelight:organic_compost",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:beetroot_seeds",
+     "count": 8,
+     "weight": 2
+    },
+    {
+     "item": "thermal:spinach_seeds",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "farmersdelight:rice",
+     "count": 8,
+     "weight": 1
+    },
+    {
+     "item": "thermal:sadiroot_seeds",
+     "count": 4,
+     "weight": 1
+    }
+   ]
+  }
+ ],
+ "quests": [
+  {
+   "key": "farm_ground",
+   "title": "Break Ground With a Hoe",
+   "subtitle": "Water within four blocks, or nothing.",
+   "icon": "minecraft:stone_hoe",
+   "description": [
+    "Halden: \"Josie's patch was nine rows. I counted them every spring for eleven years and never once put a spade in one.\"",
+    "",
+    "Craft a &aStone Hoe&r and till a strip of grass beside the lake. Farmland within four blocks of water stays dark, and dark farmland grows."
+   ],
+   "deps": [],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 2.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:stone_hoe",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:wheat_seeds",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ],
+   "long_description": true
+  },
+  {
+   "key": "farm_wheat",
+   "title": "Grow and Cut Thirty-Two Wheat",
+   "subtitle": "Bram's millstone eats it by the sack.",
+   "icon": "minecraft:wheat",
+   "description": [
+    "Plant &awheat seeds&r on wet farmland and leave them until the stalks go gold before you cut.",
+    "",
+    "Act I, step 8 wants sixteen flour and eight bread off this patch."
+   ],
+   "deps": [
+    "farm_ground"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:wheat",
+     "count": 32
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:bread",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "farm_calendar",
+   "title": "Craft a Calendar and Read the Date",
+   "subtitle": "Twelve pages. Four seasons. One rule.",
+   "icon": "sereneseasons:calendar",
+   "description": [
+    "Hold the &aCalendar&r to read the season and the day. Every crop here is tagged to a season, and out of season it does not grow one stage.",
+    "",
+    "&bSpring&r: carrot, potato, strawberry. &bSummer&r: melon, tomato, corn. &bAutumn&r: pumpkin, beetroot, amaranth."
+   ],
+   "deps": [
+    "farm_ground"
+   ],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 1.5,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "sereneseasons:calendar",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "farm_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ],
+   "long_description": true
+  },
+  {
+   "key": "farm_spring",
+   "title": "Bring In the Spring Crops",
+   "subtitle": "Carrots, potatoes, strawberries.",
+   "icon": "thermal:strawberry",
+   "description": [
+    "Plant &acarrots&r, &apotatoes&r and &astrawberries&r on the first spring page and bring in sixteen of each.",
+    "",
+    "Wheat is spring-fertile in this pack on purpose, so Act I is not waiting on July."
+   ],
+   "deps": [
+    "farm_calendar"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:carrot",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "minecraft:potato",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "thermal:strawberry",
+     "count": 16
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "thermal:strawberry_seeds",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ],
+   "long_description": true
+  },
+  {
+   "key": "farm_summer",
+   "title": "Bring In the Summer Crops",
+   "subtitle": "Corn stands taller than Pip.",
+   "icon": "thermal:tomato",
+   "description": [
+    "Cut sixteen &amelon slices&r and grow sixteen &atomatoes&r and sixteen &acorn&r while the calendar reads summer.",
+    "",
+    "Corn grows two blocks high. Leave it headroom or it never tops out."
+   ],
+   "deps": [
+    "farm_calendar"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:melon_slice",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "thermal:tomato",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "thermal:corn",
+     "count": 16
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "thermal:tomato_seeds",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "farm_autumn",
+   "title": "Bring In the Autumn Crops",
+   "subtitle": "Pumpkin, beetroot, amaranth. Then frost.",
+   "icon": "minecraft:pumpkin",
+   "description": [
+    "Sow &abeetroot&r, &apumpkin&r and &aamaranth&r in autumn and get them in before the first frost.",
+    "",
+    "Oda opens Act III on these same rows and wants the granary full by winter."
+   ],
+   "deps": [
+    "farm_calendar"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:pumpkin",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "minecraft:beetroot",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "thermal:amaranth",
+     "count": 16
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "farm_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "farm_winter_rule",
+   "title": "Learn What Winter Stops",
+   "subtitle": "Everything outdoors, and quietly.",
+   "icon": "minecraft:snowball",
+   "description": [
+    "In winter a seasonal crop sits at the stage you left it and never says so. &cIt is not broken.&r",
+    "",
+    "Only &aVibrant Quartz Glass&r counts as a greenhouse roof here, and it wants cyanite: see the &6Reactor&r chapter."
+   ],
+   "deps": [
+    "farm_calendar"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:bone_meal",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ],
+   "long_description": true
+  },
+  {
+   "key": "farm_compost",
+   "title": "Fill a Composter for Bone Meal",
+   "subtitle": "Seeds, stalks, everything bruised.",
+   "icon": "minecraft:composter",
+   "description": [
+    "Build a &aComposter&r and feed it every scrap off the patch until bone meal drops out of the bottom.",
+    "",
+    "Bone meal is the base of compost, of rich soil and of phytogro."
+   ],
+   "deps": [
+    "farm_wheat"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:composter",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:bone_meal",
+     "count": 16
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:bone_meal",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "farm_delight",
+   "title": "Bring In Four Wild Crops",
+   "subtitle": "They are already growing out there.",
+   "icon": "farmersdelight:cabbage",
+   "description": [
+    "Marnie: \"Cabbage grows wild along the treeline. I have walked past it for ten years because I like the walk.\"",
+    "",
+    "Take a start of cabbage, tomato, onion and rice from the wild patches, replant them at home, and harvest eight of each."
+   ],
+   "deps": [
+    "farm_wheat"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "farmersdelight:cabbage",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:tomato",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:onion",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:rice",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "farm_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ],
+   "long_description": true
+  },
+  {
+   "key": "farm_silo",
+   "title": "Stand a Silo Beside the Rows",
+   "subtitle": "Nine planks. Holds one harvest.",
+   "icon": "farm_and_charm:silo_wood",
+   "description": [
+    "Craft a &aWooden Silo&r and set it at the end of the patch. It swallows one crop in bulk and hands it back a stack at a time.",
+    "",
+    "For drawers and barrels, see the &6Power&r chapter."
+   ],
+   "deps": [
+    "farm_wheat"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "farm_and_charm:silo_wood",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:oak_planks",
+     "count": 32
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "farm_thermal_crops",
+   "title": "Grow the Four Thermal Crops",
+   "subtitle": "Three of them work through winter.",
+   "icon": "thermal:sadiroot",
+   "description": [
+    "Craft the seeds for &abarley&r, &aspinach&r, &asadiroot&r and &abell pepper&r, plant them, and harvest sixteen of each.",
+    "",
+    "The first three keep growing outdoors in December. Bell pepper stops at the frost."
+   ],
+   "deps": [
+    "farm_winter_rule"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "thermal:barley",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "thermal:spinach",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "thermal:sadiroot",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "thermal:bell_pepper",
+     "count": 16
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "thermal:phytogro",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ],
+   "long_description": true
+  },
+  {
+   "key": "farm_berries",
+   "title": "Set a Berry Hedge and a Cabbage Row",
+   "subtitle": "Two things the frost never reads.",
+   "icon": "minecraft:sweet_berries",
+   "description": [
+    "Sweet berry bushes and cabbages both stay fertile through winter. Plant a hedge of one and a row of the other.",
+    "",
+    "Halden has kept a hedge since Act II. Ask him where the good bushes are."
+   ],
+   "deps": [
+    "farm_winter_rule"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:sweet_berries",
+     "count": 32
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:cabbage",
+     "count": 16
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "farmersdelight:cabbage_seeds",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ],
+   "long_description": true
+  },
+  {
+   "key": "farm_rich",
+   "title": "Make Eight Organic Compost",
+   "subtitle": "Right-click dirt with it for rich soil.",
+   "icon": "farmersdelight:organic_compost",
+   "description": [
+    "&aOrganic Compost&r is straw, tree bark, bone meal and one dirt on the grid. Straw and bark both come off a cutting board.",
+    "",
+    "Crops on rich soil grow faster, and the block never needs tilling again."
+   ],
+   "deps": [
+    "farm_compost"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "farmersdelight:organic_compost",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "farmersdelight:straw",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ],
+   "long_description": true
+  },
+  {
+   "key": "farm_phytogro",
+   "title": "Mix Sixteen Phytogro",
+   "subtitle": "Sand, two apatite, one niter.",
+   "icon": "thermal:phytogro",
+   "description": [
+    "&aPhytogro&r is bone meal that works on everything, eight to a craft. Apatite and niter both come out of ordinary stone.",
+    "",
+    "The insolator burns it, and it is the fastest road to a second harvest."
+   ],
+   "deps": [
+    "farm_compost"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "thermal:phytogro",
+     "count": 16
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "thermal:phytogro",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ],
+   "long_description": true
+  },
+  {
+   "key": "farm_rice",
+   "title": "Cut Sixteen Rice Panicles",
+   "subtitle": "Ankle-deep water. No tilling.",
+   "icon": "farmersdelight:rice_panicle",
+   "description": [
+    "Plant rice in shallow water at the lake edge and cut the tops when they droop over.",
+    "",
+    "Wisp wants twelve panicles in Act III. Grow the extra now and be early for once."
+   ],
+   "deps": [
+    "farm_delight"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "farmersdelight:rice_panicle",
+     "count": 16
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "farmersdelight:rice",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "farm_bees",
+   "title": "Hang a Beehive Over the Rows",
+   "subtitle": "They work the patch for nothing.",
+   "icon": "minecraft:beehive",
+   "description": [
+    "Put a campfire under a wild nest before you shear it, or &cthe whole nest comes after you&r. Then craft a &aBeehive&r.",
+    "",
+    "Bees push a pollinated crop up a stage. Three bottles of honey say the hive took."
+   ],
+   "deps": [
+    "farm_delight"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:beehive",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:honey_bottle",
+     "count": 3
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:honeycomb",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ],
+   "long_description": true
+  },
+  {
+   "key": "farm_insolator",
+   "title": "Build a Phytogenic Insolator",
+   "subtitle": "A field in one block, indoors.",
+   "icon": "thermal:machine_insolator",
+   "description": [
+    "The &aInsolator&r takes seeds, water and phytogro and hands back the crop. It is a machine, so no season touches it.",
+    "",
+    "It wants a machine frame and lumium gears: both roads to a frame are in the &6Thermal&r chapter."
+   ],
+   "deps": [
+    "farm_phytogro"
+   ],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 1.5,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "thermal:machine_insolator",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "farm_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ],
+   "long_description": true
+  },
+  {
+   "key": "farm_winter_crop",
+   "title": "Grow Sixty-Four Wheat in Winter",
+   "subtitle": "Snow on the roof, flour in the sack.",
+   "icon": "minecraft:wheat",
+   "description": [
+    "Feed &awheat seeds&r and &aphytogro&r into the insolator while the calendar reads winter, and run it to sixty-four wheat.",
+    "",
+    "Wheat cannot grow outdoors in December. This is the whole reason the machine exists."
+   ],
+   "deps": [
+    "farm_insolator"
+   ],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 1.5,
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Calendar reads winter."
+    },
+    {
+     "type": "item",
+     "item": "minecraft:wheat",
+     "count": 64
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "farm_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    },
+    {
+     "type": "toast",
+     "title": "Farm & Seasons",
+     "description": "Next: Act V glazes a cold frame and grows four crops in February."
+    }
+   ],
+   "long_description": true
+  }
+ ]
+}

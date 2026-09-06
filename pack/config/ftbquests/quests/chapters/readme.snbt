@@ -2,122 +2,187 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "readme"
-	group: "300129D2A12C0DC3"
+	group: "353C6133C33553CA"
 	icon: "minecraft:book"
 	id: "4FBA8B9ABD7CDE1A"
 	order_index: 0
 	quest_links: [ ]
-	subtitle: ["Nine short pages about the book itself.", "No dependencies, no rewards, nothing here can be missed."]
+	subtitle: ["Eleven short pages about the book itself.", "Nothing here locks, and nothing here can be missed."]
 	hide_quest_until_deps_complete: false
 	hide_quest_details_until_startable: false
+	images: [
+		{ x: -3.0d, y: 0.0d, width: 3.0d, height: 3.0d, rotation: 0.0d, image: "herbalbrews:item/copper_tea_kettle", alpha: 255, order: -1, hover: ["Put the kettle on."] }
+		{ x: -3.0d, y: -3.5d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "minecraft:item/written_book", alpha: 255, order: -1, hover: ["Josie's letter. Four pages."] }
+		{ x: -3.0d, y: 3.5d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "minecraft:item/bread", alpha: 255, order: -1, hover: [] }
+		{ x: 3.8d, y: -4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "minecraft:item/lantern", alpha: 255, order: -1, hover: ["Forty posts. Not one of them lit."] }
+		{ x: 10.5d, y: -3.5d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "ftbquests:item/book", alpha: 255, order: -1, hover: [] }
+		{ x: 10.5d, y: -1.0d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "minecraft:item/wheat", alpha: 255, order: -1, hover: ["The cozy lane."] }
+		{ x: 10.5d, y: 1.5d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "create:item/andesite_alloy", alpha: 255, order: -1, hover: ["The tech lane."] }
+	]
 	quests: [
 		{
 			id: "4E3DC16D064E0F83"
 			title: "How This Book Works"
-			subtitle: "Chapters are the tabs down the left edge."
+			subtitle: "Tabs on the left. This one never locks."
 			icon: "minecraft:book"
-			description: ["This is the whole book. Chapters are the tabs down the left edge; this one is the top one and it never locks.", "", "Every quest is drawn from the day you open it. A quest you cannot start yet sits greyed out with its title and subtitle still readable, so you can see what is coming and how far off it is."]
+			description: ["Chapters are the &btabs&r down the left edge. This one is the top one.", "", "A quest you cannot start yet stays on the board, greyed, with its title readable.", "", "The story starts one tab down, in &6Start Here&r."]
 			x: 0.0d
-			y: -1.5d
+			y: -2.0d
+			shape: "hexagon"
+			size: 1.5d
 			hide_details_until_startable: false
 			tasks: [{ id: "7F7DF57248480ABB", type: "checkmark", title: "Understood." }]
-			rewards: []
+			rewards: [{ id: "61A9F63F977D8C22", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
 		}
 		{
-			id: "1B3DB6FF772A17A1"
-			title: "Nothing Here Is Timed"
-			subtitle: "No clock, no fail state, no penalty."
-			icon: "minecraft:clock"
-			description: ["No quest in this pack has a timer, and none of them can be failed.", "", "Crops keep. Neighbours wait. The seasons turn on the calendar and not on you, and a quest left half done in spring is exactly where you left it in autumn."]
-			x: 2.0d
-			y: -1.5d
+			id: "471B21FAE0192630"
+			title: "Move, Break, Place, Craft"
+			subtitle: "Two mouse buttons and a 3x3 grid."
+			icon: "minecraft:crafting_table"
+			description: ["&bLeft-click&r held breaks a block. &bRight-click&r places what you hold.", "", "Your pack has a 2x2 grid; a &aCrafting Table&r makes it 3x3. Click an item in the search list to see its recipe."]
+			x: 2.5d
+			y: -2.0d
+			optional: true
+			shape: "gear"
+			size: 1.0d
 			hide_details_until_startable: false
-			tasks: [{ id: "0B26F8BBAE86644C", type: "checkmark", title: "Understood." }]
-			rewards: []
+			tasks: [{ id: "06B91C7EA558FD95", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "54BE2D164E9B5D02", type: "item", auto: "no_toast", item: "minecraft:crafting_table" }, { id: "78EE884EDB081138", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "401E83163AC1FC6F"
+			title: "Eat, Sleep, Find Your Way Back"
+			subtitle: "F3 puts your coordinates on the screen."
+			icon: "minecraft:red_bed"
+			description: ["Eat when the drumsticks drop. Sleep in a bed to skip a night.", "", "Press &bF3&r for the XYZ line and write the three numbers down.", "", "The &aMegatorch&r you place at home keeps &cmonsters&r off it for good."]
+			x: 5.0d
+			y: -2.0d
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_details_until_startable: false
+			tasks: [{ id: "6EEA33381E4F5027", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "7649119EB1CABCB1", type: "item", auto: "no_toast", item: "minecraft:bread", count: 4 }, { id: "015CB2C19DB6FF78", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
 		}
 		{
 			id: "541659C718748A57"
 			title: "The Next Line"
 			subtitle: "One popup per quest, pointing forward."
 			icon: "minecraft:paper"
-			description: ["When a quest ticks, one popup slides in at the top right. It starts with Next: and it names what to do after this, where it is, and who is standing there.", "", "Rewards arrive by themselves at the same moment. There is nothing to click for them."]
-			x: 4.0d
-			y: -1.5d
+			description: ["When a quest ticks, one popup slides in at the top right. It starts with &bNext:&r and says where to go.", "", "Rewards land in your bag at the same moment. There is nothing to click."]
+			x: 7.5d
+			y: -2.0d
+			optional: true
+			shape: "gear"
+			size: 1.0d
 			hide_details_until_startable: false
 			tasks: [{ id: "286A6762BFFEAA36", type: "checkmark", title: "Understood." }]
-			rewards: []
-		}
-		{
-			id: "002908C03565DFF9"
-			title: "Oda's Counter Is the Shortcut"
-			subtitle: "She sells the dull half for Scrip."
-			icon: "valley:scrip"
-			description: ["Oda's Counter is a second tab, under Side Quests. It opens once her store does.", "", "Cooking, fishing, planting and running parcels pay Valley Scrip. Scrip buys casings, alloys, ducts, seeds and furniture over her counter. If a crafting step is annoying, buy it instead."]
-			x: 0.0d
-			y: 0.0d
-			hide_details_until_startable: false
-			tasks: [{ id: "311EF2AF44435907", type: "checkmark", title: "Understood." }]
-			rewards: []
-		}
-		{
-			id: "787AFA21D03D8D95"
-			title: "Order Barely Matters"
-			subtitle: "Out of sequence is still the story."
-			icon: "minecraft:oak_sign"
-			description: ["A quest waits for the ones drawn into it and for nothing else.", "", "Mill the flour before the kitchen or the kitchen before the mill; both roads meet. Anything you walk past is still standing there next season, and no side branch you skip takes the story with it."]
-			x: 2.0d
-			y: 0.0d
-			hide_details_until_startable: false
-			tasks: [{ id: "03C6016B5DBC6B4B", type: "checkmark", title: "Understood." }]
-			rewards: []
-		}
-		{
-			id: "48FEEAA90F783195"
-			title: "The Journal and the Compass"
-			subtitle: "Josie's notes, and the way to the farm."
-			icon: "patchouli:guide_book"
-			description: ["The Valley Journal is in your bag. Right-click it: five entries in Josie's hand, and a field note for every machine the book asks you to build.", "", "The compass next to it points at the Kettle farm, not at spawn."]
-			x: 4.0d
-			y: 0.0d
-			hide_details_until_startable: false
-			tasks: [{ id: "126FED3EAD10D200", type: "checkmark", title: "Understood." }]
-			rewards: []
+			rewards: [{ id: "6C74C45F2E4BD19E", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
 		}
 		{
 			id: "0132FCFD23C2C6F6"
 			title: "Who Lives Here"
 			subtitle: "Eight neighbours. Fifteen by the end."
 			icon: "minecraft:bread"
-			description: ["Marnie, Bram, Oda, Halden, Tobin, Wisp, Pip and Nella.", "", "Right-click any of them and they say something. What they say changes as their part of the valley moves, so the same neighbour on day forty is not the sentence you got on day three. The bar at the top of the screen counts them."]
+			description: ["Marnie, Bram, Oda, Halden, Tobin, Wisp, Pip and Nella live here. Seven more arrive.", "", "Right-click any of them; what they say changes as the valley moves. The &bbar at the top&r counts them."]
 			x: 0.0d
-			y: 1.5d
+			y: 0.0d
+			optional: true
+			shape: "gear"
+			size: 1.0d
 			hide_details_until_startable: false
 			tasks: [{ id: "6137D45C57D0ECE8", type: "checkmark", title: "Understood." }]
-			rewards: []
+			rewards: [{ id: "2DF32674DA5C67E7", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
 		}
 		{
 			id: "52D779F44C036F34"
 			title: "Two Lanes, One Valley"
 			subtitle: "Cooking counts. So does the reactor."
 			icon: "create:cogwheel"
-			description: ["The book braids a cozy lane — food, animals, planting, decorating — through a tech lane — Create, then Thermal, then the network and the reactor.", "", "Every third quest or so wants something the other lane made. Either lane on its own is a way through the pack."]
-			x: 2.0d
-			y: 1.5d
+			description: ["Most of the book is the cozy lane: food, animals, planting, decorating. Start in the &6Farm & Seasons&r chapter.", "", "Only &cfive quests in winter&r need the reactor, and Oda sells every part of it over her counter."]
+			x: 2.5d
+			y: 0.0d
+			optional: true
+			shape: "gear"
+			size: 1.0d
 			hide_details_until_startable: false
 			tasks: [{ id: "0AF3BB9ABA0D65C8", type: "checkmark", title: "Understood." }]
-			rewards: []
+			rewards: [{ id: "712978A7002F907F", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "002908C03565DFF9"
+			title: "Oda's Counter Is the Shortcut"
+			subtitle: "She sells the dull half for Scrip."
+			icon: "valley:scrip"
+			description: ["Cooking, fishing, planting and running parcels pay &aValley Scrip&r.", "", "Her counter sells casings, alloys, ducts, seeds and furniture. If a step is annoying, buy it: see the &6Oda's Counter&r chapter."]
+			x: 5.0d
+			y: 0.0d
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_details_until_startable: false
+			tasks: [{ id: "311EF2AF44435907", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "3DE8F04466D261BF", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "48FEEAA90F783195"
+			title: "The Journal and the Compass"
+			subtitle: "Josie's notes, and the road to the farm."
+			icon: "patchouli:guide_book"
+			description: ["Right-click the &aValley Journal&r in your bag: five entries in Josie's hand, and a field note for every machine.", "", "The compass beside it points at the &bKettle farm&r, not at spawn."]
+			x: 7.5d
+			y: 0.0d
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_details_until_startable: false
+			tasks: [{ id: "126FED3EAD10D200", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "110B709B18371F06", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "787AFA21D03D8D95"
+			title: "Order Barely Matters"
+			subtitle: "Out of sequence is still the story."
+			icon: "minecraft:oak_sign"
+			description: ["A quest waits for the ones drawn into it and nothing else.", "", "Mill the flour before the kitchen or the kitchen before the mill. Anything you walk past is still standing next season."]
+			x: 0.0d
+			y: 2.0d
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_details_until_startable: false
+			tasks: [{ id: "03C6016B5DBC6B4B", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "088F661C87820658", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "1B3DB6FF772A17A1"
+			title: "Nothing Here Is Timed"
+			subtitle: "No clock, no fail state, no penalty."
+			icon: "minecraft:clock"
+			description: ["No quest has a timer and none of them can be failed.", "", "Crops keep. Neighbours wait. A quest left half done in spring is where you left it in autumn."]
+			x: 2.5d
+			y: 2.0d
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_details_until_startable: false
+			tasks: [{ id: "0B26F8BBAE86644C", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "5D1F13A755FEEFC9", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
 		}
 		{
 			id: "75076041169D4FAE"
 			title: "One Valley, Everyone In It"
 			subtitle: "The same map, the same forty lamps."
 			icon: "minecraft:lantern"
-			description: ["There is one valley and everybody plays in it. The lamps that get lit, the buildings that go up and the people who move in are the same for whoever else is logged in.", "", "Quest progress is shared across your party, so a quest one of you finishes is finished for both."]
-			x: 4.0d
-			y: 1.5d
+			description: ["There is one valley and everybody plays in it. Lamps lit, houses opened, people moved in: the same for everyone logged in.", "", "Quest progress is shared across your party."]
+			x: 5.0d
+			y: 2.0d
+			optional: true
+			shape: "gear"
+			size: 1.0d
 			hide_details_until_startable: false
 			tasks: [{ id: "59BA3CDB18E08CC9", type: "checkmark", title: "Understood." }]
-			rewards: []
+			rewards: [{ id: "2871502819C93033", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
 		}
 	]
 	title: "Read Me First"

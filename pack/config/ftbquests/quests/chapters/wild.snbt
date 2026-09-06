@@ -1,0 +1,223 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "wild"
+	group: "18F91CE74CDADF87"
+	icon: "minecraft:bow"
+	id: "6095C42F4206353A"
+	order_index: 32
+	quest_links: [ ]
+	subtitle: ["Past the last lamp post the rules change.", "Not by much. Your chest is still yours, and so is your grave."]
+	hide_quest_until_deps_complete: false
+	hide_quest_details_until_startable: false
+	images: [
+		{ x: -4.0d, y: -5.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "minecraft:item/bow", alpha: 255, order: -1, hover: ["Forty lamps end. This starts."] }
+		{ x: 2.0d, y: -5.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "lootr:block/old_barrel_side", alpha: 255, order: -1, hover: ["Grey means you already had yours."] }
+		{ x: 8.0d, y: -5.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "friendsandfoes:item/crab_claw", alpha: 255, order: -1, hover: ["Sideways, at dusk, on the shingle."] }
+		{ x: 14.0d, y: -5.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "ribbits:block/red_toadstool", alpha: 255, order: -1, hover: ["Wisp's people grow them in planters."] }
+		{ x: 20.0d, y: -5.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "friendsandfoes:item/totem_of_freezing", alpha: 255, order: -1, hover: ["Taken off an iceologer, on a peak."] }
+		{ x: 26.0d, y: -5.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "minecraft:item/ender_eye", alpha: 255, order: -1, hover: ["It goes where you are going anyway."] }
+		{ x: 2.0d, y: 6.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "minecraft:block/nether_bricks", alpha: 255, order: -1, hover: ["The corridors run further than they used to."] }
+		{ x: 14.0d, y: 6.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "friendsandfoes:item/wildfire_crown_fragment", alpha: 255, order: -1, hover: ["Five of these make the crown."] }
+		{ x: 26.0d, y: 6.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "deeperdarker:block/sculk_stone", alpha: 255, order: -1, hover: ["Tobin says it rings wrong."] }
+	]
+	quests: [
+		{
+			id: "03D0024BEFEA5468"
+			title: "String a Bow and Fletch 64 Arrows"
+			subtitle: "Nothing in the valley needs shooting."
+			icon: "minecraft:bow"
+			description: ["Craft a &aBow&r and 64 &aArrows&r before the first trip out. Reach counts for more than armour past the lamps.", "", "A &aShield&r off the same bench is a fair second thought."]
+			x: 0.0d
+			y: -1.5d
+			shape: "hexagon"
+			size: 2.0d
+			hide_details_until_startable: false
+			tasks: [{ id: "55D98BBEF0EBF373", type: "item", item: "minecraft:bow", count: 1L }, { id: "500BB12C4DED0194", type: "item", item: "minecraft:arrow", count: 64L }]
+			rewards: [{ id: "4265DC4ABFB8C1FC", type: "item", auto: "no_toast", item: "minecraft:arrow", count: 32 }, { id: "39507D976AD8744C", type: "loot", auto: "no_toast", table_id: 3222315870028655150L }, { id: "7955427CB648306F", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "27109AB93EAD2CF1"
+			title: "Open a Chest Somebody Already Opened"
+			subtitle: "Lootr gives every player their own roll."
+			icon: "lootr:lootr_chest"
+			description: ["Open any dungeon chest with a &bLootr&r face. The contents are yours alone, so nobody races anybody to it.", "", "It goes grey once emptied. &6Places&r lists where they sit."]
+			x: 2.0d
+			y: -3.0d
+			dependencies: ["03D0024BEFEA5468"]
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "0E2D8C7E16534419", type: "checkmark", title: "A Lootr chest opened." }]
+			rewards: [{ id: "4391756921C59EF2", type: "item", auto: "no_toast", item: "minecraft:torch", count: 16 }, { id: "6FB7A87ECCFEAB78", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "7DF5D65DB480CCDF"
+			title: "Know What Happens If You Go Down"
+			subtitle: "A grave, and everything still in it."
+			icon: "minecraft:skeleton_skull"
+			description: ["Read this before you go far. If you fall out there, a grave stands where you fell holding every item and level.", "", "Walk back and open it. Nothing scatters and nothing despawns."]
+			x: 2.0d
+			y: -1.5d
+			dependencies: ["03D0024BEFEA5468"]
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "510FE3FD188E1173", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "377AE87916DDF723", type: "item", auto: "no_toast", item: "minecraft:bread", count: 8 }, { id: "3B2B3C78488534AF", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "1BCCFA97543E5CD0"
+			title: "Bring Back Two Crab Claws"
+			subtitle: "They walk the shingle sideways at dusk."
+			icon: "friendsandfoes:crab_claw"
+			description: ["Walk any sand or gravel shore until you find crabs, then take 2 &aCrab Claws&r home.", "", "Friends & Foes put nine new creatures in the world. This is the mildest of them."]
+			x: 2.0d
+			y: 0.0d
+			dependencies: ["03D0024BEFEA5468"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "2398C08672223921", type: "item", item: "friendsandfoes:crab_claw", count: 2L }]
+			rewards: [{ id: "0A9A405B68C139A5", type: "item", auto: "no_toast", item: "minecraft:cooked_beef", count: 6 }, { id: "7865E2D8FF4BADBB", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "49A7126F446D164E"
+			title: "Hang a Birch Beehive by the Orchard"
+			subtitle: "It takes four bees where vanilla takes three."
+			icon: "friendsandfoes:birch_beehive"
+			description: ["Craft a &aBirch Beehive&r from six birch planks and three honeycomb, then set it where bees already work.", "", "Take 3 &aHoney Bottles&r off it. &6Cooking & Brewing&r has work for them."]
+			x: 4.0d
+			y: -2.2d
+			dependencies: ["1BCCFA97543E5CD0"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "0AD39923872A8A95", type: "item", item: "friendsandfoes:birch_beehive", count: 1L }, { id: "6AF13B0E332183DD", type: "item", item: "minecraft:honey_bottle", count: 3L }]
+			rewards: [{ id: "25783FA1140DC094", type: "item", auto: "no_toast", item: "minecraft:honeycomb", count: 6 }, { id: "1D2D6D5C76F80FA0", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "1E795CECB6FE88DA"
+			title: "Take a Totem of Freezing off an Iceologer"
+			subtitle: "They stand on snow lines and throw ice."
+			icon: "friendsandfoes:totem_of_freezing"
+			description: ["Climb to a snowy peak and find an iceologer. It drops a block of ice on your head from range, so &cclose the gap fast&r.", "", "Every one of them carries a &aTotem of Freezing&r."]
+			x: 4.0d
+			y: -0.8d
+			dependencies: ["1BCCFA97543E5CD0"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "30FE6D49DB4E25FA", type: "kill", entity: "friendsandfoes:iceologer", value: 1L }]
+			rewards: [{ id: "57872BCAEA887A56", type: "item", auto: "no_toast", item: "minecraft:blue_ice", count: 4 }, { id: "564683E43EB17C19", type: "loot", auto: "no_toast", table_id: 3222315870028655150L }, { id: "55DD92B824651D45", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "52D2D2F9950A3103"
+			title: "Cut Six Toadstools in the Reed Village"
+			subtitle: "Wisp's people grow them in planters."
+			icon: "ribbits:toadstool"
+			description: ["Wisp: \"Take small ones. Big ones are somebody's roof.\"", "", "Cut 6 &aToadstools&r and 4 &aRed Toadstools&r downstream at the reed village you first walked into in &6Act II&r.", "", "Both replant themselves. Take from the edge of a patch."]
+			x: 0.0d
+			y: 0.0d
+			dependencies: ["35951AD29E0D22D4"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "033DBF640D40992B", type: "item", item: "ribbits:toadstool", count: 6L }, { id: "7D921C0B6E4C27D5", type: "item", item: "ribbits:red_toadstool", count: 4L }]
+			rewards: [{ id: "1B2BD79E6B8F0C69", type: "item", auto: "no_toast", item: "ribbits:swamp_lantern", count: 2 }, { id: "01DF4EF23B26B2A3", type: "loot", auto: "no_toast", table_id: 3222315870028655150L }, { id: "6ED156132C522AAD", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "72303879DD826719"
+			title: "Walk a Nether Fortress End to End"
+			subtitle: "YUNG rebuilt them: bridges, halls, a vault."
+			icon: "minecraft:nether_bricks"
+			description: ["Step through a portal and find a fortress. The corridors run further than the old ones and the chests sit deeper in.", "", "&cBlazes hold the stairwells.&r Bring the bow."]
+			x: 2.0d
+			y: 1.5d
+			dependencies: ["03D0024BEFEA5468"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "24A60232CC8E8B6E", type: "structure", structure: "minecraft:fortress" }]
+			rewards: [{ id: "4193EE4B0545B89E", type: "item", auto: "no_toast", item: "minecraft:gold_ingot", count: 8 }, { id: "36DEE7F55ACB59DC", type: "loot", auto: "no_toast", table_id: 3222315870028655150L }, { id: "3A14A6E613B94168", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "69BC9B13AF9664CA"
+			title: "Cut a Machete and Take 4 Hoglin Loins"
+			subtitle: "Nether's Delight is a butcher's chapter."
+			icon: "nethersdelight:iron_machete"
+			description: ["Craft an &aIron Machete&r from two iron and a stick, then hunt hoglins in the crimson forest for 4 &aHoglin Loin&r.", "", "The machete clears vines and nether roots in one swing as well."]
+			x: 4.0d
+			y: 0.8d
+			dependencies: ["72303879DD826719"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "322235488F3CFB51", type: "item", item: "nethersdelight:iron_machete", count: 1L }, { id: "0B616DFEDC42909D", type: "item", item: "nethersdelight:hoglin_loin", count: 4L }]
+			rewards: [{ id: "01A626C8FC505AC2", type: "item", auto: "no_toast", item: "nethersdelight:hoglin_hide", count: 2 }, { id: "6F2032700C9C77A6", type: "loot", auto: "no_toast", table_id: 3222315870028655150L }, { id: "6CCE7717D6639D02", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "4CAE8E6125F866B8"
+			title: "Bring Down One Wildfire"
+			subtitle: "It keeps four blazes as a shield."
+			icon: "friendsandfoes:wildfire_crown_fragment"
+			description: ["Find a wildfire deep in the fortress. It hides behind four blazes, so &cbreak the shield first&r.", "", "It drops crown fragments. Five make a &aWildfire Crown&r that keeps blazes off."]
+			x: 4.0d
+			y: 2.2d
+			dependencies: ["72303879DD826719"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "74CE1BB94F84969D", type: "kill", entity: "friendsandfoes:wildfire", value: 1L }]
+			rewards: [{ id: "34CF040FBFCD21CF", type: "item", auto: "no_toast", item: "minecraft:blaze_rod", count: 4 }, { id: "69DB426BFEEA1B4F", type: "loot", auto: "no_toast", table_id: 3222315870028655150L }, { id: "3EE22424A299D061", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "18FD1DF8B0634CFF"
+			title: "Follow an Eye of Ender to the Stronghold"
+			subtitle: "Libraries, a prison, a well in the dark."
+			icon: "minecraft:ender_eye"
+			description: ["Throw an &aEye of Ender&r and walk after it. YUNG's strongholds are a proper ruin: libraries, a prison, a flooded well.", "", "The portal room is still down there if you ever want it."]
+			x: 2.0d
+			y: 3.0d
+			dependencies: ["03D0024BEFEA5468"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "0E4835E7B3779D35", type: "structure", structure: "minecraft:stronghold" }]
+			rewards: [{ id: "50788E2B8A82FFD9", type: "item", auto: "no_toast", item: "minecraft:ender_pearl", count: 4 }, { id: "0CF71E43EB85F4B4", type: "loot", auto: "no_toast", table_id: 3222315870028655150L }, { id: "59C7AD0C4818DA8F", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "2DAB95329D179A9A"
+			title: "Bring Back Sixteen Sculk Stone"
+			subtitle: "Deeper and Darker rebuilt the deep dark."
+			icon: "deeperdarker:sculk_stone"
+			description: ["Tobin: \"It is not deepslate. I checked twice. It rings wrong.\"", "", "Go back to the echo cave from &6Act V&r, mine 16 &aCobbled Sculk Stone&r and smelt it into &aSculk Stone&r.", "", "&cThe warden hears every step.&r Crouch, and light nothing you do not need."]
+			x: 0.0d
+			y: 1.5d
+			dependencies: ["06824CC3F51032B9"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "4425A8B8E1A720A4", type: "item", item: "deeperdarker:sculk_stone", count: 16L }]
+			rewards: [{ id: "7E65C837AFAF718B", type: "item", auto: "no_toast", item: "minecraft:experience_bottle", count: 12 }, { id: "572EEAB36315CF8E", type: "loot", auto: "no_toast", table_id: 3222315870028655150L }, { id: "44DA75B8F0195612", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "26BB1E2DE6CA4236", type: "toast", title: "Sixteen, Rung Wrong", auto: "enabled", description: "Next: the echo cave was only the doorstep. The Otherside opens off the ancient city's sculk frame with an Echo Shard." }]
+		}
+	]
+	title: "The Wild"
+}

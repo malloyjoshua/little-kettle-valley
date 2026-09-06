@@ -1,0 +1,258 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "home"
+	group: "304B7E2B056C2322"
+	icon: "mcwdoors:oak_cottage_door"
+	id: "22F8BB49E878D025"
+	order_index: 13
+	quest_links: [ ]
+	subtitle: ["Doors that shut, chairs that face the fire, and a light on the porch.", "None of it is required. All of it is why anybody stays."]
+	hide_quest_until_deps_complete: false
+	hide_quest_details_until_startable: false
+	images: [
+		{ x: 0.0d, y: -4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "mcwdoors:block/oak_cottage_door_upper", alpha: 255, order: -1, hover: ["Two blocks tall, same as a plain door."] }
+		{ x: 4.0d, y: -4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "mcwwindows:block/oak_shutter", alpha: 255, order: -1, hover: ["Shutters open outward. Blinds do not."] }
+		{ x: 8.0d, y: -4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "supplementaries:block/sconce", alpha: 255, order: -1, hover: ["Flat against the wall, out of the doorway."] }
+		{ x: 12.0d, y: -4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "supplementaries:block/jar_side", alpha: 255, order: -1, hover: ["Cookies keep. So does one bee."] }
+		{ x: 0.0d, y: 4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "comforts:item/hammock_red", alpha: 255, order: -1, hover: ["Two nails and a rope, slung between them."] }
+		{ x: 4.0d, y: 4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "torchmaster:block/megatorch", alpha: 255, order: -1, hover: ["Josie kept one lit in the kitchen."] }
+		{ x: 8.0d, y: 4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "supplementaries:block/notice_board_front", alpha: 255, order: -1, hover: ["Oda has opinions about lettering."] }
+		{ x: 12.0d, y: 4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "supplementaries:block/flower_box_top", alpha: 255, order: -1, hover: ["Poppies. Halden was firm about it."] }
+		{ x: 16.5d, y: 0.0d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "handcrafted:item/fancy_painting", alpha: 255, order: -1, hover: ["The catalogue came up on the wagon."] }
+	]
+	quests: [
+		{
+			id: "50C5532B79E5A924"
+			title: "Hang a Door That Shuts"
+			subtitle: "Josie left a blanket nailed over it."
+			icon: "mcwdoors:oak_cottage_door"
+			description: ["Oda: \"Catalogue came up on the wagon. Pick a door, not a curtain.\"", "", "Craft an &aOak Cottage Door&r and hang it on the cottage."]
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 2.0d
+			hide_details_until_startable: false
+			tasks: [{ id: "019C90541A9C077A", type: "item", item: "mcwdoors:oak_cottage_door", count: 1L }]
+			rewards: [{ id: "26BBAE44584E62A1", type: "item", auto: "no_toast", item: "minecraft:oak_planks", count: 32 }, { id: "36A9921DFACA212A", type: "loot", auto: "no_toast", table_id: 6715261676935548759L }, { id: "2A441E81D1A501C8", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "1FE71F6C76F92C9F"
+			title: "Fit Two Windows and Two Shutters"
+			subtitle: "Glass costs sand. Sand costs a walk."
+			icon: "mcwwindows:oak_window"
+			description: ["Marnie: \"You can't see who's coming up the hill. That's half of living somewhere.\"", "", "Craft two &aOak Windows&r and two &aOak Shutters&r and set them in the wall."]
+			x: 2.0d
+			y: -3.0d
+			dependencies: ["50C5532B79E5A924"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "20BC82A34F7C17AA", type: "item", item: "mcwwindows:oak_window", count: 2L }, { id: "358EDBD77C313798", type: "item", item: "mcwwindows:oak_shutter", count: 2L }]
+			rewards: [{ id: "24F8681E92687570", type: "item", auto: "no_toast", item: "minecraft:glass", count: 16 }, { id: "4454C37134CCAAA1", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "7DEA859734D93628"
+			title: "Roof the Porch in Oak"
+			subtitle: "Rain comes sideways up here."
+			icon: "mcwroofs:oak_roof"
+			description: ["Bram: \"Pitch it. Flat roofs are for people with no snow.\"", "", "Lay twelve &aOak Roof&r blocks and four &aOak Top Roof&r ridge pieces over the porch."]
+			x: 2.0d
+			y: -1.5d
+			dependencies: ["50C5532B79E5A924"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "36D5B170775E7203", type: "item", item: "mcwroofs:oak_roof", count: 12L }, { id: "19ABF7D56FBFD67C", type: "item", item: "mcwroofs:oak_top_roof", count: 4L }]
+			rewards: [{ id: "5440DBC1C779D982", type: "item", auto: "no_toast", item: "minecraft:oak_log", count: 16 }, { id: "125F173DBEAFDC2A", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "384F61FA2B3BABC0"
+			title: "Picket the Garden and Hang a Gate"
+			subtitle: "Chickens are optimists."
+			icon: "mcwfences:oak_picket_fence"
+			description: ["Pip: \"Biscuit got into the carrots. Twice, and the second time on purpose.\"", "", "Craft sixteen &aOak Picket Fence&r and one &aOak Highley Gate&r round the patch."]
+			x: 2.0d
+			y: 0.0d
+			dependencies: ["50C5532B79E5A924"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "2D37027A08E844E7", type: "item", item: "mcwfences:oak_picket_fence", count: 16L }, { id: "3FC86CBFCD1520E9", type: "item", item: "mcwfences:oak_highley_gate", count: 1L }]
+			rewards: [{ id: "63C1ADDCA5E637FA", type: "item", auto: "no_toast", item: "mcwfences:oak_hedge", count: 8 }, { id: "2D4B30A64105875C", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "072143172349A3DC"
+			title: "Roll a Sleeping Bag and a Hammock"
+			subtitle: "Sleep out without moving your bed."
+			icon: "comforts:sleeping_bag_red"
+			description: ["A &aSleeping Bag&r passes the night and leaves your spawn where it is. A &aHammock&r needs two Rope and Nail.", "", "Craft one of each and keep the bag on you."]
+			x: 2.0d
+			y: 1.5d
+			dependencies: ["50C5532B79E5A924"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "1E8485ED55FCA623", type: "item", item: "comforts:sleeping_bag_red", count: 1L }, { id: "0ABA1E1424DDE73A", type: "item", item: "comforts:hammock_red", count: 1L }, { id: "1D07E8B96596B152", type: "item", item: "comforts:rope_and_nail", count: 2L }]
+			rewards: [{ id: "0C6632A3EB00EC5C", type: "item", auto: "no_toast", item: "comforts:sleeping_bag_blue" }, { id: "1D116EA89CD62C8A", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "50E7252FCA618704"
+			title: "Carry the Chest, Don't Empty It"
+			subtitle: "Sneak, empty hand, walk it over."
+			icon: "minecraft:chest"
+			description: ["&bCarry On&r picks up a chest, a barrel or a machine with everything still inside it.", "", "Sneak and use an empty hand on it. You walk slow until you set it down."]
+			x: 2.0d
+			y: 3.0d
+			dependencies: ["50C5532B79E5A924"]
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "31DA12A075A37353", type: "checkmark", title: "Carried a full chest across the yard." }]
+			rewards: [{ id: "106B2777F10C9172", type: "item", auto: "no_toast", item: "minecraft:barrel", count: 4 }, { id: "43A8DABC3AB85063", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "4E78A6CD69476223"
+			title: "Set a Table and Two Chairs"
+			subtitle: "One for you, one for whoever walks in."
+			icon: "mcwfurnitures:oak_table"
+			description: ["Marnie: \"A table laid for one is a shelf you eat off.\"", "", "Craft an &aOak Table&r and two &aOak Chairs&r and put them where the fire reaches."]
+			x: 4.0d
+			y: -2.2d
+			dependencies: ["1FE71F6C76F92C9F"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "126A3DE5FF8DE93F", type: "item", item: "mcwfurnitures:oak_table", count: 1L }, { id: "339C59E0E27A8129", type: "item", item: "mcwfurnitures:oak_chair", count: 2L }]
+			rewards: [{ id: "3B8D2A15F8581DE4", type: "loot", auto: "no_toast", table_id: 6715261676935548759L }, { id: "4CDDC5562E8CD013", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "230E17D93F766492"
+			title: "Hang Six Sconces and Two Lanterns"
+			subtitle: "Sconces sit flat. Lanterns hang."
+			icon: "supplementaries:sconce"
+			description: ["Nella: \"I can see your window from the water now. Keep it lit.\"", "", "Craft six &aSconces&r and two &aLanterns&r and light the cottage inside and out."]
+			x: 4.0d
+			y: -0.8d
+			dependencies: ["1FE71F6C76F92C9F"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "24A264E6566BF6C0", type: "item", item: "supplementaries:sconce", count: 6L }, { id: "0434F0A690E1117E", type: "item", item: "minecraft:lantern", count: 2L }]
+			rewards: [{ id: "52D490813F53D438", type: "item", auto: "no_toast", item: "supplementaries:candle_holder", count: 4 }, { id: "7945F22FC35AB4AD", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "3F75660A368F13D1"
+			title: "Box Flowers Under Both Windows"
+			subtitle: "Halden notices within the hour."
+			icon: "supplementaries:flower_box"
+			description: ["Halden: \"Poppies. Not cornflowers. Cornflowers sulk in a box.\"", "", "Craft four &aFlower Boxes&r and two &aPlanters&r, hang them and plant them."]
+			x: 4.0d
+			y: 0.8d
+			dependencies: ["1FE71F6C76F92C9F"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "7FE16077D2C0CB66", type: "item", item: "supplementaries:flower_box", count: 4L }, { id: "204EC1A6DA8337EA", type: "item", item: "supplementaries:planter", count: 2L }]
+			rewards: [{ id: "1F839FD1F17D539A", type: "item", auto: "no_toast", item: "minecraft:poppy", count: 16 }, { id: "34AE2E0735C689E8", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "626C04991DD134D4"
+			title: "Fill a Wardrobe and Two Drawers"
+			subtitle: "Storage that isn't a hole in the floor."
+			icon: "mcwfurnitures:oak_wardrobe"
+			description: ["A Macaw's drawer holds a chest's worth and reads as furniture.", "", "Craft an &aOak Wardrobe&r and two &aOak Drawers&r. For bulk, see the &6Power & Logistics&r chapter."]
+			x: 6.0d
+			y: -1.5d
+			dependencies: ["4E78A6CD69476223"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "5A898621B0F32599", type: "item", item: "mcwfurnitures:oak_wardrobe", count: 1L }, { id: "7135593379652D7F", type: "item", item: "mcwfurnitures:oak_drawer", count: 2L }]
+			rewards: [{ id: "3AF20F830F0D0B11", type: "item", auto: "no_toast", item: "minecraft:chest", count: 4 }, { id: "0405D2D545A09B14", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "5636EC51AC12DED2"
+			title: "Put a Bench by the Hearth"
+			subtitle: "Handcrafted wood is softer than Macaw's."
+			icon: "handcrafted:oak_bench"
+			description: ["Halden: \"Josie had a bench there. I sat on it for four years.\"", "", "Craft an &aOak Bench&r, two &aOak Shelves&r and two &aWood Cups&r for the fireside."]
+			x: 6.0d
+			y: 0.0d
+			dependencies: ["4E78A6CD69476223"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "7CDF01FA5B4733B2", type: "item", item: "handcrafted:oak_bench", count: 1L }, { id: "6540BF9F49F6EA25", type: "item", item: "handcrafted:oak_shelf", count: 2L }, { id: "42593CDDD1FC0B24", type: "item", item: "handcrafted:wood_cup", count: 2L }]
+			rewards: [{ id: "4D69EA205467FBD1", type: "item", auto: "no_toast", item: "handcrafted:oak_couch" }, { id: "335A9F04AC350E26", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "6E1FE25EB8702A0C"
+			title: "Line Four Jars on an Item Shelf"
+			subtitle: "A jar shows you what is in it."
+			icon: "supplementaries:jar"
+			description: ["Marnie: \"Label nothing. If you can't see it, you won't cook it.\"", "", "Craft four &aJars&r and two &aItem Shelves&r and mount them over the counter."]
+			x: 8.0d
+			y: 0.0d
+			dependencies: ["5636EC51AC12DED2"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "4123BF38FAFB72F2", type: "item", item: "supplementaries:jar", count: 4L }, { id: "545D09C531545CC2", type: "item", item: "supplementaries:item_shelf", count: 2L }]
+			rewards: [{ id: "2A770625CFC4A6AE", type: "loot", auto: "no_toast", table_id: 6715261676935548759L }, { id: "7736E82FDBDF5395", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "70D177C2EF563254"
+			title: "Nail a Sign Post at the Gate"
+			subtitle: "Two arms, two directions, one post."
+			icon: "supplementaries:sign_post_oak"
+			description: ["Pip: \"People walk straight past. They don't know it's a house.\"", "", "Craft two &aOak Sign Posts&r and one &aNotice Board&r. Sign posts stack on a fence."]
+			x: 4.0d
+			y: 2.2d
+			dependencies: ["384F61FA2B3BABC0"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "42076AD9BC085039", type: "item", item: "supplementaries:sign_post_oak", count: 2L }, { id: "4CB53C0CAAE241E5", type: "item", item: "supplementaries:notice_board", count: 1L }]
+			rewards: [{ id: "7E398948A2A35C6A", type: "item", auto: "no_toast", item: "supplementaries:hourglass" }, { id: "45824515AD4EB61D", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "4192727925FFA8C3"
+			title: "Stand a Megatorch in the Yard"
+			subtitle: "Nothing hostile spawns inside its circle."
+			icon: "torchmaster:megatorch"
+			description: ["Bram: \"Josie kept one in the kitchen. Never fought a thing in her own house.\"", "", "Craft a &aMegatorch&r and stand it outside. It stops &cmob spawns&r for a wide radius."]
+			x: 6.0d
+			y: 1.5d
+			dependencies: ["230E17D93F766492"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "2EF51908EDB7AF3A", type: "item", item: "torchmaster:megatorch", count: 1L }]
+			rewards: [{ id: "7E4CC4FC56939868", type: "item", auto: "no_toast", item: "torchmaster:feral_flare_lantern" }, { id: "692953363A5DB9B4", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "74EF0799B6F058DD", type: "toast", title: "Home & Town", auto: "enabled", description: "Next: Act II builds Wisp a stilt house, Act III fits out the inn's two guest rooms. Same hands, bigger rooms." }]
+		}
+	]
+	title: "Home & Town"
+}

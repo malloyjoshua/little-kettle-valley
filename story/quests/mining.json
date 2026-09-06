@@ -1,0 +1,844 @@
+{
+ "chapter": {
+  "key": "mining",
+  "title": "Ores & Mining",
+  "subtitle": [
+   "Vanilla ore is still down there. Geolosys buries the rest in beds.",
+   "Find the sample, read the depth, take the whole seam in one swing."
+  ],
+  "icon": "geolosys:prospectors_pick",
+  "group": "Tech",
+  "order": 24,
+  "images": [
+   {
+    "x": -1.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "geolosys:item/prospectors_pick",
+    "order": -1,
+    "hover": [
+     "Three iron across, two sticks down."
+    ]
+   },
+   {
+    "x": 3.5,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "geolosys:block/hematite_ore",
+    "order": -1,
+    "hover": [
+     "Iron. y 32 to 60, anywhere."
+    ]
+   },
+   {
+    "x": 8.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "geolosys:block/malachite_ore",
+    "order": -1,
+    "hover": [
+     "Copper. The widest bed in the valley."
+    ]
+   },
+   {
+    "x": 12.5,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "geolosys:block/kimberlite_ore",
+    "order": -1,
+    "hover": [
+     "Diamond. A pipe, not a pocket."
+    ]
+   },
+   {
+    "x": 17.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "geolosys:block/autunite_ore",
+    "order": -1,
+    "hover": [
+     "Uranium. Mountain stone, y 8 to 33."
+    ]
+   },
+   {
+    "x": -1.0,
+    "y": 6.5,
+    "width": 2.2,
+    "height": 2.2,
+    "image": "justhammers:item/iron_hammer",
+    "order": -1,
+    "hover": [
+     "Nine blocks a swing. Sneak for one."
+    ]
+   },
+   {
+    "x": 5.0,
+    "y": 6.5,
+    "width": 2.2,
+    "height": 2.2,
+    "image": "geolosys:item/tin_cluster",
+    "order": -1,
+    "hover": [
+     "Cassiterite, under sandy ground."
+    ]
+   },
+   {
+    "x": 11.0,
+    "y": 6.5,
+    "width": 2.2,
+    "height": 2.2,
+    "image": "ae2:block/sky_stone_block",
+    "order": -1,
+    "hover": [
+     "Buried at -216, 72."
+    ]
+   },
+   {
+    "x": 17.0,
+    "y": 6.5,
+    "width": 2.2,
+    "height": 2.2,
+    "image": "minecraft:block/deepslate",
+    "order": -1,
+    "hover": [
+     "Below y 0 everything takes longer."
+    ]
+   }
+  ]
+ },
+ "reward_tables": [
+  {
+   "key": "mining_crate",
+   "title": "Tobin's Sample Bag",
+   "loot_size": 1,
+   "loot_crate": {
+    "id": "mining_crate",
+    "name": "Tobin's Sample Bag",
+    "color": 9137482,
+    "glow": false
+   },
+   "rewards": [
+    {
+     "item": "minecraft:torch",
+     "count": 32,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:coal",
+     "count": 16,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:iron_ingot",
+     "count": 8,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:copper_ingot",
+     "count": 8,
+     "weight": 3
+    },
+    {
+     "item": "geolosys:iron_cluster",
+     "count": 12,
+     "weight": 2
+    },
+    {
+     "item": "geolosys:copper_cluster",
+     "count": 12,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:ladder",
+     "count": 16,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:lantern",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "thermal:tin_ingot",
+     "count": 6,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:experience_bottle",
+     "count": 8,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:lapis_lazuli",
+     "count": 12,
+     "weight": 1
+    },
+    {
+     "item": "minecraft:diamond",
+     "count": 2,
+     "weight": 1
+    }
+   ]
+  }
+ ],
+ "quests": [
+  {
+   "key": "mining_root",
+   "title": "Take a Hammer Down, Not a Pickaxe",
+   "subtitle": "One swing clears three blocks by three.",
+   "icon": "justhammers:stone_hammer",
+   "description": [
+    "Craft a &aStone Hammer&r. It breaks a 3x3 face in one hit, so a tunnel that cost nine swings costs one.",
+    "",
+    "Bram keeps one on the peg at the mill: Act I, step 3. This one is yours."
+   ],
+   "deps": [],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 2.0,
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "justhammers:stone_hammer",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:torch",
+     "count": 32
+    },
+    {
+     "type": "item",
+     "item": "minecraft:iron_ingot",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "mining_light",
+   "title": "Carry 64 Torches and 16 Ladders",
+   "subtitle": "Light behind you, not just ahead.",
+   "icon": "minecraft:torch",
+   "description": [
+    "Stock &a64 Torches&r and &a16 Ladders&r before you go down. Set a torch on the right-hand wall every eight blocks and the right wall walks you back out.",
+    "",
+    "A ladder shaft beats a staircase: one block wide, straight up."
+   ],
+   "deps": [
+    "mining_root"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:torch",
+     "count": 64
+    },
+    {
+     "type": "item",
+     "item": "minecraft:ladder",
+     "count": 16
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:lantern",
+     "count": 4
+    },
+    {
+     "type": "item",
+     "item": "minecraft:ladder",
+     "count": 32
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "mining_vein",
+   "title": "Take a Whole Seam in One Swing",
+   "subtitle": "Hold the key above Tab while it breaks.",
+   "icon": "minecraft:coal",
+   "description": [
+    "Hold the &bgrave key&r, the one above Tab, and break one ore. Everything joined to it comes with it, up to 64 blocks.",
+    "",
+    "Bring &a32 Coal&r up to show for it. It costs tool durability and a little hunger, nothing else."
+   ],
+   "deps": [
+    "mining_light"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:coal",
+     "count": 32
+    },
+    {
+     "type": "checkmark",
+     "title": "A whole seam taken in one swing."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:experience_bottle",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "minecraft:coal",
+     "count": 32
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "mining_samples",
+   "title": "Read the Ground for Ore Samples",
+   "subtitle": "Speckled stones sitting out on the grass.",
+   "icon": "geolosys:iron_cluster",
+   "description": [
+    "Geolosys buries ore in wide beds and leaves a small sample stone on the grass over each one. Break twelve iron samples for &aIron Clusters&r.",
+    "",
+    "This is the reading Bram set you in Act I, step 5."
+   ],
+   "deps": [
+    "mining_vein"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "geolosys:iron_cluster",
+     "count": 12
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:iron_ingot",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "mining_propick",
+   "title": "Craft a Prospector's Pick",
+   "subtitle": "Three iron, two sticks, a straight answer.",
+   "icon": "geolosys:prospectors_pick",
+   "description": [
+    "Craft a &aProspector's Pick&r: three iron across the top, two sticks down. Right-click stone with it and it names what is buried within nine blocks.",
+    "",
+    "It never wears out. Carry it and stop guessing."
+   ],
+   "deps": [
+    "mining_samples"
+   ],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 1.5,
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "geolosys:prospectors_pick",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "mining_crate"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:torch",
+     "count": 32
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "mining_hematite",
+   "title": "Smelt 32 Iron From a Hematite Bed",
+   "subtitle": "Hematite runs y 32 to 60, any biome.",
+   "icon": "minecraft:iron_ingot",
+   "description": [
+    "Work a hematite bed between &by 32 and y 60&r. Every ore drops an Iron Cluster, and a cluster smelts into one &aIron Ingot&r.",
+    "",
+    "Hematite is a dike: narrow and tall. Follow it up and down, not sideways."
+   ],
+   "deps": [
+    "mining_propick"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:iron_ingot",
+     "count": 32
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:iron_ingot",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "minecraft:coal",
+     "count": 32
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "mining_hammer_iron",
+   "title": "Hang an Iron Hammer on Your Belt",
+   "subtitle": "Five ingots. It pays itself back by teatime.",
+   "icon": "justhammers:iron_hammer",
+   "description": [
+    "Craft an &aIron Hammer&r. Same 3x3 face, far more durability, and it takes the harder stone the first one refuses.",
+    "",
+    "Sneak while you swing and it breaks a single block instead."
+   ],
+   "deps": [
+    "mining_hematite"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "justhammers:iron_hammer",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:iron_ingot",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "mining_beryl",
+   "title": "Chase Beryl Under the Mountains",
+   "subtitle": "Green ore, thin dike, four emeralds.",
+   "icon": "minecraft:emerald",
+   "description": [
+    "Look for beryl samples on mountain ground and follow the dike down. It runs &by -56 to 19&r and drops &aEmeralds&r, not clusters.",
+    "",
+    "Teallite beds carry a little beryl too, deeper and hotter."
+   ],
+   "deps": [
+    "mining_propick"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:emerald",
+     "count": 4
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:emerald",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "valley:scrip",
+     "count": 5
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "mining_autunite",
+   "title": "Find Autunite Between y 8 and 33",
+   "subtitle": "Yellow crust on mountain stone.",
+   "icon": "geolosys:uranium_cluster",
+   "description": [
+    "Prospect mountain stone between &by 8 and y 33&r for autunite. Each ore drops a &aUranium Cluster&r, and one cluster smelts to one ingot.",
+    "",
+    "Sixty-four of these run Josie's vessel: see the &6Reactor&r chapter."
+   ],
+   "deps": [
+    "mining_propick"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "geolosys:uranium_cluster",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:iron_ingot",
+     "count": 8
+    },
+    {
+     "type": "loot",
+     "table": "mining_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "mining_malachite",
+   "title": "Follow Malachite Down for Copper",
+   "subtitle": "The widest bed here: y -16 to 90.",
+   "icon": "geolosys:copper_cluster",
+   "description": [
+    "Work a malachite bed for &a32 Copper Clusters&r. Malachite sits anywhere from &by -16 to y 90&r, so the sample may be under your own field.",
+    "",
+    "Azurite is the same metal further down, below y 13."
+   ],
+   "deps": [
+    "mining_hematite"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "geolosys:copper_cluster",
+     "count": 32
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:copper_ingot",
+     "count": 16
+    },
+    {
+     "type": "loot",
+     "table": "mining_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "mining_tin_lead",
+   "title": "Smelt Eight Tin and Eight Lead",
+   "subtitle": "Cassiterite in sand, galena under plains.",
+   "icon": "thermal:tin_ingot",
+   "description": [
+    "Smelt &a8 Tin Ingots&r from cassiterite and &a8 Lead Ingots&r from galena. Cassiterite sits &by 44 to 68&r under sandy ground; galena runs &by -16 to 32&r under plains.",
+    "",
+    "Bronze and electrum both start in these two beds: Act III, step 9."
+   ],
+   "deps": [
+    "mining_malachite"
+   ],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 1.5,
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "thermal:tin_ingot",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "thermal:lead_ingot",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "mining_crate"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:iron_ingot",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "mining_silver",
+   "title": "Pull Silver Out of the Galena",
+   "subtitle": "One bed, two metals, no second hole.",
+   "icon": "thermal:silver_ingot",
+   "description": [
+    "Keep working the galena bed. It drops lead and silver from the same ore, so &a6 Silver Ingots&r cost you nothing but the time.",
+    "",
+    "Silver goes into signalum and into every Thermal augment worth having."
+   ],
+   "deps": [
+    "mining_tin_lead"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "thermal:silver_ingot",
+     "count": 6
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "thermal:silver_ingot",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "mining_kimberlite",
+   "title": "Sink Below y 10 for Kimberlite",
+   "subtitle": "A diamond pipe. Half of it is dead rock.",
+   "icon": "minecraft:diamond",
+   "description": [
+    "Dig below &by 10&r and look for kimberlite. It is a narrow pipe running down toward bedrock, and only half of it carries anything.",
+    "",
+    "Bring &a6 Diamonds&r up. The pick finds the pipe faster than a strip mine ever will."
+   ],
+   "deps": [
+    "mining_tin_lead"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:diamond",
+     "count": 6
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:diamond",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "minecraft:experience_bottle",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "mining_hammer_diamond",
+   "title": "Reforge the Hammer in Diamond",
+   "subtitle": "The last one you make for a long while.",
+   "icon": "justhammers:diamond_hammer",
+   "description": [
+    "Craft a &aDiamond Hammer&r now the kimberlite has paid out. Nine blocks a swing, and enough durability to cut a reactor pit in one sitting.",
+    "",
+    "Put Efficiency on it before Fortune. Speed is what a hammer is for."
+   ],
+   "deps": [
+    "mining_kimberlite"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "justhammers:diamond_hammer",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:diamond",
+     "count": 2
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "mining_meteorite",
+   "title": "Dig the Sky Stone at -216, 72",
+   "subtitle": "About 110 blocks east of the farm hearth.",
+   "icon": "ae2:sky_stone_block",
+   "description": [
+    "Walk east to &b-216, 72&r and dig. A meteorite is buried there under a shell of &aSky Stone&r, with a chest of presses at the middle of it.",
+    "",
+    "The presses matter more than the stone: see the &6Storage Network&r chapter."
+   ],
+   "deps": [
+    "mining_kimberlite"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "ae2:sky_stone_block",
+     "count": 12
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "ae2:sky_stone_block",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "minecraft:iron_ingot",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "mining_pulverizer",
+   "title": "Double the Ore in a Pulverizer",
+   "subtitle": "Two dust from one ore, and stray nickel.",
+   "icon": "thermal:machine_pulverizer",
+   "description": [
+    "Build a &aPulverizer&r and run iron through it until you hold &a16 Iron Dust&r. Two dust to the ore, and nickel drops out of it now and then.",
+    "",
+    "What powers it lives in the &6Thermal&r chapter. Bram set the valley's first one running in Act II, step 13."
+   ],
+   "deps": [
+    "mining_kimberlite"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "thermal:machine_pulverizer",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "thermal:iron_dust",
+     "count": 16
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "thermal:machine_pulverizer",
+     "count": 1
+    },
+    {
+     "type": "loot",
+     "table": "mining_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    },
+    {
+     "type": "toast",
+     "title": "Ore, Doubled",
+     "description": "Next: dynamos, ducts and the induction smelter, in the Thermal chapter."
+    }
+   ]
+  }
+ ]
+}

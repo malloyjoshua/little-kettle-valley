@@ -1,0 +1,23 @@
+{
+	empty_weight: 0.0f
+	id: "6D54DEF2BC2AAA46"
+	loot_size: 1
+	order_index: 0
+	title: "Nella's Ditty Bag"
+	use_title: true
+	rewards: [
+		{ item: "minecraft:torch", count: 24, weight: 3.0f }
+		{ item: "minecraft:bread", count: 6, weight: 3.0f }
+		{ item: "minecraft:arrow", count: 16, weight: 3.0f }
+		{ item: "minecraft:iron_ingot", count: 4, weight: 2.0f }
+		{ item: "minecraft:gold_ingot", count: 3, weight: 2.0f }
+		{ item: "minecraft:lapis_lazuli", count: 8, weight: 2.0f }
+		{ item: "minecraft:emerald", count: 3, weight: 2.0f }
+		{ item: "minecraft:ender_pearl", count: 2, weight: 2.0f }
+		{ item: "minecraft:golden_carrot", count: 4, weight: 1.0f }
+		{ item: "minecraft:experience_bottle", count: 4, weight: 1.0f }
+		{ item: "minecraft:glow_ink_sac", count: 4, weight: 1.0f }
+		{ item: "minecraft:diamond", weight: 1.0f }
+	]
+	loot_crate: { string_id: "explore_crate", item_name: "Nella's Ditty Bag", color: 43690, glow: false, drops: { passive: 0, monster: 0, boss: 0 } }
+}

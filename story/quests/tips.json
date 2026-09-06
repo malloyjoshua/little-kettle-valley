@@ -1,0 +1,649 @@
+{
+ "chapter": {
+  "key": "tips",
+  "title": "Useful Items & Tips",
+  "subtitle": [
+   "Fourteen small things that make the valley easier to live in.",
+   "Not one of them is required, and every one is already installed."
+  ],
+  "icon": "supplementaries:notice_board",
+  "group": "Side Quests",
+  "order": 40,
+  "images": [
+   {
+    "x": -3.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "ftbquests:item/book",
+    "order": -1,
+    "hover": [
+     "J opens it. Nothing in it locks."
+    ]
+   },
+   {
+    "x": 1.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "justhammers:item/iron_hammer",
+    "order": -1,
+    "hover": [
+     "Nine blocks a swing, one durability."
+    ]
+   },
+   {
+    "x": 5.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "sophisticatedbackpacks:item/magnet_upgrade",
+    "order": -1,
+    "hover": [
+     "Drops walk to you."
+    ]
+   },
+   {
+    "x": 9.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "sophisticatedbackpacks:item/pickup_upgrade",
+    "order": -1,
+    "hover": [
+     "And then straight into the bag."
+    ]
+   },
+   {
+    "x": -3.0,
+    "y": 4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "sereneseasons:item/calendar_06",
+    "order": -1,
+    "hover": [
+     "Nine days a sub-season. Twenty-seven a season."
+    ]
+   },
+   {
+    "x": 1.0,
+    "y": 4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:item/clock_06",
+    "order": -1,
+    "hover": [
+     "Nothing here is timed anyway."
+    ]
+   },
+   {
+    "x": 5.0,
+    "y": 4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "explorerscompass:item/explorerscompass_16",
+    "order": -1,
+    "hover": [
+     "Marnie's, pointed at the farm."
+    ]
+   },
+   {
+    "x": 9.0,
+    "y": 4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "supplementaries:block/notice_board_front",
+    "order": -1,
+    "hover": [
+     "Oda nailed this list up herself."
+    ]
+   }
+  ]
+ },
+ "reward_tables": [
+  {
+   "key": "tips_crate",
+   "title": "Pip's Pocket Tin",
+   "loot_size": 1,
+   "loot_crate": {
+    "id": "tips_crate",
+    "name": "Pip's Pocket Tin",
+    "color": 13148747,
+    "glow": false
+   },
+   "rewards": [
+    {
+     "item": "minecraft:torch",
+     "count": 16,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:bread",
+     "count": 6,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:coal",
+     "count": 8,
+     "weight": 3
+    },
+    {
+     "item": "valley:scrip",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:iron_ingot",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:lantern",
+     "count": 2,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:experience_bottle",
+     "count": 6,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:golden_carrot",
+     "count": 4,
+     "weight": 1
+    },
+    {
+     "item": "minecraft:name_tag",
+     "weight": 1
+    },
+    {
+     "item": "sophisticatedbackpacks:pickup_upgrade",
+     "weight": 1
+    },
+    {
+     "item": "sophisticatedstorage:barrel",
+     "weight": 1
+    }
+   ]
+  }
+ ],
+ "quests": [
+  {
+   "key": "tips_root",
+   "title": "Look It Up Before You Build It",
+   "subtitle": "The item list on the right knows every recipe.",
+   "icon": "minecraft:crafting_table",
+   "description": [
+    "Type a name into the box under the item list. Click an item for its recipe; right-click it for what it goes into.",
+    "",
+    "&bR&r and &bU&r do the same from the keyboard."
+   ],
+   "deps": [],
+   "optional": true,
+   "shape": "gear",
+   "size": 2.0,
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "tips_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "tips_search",
+   "title": "Type @ to See One Mod's Shelf",
+   "subtitle": "And # for a tag, $ for tooltip text.",
+   "icon": "minecraft:name_tag",
+   "description": [
+    "Put &b@&r in front of a mod name to show only its items: @create, @thermal.",
+    "",
+    "&b#&r finds tags and &b$&r finds tooltip text, for when you know what a thing does but not its name."
+   ],
+   "deps": [
+    "tips_root"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:name_tag"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "tips_sort",
+   "title": "Sort a Chest Without Dragging Anything",
+   "subtitle": "Three small buttons above every container.",
+   "icon": "minecraft:chest",
+   "description": [
+    "Open a chest and look at its top right: three buttons sort the chest, and three more sort your own bag.",
+    "",
+    "Bind a key under &bOptions - Controls&r instead if you like."
+   ],
+   "deps": [
+    "tips_search"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:chest",
+     "count": 2
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "tips_jade",
+   "title": "Read the Block You Are Pointing At",
+   "subtitle": "The little bar at the top of the screen.",
+   "icon": "minecraft:spyglass",
+   "description": [
+    "Point at anything and the bar names it, says which mod it came from, and shows what the machine inside is doing.",
+    "",
+    "Point at an animal for its health; at a crop for how grown it is."
+   ],
+   "deps": [
+    "tips_sort"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:torch",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "tips_f3",
+   "title": "Write Down the Three Numbers",
+   "subtitle": "Home is -319 74 32. The square is -302 69 -44.",
+   "icon": "minecraft:compass",
+   "description": [
+    "Press &bF3&r. The XYZ line top left is where you stand; the line under it is the way you face.",
+    "",
+    "Josie's hearth reads &b-319 74 32&r. Oda's square reads &b-302 69 -44&r."
+   ],
+   "deps": [
+    "tips_jade"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:compass"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "tips_keys",
+   "title": "Learn the Four Keys That Matter",
+   "subtitle": "J, B, C, Home. All of them move.",
+   "icon": "ftbquests:book",
+   "description": [
+    "&bJ&r opens this book. &bB&r opens your backpack. &bC&r picks a chest up with everything still in it.",
+    "",
+    "&bHome&r lists where you died. All four move under Options - Controls."
+   ],
+   "deps": [
+    "tips_f3"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "tips_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    },
+    {
+     "type": "toast",
+     "title": "Back to the valley",
+     "description": "Next: the story picks up in Start Here. Everything on this board keeps working while you play."
+    }
+   ]
+  },
+  {
+   "key": "tips_hammer",
+   "title": "Craft a Hammer and Break Nine at Once",
+   "subtitle": "Three by three, one swing, one durability.",
+   "icon": "justhammers:stone_hammer",
+   "description": [
+    "Craft a &aStone Hammer&r. Held instead of a pickaxe, it takes a 3x3 face of stone in one go.",
+    "",
+    "Iron and diamond versions dig faster. Bram keeps his on the bench."
+   ],
+   "deps": [
+    "tips_root"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "justhammers:stone_hammer",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:iron_ingot",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "tips_vein",
+   "title": "Hold One Key and Take the Whole Seam",
+   "subtitle": "The key above Tab. No enchantment needed.",
+   "icon": "minecraft:iron_ore",
+   "description": [
+    "Hold the &bgrave key&r (above Tab) as you break an ore or a log. Up to 64 blocks of that vein come out at once.",
+    "",
+    "Drops gather where you broke it. See the &6Ores & Mining&r chapter."
+   ],
+   "deps": [
+    "tips_hammer"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:coal",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "tips_backpack",
+   "title": "Wear a Backpack and Feed It Two Upgrades",
+   "subtitle": "B opens it, on your back or in your bag.",
+   "icon": "sophisticatedbackpacks:backpack",
+   "description": [
+    "Craft a &aBackpack&r. Wear it in the back slot or carry it; &bB&r opens it either way.",
+    "",
+    "Add a &aMagnet Upgrade&r and a &aPickup Upgrade&r: drops come to you and land inside."
+   ],
+   "deps": [
+    "tips_vein"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "sophisticatedbackpacks:backpack",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "sophisticatedbackpacks:magnet_upgrade",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "sophisticatedbackpacks:pickup_upgrade",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "sophisticatedbackpacks:stack_upgrade_tier_1"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "tips_seasons",
+   "title": "Carry a Calendar and Sow in Season",
+   "subtitle": "Nine days a sub-season, twenty-seven a season.",
+   "icon": "sereneseasons:calendar",
+   "description": [
+    "Craft a &aCalendar&r. Held, it names the season, and a crop planted out of its season simply stops growing.",
+    "",
+    "Which crop wants which season is in the &6Farm & Seasons&r chapter."
+   ],
+   "deps": [
+    "tips_backpack"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "sereneseasons:calendar",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:bone_meal",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "tips_keepsake",
+   "title": "Get Back Something You Lost",
+   "subtitle": "The letter, the deed, the kettle, the book.",
+   "icon": "valley:letter",
+   "description": [
+    "Type &b/valley keepsake&r for the list, then &b/valley keepsake book&r for a fresh copy of anything on it.",
+    "",
+    "Every one-of-a-kind story item is on it. Nothing you can lose stays lost."
+   ],
+   "deps": [
+    "tips_root"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "tips_ores",
+   "title": "Read the Stone Under the Valley",
+   "subtitle": "One command, four minutes, ore where you dig.",
+   "icon": "minecraft:raw_iron",
+   "description": [
+    "If your world was made before the ore pass ran, type &b/valley ores&r once. It walks the valley chunk by chunk and puts iron, coal, copper, gold, redstone, lapis and diamond back into the stone.",
+    "",
+    "It stutters for three or four minutes. Keep playing."
+   ],
+   "deps": [
+    "tips_keepsake"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:iron_pickaxe"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "tips_quiet",
+   "title": "Turn Down Anything You Are Sick Of",
+   "subtitle": "One sound, or all the pop-ups but the journal.",
+   "icon": "minecraft:white_wool",
+   "description": [
+    "Bind the sound muffler under &bOptions - Controls&r. Its screen lists whatever just played; tick the one you are tired of.",
+    "",
+    "Recipe and tutorial pop-ups are already off. The ones you still get are Josie's journal."
+   ],
+   "deps": [
+    "tips_ores"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "long_description": true,
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "tips_voice",
+   "title": "Talk Out Loud If You Have a Microphone",
+   "subtitle": "Caps Lock to talk, K to mute, 48 blocks.",
+   "icon": "minecraft:note_block",
+   "description": [
+    "Hold &bCaps Lock&r to talk, &bK&r to mute. Voices carry 48 blocks, half that if you whisper.",
+    "",
+    "&b=&r opens groups, so a party split across the valley still hears itself."
+   ],
+   "deps": [
+    "tips_quiet"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "tips_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  }
+ ]
+}

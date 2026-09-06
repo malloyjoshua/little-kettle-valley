@@ -1,0 +1,239 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "power"
+	group: "33D241142550E678"
+	icon: "thermal:energy_cell"
+	id: "0D2C00893B789006"
+	order_index: 22
+	quest_links: [ ]
+	subtitle: ["Power on a wire, goods on a shelf.", "What RF is, how it travels, and how a workshop stops being forty chests."]
+	hide_quest_until_deps_complete: false
+	hide_quest_details_until_startable: false
+	images: [
+		{ x: -5.5d, y: -5.5d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "minecraft:item/redstone", alpha: 255, order: -1, hover: ["One unit of power.", "Every machine in the pack counts in it."] }
+		{ x: 0.5d, y: -5.5d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "createaddition:item/copper_wire", alpha: 255, order: -1, hover: ["Two out of every copper plate."] }
+		{ x: 5.5d, y: -5.8d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "createaddition:item/copper_spool", alpha: 255, order: -1, hover: ["Four wire round an iron spool."] }
+		{ x: 11.0d, y: -5.5d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "createaddition:item/capacitor", alpha: 255, order: -1, hover: ["Zinc, copper, one redstone torch."] }
+		{ x: 16.0d, y: -6.0d, width: 3.0d, height: 3.0d, rotation: 0.0d, image: "storagedrawers:block/drawers_oak_front_2", alpha: 255, order: -1, hover: ["Two items to a drawer.", "Deep, and labelled on the front."] }
+		{ x: 22.0d, y: -5.8d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "storagedrawers:block/drawers_controller_front", alpha: 255, order: -1, hover: ["It reaches every drawer within twelve blocks."] }
+		{ x: -5.5d, y: 6.0d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "thermal:item/servo_attachment", alpha: 255, order: -1, hover: ["The end of the duct that pushes."] }
+		{ x: 6.0d, y: 6.0d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "createaddition:item/connector", alpha: 255, order: -1, hover: ["Right-click one, then the other."] }
+		{ x: 16.0d, y: 5.8d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "sophisticatedstorage:block/oak_barrel_side", alpha: 255, order: -1, hover: ["Upgrades go in a row along the bottom."] }
+	]
+	quests: [
+		{
+			id: "273413852CFD4E02"
+			title: "Wind Four RF Coils"
+			subtitle: "One gold ingot, two redstone, done."
+			icon: "thermal:rf_coil"
+			description: ["&bRF&r is the pack's one unit of power. Every dynamo makes it, every duct carries it, every machine spends it, and the number on a cell is the whole story.", "", "Craft four &aRF Coils&r. A coil is the piece that lets a block hold power, move it, or make it."]
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 2.0d
+			hide_details_until_startable: false
+			tasks: [{ id: "21CBFECA472690D2", type: "item", item: "thermal:rf_coil", count: 4L }]
+			rewards: [{ id: "4853D2F9AE618027", type: "item", auto: "no_toast", item: "thermal:rf_coil", count: 4 }, { id: "45BE15B9D4D8A177", type: "item", auto: "no_toast", item: "minecraft:redstone", count: 32 }, { id: "6AD7DB85FC1629A8", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "67F0628B2FC58B29"
+			title: "Build an Energy Cell"
+			subtitle: "A battery with two dials on it."
+			icon: "thermal:energy_cell"
+			description: ["Craft an &aEnergy Cell&r and set its two dials: how fast power goes in, and how fast it comes back out.", "", "Put one between whatever makes power and everything that wants it. Bram runs a cell to the inn in Act III, step 10."]
+			x: 2.0d
+			y: -0.8d
+			dependencies: ["273413852CFD4E02"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "0B78412FF0DCEEFD", type: "item", item: "thermal:energy_cell", count: 1L }]
+			rewards: [{ id: "400460E06EC3EF49", type: "item", auto: "no_toast", item: "thermal:energy_cell_frame", count: 2 }, { id: "28AC195AB542A557", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "0ABC889DC82DBB0B"
+			title: "Lay Thirty-Two Energy Ducts"
+			subtitle: "No loss, no settings, any distance."
+			icon: "thermal:energy_duct"
+			description: ["Craft thirty-two &aEnergy Ducts&r and run a line from the cell to a machine. They join up on sight and lose nothing over any length.", "", "One line out of the mill lit four lamp posts in Act II, step 15."]
+			x: 4.0d
+			y: -0.8d
+			dependencies: ["67F0628B2FC58B29"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "45241AFC7881E10E", type: "item", item: "thermal:energy_duct", count: 32L }]
+			rewards: [{ id: "7AF3894261BAAB89", type: "item", auto: "no_toast", item: "thermal:energy_duct", count: 32 }, { id: "168F7BC1D8A63292", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "193A57075CA38F98"
+			title: "Cap a Duct With a Servo"
+			subtitle: "It decides which end is the outlet."
+			icon: "thermal:servo_attachment"
+			description: ["Craft two &aServo Attachments&r and put one on the duct face touching the machine you want fed. A bare duct shares power out evenly; a servo makes that end push.", "", "Oda sells sixteen at the counter if you would rather not make them."]
+			x: 6.0d
+			y: -1.5d
+			dependencies: ["0ABC889DC82DBB0B"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "0450E92650A7C85E", type: "item", item: "thermal:servo_attachment", count: 2L }]
+			rewards: [{ id: "0720200B2093FE56", type: "item", auto: "no_toast", item: "thermal:turbo_servo_attachment", count: 2 }, { id: "5BF214A84BBE1ED5", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "2E60B58C757ED524"
+			title: "Build a Rolling Mill"
+			subtitle: "Plates in one side, wire out the far side."
+			icon: "createaddition:rolling_mill"
+			description: ["Craft a &aRolling Mill&r and drive it off a shaft. It flattens ingots into plates and rolls plates into wire, which no bench recipe will do for you.", "", "The rotation comes off the water wheel in the &6Create&r chapter."]
+			x: 2.0d
+			y: 0.8d
+			dependencies: ["273413852CFD4E02"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "36F352A923A46FBF", type: "item", item: "createaddition:rolling_mill", count: 1L }]
+			rewards: [{ id: "7104C40715F52218", type: "item", auto: "no_toast", item: "minecraft:copper_ingot", count: 24 }, { id: "731A5A6011309040", type: "item", auto: "no_toast", item: "create:shaft", count: 8 }, { id: "7A967187A95D1442", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "0150E5B0B087336F"
+			title: "Roll Sixteen Wire and Wind a Spool"
+			subtitle: "Four wire round a plain iron spool."
+			icon: "createaddition:copper_spool"
+			description: ["Feed copper plates through the mill for &aCopper Wire&r, then wrap four of them round a &aSpool&r.", "", "Spools are the winding inside every generator and motor after this."]
+			x: 4.0d
+			y: 0.8d
+			dependencies: ["2E60B58C757ED524"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "74D2495E7A0A4203", type: "item", item: "createaddition:copper_wire", count: 16L }, { id: "2CA6C55DD81252A1", type: "item", item: "createaddition:copper_spool", count: 1L }]
+			rewards: [{ id: "54ACFBF8753F5380", type: "item", auto: "no_toast", item: "createaddition:copper_spool", count: 2 }, { id: "0E3CE9785E50624D", type: "item", auto: "no_toast", item: "createaddition:spool", count: 8 }, { id: "1A239FC5F449E5C3", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "21F19A9F4DD564D9"
+			title: "Build an &aAlternator&r"
+			subtitle: "Rotation goes in. RF comes out."
+			icon: "createaddition:alternator"
+			description: ["Set the mechanical crafters out and build an Alternator: iron plates, two spools and a capacitor. Give its shaft rotation and it pushes &bRF&r out the flat face.", "", "The crafters are in the &6Create&r chapter. Faster shaft, more power."]
+			x: 6.0d
+			y: 0.0d
+			dependencies: ["0150E5B0B087336F"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "40DD84E76949CC0C", type: "item", item: "createaddition:alternator", count: 1L }]
+			rewards: [{ id: "2EC8AF648CAD9520", type: "loot", auto: "no_toast", table_id: 564952204811606290L }, { id: "7FDC990B661941F9", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "5E3DDAACC3624A97"
+			title: "Build an Electric Motor"
+			subtitle: "The same trade, run backwards."
+			icon: "createaddition:electric_motor"
+			description: ["Build an &aElectric Motor&r on the crafters. Feed it RF and it turns a shaft at whatever speed you dial in, whether or not the stream is running.", "", "A dry August stops the water wheel. This does not."]
+			x: 8.0d
+			y: -2.2d
+			dependencies: ["21F19A9F4DD564D9"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "7D840DBC619988A8", type: "item", item: "createaddition:electric_motor", count: 1L }]
+			rewards: [{ id: "08DB1B717F305C85", type: "item", auto: "no_toast", item: "createaddition:capacitor", count: 4 }, { id: "40FE0AD0FC52D8F9", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "21C38CF2292E6593"
+			title: "Hang Wire Between Two Connectors"
+			subtitle: "Power across a gap with nothing in it."
+			icon: "createaddition:connector"
+			description: ["Craft six &aConnectors&r, stick one on each machine, then right-click the first with a spool and the second after it. The wire strings itself across.", "", "Cheaper than ducting the mill race, and you can see where the power goes."]
+			x: 8.0d
+			y: -0.8d
+			dependencies: ["21F19A9F4DD564D9"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "05348E147153612E", type: "item", item: "createaddition:connector", count: 6L }]
+			rewards: [{ id: "7419B49C023352FF", type: "item", auto: "no_toast", item: "createaddition:connector", count: 8 }, { id: "69FA9ED21744B0C2", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "77CF2B73FBD6064D"
+			title: "Put Up Four Drawers and a Controller"
+			subtitle: "One wall instead of a row of chests."
+			icon: "storagedrawers:controller"
+			description: ["Power was half the job. Build four &aOak Drawers&r and a &aDrawer Controller&r, and set the controller where its faces touch the bank.", "", "It fills and empties every drawer in reach at once. Act II, step 14 fits the workshop this way."]
+			x: 6.0d
+			y: 1.5d
+			dependencies: ["0ABC889DC82DBB0B"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "0B561387A5E7EC1D", type: "item", item: "storagedrawers:oak_full_drawers_2", count: 4L }, { id: "313196B953F44E26", type: "item", item: "storagedrawers:controller", count: 1L }]
+			rewards: [{ id: "7D3EC047B513A564", type: "item", auto: "no_toast", item: "storagedrawers:oak_full_drawers_2", count: 4 }, { id: "0D391DB9390212D7", type: "item", auto: "no_toast", item: "storagedrawers:drawer_key" }, { id: "080EFD1A02253F64", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "633496E364E442E8"
+			title: "Slot Two Iron Upgrades Into a Drawer"
+			subtitle: "Two iron, six sticks, one blank template."
+			icon: "storagedrawers:iron_storage_upgrade"
+			description: ["Craft two &aIron Storage Upgrades&r from a blank template and drop them into the drawer's upgrade slots. Each one multiplies what that drawer holds.", "", "Iron, then gold, then diamond, then emerald and obsidian."]
+			x: 8.0d
+			y: 0.8d
+			dependencies: ["77CF2B73FBD6064D"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "2BE2BC82446DAD90", type: "item", item: "storagedrawers:iron_storage_upgrade", count: 2L }]
+			rewards: [{ id: "256DD78DBB032D9B", type: "item", auto: "no_toast", item: "storagedrawers:upgrade_template", count: 6 }, { id: "0C50B3A82B32362E", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "345DF75D425157BD"
+			title: "Stack-Upgrade a Barrel"
+			subtitle: "Sixty-four to the slot, then more."
+			icon: "sophisticatedstorage:barrel"
+			description: ["Build a &aSophisticated Barrel&r and slot a &aStack Upgrade&r along its bottom row. Every slot in that barrel then holds a multiple of what it did.", "", "The same row takes a magnet, a filter, a furnace and a hopper."]
+			x: 8.0d
+			y: 2.2d
+			dependencies: ["77CF2B73FBD6064D"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "405E2ED1D0A10E00", type: "item", item: "sophisticatedstorage:barrel", count: 1L }, { id: "07ECF5C9B062AAA5", type: "item", item: "sophisticatedstorage:stack_upgrade_tier_1", count: 1L }]
+			rewards: [{ id: "52F77157DB85B36C", type: "item", auto: "no_toast", item: "sophisticatedstorage:upgrade_base", count: 4 }, { id: "0CAB98C2B8D80961", type: "item", auto: "no_toast", item: "sophisticatedstorage:magnet_upgrade" }, { id: "644A7AC1D1B13BEA", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "4485CE3786F52391"
+			title: "Wire Every Barrel to One Screen"
+			subtitle: "A storage controller and two links."
+			icon: "sophisticatedstorage:controller"
+			description: ["Place a &aStorage Controller&r against one barrel, then put a &aStorage Link&r on any box too far away to touch it. Open the controller and every linked box reads as one list.", "", "This is the small version of what the &6Storage Network&r chapter does with a cable."]
+			x: 10.0d
+			y: 0.0d
+			dependencies: ["345DF75D425157BD"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			min_width: 300
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "42A85C017AE3DC8A", type: "item", item: "sophisticatedstorage:controller", count: 1L }, { id: "700CB56FECE9936A", type: "item", item: "sophisticatedstorage:storage_link", count: 2L }]
+			rewards: [{ id: "072DB971DC74ABE7", type: "loot", auto: "no_toast", table_id: 564952204811606290L }, { id: "5A764D510DFC5F22", type: "item", auto: "no_toast", item: "sophisticatedstorage:storage_link", count: 4 }, { id: "22D13DF0B9969AAC", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "64F02EF3D1D1E95C", type: "toast", title: "Power & Logistics", auto: "enabled", description: "Next: Act II step 14 fits the workshop with drawers, and Act III step 10 runs the first duct to the inn." }]
+		}
+	]
+	title: "Power & Logistics"
+}

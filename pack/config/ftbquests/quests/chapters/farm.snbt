@@ -1,0 +1,318 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "farm"
+	group: "304B7E2B056C2322"
+	icon: "minecraft:wheat"
+	id: "69EB1B0123DFA2A2"
+	order_index: 10
+	quest_links: [ ]
+	subtitle: ["Nine rows, a calendar, and one machine that ignores it.", "What grows when, what beats the frost, and where the flour comes from."]
+	hide_quest_until_deps_complete: false
+	hide_quest_details_until_startable: false
+	images: [
+		{ x: -5.0d, y: -1.0d, width: 3.0d, height: 3.0d, rotation: 0.0d, image: "minecraft:block/farmland_moist", alpha: 255, order: -1, hover: ["Tilled and wet.", "Water within four blocks."] }
+		{ x: 1.0d, y: -6.0d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "minecraft:item/wheat", alpha: 255, order: -1, hover: ["Thirty-two of these is Act I's flour."] }
+		{ x: 5.0d, y: -6.0d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "sereneseasons:item/calendar_04", alpha: 255, order: -1, hover: ["Late spring."] }
+		{ x: 9.5d, y: -6.0d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "thermal:item/strawberry", alpha: 255, order: -1, hover: [] }
+		{ x: 13.0d, y: -6.0d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "thermal:item/amaranth", alpha: 255, order: -1, hover: [] }
+		{ x: 1.0d, y: 6.5d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "farmersdelight:block/rich_soil", alpha: 255, order: -1, hover: ["Compost, then dirt."] }
+		{ x: 5.5d, y: 6.5d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "minecraft:block/composter_ready", alpha: 255, order: -1, hover: [] }
+		{ x: 10.0d, y: 6.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "thermal:block/phytosoil_charged", alpha: 255, order: -1, hover: ["Phytogro, and no season at all."] }
+	]
+	quests: [
+		{
+			id: "6107C96722D4EEB2"
+			title: "Break Ground With a Hoe"
+			subtitle: "Water within four blocks, or nothing."
+			icon: "minecraft:stone_hoe"
+			description: ["Halden: \"Josie's patch was nine rows. I counted them every spring for eleven years and never once put a spade in one.\"", "", "Craft a &aStone Hoe&r and till a strip of grass beside the lake. Farmland within four blocks of water stays dark, and dark farmland grows."]
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 2.0d
+			hide_details_until_startable: false
+			tasks: [{ id: "7321E6AAC7AD5A78", type: "item", item: "minecraft:stone_hoe", count: 1L }]
+			rewards: [{ id: "68CB454831885722", type: "item", auto: "no_toast", item: "minecraft:wheat_seeds", count: 16 }, { id: "7130A38D7C619C95", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "66F8432B5C113080"
+			title: "Grow and Cut Thirty-Two Wheat"
+			subtitle: "Bram's millstone eats it by the sack."
+			icon: "minecraft:wheat"
+			description: ["Plant &awheat seeds&r on wet farmland and leave them until the stalks go gold before you cut.", "", "Act I, step 8 wants sixteen flour and eight bread off this patch."]
+			x: 2.0d
+			y: -0.8d
+			dependencies: ["6107C96722D4EEB2"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "652965869032B59C", type: "item", item: "minecraft:wheat", count: 32L }]
+			rewards: [{ id: "60AAADEB547662D3", type: "item", auto: "no_toast", item: "minecraft:bread", count: 8 }, { id: "360FDDC3B594C972", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "3FB574D9862689F4"
+			title: "Craft a Calendar and Read the Date"
+			subtitle: "Twelve pages. Four seasons. One rule."
+			icon: "sereneseasons:calendar"
+			description: ["Hold the &aCalendar&r to read the season and the day. Every crop here is tagged to a season, and out of season it does not grow one stage.", "", "&bSpring&r: carrot, potato, strawberry. &bSummer&r: melon, tomato, corn. &bAutumn&r: pumpkin, beetroot, amaranth."]
+			x: 2.0d
+			y: 0.8d
+			dependencies: ["6107C96722D4EEB2"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "5CC44492BBED7FB1", type: "item", item: "sereneseasons:calendar", count: 1L }]
+			rewards: [{ id: "34604D5FB952BC51", type: "loot", auto: "no_toast", table_id: 2858394630564389495L }, { id: "3102F602ABD1A74D", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "1545A5448593241E"
+			title: "Bring In the Spring Crops"
+			subtitle: "Carrots, potatoes, strawberries."
+			icon: "thermal:strawberry"
+			description: ["Plant &acarrots&r, &apotatoes&r and &astrawberries&r on the first spring page and bring in sixteen of each.", "", "Wheat is spring-fertile in this pack on purpose, so Act I is not waiting on July."]
+			x: 4.0d
+			y: -4.5d
+			dependencies: ["3FB574D9862689F4"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "482588B21C08F523", type: "item", item: "minecraft:carrot", count: 16L }, { id: "7A125B9F6CE9CB5D", type: "item", item: "minecraft:potato", count: 16L }, { id: "7079B5ECAB556175", type: "item", item: "thermal:strawberry", count: 16L }]
+			rewards: [{ id: "7F4626372354389B", type: "item", auto: "no_toast", item: "thermal:strawberry_seeds", count: 8 }, { id: "6E6FF44F63EC807F", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "2BF79EFF83E1C16E"
+			title: "Bring In the Summer Crops"
+			subtitle: "Corn stands taller than Pip."
+			icon: "thermal:tomato"
+			description: ["Cut sixteen &amelon slices&r and grow sixteen &atomatoes&r and sixteen &acorn&r while the calendar reads summer.", "", "Corn grows two blocks high. Leave it headroom or it never tops out."]
+			x: 4.0d
+			y: -3.0d
+			dependencies: ["3FB574D9862689F4"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "52F16FFE1D2C2196", type: "item", item: "minecraft:melon_slice", count: 16L }, { id: "4BE58C440CBE8442", type: "item", item: "thermal:tomato", count: 16L }, { id: "4987F17A145BEBC4", type: "item", item: "thermal:corn", count: 16L }]
+			rewards: [{ id: "77CD250F40E47631", type: "item", auto: "no_toast", item: "thermal:tomato_seeds", count: 8 }, { id: "40094B890C9A0C61", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "4484B698B0C99C13"
+			title: "Bring In the Autumn Crops"
+			subtitle: "Pumpkin, beetroot, amaranth. Then frost."
+			icon: "minecraft:pumpkin"
+			description: ["Sow &abeetroot&r, &apumpkin&r and &aamaranth&r in autumn and get them in before the first frost.", "", "Oda opens Act III on these same rows and wants the granary full by winter."]
+			x: 4.0d
+			y: -1.5d
+			dependencies: ["3FB574D9862689F4"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "67AF056E54FF5423", type: "item", item: "minecraft:pumpkin", count: 8L }, { id: "3F9ADA0493DF1F64", type: "item", item: "minecraft:beetroot", count: 16L }, { id: "0AF3CFE643AAE24F", type: "item", item: "thermal:amaranth", count: 16L }]
+			rewards: [{ id: "79494327DAA9D115", type: "loot", auto: "no_toast", table_id: 2858394630564389495L }, { id: "1FD7B5008477393E", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "1C7B15F7FBE74D53"
+			title: "Learn What Winter Stops"
+			subtitle: "Everything outdoors, and quietly."
+			icon: "minecraft:snowball"
+			description: ["In winter a seasonal crop sits at the stage you left it and never says so. &cIt is not broken.&r", "", "Only &aVibrant Quartz Glass&r counts as a greenhouse roof here, and it wants cyanite: see the &6Reactor&r chapter."]
+			x: 4.0d
+			y: 0.0d
+			dependencies: ["3FB574D9862689F4"]
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "51F805D81D5085AD", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "755A8E8DF787A559", type: "item", auto: "no_toast", item: "minecraft:bone_meal", count: 16 }, { id: "6ED1234C82C7F2DC", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "7DF4D8E0D0EE80BE"
+			title: "Fill a Composter for Bone Meal"
+			subtitle: "Seeds, stalks, everything bruised."
+			icon: "minecraft:composter"
+			description: ["Build a &aComposter&r and feed it every scrap off the patch until bone meal drops out of the bottom.", "", "Bone meal is the base of compost, of rich soil and of phytogro."]
+			x: 4.0d
+			y: 1.5d
+			dependencies: ["66F8432B5C113080"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "4F33AD11B88AB45B", type: "item", item: "minecraft:composter", count: 1L }, { id: "256302DB05063DD1", type: "item", item: "minecraft:bone_meal", count: 16L }]
+			rewards: [{ id: "110B7B516FDAD3DA", type: "item", auto: "no_toast", item: "minecraft:bone_meal", count: 16 }, { id: "7005F07772B61558", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "65C7BBE34E6EED90"
+			title: "Bring In Four Wild Crops"
+			subtitle: "They are already growing out there."
+			icon: "farmersdelight:cabbage"
+			description: ["Marnie: \"Cabbage grows wild along the treeline. I have walked past it for ten years because I like the walk.\"", "", "Take a start of cabbage, tomato, onion and rice from the wild patches, replant them at home, and harvest eight of each."]
+			x: 4.0d
+			y: 3.0d
+			dependencies: ["66F8432B5C113080"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "69434A3540C84DE3", type: "item", item: "farmersdelight:cabbage", count: 8L }, { id: "63DF01345FD80253", type: "item", item: "farmersdelight:tomato", count: 8L }, { id: "1737B8659C99C479", type: "item", item: "farmersdelight:onion", count: 8L }, { id: "46C017B3EB10E10C", type: "item", item: "farmersdelight:rice", count: 8L }]
+			rewards: [{ id: "1D40347EE75117D7", type: "loot", auto: "no_toast", table_id: 2858394630564389495L }, { id: "0F10D7000D79A214", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "79A576CC7F9085C1"
+			title: "Stand a Silo Beside the Rows"
+			subtitle: "Nine planks. Holds one harvest."
+			icon: "farm_and_charm:silo_wood"
+			description: ["Craft a &aWooden Silo&r and set it at the end of the patch. It swallows one crop in bulk and hands it back a stack at a time.", "", "For drawers and barrels, see the &6Power&r chapter."]
+			x: 4.0d
+			y: 4.5d
+			dependencies: ["66F8432B5C113080"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "5DCFF707B77A0D80", type: "item", item: "farm_and_charm:silo_wood", count: 1L }]
+			rewards: [{ id: "0BDAB733BAA3519E", type: "item", auto: "no_toast", item: "minecraft:oak_planks", count: 32 }, { id: "3E505187E911EC5B", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "51534D8F8B9D07D9"
+			title: "Grow the Four Thermal Crops"
+			subtitle: "Three of them work through winter."
+			icon: "thermal:sadiroot"
+			description: ["Craft the seeds for &abarley&r, &aspinach&r, &asadiroot&r and &abell pepper&r, plant them, and harvest sixteen of each.", "", "The first three keep growing outdoors in December. Bell pepper stops at the frost."]
+			x: 6.0d
+			y: -3.8d
+			dependencies: ["1C7B15F7FBE74D53"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "2573D020AA3653CE", type: "item", item: "thermal:barley", count: 16L }, { id: "315A282FA524D258", type: "item", item: "thermal:spinach", count: 16L }, { id: "0B3E78637242AB16", type: "item", item: "thermal:sadiroot", count: 16L }, { id: "6D2EA2B507018734", type: "item", item: "thermal:bell_pepper", count: 16L }]
+			rewards: [{ id: "23EF17357477040D", type: "item", auto: "no_toast", item: "thermal:phytogro", count: 16 }, { id: "4C03978D69B2D56E", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "6F0779AD4CA6938C"
+			title: "Set a Berry Hedge and a Cabbage Row"
+			subtitle: "Two things the frost never reads."
+			icon: "minecraft:sweet_berries"
+			description: ["Sweet berry bushes and cabbages both stay fertile through winter. Plant a hedge of one and a row of the other.", "", "Halden has kept a hedge since Act II. Ask him where the good bushes are."]
+			x: 6.0d
+			y: -2.2d
+			dependencies: ["1C7B15F7FBE74D53"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "62A3F693CA0708FE", type: "item", item: "minecraft:sweet_berries", count: 32L }, { id: "5028C0C51D60D9E9", type: "item", item: "farmersdelight:cabbage", count: 16L }]
+			rewards: [{ id: "29F41B461D5CB89A", type: "item", auto: "no_toast", item: "farmersdelight:cabbage_seeds", count: 8 }, { id: "48690D80A7124B2E", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "2D039F3105E3265A"
+			title: "Make Eight Organic Compost"
+			subtitle: "Right-click dirt with it for rich soil."
+			icon: "farmersdelight:organic_compost"
+			description: ["&aOrganic Compost&r is straw, tree bark, bone meal and one dirt on the grid. Straw and bark both come off a cutting board.", "", "Crops on rich soil grow faster, and the block never needs tilling again."]
+			x: 6.0d
+			y: -0.8d
+			dependencies: ["7DF4D8E0D0EE80BE"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "52E3C2899FFB2DFB", type: "item", item: "farmersdelight:organic_compost", count: 8L }]
+			rewards: [{ id: "32C9CC99EBA02E80", type: "item", auto: "no_toast", item: "farmersdelight:straw", count: 16 }, { id: "19CBBA45564A8372", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "2CE84F4BEAE1A35B"
+			title: "Mix Sixteen Phytogro"
+			subtitle: "Sand, two apatite, one niter."
+			icon: "thermal:phytogro"
+			description: ["&aPhytogro&r is bone meal that works on everything, eight to a craft. Apatite and niter both come out of ordinary stone.", "", "The insolator burns it, and it is the fastest road to a second harvest."]
+			x: 6.0d
+			y: 0.8d
+			dependencies: ["7DF4D8E0D0EE80BE"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "10CA658591E4C899", type: "item", item: "thermal:phytogro", count: 16L }]
+			rewards: [{ id: "5596EFBAC3BCE669", type: "item", auto: "no_toast", item: "thermal:phytogro", count: 16 }, { id: "7D214FDC87CA4047", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "1F37A2B5F8E88F1C"
+			title: "Cut Sixteen Rice Panicles"
+			subtitle: "Ankle-deep water. No tilling."
+			icon: "farmersdelight:rice_panicle"
+			description: ["Plant rice in shallow water at the lake edge and cut the tops when they droop over.", "", "Wisp wants twelve panicles in Act III. Grow the extra now and be early for once."]
+			x: 6.0d
+			y: 2.2d
+			dependencies: ["65C7BBE34E6EED90"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "05751D9214DCFD81", type: "item", item: "farmersdelight:rice_panicle", count: 16L }]
+			rewards: [{ id: "2B75BD45F2A4E08E", type: "item", auto: "no_toast", item: "farmersdelight:rice", count: 16 }, { id: "7EF63E76343F6063", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "2FADD8029DC6055F"
+			title: "Hang a Beehive Over the Rows"
+			subtitle: "They work the patch for nothing."
+			icon: "minecraft:beehive"
+			description: ["Put a campfire under a wild nest before you shear it, or &cthe whole nest comes after you&r. Then craft a &aBeehive&r.", "", "Bees push a pollinated crop up a stage. Three bottles of honey say the hive took."]
+			x: 6.0d
+			y: 3.8d
+			dependencies: ["65C7BBE34E6EED90"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "2417F4BA8D0521CC", type: "item", item: "minecraft:beehive", count: 1L }, { id: "520480BFA3166B19", type: "item", item: "minecraft:honey_bottle", count: 3L }]
+			rewards: [{ id: "4D429560197342EF", type: "item", auto: "no_toast", item: "minecraft:honeycomb", count: 8 }, { id: "1306F9BC1893EB62", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "1E55620B7ED51C77"
+			title: "Build a Phytogenic Insolator"
+			subtitle: "A field in one block, indoors."
+			icon: "thermal:machine_insolator"
+			description: ["The &aInsolator&r takes seeds, water and phytogro and hands back the crop. It is a machine, so no season touches it.", "", "It wants a machine frame and lumium gears: both roads to a frame are in the &6Thermal&r chapter."]
+			x: 8.0d
+			y: 0.0d
+			dependencies: ["2CE84F4BEAE1A35B"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "09F38ECE3CBEAEDB", type: "item", item: "thermal:machine_insolator", count: 1L }]
+			rewards: [{ id: "44BB46E79ECE5F02", type: "loot", auto: "no_toast", table_id: 2858394630564389495L }, { id: "32E1F33BD2FCB096", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "54D564CD03B22CC9"
+			title: "Grow Sixty-Four Wheat in Winter"
+			subtitle: "Snow on the roof, flour in the sack."
+			icon: "minecraft:wheat"
+			description: ["Feed &awheat seeds&r and &aphytogro&r into the insolator while the calendar reads winter, and run it to sixty-four wheat.", "", "Wheat cannot grow outdoors in December. This is the whole reason the machine exists."]
+			x: 10.0d
+			y: 0.0d
+			dependencies: ["1E55620B7ED51C77"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "39016D10C6EDF1C8", type: "checkmark", title: "Calendar reads winter." }, { id: "7FC690A9B27B3032", type: "item", item: "minecraft:wheat", count: 64L }]
+			rewards: [{ id: "21C2D31A5764EE1A", type: "loot", auto: "no_toast", table_id: 2858394630564389495L }, { id: "65F0322A30C65527", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "6F0A6C3845C7001B", type: "toast", title: "Farm & Seasons", auto: "enabled", description: "Next: Act V glazes a cold frame and grows four crops in February." }]
+		}
+	]
+	title: "Farm & Seasons"
+}

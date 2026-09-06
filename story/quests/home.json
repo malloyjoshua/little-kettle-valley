@@ -1,0 +1,747 @@
+{
+ "chapter": {
+  "key": "home",
+  "title": "Home & Town",
+  "subtitle": [
+   "Doors that shut, chairs that face the fire, and a light on the porch.",
+   "None of it is required. All of it is why anybody stays."
+  ],
+  "icon": "mcwdoors:oak_cottage_door",
+  "group": "Home & Farm",
+  "order": 13,
+  "images": [
+   {
+    "x": 0.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "mcwdoors:block/oak_cottage_door_upper",
+    "order": -1,
+    "hover": [
+     "Two blocks tall, same as a plain door."
+    ]
+   },
+   {
+    "x": 4.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "mcwwindows:block/oak_shutter",
+    "order": -1,
+    "hover": [
+     "Shutters open outward. Blinds do not."
+    ]
+   },
+   {
+    "x": 8.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "supplementaries:block/sconce",
+    "order": -1,
+    "hover": [
+     "Flat against the wall, out of the doorway."
+    ]
+   },
+   {
+    "x": 12.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "supplementaries:block/jar_side",
+    "order": -1,
+    "hover": [
+     "Cookies keep. So does one bee."
+    ]
+   },
+   {
+    "x": 0.0,
+    "y": 4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "comforts:item/hammock_red",
+    "order": -1,
+    "hover": [
+     "Two nails and a rope, slung between them."
+    ]
+   },
+   {
+    "x": 4.0,
+    "y": 4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "torchmaster:block/megatorch",
+    "order": -1,
+    "hover": [
+     "Josie kept one lit in the kitchen."
+    ]
+   },
+   {
+    "x": 8.0,
+    "y": 4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "supplementaries:block/notice_board_front",
+    "order": -1,
+    "hover": [
+     "Oda has opinions about lettering."
+    ]
+   },
+   {
+    "x": 12.0,
+    "y": 4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "supplementaries:block/flower_box_top",
+    "order": -1,
+    "hover": [
+     "Poppies. Halden was firm about it."
+    ]
+   },
+   {
+    "x": 16.5,
+    "y": 0.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "handcrafted:item/fancy_painting",
+    "order": -1,
+    "hover": [
+     "The catalogue came up on the wagon."
+    ]
+   }
+  ]
+ },
+ "reward_tables": [
+  {
+   "key": "home_crate",
+   "title": "Oda's Catalogue Crate",
+   "loot_size": 1,
+   "loot_crate": {
+    "id": "home_crate",
+    "name": "Oda's Catalogue Crate",
+    "color": 9199161,
+    "glow": false
+   },
+   "rewards": [
+    {
+     "item": "mcwwindows:oak_shutter",
+     "count": 4,
+     "weight": 3
+    },
+    {
+     "item": "mcwfences:oak_picket_fence",
+     "count": 8,
+     "weight": 3
+    },
+    {
+     "item": "mcwfurnitures:oak_chair",
+     "count": 2,
+     "weight": 3
+    },
+    {
+     "item": "supplementaries:jar",
+     "count": 4,
+     "weight": 3
+    },
+    {
+     "item": "supplementaries:sconce",
+     "count": 6,
+     "weight": 2
+    },
+    {
+     "item": "supplementaries:flower_box",
+     "count": 2,
+     "weight": 2
+    },
+    {
+     "item": "mcwfurnitures:oak_drawer",
+     "count": 2,
+     "weight": 2
+    },
+    {
+     "item": "handcrafted:oak_shelf",
+     "count": 2,
+     "weight": 2
+    },
+    {
+     "item": "comforts:sleeping_bag_blue",
+     "weight": 2
+    },
+    {
+     "item": "minecraft:lantern",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "supplementaries:globe",
+     "weight": 1
+    },
+    {
+     "item": "perfectplushies:duck_plushie",
+     "weight": 1
+    }
+   ]
+  }
+ ],
+ "quests": [
+  {
+   "key": "home_root",
+   "title": "Hang a Door That Shuts",
+   "subtitle": "Josie left a blanket nailed over it.",
+   "icon": "mcwdoors:oak_cottage_door",
+   "description": [
+    "Oda: \"Catalogue came up on the wagon. Pick a door, not a curtain.\"",
+    "",
+    "Craft an &aOak Cottage Door&r and hang it on the cottage."
+   ],
+   "deps": [],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 2.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "mcwdoors:oak_cottage_door",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:oak_planks",
+     "count": 32
+    },
+    {
+     "type": "loot",
+     "table": "home_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "home_windows",
+   "title": "Fit Two Windows and Two Shutters",
+   "subtitle": "Glass costs sand. Sand costs a walk.",
+   "icon": "mcwwindows:oak_window",
+   "description": [
+    "Marnie: \"You can't see who's coming up the hill. That's half of living somewhere.\"",
+    "",
+    "Craft two &aOak Windows&r and two &aOak Shutters&r and set them in the wall."
+   ],
+   "deps": [
+    "home_root"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "mcwwindows:oak_window",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "mcwwindows:oak_shutter",
+     "count": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:glass",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "home_roof",
+   "title": "Roof the Porch in Oak",
+   "subtitle": "Rain comes sideways up here.",
+   "icon": "mcwroofs:oak_roof",
+   "description": [
+    "Bram: \"Pitch it. Flat roofs are for people with no snow.\"",
+    "",
+    "Lay twelve &aOak Roof&r blocks and four &aOak Top Roof&r ridge pieces over the porch."
+   ],
+   "deps": [
+    "home_root"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "mcwroofs:oak_roof",
+     "count": 12
+    },
+    {
+     "type": "item",
+     "item": "mcwroofs:oak_top_roof",
+     "count": 4
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:oak_log",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "home_fence",
+   "title": "Picket the Garden and Hang a Gate",
+   "subtitle": "Chickens are optimists.",
+   "icon": "mcwfences:oak_picket_fence",
+   "description": [
+    "Pip: \"Biscuit got into the carrots. Twice, and the second time on purpose.\"",
+    "",
+    "Craft sixteen &aOak Picket Fence&r and one &aOak Highley Gate&r round the patch."
+   ],
+   "deps": [
+    "home_root"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "mcwfences:oak_picket_fence",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "mcwfences:oak_highley_gate",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "mcwfences:oak_hedge",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "home_comforts",
+   "title": "Roll a Sleeping Bag and a Hammock",
+   "subtitle": "Sleep out without moving your bed.",
+   "icon": "comforts:sleeping_bag_red",
+   "description": [
+    "A &aSleeping Bag&r passes the night and leaves your spawn where it is. A &aHammock&r needs two Rope and Nail.",
+    "",
+    "Craft one of each and keep the bag on you."
+   ],
+   "deps": [
+    "home_root"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "comforts:sleeping_bag_red",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "comforts:hammock_red",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "comforts:rope_and_nail",
+     "count": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "comforts:sleeping_bag_blue",
+     "count": 1
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "home_carryon",
+   "title": "Carry the Chest, Don't Empty It",
+   "subtitle": "Sneak, empty hand, walk it over.",
+   "icon": "minecraft:chest",
+   "description": [
+    "&bCarry On&r picks up a chest, a barrel or a machine with everything still inside it.",
+    "",
+    "Sneak and use an empty hand on it. You walk slow until you set it down."
+   ],
+   "deps": [
+    "home_root"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Carried a full chest across the yard."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:barrel",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "home_chairs",
+   "title": "Set a Table and Two Chairs",
+   "subtitle": "One for you, one for whoever walks in.",
+   "icon": "mcwfurnitures:oak_table",
+   "description": [
+    "Marnie: \"A table laid for one is a shelf you eat off.\"",
+    "",
+    "Craft an &aOak Table&r and two &aOak Chairs&r and put them where the fire reaches."
+   ],
+   "deps": [
+    "home_windows"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "mcwfurnitures:oak_table",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "mcwfurnitures:oak_chair",
+     "count": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "home_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "home_lights",
+   "title": "Hang Six Sconces and Two Lanterns",
+   "subtitle": "Sconces sit flat. Lanterns hang.",
+   "icon": "supplementaries:sconce",
+   "description": [
+    "Nella: \"I can see your window from the water now. Keep it lit.\"",
+    "",
+    "Craft six &aSconces&r and two &aLanterns&r and light the cottage inside and out."
+   ],
+   "deps": [
+    "home_windows"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "supplementaries:sconce",
+     "count": 6
+    },
+    {
+     "type": "item",
+     "item": "minecraft:lantern",
+     "count": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "supplementaries:candle_holder",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "home_flowers",
+   "title": "Box Flowers Under Both Windows",
+   "subtitle": "Halden notices within the hour.",
+   "icon": "supplementaries:flower_box",
+   "description": [
+    "Halden: \"Poppies. Not cornflowers. Cornflowers sulk in a box.\"",
+    "",
+    "Craft four &aFlower Boxes&r and two &aPlanters&r, hang them and plant them."
+   ],
+   "deps": [
+    "home_windows"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "supplementaries:flower_box",
+     "count": 4
+    },
+    {
+     "type": "item",
+     "item": "supplementaries:planter",
+     "count": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:poppy",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "home_wardrobe",
+   "title": "Fill a Wardrobe and Two Drawers",
+   "subtitle": "Storage that isn't a hole in the floor.",
+   "icon": "mcwfurnitures:oak_wardrobe",
+   "description": [
+    "A Macaw's drawer holds a chest's worth and reads as furniture.",
+    "",
+    "Craft an &aOak Wardrobe&r and two &aOak Drawers&r. For bulk, see the &6Power & Logistics&r chapter."
+   ],
+   "deps": [
+    "home_chairs"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "mcwfurnitures:oak_wardrobe",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "mcwfurnitures:oak_drawer",
+     "count": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:chest",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "home_handcrafted",
+   "title": "Put a Bench by the Hearth",
+   "subtitle": "Handcrafted wood is softer than Macaw's.",
+   "icon": "handcrafted:oak_bench",
+   "description": [
+    "Halden: \"Josie had a bench there. I sat on it for four years.\"",
+    "",
+    "Craft an &aOak Bench&r, two &aOak Shelves&r and two &aWood Cups&r for the fireside."
+   ],
+   "deps": [
+    "home_chairs"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "handcrafted:oak_bench",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "handcrafted:oak_shelf",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "handcrafted:wood_cup",
+     "count": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "handcrafted:oak_couch",
+     "count": 1
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "home_jars",
+   "title": "Line Four Jars on an Item Shelf",
+   "subtitle": "A jar shows you what is in it.",
+   "icon": "supplementaries:jar",
+   "description": [
+    "Marnie: \"Label nothing. If you can't see it, you won't cook it.\"",
+    "",
+    "Craft four &aJars&r and two &aItem Shelves&r and mount them over the counter."
+   ],
+   "deps": [
+    "home_handcrafted"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "supplementaries:jar",
+     "count": 4
+    },
+    {
+     "type": "item",
+     "item": "supplementaries:item_shelf",
+     "count": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "home_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "home_signs",
+   "title": "Nail a Sign Post at the Gate",
+   "subtitle": "Two arms, two directions, one post.",
+   "icon": "supplementaries:sign_post_oak",
+   "description": [
+    "Pip: \"People walk straight past. They don't know it's a house.\"",
+    "",
+    "Craft two &aOak Sign Posts&r and one &aNotice Board&r. Sign posts stack on a fence."
+   ],
+   "deps": [
+    "home_fence"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "supplementaries:sign_post_oak",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "supplementaries:notice_board",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "supplementaries:hourglass",
+     "count": 1
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "home_megatorch",
+   "title": "Stand a Megatorch in the Yard",
+   "subtitle": "Nothing hostile spawns inside its circle.",
+   "icon": "torchmaster:megatorch",
+   "description": [
+    "Bram: \"Josie kept one in the kitchen. Never fought a thing in her own house.\"",
+    "",
+    "Craft a &aMegatorch&r and stand it outside. It stops &cmob spawns&r for a wide radius."
+   ],
+   "deps": [
+    "home_lights"
+   ],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 1.5,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "torchmaster:megatorch",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "torchmaster:feral_flare_lantern",
+     "count": 1
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    },
+    {
+     "type": "toast",
+     "title": "Home & Town",
+     "description": "Next: Act II builds Wisp a stilt house, Act III fits out the inn's two guest rooms. Same hands, bigger rooms."
+    }
+   ]
+  }
+ ]
+}

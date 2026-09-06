@@ -1,0 +1,663 @@
+{
+ "chapter": {
+  "key": "wild",
+  "title": "The Wild",
+  "subtitle": [
+   "Past the last lamp post the rules change.",
+   "Not by much. Your chest is still yours, and so is your grave."
+  ],
+  "icon": "minecraft:bow",
+  "group": "The Valley Beyond",
+  "order": 32,
+  "images": [
+   {
+    "x": -4.0,
+    "y": -5.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:item/bow",
+    "order": -1,
+    "hover": [
+     "Forty lamps end. This starts."
+    ]
+   },
+   {
+    "x": 2.0,
+    "y": -5.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "lootr:block/old_barrel_side",
+    "order": -1,
+    "hover": [
+     "Grey means you already had yours."
+    ]
+   },
+   {
+    "x": 8.0,
+    "y": -5.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "friendsandfoes:item/crab_claw",
+    "order": -1,
+    "hover": [
+     "Sideways, at dusk, on the shingle."
+    ]
+   },
+   {
+    "x": 14.0,
+    "y": -5.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "ribbits:block/red_toadstool",
+    "order": -1,
+    "hover": [
+     "Wisp's people grow them in planters."
+    ]
+   },
+   {
+    "x": 20.0,
+    "y": -5.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "friendsandfoes:item/totem_of_freezing",
+    "order": -1,
+    "hover": [
+     "Taken off an iceologer, on a peak."
+    ]
+   },
+   {
+    "x": 26.0,
+    "y": -5.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:item/ender_eye",
+    "order": -1,
+    "hover": [
+     "It goes where you are going anyway."
+    ]
+   },
+   {
+    "x": 2.0,
+    "y": 6.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:block/nether_bricks",
+    "order": -1,
+    "hover": [
+     "The corridors run further than they used to."
+    ]
+   },
+   {
+    "x": 14.0,
+    "y": 6.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "friendsandfoes:item/wildfire_crown_fragment",
+    "order": -1,
+    "hover": [
+     "Five of these make the crown."
+    ]
+   },
+   {
+    "x": 26.0,
+    "y": 6.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "deeperdarker:block/sculk_stone",
+    "order": -1,
+    "hover": [
+     "Tobin says it rings wrong."
+    ]
+   }
+  ]
+ },
+ "reward_tables": [
+  {
+   "key": "wild_crate",
+   "title": "Wisp's Overfull Basket",
+   "loot_size": 1,
+   "loot_crate": {
+    "id": "wild_crate",
+    "name": "Wisp's Overfull Basket",
+    "color": 43520,
+    "glow": false
+   },
+   "rewards": [
+    {
+     "item": "minecraft:torch",
+     "count": 32,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:arrow",
+     "count": 32,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:cooked_beef",
+     "count": 6,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:iron_ingot",
+     "count": 6,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:gold_ingot",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:honey_bottle",
+     "count": 3,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:ender_pearl",
+     "count": 2,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:experience_bottle",
+     "count": 8,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:golden_apple",
+     "count": 1,
+     "weight": 1
+    },
+    {
+     "item": "friendsandfoes:crab_claw",
+     "count": 2,
+     "weight": 1
+    },
+    {
+     "item": "minecraft:name_tag",
+     "count": 1,
+     "weight": 1
+    }
+   ]
+  }
+ ],
+ "quests": [
+  {
+   "key": "wild_bow",
+   "title": "String a Bow and Fletch 64 Arrows",
+   "subtitle": "Nothing in the valley needs shooting.",
+   "icon": "minecraft:bow",
+   "description": [
+    "Craft a &aBow&r and 64 &aArrows&r before the first trip out. Reach counts for more than armour past the lamps.",
+    "",
+    "A &aShield&r off the same bench is a fair second thought."
+   ],
+   "deps": [],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 2.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:bow",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:arrow",
+     "count": 64
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:arrow",
+     "count": 32
+    },
+    {
+     "type": "loot",
+     "table": "wild_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "wild_lootr",
+   "title": "Open a Chest Somebody Already Opened",
+   "subtitle": "Lootr gives every player their own roll.",
+   "icon": "lootr:lootr_chest",
+   "description": [
+    "Open any dungeon chest with a &bLootr&r face. The contents are yours alone, so nobody races anybody to it.",
+    "",
+    "It goes grey once emptied. &6Places&r lists where they sit."
+   ],
+   "deps": [
+    "wild_bow"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "A Lootr chest opened."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:torch",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "wild_corpse",
+   "title": "Know What Happens If You Go Down",
+   "subtitle": "A grave, and everything still in it.",
+   "icon": "minecraft:skeleton_skull",
+   "description": [
+    "Read this before you go far. If you fall out there, a grave stands where you fell holding every item and level.",
+    "",
+    "Walk back and open it. Nothing scatters and nothing despawns."
+   ],
+   "deps": [
+    "wild_bow"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Understood."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:bread",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "wild_crab",
+   "title": "Bring Back Two Crab Claws",
+   "subtitle": "They walk the shingle sideways at dusk.",
+   "icon": "friendsandfoes:crab_claw",
+   "description": [
+    "Walk any sand or gravel shore until you find crabs, then take 2 &aCrab Claws&r home.",
+    "",
+    "Friends & Foes put nine new creatures in the world. This is the mildest of them."
+   ],
+   "deps": [
+    "wild_bow"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "friendsandfoes:crab_claw",
+     "count": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:cooked_beef",
+     "count": 6
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "wild_hive",
+   "title": "Hang a Birch Beehive by the Orchard",
+   "subtitle": "It takes four bees where vanilla takes three.",
+   "icon": "friendsandfoes:birch_beehive",
+   "description": [
+    "Craft a &aBirch Beehive&r from six birch planks and three honeycomb, then set it where bees already work.",
+    "",
+    "Take 3 &aHoney Bottles&r off it. &6Cooking & Brewing&r has work for them."
+   ],
+   "deps": [
+    "wild_crab"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "friendsandfoes:birch_beehive",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:honey_bottle",
+     "count": 3
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:honeycomb",
+     "count": 6
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "wild_totem",
+   "title": "Take a Totem of Freezing off an Iceologer",
+   "subtitle": "They stand on snow lines and throw ice.",
+   "icon": "friendsandfoes:totem_of_freezing",
+   "description": [
+    "Climb to a snowy peak and find an iceologer. It drops a block of ice on your head from range, so &cclose the gap fast&r.",
+    "",
+    "Every one of them carries a &aTotem of Freezing&r."
+   ],
+   "deps": [
+    "wild_crab"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "kill",
+     "entity": "friendsandfoes:iceologer",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:blue_ice",
+     "count": 4
+    },
+    {
+     "type": "loot",
+     "table": "wild_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "wild_ribbits",
+   "title": "Cut Six Toadstools in the Reed Village",
+   "subtitle": "Wisp's people grow them in planters.",
+   "icon": "ribbits:toadstool",
+   "long_description": true,
+   "description": [
+    "Wisp: \"Take small ones. Big ones are somebody's roof.\"",
+    "",
+    "Cut 6 &aToadstools&r and 4 &aRed Toadstools&r downstream at the reed village you first walked into in &6Act II&r.",
+    "",
+    "Both replant themselves. Take from the edge of a patch."
+   ],
+   "deps": [
+    "q20"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "ribbits:toadstool",
+     "count": 6
+    },
+    {
+     "type": "item",
+     "item": "ribbits:red_toadstool",
+     "count": 4
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "ribbits:swamp_lantern",
+     "count": 2
+    },
+    {
+     "type": "loot",
+     "table": "wild_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "wild_fortress",
+   "title": "Walk a Nether Fortress End to End",
+   "subtitle": "YUNG rebuilt them: bridges, halls, a vault.",
+   "icon": "minecraft:nether_bricks",
+   "description": [
+    "Step through a portal and find a fortress. The corridors run further than the old ones and the chests sit deeper in.",
+    "",
+    "&cBlazes hold the stairwells.&r Bring the bow."
+   ],
+   "deps": [
+    "wild_bow"
+   ],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 1.5,
+   "tasks": [
+    {
+     "type": "structure",
+     "structure": "minecraft:fortress"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:gold_ingot",
+     "count": 8
+    },
+    {
+     "type": "loot",
+     "table": "wild_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "wild_nether",
+   "title": "Cut a Machete and Take 4 Hoglin Loins",
+   "subtitle": "Nether's Delight is a butcher's chapter.",
+   "icon": "nethersdelight:iron_machete",
+   "description": [
+    "Craft an &aIron Machete&r from two iron and a stick, then hunt hoglins in the crimson forest for 4 &aHoglin Loin&r.",
+    "",
+    "The machete clears vines and nether roots in one swing as well."
+   ],
+   "deps": [
+    "wild_fortress"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "nethersdelight:iron_machete",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "nethersdelight:hoglin_loin",
+     "count": 4
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "nethersdelight:hoglin_hide",
+     "count": 2
+    },
+    {
+     "type": "loot",
+     "table": "wild_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "wild_wildfire",
+   "title": "Bring Down One Wildfire",
+   "subtitle": "It keeps four blazes as a shield.",
+   "icon": "friendsandfoes:wildfire_crown_fragment",
+   "description": [
+    "Find a wildfire deep in the fortress. It hides behind four blazes, so &cbreak the shield first&r.",
+    "",
+    "It drops crown fragments. Five make a &aWildfire Crown&r that keeps blazes off."
+   ],
+   "deps": [
+    "wild_fortress"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "kill",
+     "entity": "friendsandfoes:wildfire",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:blaze_rod",
+     "count": 4
+    },
+    {
+     "type": "loot",
+     "table": "wild_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "wild_stronghold",
+   "title": "Follow an Eye of Ender to the Stronghold",
+   "subtitle": "Libraries, a prison, a well in the dark.",
+   "icon": "minecraft:ender_eye",
+   "description": [
+    "Throw an &aEye of Ender&r and walk after it. YUNG's strongholds are a proper ruin: libraries, a prison, a flooded well.",
+    "",
+    "The portal room is still down there if you ever want it."
+   ],
+   "deps": [
+    "wild_bow"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "structure",
+     "structure": "minecraft:stronghold"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:ender_pearl",
+     "count": 4
+    },
+    {
+     "type": "loot",
+     "table": "wild_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "wild_deep",
+   "title": "Bring Back Sixteen Sculk Stone",
+   "subtitle": "Deeper and Darker rebuilt the deep dark.",
+   "icon": "deeperdarker:sculk_stone",
+   "long_description": true,
+   "description": [
+    "Tobin: \"It is not deepslate. I checked twice. It rings wrong.\"",
+    "",
+    "Go back to the echo cave from &6Act V&r, mine 16 &aCobbled Sculk Stone&r and smelt it into &aSculk Stone&r.",
+    "",
+    "&cThe warden hears every step.&r Crouch, and light nothing you do not need."
+   ],
+   "deps": [
+    "q82"
+   ],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 1.5,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "deeperdarker:sculk_stone",
+     "count": 16
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:experience_bottle",
+     "count": 12
+    },
+    {
+     "type": "loot",
+     "table": "wild_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    },
+    {
+     "type": "toast",
+     "title": "Sixteen, Rung Wrong",
+     "description": "Next: the echo cave was only the doorstep. The Otherside opens off the ancient city's sculk frame with an Echo Shard."
+    }
+   ]
+  }
+ ]
+}

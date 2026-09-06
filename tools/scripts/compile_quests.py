@@ -247,6 +247,10 @@ for tk, t in tables.items():
         lc = t['loot_crate']; body.append('\tloot_crate: { string_id: ' + q(lc.get('id', tk)) + f', item_name: {q(lc.get("name", t["title"]))}, color: {int(lc.get("color", 0xFFAA00))}, glow: {str(lc.get("glow", False)).lower()}, drops: {{ passive: 0, monster: 0, boss: 0 }} }}')
     body.append('}')
     (out / 'reward_tables' / f'{tk}.snbt').write_text('\n'.join(body) + '\n')
+# Group tabs in the order a player should meet them (2026-09-06, the FTB Evolution rebuild); any
+# group not named here follows in first-seen order.
+GROUP_ORDER = ['The Valley', 'Home & Farm', 'Tech', 'The Valley Beyond', 'Side Quests', 'Story']
+groups = collections.OrderedDict(sorted(groups.items(), key=lambda kv: (GROUP_ORDER.index(kv[0]) if kv[0] in GROUP_ORDER else 99, list(groups).index(kv[0]))))
 (out / 'chapter_groups.snbt').write_text('{\n\tchapter_groups: [\n' + '\n'.join(f'\t\t{{ id: "{gid}", title: {q(g)} }}' for g, gid in groups.items()) + '\n\t]\n}\n')
 data_file = out / 'data.snbt'
 if not data_file.exists():

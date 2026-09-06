@@ -1,0 +1,385 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "ae2"
+	group: "33D241142550E678"
+	icon: "ae2:terminal"
+	id: "32F4545024F13413"
+	order_index: 23
+	quest_links: [ ]
+	subtitle: ["One list for every chest in the valley.", "Certus in the stone, four presses under a crater, and a screen that ends rummaging."]
+	hide_quest_until_deps_complete: false
+	hide_quest_details_until_startable: false
+	images: [
+		{ x: -5.5d, y: -1.0d, width: 3.0d, height: 3.0d, rotation: 0.0d, image: "ae2:item/certus_quartz_crystal", alpha: 255, order: -1, hover: ["Pale blue buds in ordinary stone.", "Sixteen is a floor, not a target."] }
+		{ x: 0.0d, y: -6.0d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "ae2:block/charger", alpha: 255, order: -1, hover: ["Halden's spring, or the mod's own recipe."] }
+		{ x: 4.0d, y: -6.0d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "ae2:item/fluix_crystal", alpha: 255, order: -1, hover: ["Three things thrown in standing water."] }
+		{ x: 8.0d, y: -6.0d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "ae2:block/sky_stone_block", alpha: 255, order: -1, hover: ["It only ever arrives by meteorite."] }
+		{ x: 13.0d, y: -6.0d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "ae2:item/silicon_press", alpha: 255, order: -1, hover: ["Not craftable. Found."] }
+		{ x: 17.5d, y: -6.0d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "ae2:block/inscriber", alpha: 255, order: -1, hover: ["Press on top, press underneath."] }
+		{ x: 2.0d, y: 7.0d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "ae2:block/controller", alpha: 255, order: -1, hover: ["One is plenty."] }
+		{ x: 7.0d, y: 7.0d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "ae2:item/item_storage_cell_4k", alpha: 255, order: -1, hover: ["Bytes, not stacks."] }
+		{ x: 11.0d, y: 7.0d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "ae2:item/wireless_terminal", alpha: 255, order: -1, hover: ["Range is boosters."] }
+		{ x: 15.5d, y: 7.0d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "ae2:block/molecular_assembler", alpha: 255, order: -1, hover: ["It builds the dull parts while you walk."] }
+	]
+	quests: [
+		{
+			id: "21E9FC26C9F10B67"
+			title: "Mine Sixteen Certus Quartz"
+			subtitle: "Pale blue buds in ordinary stone."
+			icon: "ae2:certus_quartz_crystal"
+			description: ["A storage network is one list: every chest, drawer and barrel on it shows on a single screen, searchable, pulled out by name.", "", "Mine sixteen &aCertus Quartz Crystals&r. They grow as pale blue buds in stone, most often near caves and water."]
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 2.0d
+			hide_details_until_startable: false
+			tasks: [{ id: "3F5E78F0704446A1", type: "item", item: "ae2:certus_quartz_crystal", count: 16L }]
+			rewards: [{ id: "3948C7A8326C47F7", type: "item", auto: "no_toast", item: "minecraft:quartz", count: 16 }, { id: "29983C25AA705F1F", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "0E710E7BC395EA6D"
+			title: "Smelt Eight Silicon"
+			subtitle: "Dust first. The furnace does the rest."
+			icon: "ae2:silicon"
+			description: ["Grind certus to &aCertus Quartz Dust&r in a Millstone or a Pulverizer, then smelt the dust into &aSilicon&r.", "", "Every processor you print starts here. The millstone is in the &6Create&r chapter."]
+			x: 2.0d
+			y: -1.5d
+			dependencies: ["21E9FC26C9F10B67"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "3A74983178A9A3B0", type: "item", item: "ae2:silicon", count: 8L }]
+			rewards: [{ id: "16C7325C25BBDFB5", type: "item", auto: "no_toast", item: "ae2:silicon", count: 8 }, { id: "70E7F86C2F111ADB", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "64B96930FBD37527"
+			title: "Cut a Certus Knife and Wrench"
+			subtitle: "One cuts patterns, one turns cables."
+			icon: "ae2:certus_quartz_cutting_knife"
+			description: ["Craft a &aCertus Quartz Cutting Knife&r and a &aCertus Quartz Wrench&r.", "", "The knife cuts blank patterns and names things. The wrench turns and pulls network parts without breaking them."]
+			x: 2.0d
+			y: 0.0d
+			dependencies: ["21E9FC26C9F10B67"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "264B456FEEEE8F6F", type: "item", item: "ae2:certus_quartz_cutting_knife", count: 1L }, { id: "1B9C0F7068E48708", type: "item", item: "ae2:certus_quartz_wrench", count: 1L }]
+			rewards: [{ id: "2F86E0143A6887E3", type: "item", auto: "no_toast", item: "ae2:blank_pattern", count: 8 }, { id: "635C5D400363BCE6", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "72DCAB6C2B10A4AA"
+			title: "Build a Charger and Power It"
+			subtitle: "Halden's spring, or the mod's recipe."
+			icon: "ae2:charger"
+			description: ["Halden: \"She kept a jar of the blue stuff on my shelf four years and never once said what it was for.\"", "", "Craft a &aCharger&r and run any FE into it. Two recipes work: the mod's own, and the valley's, which wants a bottle of &bSpring Water&r."]
+			x: 2.0d
+			y: 1.5d
+			dependencies: ["21E9FC26C9F10B67"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "1CFF91519D3F7676", type: "item", item: "ae2:charger", count: 1L }]
+			rewards: [{ id: "4EE0224CC335915F", type: "item", auto: "no_toast", item: "thermal:energy_duct", count: 8 }, { id: "584567DECC93708B", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "3BC628C3DA866799"
+			title: "Charge Eight Certus Crystals"
+			subtitle: "One at a time, on the charger's face."
+			icon: "ae2:charged_certus_quartz_crystal"
+			description: ["Drop or right-click &aCertus Quartz Crystals&r onto a powered Charger and wait.", "", "&bCharged certus&r is the one ingredient nothing substitutes. A hopper above the charger does this while you work."]
+			x: 4.0d
+			y: -1.5d
+			dependencies: ["72DCAB6C2B10A4AA"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "5FE9774FF4DB5C3B", type: "item", item: "ae2:charged_certus_quartz_crystal", count: 8L }]
+			rewards: [{ id: "2747EFBB02F79466", type: "item", auto: "no_toast", item: "minecraft:redstone", count: 32 }, { id: "413E0D6246A212CB", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "5593F78D82000563"
+			title: "Grow Sixteen Fluix in Water"
+			subtitle: "Throw three things in. Walk away."
+			icon: "ae2:fluix_crystal"
+			description: ["Throw &acharged certus&r, redstone and nether quartz into standing water. They fuse into &aFluix Crystals&r on their own.", "", "Fluix is in every cable, every cell and the controller. Sixteen is a floor, not a target."]
+			x: 6.0d
+			y: -1.5d
+			dependencies: ["3BC628C3DA866799"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "36A518ED89D32796", type: "item", item: "ae2:fluix_crystal", count: 16L }]
+			rewards: [{ id: "32C873CC30D730FF", type: "item", auto: "no_toast", item: "ae2:fluix_glass_cable", count: 16 }, { id: "521D43C61F3723E5", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "5BEBE39A4E161C7D"
+			title: "Stack Four Growth Accelerators"
+			subtitle: "Budding quartz, hurried along."
+			icon: "ae2:growth_accelerator"
+			description: ["Craft four &aCrystal Growth Accelerators&r, set them against a budding quartz block and run power in.", "", "Buds ripen in seconds instead of hours. The valley's recipe wants &bSpring Water&r; the mod's own does not."]
+			x: 8.0d
+			y: -0.8d
+			dependencies: ["5593F78D82000563"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "1270CA78E14FA6C2", type: "item", item: "ae2:growth_accelerator", count: 4L }]
+			rewards: [{ id: "020A5E0DCDD0DA7C", type: "loot", auto: "no_toast", table_id: 8913334366376019510L }, { id: "2F3ABB7EE34A777E", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "0B9A9011C4EDF746"
+			title: "Walk the Compass to the Crater"
+			subtitle: "Nearest one: x -216, z 72."
+			icon: "ae2:meteorite_compass"
+			description: ["Charge a plain &aCompass&r in the Charger for a &aMeteorite Compass&r, then hold it and walk until it points straight down.", "", "The nearest crater is 110 blocks east of the farm hearth, at &bx -216, z 72&r. Dig where the needle drops."]
+			x: 4.0d
+			y: 0.0d
+			dependencies: ["72DCAB6C2B10A4AA"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "79E496F78AC5E9CE", type: "item", item: "ae2:meteorite_compass", count: 1L }, { id: "6DAC94D75CB58A7D", type: "structure", structure: "ae2:meteorite" }]
+			rewards: [{ id: "239706F5D66A8910", type: "item", auto: "no_toast", item: "ae2:sky_stone_block", count: 16 }, { id: "54E3941182D5E2F1", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "70E95C016175C804"
+			title: "Build With Sixteen Sky Stone"
+			subtitle: "It only ever arrives by meteorite."
+			icon: "ae2:smooth_sky_stone_block"
+			description: ["Smelt crater rock into &aSmooth Sky Stone&r and build a &aSky Stone Chest&r out of the plain blocks.", "", "Sky stone shrugs off a creeper, which makes sixteen blocks a decent wall around a drive."]
+			x: 6.0d
+			y: 0.0d
+			dependencies: ["0B9A9011C4EDF746"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "4581EE9EB30D89CE", type: "item", item: "ae2:smooth_sky_stone_block", count: 16L }, { id: "6EF0FDD24F06427A", type: "item", item: "ae2:sky_stone_chest", count: 1L }]
+			rewards: [{ id: "6B57AF86BD3BD3E0", type: "loot", auto: "no_toast", table_id: 8913334366376019510L }, { id: "25600CB73A479D1B", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "3BCE86EA9B28DCF5"
+			title: "Empty the Chest of Four Presses"
+			subtitle: "Not craftable. Found, once, in a hole."
+			icon: "ae2:silicon_press"
+			description: ["Dig under the crater and open the &aSky Stone Chest&r buried inside it. It holds one of each &aInscriber Press&r.", "", "Four presses, one crater. A press copies itself in an Inscriber over an iron block, so never lose all four."]
+			x: 6.0d
+			y: 1.5d
+			dependencies: ["0B9A9011C4EDF746"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "6C3400FF5E10ED75", type: "item", item: "ae2:silicon_press", count: 1L }, { id: "71CA112ECDF85244", type: "item", item: "ae2:logic_processor_press", count: 1L }, { id: "10D9112E90FAC6F8", type: "item", item: "ae2:calculation_processor_press", count: 1L }, { id: "576F845FCC72994E", type: "item", item: "ae2:engineering_processor_press", count: 1L }]
+			rewards: [{ id: "01AE5D5171909619", type: "item", auto: "no_toast", item: "minecraft:diamond", count: 4 }, { id: "636D685788C9A091", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "70C9A296E26B838E"
+			title: "Build an Inscriber"
+			subtitle: "Iron, copper and two sticky pistons."
+			icon: "ae2:inscriber"
+			description: ["Craft an &aInscriber&r. It takes a press on top, a press underneath and the material in the middle.", "", "It does nothing at all until the presses are out of the crater."]
+			x: 4.0d
+			y: 1.5d
+			dependencies: ["0E710E7BC395EA6D"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "19A012E7F30F195F", type: "item", item: "ae2:inscriber", count: 1L }]
+			rewards: [{ id: "03F5CB75A7FC95C8", type: "item", auto: "no_toast", item: "ae2:silicon", count: 16 }, { id: "1EB6143526FBE16A", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "5CDE186DFC72F7B1"
+			title: "Print Eight of Each Processor"
+			subtitle: "Two passes each: print, then press."
+			icon: "ae2:logic_processor"
+			description: ["Inscribe &aPrinted Silicon&r and a printed circuit, then run the pair through again with redstone between them.", "", "Eight logic, eight calculation, eight engineering. A belt feeding the &aInscriber&r does all of it for you."]
+			x: 8.0d
+			y: 0.8d
+			dependencies: ["3BCE86EA9B28DCF5", "70C9A296E26B838E"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "614F1F27431CF532", type: "item", item: "ae2:logic_processor", count: 8L }, { id: "0CBC7689E12C53FD", type: "item", item: "ae2:calculation_processor", count: 8L }, { id: "5F458951E00C31BB", type: "item", item: "ae2:engineering_processor", count: 8L }]
+			rewards: [{ id: "654AA71B6FE80265", type: "loot", auto: "no_toast", table_id: 8913334366376019510L }, { id: "74E6687E2BCA866B", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "5F451FA663CA1A1A"
+			title: "Set One ME Controller Down"
+			subtitle: "Everything hangs off its six faces."
+			icon: "ae2:controller"
+			description: ["Craft an &aME Controller&r and run &aFluix Glass Cable&r out of its faces. Every device those cables touch joins one network.", "", "One is plenty. Two controller blocks touching are one machine, not two networks."]
+			x: 10.0d
+			y: 0.0d
+			dependencies: ["5CDE186DFC72F7B1", "5593F78D82000563"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "6F08EC197376A4D9", type: "item", item: "ae2:controller", count: 1L }, { id: "72B854D622FB42E3", type: "item", item: "ae2:fluix_glass_cable", count: 16L }]
+			rewards: [{ id: "719A84010290D638", type: "item", auto: "no_toast", item: "ae2:network_tool" }, { id: "4723768E3FDE750C", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "1BCE11D2BFB0D186"
+			title: "Count the Channels"
+			subtitle: "Eight per cable, thirty-two per dense."
+			icon: "ae2:network_tool"
+			description: ["Every device that stores, sorts or shows something eats one &bchannel&r. A glass cable carries eight, a dense cable thirty-two.", "", "Hold the &aNetwork Tool&r and look at a cable to read what is left. A device out of channels goes red; nothing is broken."]
+			x: 12.0d
+			y: -0.8d
+			dependencies: ["5F451FA663CA1A1A"]
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "147273BF81B4A166", type: "checkmark", title: "Channels understood." }]
+			rewards: [{ id: "66B7C0C1160EA7C6", type: "item", auto: "no_toast", item: "ae2:fluix_smart_cable", count: 16 }, { id: "33FACD0F0F739FDE", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "4F553560226A458E"
+			title: "Feed the Network FE"
+			subtitle: "An acceptor turns FE into AE."
+			icon: "ae2:energy_acceptor"
+			description: ["Put an &aEnergy Acceptor&r on the network and run an energy duct into it. Set an &aEnergy Cell&r beside it to cover the spikes.", "", "Where the FE comes from is the &6Thermal&r chapter."]
+			x: 12.0d
+			y: 0.8d
+			dependencies: ["5F451FA663CA1A1A"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "48B736179994F82E", type: "item", item: "ae2:energy_acceptor", count: 1L }, { id: "3AB5069FE84AE6A6", type: "item", item: "ae2:energy_cell", count: 1L }]
+			rewards: [{ id: "3A95BD2C5EDBD362", type: "item", auto: "no_toast", item: "thermal:energy_duct", count: 16 }, { id: "565DAC7C30C8BC11", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "0B296DA7AFBA3A76"
+			title: "Rack an ME Drive and a 1k Cell"
+			subtitle: "The drive is the shelf, cells the disks."
+			icon: "ae2:drive"
+			description: ["Craft an &aME Drive&r and one &a1k Item Storage Cell&r, slot the cell in and put the drive on the cable.", "", "That is the moment the network has somewhere to put things. Cells pull out and travel in a pocket."]
+			x: 14.0d
+			y: 0.0d
+			dependencies: ["4F553560226A458E"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "2A4D3F2F2088A9F0", type: "item", item: "ae2:drive", count: 1L }, { id: "3CE68DDF64E8BD52", type: "item", item: "ae2:item_storage_cell_1k", count: 1L }]
+			rewards: [{ id: "318B7CCC8B610588", type: "item", auto: "no_toast", item: "ae2:item_cell_housing", count: 4 }, { id: "395C5BD47A9E5B93", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "73BBB60BE13E0EE6"
+			title: "Cut a 4k and a 16k Cell"
+			subtitle: "Types cost more than counts do."
+			icon: "ae2:item_storage_cell_16k"
+			description: ["Craft a &a4k&r and a &a16k Item Storage Cell&r.", "", "A cell's number is bytes, not stacks, and every new item type costs bytes before it holds one. Few types, deep stacks."]
+			x: 16.0d
+			y: -0.8d
+			dependencies: ["0B296DA7AFBA3A76"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "429A9B221AD6D093", type: "item", item: "ae2:item_storage_cell_4k", count: 1L }, { id: "6564E188A631E889", type: "item", item: "ae2:item_storage_cell_16k", count: 1L }]
+			rewards: [{ id: "554DF3FF0A03324D", type: "loot", auto: "no_toast", table_id: 8913334366376019510L }, { id: "61879CD48FA4877E", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "67C883CAA72F8FAE"
+			title: "Hang an ME Terminal on a Cable"
+			subtitle: "One screen and one search box."
+			icon: "ae2:terminal"
+			description: ["Craft an &aME Terminal&r, put it on the side of a cable and open it. Everything in every cell shows up in one searchable list.", "", "The &aCrafting Terminal&r is the same screen with a 3x3 grid. Act III, step 51 builds this one in the mill workshop."]
+			x: 16.0d
+			y: 0.8d
+			dependencies: ["0B296DA7AFBA3A76"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "542CFE813265B8AA", type: "item", item: "ae2:terminal", count: 1L }]
+			rewards: [{ id: "19FCF6BD5D2D22A3", type: "item", auto: "no_toast", item: "ae2:crafting_terminal" }, { id: "789FC657CBB0AECE", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "2441CADD1DC50B77"
+			title: "Bus the Drawers Onto the Network"
+			subtitle: "Import in, export out, storage both."
+			icon: "ae2:storage_bus"
+			description: ["Craft an &aImport Bus&r, an &aExport Bus&r and a &aStorage Bus&r.", "", "A Storage Bus on a drawer controller puts the whole wall on the terminal without moving one item. Act III, step 52 does that to the granary."]
+			x: 18.0d
+			y: -1.5d
+			dependencies: ["67C883CAA72F8FAE"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "06C8436070B78102", type: "item", item: "ae2:import_bus", count: 1L }, { id: "7D3DAFA772DF7F8E", type: "item", item: "ae2:export_bus", count: 1L }, { id: "03F8B2098A6479B1", type: "item", item: "ae2:storage_bus", count: 1L }]
+			rewards: [{ id: "43E5062061414D74", type: "item", auto: "no_toast", item: "ae2:speed_card", count: 4 }, { id: "59F7F7137F7EAAC2", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "3D2776A5B3A3B1DB"
+			title: "Carry the Terminal in a Pocket"
+			subtitle: "Range is boosters, not optimism."
+			icon: "ae2:wireless_terminal"
+			description: ["Craft a &aWireless Access Point&r for the cable and a &aWireless Terminal&r for yourself, then charge the terminal at the point.", "", "Each &aWireless Booster&r inside the access point widens the range. Act V, step 84 covers the whole town this way."]
+			x: 18.0d
+			y: 0.0d
+			dependencies: ["67C883CAA72F8FAE"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "27E1EC54A7747A9F", type: "item", item: "ae2:wireless_access_point", count: 1L }, { id: "39704BB8416FBC3D", type: "item", item: "ae2:wireless_terminal", count: 1L }]
+			rewards: [{ id: "12089E1251956532", type: "item", auto: "no_toast", item: "ae2:wireless_booster", count: 4 }, { id: "26D56BE88C88C24D", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "5E9361FF6AAF7CF3"
+			title: "Stack a Crafting CPU"
+			subtitle: "Four units, a storage, an assembler."
+			icon: "ae2:molecular_assembler"
+			description: ["Stack four &aCrafting Units&r, one &a1k Crafting Storage&r and a &aMolecular Assembler&r into one solid group on the network.", "", "That group is what runs a crafting job. Act IV, step 68 builds it so the reactor's dull parts build themselves."]
+			x: 18.0d
+			y: 1.5d
+			dependencies: ["67C883CAA72F8FAE"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "4BC9C0454EC69F91", type: "item", item: "ae2:crafting_unit", count: 4L }, { id: "2BAA8933E61F8150", type: "item", item: "ae2:1k_crafting_storage", count: 1L }, { id: "42829A85F6C273DD", type: "item", item: "ae2:molecular_assembler", count: 1L }]
+			rewards: [{ id: "16E5559096434673", type: "item", auto: "no_toast", item: "ae2:crafting_accelerator", count: 2 }, { id: "0F3A7F937D863EB5", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "14DE93BAA160DD1E"
+			title: "Encode Eight Patterns"
+			subtitle: "Then ask the terminal for the thing."
+			icon: "ae2:pattern_provider"
+			description: ["Craft a &aPattern Encoding Terminal&r, two &aPattern Providers&r and eight &aBlank Patterns&r.", "", "Encode a recipe, drop the pattern in a provider, set the provider against a machine, then ask the terminal for the result."]
+			x: 20.0d
+			y: 0.0d
+			dependencies: ["5E9361FF6AAF7CF3"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "33B77EA26A6F61DC", type: "item", item: "ae2:pattern_encoding_terminal", count: 1L }, { id: "1D5EF2B11505C43B", type: "item", item: "ae2:pattern_provider", count: 2L }, { id: "4BB182F99B2FDFB1", type: "item", item: "ae2:blank_pattern", count: 8L }]
+			rewards: [{ id: "5244462D59CB4D72", type: "loot", auto: "no_toast", table_id: 8913334366376019510L }, { id: "39FAA2590268B000", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "62FAAF8CBB07A54A", type: "toast", title: "Storage Network", auto: "enabled", description: "Next: Act V, step 84a encodes eight of these and wires Marnie's pantry to the network." }]
+		}
+	]
+	title: "Storage Network"
+}

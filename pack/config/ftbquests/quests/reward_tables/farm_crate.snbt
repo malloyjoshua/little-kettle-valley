@@ -1,0 +1,23 @@
+{
+	empty_weight: 0.0f
+	id: "27AB0EC5A6ACA277"
+	loot_size: 1
+	order_index: 0
+	title: "Halden's Seed Tin"
+	use_title: true
+	rewards: [
+		{ item: "thermal:strawberry_seeds", count: 8, weight: 3.0f }
+		{ item: "thermal:tomato_seeds", count: 8, weight: 3.0f }
+		{ item: "farmersdelight:cabbage_seeds", count: 8, weight: 3.0f }
+		{ item: "minecraft:bone_meal", count: 16, weight: 3.0f }
+		{ item: "farm_and_charm:kernels", count: 8, weight: 2.0f }
+		{ item: "farm_and_charm:strawberry_seeds", count: 8, weight: 2.0f }
+		{ item: "thermal:phytogro", count: 8, weight: 2.0f }
+		{ item: "farmersdelight:organic_compost", count: 4, weight: 2.0f }
+		{ item: "minecraft:beetroot_seeds", count: 8, weight: 2.0f }
+		{ item: "thermal:spinach_seeds", count: 4, weight: 2.0f }
+		{ item: "farmersdelight:rice", count: 8, weight: 1.0f }
+		{ item: "thermal:sadiroot_seeds", count: 4, weight: 1.0f }
+	]
+	loot_crate: { string_id: "farm_crate", item_name: "Halden's Seed Tin", color: 7647562, glow: false, drops: { passive: 0, monster: 0, boss: 0 } }
+}

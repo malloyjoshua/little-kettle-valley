@@ -735,6 +735,10 @@ ServerEvents.loaded(event => {
   s.runCommandSilent('gamerule doDaylightCycle true')
   // Two players, one bed each: one sleeper passes the night. Vanilla's 100 needs both.
   s.runCommandSilent('gamerule playersSleepingPercentage 1')
+  // Copies opened before 2026-09-06 carry the old 1500 border in their world state. Widen it.
+  try {
+    if (s.overworld().getWorldBorder().getSize() < 6000) s.runCommandSilent('worldborder set 6000')
+  } catch (err) { console.warn('[valley] world border check: ' + err) }
 
   let a = global.valley.anchor()
   console.info('[valley] core loaded. Anchor: ' + (a ? a.join(' ') : 'not set yet'))
@@ -1130,7 +1134,10 @@ function valleyFirstJoin(server, player, name) {
 
   // The world border and the two counters start where §12.5 says they do.
   if (global.valley.once('world_opened')) {
-    server.runCommandSilent('worldborder set 1500')
+    // 6000, not 1500 (2026-09-06): FTB Evolution's rule, which Josh asked for, is that the world
+    // is yours from day one. The valley is the story; the ridge is not a wall. Each act still
+    // widens it (valley_finales.js) and Act V removes it.
+    server.runCommandSilent('worldborder set 6000')
     server.runCommandSilent('bossbar set valley:folk value 0')
     global.valley.setLampsLit(0)
   }

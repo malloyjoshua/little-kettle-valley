@@ -1,0 +1,291 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "reactor"
+	group: "33D241142550E678"
+	icon: "biggerreactors:reactor_casing"
+	id: "5C2BC630E2E0B167"
+	order_index: 25
+	quest_links: [ ]
+	subtitle: ["Uranium, steam, and eighteen hundred revolutions a minute.", "Then a hole in the ground deep enough to fill the granary."]
+	hide_quest_until_deps_complete: false
+	hide_quest_details_until_startable: false
+	images: [
+		{ x: -5.5d, y: -5.0d, width: 3.0d, height: 3.0d, rotation: 0.0d, image: "biggerreactors:block/uranium_ore", alpha: 190, order: -1, hover: ["Autunite. Josie wrote 'yellorium' and never explained."] }
+		{ x: 2.0d, y: -5.5d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "biggerreactors:item/graphite_ingot", alpha: 200, order: -1, hover: ["Coal, once through a furnace."] }
+		{ x: 9.0d, y: -5.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "biggerreactors:block/cyanite_reprocessor", alpha: 190, order: -1, hover: ["What comes out is worth putting back in."] }
+		{ x: 17.0d, y: -5.0d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "biggerreactors:item/steam_bucket", alpha: 200, order: -1, hover: ["Water in one face, steam out the other."] }
+		{ x: 25.0d, y: -5.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "quarryplus:block/quarry_front", alpha: 200, order: -1, hover: ["It raises its own frame."] }
+		{ x: -5.0d, y: 6.0d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "minecraft:block/lava_still", alpha: 170, order: -1, hover: ["Every deep pit finds water first, then this."] }
+		{ x: 12.0d, y: 7.0d, width: 2.0d, height: 2.0d, rotation: 0.0d, image: "quarryplus:block/marker", alpha: 200, order: -1, hover: ["Tobin left the corner stakes squared."] }
+		{ x: 27.0d, y: 6.0d, width: 3.0d, height: 3.0d, rotation: 0.0d, image: "biggerreactors:item/cyanite_ingot", alpha: 200, order: -1, hover: ["Cyanite.", "The greenhouse glass costs one."] }
+	]
+	quests: [
+		{
+			id: "74456989C5A9BA34"
+			title: "Smelt 16 Uranium Ingots"
+			subtitle: "Autunite. Dig where the sample is."
+			icon: "biggerreactors:uranium_ingot"
+			description: ["&bAutunite&r is the uranium ore in this pack. Break it for Uranium Clusters and smelt each cluster into one &aUranium Ingot&r.", "", "The sample block on the grass sits over the pocket, so dig where the sample is. Sixteen ingots runs a small vessel a long time. For bed depths, see the &6Ores & Mining&r chapter."]
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 2.0d
+			hide_details_until_startable: false
+			tasks: [{ id: "1F773C4C6512E8EC", type: "item", item: "biggerreactors:uranium_ingot", count: 16L }]
+			rewards: [{ id: "4897A2F3C02E3D82", type: "item", auto: "no_toast", item: "minecraft:coal", count: 32 }, { id: "5D470DA449858F39", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "692FFD85A04F6C0B"
+			title: "Read Josie's Turbine Notes"
+			subtitle: "Forty pages of sums, none of them tidy."
+			icon: "valley:turbine_notes"
+			description: ["Bram: \"She costed a power station on the back of a seed catalogue, and I laughed at her once. Read it before you spend that uranium.\"", "", "Hold one copy of &aJosie's Turbine Notes&r. Every Reactor Casing and every Reactor Terminal in this pack is built with a page of them on the recipe.", "", "Act IV, step 67 brings the notes down from the Merchant's Tower."]
+			x: 2.0d
+			y: 0.0d
+			dependencies: ["74456989C5A9BA34", "31FAD6BF27BB1BC7"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "01F6140DC8B8777C", type: "item", item: "valley:turbine_notes", count: 1L }]
+			rewards: [{ id: "72D7BB837EC97A20", type: "item", auto: "no_toast", item: "biggerreactors:graphite_ingot", count: 16 }, { id: "5AFB20D24A5F7BA7", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "30F236BE8D727B36"
+			title: "Smelt 16 Graphite Ingots"
+			subtitle: "Coal in, graphite out. That is all."
+			icon: "biggerreactors:graphite_ingot"
+			description: ["Smelt 16 coal into &aGraphite Ingots&r. It is in the casing, the fuel rod and the control rod, so make more than you think you need.", "", "A Redstone Furnace does a stack in a couple of minutes. See the &6Thermal&r chapter."]
+			x: 4.0d
+			y: 0.0d
+			dependencies: ["692FFD85A04F6C0B"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "26E272E4153EA779", type: "item", item: "biggerreactors:graphite_ingot", count: 16L }]
+			rewards: [{ id: "50663817AFEA244B", type: "item", auto: "no_toast", item: "minecraft:iron_ingot", count: 16 }, { id: "53166855B732F66F", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "20FFDC2790F3912F"
+			title: "Craft 22 Reactor Casings"
+			subtitle: "A 3x3x3 shell is 26, less four."
+			icon: "biggerreactors:reactor_casing"
+			description: ["Craft 22 &aReactor Casings&r. The recipe eats one page of Josie's notes per four casings.", "", "A 3x3x3 reactor is 27 blocks: 26 shell, one hollow inside. Four of the 26 are terminal, access port, power tap and control rod. The other 22 are plain casing."]
+			x: 6.0d
+			y: 0.0d
+			dependencies: ["30F236BE8D727B36"]
+			shape: "hexagon"
+			size: 1.5d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "266BCBA6B48FBB30", type: "item", item: "biggerreactors:reactor_casing", count: 22L }]
+			rewards: [{ id: "2ED61A810B558449", type: "loot", auto: "no_toast", table_id: 8663250472681172438L }, { id: "18E1CF4330441C59", type: "item", auto: "no_toast", item: "biggerreactors:graphite_ingot", count: 16 }, { id: "2320C50435266DC2", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "6AD62B4E82114F80"
+			title: "Craft the Terminal, Port, Tap and Rods"
+			subtitle: "One of each. The box wants all five."
+			icon: "biggerreactors:reactor_terminal"
+			description: ["Craft a &aReactor Terminal&r, an &aAccess Port&r, a &aPower Tap&r, one Fuel Rod and one Control Rod.", "", "The Terminal is the screen and the throttle. The Port is the only way fuel goes in and cyanite comes out. The Tap pushes power straight into a duct."]
+			x: 8.0d
+			y: 0.0d
+			dependencies: ["20FFDC2790F3912F"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "349FE205CA0571BC", type: "item", item: "biggerreactors:reactor_terminal", count: 1L }, { id: "03DDC6BA9BB5C73A", type: "item", item: "biggerreactors:reactor_access_port", count: 1L }, { id: "243FFA4C299E8F15", type: "item", item: "biggerreactors:reactor_power_tap", count: 1L }, { id: "170766F470E9BD2E", type: "item", item: "biggerreactors:reactor_fuel_rod", count: 1L }, { id: "721B980BB1A15D06", type: "item", item: "biggerreactors:reactor_control_rod", count: 1L }]
+			rewards: [{ id: "0E10B58E3DD1491A", type: "item", auto: "no_toast", item: "minecraft:hopper", count: 2 }, { id: "2A46DD0D61638297", type: "item", auto: "no_toast", item: "biggerreactors:reactor_fuel_rod", count: 2 }, { id: "1002EAE3FABFD5CF", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "2D3D1E11049D8DE5"
+			title: "Build a 3x3x3 Vessel and Light It"
+			subtitle: "Hollow box, one rod, one rod on the lid."
+			icon: "biggerreactors:reactor_control_rod"
+			description: ["Build a hollow 3x3x3: one &aFuel Rod&r in the middle, a Control Rod on the lid directly above it, and the Terminal, Access Port and Power Tap anywhere in the 26-block shell.", "", "Feed uranium into the port, then lower the rod at the terminal. Josie's field note &bThe Vessel&r has her arithmetic for the bigger shells."]
+			x: 10.0d
+			y: 0.0d
+			dependencies: ["6AD62B4E82114F80"]
+			shape: "hexagon"
+			size: 1.5d
+			min_width: 300
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			guide_page: "patchouli:valley_journal/f6_the_vessel"
+			tasks: [{ id: "2CA14194D23595B1", type: "checkmark", title: "Vessel formed and burning uranium." }]
+			rewards: [{ id: "31A1DA9BA726B59F", type: "item", auto: "no_toast", item: "thermal:energy_duct", count: 16 }, { id: "74AD4DE728B7E77B", type: "loot", auto: "no_toast", table_id: 8663250472681172438L }, { id: "5038BB88383AA78A", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "7CE596200AE5942F"
+			title: "Glass a Wall of the Vessel"
+			subtitle: "Watch the fuel column burn down."
+			icon: "biggerreactors:reactor_glass"
+			description: ["Craft 12 &aReactor Glass&r and swap one wall of plain casing out for it.", "", "Glass counts as shell, so the box still forms. You get to stand outside and read the fuel level instead of opening a menu for it."]
+			x: 12.0d
+			y: -1.5d
+			dependencies: ["2D3D1E11049D8DE5"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "53B0BD4B03CCFB9B", type: "item", item: "biggerreactors:reactor_glass", count: 12L }]
+			rewards: [{ id: "1B03E9FF21337358", type: "item", auto: "no_toast", item: "biggerreactors:turbine_glass", count: 8 }, { id: "305723D8C7FB8DFF", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "75BA4FE63B69B472"
+			title: "Reprocess Cyanite Back Into Fuel"
+			subtitle: "Spent fuel is half a fuel rod."
+			icon: "biggerreactors:cyanite_reprocessor"
+			description: ["Build a &aCyanite Reprocessor&r and run four cyanite ingots from the access port through it.", "", "Cyanite is what uranium becomes. Reprocessed it goes to &aBlutonium&r, which burns hotter. One cyanite ingot is also what a pane of greenhouse glass costs: see the &6Farm & Seasons&r chapter."]
+			x: 12.0d
+			y: 0.0d
+			dependencies: ["2D3D1E11049D8DE5"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "759F1F255A3013EE", type: "item", item: "biggerreactors:cyanite_reprocessor", count: 1L }, { id: "33077100BF3B54F3", type: "item", item: "biggerreactors:cyanite_ingot", count: 4L }]
+			rewards: [{ id: "58845E6F913874E1", type: "item", auto: "no_toast", item: "biggerreactors:blutonium_ingot", count: 2 }, { id: "5D90FE65D10F0EC6", type: "loot", auto: "no_toast", table_id: 8663250472681172438L }, { id: "29AD2F438EFD461F", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "7BA8343178EF3F28"
+			title: "Fit Two Coolant Ports for Steam"
+			subtitle: "Take the tap out. Steam, not power."
+			icon: "biggerreactors:reactor_coolant_port"
+			description: ["Craft two &aReactor Coolant Ports&r and swap the Power Tap out for them, one on each of two opposite faces.", "", "A vessel has taps or coolant ports, never both. Water goes in one side and steam comes out the other, and steam is what a turbine eats."]
+			x: 12.0d
+			y: 1.5d
+			dependencies: ["2D3D1E11049D8DE5"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "796FA15DF6FFFD8A", type: "item", item: "biggerreactors:reactor_coolant_port", count: 2L }]
+			rewards: [{ id: "1F1B229F0804C558", type: "item", auto: "no_toast", item: "thermal:fluid_duct", count: 16 }, { id: "6A428E852E55B0B5", type: "item", auto: "no_toast", item: "minecraft:water_bucket", count: 2 }, { id: "5603FE15D114A29E", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "5314C75D7EC403DB"
+			title: "Craft the Turbine Frame Parts"
+			subtitle: "The smallest turbine is 5x5x4."
+			icon: "biggerreactors:turbine_casing"
+			description: ["Craft 76 &aTurbine Casings&r, 2 Rotor Bearings, a Turbine Terminal, 2 Fluid Ports and a Turbine Power Tap.", "", "A 5x5x4 turbine is 82 frame blocks around a 3x3x2 inside. Six of them are the special parts above, so 76 are plain casing."]
+			x: 14.0d
+			y: 0.0d
+			dependencies: ["7BA8343178EF3F28"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "125C60298B529FA4", type: "item", item: "biggerreactors:turbine_casing", count: 76L }, { id: "0F52552D2A83B332", type: "item", item: "biggerreactors:turbine_rotor_bearing", count: 2L }, { id: "12D5EAA547AABC98", type: "item", item: "biggerreactors:turbine_terminal", count: 1L }, { id: "2383552A63C7FA81", type: "item", item: "biggerreactors:turbine_fluid_port", count: 2L }, { id: "3FFFAF2459F3DC15", type: "item", item: "biggerreactors:turbine_power_tap", count: 1L }]
+			rewards: [{ id: "326E16A6B8E85344", type: "item", auto: "no_toast", item: "biggerreactors:turbine_glass", count: 16 }, { id: "3C07C28AE1262A9C", type: "loot", auto: "no_toast", table_id: 8663250472681172438L }, { id: "60068E0009816F9D", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "59F72A5E4BCCD725"
+			title: "Craft the Rotor, Blades and Coil"
+			subtitle: "Two shafts, four blades, four copper."
+			icon: "biggerreactors:turbine_rotor_blade"
+			description: ["Craft 2 &aRotor Shafts&r, 4 &aRotor Blades&r and 4 Copper Blocks.", "", "The rotor fills the inside height: blades on the lower level, copper coil blocks ringing the upper. Nothing is wasted, since a piece pulls back out."]
+			x: 16.0d
+			y: 0.0d
+			dependencies: ["5314C75D7EC403DB"]
+			shape: "square"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "744F2D27BEE35ABA", type: "item", item: "biggerreactors:turbine_rotor_shaft", count: 2L }, { id: "769D44E3FD25B0BA", type: "item", item: "biggerreactors:turbine_rotor_blade", count: 4L }, { id: "36CDA7CC4CCC97AB", type: "item", item: "minecraft:copper_block", count: 4L }]
+			rewards: [{ id: "54B39EDA63CD7093", type: "item", auto: "no_toast", item: "biggerreactors:turbine_rotor_blade", count: 8 }, { id: "6C44D21C377DB8E4", type: "item", auto: "no_toast", item: "minecraft:copper_block", count: 8 }, { id: "5E5C392552E76F16", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "16E488D7EB2387DC"
+			title: "Hold the Turbine at 1,800 RPM"
+			subtitle: "A problem, not a recipe."
+			icon: "biggerreactors:turbine_terminal"
+			description: ["Frame it 5x5x4, bearings centred top and bottom, two shafts between them, four blades low and four copper blocks round the coil. Pipe the steam in and open the flow.", "", "More blades or more coils slow it; more steam speeds it. &b/valley check turbine&r prints RPM, steam in and power out. It settles in about three passes."]
+			x: 18.0d
+			y: 0.0d
+			dependencies: ["59F72A5E4BCCD725"]
+			shape: "hexagon"
+			size: 1.5d
+			min_width: 300
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			guide_page: "patchouli:valley_journal/f7_the_turbine"
+			tasks: [{ id: "0CD11FFF3A6F81BE", type: "checkmark", title: "Turbine holding 1,800 RPM under load." }]
+			rewards: [{ id: "40BCF81C435F6F24", type: "item", auto: "no_toast", item: "thermal:energy_cell" }, { id: "22BBB5A14D30F141", type: "loot", auto: "no_toast", table_id: 8663250472681172438L }, { id: "0F41A34591B0E7EA", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "152BD415762416A7"
+			title: "Build the Second Turbine"
+			subtitle: "One vessel can feed two of them."
+			icon: "biggerreactors:turbine_casing"
+			description: ["Frame a second 5x5x4 turbine and split the steam line into both &aFluid Ports&r.", "", "One 3x3x3 vessel makes more steam than a single rotor can swallow, so the second turbine is nearly free power. Act V, step 83 asks the town's winter budget of exactly this."]
+			x: 20.0d
+			y: -0.8d
+			dependencies: ["16E488D7EB2387DC"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "182890866BBDD1F9", type: "item", item: "biggerreactors:turbine_rotor_bearing", count: 2L }, { id: "53C07723494DA866", type: "checkmark", title: "Both turbines turning on one steam line." }]
+			rewards: [{ id: "0A816D463E151536", type: "item", auto: "no_toast", item: "thermal:energy_cell" }, { id: "13D4F04657FA0A88", type: "loot", auto: "no_toast", table_id: 8663250472681172438L }, { id: "1A986D6E8CABF766", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "01B95CC6024E20FB"
+			title: "Set the Quarry on Tobin's Stakes"
+			subtitle: "It raises its own frame, then digs."
+			icon: "quarryplus:quarry"
+			description: ["Build a &aWorkbench Plus&r, then a &aQuarry Plus&r on it. The bench takes its ingredients over time, and the &aWorks Deed&r is one of them.", "", "Put a Flexible Marker on a corner stake, right-click it and type the box. Set the quarry flat against the marker, facing in, and duct power to its back."]
+			x: 20.0d
+			y: 0.8d
+			dependencies: ["16E488D7EB2387DC", "2FE67859CD152D29"]
+			shape: "hexagon"
+			size: 1.5d
+			min_width: 300
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			guide_page: "patchouli:valley_journal/f8_quarry_and_markers"
+			tasks: [{ id: "2195C2243ED2AC7D", type: "item", item: "quarryplus:workbench", count: 1L }, { id: "457FD33FF467DA1E", type: "item", item: "quarryplus:flex_marker", count: 4L }, { id: "0B2A3F687A169D4F", type: "item", item: "quarryplus:quarry", count: 1L }, { id: "03D9FB77F535D1D6", type: "checkmark", title: "Quarry powered and digging." }]
+			rewards: [{ id: "6C8DB6F26BB01872", type: "item", auto: "no_toast", item: "quarryplus:marker", count: 8 }, { id: "17D6884CE488A66A", type: "item", auto: "no_toast", item: "quarryplus:y_setter" }, { id: "4F876689E36ED279", type: "item", auto: "no_toast", item: "quarryplus:frame", count: 32 }, { id: "26354484BE60ADF0", type: "loot", auto: "no_toast", table_id: 8663250472681172438L }, { id: "56940FD7DB4BD12A", type: "xp_levels", auto: "no_toast", xp_levels: 3 }, { id: "6B813774A7E09DC8", type: "toast", title: "The Shaft Is Sunk", auto: "enabled", description: "Next: 1,024 cobblestone out of network stock into the granary. Act V, step 88." }]
+		}
+		{
+			id: "7A7B1356D73A9829"
+			title: "Build an Advanced Pump for the Pit"
+			subtitle: "Aquifers stop a dig. This one doesn't."
+			icon: "quarryplus:adv_pump"
+			description: ["Craft an &aAdvanced Pump&r and set it on the quarry.", "", "It clears water and lava out of the box ahead of the drill instead of the dig stalling at every aquifer, and it fills a tank with the lava it takes."]
+			x: 22.0d
+			y: -0.8d
+			dependencies: ["01B95CC6024E20FB"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "5D6143FED80063F1", type: "item", item: "quarryplus:adv_pump", count: 1L }]
+			rewards: [{ id: "6A8BC2CC4B02176E", type: "item", auto: "no_toast", item: "thermal:fluid_duct", count: 16 }, { id: "70DB453A367FF106", type: "item", auto: "no_toast", item: "quarryplus:pump_module" }, { id: "7544F8BE2E70AD27", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "728C99A8008F0600"
+			title: "Build a Filler and Close the Pit"
+			subtitle: "A square hole is still a hole."
+			icon: "quarryplus:filler"
+			description: ["Craft a &aFiller&r on the Workbench Plus and set it against the same markers the quarry worked to.", "", "It takes the box and fills it in from a stack of blocks, layer by layer. The shaft can come out of the ridge without leaving a scar on it."]
+			x: 22.0d
+			y: 0.8d
+			dependencies: ["01B95CC6024E20FB"]
+			optional: true
+			shape: "rsquare"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "1107B1AAE1F1AB63", type: "item", item: "quarryplus:filler", count: 1L }]
+			rewards: [{ id: "7E4E9DF30236FF99", type: "item", auto: "no_toast", item: "quarryplus:filler_module" }, { id: "1EBD2E8D9D6D43F1", type: "item", auto: "no_toast", item: "quarryplus:exp_module" }, { id: "7C4BB27E96639DDB", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+	]
+	title: "The Reactor & the Quarry"
+}

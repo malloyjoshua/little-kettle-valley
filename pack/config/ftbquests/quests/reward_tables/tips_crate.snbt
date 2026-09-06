@@ -1,0 +1,22 @@
+{
+	empty_weight: 0.0f
+	id: "7D622C598598105A"
+	loot_size: 1
+	order_index: 0
+	title: "Pip's Pocket Tin"
+	use_title: true
+	rewards: [
+		{ item: "minecraft:torch", count: 16, weight: 3.0f }
+		{ item: "minecraft:bread", count: 6, weight: 3.0f }
+		{ item: "minecraft:coal", count: 8, weight: 3.0f }
+		{ item: "valley:scrip", count: 4, weight: 2.0f }
+		{ item: "minecraft:iron_ingot", count: 4, weight: 2.0f }
+		{ item: "minecraft:lantern", count: 2, weight: 2.0f }
+		{ item: "minecraft:experience_bottle", count: 6, weight: 2.0f }
+		{ item: "minecraft:golden_carrot", count: 4, weight: 1.0f }
+		{ item: "minecraft:name_tag", weight: 1.0f }
+		{ item: "sophisticatedbackpacks:pickup_upgrade", weight: 1.0f }
+		{ item: "sophisticatedstorage:barrel", weight: 1.0f }
+	]
+	loot_crate: { string_id: "tips_crate", item_name: "Pip's Pocket Tin", color: 13148747, glow: false, drops: { passive: 0, monster: 0, boss: 0 } }
+}

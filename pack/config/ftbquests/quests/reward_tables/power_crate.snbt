@@ -1,0 +1,23 @@
+{
+	empty_weight: 0.0f
+	id: "07D71D097ADE9912"
+	loot_size: 1
+	order_index: 0
+	title: "Bram's Wire Tin"
+	use_title: true
+	rewards: [
+		{ item: "minecraft:redstone", count: 32, weight: 3.0f }
+		{ item: "thermal:redstone_servo", count: 8, weight: 3.0f }
+		{ item: "thermal:energy_duct", count: 16, weight: 3.0f }
+		{ item: "createaddition:copper_wire", count: 8, weight: 3.0f }
+		{ item: "createaddition:spool", count: 8, weight: 2.0f }
+		{ item: "createaddition:capacitor", count: 2, weight: 2.0f }
+		{ item: "thermal:rf_coil", count: 2, weight: 2.0f }
+		{ item: "storagedrawers:upgrade_template", count: 4, weight: 2.0f }
+		{ item: "sophisticatedstorage:upgrade_base", count: 4, weight: 2.0f }
+		{ item: "minecraft:comparator", count: 4, weight: 1.0f }
+		{ item: "createaddition:connector", count: 6, weight: 1.0f }
+		{ item: "storagedrawers:oak_full_drawers_2", count: 2, weight: 1.0f }
+	]
+	loot_crate: { string_id: "power_crate", item_name: "Bram's Wire Tin", color: 5592524, glow: false, drops: { passive: 0, monster: 0, boss: 0 } }
+}

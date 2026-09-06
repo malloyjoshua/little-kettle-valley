@@ -1,0 +1,836 @@
+{
+ "chapter": {
+  "key": "animals",
+  "title": "Animals & Fishing",
+  "subtitle": [
+   "Hens, cows, sheep, ducks, and one duck with a name.",
+   "Nella's rods, her bait, and the four fish she counts."
+  ],
+  "icon": "aquaculture:iron_fishing_rod",
+  "group": "Home & Farm",
+  "order": 12,
+  "images": [
+   {
+    "x": 0.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:item/egg",
+    "order": -1,
+    "hover": [
+     "Three eggs opened Act I."
+    ]
+   },
+   {
+    "x": 5.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:block/white_wool",
+    "order": -1,
+    "hover": [
+     "Wool grows back. Mutton does not."
+    ]
+   },
+   {
+    "x": 10.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "duckling:item/duck_egg",
+    "order": -1,
+    "hover": [
+     "Biscuit came out of one of these."
+    ]
+   },
+   {
+    "x": 15.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "domesticationinnovation:item/collar_tag",
+    "order": -1,
+    "hover": [
+     "A name and a colour, on a collar."
+    ]
+   },
+   {
+    "x": 20.0,
+    "y": -4.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "ribbits:block/red_toadstool",
+    "order": -1,
+    "hover": [
+     "The reed village grows them in planters."
+    ]
+   },
+   {
+    "x": 0.0,
+    "y": 4.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "aquaculture:item/iron_fishing_rod_uncast",
+    "order": -1,
+    "hover": [
+     "Nella hands you the first one."
+    ]
+   },
+   {
+    "x": 5.0,
+    "y": 4.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "aquaculture:block/worm_farm_top",
+    "order": -1,
+    "hover": [
+     "Dirt in, bait out."
+    ]
+   },
+   {
+    "x": 10.0,
+    "y": 4.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "aquaculture:item/bluegill",
+    "order": -1,
+    "hover": [
+     "Bluegill, perch, catfish, carp."
+    ]
+   },
+   {
+    "x": 15.0,
+    "y": 4.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "aquaculture:item/oak_fish_mount",
+    "order": -1,
+    "hover": [
+     "It keeps the length you landed."
+    ]
+   }
+  ]
+ },
+ "reward_tables": [
+  {
+   "key": "animals_crate",
+   "title": "Nella's Creel",
+   "loot_size": 1,
+   "loot_crate": {
+    "id": "animals_crate",
+    "name": "Nella's Creel",
+    "color": 5636095,
+    "glow": false
+   },
+   "rewards": [
+    {
+     "item": "aquaculture:worm",
+     "count": 16,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:wheat_seeds",
+     "count": 16,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:egg",
+     "count": 8,
+     "weight": 3
+    },
+    {
+     "item": "aquaculture:fish_fillet_cooked",
+     "count": 6,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:hay_block",
+     "count": 4,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:bone_meal",
+     "count": 16,
+     "weight": 2
+    },
+    {
+     "item": "aquaculture:algae",
+     "count": 8,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:lead",
+     "count": 2,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:honey_bottle",
+     "count": 2,
+     "weight": 2
+    },
+    {
+     "item": "duckling:cooked_duck",
+     "count": 3,
+     "weight": 1
+    },
+    {
+     "item": "domesticationinnovation:collar_tag",
+     "count": 1,
+     "weight": 1
+    },
+    {
+     "item": "minecraft:name_tag",
+     "count": 1,
+     "weight": 1
+    }
+   ]
+  }
+ ],
+ "quests": [
+  {
+   "key": "an_pen",
+   "title": "Fence a Pen and Lead Two Animals In",
+   "subtitle": "They follow the wheat, not you.",
+   "icon": "minecraft:oak_fence",
+   "description": [
+    "Marnie: \"Anything that eats will follow you. That is not affection, it is arithmetic.\"",
+    "",
+    "Fence a square behind the barn, then bring in two animals on a &aLead&r, or hold &aWheat&r and walk slowly.",
+    "",
+    "Two animals in a pen is a herd by autumn."
+   ],
+   "deps": [],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 2.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:oak_fence",
+     "count": 24
+    },
+    {
+     "type": "item",
+     "item": "minecraft:lead",
+     "count": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:oak_fence",
+     "count": 32
+    },
+    {
+     "type": "item",
+     "item": "minecraft:wheat",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "an_cows",
+   "title": "Milk a Cow and Breed the Pair",
+   "subtitle": "The calf is grown by tomorrow.",
+   "icon": "minecraft:milk_bucket",
+   "description": [
+    "Hold &aWheat&r near two grown cows and they pair off on their own.",
+    "",
+    "Fill a &aMilk Bucket&r from either one. Milk clears any effect you are carrying, which is why Halden keeps a bucket by the still."
+   ],
+   "deps": [
+    "an_pen"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:milk_bucket",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:wheat",
+     "count": 16
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:bucket",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "minecraft:wheat",
+     "count": 32
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "an_sheep",
+   "title": "Shear the Flock for Sixteen Wool",
+   "subtitle": "Wool grows back. Mutton does not.",
+   "icon": "minecraft:shears",
+   "description": [
+    "&aShears&r take the fleece and leave the sheep standing. It grows back once they have eaten grass.",
+    "",
+    "Dye a sheep before you shear it and every fleece off that animal comes back the same colour.",
+    "",
+    "Act IV wants three blankets off this flock."
+   ],
+   "deps": [
+    "an_pen"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:shears",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:white_wool",
+     "count": 16
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:white_wool",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "minecraft:shears",
+     "count": 1
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "an_coop",
+   "title": "Fill the Nesting Box With Sixteen Eggs",
+   "subtitle": "Hens lay whether you watch or not.",
+   "icon": "minecraft:egg",
+   "description": [
+    "Pip: \"They lay in the box if the box is dark. I checked. Forty times.\"",
+    "",
+    "Keep three hens penned and pick up the &aEgg&r each one drops. &aWheat Seeds&r in your hand walk them anywhere.",
+    "",
+    "Marnie took the first three: Act I, step 3."
+   ],
+   "deps": [
+    "an_pen"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:egg",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "minecraft:wheat_seeds",
+     "count": 32
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:wheat_seeds",
+     "count": 32
+    },
+    {
+     "type": "loot",
+     "table": "animals_crate"
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "an_ducks",
+   "title": "Gather Eight Duck Eggs",
+   "subtitle": "Biscuit came out of one of these.",
+   "icon": "duckling:duck_egg",
+   "description": [
+    "Pip: \"Biscuit is a duck. Biscuit is my duck. You are allowed to hold him.\"",
+    "",
+    "Ducks nest in the reeds along the lake and drop a &aDuck Egg&r every few minutes. Throw one at the ground and sometimes a duckling walks out of it.",
+    "",
+    "Duck eggs bake into anything a hen's egg does."
+   ],
+   "deps": [
+    "an_coop"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "duckling:duck_egg",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "duckling:cooked_duck",
+     "count": 4
+    },
+    {
+     "type": "item",
+     "item": "minecraft:wheat_seeds",
+     "count": 32
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "an_bees",
+   "title": "Hive the Bees and Take Three Combs",
+   "subtitle": "Smoke first. They remember.",
+   "icon": "minecraft:honeycomb",
+   "description": [
+    "Put a &aBeehive&r within four blocks of flowers and the bees will find it themselves.",
+    "",
+    "Light a &bcampfire&r under the hive before you shear the comb out, or the whole hive comes out with it.",
+    "",
+    "Halden trades honey for stories and counts the jars."
+   ],
+   "deps": [
+    "an_coop"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "minecraft:beehive",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:honeycomb",
+     "count": 3
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:honey_bottle",
+     "count": 4
+    },
+    {
+     "type": "item",
+     "item": "minecraft:glass_bottle",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "an_tame",
+   "title": "Tag a Pet and Give It a Bed",
+   "subtitle": "A name, a collar colour, and a place to sleep.",
+   "icon": "domesticationinnovation:collar_tag",
+   "description": [
+    "Tame a wolf with bones or a cat with raw fish, then put a &aCollar Tag&r on it to name it and set its collar colour.",
+    "",
+    "A &aPet Bed&r heals it while it sleeps, and it walks back there on its own.",
+    "",
+    "A tagged pet comes home. An untagged one wanders."
+   ],
+   "deps": [
+    "an_cows"
+   ],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 1.5,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "domesticationinnovation:collar_tag",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "domesticationinnovation:pet_bed_orange",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "domesticationinnovation:pet_bed_blue",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:bone",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "an_pet_kit",
+   "title": "Beat the Drum and Hang the Lantern",
+   "subtitle": "Follow, stay, wander. Pick one.",
+   "icon": "domesticationinnovation:drum",
+   "description": [
+    "The &aDrum&r sets every pet in earshot to follow, stay or wander. Click it to cycle the three.",
+    "",
+    "A &aWayward Lantern&r on a post calls a lost pet back to it from a long way off.",
+    "",
+    "Pip lost Biscuit twice before Bram built him one."
+   ],
+   "deps": [
+    "an_tame"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "domesticationinnovation:drum",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "domesticationinnovation:wayward_lantern",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:name_tag",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "farmersdelight:dog_food",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "an_rod",
+   "title": "Build an &aIron Fishing Rod&r",
+   "subtitle": "Nella gives you one. Make the spare.",
+   "icon": "aquaculture:iron_fishing_rod",
+   "description": [
+    "Nella: \"The lake is not a mood. It is a timetable. Learn it, or bring a book.\"",
+    "",
+    "An iron rod catches kinds a wooden one never sees, and the &bhooks&r and &bbait&r screw straight onto it.",
+    "",
+    "She hands you her own at Act II, step 2."
+   ],
+   "deps": [
+    "an_pen"
+   ],
+   "optional": false,
+   "shape": "hexagon",
+   "size": 1.5,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "aquaculture:iron_fishing_rod",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "aquaculture:worm",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "minecraft:string",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "an_worms",
+   "title": "Build the Worm Farm and Dig Eight Worms",
+   "subtitle": "Bait beats patience.",
+   "icon": "aquaculture:worm_farm",
+   "description": [
+    "Till grass with any hoe and &aWorms&r come up out of it. A &aWorm Farm&r fed dirt and bone meal makes them for you.",
+    "",
+    "Put one on the hook before you cast. The bottom feeders, &bcarp&r and &bcatfish&r, barely bite without it."
+   ],
+   "deps": [
+    "an_rod"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "aquaculture:worm_farm",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "aquaculture:worm",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "aquaculture:worm",
+     "count": 32
+    },
+    {
+     "type": "item",
+     "item": "minecraft:bone_meal",
+     "count": 32
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "an_catch",
+   "title": "Land Four of the Lake's Named Fish",
+   "subtitle": "Bluegill, perch, catfish, carp.",
+   "icon": "aquaculture:bluegill",
+   "description": [
+    "Nella: \"Four is not a competition. Six is a competition. We will get to six.\"",
+    "",
+    "Cast off the pier for &aBluegill&r and &aPerch&r. &aCatfish&r and &aCarp&r sit on the bottom, so hook a worm first.",
+    "",
+    "Three of them go on the inn wall in Act V."
+   ],
+   "deps": [
+    "an_worms"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "aquaculture:bluegill",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "aquaculture:perch",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "aquaculture:catfish",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "aquaculture:carp",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "animals_crate"
+    },
+    {
+     "type": "item",
+     "item": "aquaculture:double_hook",
+     "count": 1
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "an_fillet",
+   "title": "Fillet and Cook Eight Fish",
+   "subtitle": "Two fillets a fish, and no bones in them.",
+   "icon": "aquaculture:fish_fillet_cooked",
+   "description": [
+    "A &aFillet Knife&r turns any fish into two raw fillets. Small fish, big fish, the same two.",
+    "",
+    "Cook them in a furnace, on a campfire, or in Marnie's skillet. Cooked fillets stack and travel."
+   ],
+   "deps": [
+    "an_catch"
+   ],
+   "optional": false,
+   "shape": "square",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "aquaculture:iron_fillet_knife",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "aquaculture:fish_fillet_cooked",
+     "count": 8
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "aquaculture:iron_fillet_knife",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:coal",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    },
+    {
+     "type": "toast",
+     "title": "Nella's Catch",
+     "description": "Next: eight fillets salted into the granary in Act III, and three fish on the inn wall in Act V."
+    }
+   ]
+  },
+  {
+   "key": "an_mount",
+   "title": "Mount Two Fish on the Inn Wall",
+   "subtitle": "It keeps the length you landed it at.",
+   "icon": "aquaculture:oak_fish_mount",
+   "description": [
+    "An &aOak Fish Mount&r takes any fish you click onto it and holds it at the size it was caught.",
+    "",
+    "Hang two in the inn's back room. Nella will say nothing about them, and she will look at them."
+   ],
+   "deps": [
+    "an_catch"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "aquaculture:oak_fish_mount",
+     "count": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "aquaculture:spruce_fish_mount",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "minecraft:oak_planks",
+     "count": 32
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "an_ribbits",
+   "title": "Trade Two Toadstools From the Reeds",
+   "subtitle": "They pay in mushrooms and they mean it.",
+   "icon": "ribbits:red_toadstool",
+   "description": [
+    "Wisp: \"You bring bread, we bring the mushrooms that are good, not the ones that are also good.\"",
+    "",
+    "Walk downstream to the reed village and trade for &aRed&r and &aBrown Toadstools&r. They grow in the boardwalk planters too.",
+    "",
+    "First contact is Act II, step 1."
+   ],
+   "deps": [
+    "an_catch"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "ribbits:red_toadstool",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "ribbits:brown_toadstool",
+     "count": 2
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "animals_crate"
+    },
+    {
+     "type": "item",
+     "item": "ribbits:swamp_lantern",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,262 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "tips"
+	group: "03DBE7D3196FAA34"
+	icon: "supplementaries:notice_board"
+	id: "58DD2596F47C3520"
+	order_index: 40
+	quest_links: [ ]
+	subtitle: ["Fourteen small things that make the valley easier to live in.", "Not one of them is required, and every one is already installed."]
+	hide_quest_until_deps_complete: false
+	hide_quest_details_until_startable: false
+	images: [
+		{ x: -3.0d, y: -4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "ftbquests:item/book", alpha: 255, order: -1, hover: ["J opens it. Nothing in it locks."] }
+		{ x: 1.0d, y: -4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "justhammers:item/iron_hammer", alpha: 255, order: -1, hover: ["Nine blocks a swing, one durability."] }
+		{ x: 5.0d, y: -4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "sophisticatedbackpacks:item/magnet_upgrade", alpha: 255, order: -1, hover: ["Drops walk to you."] }
+		{ x: 9.0d, y: -4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "sophisticatedbackpacks:item/pickup_upgrade", alpha: 255, order: -1, hover: ["And then straight into the bag."] }
+		{ x: -3.0d, y: 4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "sereneseasons:item/calendar_06", alpha: 255, order: -1, hover: ["Nine days a sub-season. Twenty-seven a season."] }
+		{ x: 1.0d, y: 4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "minecraft:item/clock_06", alpha: 255, order: -1, hover: ["Nothing here is timed anyway."] }
+		{ x: 5.0d, y: 4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "explorerscompass:item/explorerscompass_16", alpha: 255, order: -1, hover: ["Marnie's, pointed at the farm."] }
+		{ x: 9.0d, y: 4.5d, width: 2.5d, height: 2.5d, rotation: 0.0d, image: "supplementaries:block/notice_board_front", alpha: 255, order: -1, hover: ["Oda nailed this list up herself."] }
+	]
+	quests: [
+		{
+			id: "70C19B00339B6928"
+			title: "Look It Up Before You Build It"
+			subtitle: "The item list on the right knows every recipe."
+			icon: "minecraft:crafting_table"
+			description: ["Type a name into the box under the item list. Click an item for its recipe; right-click it for what it goes into.", "", "&bR&r and &bU&r do the same from the keyboard."]
+			x: 0.0d
+			y: 0.0d
+			optional: true
+			shape: "gear"
+			size: 2.0d
+			hide_details_until_startable: false
+			tasks: [{ id: "325566D2093731BC", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "7E5D324F806E78BA", type: "loot", auto: "no_toast", table_id: 9034832565463683162L }, { id: "0F8C4A862FD7CD73", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "6179395034229006"
+			title: "Type @ to See One Mod's Shelf"
+			subtitle: "And # for a tag, $ for tooltip text."
+			icon: "minecraft:name_tag"
+			description: ["Put &b@&r in front of a mod name to show only its items: @create, @thermal.", "", "&b#&r finds tags and &b$&r finds tooltip text, for when you know what a thing does but not its name."]
+			x: 2.0d
+			y: -1.5d
+			dependencies: ["70C19B00339B6928"]
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "6091135738EC8445", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "2AC6B6FA847585E6", type: "item", auto: "no_toast", item: "minecraft:name_tag" }, { id: "78CFA2BE9A8E87DA", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "50B1DC2AFFF00FBA"
+			title: "Sort a Chest Without Dragging Anything"
+			subtitle: "Three small buttons above every container."
+			icon: "minecraft:chest"
+			description: ["Open a chest and look at its top right: three buttons sort the chest, and three more sort your own bag.", "", "Bind a key under &bOptions - Controls&r instead if you like."]
+			x: 4.0d
+			y: -1.5d
+			dependencies: ["6179395034229006"]
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "2F2255D6A73A4A7D", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "16DAB57287E76A25", type: "item", auto: "no_toast", item: "minecraft:chest", count: 2 }, { id: "2D0738E2C8006BAF", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "7D279CBF2B6016A8"
+			title: "Read the Block You Are Pointing At"
+			subtitle: "The little bar at the top of the screen."
+			icon: "minecraft:spyglass"
+			description: ["Point at anything and the bar names it, says which mod it came from, and shows what the machine inside is doing.", "", "Point at an animal for its health; at a crop for how grown it is."]
+			x: 6.0d
+			y: -1.5d
+			dependencies: ["50B1DC2AFFF00FBA"]
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "3B738CF3A0F984E2", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "3AA30972CF1D1059", type: "item", auto: "no_toast", item: "minecraft:torch", count: 16 }, { id: "3FCB9A9CAE7E4A57", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "06C1F1A019262E8E"
+			title: "Write Down the Three Numbers"
+			subtitle: "Home is -319 74 32. The square is -302 69 -44."
+			icon: "minecraft:compass"
+			description: ["Press &bF3&r. The XYZ line top left is where you stand; the line under it is the way you face.", "", "Josie's hearth reads &b-319 74 32&r. Oda's square reads &b-302 69 -44&r."]
+			x: 8.0d
+			y: -1.5d
+			dependencies: ["7D279CBF2B6016A8"]
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "63C0877862F9FA22", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "4D5A21595E46020D", type: "item", auto: "no_toast", item: "minecraft:compass" }, { id: "34F2E16D6975136F", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "01421D2A1048E40F"
+			title: "Learn the Four Keys That Matter"
+			subtitle: "J, B, C, Home. All of them move."
+			icon: "ftbquests:book"
+			description: ["&bJ&r opens this book. &bB&r opens your backpack. &bC&r picks a chest up with everything still in it.", "", "&bHome&r lists where you died. All four move under Options - Controls."]
+			x: 10.0d
+			y: 0.0d
+			dependencies: ["06C1F1A019262E8E"]
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "3FF9991BE1E48608", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "2A4D88166293E5CD", type: "loot", auto: "no_toast", table_id: 9034832565463683162L }, { id: "7BD8A33CA4E07BCF", type: "xp_levels", auto: "no_toast", xp_levels: 2 }, { id: "19E62E7D76191027", type: "toast", title: "Back to the valley", auto: "enabled", description: "Next: the story picks up in Start Here. Everything on this board keeps working while you play." }]
+		}
+		{
+			id: "4F28B700FB8E4080"
+			title: "Craft a Hammer and Break Nine at Once"
+			subtitle: "Three by three, one swing, one durability."
+			icon: "justhammers:stone_hammer"
+			description: ["Craft a &aStone Hammer&r. Held instead of a pickaxe, it takes a 3x3 face of stone in one go.", "", "Iron and diamond versions dig faster. Bram keeps his on the bench."]
+			x: 2.0d
+			y: 0.0d
+			dependencies: ["70C19B00339B6928"]
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "4F057097739A092A", type: "item", item: "justhammers:stone_hammer", count: 1L }]
+			rewards: [{ id: "221831B09C91A633", type: "item", auto: "no_toast", item: "minecraft:iron_ingot", count: 4 }, { id: "234D6D6314150439", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "7888704306D892E8"
+			title: "Hold One Key and Take the Whole Seam"
+			subtitle: "The key above Tab. No enchantment needed."
+			icon: "minecraft:iron_ore"
+			description: ["Hold the &bgrave key&r (above Tab) as you break an ore or a log. Up to 64 blocks of that vein come out at once.", "", "Drops gather where you broke it. See the &6Ores & Mining&r chapter."]
+			x: 4.0d
+			y: 0.0d
+			dependencies: ["4F28B700FB8E4080"]
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "2AC2E26A42081F7E", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "5D4C735B7BB33BE5", type: "item", auto: "no_toast", item: "minecraft:coal", count: 16 }, { id: "19C237FA54B3A251", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "0B21A0D1D95F17EB"
+			title: "Wear a Backpack and Feed It Two Upgrades"
+			subtitle: "B opens it, on your back or in your bag."
+			icon: "sophisticatedbackpacks:backpack"
+			description: ["Craft a &aBackpack&r. Wear it in the back slot or carry it; &bB&r opens it either way.", "", "Add a &aMagnet Upgrade&r and a &aPickup Upgrade&r: drops come to you and land inside."]
+			x: 6.0d
+			y: 0.0d
+			dependencies: ["7888704306D892E8"]
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "08688B9864BD2071", type: "item", item: "sophisticatedbackpacks:backpack", count: 1L }, { id: "253AD01DD7C8921E", type: "item", item: "sophisticatedbackpacks:magnet_upgrade", count: 1L }, { id: "103C804D94FD0EC7", type: "item", item: "sophisticatedbackpacks:pickup_upgrade", count: 1L }]
+			rewards: [{ id: "251CBBACD7186889", type: "item", auto: "no_toast", item: "sophisticatedbackpacks:stack_upgrade_tier_1" }, { id: "2005FD152C331316", type: "xp_levels", auto: "no_toast", xp_levels: 3 }]
+		}
+		{
+			id: "4D75F2AFA0D83629"
+			title: "Carry a Calendar and Sow in Season"
+			subtitle: "Nine days a sub-season, twenty-seven a season."
+			icon: "sereneseasons:calendar"
+			description: ["Craft a &aCalendar&r. Held, it names the season, and a crop planted out of its season simply stops growing.", "", "Which crop wants which season is in the &6Farm & Seasons&r chapter."]
+			x: 8.0d
+			y: 0.0d
+			dependencies: ["0B21A0D1D95F17EB"]
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "5CB13A2DC4263C60", type: "item", item: "sereneseasons:calendar", count: 1L }]
+			rewards: [{ id: "7B5DFC172A36C3B2", type: "item", auto: "no_toast", item: "minecraft:bone_meal", count: 16 }, { id: "048D64115236BD22", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "324A8CEB5AC0D961"
+			title: "Get Back Something You Lost"
+			subtitle: "The letter, the deed, the kettle, the book."
+			icon: "valley:letter"
+			description: ["Type &b/valley keepsake&r for the list, then &b/valley keepsake book&r for a fresh copy of anything on it.", "", "Every one-of-a-kind story item is on it. Nothing you can lose stays lost."]
+			x: 2.0d
+			y: 1.5d
+			dependencies: ["70C19B00339B6928"]
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "54CEC509E0EA8DF0", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "2A42FCEA6903E0AE", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "009D4D5415963C18"
+			title: "Read the Stone Under the Valley"
+			subtitle: "One command, four minutes, ore where you dig."
+			icon: "minecraft:raw_iron"
+			description: ["If your world was made before the ore pass ran, type &b/valley ores&r once. It walks the valley chunk by chunk and puts iron, coal, copper, gold, redstone, lapis and diamond back into the stone.", "", "It stutters for three or four minutes. Keep playing."]
+			x: 4.0d
+			y: 1.5d
+			dependencies: ["324A8CEB5AC0D961"]
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "6CAF5287D2FB5E4E", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "17FD9235DA2B8BD2", type: "item", auto: "no_toast", item: "minecraft:iron_pickaxe" }, { id: "72835EAA14679A46", type: "xp_levels", auto: "no_toast", xp_levels: 2 }]
+		}
+		{
+			id: "4487D44288ED60BD"
+			title: "Turn Down Anything You Are Sick Of"
+			subtitle: "One sound, or all the pop-ups but the journal."
+			icon: "minecraft:white_wool"
+			description: ["Bind the sound muffler under &bOptions - Controls&r. Its screen lists whatever just played; tick the one you are tired of.", "", "Recipe and tutorial pop-ups are already off. The ones you still get are Josie's journal."]
+			x: 6.0d
+			y: 1.5d
+			dependencies: ["009D4D5415963C18"]
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "488960118BCD584C", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "76B9DEA93F3BF9A8", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+		{
+			id: "012E3AAE458E440E"
+			title: "Talk Out Loud If You Have a Microphone"
+			subtitle: "Caps Lock to talk, K to mute, 48 blocks."
+			icon: "minecraft:note_block"
+			description: ["Hold &bCaps Lock&r to talk, &bK&r to mute. Voices carry 48 blocks, half that if you whisper.", "", "&b=&r opens groups, so a party split across the valley still hears itself."]
+			x: 8.0d
+			y: 1.5d
+			dependencies: ["4487D44288ED60BD"]
+			optional: true
+			shape: "gear"
+			size: 1.0d
+			hide_until_deps_complete: false
+			hide_details_until_startable: false
+			tasks: [{ id: "4BBF72F1A482F546", type: "checkmark", title: "Understood." }]
+			rewards: [{ id: "27FFA92EC42B69BD", type: "loot", auto: "no_toast", table_id: 9034832565463683162L }, { id: "2131431BF7CD3791", type: "xp_levels", auto: "no_toast", xp_levels: 1 }]
+		}
+	]
+	title: "Useful Items & Tips"
+}

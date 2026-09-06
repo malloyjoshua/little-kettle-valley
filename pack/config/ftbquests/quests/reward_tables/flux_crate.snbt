@@ -1,0 +1,23 @@
+{
+	empty_weight: 0.0f
+	id: "4127F11F6D0D033D"
+	loot_size: 1
+	order_index: 0
+	title: "Tobin's Sack"
+	use_title: true
+	rewards: [
+		{ item: "thermal:redstone_servo", count: 4, weight: 3.0f }
+		{ item: "minecraft:redstone", count: 24, weight: 3.0f }
+		{ item: "thermal:rf_coil", count: 2, weight: 3.0f }
+		{ item: "thermal:energy_duct", count: 16, weight: 3.0f }
+		{ item: "thermal:tin_ingot", count: 8, weight: 3.0f }
+		{ item: "thermal:iron_dust", count: 8, weight: 2.0f }
+		{ item: "thermal:invar_ingot", count: 4, weight: 2.0f }
+		{ item: "thermal:constantan_ingot", count: 4, weight: 2.0f }
+		{ item: "thermal:rich_slag", count: 8, weight: 2.0f }
+		{ item: "thermal:machine_frame", weight: 2.0f }
+		{ item: "thermal:machine_speed_augment", weight: 1.0f }
+		{ item: "thermal:energy_cell", weight: 1.0f }
+	]
+	loot_crate: { string_id: "flux_crate", item_name: "Tobin's Sack", color: 12088115, glow: false, drops: { passive: 0, monster: 0, boss: 0 } }
+}

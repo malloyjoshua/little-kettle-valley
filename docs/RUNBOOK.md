@@ -266,6 +266,20 @@ Testing note: the tunnel only forwards connections that send a Minecraft handsha
 
 4. To move the agent to another machine or start over: `tools/playit/playit-cli reset`, then `claim` again.
 
+## Two checks that prove the book, not the world (2026-09-06)
+
+```bash
+tools/venv/bin/python tools/scripts/feasibility.py story/quests          # every task item obtainable when its quest opens
+tools/venv/bin/python tools/scripts/spine_diff.py <before_dir> story/quests   # a rewrite kept every key, task, dep and hook
+```
+
+`feasibility.py` walks the quests in dependency order with a growing set of obtainable items:
+first-join grants, every reward so far, the shipped recipes (`server/local/kubejs/export`, tags
+resolved, machines counted as inputs), and a curated list of natural sources. It is the check
+that would have caught the soup that wanted beetroot. `--why <item>` explains a verdict.
+`spine_diff.py` compares a story chapter against its previous version (`git show HEAD:...` into
+a folder) and fails if a key vanished or a task, dep, or command/stage/loot reward changed.
+
 ## Automated playthrough (proves every quest reward and finale still works after a change)
 ```bash
 "$HOME/Desktop/1. Projects/Minecraft/tools/scripts/playthrough.sh"

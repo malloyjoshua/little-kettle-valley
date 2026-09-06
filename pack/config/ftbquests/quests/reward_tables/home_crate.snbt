@@ -1,0 +1,23 @@
+{
+	empty_weight: 0.0f
+	id: "5D3166EA8B898F57"
+	loot_size: 1
+	order_index: 0
+	title: "Oda's Catalogue Crate"
+	use_title: true
+	rewards: [
+		{ item: "mcwwindows:oak_shutter", count: 4, weight: 3.0f }
+		{ item: "mcwfences:oak_picket_fence", count: 8, weight: 3.0f }
+		{ item: "mcwfurnitures:oak_chair", count: 2, weight: 3.0f }
+		{ item: "supplementaries:jar", count: 4, weight: 3.0f }
+		{ item: "supplementaries:sconce", count: 6, weight: 2.0f }
+		{ item: "supplementaries:flower_box", count: 2, weight: 2.0f }
+		{ item: "mcwfurnitures:oak_drawer", count: 2, weight: 2.0f }
+		{ item: "handcrafted:oak_shelf", count: 2, weight: 2.0f }
+		{ item: "comforts:sleeping_bag_blue", weight: 2.0f }
+		{ item: "minecraft:lantern", count: 4, weight: 2.0f }
+		{ item: "supplementaries:globe", weight: 1.0f }
+		{ item: "perfectplushies:duck_plushie", weight: 1.0f }
+	]
+	loot_crate: { string_id: "home_crate", item_name: "Oda's Catalogue Crate", color: 9199161, glow: false, drops: { passive: 0, monster: 0, boss: 0 } }
+}

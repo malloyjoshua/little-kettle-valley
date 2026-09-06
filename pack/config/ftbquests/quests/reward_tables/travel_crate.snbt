@@ -1,0 +1,23 @@
+{
+	empty_weight: 0.0f
+	id: "74B0FED8CE6CEE81"
+	loot_size: 1
+	order_index: 0
+	title: "Nella's Ditty Bag"
+	use_title: true
+	rewards: [
+		{ item: "waystones:warp_scroll", count: 2, weight: 3.0f }
+		{ item: "waystones:return_scroll", count: 3, weight: 3.0f }
+		{ item: "waystones:warp_dust", count: 4, weight: 3.0f }
+		{ item: "minecraft:ender_pearl", count: 4, weight: 3.0f }
+		{ item: "minecraft:map", count: 2, weight: 2.0f }
+		{ item: "minecraft:gold_nugget", count: 24, weight: 2.0f }
+		{ item: "minecraft:amethyst_shard", count: 6, weight: 2.0f }
+		{ item: "comforts:sleeping_bag_white", weight: 2.0f }
+		{ item: "comforts:rope_and_nail", count: 2, weight: 2.0f }
+		{ item: "waystones:bound_scroll", weight: 1.0f }
+		{ item: "waystones:warp_stone", weight: 1.0f }
+		{ item: "artifacts:running_shoes", weight: 1.0f }
+	]
+	loot_crate: { string_id: "travel_crate", item_name: "Nella's Ditty Bag", color: 7244660, glow: false, drops: { passive: 0, monster: 0, boss: 0 } }
+}

@@ -1,0 +1,641 @@
+{
+ "chapter": {
+  "key": "travel",
+  "title": "Getting Around",
+  "subtitle": [
+   "Waystones, two compasses, and a map that draws itself as you walk.",
+   "Nothing in this valley is far once the first stone is standing."
+  ],
+  "icon": "waystones:waystone",
+  "group": "The Valley Beyond",
+  "order": 31,
+  "images": [
+   {
+    "x": -4.0,
+    "y": -5.0,
+    "width": 3.0,
+    "height": 3.0,
+    "image": "waystones:block/mossy_waystone",
+    "order": -1,
+    "hover": [
+     "The world grows its own.",
+     "They come up mossy out east."
+    ]
+   },
+   {
+    "x": 2.0,
+    "y": -5.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "waystones:item/warp_scroll",
+    "order": -1,
+    "hover": "Three to a craft. One trip each."
+   },
+   {
+    "x": 8.0,
+    "y": -5.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "waystones:item/return_scroll",
+    "order": -1,
+    "hover": "Goes to the nearest stone, wherever that is."
+   },
+   {
+    "x": 14.0,
+    "y": -5.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "waystones:item/warp_stone",
+    "order": -1,
+    "hover": "Never used up. Thirty seconds between trips."
+   },
+   {
+    "x": 20.0,
+    "y": -5.0,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:item/ender_pearl",
+    "order": -1,
+    "hover": "Every scroll wants one of these."
+   },
+   {
+    "x": 26.0,
+    "y": -4.5,
+    "width": 2.0,
+    "height": 2.0,
+    "image": "waystones:item/bound_scroll",
+    "order": -1,
+    "hover": "Tied to one stone and no other."
+   },
+   {
+    "x": 0.0,
+    "y": 6.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "naturescompass:item/naturescompass_00",
+    "order": -1,
+    "hover": "Points at a biome."
+   },
+   {
+    "x": 6.0,
+    "y": 6.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "explorerscompass:item/explorerscompass_00",
+    "order": -1,
+    "hover": "Same needle, different question."
+   },
+   {
+    "x": 12.0,
+    "y": 6.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "minecraft:item/filled_map",
+    "order": -1,
+    "hover": "Xaero draws his own. This one is for the wall."
+   },
+   {
+    "x": 18.0,
+    "y": 6.5,
+    "width": 2.5,
+    "height": 2.5,
+    "image": "artifacts:item/running_shoes",
+    "order": -1,
+    "hover": "Nella found hers in a wreck and said nothing."
+   }
+  ]
+ },
+ "reward_tables": [
+  {
+   "key": "travel_crate",
+   "title": "Nella's Ditty Bag",
+   "loot_size": 1,
+   "loot_crate": {
+    "id": "travel_crate",
+    "name": "Nella's Ditty Bag",
+    "color": 7244660,
+    "glow": false
+   },
+   "rewards": [
+    {
+     "item": "waystones:warp_scroll",
+     "count": 2,
+     "weight": 3
+    },
+    {
+     "item": "waystones:return_scroll",
+     "count": 3,
+     "weight": 3
+    },
+    {
+     "item": "waystones:warp_dust",
+     "count": 4,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:ender_pearl",
+     "count": 4,
+     "weight": 3
+    },
+    {
+     "item": "minecraft:map",
+     "count": 2,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:gold_nugget",
+     "count": 24,
+     "weight": 2
+    },
+    {
+     "item": "minecraft:amethyst_shard",
+     "count": 6,
+     "weight": 2
+    },
+    {
+     "item": "comforts:sleeping_bag_white",
+     "weight": 2
+    },
+    {
+     "item": "comforts:rope_and_nail",
+     "count": 2,
+     "weight": 2
+    },
+    {
+     "item": "waystones:bound_scroll",
+     "weight": 1
+    },
+    {
+     "item": "waystones:warp_stone",
+     "weight": 1
+    },
+    {
+     "item": "artifacts:running_shoes",
+     "weight": 1
+    }
+   ]
+  }
+ ],
+ "quests": [
+  {
+   "key": "travel_stone",
+   "title": "Craft a Waystone of Your Own",
+   "subtitle": "Eight stone bricks and one copper.",
+   "icon": "waystones:waystone",
+   "deps": [],
+   "shape": "hexagon",
+   "size": 2.0,
+   "description": [
+    "Craft a &aWaystone&r, set it down and right-click it to name it. From then on it is a place you can come back to.",
+    "",
+    "&6Start Here&r puts the first one on the cottage hearthstone."
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "waystones:waystone",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:stone_bricks",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "minecraft:copper_ingot",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "travel_town",
+   "title": "Touch the Waystone in the Square",
+   "subtitle": "Oda did the lettering. Twice.",
+   "icon": "minecraft:lantern",
+   "deps": [
+    "travel_stone"
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "description": [
+    "Walk to the town square at &b-302, -44&r and right-click the waystone by the well. Two stones make a route.",
+    "",
+    "Warping between them costs no experience here."
+   ],
+   "tasks": [
+    {
+     "type": "location",
+     "pos": [
+      -306,
+      66,
+      -48
+     ],
+     "size": [
+      28,
+      20,
+      28
+     ],
+     "dimension": "minecraft:overworld"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "waystones:warp_dust",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "travel_button",
+   "title": "Warp Home From Your Inventory",
+   "subtitle": "One button, once every five minutes.",
+   "icon": "waystones:warp_dust",
+   "deps": [
+    "travel_town"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "description": [
+    "Open your inventory. The warp button lists every waystone you have touched. Pick one and you are standing at it.",
+    "",
+    "It costs nothing. The wait is the whole price."
+   ],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Warped once from the inventory button."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:ender_pearl",
+     "count": 2
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "travel_scrolls",
+   "title": "Craft Three Warp Scrolls",
+   "subtitle": "Paper, gold, purple dye, one pearl.",
+   "icon": "waystones:warp_scroll",
+   "deps": [
+    "travel_town"
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "description": [
+    "Craft &aWarp Scrolls&r. Each one is a single trip to any waystone on your list, from wherever you are standing.",
+    "",
+    "Three come off the bench at once."
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "waystones:warp_scroll",
+     "count": 3
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:paper",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "minecraft:gold_nugget",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "travel_return",
+   "title": "Keep Three Return Scrolls in the Bag",
+   "subtitle": "It goes to the nearest stone, not home.",
+   "icon": "waystones:return_scroll",
+   "deps": [
+    "travel_scrolls"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "description": [
+    "Craft &aReturn Scrolls&r. One takes you to the closest waystone, so leave stones where you dig and the walk back is over.",
+    "",
+    "No ender pearl in this one."
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "waystones:return_scroll",
+     "count": 3
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:gold_ingot",
+     "count": 4
+    },
+    {
+     "type": "item",
+     "item": "minecraft:paper",
+     "count": 16
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "travel_bound",
+   "title": "Bind a Scroll to One Stone",
+   "subtitle": "After that it goes nowhere else.",
+   "icon": "waystones:bound_scroll",
+   "deps": [
+    "travel_scrolls"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "description": [
+    "Craft a &aBound Scroll&r, then sneak and right-click it on a waystone. Its tooltip names the stone it is tied to.",
+    "",
+    "Bind it to the mill if you keep walking back to the mill."
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "waystones:bound_scroll",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:ender_pearl",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "travel_warpstone",
+   "title": "Cut a Warp Stone",
+   "subtitle": "Thirty seconds between trips.",
+   "icon": "waystones:warp_stone",
+   "deps": [
+    "travel_scrolls"
+   ],
+   "shape": "hexagon",
+   "size": 1.5,
+   "description": [
+    "Craft a &aWarp Stone&r from four amethyst shards, four ender pearls and an emerald. Hold right-click and pick a stone.",
+    "",
+    "It is never used up. Only the cooldown stops you."
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "waystones:warp_stone",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:amethyst_shard",
+     "count": 8
+    },
+    {
+     "type": "item",
+     "item": "minecraft:ender_pearl",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    }
+   ]
+  },
+  {
+   "key": "travel_map",
+   "title": "Open the Map and Mark the Mill",
+   "subtitle": "The map fills in as you walk it.",
+   "icon": "minecraft:map",
+   "deps": [
+    "travel_town"
+   ],
+   "optional": true,
+   "shape": "gear",
+   "size": 1.0,
+   "description": [
+    "Press &bM&r for the full map and &bO&r to drop a waypoint where you stand. Name the mill, the adit and the lake.",
+    "",
+    "The minimap corner shows those marks from a long way off."
+   ],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "Three waypoints named on the map."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:map",
+     "count": 2
+    },
+    {
+     "type": "xp_levels",
+     "levels": 1
+    }
+   ]
+  },
+  {
+   "key": "travel_nature",
+   "title": "Craft Nature's Compass",
+   "subtitle": "Ask it for a biome and it points.",
+   "icon": "naturescompass:naturescompass",
+   "deps": [
+    "travel_map"
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "description": [
+    "Craft &aNature's Compass&r from a compass, logs and saplings. Right-click, pick a biome, and the needle holds that heading.",
+    "",
+    "Use it when a crop wants a warmer season than this one."
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "naturescompass:naturescompass",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:compass",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:oak_sapling",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "travel_explorer",
+   "title": "Craft the Explorer's Compass",
+   "subtitle": "Cobwebs. Take shears to a mineshaft.",
+   "icon": "explorerscompass:explorerscompass",
+   "deps": [
+    "travel_nature"
+   ],
+   "shape": "square",
+   "size": 1.0,
+   "description": [
+    "Craft an &aExplorer's Compass&r from a compass, cracked stone bricks and cobwebs. It finds structures, not biomes.",
+    "",
+    "Pick a tavern, a ruin, a village: see the &6Places&r chapter."
+   ],
+   "tasks": [
+    {
+     "type": "item",
+     "item": "explorerscompass:explorerscompass",
+     "count": 1
+    }
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:cobweb",
+     "count": 4
+    },
+    {
+     "type": "item",
+     "item": "minecraft:cracked_stone_bricks",
+     "count": 8
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "travel_boots",
+   "title": "Wear Something That Walks Faster",
+   "subtitle": "Nella found hers in a wreck. Said nothing.",
+   "icon": "artifacts:running_shoes",
+   "deps": [
+    "travel_explorer"
+   ],
+   "optional": true,
+   "shape": "rsquare",
+   "size": 1.0,
+   "description": [
+    "Find an artifact and wear it. &aRunning Shoes&r, &aSnowshoes&r and &aAqua Dashers&r each turn a long walk into a short one.",
+    "",
+    "They come out of chests underground: see &6Places&r."
+   ],
+   "tasks": [
+    {
+     "type": "checkmark",
+     "title": "One artifact worn in a trinket slot."
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "travel_crate"
+    },
+    {
+     "type": "item",
+     "item": "minecraft:ender_pearl",
+     "count": 4
+    },
+    {
+     "type": "xp_levels",
+     "levels": 2
+    }
+   ]
+  },
+  {
+   "key": "travel_village",
+   "title": "Find the Savanna Village Waystone",
+   "subtitle": "North-west, about six hundred blocks.",
+   "icon": "waystones:sandy_waystone",
+   "deps": [
+    "travel_explorer",
+    "travel_warpstone"
+   ],
+   "shape": "hexagon",
+   "size": 1.5,
+   "description": [
+    "Walk to the savanna village near &b-328, -504&r. The world stands its own waystones, one to a village, in the local stone.",
+    "",
+    "Touch it and the walk home is one click."
+   ],
+   "tasks": [
+    {
+     "type": "structure",
+     "structure": "minecraft:village_savanna"
+    }
+   ],
+   "rewards": [
+    {
+     "type": "loot",
+     "table": "travel_crate"
+    },
+    {
+     "type": "item",
+     "item": "waystones:warp_scroll",
+     "count": 3
+    },
+    {
+     "type": "xp_levels",
+     "levels": 3
+    },
+    {
+     "type": "toast",
+     "title": "The Road Is Short Now",
+     "description": "Next: Act IV stands the Works Waystone on the plinth in the adit. Same block, deeper hole."
+    }
+   ]
+  }
+ ]
+}

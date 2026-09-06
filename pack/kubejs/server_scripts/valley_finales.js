@@ -720,7 +720,7 @@ function finaleAct1(server, v) {
       'give @a valley:scrip 25',
       'advancement grant @a only valley:journal/entry_2',
       'bossbar set valley:folk value 5',
-      'worldborder set 3000 10'
+      'worldborder set 8000 10'
     ])
     // The six lamps the quest text promises: the four on the plaza kerb, and the two at
     // the head of the High Street that Q7's own reward lit when the stake went in. Both
@@ -796,7 +796,7 @@ function finaleAct2(server, v) {
       'give @a thermal:energy_cell 1',
       'give @a valley:scrip 25',
       'advancement grant @a only valley:journal/entry_3',
-      'worldborder set 6000 10'
+      'worldborder set 10000 10'
     ])
     // The six candle holders standing on the pier rail, lit. A `fill` of candle holders
     // writes the block's DEFAULT state, which is lit=false — which is how all thirty-four
@@ -920,8 +920,8 @@ function finaleAct3(server, v) {
       'season set early_winter',
       'weather rain',                                  // §12.1 C10: /weather snow does not exist
       'playsound minecraft:block.snow.place master @a ~0 ~1 ~0 1 0.6',
-      'worldborder set 10000 10',
-      'execute in minecraft:the_nether run worldborder set 1250 10'   // §12.1 C9: per dimension
+      'worldborder set 14000 10',
+      'execute in minecraft:the_nether run worldborder set 3000 10'   // §12.1 C9: per dimension
     ])
     v.sayAll('Oda', "That's the last warm night. Let's not lose anybody this year.")
     v.addWorldStage('act4')
