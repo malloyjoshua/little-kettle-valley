@@ -57,3 +57,10 @@ The look pass took twenty screenshots in the real client and ranked what a first
 
 ## If something breaks
 `docs/RUNBOOK.md`: start, stop, backup, the world (never delete `server/world`; `world-master/` is the pristine source), resetting a friend's singleplayer copy, live story fixes, the playthrough harness (`tools/scripts/playthrough.sh`, about 25 minutes).
+
+## Ores (2026-09-05 evening)
+Josh mined and found nothing, then: "Do we need Geolosys? I like vanilla ores AND modded ones." Geolosys is not needed; it was in for the big-deposit feel, and its side effect was a biome modifier stripping all thirty vanilla ore features from every biome. Thermal, Create and Bigger Reactors ores were never affected. Decision: keep the Geolosys beds, stop it deleting the normal ores.
+- The modifier is overridden in `pack/kubejs/data/geolosys/forge/biome_modifier/`, so every new chunk has vanilla ores and beds. Proven on fresh chunks generated with the override (two 25-chunk samples).
+- The 4225 shipped chunks were back-filled by `/valley ores` (`valley_ores.js`): vanilla's own placement rules replayed through `/place feature` in preloaded 8x8 batches. 219,006 blobs accepted. A block-for-block diff of the 144 town and farm chunks against the pre-ores backup shows only stone, deepslate, tuff and granite turned into ore, plus three grass blocks that ticked to dirt. Geolosys beds untouched (hematite 7,838 + 1,849 blocks near the farm, same as before). Terrain probes 9/9.
+- Density per chunk, new master vs fresh vanilla chunks under the same rules: redstone 36 vs 38, gold 25 vs 27, lapis 24 vs 24, diamond 15 vs 16 (the terrain-independent ones). Around the farm: coal 79, copper 78, iron 74; on the ridge coal 166, copper 101.
+- The world grew from 55 MB to 67 MB. Existing installs keep their old copy (saves are write-once): the owner types `/valley ores` once, permission 0, three or four minutes, latched so it cannot double.

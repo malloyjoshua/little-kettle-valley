@@ -124,6 +124,8 @@ Three phases, and the order is not optional:
    previous pads.
 3. `build` — restores the pregen into `server/world`, boots, runs `/valley build all`, saves,
    stops, and snapshots to `world-master/` and `world-master.zip`.
+4. `ores` — restores `world-master/` into `server/world`, runs `/valley ores force`, and
+   re-snapshots and re-packages. **Required after every build**: see "Vanilla ores" below.
 
 Then, in order:
 
@@ -146,6 +148,32 @@ files together. Never hand-edit `town_plan.js` or `valley_sites.json`.
 A handful of the shipped world's details were applied to `world-master/` directly rather than
 through the planner (the farm-yard scatter, the bare-earth patches, the hostile sweep) — see
 `media/look/NOTES.md`. **Those are not in `plan_town.py` and a rebuild loses them.**
+
+### Vanilla ores, and the one-off command that puts them back
+
+Geolosys ships a biome modifier that strips all thirty vanilla ore features (coal, iron, copper,
+gold, redstone, lapis, diamond, emerald) from every biome, so that only its beds exist. Josh
+wants both (2026-09-05), so the pack overrides that modifier with
+`pack/kubejs/data/geolosys/forge/biome_modifier/remove_vanilla_ores.json` (`forge:none`).
+Every chunk generated from now on has vanilla ores **and** Geolosys beds. Thermal, Create and
+Bigger Reactors ores were never affected; they generate regardless.
+
+Chunks that already existed when that override landed got nothing, which includes the whole
+shipped valley. `/valley ores` (`pack/kubejs/server_scripts/valley_ores.js`) back-fills them:
+it replays vanilla's own placement rules through `/place feature` over the 4225 pregen chunks
+(chunk -52..12 by -33..31), so every blob is the real configured feature. It only ever replaces
+stone and deepslate, skips everything above y 40 inside a registry site box, takes three or four
+minutes (the game stutters while it works), and latches in `persistentData` so it cannot run twice. Permission 0, so it works in
+singleplayer with cheats off.
+
+- The shipped world already has it (`master_build.sh ores` ran on the master).
+- A world that was **downloaded before** the ore release keeps its old copy (saves are
+  `preserve = true`), so its owner types `/valley ores` once, in that world. Josh's own world is
+  one of these.
+- After any rebuild: `scratch/master_build.sh ores` before `nature_check` and the playthrough.
+
+Check a world with `orescan_mc.py` in the scratchpad (or the region readers in `scratch/`):
+around the farm the shipped world carries roughly the vanilla density (see `docs/STATUS.md`).
 
 ### Cheats are off
 

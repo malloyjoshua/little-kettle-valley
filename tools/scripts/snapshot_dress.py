@@ -52,6 +52,10 @@ def read_region(path):
     """-> {index: (timestamp, nbtlib.File)}, in the file's own slot order."""
     data = path.read_bytes()
     out = {}
+    if len(data) < 8192:
+        # a zero-length .mca: the game creates one for a poi/entities region it touched but
+        # had nothing to write (a forceload sweep leaves several). Nothing in it to read.
+        return out
     for i in range(1024):
         off = struct.unpack('>I', b'\x00' + data[i * 4:i * 4 + 3])[0]
         if off == 0:
